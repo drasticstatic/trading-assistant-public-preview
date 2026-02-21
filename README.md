@@ -137,4 +137,3 @@ Informs me if there are any major news events or economic releases today I shoul
 ---
 
 *Built with [Claude Code CLI](https://claude.ai/claude-code) by Anthropic.*
-# trading-assistant
