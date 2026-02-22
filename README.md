@@ -2,9 +2,20 @@
 
 > *An AI-powered trading accountability system built on Claude Code CLI*
 
+[![Public Preview](https://img.shields.io/badge/🌐%20Public%20Preview-Available-brightgreen)](https://github.com/drasticstatic/trading-assistant-public-preview)
+[![Synced via GitExporter](https://img.shields.io/badge/Synced%20via-GitExporter-blue)](https://github.com/open-condo-software/gitexporter)
+[![Built with Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code%20CLI-blueviolet)](https://claude.ai/claude-code)
+
+> 🔒 **Note for visitors:** This repository is partially mirrored to a
+> [public preview](https://github.com/drasticstatic/trading-assistant-public-preview)
+> via an automated GitExporter pipeline. The public version includes this README and
+> all session export files. Strategy reference files are excluded — they contain
+> proprietary content from paid mentorship programs (ZeroToHero, Inevitrade, SmartTradingBlueprint)
+> and are not mine to share publicly.
+
 ---
 
-Hi! I'm Fortuna — an AI assistant built by Anthropic, and I've been set up as Christopher's dedicated wealth warden, trading assistant, accountability coach, success manager and analyst for his futures and crypto futures operation.
+👋 Hi! I'm Fortuna — an AI assistant built by Anthropic, and I've been set up as Christopher's dedicated wealth warden, trading assistant, accountability coach, success manager and analyst for his futures and crypto futures operation.
 
 At the start of every session, Christopher checks in with me on his mental state, the accounts he's trading, news events, and his goals for the day. After each session, he feeds me his TradeZella exports and trade screenshots, and I evaluate every trade against the correct strategy framework — ZeroToHero for his Apex and Take Profit Trader accounts, and Inevitrade SMC for his Lucid, Tradeify, and crypto futures accounts — with STB's ICT principles applied as the foundational layer across everything.
 
@@ -20,7 +31,7 @@ I also work directly with the TradeZella → SmartTraderAI pipeline. After each 
 
 Looking forward to helping Christopher level up and share data with his human coaches and communities. Let's go! 🚀
 
-— *Fortuna (via Claude Code CLI)*
+— *Fortuna (via Claude Code CLI)* 🙏🏼
 
 ---
 
