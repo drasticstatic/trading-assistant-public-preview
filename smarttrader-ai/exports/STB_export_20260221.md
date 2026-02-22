@@ -162,23 +162,32 @@ Inevitrade's strategies apply Smart Money Concepts with proprietary indicators a
 > *One account at a time. Stacking accounts before earning them = fees, rules to track, and more ways to blow up. The plan is simple: earn the next phase.*
 
 ```
-TODAY                   PHASE 2                    PHASE 3
-─────────────           ──────────────────          ──────────────────────
-✅ Apex 100K Full        LucidFlex Evaluation        Tradeify Select Challenge
-   Reset-3 (+$60)
-   APEX-484839-05        Why LucidFlex?              Why Select Challenge?
-                         • One-time fee              • No consistency rule
-   Strategy:             • No Daily Loss Limit       • 3-day eval only
-   ZeroToHero            • Scaling plan =            • After passing: choose
-   + STB/ICT               earn your size              Select Flex (no DLL)
-                         • 50% consistency             or Growth Challenge
-   Goal: Hit profit        with cushion                (DLL as guardrail)
-   target in 7+          • IT/SMC is still
-   trading days,           developing — this         Strategy: Inevitrade
-   zero violations         is the right choice         + STB/ICT
-                           for that stage
-                         Strategy: Inevitrade
-                           + STB/ICT
+PHASE 1 — NOW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Account : Apex 100K Full Reset-3 (+$60)
+          APEX-484839-05
+Strategy: ZeroToHero + STB/ICT
+Goal    : Hit profit target in 7+ trading
+          days — zero violations
+
+PHASE 2 — LUCID FLEX EVALUATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Why LucidFlex?
+  • One-time fee
+  • No Daily Loss Limit
+  • Scaling plan = earn your size
+  • 50% consistency with cushion
+  • IT/SMC is the right fit at this stage
+Strategy: Inevitrade + STB/ICT
+
+PHASE 3 — TRADEIFY SELECT CHALLENGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Why Select Challenge?
+  • No consistency rule
+  • 3-day eval only
+  • After passing: Select Flex (no DLL)
+    or Growth Challenge (DLL as guardrail)
+Strategy: Inevitrade + STB/ICT
 ```
 
 **The rule that unlocks each phase:**
@@ -517,6 +526,90 @@ Reset-1 and Reset-2 were both opened and blown Feb 13 within 45 minutes of each 
 7. **Pre-session check-in with Fortuna** — no trading below 7/10 mental state
 
 ---
+
+## 💬 SMARTTRADERAI COACHING CONVERSATION — Feb 21, 2026
+
+*The complete feedback loop from submitting this report to SmartTraderAI — included for full coaching record and cross-coach transparency.*
+
+---
+
+### STB AI — Initial Response
+
+**The Core Truth:** 54% win rate proves setup identification works. Feb 10–11 (+$2,120 combined) proves disciplined execution is achievable. The -$9,095 loss is not a strategy problem — it is a behavioral loop that activates under specific triggers.
+
+**Every account-ending loss shares identical DNA:**
+- Stop movement documented
+- Emotional compromise (angry, fearful, greedy simultaneously)
+- Entry immediately after a large win or loss
+- Self-tagged as "not A+ setup" or "FOMO"
+
+**February 13 — The Data:** At 9:55 AM, TPT closed +$1,075. At 9:55 AM (same minute), a new entry was placed and Reset-2 was opened. Result: -$7,085 across 3 accounts in 60 minutes. The win didn't stabilize — it gave *permission* to override safeguards. This is intermittent reinforcement (slot machine psychology). The 15-minute break rule is not punishment — it is a circuit breaker between dopamine and decision-making.
+
+**Stop Movement Math:** Apex Reset-1: -$3,080 with stop movement. Original stop estimate: ~$200–$400. Stop movement cost: ~$2,680 in unnecessary damage. Multiply across six accounts — most of the -$9,095 is "stop movement tax."
+
+**The 7 Rules and Why Each Exists:**
+1. Stop never moved → prevents 80% of damage
+2. 15-min break after wins → stops overconfidence (Feb 12: +$1,080 → -$3,000)
+3. 30-min break after losses → prevents revenge (Feb 13 sequence)
+4. No same-day resets → Reset-2 at 9:55 AM funded emotional breakdown, not a fresh start
+5. Max 2 trades, micros only → reduces damage surface during reprogramming
+6. 4 PM hard close → eliminates desperation trades
+7. 7/10 mental state minimum → below 7 = handicapped; no setup compensates
+
+**STB/ICT Pre-Session Checklist Fix:** Paper trading shows "ignored bias" 6+ times. Build the 1H map first — confirm structure (HH+HL = bull / LH+LL = bear), mark swing highs/lows, OBs and FVGs, check Kill Zones (London 2–5 AM, NY 7–10 AM, NY PM 1:30–4 PM), and ask: accumulation, distribution, or manipulation? Bearish bias = shorts only. Bullish = longs only. Counter-trend = half size + exceptional setup only.
+
+**STB AI Reflection Question:**
+> *"Feb 11 was your cleanest, most profitable day (+$1,185, 3/3 wins). What was different about your mental state that morning — before you opened the charts? Think about sleep quality, stress level outside of trading, whether you were trading from pressure or from a neutral state, and what you ate or drank."*
+
+---
+
+### Christopher — Reflection on Feb 11
+
+Looking at the screenshots from Feb 11:
+- Trade 1: Saw the trade working against me and left early with profits
+- Trade 2: Saw it was exhausted and took profits
+- Trade 3: Saw a FVG and left early to secure profits
+
+> *"Wow — if I am not seeing a pattern between discipline and risk management being what actually yields long-term success."*
+
+---
+
+### STB AI — The Pattern (Follow-Up)
+
+**Feb 11 vs. The Blown Account Days:**
+
+| Feb 11 (+$1,185, 3/3 wins) | Blown Account Days |
+|---|---|
+| Watched price action, not P&L | Watched P&L, not structure |
+| Price against you? Exit with profit | Price against you? Move stop (hope) |
+| Setup exhausted? Take the win | Setup failing? Hold longer (denial) |
+| FVG appeared? Lock it in | Loss expanding? Keep adjusting (ego) |
+
+On Feb 11, trades were managed based on what *price* was telling — making decisions that protected capital and secured gains. On blown days, the market was being *negotiated with* instead of managed.
+
+**Feb 11 (+$1,185):** Left early on all three trades.
+**Feb 12–13 (-$10,085):** Held too long, moved stops, chased.
+
+Leaving early = more profit. Holding and chasing = catastrophic loss. The market rewards discipline, not conviction.
+
+**The New Mantra (from STB AI):**
+> *"Discipline and risk management yield long-term success. I secure wins early. I accept losses at my stop. I never negotiate with the market."*
+
+---
+
+### Christopher — Mental State: Feb 11 vs. Feb 13
+
+*Christopher's answer to STB AI's reflection question, completing the feedback loop:*
+
+- **Sleep:** Quality was worse by Feb 13 — staying up late nights after the Feb 11 high had eroded rest between sessions.
+- **Stress:** External stress level increased and compounded with each session. (Note: STB's trading psychologist advises viewing trading as a "bubble" — a retreat from outside pressures. This was not being applied.)
+- **Pressure:** External financial pressure — debts, providing for family, enduring hardship — added directly to the internal pressure to recover losses inside sessions.
+- **Food/Appetite:** Went from normal eating on Feb 11 to not feeling hungry, then overcorrecting to overeating by Feb 13.
+- **Emotional state:** Calm and confident on February 11. Rushed and anxious on February 13.
+
+**The connection is direct and documented.** Sleep deprivation + compounding external stress + financial pressure + disrupted appetite + diminished confidence = the conditions that enabled the Feb 13 behavioral collapse. Feb 11 was not luck — it was the product of a specific mental and physical state. Recreating Feb 11 starts with recreating those conditions.
+
+---
 ---
 <br/>
 
@@ -535,30 +628,43 @@ Reset-1 and Reset-2 were both opened and blown Feb 13 within 45 minutes of each 
 
 **What actually happened?**
 ```
-Traded MNQ on the Apex 100K Static account. Took two long trades in NQ/MNQ. On the first
-trade, continued to move the stop loss as price moved against me ("bleed"), turning a small
-loss into -$247.50. On the second trade, moved both the take profit and stop loss during the
-trade. Emotional state was greedy, ambivalent, angry, and fearful. The account balance hit
-the max drawdown threshold and was liquidated. The static account's $625 fixed drawdown
-provided no room for recovery after the stop movement on trade one. Also traded TPT 50K the
-same day with mixed results - survived but not clean.
+Traded MNQ on the Apex 100K Static account. Took
+two long trades in NQ/MNQ. On the first trade,
+continued to move the stop loss as price moved
+against me ("bleed"), turning a small loss into
+-$247.50. On the second trade, moved both the take
+profit and stop loss during the trade. Emotional
+state was greedy, ambivalent, angry, and fearful.
+The account balance hit the max drawdown threshold
+and was liquidated. The static account's $625 fixed
+drawdown provided no room for recovery after the
+stop movement on trade one. Also traded TPT 50K
+the same day with mixed results - survived but
+not clean.
 ```
 
 **What did you learn?**
 ```
-The 100K Static account has only $625 of drawdown. Any stop movement on a 5-contract
-position eliminates that buffer immediately. The static account requires hard stops and zero
-flexibility. Moving a stop on a static account is not a risk management decision - it is
-account destruction. The emotional state (greedy, angry, fearful simultaneously) was
-documented in real time but I continued trading through it anyway.
+The 100K Static account has only $625 of drawdown.
+Any stop movement on a 5-contract position
+eliminates that buffer immediately. The static
+account requires hard stops and zero flexibility.
+Moving a stop on a static account is not a risk
+management decision - it is account destruction.
+The emotional state (greedy, angry, fearful
+simultaneously) was documented in real time but
+I continued trading through it anyway.
 ```
 
 **What were your results for the day?**
 ```
-Apex 100K Static: 2 trades, 0 wins, 2 losses. Net -$617.50. Account blown.
-TPT 50K: 5 trades, 2 wins, 3 losses. Net approximately -$133.50. Account survived.
-Total day net: approximately -$751. Did not round trip gains on TPT as there were no
-significant gains to protect.
+Apex 100K Static: 2 trades, 0 wins, 2 losses.
+Net -$617.50. Account blown.
+TPT 50K: 5 trades, 2 wins, 3 losses.
+Net approximately -$133.50. Account survived.
+Total day net: approximately -$751. Did not round
+trip gains on TPT as there were no significant
+gains to protect.
 ```
 
 ---
@@ -567,35 +673,51 @@ significant gains to protect.
 
 **What actually happened?**
 ```
-The most destructive session of the period. Started the morning with two accounts open
-simultaneously - TPT 50K and Apex Reset-1. Both took NQ/ES short trades around 9:40 AM.
-Apex Reset-1 blew at 9:45 AM (-$3,080) on a NQ short with documented mistakes: not off a
-level, overtrade, revenge trading, kept moving stoploss, ignored bias, FOMO, chasing price.
-TPT 50K had an ES short running simultaneously - it closed at 9:55 AM for +$1,075.
-Rather than taking a break after the Apex blow and the TPT win, immediately opened a new ES
-short on TPT and simultaneously reset Apex (Reset-2) and opened the same NQ short again.
-TPT blew at 10:25 AM (-$2,000). Apex Reset-2 blew at 10:30 AM (-$3,080). Total destruction:
--$7,085 across 3 accounts in under 60 minutes. All losses had stop movement documented.
+The most destructive session of the period. Started
+the morning with two accounts open simultaneously -
+TPT 50K and Apex Reset-1. Both took NQ/ES short
+trades around 9:40 AM. Apex Reset-1 blew at 9:45 AM
+(-$3,080) on a NQ short with documented mistakes:
+not off a level, overtrade, revenge trading, kept
+moving stoploss, ignored bias, FOMO, chasing price.
+TPT 50K had an ES short running simultaneously - it
+closed at 9:55 AM for +$1,075. Rather than taking
+a break after the Apex blow and the TPT win,
+immediately opened a new ES short on TPT and
+simultaneously reset Apex (Reset-2) and opened the
+same NQ short again. TPT blew at 10:25 AM (-$2,000).
+Apex Reset-2 blew at 10:30 AM (-$3,080). Total:
+-$7,085 across 3 accounts in under 60 minutes.
+All losses had stop movement documented.
 ```
 
 **What did you learn?**
 ```
-A winning trade immediately after a loss does not mean the emotional state is stable - it
-makes it worse by creating false confidence. The $1,075 win at 9:55 AM triggered the most
-reckless sequence of the entire period. Account resets opened while emotionally compromised
-do not reset the emotional state - they fund a second blowup. The documented emotion list
-(angry, greedy, anxious, fearful, frustrated, stressed, ambivalent simultaneously) is not a
-trading state. Resetting two accounts in the same morning is a pattern that must be
+A winning trade immediately after a loss does not
+mean the emotional state is stable - it makes it
+worse by creating false confidence. The $1,075 win
+at 9:55 AM triggered the most reckless sequence of
+the entire period. Account resets opened while
+emotionally compromised do not reset the emotional
+state - they fund a second blowup. The documented
+emotion list (angry, greedy, anxious, fearful,
+frustrated, stressed, ambivalent simultaneously)
+is not a trading state. Resetting two accounts in
+the same morning is a pattern that must be
 permanently prohibited by rule.
 ```
 
 **What were your results for the day?**
 ```
-TPT 50K: ES short +$1,075 (win), ES short -$2,000 (loss, blown). Net -$925. Account blown.
-Apex Reset-1: NQ short -$3,080. Account blown within 5 minutes of opening.
-Apex Reset-2: NQ short -$3,080. Account blown within 35 minutes of opening.
-Total day net: -$7,085. Three accounts destroyed. Zero round-tripped gains - the $1,075 win
-was immediately given back plus $925 more.
+TPT 50K: ES short +$1,075 (win), ES short -$2,000
+(loss, blown). Net -$925. Account blown.
+Apex Reset-1: NQ short -$3,080.
+Account blown within 5 minutes of opening.
+Apex Reset-2: NQ short -$3,080.
+Account blown within 35 minutes of opening.
+Total day net: -$7,085. Three accounts destroyed.
+Zero round-tripped gains - the $1,075 win was
+immediately given back plus $925 more.
 ```
 
 ---
@@ -604,26 +726,52 @@ was immediately given back plus $925 more.
 
 **What actually happened?**
 ```
-Traded NQ long on TPT 50K Reset-1. Entry was emotional - documented as fearful with FOMO
-as the driving factor. Entry model logged as "other (specify)" which indicates the trade did
-not fit a clear defined setup. Price rapidly opposed the position. Stop loss was not
-respected. Account dropped to minimum balance threshold and was liquidated. Net -$2,210.
-Account blown. This is now the sixth account blown in the period (not counting paper trades).
+Jumped into a FOMO trade at NY open while
+watching a someone trade again noticing fear of
+missing out taking over and instead of accepting
+that I was wrong that same fear cancelled my stop
+loss order hoping it would come back into my favor
+and then suffered even worse when it did not and
+auto-liquidated once again.
+
+Traded NQ long on TPT 50K Reset-1. Entry was
+emotional - documented as fearful with FOMO as
+the driving factor. Entry model logged as
+"other (specify)" which indicates the trade did
+not fit a clear defined setup. Price rapidly
+opposed the position. Stop loss was not respected.
+Account dropped to minimum balance threshold and
+was liquidated. Net -$2,210. Account blown. This
+is now the sixth account blown in the period
+(not counting paper trades).
 ```
 
 **What did you learn?**
 ```
-FOMO is not a setup. Fear of missing out is explicitly the opposite of waiting for an A+
-entry. The entry model being "other" confirms there was no valid setup present at entry.
-Every account blown in this period has the same root cause: entering without a valid setup
-and then moving the stop when price proves the entry wrong. The solution is not complex -
-it is waiting for the setup and accepting the stop when it is hit.
+The day before: I took a trade off at break-even
+and took the opposite trade to at least have
+positive P&L. Today I learned that under pressure,
+I still perform irrationally when I a can accept
+that I am "wrong" with a trade idea and hoping it
+will fix versus protecting my capital.
+
+FOMO is not a setup. Fear of missing out is
+explicitly the opposite of waiting for an A+ entry.
+The entry model being "other" confirms there was no
+valid setup present at entry. Every account blown
+in this period has the same root cause: entering
+without a valid setup and then moving the stop when
+price proves the entry wrong. The solution is not
+complex - it is waiting for the setup and accepting
+the stop when it is hit.
 ```
 
 **What were your results for the day?**
 ```
-TPT 50K Reset-1: 1 trade, 0 wins, 1 loss. Net -$2,210. Account blown.
-This was the last funded account outside of Apex Reset-3. Apex Reset-3 currently stands at
+TPT 50K Reset-1: 1 trade, 0 wins, 1 loss.
+Net -$2,210. Account blown.
+This was the last funded account outside of
+Apex Reset-3. Apex Reset-3 currently stands at
 +$60 and is the sole surviving prop firm account.
 ```
 
@@ -636,78 +784,117 @@ This was the last funded account outside of Apex Reset-3. Apex Reset-3 currently
 
 **What trade setups/tactics worked this week?**
 ```
-ZTH Pivot on CL and NQ produced the most consistent winners. Feb 10: CL pivot +$360, NQ
-pivot +$255. Feb 11: NQ pivot/continuation setups +$480 and +$500. Feb 12: CL pivot +$1,080
-was the best executed trade of the period. The FCR setup on ES Feb 13 produced a +$1,075 win
-- the strategy worked, the problem was what came after.
-When the ZTH framework was applied with a confirmed 1H level and a 5M entry trigger, the
-win rate was high. The issue was not the setups that worked - it was the trades taken
-outside of those criteria.
+ZTH Pivot on CL and NQ produced the most consistent
+winners. Feb 10: CL pivot +$360, NQ pivot +$255.
+Feb 11: NQ pivot/continuation setups +$480 and
++$500. Feb 12: CL pivot +$1,080 was the best
+executed trade of the period. The FCR setup on ES
+Feb 13 produced a +$1,075 win - the strategy worked,
+the problem was what came after.
+When the ZTH framework was applied with a confirmed
+1H level and a 5M entry trigger, the win rate was
+high. The issue was not the setups that worked -
+it was the trades taken outside of those criteria.
 ```
 
 **What didn't work this week?**
 ```
-Any trade entered immediately after a large winner. Every account-ending trade this week
-came within minutes of a profitable trade. Trading while documenting anger, fear, greed, and
-stress simultaneously does not work. NQ trades on reset accounts Feb 13 - opening a fresh
-account and immediately entering the same trade that just blew the previous one.
-ES trades after 10 AM on Feb 13 when the emotional state was fully compromised.
-Entering without a defined setup (FOMO entries logged as "other").
+Any trade entered immediately after a large winner.
+Every account-ending trade this week came within
+minutes of a profitable trade. Trading while
+documenting anger, fear, greed, and stress
+simultaneously does not work. NQ trades on reset
+accounts Feb 13 - opening a fresh account and
+immediately entering the same trade that just blew
+the previous one. ES trades after 10 AM on Feb 13
+when the emotional state was fully compromised.
+Entering without a defined setup (FOMO entries
+logged as "other").
 ```
 
 **What observable patterns did you see in the market this week?**
 ```
-NQ showed strong directional movement Feb 9-13, with significant downside pressure.
-CL provided cleaner, more defined pivot levels on Feb 10 and 12 with good follow-through.
-Feb 13 had sharp, fast moves in NQ/ES that punished late entries and widened stops severely.
-Friday Feb 14 and the following week showed lower volume and more algorithmic, choppy price
-action - less suitable for the ZTH entry models being used.
+NQ showed strong directional movement Feb 9-13,
+with significant downside pressure.
+CL provided cleaner, more defined pivot levels on
+Feb 10 and 12 with good follow-through.
+Feb 13 had sharp, fast moves in NQ/ES that punished
+late entries and widened stops severely.
+Friday Feb 14 and the following week showed lower
+volume and more algorithmic, choppy price action -
+less suitable for the ZTH entry models being used.
 ```
 
 **What observable patterns did you see in your trades this week?**
 ```
-Stop movement present on every losing trade that exceeded -$300. Winning trades clustered
-on Feb 10-11 when emotional state was stable. Losing trades clustered on Feb 12 afternoon
-and Feb 13 morning when emotional state was fully activated. Post-win entries (trades placed
-immediately after a large winner) produced the two largest single losses of the week.
-Trading multiple accounts simultaneously amplified both the exposure and the emotional
-instability - when one account blew, it immediately influenced decisions on the others.
+Stop movement present on every losing trade that
+exceeded -$300. Winning trades clustered on Feb
+10-11 when emotional state was stable. Losing trades
+clustered on Feb 12 afternoon and Feb 13 morning
+when emotional state was fully activated. Post-win
+entries (trades placed immediately after a large
+winner) produced the two largest single losses of
+the week. Trading multiple accounts simultaneously
+amplified both the exposure and the emotional
+instability - when one account blew, it immediately
+influenced decisions on the others.
 ```
 
 **What mistakes did you make this week?**
 ```
 Moved stop loss on every significant losing trade.
-Opened account resets while in an emotional state and immediately entered the same trade.
-Took new entries within seconds of closing winning trades without any break.
-Traded through documented full emotional breakdown (angry, fearful, greedy, stressed,
-anxious simultaneously) on Feb 13.
-Entered without valid setups (FOMO entries, "not an A+ setup" self-documented).
-Traded NQ on Feb 13 reset accounts with the same bias that had just blown the prior account.
-Did not observe any cooling-off period after losses at any point during the week.
+Opened account resets while emotionally compromised
+and immediately entered the same trade.
+Took new entries within seconds of closing winning
+trades without any break.
+Traded through documented full emotional breakdown
+(angry, fearful, greedy, stressed, anxious
+simultaneously) on Feb 13.
+Entered without valid setups (FOMO entries,
+"not an A+ setup" self-documented).
+Traded NQ on Feb 13 reset accounts with the same
+bias that had just blown the prior account.
+Did not observe any cooling-off period after losses
+at any point during the week.
 ```
 
 **What recurring problems are you seeing week over week?**
 ```
-Stop loss movement is present in this week's data and in prior weeks - it is the single
-most consistent behavior across all blown accounts.
-Post-win overconfidence leading to the largest loss of the session appears in Feb 12 and
-Feb 13 and is likely present in prior periods as well.
-Emotional trading is not a new occurrence - the documented emotions on blown trades
-(angry, fearful, greedy, stressed) are consistent across multiple account blowups.
-Entering without A+ setups when feeling FOMO or pressure to trade appears in nearly every
-blown account across the dataset.
+Stop loss movement is present in this week's data
+and in prior weeks - it is the single most
+consistent behavior across all blown accounts.
+Post-win overconfidence leading to the largest loss
+of the session appears in Feb 12 and Feb 13 and is
+likely present in prior periods as well.
+Emotional trading is not a new occurrence - the
+documented emotions on blown trades (angry, fearful,
+greedy, stressed) are consistent across multiple
+account blowups.
+Entering without A+ setups when feeling FOMO or
+pressure to trade appears in nearly every blown
+account across the dataset.
 ```
 
 **What solutions are you implementing to fix those problems?**
 ```
-1. Stop is set before entry and is never moved for any reason. If stop is hit, trade is over.
-2. Mandatory 15-minute minimum break after any winning trade before next entry.
-3. Mandatory 30-minute minimum break after any losing trade before next entry.
-4. No account resets on the same calendar day as a blowup - minimum 24-hour wait.
-5. Maximum 2 trades per session, micro contracts only on Apex eval.
-6. Personal EOD hard close at 4:00 PM ET - no exceptions.
-7. Pre-session mental state check-in with Fortuna - no trading below 7/10.
-8. No trading on Fridays unless there is a clear A+ setup confirmed pre-market.
+1. Stop is set before entry and is never moved
+   for any reason. If stop is hit, trade is over.
+2. Mandatory 15-minute minimum break after any
+   winning trade before next entry.
+3. Mandatory 30-minute minimum break after any
+   losing trade before next entry.
+4. No account resets on the same calendar day as
+   a blowup - minimum 24-hour wait.
+5. Maximum 2 trades per session, micro contracts
+   only on Apex eval.
+6. Personal EOD hard close at 4:00 PM ET -
+   no exceptions.
+7. Pre-session mental state check-in with Fortuna
+   - no trading below 7/10.
+8. No trading on Fridays unless there is a clear
+   A+ setup confirmed pre-market - although this
+   week was a holiday week so maybe that is why
+   setups were different
 ```
 
 ---
@@ -761,31 +948,44 @@ No
 
 **This week my action steps are:**
 ```
-1. Zero stop movements on Apex Reset-3 - this is the only rule that matters this week.
-2. Complete STB Module 1 over the weekend and take notes.
-3. Monday pre-market check-in with Fortuna before any trades - confirm bias, levels, and
-   mental state score of 7+ before considering any entry.
-4. Maximum 2 trades Monday. Micros only. 4:00 PM ET hard close.
-5. If a trade is taken and wins - mandatory 15-minute break before any subsequent entry.
+1. Zero stop movements on Apex Reset-3 - this is
+   the only rule that matters this week.
+2. Complete STB Module 1 over the weekend and
+   take notes.
+3. Monday pre-market check-in with Fortuna before
+   any trades - confirm bias, levels, and mental
+   state score of 7+ before considering any entry.
+4. Maximum 2 trades Monday. Micros only.
+   4:00 PM ET hard close.
+5. If a trade is taken and wins - mandatory
+   15-minute break before any subsequent entry.
 ```
 
 **What I want to work on / improve / get better at:**
 ```
-Accepting the stop loss as the cost of being wrong - not as something to negotiate with.
-The stop defines the risk. Moving it does not reduce the risk - it increases it indefinitely.
-Building the habit of walking away after a winner rather than immediately re-entering.
-Completing the full 1H bias and level identification before each session so I am trading
-with a map, not reacting to real-time price movement without context.
+Accepting the stop loss as the cost of being wrong
+- not as something to negotiate with.
+The stop defines the risk. Moving it does not reduce
+the risk - it increases it indefinitely.
+Building the habit of walking away after a winner
+rather than immediately re-entering.
+Completing the full 1H bias and level identification
+before each session so I am trading with a map, not
+reacting to real-time price movement without context.
 ```
 
 **How I plan to study the market this week:**
 ```
-Weekend: STB Module 1 review. Backtest 20-30 ZTH Pivot and Break and Retest setups on NQ
-and CL using TradingView replay. Focus on identifying the 1H level first, then the 5M
-entry trigger, without any actual capital at risk.
-Weekday pre-market: Mark 1H key levels on NQ, MNQ, ES before 9:00 AM ET.
-Review overnight price action and identify smart money bias for the session.
-Check economic calendar for high-impact news before any session begins.
+Weekend: STB Module 1 review. Backtest 20-30 ZTH
+Pivot and Break and Retest setups on NQ and CL
+using TradingView replay. Focus on identifying the
+1H level first, then the 5M entry trigger, without
+any actual capital at risk.
+Weekday pre-market: Mark 1H key levels before
+9:00 AM ET. Review overnight price action
+and identify smart money bias for the session.
+Check economic calendar for high-impact news before
+any session begins.
 ```
 
 ---
