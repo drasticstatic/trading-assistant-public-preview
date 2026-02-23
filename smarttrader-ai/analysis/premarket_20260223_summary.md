@@ -697,15 +697,8 @@ Instruments to avoid pre-9:45: CL entirely. Wait for candle.
 Mental state check (pre-session target): 7/10 minimum.
   If below 7 — observe only, no entries.
 
-Session outcome (post-session update):
-  MNQ short entered via FCR on Apex 100K eval.
-  Entry at 24,879.5 (3/5 level). SL at 5/5 level 24,929.75.
-  SL hit by 1 tick (24,929.75 filled). Price reversed to TP.
-  Net: -$100.50. Lesson: 5/5-only entries going forward, or
-  add 3-5 tick buffer above 5/5 for SL when entering at 3/5.
-  Second setup (MES, 11:02 AM): orders placed then canceled —
-  identified as post-loss hesitation. Valid setup; missed.
-  Full review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/review_20260223_MNQ_001.md
+Full pre-market analysis:
+https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/analysis/premarket_20260223_summary.md
 ```
 
 ---
