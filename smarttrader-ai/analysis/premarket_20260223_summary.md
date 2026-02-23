@@ -3,7 +3,7 @@
 
 ---
 
-> ⏰ **Screenshots taken: 8:45–9:04 AM ET**
+> ⏰ **Screenshots taken: 8:45–9:27 AM ET (updated at open)**
 > 🔔 **NY Open: 9:30 ET | FCR First Candle closes: 9:45 ET**
 > 🧠 **One clean trade is a complete trade.**
 
@@ -17,9 +17,9 @@
 | 🥈 SI | 🐂 Bullish | Scenario A — EMA pullback LONG | ✅ Tracking GC, no divergence | None today |
 | 🛢️ CL | ⚠️ REASSESS | Wait for 9:45 first candle | 🚨 Overnight BULLISH reversal — thesis flipped | Wed 10:30 |
 | ⛽ NG | 🐻 Bearish | Scenario A — continuation SHORT | ✅ Bearish structure intact | Thu 10:30 |
-| 💻 NQ | 🐻 Bearish | Scenario A — continuation SHORT | 📍 Bearish from close of week | None today |
-| 📊 ES | 🐻 Bearish | Scenario A — continuation SHORT | 📍 Bearish, tracking NQ | None today |
-| 🏛️ YM | 🐻 Bearish | Scenario A — FVG SHORT | 📍 FVG pre-annotated by Christopher | None today |
+| 💻 NQ | ⚠️ Two-way | 9:45 candle decides — SHORT or LONG | 🔄 ETH V-shape recovery; FVG annotated | None today |
+| 📊 ES | ⚠️ Two-way | 9:45 candle decides — SHORT or LONG | 🔄 ETH V-shape recovery, at open 9:27 | None today |
+| 🏛️ YM | ⚠️ Two-way | 9:45 candle decides — SHORT or LONG | 🔄 ETH V-shape recovery, at open 9:27 | None today |
 
 ---
 
@@ -149,6 +149,119 @@ NG plan unchanged:
    → No: it's Monday. No EIA storage report today.
    → Next EIA risk: Thursday Feb 26 at 10:30 AM ET
 ```
+
+---
+
+## 🌙 ETH Context — Final Pre-Open Update (9:09–9:27 AM)
+
+*Four additional screenshots added right at the open.*
+*These are ETH-session charts — submitted for context,*
+*analyzed below. RTH levels remain the FCR reference.*
+
+---
+
+### 📊 NQ — ETH Context + FVG (9:09 AM)
+
+![NQ ETH FVG](../../data/screenshots/NQ1!_2026-02-23_09-09-07_9e3cc.png)
+![NQ ETH Zoom](../../data/screenshots/NQ1!_2026-02-23_09-10-18_35bc4.png)
+
+**What the ETH chart reveals:**
+
+NQ's overnight ETH session tells a story the early
+RTH charts didn't show clearly: a **V-shaped move**.
+
+```
+ETH session pattern:
+→ Price dropped hard from the RTH close level
+  creating a significant trough overnight
+→ Price then recovered strongly back upward
+→ By 9:09 AM, price is approaching the RTH
+  level stack from BELOW — not from above
+
+Green (bullish) EMA: curling aggressively upward
+Red (bearish) EMA: still above — bearish config intact
+Cross: has NOT happened yet — still bearish EMAs
+```
+
+Christopher annotated **"FVG"** on the ETH context
+chart — flagging the imbalance zone created during
+the overnight sell-off. This FVG zone represents
+the price gap that the recovery has partially filled.
+
+**What this means at 9:30:** NQ is entering the RTH
+open from a recovered position, approaching the level
+stack from below rather than already sitting under it.
+This makes the first 15-min candle direction genuinely
+**two-way** — the trend context is bearish but the
+overnight recovery adds upside momentum into the open.
+
+---
+
+### 📊 ES + YM — At the Open (9:27 AM)
+
+![ES Open](../../data/screenshots/ES1!_2026-02-23_09-27-23_28179.png)
+![YM Open](../../data/screenshots/YM1!_2026-02-23_09-27-42_a0b82.png)
+
+**Taken 3 minutes before the NY bell — the freshest**
+**picture available going into the session.**
+
+Both ES and YM show the same ETH V-shape as NQ:
+
+```
+ES at 9:27:
+→ Green EMA rising strongly, red EMA above
+→ Price recovered from ETH lows, approaching
+  level stack from below
+→ VRVP + LuxAlgo Clusters VP visible on right
+→ EMA bearish config intact — no crossover yet
+
+YM at 9:27:
+→ Same V-shape recovery pattern
+→ Green EMA curling hard, red still dominant above
+→ Level stack visible — price is testing the lower
+  edge of the RTH resistance cluster
+→ Bearish EMA structure confirmed — green below red
+```
+
+**All three instruments in sync** — no SMT divergence
+in the ETH session. The V-shaped recovery is uniform
+across NQ, ES, and YM. That uniformity means this was
+a macro ETH move (risk-on bounce), not instrument-
+specific accumulation on any one.
+
+---
+
+### 💡 What This Changes for the FCR Setup
+
+The early morning view (8:45–8:52 AM charts) showed
+a clean bearish picture. The ETH context adds a layer:
+
+```
+UPDATED FCR DECISION TREE at 9:45:
+
+If first 15-min candle closes BEARISH and BELOW
+the level stack / EMA zone:
+→ SHORT from HERE confirmed
+   ETH recovery was absorbed — sellers back in control
+   This is the original Scenario A short
+
+If first 15-min candle closes BULLISH and ABOVE
+the level stack / EMA zone:
+→ LONG from HERE activated
+   ETH recovery carried into RTH open
+   Green EMA approaching crossover — potential flip
+   Watch for FVG displacement above on 5-min
+
+If first candle is a DOJI / HAMMER / no conviction:
+→ Scenario C — no trade
+   ETH recovery vs RTH supply = indecision
+   Chop is expensive — sit out
+```
+
+> The EMA crossover has NOT happened yet on any of the
+> three indices. Green is rising but red is still above.
+> The first RTH 15-min candle is the arbiter.
+> **Let the candle decide. Do not pre-commit.**
 
 ---
 
