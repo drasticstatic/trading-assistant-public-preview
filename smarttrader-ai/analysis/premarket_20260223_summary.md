@@ -550,6 +550,178 @@ If TP hits: close the laptop. That's the session.
 
 ---
 
+---
+
+---
+
+# SMARTTRADERAI — PRE-MARKET REVIEW COPY-PASTE SECTION
+
+> The fields below are emoji-free and formatted for direct copy-paste into the
+> SmartTraderAI Pre-Market Review dashboard. Fill these in before 9:30 ET each session.
+
+---
+
+**What news releases today?**
+```
+S&P Global US Flash PMI — Manufacturing (February preliminary)
+S&P Global US Flash PMI — Services (February preliminary)
+Dallas Fed Manufacturing Survey — February
+No EIA Crude Oil Inventory report today (Wednesday 10:30 AM ET)
+No EIA Natural Gas Storage report today (Thursday 10:30 AM ET)
+Low-impact Monday. No scheduled Fed speakers confirmed.
+Primary risk window: 9:45 AM ET FCR first candle close on all
+equity indices. PMI releases typically hit pre-market or at
+9:45 — already priced into the first candle by structure.
+```
+
+---
+
+**What are the expected figures?**
+```
+S&P Global Manufacturing PMI (Feb flash): Prior 51.2
+  Expected: ~50.8 — borderline expansion/contraction
+S&P Global Services PMI (Feb flash): Prior 52.9
+  Expected: ~53.0 — continued expansion
+Dallas Fed Manufacturing Index (Feb): Prior -8.3
+  Expected: ~-5.5 — still contractionary, slight improvement
+Note: Verify figures against ForexFactory or Investing.com
+each morning. These are approximate pre-session estimates.
+No EIA data risk today for CL or NG positions.
+```
+
+---
+
+**What effect has this event had on the markets before?**
+```
+Flash PMI — Manufacturing beat (above 51):
+  Historically equity-positive (NQ, ES, YM). Slight headwind
+  for safe-haven metals (GC, SI) as risk-on sentiment rises.
+Flash PMI — Manufacturing miss (below 50):
+  Historically bearish for equity indices. Supportive for GC/SI
+  as defensive flows increase. NG/CL less directly correlated.
+Flash PMI — Services beat (above 52):
+  Equity-positive. Consumer-driven strength in services supports
+  NQ more than YM (tech vs Dow composition).
+Dallas Fed miss:
+  Limited direct impact on NQ/ES/YM alone but confirms regional
+  manufacturing weakness — can amplify a weak PMI print.
+FCR filter note:
+  In the FCR framework, the first 15-min candle (9:30-9:45 ET)
+  absorbs all pre-market news repricing. The candle direction IS
+  the market's verdict on the news. No need to pre-position
+  based on headline numbers — let the candle decide.
+```
+
+---
+
+**List both your HTF bias and key levels**
+```
+GC (Gold) — HTF: Bullish
+  Structure: ATH breakout, post-peak pullback to EMA zone.
+  Key levels: ATH resistance overhead, IT Foundation EMA stack
+  pullback support zone, prior 5/5 level at EMA contact area.
+  Overnight: Price pulled back from ATH toward EMA. Scenario A
+  (EMA pullback long) developing. SMT: SI must track GC.
+
+SI (Silver) — HTF: Bullish
+  Structure: Tracking GC. EMA pullback in same Scenario A zone.
+  Key levels: EMA stack support zone (mirrors GC structure).
+  SMT watch: any divergence at the highs = GC trap signal.
+
+CL (Crude Oil) — HTF: REASSESS (was Bearish — suspended)
+  Structure: Overnight BULLISH reversal challenged Sunday thesis.
+  Key levels: Overnight high (new intraday resistance/supply),
+  prior distribution zone below, 9:45 FCR level TBD.
+  Note: Original SHORT bias suspended. FCR decides direction.
+
+NG (Natural Gas) — HTF: Bearish
+  Structure: Distribution pattern from post-rally sell-off.
+  EMAs in bearish config (red above green). No structural change.
+  Key levels: Current 5/5 resistance overhead, distribution zone
+  at EMA contact area, prior swing lows below.
+
+NQ (NASDAQ) — HTF: Bearish
+  Structure: Post-peak descending structure. LH/LL sequence.
+  Key levels: 5/5 overhead supply stack, SHORT from HERE (marked
+  at 9:45 first candle LOW), FVG zone below (pre-identified).
+  VRVP: POC above price — sellers controlling value area.
+
+ES (S&P 500) — HTF: Bearish
+  Structure: Distribution at highs confirmed via FRVP.
+  Key levels: FRVP POC above (institutional value area overhead),
+  LVN below current price (fast-move runway), SHORT from HERE
+  (marked at 9:45 first candle LOW).
+
+YM (Dow Jones) — HTF: Bearish
+  Structure: Defensive sectors holding but overall bearish config.
+  Key levels: Pre-annotated FVG imbalance zone (identified pre-
+  session), SHORT from HERE (9:45 first candle LOW), 5/5
+  resistance overhead. VRVP: distribution at highs confirmed.
+```
+
+---
+
+**List your Intraday bias and levels**
+```
+Equity Indices (NQ / ES / YM) — Intraday bias: SHORT
+  Trigger: First 15-min candle (9:30-9:45 ET) closed BEARISH
+  on all three. ETH V-shape recovery was absorbed at the open.
+  FCR confirmation: SHORT from HERE placed on NQ, ES, and YM.
+  Entry model: FCR — FVG displacement on 5-min below first
+  candle LOW. Limit order on FVG zone.
+  SL: High of FVG candle 1. TP: 2:1 fixed R:R — set and hold.
+  Confluence level: A+ — NQ + ES + YM all bearish in sync.
+  YM: pre-annotated FVG confirmed displacement by 9:50 AM.
+
+Metals (GC / SI) — Intraday bias: LONG (Scenario A)
+  Trigger: 9:45 first candle closes BULLISH at or above EMA zone.
+  Entry model: FCR — LONG from HERE at first candle HIGH.
+  FVG displacement above on 5-min. SL: FVG candle 1 low.
+  TP: 2:1 fixed R:R. SMT: SI must track GC for confirmation.
+
+CL (Crude Oil) — Intraday bias: NO BIAS (suspended)
+  No pre-commitment. First 15-min candle at 9:45 decides.
+  Bullish close: LONG from HERE setup. Bearish close: SHORT.
+  No-direction close (doji): flat — no trade on CL today.
+
+NG (Natural Gas) — Intraday bias: SHORT (pending 9:45)
+  Trigger: 9:45 first candle closes BEARISH.
+  Mark LOW → SHORT from HERE → FVG displacement below on 5-min.
+  Check: Not Thursday — no EIA gas storage risk today.
+```
+
+---
+
+**Expectations for the day?**
+```
+Primary expectation: FCR SHORT setup on NQ/ES/YM.
+  All three confirmed bearish at 9:45 first candle. This is
+  the A+ scenario — triple SMT index sync, full confluence.
+  FVG displacement confirmed on YM by 9:50 AM.
+
+Secondary expectation: GC/SI Scenario A LONG.
+  EMA pullback setup developing. If GC first candle closes
+  bullish at EMA zone, LONG from HERE is the secondary setup.
+  Choose ONE instrument — not both simultaneously.
+
+Instruments to avoid pre-9:45: CL entirely. Wait for candle.
+
+Mental state check (pre-session target): 7/10 minimum.
+  If below 7 — observe only, no entries.
+
+Session outcome (post-session update):
+  MNQ short entered via FCR on Apex 100K eval.
+  Entry at 24,879.5 (3/5 level). SL at 5/5 level 24,929.75.
+  SL hit by 1 tick (24,929.75 filled). Price reversed to TP.
+  Net: -$100.50. Lesson: 5/5-only entries going forward, or
+  add 3-5 tick buffer above 5/5 for SL when entering at 3/5.
+  Second setup (MES, 11:02 AM): orders placed then canceled —
+  identified as post-loss hesitation. Valid setup; missed.
+  Full review: smarttrader-ai/reviews/review_20260223_MNQ_001.md
+```
+
+---
+
 *🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
 *Anthropic claude-sonnet-4-6 | Feb 23, 2026*
 *Built on Claude Code CLI by Anthropic*
