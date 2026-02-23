@@ -446,6 +446,110 @@ NOW → Review this document. Mental state check.
 
 ---
 
+---
+
+## 🎯 FCR Execution — Live Session (9:45–9:52 AM)
+
+*6 screenshots added post-open showing the setup triggering.*
+
+---
+
+### ✅ 9:45 AM — First 15-Min Candle: BEARISH
+
+![NQ FCR Trigger](../../data/screenshots/NQ1!_2026-02-23_09-45-55_5693e.png)
+![ES FCR Trigger](../../data/screenshots/ES1!_2026-02-23_09-46-36_07f9b.png)
+![YM FCR Trigger](../../data/screenshots/YM1!_2026-02-23_09-47-32_c325b.png)
+
+The first 15-min candle (9:30–9:45 ET) closed **BEARISH**
+on all three instruments. The ETH recovery was absorbed
+at the open — sellers stepped in and closed the candle
+below its midpoint on NQ, ES, and YM.
+
+**Rule applied:**
+```
+First candle closed BEARISH
+→ Mark LOW as SHORT from HERE ✅
+→ All three instruments: SHORT from HERE placed
+→ SMT: NQ + ES + YM in full sync — A+ confluence
+```
+
+The deep crimson **SHORT from HERE** level is visible
+on all three charts at the first candle low. This is
+the exact mechanism — no improvisation, no second-guessing.
+The candle decided. The rule was applied.
+
+---
+
+### ✅ 9:50 AM — YM FVG Displacement Confirmed
+
+![YM FVG Live](../../data/screenshots/YM1!_2026-02-23_09-50-37_09858.png)
+
+The standout screenshot of the session. Two **FVG**
+boxes are now labeled on YM — one pre-identified before
+the open, and the displacement confirming the FCR entry:
+
+```
+5-min candle closed BELOW first 15-min candle LOW
+→ FVG displacement confirmed ✅
+→ Limit order on FVG zone is live
+→ SL: high of FVG candle 1
+→ TP: 2:1 fixed R:R — set it, leave it
+```
+
+Christopher had pre-annotated the FVG before the open.
+The market confirmed it. That pre-session read was correct.
+
+---
+
+### ✅ 9:52 AM — Trade Running
+
+![ES Running](../../data/screenshots/ES1!_2026-02-23_09-52-05_6e327.png)
+![NQ Running](../../data/screenshots/NQ1!_2026-02-23_09-52-52_a7fad.png)
+
+By 9:52 AM, all three instruments are showing decisive
+bearish displacement. The large bearish candles on ES
+and NQ confirm the short position is moving in the
+correct direction. The FVG entry has been triggered and
+the trade is running toward the 2:1 TP target.
+
+**Three-instrument SMT confluence confirmed:**
+```
+NQ: SHORT from HERE ✅ | FVG displacement ✅
+ES: SHORT from HERE ✅ | FVG displacement ✅
+YM: SHORT from HERE ✅ | FVG displacement ✅ (pre-annotated)
+```
+
+This is the **A+ setup** — all conditions met across
+all three instruments simultaneously. The pre-session
+analysis, the ETH context, the two-way warning at the
+open, the first candle decision, the FVG entry — every
+step of the process executed correctly.
+
+---
+
+### 🧠 Behavioral Reminder — NOW
+
+```
+The TP is set. The SL is set.
+The trade is running.
+
+→ Do not move the SL
+→ Do not take early profit
+→ Do not add to the position
+→ Do not open a second position while this is live
+
+One clean trade is a complete trade.
+The 2:1 is where this ends — win or loss.
+
+If TP hits: close the laptop. That's the session.
+```
+
+> *"I should have been more grateful for securing
+> my profits and regrouped / composed myself."*
+> — Feb 13 lesson. Still applies today.
+
+---
+
 *🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
 *Anthropic claude-sonnet-4-6 | Feb 23, 2026*
 *Built on Claude Code CLI by Anthropic*
