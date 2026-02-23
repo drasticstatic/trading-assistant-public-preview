@@ -34,6 +34,18 @@
 ### 5 — IT Foundation EMAs + Clusters VP + VRVP
 ![NG Indicators](../../data/screenshots/NG1!_2026-02-23_01-38-12_fbbb1.png)
 
+### 6 — ETH Level Marking: 1hr + Macro Context
+![NG ETH Levels](../../data/screenshots/NG1!_2026-02-23_02-47-27_b78d9.png)
+
+### 7 — 1hr Clean (No Levels) — Baseline Reference
+![NG 1hr Clean Baseline](../../data/screenshots/NG1!_2026-02-23_02-47-36_2a099.png)
+
+### 8 — 5min + VRVP (RTH Comparison)
+![NG 5min VRVP RTH](../../data/screenshots/NG1!_2026-02-23_02-49-51_fc1c8.png)
+
+### 9 — IT Foundation EMAs + RTH Session Markers + VRVP
+![NG EMAs RTH Sessions](../../data/screenshots/NG1!_2026-02-23_03-03-17_c152b.png)
+
 ---
 
 ## ⚡ Why NG Is Different
@@ -163,6 +175,96 @@ a ceiling, not a launching pad.
 **LuxAlgo Clusters VP** and **VRVP** in screenshot 5
 are consistent with this read — volume distribution
 confirms the bearish EMA narrative.
+
+---
+
+## 🕐 RTH vs ETH Level Marking — NG Comparison
+
+*Screenshots 6–9 were added after the initial analysis to compare*
+*ETH-based marking (coaches' recommendation for commodities)*
+*vs RTH-only marking. Here is what the comparison reveals.*
+
+---
+
+### 📐 Screenshot 6 — ETH Level Marking (1hr + Macro)
+
+The widest view of NG with ETH-based marking shows a **dense,
+complete level inventory** spanning the entire historical range
+— from the pre-spike base all the way through the distribution
+and into current price. Every 1hr color flip across the full
+23-hour trading day is captured.
+
+Key observations:
+- Levels exist at every meaningful structural inflection,
+  including those created during overnight/pre-market sessions
+- The level stack is comprehensive — no "gaps" where major
+  moves happened but went unrecorded
+- This is what a fully marked ETH chart should look like:
+  every institutional direction change captured regardless of hour
+
+---
+
+### 📐 Screenshot 7 — Clean 1hr (No Levels)
+
+The baseline reference. Pure price structure, no rays.
+Current price: ~3.047 (O:3.037 H:3.053 L:3.034 C:3.047).
+
+This is the canvas — the ETH and RTH charts compared
+against this show exactly what each marking approach
+adds (and what each one misses).
+
+---
+
+### 📦 Screenshot 8 — 5min + VRVP (RTH Comparison)
+
+The 5-min with VRVP shows the recent price action in the
+current session. Volume heavily distributed above current
+price — consistent with bearish bias established in the
+main analysis. Yellow 4/5 (previous day) levels and cyan
+5/5/3/5 levels visible as the key near-term anchors.
+
+---
+
+### 💡 Screenshot 9 — The Key Insight: RTH Sessions on NG
+
+This is the most instructive screenshot in this comparison.
+
+The **blue vertical shaded columns** = RTH sessions (9:30–4:00 ET).
+Load this observation carefully:
+
+```
+RTH sessions on NG (inside blue columns):
+→ Candles are often FLAT, tight, range-bound
+→ Very few color flips during many RTH sessions
+→ Small-bodied candles with limited directional conviction
+
+ETH sessions on NG (between blue columns):
+→ Significant directional moves visible
+→ Most of the 5/5 levels on this chart were created here
+→ The real distribution, sell-offs, and structural shifts
+   happened OUTSIDE regular trading hours
+```
+
+The EMAs (IT Foundation) confirm bearish configuration
+throughout — and notably, the bearish EMA dominance was
+established during ETH, not during RTH. If you had marked
+NG on RTH only, you would have:
+
+1. **Fewer levels** — many of the strongest structural
+   reference points created in ETH would be missing
+2. **Misleading sparseness** — the chart would look
+   "quieter" than NG actually is
+3. **False level gaps** — areas where major institutional
+   direction changes occurred would show no level,
+   leading to missed reactions at those prices
+
+**Coaches are correct: ETH for NG (and all commodities).**
+
+The reason: NG's price discovery is distributed across
+the 23-hour session. Weather events hit at 2am. EIA storage
+prep positioning starts days before the Thursday 10:30 AM
+release. LNG export news lands at all hours. The institution
+doesn't wait for 9:30 AM to change its mind on natural gas.
 
 ---
 
