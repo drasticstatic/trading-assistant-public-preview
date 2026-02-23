@@ -4,8 +4,9 @@
 ---
 
 > 🎯 **Session bias: Bullish**
-> Best setup: **Scenario A** — EMA pullback + LONG from HERE at 9:35
-> SMT watch: **Add SI** for divergence confirmation at any ATH sweep
+> Best setup: **Scenario A** — EMA pullback + LONG from HERE at 9:45
+> SMT watch: **SI analysis → `GC_SI_SMT_premarket_20260223.md`**
+> ⚠️ FCR correction: first candle = 15-min close (9:30–9:45), not 5-min
 
 ---
 
@@ -32,7 +33,9 @@
 
 Gold is in a **historic parabolic bull run.** The wide chart
 shows a clean V-shaped selloff fully absorbed, followed by a
-relentless drive to all-time highs above **$2,935–$2,945.**
+relentless drive to all-time highs. Per chart data:
+- **ATH: 5626.8**
+- **Recent significant level: 5198.8**
 
 The right side of the macro chart is a tight stack of cyan
 **5/5 levels** — every one a 1hr color flip created on the
@@ -43,6 +46,10 @@ looks like in the level system.
 > 💡 **Key observation:** Price hasn't spent enough time at
 > these ATH levels to create meaningful 3/5 demotions yet —
 > everything in the cluster is still active and fresh.
+
+> ⚠️ **Fortuna correction:** An earlier version of this file
+> incorrectly stated ATH as "$2,935–$2,945" — those were
+> pre-training assumptions, not chart data. Corrected above.
 
 ---
 
