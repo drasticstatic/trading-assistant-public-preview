@@ -576,40 +576,28 @@ equity indices. PMI releases typically hit pre-market or at
 
 ---
 
-**What are the expected figures?**
+**What are the expected figures? What effect has this event had on the markets before?**
 ```
 S&P Global Manufacturing PMI (Feb flash): Prior 51.2
   Expected: ~50.8 — borderline expansion/contraction
+  Impact: Beat (above 51) = equity-positive (NQ/ES/YM), headwind
+  for GC/SI. Miss (below 50) = bearish equities, supportive metals.
+
 S&P Global Services PMI (Feb flash): Prior 52.9
   Expected: ~53.0 — continued expansion
+  Impact: Beat above 52 = equity-positive, especially NQ (tech-heavy).
+  Miss below 50 = risk-off, supports GC/SI defensive flows.
+
 Dallas Fed Manufacturing Index (Feb): Prior -8.3
   Expected: ~-5.5 — still contractionary, slight improvement
-Note: Verify figures against ForexFactory or Investing.com
-each morning. These are approximate pre-session estimates.
-No EIA data risk today for CL or NG positions.
-```
+  Impact: Limited direct equity impact alone; amplifies a weak PMI
+  print. Rarely moves NQ/ES/YM on its own.
 
----
-
-**What effect has this event had on the markets before?**
-```
-Flash PMI — Manufacturing beat (above 51):
-  Historically equity-positive (NQ, ES, YM). Slight headwind
-  for safe-haven metals (GC, SI) as risk-on sentiment rises.
-Flash PMI — Manufacturing miss (below 50):
-  Historically bearish for equity indices. Supportive for GC/SI
-  as defensive flows increase. NG/CL less directly correlated.
-Flash PMI — Services beat (above 52):
-  Equity-positive. Consumer-driven strength in services supports
-  NQ more than YM (tech vs Dow composition).
-Dallas Fed miss:
-  Limited direct impact on NQ/ES/YM alone but confirms regional
-  manufacturing weakness — can amplify a weak PMI print.
-FCR filter note:
-  In the FCR framework, the first 15-min candle (9:30-9:45 ET)
-  absorbs all pre-market news repricing. The candle direction IS
-  the market's verdict on the news. No need to pre-position
-  based on headline numbers — let the candle decide.
+Note: Verify figures against ForexFactory or Investing.com each
+morning. No EIA data risk today for CL or NG positions.
+FCR filter: The first 15-min candle (9:30-9:45 ET) absorbs all
+pre-market news repricing. The candle IS the market's verdict.
+No need to pre-position on headlines — let the candle decide.
 ```
 
 ---
@@ -717,7 +705,7 @@ Session outcome (post-session update):
   add 3-5 tick buffer above 5/5 for SL when entering at 3/5.
   Second setup (MES, 11:02 AM): orders placed then canceled —
   identified as post-loss hesitation. Valid setup; missed.
-  Full review: smarttrader-ai/reviews/review_20260223_MNQ_001.md
+  Full review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/review_20260223_MNQ_001.md
 ```
 
 ---
