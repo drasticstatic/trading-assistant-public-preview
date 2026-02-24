@@ -27,18 +27,6 @@
 
 ---
 
-## NQ Follow-Up — Session Outcome
-
-![NQ Outcome](../../data/screenshots/NQ1!_2026-02-23_21-40-14_d6b2f.png)
-
-The 21:40 ET NQ chart confirms the correct decision not to take the
-afternoon retest trade. After the 2:12 PM analysis, NQ did not produce
-a clean B&R Rejection at the 24,880 level — price drifted sideways and
-continued lower into the ETH session without giving a textbook ZTH
-entry. Taking the dog for a walk was the right trade.
-
----
-
 ## SMOG Strategy Reference — From Bootcamp Notes
 
 *Per Allen's Feb 9, 2026 SMOG Breakdown session.*
@@ -172,8 +160,8 @@ swing is visible with the FVG box marked in the retracement.
 | **CHoCH confirmed** | Likely PRESENT | Decisive breakdown visible. Trendline broken with large candle(s). Requires coach confirmation on structure specifics. |
 | **FVG produced in retracement** | Likely PRESENT | FVG boxes are visible in the screenshots at the retracement zone. |
 | **FVG at 50% or 61.8% Fibonacci** | UNCERTAIN | Christopher identifies 61.8% area. Fibonacci placement accuracy requires coach verification — this is the most critical question. |
-| **ADX <= 25 (1-min or 5-min)** | CANNOT CONFIRM | ADX values are not clearly readable at screenshot resolution. This is a REQUIRED criterion — needs coach eyes on the actual chart. |
-| **OG Oscillator signal** | CANNOT CONFIRM | OG oscillator not clearly visible in screenshots. Needs coach verification. |
+| **ADX <= 25 (1-min or 5-min)** | INDICATOR PRESENT | `ADX (1,5)` visible in left pane below the 1-min chart. ADX1 = 1-min TF, ADX2 (blue line) = 5-min TF. Values appear low in the relevant zone but exact reading at signal time needs coach verification. |
+| **OG Oscillator signal** | CONFIRMED PRESENT | `IT OG (New)` oscillator visible in right pane (15-min chart). Christopher confirmed a red sell signal printed at approximately 11 AM — within the valid 2-hour pre-session window. |
 | **Trendline break + underside retest** | PARTIAL | Trendline break is visible. Whether an underside retest occurred before entry is not clearly shown in the available screenshots. |
 | **15-min session sweep** | UNCERTAIN | CL had an overnight BULLISH reversal that was flagged in pre-market analysis as overturning the Sunday bearish thesis. This overnight move may represent a session sweep scenario — but needs 15-min chart analysis. |
 | **No entry into opposite FVG** | UNCERTAIN | Needs 15-min chart review to confirm no overhead bearish FVG at entry. |
@@ -257,7 +245,7 @@ ENTRY TIMING was imperfect.
 
 ## Overall Verdict — SMOG Setup Grade
 
-### What this appears to be: **B-Grade / Near-SMOG**
+### What this appears to be: **B+ / Likely Valid SMOG — Pending ADX Confirmation**
 
 ```
 Elements PRESENT:
@@ -267,10 +255,12 @@ Elements PRESENT:
   ✅ Reversal from entry zone → TP reached
   ✅ Ascending trendline broken (structural context)
   ✅ Interesting "second touch" behavior (SMOG-consistent)
+  ✅ OG Oscillator red sell signal confirmed ~11 AM (15-min)
+  ✅ ADX (1,5) indicator present on chart (1-min + 5-min)
 
 Elements UNCONFIRMED (need coach eyes):
-  ? ADX reading at time of signal — THE critical gate
-  ? OG Oscillator signal presence
+  ? ADX exact value at signal time — indicator present,
+    reading needs verification (ADX1=1-min, ADX2=5-min)
   ? Fibonacci placement accuracy (high/low anchoring)
   ? Underside trendline retest before entry
   ? 15-min FVG context (no entry into opposite FVG)
@@ -310,10 +300,14 @@ move? Specifically:
 
 **2. ADX Verification**
 ```
-At the time of the setup signal (the FVG formation after CHoCH),
-were the 1-min and/or 5-min ADX readings at or below 25?
-If ADX was above 25, this entire structure is a near-miss
-regardless of how clean the CHoCH and FVG appeared.
+The ADX (1,5) indicator is visible on the 1-min left pane:
+  ADX1 = 1-min timeframe
+  ADX2 (blue line) = 5-min timeframe
+The values appear low in the zone around the CHoCH/signal,
+but exact readings are not clearly legible in the screenshots.
+Question for coach: At the time the OG oscillator printed the
+11 AM sell signal, were ADX1 and/or ADX2 at or below 25?
+If yes — this upgrades from B+ to a confirmed A-grade SMOG.
 ```
 
 **3. The Double-Touch Behavior**
