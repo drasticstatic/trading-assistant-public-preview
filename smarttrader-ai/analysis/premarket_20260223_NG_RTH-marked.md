@@ -3,6 +3,20 @@
 
 ---
 
+> ⚠️ **ARCHIVED — RTH LEVELS ONLY — DO NOT USE FOR ETH TRADING**
+> The TradingView level markings for this session were placed on
+> the RTH (9:30 AM–4:00 PM ET) session chart, NOT the full ETH
+> session. NG is a 23-hour commodity — all structural level
+> marking should be done on ETH to capture overnight direction
+> changes, EIA positioning, and weather-driven moves.
+> See Screenshot 9 (IT Foundation EMAs + RTH Session Markers)
+> for the documented proof that NG's significant moves occur
+> in ETH, not RTH. This file is retained for reference only.
+> Re-mark NG on ETH before the next pre-market analysis.
+> Filename tag: `_RTH-marked` — indicates this limitation.
+
+---
+
 > 🎯 **Session bias: Bearish**
 > 📉 **Structure: Post-spike distribution, EMA bearish**
 > ⚡ **Note: NG analyzed independently — not a standard**

@@ -18,12 +18,16 @@
 | 8:43 AM | `GC1!_2026-02-24_08-43-02_fec40.png` | Macro FRVP — structural context + sell-off magnitude |
 | 8:43 AM | `GC1!_2026-02-24_08-43-44_24f2b.png` | LuxAlgo Order Flow + VRVP |
 | 8:44 AM | `GC1!_2026-02-24_08-44-28_33b47.png` | Full picture — LuxAlgo OFS + IT Foundation EMAs + VRVP |
+| 8:57 AM | `SI1!_2026-02-24_08-57-17_7d337.png` | SI — IT Foundation EMAs + VRVP |
+| 8:57 AM | `SI1!_2026-02-24_08-57-46_80ed0.png` | SI — LuxAlgo OFS + FRVP + ZTH levels |
 
 ![GC ZTH Levels](../../data/screenshots/GC1!_2026-02-24_08-41-25_ce863.png)
 ![GC SMC + EMAs](../../data/screenshots/GC1!_2026-02-24_08-42-14_08ab9.png)
 ![GC FRVP Macro](../../data/screenshots/GC1!_2026-02-24_08-43-02_fec40.png)
 ![GC LuxAlgo + VRVP](../../data/screenshots/GC1!_2026-02-24_08-43-44_24f2b.png)
 ![GC Full Picture](../../data/screenshots/GC1!_2026-02-24_08-44-28_33b47.png)
+![SI EMAs + VRVP](../../data/screenshots/SI1!_2026-02-24_08-57-17_7d337.png)
+![SI Full View](../../data/screenshots/SI1!_2026-02-24_08-57-46_80ed0.png)
 
 ---
 
@@ -326,27 +330,50 @@ SCENARIO C — Doji / chop at support
 
 ---
 
-## SMT Pair Context — GC / SI
+## SMT Pair Analysis — GC / SI (Updated 8:57 AM)
+
+SI screenshots added. Here is the confirmed read:
 
 ```
-The Sunday Feb 22 analysis flagged the key SMT scenario:
+SI pre-market (8:57 AM):
+  IT Foundation EMAs: Bearish transition — same configuration
+  as GC. Green EMA flattening, price dropped below EMA stack.
+  VRVP: Price is below the developing POC on SI.
+  ZTH levels: Dense overhead resistance above current price
+  on SI — matching the GC structure.
+  LuxAlgo: Bearish OFS levels visible above current price.
+  Overall: SI is BEARISH, mirroring GC's structure.
 
-  If GC swept ATH while SI FAILED to make a corresponding high
-  → Institutional liquidity sweep on GC at the highs
-  → This is the setup that would precede exactly the kind of
-    reversal seen overnight.
+SMT VERDICT: CONVERGENT BEARISH
+  Both GC and SI sold off together overnight.
+  This is NOT an SMT divergence (one trapping the other).
+  It is a SYNCHRONIZED institutional distribution event
+  across the entire metals complex.
 
-Today's SI analysis will confirm or clarify this reading.
-When SI charts are available:
-  → Check if SI made a corresponding ATH sweep on Monday
-    or if SI diverged while GC pushed higher
-  → A confirmed SMT divergence = the overnight sell-off
-    was an institutional liquidity event, not random news
-  → A confirmed SMT convergence = both sold off together,
-    which changes the interpretation slightly
+  SMT divergence would have been:
+    GC sweeps ATH → SI FAILS to match → GC is the trap
+    Result: GC-specific liquidity sweep, SI would be stable
 
-Either way: GC and SI should be on the same chart setup
-at 9:30. They trade as a pair for confirmation purposes.
+  What actually happened:
+    Both metals sold off in the same direction, similar
+    magnitude, similar structure. This is macro-driven —
+    not a targeted stop hunt on one instrument.
+
+What this means for context:
+  A synchronized metals sell-off typically reflects one of:
+  → USD strength event (DXY spike, rate expectations)
+  → Broad de-risking across commodities
+  → Profit-taking from the parabolic ATH run in both metals
+
+  None of these are GC-specific. The sell-off is real,
+  structural, and confirmed across the metals pair.
+
+Note: GC and SI are context instruments only for today.
+  Apex has a hold on metals trading.
+  No trades on GC or SI through Apex until restriction lifts.
+  SMT read is retained for overall market context only.
+  When metals trading resumes (TPT or Apex lifted):
+  the convergent bearish structure will be the starting point.
 ```
 
 ---
