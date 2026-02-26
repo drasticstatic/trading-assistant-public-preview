@@ -123,8 +123,8 @@ After Trade 001 loss, price began recovering from session lows. EMAs flipped gre
 ![YM 12:13 PM](../../data/screenshots/YM1!_2026-02-24_12-13-01_398de.png)
 ![ES 12:29 PM](../../data/screenshots/ES1!_2026-02-24_12-29-39_bef86.png)
 ![ES 13:25 PM](../../data/screenshots/ES1!_2026-02-24_13-25-54_6b949.png)
-![RTY 13:52 PM — divergence](../../data/screenshots/Screenshot 2026-02-24 at 13.52.14.png)
-![NQ 13:55 PM — divergence](../../data/screenshots/Screenshot 2026-02-24 at 13.55.13.png)
+![RTY 13:52 PM — divergence](../../data/screenshots/Screenshot%202026-02-24%20at%2013.52.14.png)
+![NQ 13:55 PM — divergence](../../data/screenshots/Screenshot%202026-02-24%20at%2013.55.13.png)
 
 ---
 
@@ -133,20 +133,28 @@ After Trade 001 loss, price began recovering from session lows. EMAs flipped gre
 ```
 Instrument: ES / MES (watching, not live)
 Direction:  LONG (continuation of Trade 002 thesis)
-Status:     Paper only. Bearish resolution confirmed ETH. Fully invalidated.
+Status:     Paper only. 6,888 limit never filled at any point.
+            Overnight: ranged → Asia drive up → evening correction → SFP wick to 6,892.
 ```
 
 **16:51 ET — Session close screenshot:**
-Price had been elevated above 6,888 all day. MES order closed (label: "Closed" visible in screenshot). Structure showed exhaustion at session highs. The ascending trendline from the lows was intact but NQ/YM weakness was flagging a possible reversal. Reduced mental model to 1:1 R:R (had to leave by 4 PM constraint). Decision to not place live trade — correct.
+Price had been elevated above 6,888 all day — the 6,888 limit order was never in danger of filling. MES order closed ("Closed" label visible). Structure showed exhaustion at session highs. The ascending trendline from the lows was intact but NQ/YM weakness was flagging a possible reversal. Reduced mental model to 1:1 R:R (had to leave by 4 PM constraint). Decision to not place a live trade — correct.
 
-![ES/MES 16:51 ET — order closed](../../data/screenshots/Screenshot 2026-02-24 at 16.51.10.png)
+![ES/MES 16:51 ET — order closed, limit never filled](../../data/screenshots/Screenshot%202026-02-24%20at%2016.51.10.png)
 
-**22:30–23:49 ET — ETH dump confirmation:**
-Massive bearish ETH move. MES 4H chart shows a large red candle — the dump that resolved the NQ/YM divergence reading from 13:52–13:55. ES 3D chart confirms the multi-day bear structure is fully intact, no reversal. Price crashed well below the 6,888 level monitored all day. The long thesis at 6,888 — if filled — would have been a significant loser.
+**Overnight ETH — Asia session + SFP (23:49 ET screenshot):**
 
-**Retrospective verdict:** NQ and YM at 13:52 were leading indicators, not lagging ones. ES and RTY held longer but ultimately followed. The divergence read was the correct early warning signal. Watching without executing was the right outcome.
+Full overnight price narrative:
+1. **NY afternoon session (post RTH close):** Price ranged above 6,888. Limit still not filled.
+2. **Asia session open:** Price drove UPWARD — moving away from the 6,888 limit, not toward it.
+3. **Evening correction:** Price retraced from the Asia session highs.
+4. **Latter Asia session — SFP flash wick:** Price swept down to approximately **6,892** — a sharp wick that grabbed stops below the local afternoon lows — then immediately recovered. This is a Swing Failure Pattern (SFP): a liquidity sweep below a swing low followed by reversal. Notably, the wick stopped at 6,892 — the 6,888 HVN was never breached. The limit order at 6,888 was not filled.
 
-![ES 3D / MES 4H — 23:49 ET — ETH dump](../../data/screenshots/Screenshot 2026-02-24 at 23.49.08.png)
+The 23:49 ET screenshot captures the ES 3D macro context (multi-day bearish structure intact) alongside the MES 4H view showing the Asia session drive up, the evening correction, and the SFP wick — all above the 6,888 level.
+
+**Retrospective verdict:** The 6,888 limit was never filled at any point during the RTH or ETH session. The HVN proved to be genuine structural support — the SFP wick stopping at 6,892 rather than penetrating 6,888 confirms the HVN was respected. The NQ/YM divergence at 13:52 was still a correct early warning that the long thesis was weakening at the session level; the Asia drive up was temporary and the SFP confirmed sellers were still present. Not placing a live trade was the correct outcome regardless.
+
+![ES 3D / MES 4H — 23:49 ET — Asia session + SFP wick](../../data/screenshots/Screenshot%202026-02-24%20at%2023.49.08.png)
 
 ---
 
@@ -166,7 +174,8 @@ Inevitrade Compliance Score: 7/10
 STB/ICT Framework Score: 7/10
   + FCR framework applied (correct first candle framework)
   + SMT divergence read was accurate at 13:52–13:55
-  + ETH dump resolution correctly predicted by NQ/YM divergence signal
+  + NQ/YM divergence at 13:52 correctly identified weakening long thesis
+  + SFP wick to 6,892 in Asia session confirmed HVN strength (6,888 never breached)
   - Trade 001 taken against the institutional bias (red EMAs = institutional sellers in control)
 
 Overall Discipline Score: 6/10
@@ -215,7 +224,7 @@ Nervousness at the NY open is consistently noted. This is normal for early-stage
 
 **What actually happened?**
 
-Broad risk-off sell-off overnight into the open. All three equity indices (NQ, ES, YM) were in a major bearish trend at the 9:30 open. The FCR Scenario A setup was the pre-market primary thesis. However, instead of executing Scenario A, I entered a counter-trend long (Scenario B) against red-dominant EMAs — a setup that was explicitly vetoed in the pre-market plan. The trade was stopped out in 66 seconds (-$35). After the loss, price recovered toward midday and I placed a limit buy at the 6,888 HVN with a well-structured setup (EMA flip, BOS, RTY confluence). That limit never filled as price consolidated above it all afternoon. By 13:52, NQ and YM were diverging bearishly from ES and RTY — a clear SMT divergence signal. Overnight, at ~22:30, the ETH dump confirmed the bearish resolution. The 6,888 limit would have been a significant loser if filled. The correct outcome was the unfilled order and no live afternoon trade.
+Broad risk-off sell-off overnight into the open. All three equity indices (NQ, ES, YM) were in a major bearish trend at the 9:30 open. The FCR Scenario A setup was the pre-market primary thesis. However, instead of executing Scenario A, I entered a counter-trend long (Scenario B) against red-dominant EMAs — a setup that was explicitly vetoed in the pre-market plan. The trade was stopped out in 66 seconds (-$35). After the loss, price recovered toward midday and I placed a limit buy at the 6,888 HVN with a well-structured setup (EMA flip, BOS, RTY confluence). That limit never filled as price consolidated above it all afternoon. By 13:52, NQ and YM were diverging bearishly from ES and RTY. Overnight, price ranged above 6,888, then drove upward at the Asia session open before correcting. In the latter Asia session, an SFP flash wick swept to approximately 6,892 — just above the 6,888 HVN — and immediately recovered. The 6,888 limit was never filled at any point. The HVN held as genuine structural support. Not placing a live afternoon trade was the correct outcome.
 
 ---
 

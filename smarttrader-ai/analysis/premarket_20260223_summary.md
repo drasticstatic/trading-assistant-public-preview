@@ -697,9 +697,17 @@ Instruments to avoid pre-9:45: CL entirely. Wait for candle.
 Mental state check (pre-session target): 7/10 minimum.
   If below 7 — observe only, no entries.
 
+```
+
 Full pre-market analysis:
 https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/analysis/premarket_20260223_summary.md
-```
+
+> Full analysis:
+> - SI: `premarket_20260223_SI.md`
+> - NQ: `premarket_20260223_NQ.md`
+> - ES: `premarket_20260223_ES.md`
+> - YM: `premarket_20260223_YM.md`
+> - NG: `premarket_20260223_NG_RTH-marked.md`
 
 ---
 
