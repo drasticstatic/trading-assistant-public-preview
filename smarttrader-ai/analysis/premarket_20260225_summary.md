@@ -214,10 +214,174 @@ Mental checklist going in:
 Full pre-market analysis:
 https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/analysis/premarket_20260225_summary.md
 
-> Full analysis:
-> - NQ: `premarket_20260225_NQ.md`
-> - ES: `premarket_20260225_ES.md`
-> - YM: `premarket_20260225_YM.md`
+*Note: Per-instrument detail is consolidated below in this file (no separate NQ/ES/YM files for this session).*
+
+---
+
+## Per-Instrument Analysis — NQ / ES / YM
+
+*All three used as the triple-confirmation SMT framework throughout the session.*
+*No separate instrument files created — full analysis consolidated here.*
+
+---
+
+### NQ — Nasdaq-100 (Primary via MNQ)
+
+```
+TIMEFRAME: 1-Hour (9:18 AM screenshot)
+  IT Foundation EMAs:
+    Red EMA still above green — bearish structure intact on HTF.
+    Green EMA has been rising aggressively overnight — rapid convergence.
+    Not yet a crossover at pre-market, but the gap is closing fast.
+    → NOT "steeply red dominant" — Scenario B veto is weakening
+    → EMA decision deferred to 9:45 candle close
+
+  VRVP:
+    POC above current price — majority of volume established higher.
+    Overnight bounce has built a developing cluster in the current range.
+    Price approaching the lower edge of prior value area from below.
+
+  Key levels (1hr chart):
+    NEW KEY LEVEL (marked today): just above current price — the 9:45 pivot
+    Prior Feb 24 SHORT from HERE ray: overhead reference (not active entry)
+    Prior Feb 23 SHORT from HERE ray: further overhead (not active entry)
+    Major KEY support (base of chart): large cyan horizontal — deep support,
+      price has bounced well above this overnight
+
+TIMEFRAME: 5-Min RTH (9:23 AM screenshot)
+  FCR context: price approaching new KEY level from below.
+  VRVP developing in the current range — value building at these levels.
+  Both LONG from HERE and SHORT from HERE scenarios laid out.
+  No FVG formed yet — setup armed, trigger pending.
+
+TIMEFRAME: 5-Min ETH (9:27 AM screenshot)
+  Full overnight rally visible from Feb 24 RTH lows.
+  Sustained, nearly uninterrupted bull run through Asia session.
+  No major retracements — structural buying, not short-covering noise.
+  Price approaching prior Feb 24 SHORT from HERE level.
+  VRVP POC forming in upper half of ETH range — institutional
+  value has shifted meaningfully higher overnight.
+
+FCR RESULT (9:45 AM):
+  First 15-min candle: CLOSED BULLISH ✅
+  LONG from HERE marked at candle HIGH.
+  SHORT from HERE marked at candle LOW (both sides marked — correct).
+  IT Foundation EMAs at 9:46–9:47: GREEN CROSSED ABOVE RED ✅
+  → Scenario B fully valid. EMA veto removed.
+
+POST-9:45 DEVELOPMENT:
+  9:50: Large impulse candle created FVG displacement above first candle HIGH.
+  FVG zone labeled on chart — limit entry zone identified.
+  Price pulled back into FVG zone (10:08–10:53 AM).
+  NQ bounced off 25,264 post-EIA, heading back up.
+  Momentum: YM > ES > NQ (NQ was the lagging confirming instrument).
+
+FINAL RESULT:
+  MNQ LONG filled in FVG zone at 25,278.75 (10:53:18 EST).
+  TP at 25,418 hit cleanly at 16:26:32 EST.
+  +$565.00 / +141.25 pts / 2 contracts / R:R 2.34.
+```
+
+---
+
+### ES — S&P 500 (Confirming instrument via MES)
+
+```
+TIMEFRAME: 1-Hour (9:18 AM screenshot)
+  IT Foundation EMAs:
+    Mirror of NQ — red still above green but converging rapidly.
+    Same rapid green EMA rise overnight.
+    Same pre-market assessment: weakening red dominance, not steeply bearish.
+
+  VRVP:
+    Same read as NQ — POC above price, developing cluster below.
+
+  Key levels:
+    NEW KEY LEVEL: same structural reference as NQ — 9:45 pivot zone.
+    Feb 24 LONG from HERE ray: visible — acts as near-term support below.
+    6,888 HVN: confirmed in the Asia ETH session via SFP wick to ~6,892.
+      → This level is genuine structural support, not noise.
+    Major KEY support: base of chart — same deep support reference.
+
+TIMEFRAME: 5-Min RTH (9:22 AM screenshot)
+  FCR context: bounce structure visible, price approaching key level.
+  Same two-way setup as NQ — first candle decides.
+
+TIMEFRAME: 5-Min ETH (9:27 AM screenshot)
+  ETH rally sustained — matching NQ structure.
+  Notable: Asia session SFP wick to ~6,892 confirmed 6,888 HVN support.
+    → Institutional demand at that level validated.
+  Price approaching the Feb 24 SHORT from HERE level.
+
+FCR RESULT (9:45 AM):
+  First 15-min candle: CLOSED BULLISH ✅
+  Both levels marked. EMAs: GREEN DOMINANT at 9:46 ✅
+  → Triple confirmation with NQ and YM.
+
+POST-9:45 DEVELOPMENT:
+  9:50: FVG displacement confirmed above first candle HIGH (labeled on chart).
+  ES double-tested its SHORT from HERE level and held both times
+    → Structural support at that horizontal = bullish confirmation.
+  At moment of MNQ fill (10:53 AM):
+    → ES was RETESTING its SHORT from HERE level (providing the fill).
+    → This was the liquidity grab that gave the fill opportunity.
+    → SMT: YM simultaneously closing ABOVE its SHORT from HERE level.
+    → ES liquidity grab + YM strength = textbook bullish SMT divergence.
+```
+
+---
+
+### YM — Dow Jones (Confirming instrument)
+
+```
+TIMEFRAME: 1-Hour (9:18 AM screenshot)
+  IT Foundation EMAs:
+    Same structure as NQ and ES — converging, not steeply red dominant.
+    Green EMA rising rapidly overnight.
+
+  VRVP:
+    POC in upper half of overnight range — strongest VRVP read of the three.
+    YM's VRVP is the most bullish of the three instruments at the open.
+
+  Key levels:
+    NEW KEY LEVEL: structural reference aligned with NQ and ES.
+    ETH FVG labeled on chart (bottom left of 9:47 AM screenshot):
+      → Overnight FVG from Feb 24 sell-off imbalance zone.
+      → Acts as reference/target if LONG scenario activates.
+
+TIMEFRAME: 5-Min RTH (9:22 AM screenshot)
+  FCR context: price approaching key level, VRVP visible.
+  YM's relative strength vs NQ and ES was notable even pre-open.
+
+TIMEFRAME: 5-Min ETH (9:28 AM screenshot)
+  Overnight rally visible — VRVP POC in upper range of session.
+  Strongest institutional overnight accumulation of the three instruments.
+
+FCR RESULT (9:45 AM):
+  First 15-min candle: CLOSED BULLISH ✅
+  Both levels marked. EMAs: GREEN DOMINANT at 9:47 ✅
+  → FVG labeled on YM chart at 9:47 — pre-marked imbalance zone.
+
+POST-9:45 DEVELOPMENT:
+  9:50: YM retraced MORE aggressively than NQ and ES after the impulse.
+    → YM pulled back deeper into its retracement zone.
+    → NQ and ES held relatively strong — YM was the lagging confirmer.
+    → Noted as SMT observation: two interpretations at 9:58 AM
+      (1) YM's FVG being filled more aggressively — standard pullback
+      (2) YM showing relative weakness — early warning signal
+    → Ruling at 9:58: not yet a divergence reversal. Breakout intact on all three.
+    → Watch rule: if NQ/ES make new highs and YM fails to follow = SMT trap.
+
+  10:08–11:13 AM:
+    YM: putting in higher highs and higher lows — bullish structure confirmed.
+    Momentum hierarchy shifted: YM > ES > NQ.
+    YM was the STRONGEST instrument from mid-session onward.
+
+  At MNQ fill (10:53 AM):
+    YM closing ABOVE its SHORT from HERE level = institutional strength.
+    This is the SMT divergence signal at the exact moment of fill.
+    YM strength while ES retested = bullish institutional support confirmed.
+```
 
 ---
 
