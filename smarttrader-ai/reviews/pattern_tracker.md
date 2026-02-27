@@ -14,6 +14,7 @@
 | 002 | Feb 24 | MES | Long | 6,867.25 | SL 6,860.25 | -$35.00 | 2.32 | — | — | ❌ Wrong scenario (EMAs vetoed) | ✅ Held | No |
 | 003 | Feb 25 | MNQ | Long | 25,278.75 | TP 25,420.00 | **+$565.00** | 2.34 | 100 | 4/5 | ✅ All 5 layers | ✅ Never threatened | **Yes** |
 | 004 | Feb 25 | SOL/USDT | Long | $87.4701 | $91.5556 | **+$20.63 USDT** | — | — | — | ✅ EMA crossover + FVG | ✅ | **Yes** |
+| 005 | Feb 26 | MNQ | Short | 25,000.5 | SL 25,093.5 | **-$558.00** | — | -100 | 1/5 | ❌ FOMO (25,000 vs planned 25,060) | ✅ Held | No |
 
 ---
 
@@ -23,8 +24,10 @@
 Feb 23   -$100.50   ████░░░░░░░░░░░  loss
 Feb 24    -$35.00   █░░░░░░░░░░░░░░  loss (improvement)
 Feb 25   +$565.00   ████████████████ WIN ✅
+Feb 26   -$558.00   ███████████████░ loss (correct direction, wrong entry)
 
-Cumulative (Feb 23–25): +$429.50
+Cumulative (Feb 23–26): -$128.50
+Note: Feb 25 → Feb 26 net: +$7.00 — direction correct, entry cost the session
 ```
 
 ---
@@ -38,6 +41,7 @@ Cumulative (Feb 23–25): +$429.50
 | Feb 24 | Anxious, fearful, stressed, greedy | ❌ | ❌ | ✅ | Wrong scenario + below 6/10 threshold |
 | Feb 25 MNQ | Happy, confident, anxious, neutral, excited | ✅ | ✅ All 5 layers | ✅ | None |
 | Feb 25 SOL | — | ✅ | ✅ EMA + FVG | ✅ | None |
+| Feb 26 MNQ | Ambivalent, angry, anxious, fearful, frustrated, stressed | ❌ | ❌ FOMO (25,000 vs planned 25,060) | ✅ | Level abandoned under time/life pressure |
 
 **Trend:**
 ```
@@ -46,18 +50,21 @@ Emotional stability:
   Feb 23  ████░░░░░░  Unstable — but SL held
   Feb 24  ████░░░░░░  Unstable — but SL held
   Feb 25  ██████████  STABLE ✅ — first time
+  Feb 26  ████░░░░░░  Unstable — life pressure, FOMO
 
 SL discipline:
   Feb 13  ░░░░░░░░░░  ❌ Stops moved
   Feb 23  ████████░░  ✅ Held
   Feb 24  ████████░░  ✅ Held
   Feb 25  ██████████  ✅ Never threatened
+  Feb 26  ████████░░  ✅ Held (not moved despite pressure)
 
 Entry filter discipline:
   Feb 13  ░░░░░░░░░░  ❌
   Feb 23  ████░░░░░░  ⚠️ B-grade
   Feb 24  ░░░░░░░░░░  ❌ Wrong scenario
   Feb 25  ██████████  ✅ All layers
+  Feb 26  ████░░░░░░  ❌ FOMO — level abandoned at execution
 ```
 
 ---
@@ -69,6 +76,7 @@ Entry filter discipline:
 | Feb 23 | ~5/10 | — | ~5/10 | ~5/10 |
 | Feb 24 | ~6/10 | — | ~6/10 | ~6/10 (SL held = partial credit) |
 | Feb 25 | **10/10** | **10/10** | **10/10** | **10/10** |
+| Feb 26 | ~4/10 | ~5/10 | ~4/10 | ~4/10 (SL held + direction correct = partial credit) |
 
 ---
 
@@ -80,6 +88,7 @@ Entry filter discipline:
 | Feb 24 | ❌ Wrong scenario | ❌ Red dom (violated) | ✅ | — | — | 1/3 | F |
 | Feb 25 MNQ | ✅ Scenario B | ✅ Green dom | ✅ 5/5 | ✅ SMT at fill | ✅ Fib golden pocket | **5/5** | **A+** |
 | Feb 25 SOL | ✅ EMA crossover | ✅ Green dom | ✅ | — | — | 3/3 | **A** |
+| Feb 26 MNQ | ✅ Scenario A SHORT | ✅ Red dom | ⚠️ FVG (wrong level) | ⚠️ Partial | ✅ Fib used | 2/5 | **D** |
 
 ---
 
@@ -91,6 +100,7 @@ Entry filter discipline:
 | Feb 24 | MES | 66 seconds | SL hit | Correct SL respect |
 | Feb 25 | MNQ | 5h 33m 14s | Held past RTH close — conviction hold | Worked lathe. 4:30 hard stop rule followed. |
 | Feb 25 | SOL | ~2.5 hours | Exited near HOD | Good exit read |
+| Feb 26 | MNQ | 1h 10m 17s | SL hit at 25,093.5 | Direction correct post-SL — price reached 24,954 by 6 PM ET |
 
 ---
 
@@ -102,6 +112,8 @@ Entry filter discipline:
 | Feb 24 | STB + ZTH | 9:30 AM open session | Coach-lag: followed late into wrong scenario |
 | Feb 25 | ZTH | Waiting for 25,348 continuation (never triggered) | Christopher in at 25,278.75 — ahead of ZTH level |
 | Feb 25 | Inevitrade | 11:00–13:00 live call — found Christopher already in trade | Coaches excited, read validated live |
+| Feb 26 | STB + ZTH | STB coach: 9:15 OB + SMT entry, +4.44R. ZTH: bounce long called correctly | Christopher + Inevitrade members all watching same second retrace setup — all missed the fill |
+| Feb 26 | Inevitrade | Second retrace setup identified (1-2-3 continuation) | Correct analysis — entry FOMO'd from 25,060 to 25,000 — SL hit — direction confirmed post-SL |
 
 **Note on coaching groups:** STB = FCR at the 9:30 AM open (additional STB strategies to be introduced over time). ZTH = setups monitored and looked for all day long, not limited to the open. Inevitrade = IT Foundation strategies applied outside the NY AM session (afternoons, overnight, pre-market). All groups interact across sessions and masterclasses at various times of day.
 
@@ -141,7 +153,27 @@ Status:     ✅ Reversed on Feb 25 (in trade before ZTH's 25,348 level reached)
 Trigger:    Emotional pressure → moved stops → accounts blown
 Symptom:    SL moved repeatedly under adverse price action
 Fix:        SL is placed structurally and never moved. Period.
-Status:     ✅ Held on Feb 23, Feb 24, Feb 25 — habit confirmed
+Status:     ✅ Held on Feb 23, Feb 24, Feb 25, Feb 26 — habit confirmed
+```
+
+### Pattern 5 — Level Abandonment Under Pressure (Feb 26)
+```
+Trigger:    Time pressure (needed to get to work) + FOMO of missing fill
+            → adjusted entry from structural level (25,060) to round
+              number (25,000) to "guarantee" the fill
+Symptom:    Entry 60 pts away from structure → same SL (25,093) →
+            risk tripled ($198 → $558 for same structural stop) →
+            SL hit. At 25,060 with SL above 25,139 (first bounce high):
+            SL NOT hit, trade alive, direction confirmed profitable.
+Result:     -$558 on a directionally correct trade
+Fix:        Pre-plan entry AND SL before session. No last-minute
+            adjustments. "If it doesn't fill at the structural level,
+            the trade said no." External time pressure is not a reason
+            to modify a trading plan.
+Status:     🔴 NEW — needs to be addressed in next session
+Note:       Root cause same as Pattern 1 (FOMO) but mechanism differs:
+            Feb 23 = entered at lower-quality FVG level (3/5 vs 5/5)
+            Feb 26 = moved entry AWAY from structural level entirely
 ```
 
 ---
@@ -157,8 +189,13 @@ Feb 24  ██████████████░░░░░░  SL held. W
                                ↓ Rule: Red EMAs = no Scenario B long
 Feb 25  ████████████████████  ✅ FULL EXECUTION — all rules honored
                                Five layers. 2.34 R:R. +$565. Stable.
+                               ↓ Pattern 5 emerges: level abandoned at execution
+Feb 26  ████████████░░░░░░░░  SL held ✅. Direction correct ✅. Entry wrong.
+                               FOMO → 25,000 vs planned 25,060 → SL hit.
+                               Post-SL price confirmed direction (24,954 by 6 PM)
 
-Arc complete: Feb 13 → Feb 25
+Arc status: Ongoing. SL discipline confirmed (5 sessions, 0 stops moved).
+Entry discipline: The next frontier.
 ```
 
 ---
@@ -167,20 +204,21 @@ Arc complete: Feb 13 → Feb 25
 
 | Metric | Value |
 |--------|-------|
-| Total trades | 4 (3 futures, 1 crypto) |
+| Total trades | 5 (4 futures, 1 crypto) |
 | Winners | 2 |
-| Losers | 2 |
-| Win rate | 50% |
-| Avg winner | +$292.81 (USD) |
-| Avg loser | -$67.75 |
-| Total P&L (USD futures) | +$429.50 |
+| Losers | 3 |
+| Win rate | 40% |
+| Avg winner | +$292.82 (USD futures) |
+| Avg loser | -$230.50 (USD futures) |
+| Total P&L (USD futures) | -$128.50 |
 | Total P&L (crypto) | +$20.63 USDT |
-| SL respected | 4/4 — 100% ✅ |
-| Stops moved | 0/4 ✅ |
-| A+ entry filters honored | 2/4 |
-| Emotionally stable sessions | 1/4 (Feb 25) |
+| SL respected | 5/5 — 100% ✅ |
+| Stops moved | 0/5 ✅ |
+| A+ entry filters honored | 2/5 |
+| Emotionally stable sessions | 1/5 (Feb 25) |
 | Zella Score range | -100 → 100 |
 | Best session | Feb 25 (100 Zella, 10/10 all scores) |
+| Directionally correct reads | 4/5 (Feb 24 wrong scenario; all others correct direction) |
 
 ---
 
@@ -193,6 +231,7 @@ Links to individual reviews:
 - [Feb 24 — MES Long](review_20260224_MES_001.md)
 - [Feb 25 — MNQ Long](review_20260225_MNQ_001.md)
 - [Feb 25 — SOL Long](review_20260225_SOL_001.md)
+- [Feb 26 — MNQ Short](review_20260226_MNQ_001.md)
 
 ---
 
