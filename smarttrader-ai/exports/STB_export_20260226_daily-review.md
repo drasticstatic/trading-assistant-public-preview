@@ -87,6 +87,55 @@ If Christopher had entered at 25,060 with SL at 25,139 (the first bounce high): 
 
 ---
 
+## 📸 Key Charts
+
+### Session Open — Scenario A SHORT Confirmed
+
+![NQ FCR](../../data/screenshots/NQ1!_2026-02-26_09-30-44_1abba.png)
+*9:30 — NQ FCR first candle. Bearish close at 9:45 locked Scenario A SHORT.*
+
+![ES FCR](../../data/screenshots/ES1!_2026-02-26_09-30-57_092c3.png)
+*9:30 — ES confirming.*
+
+![YM FCR](../../data/screenshots/YM1!_2026-02-26_09-31-24_27200.png)
+*9:31 — YM confirming. All three aligned.*
+
+### Macro Confirmation
+
+![CL Risk-Off](../../data/screenshots/CL1!_2026-02-26_11-49-54_17186.png)
+*CL rallying all session — risk-off institutional rotation. Equities down, commodities bid.*
+
+![GC Safe Haven](../../data/screenshots/GC1!_2026-02-26_11-50-04_16574.png)
+*GC holding elevated — safe haven bid confirmed.*
+
+![RTY SMT](../../data/screenshots/RTY1!_2026-02-26_11-50-31_9744b.png)
+*RTY lagging the bounce throughout — SMT divergence intact = bearish continuation signal.*
+
+### The Plan
+
+![MNQ Full Projection](../../data/screenshots/Screenshot%202026-02-26%20at%2011.22.56.png)
+*11:22 — MNQ full trade plan. Entry: 25,060. SL: 25,139. TP: 24,715. The plan was correct.*
+
+![NQ 1-2-3 Setup](../../data/screenshots/NQ1!_2026-02-26_12-02-35_afc7b.png)
+*12:02 — NQ 1-2-3 continuation second retrace. Planned entry visible.*
+
+### The Entry
+
+![Entry Confirmed](../../data/screenshots/Screenshot%202026-02-26%20at%2013.37.35.png)
+*13:37 — Entry fill. SHORT 3 MNQ at 25,000.5. FOMO'd from 25,060 to 25,000 under time pressure.*
+
+### SL Hit
+
+![SL Hit](../../data/screenshots/Screenshot%202026-02-26%20at%2014.49.44.png)
+*14:49 — SL hit at 25,093.5. Net: -$558. At planned entry 25,060 / SL 25,139, this stop would NOT have been hit.*
+
+### ETH Confirmation — Direction Was Right
+
+![ETH Arc](../../data/screenshots/NQ1!_2026-02-26_23-33-39_d7ced.png)
+*23:33 — ETH session. Price reached 24,954. Scenario A SHORT played out. Entry was the only error.*
+
+---
+
 ## Forward Focus (Feb 27)
 
 1. **ZTH 1-on-1 at 7:30 AM** — show deliverables on public-preview, review session arc
