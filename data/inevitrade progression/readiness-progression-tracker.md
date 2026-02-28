@@ -1,323 +1,111 @@
-# Readiness Progression Tracker (built on INEVITRADE)
-*Extracted from Notion — Christopher Wilson*
+# 📊 Readiness Progression Tracker
+### Built on INEVITRADE Framework | Christopher Wilson
+*Living document — tracks progression through Information → Backtesting → Paper → Live phases*
+
+> 📌 *The trade data below is **template/example data** from the INEVITRADE framework — NOT personal trade records. The structure shows how data collection works at each phase.*
 
 ---
 
-How To Use This (Link To Course Module In Teachable)
-Milestones
-Complete Information Phase
-Backtesting: Complete 30 Trading Days with Positive Expectancy
-Paper Trading: Complete 30 Trades with Positive Expectancy
-Live Trading: Complete 30 Live Trades & Compare with Paper Trade Data
-Progression Board
-Information Phase
-4
-Backtesting Phase
-6
-Paper Trading Phase
-6
-Live Trading Phase
-4
-Next Steps
-4
-Join The Premium Community
-Complete
-Finish The Course
-Complete
-Get Additional Trading Books
-In Progress
-WHOP: Watch missed LIVE session recordings for continued deeper learning
-In Progress
-Setup Your Trade Station
-In Progress
-Choose Your Strategy
-In Progress
-Commence Bar Replay
-Not Started
-TCL
-In Progress
-SMOG
-In Progress
-Test IT-BOTS
-Not Started
-Replay to Demo Transition
-Not Started
-Setup Sim/Demo Account
-In Progress
-1
-Commence Paper Trading
-Not Started
-TCL
-In Progress
-SMOG
-In Progress
-Test IT-BOTS
-Not Started
-Open Trading Account
-Complete
-Design Trading Routine
-In Progress
-Scale Systematically
-Not Started
-Implement IT-BOTS
-Not Started
-Improve Workflow
-In Progress
-Refine & Retry
-Not Started
-Learn Another Strategy
-In Progress
-Refine IT-BOTS
-Not Started
-Trading Stats
-Phases
-Strategies
-Pairs
-Days
-Type
-Total
-Wins
-Win Rate
-AVG RR
-Avg W R
-Avg L R
-Expectancy
-Edit filters
-📌
-For stats table to work correctly, the win and loss check boxes need to be correctly checked and R/Factor must be filled out.
-Daily Trade Plan (Ignore Date, Click Arrows to Center)
-February 24
-February 25
-February 26
-February 27
-February 28
-March 1
-March 2
-March 3
-March 4
-8PM
-9PM
-10PM
-11PM
-12AM
-1AM
-2AM
-3AM
-4AM
-5AM
-6AM
-7AM
-8AM
-9AM
-10AM
-11AM
-12PM
-1PM
-2PM
-3PM
-4PM
-5PM
-6PM
-7PM
-8PM
-9PM
-10PM
-11PM
-12AM
-1AM
-2AM
-3AM
-4AM
-5AM
-6AM
-7AM
-8AM
-9AM
-10AM
-11AM
-12PM
-1PM
-2PM
-3PM
-4PM
-5PM
-6PM
-7PM
-8PM
-9PM
-10PM
-11PM
-12AM
-1AM
-2AM
-3AM
-4AM
-5AM
-6AM
-7AM
-8AM
-9AM
-10AM
-11AM
-12PM
-1PM
-2PM
-3PM
-4PM
-5PM
-6PM
-7PM
-8PM
-9PM
-10PM
-11PM
-12AM
-1AM
-2AM
-3AM
-4AM
-5AM
-6AM
-7AM
-8AM
-9AM
-10AM
-11AM
-12PM
-1PM
-2PM
-3PM
-4PM
-5PM
-6PM
-7PM
-8PM
-9PM
-10PM
-11PM
-12AM
-1AM
-2AM
-3AM
-4AM
-5AM
-6AM
-7AM
-8AM
-9AM
-10AM
-11AM
-12PM
-1PM
-2PM
-3PM
-4PM
-5PM
-6PM
-7PM
-8PM
-9PM
-10PM
-11PM
-12AM
-1AM
-2AM
-3AM
-4AM
-5AM
-6AM
-7AM
-8AM
-9AM
-10AM
-11AM
-12PM
-1PM
-2PM
-3PM
-4PM
-5PM
-6PM
-7PM
-8PM
-9PM
-10PM
-11PM
-12AM
-1AM
-2AM
-3AM
-4AM
-5AM
-6AM
-7AM
-8AM
-9AM
-10AM
-11AM
-12PM
-1PM
-2PM
-3PM
-4PM
-5PM
-6PM
-7PM
-8PM
-9PM
-10PM
-11PM
-12AM
-1AM
-2AM
-3AM
-4AM
-5AM
-6AM
-1:45 PM
-February 28, 2026
-Day
-Today
-Account Risk & Rebalance to Scale
-📚
-Master Trade Log
-All Trades
-Gallery (Ws)
-Gallery (Ls)
-Calendar
-COUNT
-54
-COUNT
-54
-COUNT
-54
-COUNT
-54
-SUM
-$3,429.00
-SUM
-34.29
-#
-Date
-Phase
-Day
-Pair
-Strategy
-TF
-Position
-Range %
-Risk %
-Win
-Loss
-Limit
-PnL $
-R/Factor
-Total Fees
-Macro EW # of Trade
-Fib Match Macro
-Confidence 1-5
-Duration
-Pre Notes
-Post Notes
-No results
-Load more
+## 🎯 Milestones
+
+- [ ] ✅ Complete Information Phase
+- [ ] 📋 **Backtesting:** Complete 30 Trading Days with Positive Expectancy
+- [ ] 📋 **Paper Trading:** Complete 30 Trades with Positive Expectancy
+- [ ] 📋 **Live Trading:** Complete 30 Live Trades & Compare with Paper Trade Data
+
+---
+
+## 📈 Progression Board
+
+| Phase | Status | Progress | Target |
+|---|---|---|---|
+| 🧠 Information | ✅ Complete | 4/4 modules | Watch all lessons |
+| 🔬 Backtesting | 🔄 In Progress | — / 30 days | Positive expectancy |
+| 📝 Paper Trading | ⏳ Pending | — / 30 trades | Positive expectancy |
+| 💰 Live Trading | ⏳ Pending | — / 30 trades | Compare to paper data |
+
+---
+
+## 📝 Daily Trade Plan Template
+
+| Section | Time | Focus |
+|---|---|---|
+| 🌅 Pre-Session | Before market open | Mark levels, review bias, set alerts |
+| 📊 Trading Session | 9:30–11:00 AM ET | Execute FCR, manage positions |
+| 🧘 Personal Check | Mid-session | Emotional state, discipline check |
+| 📓 Post-Session | After close | Journal trades, review execution |
+| 📋 Planning | Evening | Prep next day's levels, review data |
+
+---
+
+## 💰 Account Risk & Rebalance to Scale
+
+### 🔄 TCL Trading (Re-buy Stack Mechanism)
+
+1. **Split your total capital:**
+   - **40%** → Trading Account
+   - **60%** → Reserve Account
+
+2. **Risk 50% of Trading Account per trade**
+   - On loss → pull from Reserve to restore Trading Account
+
+3. **Rebalance at 50/50**
+   - When Trading Account grows to equal Reserve → stop & split 40/60 again
+   - Keeps risk controlled while capital grows
+
+4. **Reserve = Insurance**
+   - Holds enough for 2–3 losses at any time
+   - After loss → move funds from Reserve to Trading Account
+   - Replenish Reserve once wins recoup the loss
+
+### 📊 Traditional Risk Models
+
+| Model | Risk/Trade | When to Reduce | Goal |
+|---|---|---|---|
+| 🚀 **Growth** | 2–3% | Account drops 50%+ | Fast growth, high drawdown risk |
+| 🛡️ **Preservation** | 0.5–1% | Always reduce on drops | Consistency, long-term safety |
+| ⚖️ **Dynamic** | 1% → 1.5% → 2% | Drop to 0.5% at -25% | Balance growth & protection |
+
+**Dynamic Model Details:**
+- Start at **1%** risk per trade
+- Increase to **1.5%** at +25% account growth
+- Increase to **2%** at +50% account growth
+- Drop to **0.5%** if account falls >25%
+- Recheck every 10 trades
+
+---
+
+## 📊 Trading Stats (Template Structure)
+
+> *These fields auto-calculate in Notion when Win/Loss checkboxes and R/Factor are filled*
+
+| Metric | Formula | Notes |
+|---|---|---|
+| Win Rate | Wins ÷ Total Trades | Target: >50% |
+| Avg R Factor | Sum(R) ÷ Total Trades | Target: >1.5R |
+| Expectancy | (Win% × Avg Win) - (Loss% × Avg Loss) | Must be positive |
+| Max Drawdown | Largest peak-to-trough decline | Track per phase |
+| Profit Factor | Gross Profit ÷ Gross Loss | Target: >1.5 |
+
+---
+
+## 📋 Master Trade Log Structure
+
+| Field | Description |
+|---|---|
+| Date | Trade date |
+| Instrument | MNQ, MES, SOL, etc. |
+| Direction | Long / Short |
+| Entry | Entry price |
+| Stop Loss | SL price |
+| Take Profit | TP price |
+| R/Factor | (TP - Entry) ÷ (Entry - SL) |
+| Win/Loss | ✅ / ❌ |
+| Notes | Setup type, confluences, emotional state |
+
+---
+
+*📌 This tracker is maintained in the [trading-assistant public repo](https://github.com/drasticstatic/trading-assistant).*
+*Framework: INEVITRADE Readiness Progression System | Craig & Team*
+*Note: Trade data shown is template/example data for structure reference.*
+
