@@ -1,6 +1,6 @@
 # 🔄 Agent Sync — Living Context Document
 ### Auggie ↔ Fortuna ↔ Augment Intent Agents
-*Last updated: Feb 28, 2026 (evening session) — Auggie*
+*Last updated: Feb 28, 2026 (late evening) — Auggie*
 
 > **What this is:** A shared document that Auggie and Fortuna both read at the start
 > of every session to know where the other left off. Christopher relays between agents
@@ -29,14 +29,14 @@
 |---|---|
 | FastAPI server (port 8089) | ✅ Built + smoke tested |
 | MCP tools: get_alerts, get_alert_count, clear_alerts | ✅ Functional |
-| ngrok tunnel | ⏳ Next — needs install + config |
-| Live TradingView → webhook test | ⏳ webhook_alerts.pine is on Christopher's chart — ready to test |
+| ngrok tunnel | ✅ **LIVE** — `https://semiempirically-unrhythmic-kym.ngrok-free.dev` → localhost:8089 |
+| Live TradingView → webhook test | ✅ Test event received and stored. webhook_alerts.pine on chart. |
 | MCP registered with Claude Code | ⏳ NOT YET |
 
 ### Pine Scripts — `tradingview/pine_scripts/`
 | Item | Status |
 |---|---|
-| fcr_levels.pine **v3** | ✅ 250 lines, complete rewrite |
+| fcr_levels.pine **v3.1** | ✅ 269 lines — Style tab colors restored, FCR arrows with tails, FVG ticks, pattern logic fixed |
 | FCR placement | ✅ 9:30 candle HIGH/LOW wicks — current day solid 2px + past 2 days dashed 1px |
 | Colors | ✅ Full color system: KEY=cyan 3px, 5/5=cyan 1px, 4/5=cyan dashed, 4/5 yesterday=yellow dashed, 3/5=cyan dotted, Ghost=violet dotted |
 | Labels | ✅ ▲/▼ arrows at size.small (larger than v2) |
@@ -60,8 +60,8 @@
 ## 📋 Pending Work Queue (Priority Order)
 
 1. ~~Pine Script v3~~ ✅ DONE — v3 with full color system, past 2 days FCR, ZTH fixed
-2. **ngrok setup** — installed via brew, needs real auth token → test TV→webhook pipeline
-3. **Register both MCP servers** with Claude Code
+2. ~~ngrok setup~~ ✅ DONE — tunnel live, test event received
+3. **Register both MCP servers** with Claude Code (next session with Christopher)
 4. ~~Notion → Markdown conversion~~ ✅ DONE — clean workbook + tracker in data/Inevitrade Progression/
 5. ~~Bootcamp session notes~~ ✅ DONE — 7 sessions extracted, moved to strategies/inevitrade/context/
 6. ~~Prop firm plans → specs~~ ✅ DONE — Paladin Protocol + progression plan in trading-system.spec.md
@@ -69,6 +69,8 @@
 8. **Strategies dir buildout** — expand with all IT/ZTH/STB strategy details (Augment Intent first task)
 9. **Break & Retest detection** — needs level-tracking state in Pine Script (complex)
 10. **Pattern accuracy tuning** — R/P/B/C labels need validation on live chart
+11. **ZTH context built** — strategies/zerotohero/context/zth-level-system.md (from Level Analysis RTF + Cheat Sheet PDF)
+12. **Indicator guide** — tradingview/pine_scripts/INDICATOR_GUIDE.md (for TradingView "about this script")
 
 ---
 
@@ -108,7 +110,14 @@
 
 > "I want you both to be aware of what I am saying to both of you and what your responses are without using a bunch of credits for you to stay on the same page and without stepping on each other or double burning credits"
 
-**CORRECTION:** "Real-time price for context should come from TradingView (already integrated via Pine Script)" was WRONG. Pine Script cannot send data outside TradingView except via alerts. The webhook server + webhook_alerts.pine is the actual data pipe (needs ngrok to complete).
+**CORRECTION:** "Real-time price for context should come from TradingView (already integrated via Pine Script)" was WRONG. Pine Script cannot send data outside TradingView except via alerts. The webhook server + webhook_alerts.pine is the actual data pipe. **Now complete — ngrok tunnel live.**
+
+### Late Evening Session
+13. **Pine Script v3.1** — Style tab colors restored (all plot colors now use `input.color`), FCR arrows larger (`size.normal`) with "▲ LONG" / "▼ SHORT" text + pointer tails, FVG threshold now in ticks (instrument-aware via `syminfo.mintick`), pattern logic corrected (R=rejection off resistance only, B=bounce off support only, added `bounce_wick_pct` control)
+14. **ngrok pipeline LIVE** — `https://semiempirically-unrhythmic-kym.ngrok-free.dev` → localhost:8089. Test event sent and received.
+15. **ZTH context file** — `strategies/zerotohero/context/zth-level-system.md` built from Level Analysis RTF + Cheat Sheet PDF
+16. **Indicator guide** — `tradingview/pine_scripts/INDICATOR_GUIDE.md` for TradingView "about this script"
+17. **Empty dirs fixed** — .gitkeep added to btcc, bybit, dex, TopStep, STB context
 
 ---
 
@@ -124,11 +133,11 @@ Fortuna has context on:
 
 Fortuna is waiting on:
 - MCP registration so she can query account data directly
-- Webhook pipeline so she receives live chart events
-- Updated synopsis from Auggie (this session's work)
+- ~~Webhook pipeline~~ ✅ LIVE — ngrok tunnel active
+- ~~Updated synopsis~~ ✅ This document is current
 
 ---
 
-*Updated by: Auggie | Feb 28, 2026*
-*Next update expected: After Pine Script v3 + ngrok setup*
+*Updated by: Auggie | Feb 28, 2026 (late evening)*
+*Next update expected: After MCP registration + live chart validation*
 
