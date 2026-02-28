@@ -1,6 +1,6 @@
 # 🔄 Agent Sync — Living Context Document
 ### Auggie ↔ Fortuna ↔ Augment Intent Agents
-*Last updated: Feb 28, 2026 — Auggie*
+*Last updated: Feb 28, 2026 (evening session) — Auggie*
 
 > **What this is:** A shared document that Auggie and Fortuna both read at the start
 > of every session to know where the other left off. Christopher relays between agents
@@ -36,16 +36,15 @@
 ### Pine Scripts — `tradingview/pine_scripts/`
 | Item | Status |
 |---|---|
-| fcr_levels.pine v2 | ✅ On chart, FCR rays working |
-| FCR placement | ✅ Fixed — 9:30 candle HIGH/LOW wicks |
-| Colors | ✅ Exact hex match (#1b5e20 / #801922) |
-| Labels | ✅ ▲/▼ arrows (need to be slightly larger) |
-| EMAs | ✅ Customizable periods |
-| ZTH L1-L5 | ⚠️ Needs verification — Christopher reports unclear |
-| Pattern labels (R/P/B/C) | ⚠️ Not aligning 100% with actual setups |
-| Break & Retest (BR) | ⏳ Not yet implemented — needs threshold control |
-| Past 2 days FCR (dashed) | ⏳ Requested — not yet built |
-| FVG threshold control | ⏳ Requested — not yet built |
+| fcr_levels.pine **v3** | ✅ 250 lines, complete rewrite |
+| FCR placement | ✅ 9:30 candle HIGH/LOW wicks — current day solid 2px + past 2 days dashed 1px |
+| Colors | ✅ Full color system: KEY=cyan 3px, 5/5=cyan 1px, 4/5=cyan dashed, 4/5 yesterday=yellow dashed, 3/5=cyan dotted, Ghost=violet dotted |
+| Labels | ✅ ▲/▼ arrows at size.small (larger than v2) |
+| EMAs | ✅ Customizable periods (9/21/50 default) |
+| ZTH L1-L5 | ✅ **FIXED** — each level has price input + type dropdown (KEY/5-5/4-5/3-5/Ghost). Was broken because old code used wrong function + gold-only color |
+| Pattern labels (R/P/B/C) | ✅ Built with configurable thresholds (wick%, body%). Accuracy TBD with live chart |
+| Break & Retest (BR) | ⏳ Not yet — needs level-tracking state (complex in Pine) |
+| FVG threshold | ✅ Min size control in points (0=show all) |
 | webhook_alerts.pine | ✅ On chart, ready for ngrok test |
 
 ### Augment Intent — `specs/`
@@ -60,14 +59,16 @@
 
 ## 📋 Pending Work Queue (Priority Order)
 
-1. **Pine Script v3** — larger labels, past 2 days FCR, fix ZTH, improve patterns, B&R + threshold
-2. **ngrok setup** — install, configure, test TV→webhook pipeline
+1. ~~Pine Script v3~~ ✅ DONE — v3 with full color system, past 2 days FCR, ZTH fixed
+2. **ngrok setup** — installed via brew, needs real auth token → test TV→webhook pipeline
 3. **Register both MCP servers** with Claude Code
-4. **Notion → Markdown conversion** — Readiness Progression Tracker + Inner Circle Workbook
-5. **Bootcamp session notes** — read from iCloud, gain context
-6. **Prop firm plans → specs** — incorporate progression plan + scaling SOP
-7. **Public repo readme** — high-level synopsis for coaches in setup/
-8. **Strategies dir buildout** — expand with all IT/ZTH/STB strategy details
+4. ~~Notion → Markdown conversion~~ ✅ DONE — clean workbook + tracker in data/Inevitrade Progression/
+5. ~~Bootcamp session notes~~ ✅ DONE — 7 sessions extracted, moved to strategies/inevitrade/context/
+6. ~~Prop firm plans → specs~~ ✅ DONE — Paladin Protocol + progression plan in trading-system.spec.md
+7. ~~Public repo readme~~ ✅ DONE — setup/system-overview.md
+8. **Strategies dir buildout** — expand with all IT/ZTH/STB strategy details (Augment Intent first task)
+9. **Break & Retest detection** — needs level-tracking state in Pine Script (complex)
+10. **Pattern accuracy tuning** — R/P/B/C labels need validation on live chart
 
 ---
 
@@ -82,21 +83,32 @@
 
 ---
 
-## 📡 For Fortuna — What Auggie Built (Session Feb 28)
+## 📡 For Fortuna — What Auggie Built (Full Session Feb 28)
 
-Auggie completed:
-1. Playwright browser auth (bypasses Tradovate API subscription)
-2. All 6 MCP tools validated on APEX
+### Morning Session
+1. Playwright browser auth (bypasses Tradovate API subscription for prop firms)
+2. All 6 MCP tools validated on APEX (get_account, get_positions, get_fills, get_orders, get_quote, get_contract)
 3. Pine Script v2 (FCR fixed, patterns, EMAs, ZTH, FVGs)
 4. TradingView webhook server (FastAPI + MCP)
 5. Webhook alert Pine Script (fires JSON on chart events)
 6. Augment Intent spec files (7 specs + AGENTS.md)
-7. This shared context document
 
-**Fortuna should know:** The TradingView "already integrated via Pine Script" line from the
-earlier synopsis was incorrect. Pine Script runs in TradingView's sandbox — no data flows
-out automatically. The webhook server + webhook_alerts.pine is the actual data pipe, and it
-needs ngrok to complete the connection.
+### Evening Session
+7. **Pine Script v3** — full rewrite with correct ZTH level system (KEY/5-5/4-5/3-5/Ghost with exact colors from chart-analysis-workflow), past 2 days FCR (dashed), larger arrow labels, FVG threshold, configurable pattern sensitivity
+8. **Inevitrade content** — extracted 7 bootcamp session PDFs + Notion workbook/tracker → clean markdown. Bootcamp notes moved to strategies/inevitrade/context/ (private). Clean workbook + tracker in data/ (public for coach sharing)
+9. **Prop firm specs** — Paladin Protocol risk management, Treasury allocation, progression plan all in trading-system.spec.md
+10. **GitHub sync fixed** — updated sync-public.yml to exclude new private dirs. Push triggered.
+11. **Augment Intent startup prompt** — specs/INTENT_STARTUP.md ready to copy-paste
+12. **This shared doc** — AGENT_SYNC.md for persistent Auggie ↔ Fortuna context
+
+### Verbatim from Christopher (important context)
+> "I am sitting here resonating with what Craig (who started Inevitrade) said today, I am so glad that trading has provided what not only looks like a way forward but such a cool community of people to journey with!"
+
+> "the trade data in the readiness progression tracker is dummy template data to show the effectiveness of how the notion uses that data - it is NOT my personal data"
+
+> "I want you both to be aware of what I am saying to both of you and what your responses are without using a bunch of credits for you to stay on the same page and without stepping on each other or double burning credits"
+
+**CORRECTION:** "Real-time price for context should come from TradingView (already integrated via Pine Script)" was WRONG. Pine Script cannot send data outside TradingView except via alerts. The webhook server + webhook_alerts.pine is the actual data pipe (needs ngrok to complete).
 
 ---
 
