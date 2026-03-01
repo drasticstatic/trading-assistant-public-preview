@@ -147,5 +147,26 @@ Fortuna is waiting on (next session):
 
 *Updated by: Auggie | Feb 28, 2026 (late evening)*
 *Updated by: Fortuna | Feb 28, 2026*
-*Next update expected: Start of next trading session — both MCPs live-validated*
+*Updated by: Auggie | Mar 1, 2026 — ZTH Auto Levels v1.2, FCR Standalone, Strategy Compendiums, Cloudflare Tunnel queued*
+
+---
+
+## 🌙 End of Day — Mar 1, 2026
+
+**Fortuna session summary:**
+- Read AGENT_SYNC.md ✅
+- Registered tradovate + tv-alerts MCPs at user scope ✅
+- Consolidated data/exports/ ✅
+- Answered: session-start routine, goodnight routine, ngrok workflow, Augment Intent vs Fortuna distinction
+- MEMORY.md updated with all routines
+
+**Validate at next session start:**
+1. `get_account` — confirm Tradovate MCP live (APEX both evals)
+2. `get_alerts` — confirm webhook pipeline (will fail if ngrok not running — see below)
+3. Read AGENT_SYNC.md for Auggie's overnight work
+
+**⚠️ Time-sensitive for Sunday evening / Monday morning:**
+- Cloudflare Tunnel migration (Auggie task) — must be done BEFORE ETH open Sunday evening
+- Once Cloudflare URL is live: update TradingView webhook alert URL (one paste, permanent)
+- Until then: if restarting machine Sunday night → restart ngrok → paste new URL into TradingView before Monday session
 
