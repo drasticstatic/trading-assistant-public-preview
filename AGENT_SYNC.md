@@ -6,8 +6,10 @@
 > of every session to know where the other left off. Christopher relays between agents
 > but this doc ensures nothing gets lost in translation.
 >
-> **Rule:** Both agents update this doc when they complete significant work.
+> **Rule:** All agents update this doc when they complete significant work.
 > **Visibility:** Private repo only (excluded from public via gitexporter.config.json).
+> **Sync protocol:** Two clones on `main` — push after commits, pull at session start.
+> Auggie/Fortuna: `~/ClaudeCodeCLI/trading-assistant` | Intent: `~/intent/workspaces/md-sync/trading-assistant`
 
 ---
 
@@ -55,26 +57,34 @@
 | Spec files (6 component specs) | ✅ Written — updated Mar 1 with Cloudflare Tunnel |
 | INTENT_STARTUP.md | ✅ Updated Mar 1 — reflects current system state |
 | Augment Intent installed | ✅ Christopher confirmed |
-| First workflow | ⏳ Christopher about to run |
+| First workflow | ✅ Completed Mar 1 — strategy documentation buildout |
 
 ### Strategy Context — `strategies/`
 | Item | Status |
 |---|---|
-| Inevitrade compendium | ✅ `strategies/inevitrade/context/inevitrade-strategies.md` — 35A, G2, SMOG 3.0, TCL 1.0/2.0 |
+| **Inevitrade — 7 living reference docs** | ✅ Built by Intent Mar 1 (replaced old compendium) |
+| → smog-reference.md (318 lines) | ✅ SMOG & SMOG 3.0 — HA trailing, SMOG Plus, 15min confluences |
+| → tcl-reference.md (389 lines) | ✅ TCL 1.0 Max/Ultra & 2.0 — confirmed fibs, DCA stacking table |
+| → tc-reference.md | ✅ TC1 & TC2 — confirmed fib levels (TC1: TP=1.272/Entry=0.382/SL=0.17) |
+| → ch-reference.md | ✅ CH1 & CH2 — channel trading, staged risk reduction |
+| → g2-reference.md | ✅ G2 continuation with SMOG relationship |
+| → 35a-reference.md | ✅ 35A Elliott Wave reversal with Shark Fin confluences |
+| → strategy-guide.md | ✅ Selection decision tree, evolution history, SMC concepts |
+| Old files consolidated | ✅ smog-strategy.md, tcl-strategy.md, inevitrade-overview.md, inevitrade-strategies.md → merged + deleted |
 | ZTH level system | ✅ `strategies/zerotohero/context/zth-level-system.md` — all setups with entry/stop/confluence |
-| Bootcamp session notes | ✅ 7 sessions extracted in `strategies/inevitrade/context/` |
-| Strategy expansion | ✅ Consolidated — 7 standalone reference docs, 4 redundant files removed |
+| Bootcamp session notes | ✅ 7 sessions preserved in `strategies/inevitrade/context/` |
 
 ---
 
 ## 📋 Pending Work Queue (Priority Order)
 
 See **PENDING-TASKS.md** for the full prioritized list. Key items:
-1. 🔴 **Cloudflare Tunnel** — Auggie building now, before ETH open Sun evening
+1. ⏳ **Cloudflare Tunnel** — blocked on domain purchase (support ticket open). ngrok fallback active + Fortuna-managed.
 2. 🔴 **ZTH level accuracy tuning** — awaiting Christopher's visual feedback
-3. ~~**Strategy context expansion**~~ — ✅ Complete (7 reference docs consolidated)
-4. **Break & Retest detection** — complex Pine state tracking
-5. **Pattern accuracy tuning** — R/P/B/C validation on live chart
+3. ~~**Strategy context expansion**~~ — ✅ Complete (7 living reference docs built by Intent)
+4. **Entry rule reference card** — Christopher building via Intent
+5. **Break & Retest detection** — complex Pine state tracking
+6. **Pattern accuracy tuning** — R/P/B/C validation on live chart
 
 ---
 
