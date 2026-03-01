@@ -15,6 +15,7 @@
 | 003 | Feb 25 | MNQ | Long | 25,278.75 | TP 25,420.00 | **+$565.00** | 2.34 | 100 | 4/5 | ✅ All 5 layers | ✅ Never threatened | **Yes** |
 | 004 | Feb 25 | SOL/USDT | Long | $87.4701 | $91.5556 | **+$20.63 USDT** | — | — | — | ✅ EMA crossover + FVG | ✅ | **Yes** |
 | 005 | Feb 26 | MNQ | Short | 25,000.5 | SL 25,093.5 | **-$558.00** | — | -100 | 1/5 | ❌ FOMO (25,000 vs planned 25,060) | ✅ Held | No |
+| 006 | Feb 27 | MNQ | Short (planned) | 25,000–25,060 zone | No fill | **$0** | — | N/A | N/A | ✅ Level held — entry not adjusted | N/A | Partial |
 
 ---
 
@@ -25,9 +26,10 @@ Feb 23   -$100.50   ████░░░░░░░░░░░  loss
 Feb 24    -$35.00   █░░░░░░░░░░░░░░  loss (improvement)
 Feb 25   +$565.00   ████████████████ WIN ✅
 Feb 26   -$558.00   ███████████████░ loss (correct direction, wrong entry)
+Feb 27       $0.00  ────────────────  no fill (correct direction, level held ✅)
 
-Cumulative (Feb 23–26): -$128.50
-Note: Feb 25 → Feb 26 net: +$7.00 — direction correct, entry cost the session
+Cumulative (Feb 23–27): -$128.50
+Note: Feb 27 adds $0 — neutral outcome. Directional read correct (3rd consecutive session).
 ```
 
 ---
@@ -42,6 +44,7 @@ Note: Feb 25 → Feb 26 net: +$7.00 — direction correct, entry cost the sessio
 | Feb 25 MNQ | Happy, confident, anxious, neutral, excited | ✅ | ✅ All 5 layers | ✅ | None |
 | Feb 25 SOL | — | ✅ | ✅ EMA + FVG | ✅ | None |
 | Feb 26 MNQ | Ambivalent, angry, anxious, fearful, frustrated, stressed | ❌ | ❌ FOMO (25,000 vs planned 25,060) | ✅ | Level abandoned under time/life pressure |
+| Feb 27 MNQ | Exhausted from monitoring; conviction held | Partial | ✅ Level held — entry not adjusted (Pattern 5 fix) | N/A (no fill) | No fill — correct response |
 
 **Trend:**
 ```
@@ -51,6 +54,7 @@ Emotional stability:
   Feb 24  ████░░░░░░  Unstable — but SL held
   Feb 25  ██████████  STABLE ✅ — first time
   Feb 26  ████░░░░░░  Unstable — life pressure, FOMO
+  Feb 27  ████████░░  Partial — exhausted from monitoring; conviction held
 
 SL discipline:
   Feb 13  ░░░░░░░░░░  ❌ Stops moved
@@ -58,6 +62,7 @@ SL discipline:
   Feb 24  ████████░░  ✅ Held
   Feb 25  ██████████  ✅ Never threatened
   Feb 26  ████████░░  ✅ Held (not moved despite pressure)
+  Feb 27  ──────────  N/A — no fill
 
 Entry filter discipline:
   Feb 13  ░░░░░░░░░░  ❌
@@ -65,6 +70,7 @@ Entry filter discipline:
   Feb 24  ░░░░░░░░░░  ❌ Wrong scenario
   Feb 25  ██████████  ✅ All layers
   Feb 26  ████░░░░░░  ❌ FOMO — level abandoned at execution
+  Feb 27  ██████████  ✅ Level held — Pattern 5 fix applied (no fill)
 ```
 
 ---
@@ -77,6 +83,7 @@ Entry filter discipline:
 | Feb 24 | ~6/10 | — | ~6/10 | ~6/10 (SL held = partial credit) |
 | Feb 25 | **10/10** | **10/10** | **10/10** | **10/10** |
 | Feb 26 | ~4/10 | ~5/10 | ~4/10 | ~4/10 (SL held + direction correct = partial credit) |
+| Feb 27 | ~8/10 | ~8/10 | ~8/10 | ~8/10 (level held + direction correct; no fill = neutral, not a loss) |
 
 ---
 
@@ -89,6 +96,7 @@ Entry filter discipline:
 | Feb 25 MNQ | ✅ Scenario B | ✅ Green dom | ✅ 5/5 | ✅ SMT at fill | ✅ Fib golden pocket | **5/5** | **A+** |
 | Feb 25 SOL | ✅ EMA crossover | ✅ Green dom | ✅ | — | — | 3/3 | **A** |
 | Feb 26 MNQ | ✅ Scenario A SHORT | ✅ Red dom | ⚠️ FVG (wrong level) | ⚠️ Partial | ✅ Fib used | 2/5 | **D** |
+| Feb 27 MNQ | ✅ Scenario A SHORT | ✅ Red dom | ✅ FVG at structural level | ✅ Confirmed | — | 4/5 | **B+** (no fill — level correct) |
 
 ---
 
@@ -101,6 +109,7 @@ Entry filter discipline:
 | Feb 25 | MNQ | 5h 33m 14s | Held past RTH close — conviction hold | Worked lathe. 4:30 hard stop rule followed. |
 | Feb 25 | SOL | ~2.5 hours | Exited near HOD | Good exit read |
 | Feb 26 | MNQ | 1h 10m 17s | SL hit at 25,093.5 | Direction correct post-SL — price reached 24,954 by 6 PM ET |
+| Feb 27 | MNQ | All day (~13:00–17:00) | No fill — orders cancelled at 5 PM | Level held. Entry not adjusted. Neutral outcome. Market continued lower Mar 1. |
 
 ---
 
@@ -114,6 +123,8 @@ Entry filter discipline:
 | Feb 25 | Inevitrade | 11:00–13:00 live call — found Christopher already in trade | Coaches excited, read validated live |
 | Feb 26 | STB + ZTH | STB coach: 9:15 OB + SMT entry, +4.44R. ZTH: bounce long called correctly | Christopher + Inevitrade members all watching same second retrace setup — all missed the fill |
 | Feb 26 | Inevitrade | Second retrace setup identified (1-2-3 continuation) | Correct analysis — entry FOMO'd from 25,060 to 25,000 — SL hit — direction confirmed post-SL |
+| Feb 27 | ZTH | Morning session replaced pre-market summary. Coach: "how does it feel to find yourself more consistent and disciplined?" | Behavioral confirmation from coach. Christopher: "great, now to adjust parameters to pass these evals." |
+| Feb 27 | Inevitrade | Afternoon session — coach mapped TCL setup on ES at same structural zone | Coach also did not enter. Two frameworks, same thesis, same outcome. |
 
 **Note on coaching groups:** STB = FCR at the 9:30 AM open (additional STB strategies to be introduced over time). ZTH = setups monitored and looked for all day long, not limited to the open. Inevitrade = IT Foundation strategies applied outside the NY AM session (afternoons, overnight, pre-market). All groups interact across sessions and masterclasses at various times of day.
 
@@ -170,7 +181,7 @@ Fix:        Pre-plan entry AND SL before session. No last-minute
             adjustments. "If it doesn't fill at the structural level,
             the trade said no." External time pressure is not a reason
             to modify a trading plan.
-Status:     🔴 NEW — needs to be addressed in next session
+Status:     ✅ Fix applied Feb 27 — level held under same pressure within 24 hours
 Note:       Root cause same as Pattern 1 (FOMO) but mechanism differs:
             Feb 23 = entered at lower-quality FVG level (3/5 vs 5/5)
             Feb 26 = moved entry AWAY from structural level entirely
@@ -193,32 +204,43 @@ Feb 25  ████████████████████  ✅ FULL E
 Feb 26  ████████████░░░░░░░░  SL held ✅. Direction correct ✅. Entry wrong.
                                FOMO → 25,000 vs planned 25,060 → SL hit.
                                Post-SL price confirmed direction (24,954 by 6 PM)
+                               ↓ Pattern 5 identified → fix applied next session
+Feb 27  ████████████████████  ⚪ No fill — NEUTRAL OUTCOME ✅
+                               Level held. Entry not adjusted. $0.
+                               "I wanted to move my entry... but I didn't want
+                               to repeat of yesterday." — Pattern 5 fix confirmed.
+                               Market continued lower Mar 1 — direction correct (3rd consecutive session).
 
-Arc status: Ongoing. SL discipline confirmed (5 sessions, 0 stops moved).
-Entry discipline: The next frontier.
+Arc status: Ongoing. SL discipline confirmed (5/5 sessions, 0 stops moved).
+Entry discipline: Pattern 5 fix applied within 24 hours — confirmed behavioral change.
+Next frontier: Consistency. One A+ setup per session through eval week.
 ```
 
 ---
 
-## Statistical Summary (Feb 23 – Feb 25)
+## Statistical Summary (Feb 23 – Feb 27)
 
 | Metric | Value |
 |--------|-------|
-| Total trades | 5 (4 futures, 1 crypto) |
+| Total trade entries | 5 (4 futures, 1 crypto) |
+| Monitoring sessions (no fill) | 1 (Feb 27) |
 | Winners | 2 |
 | Losers | 3 |
-| Win rate | 40% |
+| No fills (neutral) | 1 |
+| Win rate (filled trades) | 40% |
 | Avg winner | +$292.82 (USD futures) |
 | Avg loser | -$230.50 (USD futures) |
 | Total P&L (USD futures) | -$128.50 |
 | Total P&L (crypto) | +$20.63 USDT |
-| SL respected | 5/5 — 100% ✅ |
+| SL respected | 5/5 filled sessions — 100% ✅ |
 | Stops moved | 0/5 ✅ |
-| A+ entry filters honored | 2/5 |
+| A+ entry filters honored | 2/5 filled trades |
+| Level held at structural zone | 1/1 (Feb 27 — first application) |
 | Emotionally stable sessions | 1/5 (Feb 25) |
 | Zella Score range | -100 → 100 |
 | Best session | Feb 25 (100 Zella, 10/10 all scores) |
-| Directionally correct reads | 4/5 (Feb 24 wrong scenario; all others correct direction) |
+| Directionally correct reads | 5/6 sessions (Feb 24 wrong scenario; all others correct direction including Feb 27 unfilled) |
+| Pattern 5 fix | ✅ Applied Feb 27 — within 24 hours of identification |
 
 ---
 
@@ -232,6 +254,7 @@ Links to individual reviews:
 - [Feb 25 — MNQ Long](review_20260225_MNQ_001.md)
 - [Feb 25 — SOL Long](review_20260225_SOL_001.md)
 - [Feb 26 — MNQ Short](review_20260226_MNQ_001.md)
+- [Feb 27 — MNQ Short (no fill)](review_20260227_MNQ_001.md)
 
 ---
 
