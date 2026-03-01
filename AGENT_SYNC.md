@@ -156,6 +156,20 @@ Fortuna ready for:
 
 ---
 
+## 📡 Strategy Context Expansion — Kavanah Fleet (Augment Intent)
+
+**Date:** Mar 1, 2026
+**Source:** Augment Intent — Kavanah Fleet coordination
+
+Strategy context expansion completed. Per-model actionable reference docs created:
+- `strategies/inevitrade/smog-3.0-reference.md` — SMOG 3.0 strategy reference
+- `strategies/inevitrade/tcl-reference.md` — TCL strategy reference
+- `strategies/inevitrade/g2-35a-reference.md` — G2 / 35A strategy reference
+
+These expand the existing compendium (`strategies/inevitrade/context/inevitrade-strategies.md`) into standalone, actionable docs per strategy model.
+
+---
+
 ## 🌙 End of Day — Mar 1, 2026
 
 **Fortuna session summary:**
