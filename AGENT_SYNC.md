@@ -170,6 +170,33 @@ These expand the existing compendium (`strategies/inevitrade/context/inevitrade-
 
 ---
 
+## 🔄 Repository Sync Setup — Multi-Environment (Mar 1, 2026)
+
+**Change:** The trading-assistant repo now uses **two independent clones on `main`** instead of git worktrees on separate branches.
+
+### Active Clones
+| Location | Primary User | Branch |
+|---|---|---|
+| `~/ClaudeCodeCLI/trading-assistant` | Fortuna (Claude CLI) + Auggie (Augment CLI) + VSCode | `main` |
+| `~/intent/workspaces/md-sync/trading-assistant` | Kavanah Fleet (Augment Intent) | `main` |
+
+### Sync Protocol
+- **After committing:** Push to `origin main` → the other clone pulls to sync
+- **Before starting a session:** Pull `origin main` to get latest changes
+- **Conflict resolution:** If two agents edit the same file simultaneously, resolve merge conflicts live
+- Both clones point to the same GitHub remote: `git@github.com:drasticstatic/trading-assistant.git`
+
+### Agent Responsibilities
+- **Fortuna:** After committing, run `git push origin main`. At session start, run `git pull origin main`.
+- **Auggie:** Same — push after commits, pull at session start.
+- **Kavanah (Intent):** Same — push after commits, pull at session start.
+- **All agents:** If you detect uncommitted changes from another agent's session, alert Christopher before overwriting.
+
+### Why This Changed
+Previously the Intent workspace used a git worktree on a separate branch (`trading-assistant-coordinator`). This caused files created in Intent to not appear in VSCode/Fortuna's clone until manually merged. Now both clones are on `main` with push/pull sync via GitHub — simple and predictable.
+
+---
+
 ## 🌙 End of Day — Mar 1, 2026
 
 **Fortuna session summary:**
