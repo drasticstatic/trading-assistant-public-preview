@@ -22,7 +22,7 @@
 | Tools: get_account, get_positions, get_fills, get_orders | ✅ All returning clean data |
 | Tools: get_quote, get_contract | ✅ Contract specs correct (tick size, value, expiry) |
 | Live bid/ask quotes | ❌ REST not available — WebSocket only (future) |
-| MCP registered with Claude Code | ⏳ NOT YET — immediate next step |
+| MCP registered with Claude Code | ✅ Registered Feb 28 by Fortuna — active next session |
 
 ### TradingView Webhook Receiver — `MCP Servers/webhook_receiver/`
 | Item | Status |
@@ -31,7 +31,7 @@
 | MCP tools: get_alerts, get_alert_count, clear_alerts | ✅ Functional |
 | ngrok tunnel | ✅ **LIVE** — `https://semiempirically-unrhythmic-kym.ngrok-free.dev` → localhost:8089 |
 | Live TradingView → webhook test | ✅ Test event received and stored. webhook_alerts.pine on chart. |
-| MCP registered with Claude Code | ⏳ NOT YET |
+| MCP registered with Claude Code | ✅ Registered Feb 28 by Fortuna — active next session |
 
 ### Pine Scripts — `tradingview/pine_scripts/`
 | Item | Status |
@@ -61,7 +61,7 @@
 
 1. ~~Pine Script v3~~ ✅ DONE — v3 with full color system, past 2 days FCR, ZTH fixed
 2. ~~ngrok setup~~ ✅ DONE — tunnel live, test event received
-3. **Register both MCP servers** with Claude Code (next session with Christopher)
+3. ~~Register both MCP servers~~ ✅ DONE — Fortuna registered tradovate + tv-alerts Feb 28
 4. ~~Notion → Markdown conversion~~ ✅ DONE — clean workbook + tracker in data/Inevitrade Progression/
 5. ~~Bootcamp session notes~~ ✅ DONE — 7 sessions extracted, moved to strategies/inevitrade/context/
 6. ~~Prop firm plans → specs~~ ✅ DONE — Paladin Protocol + progression plan in trading-system.spec.md
@@ -131,13 +131,21 @@ Fortuna has context on:
 - TradeZella export analysis workflow
 - Christopher's prop firm account structure
 
-Fortuna is waiting on:
-- MCP registration so she can query account data directly
-- ~~Webhook pipeline~~ ✅ LIVE — ngrok tunnel active
-- ~~Updated synopsis~~ ✅ This document is current
+Fortuna completed Feb 28:
+- ✅ Registered tradovate MCP + tv-alerts MCP at user scope in ~/.claude.json
+- ✅ Consolidated data/trades/ + data/tradezella-exports/ → data/exports/ (standard naming)
+- ✅ Updated PENDING-TASKS.md with full Feb 28 build status
+- ✅ This sync doc updated
+
+Fortuna is waiting on (next session):
+- Live get_account call to validate Tradovate MCP (requires new session — MCPs load at start)
+- Live get_alerts call to validate webhook pipeline
+- Pine Script feedback from Christopher (pattern accuracy, any visual tweaks)
+- Weekend review: STB_export_20260228_weekend-review.md (when ready)
 
 ---
 
 *Updated by: Auggie | Feb 28, 2026 (late evening)*
-*Next update expected: After MCP registration + live chart validation*
+*Updated by: Fortuna | Feb 28, 2026*
+*Next update expected: Start of next trading session — both MCPs live-validated*
 
