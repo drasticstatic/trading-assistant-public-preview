@@ -14,9 +14,9 @@
 | Feb 25 | MNQ Long | ↑ Scenario B | 25,278.75 | **+$565.00** | ✅ Never threatened | ✅ All 5 layers — A+ | **Yes** |
 | Feb 25 | SOL Long | ↑ | — | **+$20.63** | ✅ | ✅ EMA + FVG | **Yes** |
 | Feb 26 | MNQ Short | ↓ Scenario A | 25,000.5 | -$558.00 | ✅ Held | ❌ Entry moved off structure | No |
-| Feb 27 | — | — | — | — | — | — | — |
+| Feb 27 | MNQ (planned) | ↓ Scenario A | 25,000–25,060 (no fill) | $0 | N/A | ✅ Level held (Pattern 5 fix) | Partial |
 
-**Running P&L (post-blowup):** -$108.87 &nbsp;|&nbsp; **SL Discipline:** 5/5 sessions ✅
+**Running P&L (post-blowup):** -$108.87 &nbsp;|&nbsp; **SL Discipline:** 5/5 sessions ✅ &nbsp;|&nbsp; **Feb 27:** No fill — neutral outcome
 
 ---
 
@@ -196,16 +196,51 @@ Under time pressure (needed to leave for work), he moved the entry from 25,060 t
 
 ---
 
-## Feb 27 — Open (Friday)
+## Feb 27 — "The level held — and that's the win"
 
-*Session in progress. This section will be updated if a trade is taken today.*
+**Result: ⚪ No Fill — $0** &nbsp;|&nbsp; Scenario A SHORT (planned) &nbsp;|&nbsp; Entry level held — Pattern 5 fix applied
 
-| Field | Value |
-|-------|-------|
-| Session | Friday AM — ZTH 7:30 coach session |
-| Scenario | TBD — pre-market read pending |
-| Trade | None yet |
-| P&L | — |
+Pre-market replaced by ZTH morning coaching session. ZTH coach's opening question: *"how does it feel to find yourself more consistent and disciplined?"* The coaches are watching the same arc Fortuna is documenting. Around lunchtime, Christopher identified a SHORT continuation setup — the same structural entry zone from Feb 26 (25,000–25,060 FVG resistance) that was abandoned the day before. This time: he set the Sell Limit at the structural level and left it there all day.
+
+The Inevitrade afternoon session was running simultaneously. The Inevitrade coach independently mapped a TCL setup on ES at the same structural zone. The coach also did not enter. Two separate frameworks, same thesis, same outcome — the level held its criteria.
+
+Price traded below the entry zone the entire session. Christopher held the order through 4 PM RTH close and gave it until 5 PM ETH — conviction, not FOMO. At 5 PM: no fill. Orders cancelled. Market has continued lower since.
+
+*"I wanted to move my entry a few times so that I could ensure getting in the trade, but I didn't want to repeat of yesterday so I stayed convicted to my plan."*
+
+That sentence is Pattern 5 solved.
+
+<table>
+<tr>
+<td width="33%" align="center">
+<img src="../../data/screenshots/Screen Shot 2026-02-27 at 13.03.35.png" width="100%"/>
+<br/><sub><b>~13:03</b> — NQ1! 5-min. Sell Limit placed in FVG structural zone (~25,000–25,060). Price well below entry — not chasing.</sub>
+</td>
+<td width="33%" align="center">
+<img src="../../data/screenshots/IMG_3971.jpeg" width="100%"/>
+<br/><sub><b>~13:25</b> — Inevitrade coach's ES chart (light BG, phone photo). TCL sell limits at 6883/6876.50. Same thesis, different framework. Coach also never entered.</sub>
+</td>
+<td width="33%" align="center">
+<img src="../../data/screenshots/Screen Shot 2026-02-27 at 16.05.05.png" width="100%"/>
+<br/><sub><b>16:05</b> — NQ1! end of RTH. Entry zone still not reached. Order held open through 4 PM close → cancelled at 5 PM ETH.</sub>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="50%" align="center">
+<img src="../../data/screenshots/Screen Shot 2026-02-27 at 16.06.51.png" width="100%"/>
+<br/><sub><b>16:06</b> — NQ with Mar 1 context visible. Price never reached the entry zone. The plan respected its own criteria.</sub>
+</td>
+<td width="50%" align="center">
+<img src="../../data/screenshots/MNQ1!_2026-03-01_12-31-30_13e1f.png" width="100%"/>
+<br/><sub><b>Mar 1, 12:31</b> — MNQ current state. Continued lower. Directional thesis correct for the third consecutive session.</sub>
+</td>
+</tr>
+</table>
+
+> **Pattern 5 — Fixed (first application):** Feb 26: entry moved from 25,060 → 25,000 under pressure → -$558. Feb 27: entry held at structural zone under the same pressure → $0. Which outcome is correct? $0. Every time. "If it doesn't fill at the structural level, the trade said no."
 
 ---
 
@@ -215,12 +250,13 @@ Under time pressure (needed to leave for work), he moved the entry from 25,060 t
 Feb 23  Direction ✅  SL ✅  Entry ❌  (3/5 FVG, not 5/5)
 Feb 24  Direction ❌  SL ✅  Entry ❌  (EMA veto ignored)
 Feb 25  Direction ✅  SL ✅  Entry ✅  (All 5 layers — A+) → +$565
-Feb 26  Direction ✅  SL ✅  Entry ❌  (Level abandoned under pressure)
+Feb 26  Direction ✅  SL ✅  Entry ❌  (Level abandoned under pressure → Pattern 5)
+Feb 27  Direction ✅  N/A   Entry ✅  (Level held — no fill → Pattern 5 fix) → $0
 ```
 
-**What is resolved:** Stop movement — 5/5 sessions, zero violations. This was the Feb 13 cause of account loss. It has not reappeared.
+**What is resolved:** Stop movement — 5/5 sessions, zero violations. Entry level discipline — first confirmed fix applied on Feb 27 (Pattern 5 addressed within 24 hours of identification).
 
-**What is the work:** Entry execution. Three different mechanisms (wrong level grade, wrong scenario, FOMO adjustment), same root cause — correct analysis built in calm pre-session work, then modified or overridden at the moment of execution under pressure. Feb 25 showed what's available when the plan is honored end-to-end. That session is the template.
+**What is the work:** Consistency. Feb 25 showed the A+ template. Feb 27 showed the Pattern 5 fix. Now make both the standard. The eval timeline (APEX -05 due Wednesday) creates pressure — the rule is that eval pressure is not a trading input. One clean A+ setup per day is the path.
 
 ---
 
@@ -231,6 +267,7 @@ Feb 26  Direction ✅  SL ✅  Entry ❌  (Level abandoned under pressure)
 - [Feb 24 — MES Long -$35.00](../reviews/review_20260224_MES_001.md)
 - [Feb 25 — MNQ Long +$565.00](../reviews/review_20260225_MNQ_001.md)
 - [Feb 26 — MNQ Short -$558.00](../reviews/review_20260226_MNQ_001.md)
+- [Feb 27 — MNQ Short (no fill) $0](../reviews/review_20260227_MNQ_001.md)
 
 ---
 
