@@ -4,6 +4,134 @@
 
 ---
 
+## SmartTraderAI Pre-Market Copy-Paste Fields
+
+> *Note: This section reconstructed retroactively from session notes. The pre-market analysis was conducted live but not originally captured in SmartTraderAI format. All content derived from verified session documentation and confirmed session narrative.*
+
+---
+
+### 1. What news releases today?
+
+**Thursday Feb 26, 2026 — Economic Calendar:**
+- GDP Second Estimate Q4 2025: Possible Thursday AM release — monitor for revision vs. advance estimate
+- Weekly Initial Jobless Claims: Standard Thursday pre-market release
+- **No EIA Crude Oil Inventory** (EIA = Wednesdays only)
+- No scheduled high-impact Fed speakers that materially redirected the session
+
+**Macro backdrop going in:**
+After a two-day sell-off (Feb 23–24) and one counter-trend bounce (Feb 25 Scenario B LONG, full TP +$565), ETH on Feb 25→26 overnight showed renewed selling pressure. CL rallying + GC firm = commodities acting as risk-off safe havens. Institutional distribution picture was re-establishing heading into the 9:30 open.
+
+---
+
+### 2. What are the expected figures? What effect has this event had on the markets before?
+
+**GDP Q4 Second Estimate (if released today):**
+- Prior advance estimate: +2.3% annualized
+- Upward revision = labor strength = less Fed cut pressure = equity headwind
+- Downward revision = growth concern = stagflation risk = equity headwind
+- In a risk-off macro environment, either direction carries equity downside
+
+**Weekly Jobless Claims:**
+- Strong print (low claims) = tight labor = Fed higher-for-longer = equity headwind
+- Weak print (high claims) = recession signal = risk-off continuation
+- Both scenarios are equity-negative in a distribution environment
+
+**Practical FCR advantage:**
+Pre-market data prints before 9:30. Any volatility is absorbed and digested by 9:45. The FCR first candle close at 9:45 captures all of that reaction — this is the built-in filter. The data print changes the 9:30 open character, not the 9:45 conclusion.
+
+---
+
+### 3. List both your HTF bias and key levels
+
+**HTF Bias: BEARISH — distribution day**
+
+**NQ / ES / YM — 1-hour chart (pre-market read):**
+- IT Foundation EMAs: **Red dominant on all three.** Red EMA firmly above green. Not flat, not converging — steeply red. No ambiguity.
+- FRVP POC: Above current price on all three. Institutional volume weight overhead = supply confirmed.
+- Overnight ETH: Selling pressure resumed after Feb 25 bounce. Institutional supply above confirmed. Distribution pattern re-establishing.
+
+**Key levels (NQ):**
+```
+25,420:  Feb 25 TP ceiling — now overhead resistance
+25,139:  First bounce high — structural invalidation reference
+25,093:  Known strong older structural level — critical resistance / SL reference
+25,060:  Planned second retrace SHORT entry (structural second touch / lower high)
+24,715:  Structural TP target zone for continuation move
+```
+
+**Confirming instruments:**
+- CL: Bullish (risk-off rotation — equities down, commodities up)
+- GC: Firm / elevated (safe-haven bid = institutional risk-off confirmed)
+- RTY: Expected to underperform vs NQ/ES/YM → leading SMT divergence signal
+
+---
+
+### 4. List your Intraday bias and levels
+
+**Intraday bias: SCENARIO A SHORT**
+
+```
+9:30 ET — Markets open
+  Observe NQ, ES, YM relative to overnight structure
+  CL + GC macro already confirming risk-off
+  STB coach watching for pre-FCR OB + SMT entry at 9:15
+
+9:45 ET — First 15-min candle closes
+
+SCENARIO A — All three close bearish (expected today):
+  → FCR bearish confirmed — Scenario A SHORT active
+  → Mark HIGH of 9:30 candle as SHORT from HERE on NQ/ES/YM
+  → Switch to 5-min on NQ or ES
+  → Wait for FVG displacement BELOW first candle LOW on 5-min
+  → Limit entry in FVG
+  → SL: High of FVG displacement candle
+
+SECOND RETRACE SETUP (1-2-3 continuation):
+  After initial sell-off, ZTH coach likely calls bounce long
+  → Watch for bounce to reach 38.2%–50% Fibonacci retracement zone
+  → Monitor YM for leading FVG touch (YM leads, then ES, then NQ)
+  → When YM tops at FVG and RTY lags = SMT divergence confirmation
+  → Short re-entry planned at 25,060 (structural second touch / lower high)
+  → SL: Above 25,139 (first bounce high / structural invalidation)
+  → TP: 24,715 (structural target)
+
+SCENARIO B NOT VALID today:
+  → IT Foundation EMAs steeply red dominant = Scenario B LONG vetoed
+  → Red dominant = no counter-trend long. Period.
+  → Observe only if EMAs give a bullish read. They will not.
+```
+
+---
+
+### 5. Expectations for the day?
+
+Feb 25 was the A+ session — five layers, all rules honored, +$565. That was a counter-trend bounce within a broader bear structure. The EMAs have not flipped. Red is still dominant. The Feb 25 move gave latecomers a position and built supply for the next leg lower.
+
+Feb 26 expectation: The bounce completes its retracement, distribution resumes. CL and GC are already positioned for it before 9:30. STB coach likely enters early (OB + SMT). ZTH calls the bounce long as a trade. Inevitrade members including Christopher watch for the second retrace continuation entry at 25,060.
+
+**Key behavioral reminder entering today:**
+```
+Feb 25 was perfect. Now do it again — with a different scenario.
+The A+ session was Scenario B LONG. Today is Scenario A SHORT.
+Read the current chart. Not yesterday's win.
+
+Entry is pre-planned in calm analysis.
+It will not be adjusted at execution.
+If 25,060 doesn't fill — the trade said no.
+That is a neutral outcome.
+```
+
+Mental checklist:
+- Entry level: 25,060 (structural second touch). Set it. Leave it.
+- SL: Above 25,139 (first bounce high). Not 25,093.
+- If time pressure builds at execution — the plan does not change.
+- SL placed structurally. Never moved.
+
+Full pre-market analysis:
+https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/analysis/premarket_20260226_summary.md
+
+---
+
 ## Session Bias
 
 **Scenario A — SHORT**
