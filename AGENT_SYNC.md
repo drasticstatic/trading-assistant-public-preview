@@ -212,22 +212,83 @@ Previously the Intent workspace used a git worktree on a separate branch (`tradi
 
 ---
 
-## 🌙 End of Day — Mar 1, 2026
+## 🟢 Mar 1, 2026 — All Systems Go
 
-**Fortuna session summary:**
-- Read AGENT_SYNC.md ✅
-- Registered tradovate + tv-alerts MCPs at user scope ✅
-- Consolidated data/exports/ ✅
-- Answered: session-start routine, goodnight routine, ngrok workflow, Augment Intent vs Fortuna distinction
-- MEMORY.md updated with all routines
+**Status: Ready to trade. Waiting on Christopher's command.**
 
-**Validate at next session start:**
-1. `get_account` — confirm Tradovate MCP live (APEX both evals)
-2. `get_alerts` — confirm webhook pipeline (will fail if ngrok not running — see below)
-3. Read AGENT_SYNC.md for Auggie's overnight work
+---
 
-**⚠️ Time-sensitive for Sunday evening / Monday morning:**
-- Cloudflare Tunnel migration (Auggie task) — must be done BEFORE ETH open Sunday evening
-- Once Cloudflare URL is live: update TradingView webhook alert URL (one paste, permanent)
-- Until then: if restarting machine Sunday night → restart ngrok → paste new URL into TradingView before Monday session
+### Fortuna (Claude Code CLI) — Mar 1 Session Summary
+
+**Weekly review sprint completed:**
+- `premarket_20260226_summary.md` — SmartTraderAI Pre-Market Copy-Paste Fields added (retroactive)
+- `STB_export_20260226_daily-review.md` — Post-Market Copy-Paste Fields moved to end of doc (format fix)
+- `STB_export_20260227_daily-review.md` — new daily review (no-fill session), Post-Market fields at end ✅
+- `STB_export_20260227_weekly-review.md` — Feb 27 section completed
+- `review_20260227_MNQ_001.md` — full unfilled trade review created
+- `pattern_tracker.md` — Feb 27 entry added, Pattern 5 → ✅ fixed, stats updated
+- 14 new screenshots committed (Feb 27 session + Inevitrade coach IMG files + Mar 1 context)
+
+**Infrastructure wins this session:**
+- tv-alerts MCP: `get_alerts` confirmed live end-to-end ✅
+- ngrok startup workflow: Fortuna now handles full sequence automatically (memory saved)
+- Fortuna manages ngrok as fallback; Cloudflare Tunnel remains the long-term goal (Auggie task)
+
+**STB SmartTraderAI briefed:** Christopher has briefed STB coaches on our workflow + system upgrades. Compendium-style feedback incoming as coaches review sessions. Think of them as periodic distilled summaries from the coaching layer.
+
+---
+
+### Kavanah Fleet (Augment Intent) — Acknowledged ✅
+
+Fortuna is fully aware of what Kavanah completed Mar 1:
+- 7 Inevitrade living reference docs built (`strategies/inevitrade/`)
+- 4 redundant files removed (smog-strategy.md, tcl-strategy.md, inevitrade-overview.md, inevitrade-strategies.md)
+- strategy-guide.md — selection decision tree, evolution history, SMC concepts
+- All changes committed + pushed + synced across both clones
+
+These files are now Fortuna's reference when doing session analysis that involves Inevitrade setups.
+
+**Kavanah's next task (when Christopher returns to Intent):**
+- Entry rule reference card — Christopher will initiate when time allows
+
+---
+
+### Auggie — Tonight's Task
+
+Christopher plans to work on the ZTH Pine Script (`zth_auto_levels.pine` v1.3) with Auggie this evening. Level accuracy tuning still pending Christopher's visual feedback. Auggie should pull latest from `origin main` before starting.
+
+---
+
+### Christopher's Planned Flow (Mar 1 Evening → Week)
+
+1. **ZTH Pine Script** with Auggie (tonight)
+2. **Session planning** with Fortuna (before any trade — read AGENT_SYNC first)
+3. **Entry rule reference card** with Kavanah (when time allows)
+4. **Trading:** Sunday ETH open through Wednesday (APEX -05 deadline)
+
+**Eval context (priority order):**
+| Account | Deadline | Gap Needed |
+|---------|----------|-----------|
+| APEX -05 | **Wednesday Mar 4** | ~+$6,000 |
+| TakeProfit Trader 50K | End of March | ~+$3,000 |
+| APEX -06 | Tuesday Mar 24 | ~+$6,000 |
+
+**Eval rules (all agents aware):**
+- Eval pressure is NOT a trading input
+- One A+ setup per session — do not stack to catch up
+- Entry set pre-session, not adjusted at execution
+- SL placed structurally, never moved
+
+---
+
+### Validate at Next Session Start (all agents)
+
+1. `get_account` — confirm APEX data live
+2. `get_alerts` — confirm webhook pipeline (ngrok must be running; Fortuna handles startup if not)
+3. `git pull origin main` — sync before any file work
+4. Read AGENT_SYNC.md
+
+**⚠️ ngrok still required** until Cloudflare Tunnel is live. If starting a new session after machine reboot → Fortuna runs the ngrok startup sequence automatically.
+
+*Updated by: Fortuna | Mar 1, 2026 — weekly review complete, all systems go, ready at Christopher's command*
 
