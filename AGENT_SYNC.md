@@ -63,7 +63,7 @@
 | Inevitrade compendium | ✅ `strategies/inevitrade/context/inevitrade-strategies.md` — 35A, G2, SMOG 3.0, TCL 1.0/2.0 |
 | ZTH level system | ✅ `strategies/zerotohero/context/zth-level-system.md` — all setups with entry/stop/confluence |
 | Bootcamp session notes | ✅ 7 sessions extracted in `strategies/inevitrade/context/` |
-| Strategy expansion | ⏳ Organize notes into per-model actionable docs (Intent first task) |
+| Strategy expansion | ✅ Consolidated — 7 standalone reference docs, 4 redundant files removed |
 
 ---
 
@@ -72,7 +72,7 @@
 See **PENDING-TASKS.md** for the full prioritized list. Key items:
 1. 🔴 **Cloudflare Tunnel** — Auggie building now, before ETH open Sun evening
 2. 🔴 **ZTH level accuracy tuning** — awaiting Christopher's visual feedback
-3. **Strategy context expansion** — Intent first coordination task
+3. ~~**Strategy context expansion**~~ — ✅ Complete (7 reference docs consolidated)
 4. **Break & Retest detection** — complex Pine state tracking
 5. **Pattern accuracy tuning** — R/P/B/C validation on live chart
 
@@ -153,6 +153,7 @@ Fortuna ready for:
 *Updated by: Auggie | Mar 1, 2026 — ZTH Auto Levels v1.2, FCR Standalone, Strategy Compendiums, Cloudflare Tunnel queued*
 *Updated by: Fortuna | Mar 1, 2026 — tv-alerts MCP re-registered with venv Python path (was broken: server.py as command). Start new session to activate.*
 *Updated by: Fortuna | Mar 1, 2026 (session 2) — tv-alerts root cause found and fixed: port conflict + separate in-memory stores. Added --mcp-only flag + file-backed event store (~/.tv_webhook_alerts.json). Restart HTTP server then start new session.*
+*Updated by: Kavanah (Intent) | Mar 1, 2026 — Strategy docs consolidated: 4 redundant files removed, 7 standalone reference docs finalized. Zero duplication.*
 
 ---
 
@@ -161,12 +162,16 @@ Fortuna ready for:
 **Date:** Mar 1, 2026
 **Source:** Augment Intent — Kavanah Fleet coordination
 
-Strategy context expansion completed. Per-model actionable reference docs created:
-- `strategies/inevitrade/smog-3.0-reference.md` — SMOG 3.0 strategy reference
-- `strategies/inevitrade/tcl-reference.md` — TCL strategy reference
-- `strategies/inevitrade/g2-35a-reference.md` — G2 / 35A strategy reference
+Strategy context expansion completed and **consolidated**. Per-model actionable reference docs:
+- `strategies/inevitrade/strategy-guide.md` — Master strategy selection guide (includes evolution tree, setup ratings, visual flows)
+- `strategies/inevitrade/smog-reference.md` — SMOG 3.0 strategy reference (consolidated from smog-strategy.md)
+- `strategies/inevitrade/tcl-reference.md` — TCL strategy reference (consolidated from tcl-strategy.md)
+- `strategies/inevitrade/35a-reference.md` — 35A strategy reference
+- `strategies/inevitrade/g2-reference.md` — G2 strategy reference
+- `strategies/inevitrade/tc-reference.md` — TC strategy reference
+- `strategies/inevitrade/ch-reference.md` — CH strategy reference
 
-These expand the existing compendium (`strategies/inevitrade/context/inevitrade-strategies.md`) into standalone, actionable docs per strategy model.
+**Consolidation (Mar 1):** Removed 4 redundant files (`inevitrade-overview.md`, `inevitrade-strategies.md`, `smog-strategy.md`, `tcl-strategy.md`) — their content was merged into the reference docs above. Total: 7 standalone strategy docs, zero duplication.
 
 ---
 
