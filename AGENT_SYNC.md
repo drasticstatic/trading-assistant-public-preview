@@ -341,3 +341,20 @@ ClaudeCodeCLI: ~/ClaudeCodeCLI/trading-assistant               (main)
 ```
 Both on same commit after push + pull.
 
+---
+
+## 🔧 Wave 5 Corrections — Mar 2, 2026 (Kavanah)
+
+Post-session corrections applied after initial sync:
+
+1. **Moved `SMARTTRADERAI_EXPORT_SPEC.md`** from `setup/` to `specs/` — gitexporter safety fix. The `setup/` folder was not excluded from public preview; `specs/` is properly excluded.
+2. **Added Spec-Driven Workflow summary** to `setup/system-overview.md` for public visibility.
+3. **Rebuilt missing `apex-rules.md`** (252 lines) covering both new EOD and Intraday Trailing evaluation paths.
+4. **Added Auggie and Kavanah role sections** to `setup/ClaudeCodeCLI_trading-assistant_start-instructions.md`.
+
+### Auggie Handoff 🤖
+
+ZTH Auto Levels Pine Script accuracy work is next. Christopher has screenshots and a feedback prompt ready in `tradingview/pine_scripts/zth_auto_levels.pine-feedback/`. Auggie should `git pull origin main` before starting.
+
+*Updated by: Kavanah (Intent) | Mar 2, 2026 — Wave 5 corrections: export spec moved to specs/, apex-rules rebuilt, doc updates, both clones synced.*
+
