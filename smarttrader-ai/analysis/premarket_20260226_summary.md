@@ -2,7 +2,7 @@
 ### STB SmartTraderAI | Fortuna | Session Prep
 *Built from live session analysis — Fortuna + Christopher working simultaneously*
 
-[Jump to 🤖 SmartTraderAI Copy-Paste](#-smarttraderai-pre-market-copy-paste-fields)
+[Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
 
 ---
 
@@ -174,6 +174,8 @@ All confirming instruments aligned bearish at FCR (9:45). IT Foundation EMAs red
 
 ---
 
+<a id="smarttraderai-copy-paste"></a>
+
 ## 🤖 SmartTraderAI Pre-Market Copy-Paste Fields
 
 > *Note: This section reconstructed retroactively from session notes. The pre-market analysis was conducted live but not originally captured in SmartTraderAI format. All content derived from verified session documentation and confirmed session narrative.*
@@ -297,8 +299,11 @@ Mental checklist:
 - If time pressure builds at execution — the plan does not change.
 - SL placed structurally. Never moved.
 
-Full pre-market analysis:
+> Full pre-market summary:
 https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/analysis/premarket_20260226_summary.md
+
+> Full pre-market analysis:
+*Note: Per-instrument detail is consolidated in this file (no separate NQ/ES/YM, etc. files for this session).*
 
 ---
 

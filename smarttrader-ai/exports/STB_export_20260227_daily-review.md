@@ -2,7 +2,7 @@
 ### STB SmartTraderAI Export | Fortuna | For Coaches
 *Session summary + SmartTraderAI copy-paste fields*
 
-[Jump to 🤖 SmartTraderAI Copy-Paste](#-smarttraderai-post-market-copy-paste-fields)
+[Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
 
 ---
 
@@ -91,6 +91,8 @@ Market has continued lower into Mar 1, confirming the directional thesis for the
 *Mar 1, 12:31 — MNQ current state. Continued lower from Friday's range. Directional thesis confirmed for the third consecutive session.*
 
 ---
+
+<a id="smarttraderai-copy-paste"></a>
 
 ## 🤖 SmartTraderAI Post-Market Copy-Paste Fields
 
