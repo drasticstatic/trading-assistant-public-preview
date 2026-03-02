@@ -2,6 +2,8 @@
 ### STB SmartTraderAI Export | Fortuna | For Coaches
 *Session summary + SmartTraderAI copy-paste fields*
 
+[Jump to 🤖 SmartTraderAI Copy-Paste](#-smarttraderai-post-market-copy-paste-fields)
+
 ---
 
 ## Session at a Glance
@@ -103,7 +105,7 @@ If Christopher had entered at 25,060 with SL at 25,139 (the first bounce high): 
 
 ---
 
-## SmartTraderAI Post-Market Copy-Paste Fields
+## 🤖 SmartTraderAI Post-Market Copy-Paste Fields
 
 **What actually happened?**
 Textbook Scenario A SHORT day. FCR at 9:45 confirmed bearish across NQ, ES, and YM — IT Foundation EMAs steeply red dominant, FRVP overhead supply confirmed on all three. STB coach entered NQ short at 9:15 pre-FCR using an order block + SMT divergence, exited at 4.44R. ZTH coach called the bounce long from session lows — it ran approximately 2 hours to the 38.2%–50% Fibonacci retracement zone. CL rallied throughout (risk-off rotation). GC held elevated (safe-haven bid). RTY lagged the bounce all session (SMT divergence = bearish continuation signal).
