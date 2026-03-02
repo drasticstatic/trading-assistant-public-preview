@@ -105,34 +105,20 @@ If Christopher had entered at 25,060 with SL at 25,139 (the first bounce high): 
 
 ## SmartTraderAI Post-Market Copy-Paste Fields
 
-**1. Session Risk Alert**
-🔴 Loss session. -$558. FOMO entry: adjusted from planned structural level (25,060) to round number (25,000) under time pressure and fear of missing fill. SL at 25,093 hit. Directional read was correct — price confirmed lower to 24,954 by 6 PM ET (ETH session) after SL was triggered during RTH.
+**What actually happened?**
+Textbook Scenario A SHORT day. FCR at 9:45 confirmed bearish across NQ, ES, and YM — IT Foundation EMAs steeply red dominant, FRVP overhead supply confirmed on all three. STB coach entered NQ short at 9:15 pre-FCR using an order block + SMT divergence, exited at 4.44R. ZTH coach called the bounce long from session lows — it ran approximately 2 hours to the 38.2%–50% Fibonacci retracement zone. CL rallied throughout (risk-off rotation). GC held elevated (safe-haven bid). RTY lagged the bounce all session (SMT divergence = bearish continuation signal).
 
-**2. HTF / Intraday Bias**
-- HTF: Bearish — IT Foundation EMAs red dominant on NQ/ES/YM/RTY. FRVP volume weight above. CL rallying (risk-off). GC firm (safe haven bid).
-- Intraday: Scenario A SHORT confirmed. FCR first candle bearish close at 9:45. All four indices confirmed the direction. STB coach entered short at 9:15 via order block + SMT divergence — exited at 4.44R.
+Christopher and Inevitrade members identified the 1-2-3 continuation (second retrace) setup. Planned entry: 25,060 — structural second touch, lower high. SL above 25,139 (first bounce high). Under time pressure (needed to leave for work), entry was adjusted from the planned 25,060 to 25,000.5 to "guarantee" the fill. SL remained at 25,093.5 — same stop, but risk tripled from ~$198 to $558. Trade filled at 13:37. Price moved briefly in favor ($141 MFE) before reversing. SL hit at 14:47 at 25,093.5. Price then continued lower to 24,954 in ETH — confirming the directional read was correct. The entry was the only error.
 
-**3. News / Macro Context**
-- CL (Crude Oil) rallied throughout the session — risk-off institutional rotation confirmed.
-- GC (Gold) holding elevated levels — safe haven bid active.
-- No major scheduled news triggered during the session.
-- Market environment: institutional distribution day. Equities selling, commodities bid.
+**What did you learn?**
+Pattern 5 — Level Abandonment Under Pressure — identified for the first time. Moving an entry away from a structural level to "guarantee a fill" doesn't guarantee the trade — it triples the risk while destroying the structural basis for the stop. At the planned entry (25,060) with SL above the first bounce high (25,139): SL would NOT have been hit (price peaked at 25,093.5, well below 25,139). The trade would have been alive and the direction confirmed profitable with an 83-point MFE. The rule: entry is set pre-session in calm analysis. It is not adjusted at execution under time pressure or fear of missing the fill. "If it doesn't fill at the structural level, the trade said no." External time pressure is not a valid input to the trading plan.
 
-**4. Scenario A/B/C Framework**
-- **Scenario: A — SHORT**
-- FCR 9:30–9:45: First 15-min candle closed bearish across NQ, ES, YM ✅
-- IT Foundation EMAs: Red dominant on all three ✅
-- RTY confirming: also bearish, lagging the bounce (SMT divergence throughout)
-- STB coach: Pre-FCR entry at 9:15 at NQ order block using SMT divergence — 4.44R profit ✅
-- ZTH coach: Bounce long from session lows — correct call, ran ~2 hours ✅
-- Post-bounce: 1-2-3 continuation setup identified by Christopher + Inevitrade members
-
-**5. KEY Level Decision Point**
-- 25,060: Planned short re-entry (structural second touch, 38.2%–50% Fib zone off ETH high)
-- 25,093: Known strong structural level — acted as resistance on second bounce, SL placement
-- 25,139: First bounce high (structural invalidation level — SL reference for 25,060 entry)
-- 24,715.25: TP target (cancelled when SL hit)
-- 24,954: Price reached in ETH post-SL — confirmed directional read was correct
+**What were your results for the day?**
+- 1 trade: MNQ Short, 3 contracts — LOSS
+- Entry: 25,000.5 (planned: 25,060) | SL: 25,093.5 (hit at 14:47)
+- Net P&L: -$558.00 | Zella Score: -100
+- No round-tripping — SL was held and not moved (5/5 sessions, 0 stops moved post Feb 13 ✅)
+- Directional read: ✅ Correct — price confirmed lower to 24,954 by 6 PM ETH. Analysis worked. Entry was the only variable to fix.
 
 ---
 
