@@ -3,6 +3,8 @@
 #### **Prepared by:** Fortuna (Claude Code CLI — Wealth Warden Trading Assistant)
 #### **For:** STB SmartTraderAI · ZTH · Inevitrade coaches
 
+[Jump to 🤖 SmartTraderAI Copy-Paste](#-smarttraderai-weekly-copy-paste-fields)
+
 ---
 
 ## Week at a Glance
@@ -271,7 +273,7 @@ Feb 27  Direction ✅  N/A   Entry ✅  (Level held — no fill → Pattern 5 fi
 
 ---
 
-## SmartTraderAI Weekly Copy-Paste Fields
+## 🤖 SmartTraderAI Weekly Copy-Paste Fields
 
 **What trade setups/tactics worked this week?**
 The five-layer entry filter worked exactly as designed on Feb 25 (Scenario B LONG, MNQ): FCR bullish close + IT Foundation EMAs green dominant + FVG displacement confirmed + SMT divergence at fill + Fibonacci golden pocket alignment = 2.34R, +$565, 5h 33m hold, SL never threatened. The IT Foundation EMA gate also worked as a veto on Feb 24 — the loss was contained because the structural stop held. On Feb 27, the Pattern 5 fix worked: structural entry zone held, no fill, $0 — the correct behavior identified and applied within 24 hours of the Feb 26 failure.

@@ -1,220 +1,85 @@
 # Pre-Market Summary — Feb 25, 2026 (Wednesday)
-### SmartTraderAI Copy-Paste Fields | Fortuna
+### STB SmartTraderAI | Fortuna | Session Prep
 
-> ⚠️ **EIA CRUDE OIL INVENTORY — 10:30 AM ET TODAY**
-> High-impact CL event. No CL trades 15 min before/after.
-> Monitor for volatility spillover to NQ/ES/YM at 10:30.
-> This was flagged in yesterday's daily review as priority awareness.
-
-> 📊 **CONTEXT: TWO-DAY SELL-OFF → SUSTAINED OVERNIGHT RALLY**
-> Feb 23–24 produced two consecutive major sell-off sessions.
-> ETH 5-min charts (9:27–9:28 AM) show a sustained, nearly
-> uninterrupted rally from the Feb 24 lows through the entire
-> overnight session. This is NOT just a bounce — it is a
-> structured ETH bull run. By 9:27 AM, price has recovered
-> close to the prior Feb 24 SHORT from HERE levels on all three
-> instruments. VRVP POC forming in the UPPER half of overnight
-> range — institutional value has shifted meaningfully higher.
-> Today opens with genuine two-way setup — Scenario B is live
-> if EMAs cooperate at 9:45. Scenario A still possible if RTH
-> sellers step in at the new KEY level and fade the ETH run.
+[Jump to 🤖 SmartTraderAI Copy-Paste](#-smarttraderai-pre-market-copy-paste-fields)
 
 ---
 
-## SmartTraderAI Pre-Market Copy-Paste Fields
+## 📋 Session Dashboard
+
+| Field | Value |
+|-------|-------|
+| **Date** | Feb 25, 2026 (Wednesday) |
+| **Session Bias** | Two-way — Scenario B LONG (FCR confirmed bullish at 9:45) |
+| **Primary Instrument** | MNQ (via APEX-484839-05) |
+| **Confirming** | ES/MES, YM — triple confirmation required |
+| **Key Risk Today** | ⚠️ EIA Crude Oil Inventory at 10:30 AM ET — TP before the window |
+| **Session Result** | MNQ LONG +$565.00 / 2.34R / TP hit 16:26 |
 
 ---
 
-### 1. What news releases today?
+## ⚠️ Session Risk Alert
 
-**High-impact (primary risk):**
-EIA Crude Oil Inventory — **Wednesday Feb 25, 2026 at 10:30 AM ET**
-→ This directly impacts CL. Watch for volatility spillover to equity indices at 10:30.
-→ No CL trades from 10:15–10:45 minimum.
-→ If in an open equity position at 10:30, be aware of spike risk.
-
-**No scheduled equity-specific economic data** for Feb 25, 2026.
-
-Macro backdrop: Two-day broad risk-off event (Feb 23–24) now potentially stabilizing based on overnight ETH price action. CL was bullish on Feb 24 (divergence from equities) — today's EIA print will either confirm or reverse that CL thesis.
+**EIA Crude Oil Inventory at 10:30 AM ET today.** High-impact CL event. No CL trades 15 minutes before/after. Monitor for volatility spillover to NQ/ES/YM at 10:30. If in an open equity position at 10:30, TP should already be set and working. Best practice: target TP hit before 10:30 if 2:1 R:R is achievable in that window.
 
 ---
 
-### 2. What are the expected figures? What effect has this event had on the markets before?
+## 🌙 Overnight Updates / ETH Context
 
-**EIA Crude Oil Inventory (today 10:30 AM ET):**
-- Expected: Figures TBD — check ForexFactory / Investing.com at 9:15 AM
-- Drawdown print (fewer barrels than expected) = bullish CL spike
-- Build print (more barrels than expected) = bearish CL flush
-- Large surprise in either direction → volatility spillover to equity futures
-- Historical pattern: EIA spike candles on CL can trigger sympathy moves on NQ/ES/YM
-  particularly if the print confirms an inflation (bullish CL) or demand-destruction narrative
+Two consecutive major sell-off sessions (Feb 23–24) → sustained, nearly uninterrupted ETH rally from the Feb 24 lows. By 9:27 AM, price has recovered close to the prior Feb 24 SHORT from HERE levels on all three instruments. This is NOT a dead-cat bounce — it is a structured bull run with institutional buying character.
 
-**For equity positions:**
-```
-If in a SHORT position at 10:30:
-  → Bearish CL print (build) = potential tailwind, trend continues
-  → Bullish CL print (drawdown) = possible equity bounce, headwind for shorts
-  → Set TP before 10:30 if possible, or tighten SL to protect runners
+**VRVP POC:** Forming in the **upper half** of the ETH range by 9:27 AM. Institutional value has shifted meaningfully higher overnight.
 
-If in a LONG position at 10:30:
-  → Same logic inverted
-  → Do not hold through a binary event unless SL is tight and TP is set
+**ES specific:** Asia session SFP wick to ~6,892 confirmed the 6,888 HVN as genuine structural support. Institutional demand at that level was validated in the overnight session.
 
-Best practice: If FCR trade is triggered at 9:45, target TP hit
-before 10:30 if 2:1 R:R is achievable in that window.
-```
+**IT Foundation EMAs (1hr charts at pre-open):** Red EMA still above green on all three, but converging rapidly overnight. Green EMA rising aggressively. NOT "steeply red dominant" — EMA veto is weakening. Not a crossover yet, but the gap is closing fast. EMA decision deferred to 9:45 first candle.
 
 ---
 
-### 3. List both your HTF bias and key levels
+## 🌤️ At the Open
 
-**HTF Bias: BEARISH — structure intact, bounce in progress**
-**Session character: Two-way — first candle decides**
+Genuine two-way setup heading into 9:30. **NEW KEY LEVEL** (marked by Christopher pre-open) sits just above current price on all three instruments — this is the 9:45 FCR decision point.
 
-**All three instruments (NQ / ES / YM) — 1-hour chart read (9:18 AM):**
+- First candle close **above** NEW KEY LEVEL → breakout → Scenario B LONG (EMA gated)
+- First candle close **below** NEW KEY LEVEL → rejection → Scenario A SHORT
 
-IT Foundation EMAs:
-- Red EMA still dominant above green on all three 1hr charts
-- The bounce from Feb 24 lows has been significant, but no EMA crossover yet
-- Green EMA is rising but not through red — bearish structure remains in force
-- A flat or crossing EMA at 9:45 would upgrade Scenario B probability
-
-VRVP context:
-- All three still show POC above current price (majority of institutional volume higher)
-- However, the bounce has created a developing VRVP cluster in the current range
-- Price is approaching the lower edge of the prior value area from below
-
-Key levels visible on charts:
-
-```
-NEW KEY LEVEL (Christopher marked — today, Feb 25):
-  → Sits just ABOVE current price on all three instruments
-  → This is the critical reference for the 9:45 FCR decision
-  → If 9:45 candle closes BELOW it: resistance held → SHORT bias
-  → If 9:45 candle closes ABOVE it: breakout → LONG bias (EMA conditions apply)
-
-PRIOR RAYS (overhead — reference only):
-  → Feb 24 SHORT from HERE ray: above new key level
-  → Feb 23 SHORT from HERE ray: further above
-  → These are overhead resistance reference levels, not active entries
-  → Do NOT re-enter shorts at these old rays — they have been
-    established above the current range
-
-YESTERDAY'S LONG from HERE (Feb 24):
-  → Visible on all three 5-min charts
-  → Acts as near-term support reference in the bounce
-  → The overnight SFP on ES swept to ~6,892, confirming the
-    6,888 HVN from the daily review held as genuine support
-
-MAJOR KEY SUPPORT (base of 1hr charts):
-  → The large cyan horizontal KEY level from the prior pre-bull-run
-    structure remains at the base of all three charts
-  → Price has bounced well above this level overnight
-  → This is now a deep support reference, not the immediate test level
-```
-
-**GC / SI:**
-- Both were bearish on Feb 24 (broad risk-off)
-- No metals trading on Apex (APEX-484839-05 restriction confirmed)
-- Monitor for context only — metals directional read informs macro sentiment
-
-**CL:**
-- Was bullish on Feb 24 diverging from equities
-- EIA today at 10:30 — the key catalyst for CL direction this session
-- Do not trade CL without seeing today's EIA print
+Do not trade before 9:45. Observe price vs NEW KEY LEVEL at the 9:30 open. Note which direction the first 5 minutes favor.
 
 ---
 
-### 4. List your Intraday bias and levels
+## 🔗 SMT Divergence Scenarios
 
-**Intraday bias: TWO-WAY — 9:45 first candle is the arbiter**
+**YM as leading instrument:** YM's VRVP was the most bullish of the three overnight — VRVP POC highest relative to overnight range. Watch YM to lead upward moves. If YM advances and ES/NQ follow = broad strength.
 
-The overnight bounce from the Feb 24 lows is the new context. This is structurally similar to the Feb 23 morning — where ETH recovery set up a genuine two-way read at 9:45. On Feb 23, the first candle closed bearish and Scenario A shorted. The same decision framework applies today.
+**Bullish SMT confirmation:** YM closing ABOVE its SHORT from HERE level while ES retests its level = institutional strength confirming the long thesis. This is the textbook signal for Scenario B fill timing. (Confirmed at 10:53 AM — the exact moment of fill.)
 
-**FCR Framework:**
+**Bearish SMT warning:** If NQ/ES make new highs and YM fails to follow → early SMT trap signal → caution on Scenario B continuation.
 
-```
-9:30 ET — Markets open
-  Observe NQ, ES, YM relative to the NEW KEY LEVEL Christopher marked.
-  Do not trade. Note which direction the first 5 minutes favor.
-  Is price above or below the new key level?
-
-9:45 ET — First 15-min candle closes
-
-SCENARIO A — Triple bearish close (price fades from new key level)
-  All three: NQ, ES, YM close BEARISH at 9:45:
-  → New key level rejected — bounce failed at resistance
-  → Mark LOW of 9:45 candle as SHORT from HERE on all three
-  → Switch to 5-min on NQ or ES (primary instrument)
-  → Wait for FVG displacement BELOW first candle LOW on 5-min
-  → Limit order on FVG zone
-  → SL: high of FVG candle 1
-  → TP: 2:1 R:R — set it before 10:30 EIA if possible
-  → A+ if: triple confirmation + FVG at 5/5 level
-  → Instrument: MNQ or MES (half size until Apex daily limit context clear)
-
-SCENARIO B — Triple bullish close (price breaks above new key level)
-  All three: NQ, ES, YM close BULLISH and ABOVE the new key level:
-  → Mark HIGH of 9:45 candle as LONG from HERE
-  → Wait for FVG displacement ABOVE on 5-min
-  → ⚠️ CRITICAL VETO: IT Foundation EMAs must NOT be steeply red dominant
-    → Red EMA steeply above green at 9:45 = NO counter-trend long. Period.
-    → This was yesterday's lesson. It is non-negotiable.
-  → If EMA veto applies: observe only. Do not take Scenario B.
-  → If EMAs are flat, crossing, or green dominant: Scenario B is valid
-  → Half size only (counter-trend after two-day sell-off)
-  → EIA at 10:30 adds risk — TP target must be achievable before 10:30
-
-SCENARIO C — Mixed signals or doji
-  2/3 agree, or indecisive first candle:
-  → No trade. Two-day sell-off followed by bounce = potential digestion.
-  → Flat is a position. Today is not a forced trade day.
-```
-
-**Key intraday levels for FCR execution:**
-```
-New KEY level (above current price):  PRIMARY REFERENCE — 9:45 pivot
-Feb 24 LONG from HERE ray:            Near-term support below
-Feb 24/23 SHORT from HERE rays:       Overhead reference — not active entries
-FCR levels:                           Set fresh at 9:45 candle close
-5-min FVG:                            Must form after 9:45, not before
-EIA 10:30 window:                     No new entries 10:15–10:45
-```
+**YM pullback at 9:58:** YM retraced more aggressively than NQ and ES after the 9:50 impulse. Two interpretations: (1) YM FVG being filled more aggressively — standard pullback before continuation. (2) Relative weakness — early warning. Ruling at 9:58: not yet a divergence reversal — breakout intact on all three. Watch: if NQ/ES make new highs and YM fails to follow = SMT trap.
 
 ---
 
-### 5. Expectations for the day?
+## 📅 Economic Calendar
 
-The two-day sell-off (Feb 23–24) produced one of the more significant bearish moves in the recent window. The overnight bounce is substantial — the SFP wick to ~6,892 on ES in the Asia session confirmed the 6,888 HVN is genuine structural support. Price has recovered and is approaching the new KEY level Christopher marked today, which sits just above current price on all three instruments.
+**EIA Crude Oil Inventory — Wednesday Feb 25, 2026 at 10:30 AM ET (HIGH IMPACT)**
+- Drawdown print (fewer barrels) = bullish CL spike → possible equity bounce headwind for shorts, tailwind for longs
+- Build print (more barrels) = bearish CL flush → equities potentially extend
+- Large surprise = volatility spillover to NQ/ES/YM
+- If in a trade: TP must be set before 10:30. No new entries 10:15–10:45.
 
-Today's character: The new key level is the decision point. The 9:45 first candle will tell us whether:
-- The bounce was a dead-cat relief rally that fades at resistance → Scenario A SHORT
-- The bounce has momentum and is breaking through resistance → Scenario B LONG (EMA-gated)
+No scheduled equity-specific economic data for Feb 25.
 
-**Critical behavioral reminder entering today:**
-```
-Feb 24 lesson: Red EMAs + counter-trend long = immediate SL.
-The Scenario B veto is absolute. If red EMAs are steeply dominant
-at 9:45, there is no Scenario B. Watch. Do not enter.
+---
 
-"Before clicking: EMAs direction? Mental state (number)?"
-If EMAs are bearish and you are looking at a long — stop.
-Re-read the pre-market plan. Walk away.
-```
+## 🎯 Today's Priority Instruments
 
-**EIA 10:30 — live position management:**
-If in a trade at 10:30, the TP should already be set and working.
-Do not hold through the EIA spike with no plan. Set it, leave it.
-
-Mental checklist going in:
-- Do not trade to recover Feb 23 and Feb 24 losses
-- Today's setup must meet all criteria independently
-- One clean trade is a complete session
-
-Full pre-market analysis:
-https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/analysis/premarket_20260225_summary.md
-
-*Note: Per-instrument detail is consolidated below in this file (no separate NQ/ES/YM files for this session).*
+| Instrument | Role | Watch For |
+|-----------|------|-----------|
+| MNQ / NQ | Primary entry | Scenario B LONG from FVG after 9:50 impulse |
+| ES / MES | Level quality reference | FVG zone quality; SMT divergence signal |
+| YM | Confirming + SMT leader | Leading indicator on strength; FVG labeled pre-open |
+| CL | EIA event at 10:30 | Do not trade CL without seeing the print |
+| GC, SI | Reference only | Halted on Apex — no trading |
 
 ---
 
@@ -385,7 +250,32 @@ POST-9:45 DEVELOPMENT:
 
 ---
 
-## FCR Live — 9:45 AM First Candle Close
+## 🧠 Pre-Session Mental State / Behavioral Reminder
+
+The two-day sell-off (Feb 23–24) may create emotional pull toward Scenario A (following the recent trend). The overnight data is clear — this is a structural bounce, not noise. Scenario B is a real setup today. But the EMA veto stands: red EMAs steeply dominant at 9:45 = no Scenario B long. This was the Feb 24 lesson.
+
+```
+Feb 24 lesson: Red EMAs + counter-trend long = immediate SL.
+The Scenario B veto is absolute. If red EMAs are steeply dominant
+at 9:45, there is no Scenario B. Watch. Do not enter.
+
+"Before clicking: EMAs direction? Mental state (number)?"
+If EMAs are bearish and you are looking at a long — stop.
+Re-read the pre-market plan. Walk away.
+```
+
+EIA 10:30 — live position management: If in a trade at 10:30, the TP should already be set and working. Do not hold through the EIA spike with no plan. Set it, leave it.
+
+Mental checklist going in:
+- Do not trade to recover Feb 23 and Feb 24 losses
+- Today's setup must meet all criteria independently
+- One clean trade is a complete session
+
+---
+
+## ⏱️ Live Session Updates
+
+### FCR Live — 9:45 AM First Candle Close
 
 *Screenshots taken 9:46–9:47 AM. Levels marked immediately after close.*
 
@@ -399,7 +289,7 @@ POST-9:45 DEVELOPMENT:
 ![NQ FCR 9:47](../../data/screenshots/NQ1!_2026-02-25_09-47-07_9804f.png)
 ![YM FCR 9:47](../../data/screenshots/YM1!_2026-02-25_09-47-49_a7bd4.png)
 
-### FCR Read — 9:45 Close
+**FCR Read — 9:45 Close:**
 
 ```
 LEVELS MARKED (all three instruments):
@@ -446,7 +336,7 @@ NEXT TRIGGER TO WATCH:
 
 ---
 
-## Live Session Update — 9:58 AM
+### Live Session Update — 9:58 AM
 
 *Three additional screenshots taken 9:58 AM — 13 minutes after first candle close.*
 
@@ -511,9 +401,9 @@ EIA RISK MANAGEMENT:
 
 ---
 
-## Screenshots
+### 📸 Screenshots
 
-### 1-Hour Charts (9:18 AM — structure + key levels)
+#### 1-Hour Charts (9:18 AM — structure + key levels)
 
 | Time (ET) | File | View | Timeframe |
 |-----------|------|------|-----------|
@@ -527,7 +417,7 @@ EIA RISK MANAGEMENT:
 
 ---
 
-### 5-Min RTH Context (9:22 AM — current price vs key level)
+#### 5-Min RTH Context (9:22 AM — current price vs key level)
 
 | Time (ET) | File | View | Timeframe |
 |-----------|------|------|-----------|
@@ -541,7 +431,7 @@ EIA RISK MANAGEMENT:
 
 ---
 
-### 5-Min ETH Overnight Context (9:27–9:28 AM — full overnight narrative)
+#### 5-Min ETH Overnight Context (9:27–9:28 AM — full overnight narrative)
 
 *Taken 2–3 minutes before the NY open. Shows the complete ETH session
 from the Feb 24 RTH lows through to the open.*
@@ -585,5 +475,184 @@ Watch the EMAs at the first candle close.
 
 ---
 
-*Fortuna — Wealth Warden | Claude Code CLI*
+## 🤖 SmartTraderAI Pre-Market Copy-Paste Fields
+
+---
+
+### 1. What news releases today?
+
+**High-impact (primary risk):**
+EIA Crude Oil Inventory — **Wednesday Feb 25, 2026 at 10:30 AM ET**
+→ This directly impacts CL. Watch for volatility spillover to equity indices at 10:30.
+→ No CL trades from 10:15–10:45 minimum.
+→ If in an open equity position at 10:30, be aware of spike risk.
+
+**No scheduled equity-specific economic data** for Feb 25, 2026.
+
+Macro backdrop: Two-day broad risk-off event (Feb 23–24) now potentially stabilizing based on overnight ETH price action. CL was bullish on Feb 24 (divergence from equities) — today's EIA print will either confirm or reverse that CL thesis.
+
+---
+
+### 2. What are the expected figures? What effect has this event had on the markets before?
+
+**EIA Crude Oil Inventory (today 10:30 AM ET):**
+- Expected: Figures TBD — check ForexFactory / Investing.com at 9:15 AM
+- Drawdown print (fewer barrels than expected) = bullish CL spike
+- Build print (more barrels than expected) = bearish CL flush
+- Large surprise in either direction → volatility spillover to equity futures
+- Historical pattern: EIA spike candles on CL can trigger sympathy moves on NQ/ES/YM
+  particularly if the print confirms an inflation (bullish CL) or demand-destruction narrative
+
+For equity positions:
+
+If in a SHORT position at 10:30:
+→ Bearish CL print (build) = potential tailwind, trend continues
+→ Bullish CL print (drawdown) = possible equity bounce, headwind for shorts
+→ Set TP before 10:30 if possible, or tighten SL to protect runners
+
+If in a LONG position at 10:30:
+→ Same logic inverted
+→ Do not hold through a binary event unless SL is tight and TP is set
+
+Best practice: If FCR trade is triggered at 9:45, target TP hit before 10:30 if 2:1 R:R is achievable in that window.
+
+---
+
+### 3. List both your HTF bias and key levels
+
+**HTF Bias: BEARISH — structure intact, bounce in progress**
+**Session character: Two-way — first candle decides**
+
+**All three instruments (NQ / ES / YM) — 1-hour chart read (9:18 AM):**
+
+IT Foundation EMAs:
+- Red EMA still dominant above green on all three 1hr charts
+- The bounce from Feb 24 lows has been significant, but no EMA crossover yet
+- Green EMA is rising but not through red — bearish structure remains in force
+- A flat or crossing EMA at 9:45 would upgrade Scenario B probability
+
+VRVP context:
+- All three still show POC above current price (majority of institutional volume higher)
+- However, the bounce has created a developing VRVP cluster in the current range
+- Price is approaching the lower edge of the prior value area from below
+
+Key levels visible on charts:
+
+NEW KEY LEVEL (Christopher marked — today, Feb 25):
+→ Sits just ABOVE current price on all three instruments
+→ This is the critical reference for the 9:45 FCR decision
+→ If 9:45 candle closes BELOW it: resistance held → SHORT bias
+→ If 9:45 candle closes ABOVE it: breakout → LONG bias (EMA conditions apply)
+
+PRIOR RAYS (overhead — reference only):
+→ Feb 24 SHORT from HERE ray: above new key level
+→ Feb 23 SHORT from HERE ray: further above
+→ These are overhead resistance reference levels, not active entries
+→ Do NOT re-enter shorts at these old rays — they have been
+  established above the current range
+
+YESTERDAY'S LONG from HERE (Feb 24):
+→ Visible on all three 5-min charts
+→ Acts as near-term support reference in the bounce
+→ The overnight SFP on ES swept to ~6,892, confirming the
+  6,888 HVN from the daily review held as genuine support
+
+MAJOR KEY SUPPORT (base of 1hr charts):
+→ The large cyan horizontal KEY level from the prior pre-bull-run
+  structure remains at the base of all three charts
+→ Price has bounced well above this level overnight
+→ This is now a deep support reference, not the immediate test level
+
+**GC / SI:**
+- Both were bearish on Feb 24 (broad risk-off)
+- No metals trading on Apex (APEX-484839-05 restriction confirmed)
+- Monitor for context only — metals directional read informs macro sentiment
+
+**CL:**
+- Was bullish on Feb 24 diverging from equities
+- EIA today at 10:30 — the key catalyst for CL direction this session
+- Do not trade CL without seeing today's EIA print
+
+---
+
+### 4. List your Intraday bias and levels
+
+**Intraday bias: TWO-WAY — 9:45 first candle is the arbiter**
+
+The overnight bounce from the Feb 24 lows is the new context. This is structurally similar to the Feb 23 morning — where ETH recovery set up a genuine two-way read at 9:45. On Feb 23, the first candle closed bearish and Scenario A shorted. The same decision framework applies today.
+
+FCR Framework:
+
+9:30 ET — Markets open
+  Observe NQ, ES, YM relative to the NEW KEY LEVEL Christopher marked.
+  Do not trade. Note which direction the first 5 minutes favor.
+  Is price above or below the new key level?
+
+9:45 ET — First 15-min candle closes
+
+SCENARIO A — Triple bearish close (price fades from new key level)
+  All three: NQ, ES, YM close BEARISH at 9:45:
+  → New key level rejected — bounce failed at resistance
+  → Mark LOW of 9:45 candle as SHORT from HERE on all three
+  → Switch to 5-min on NQ or ES (primary instrument)
+  → Wait for FVG displacement BELOW first candle LOW on 5-min
+  → Limit order on FVG zone
+  → SL: high of FVG candle 1
+  → TP: 2:1 R:R — set it before 10:30 EIA if possible
+  → A+ if: triple confirmation + FVG at 5/5 level
+  → Instrument: MNQ or MES (half size until Apex daily limit context clear)
+
+SCENARIO B — Triple bullish close (price breaks above new key level)
+  All three: NQ, ES, YM close BULLISH and ABOVE the new key level:
+  → Mark HIGH of 9:45 candle as LONG from HERE
+  → Wait for FVG displacement ABOVE on 5-min
+  → ⚠️ CRITICAL VETO: IT Foundation EMAs must NOT be steeply red dominant
+    → Red EMA steeply above green at 9:45 = NO counter-trend long. Period.
+    → This was yesterday's lesson. It is non-negotiable.
+  → If EMA veto applies: observe only. Do not take Scenario B.
+  → If EMAs are flat, crossing, or green dominant: Scenario B is valid
+  → Half size only (counter-trend after two-day sell-off)
+  → EIA at 10:30 adds risk — TP target must be achievable before 10:30
+
+SCENARIO C — Mixed signals or doji
+  2/3 agree, or indecisive first candle:
+  → No trade. Two-day sell-off followed by bounce = potential digestion.
+  → Flat is a position. Today is not a forced trade day.
+
+Key intraday levels for FCR execution:
+
+New KEY level (above current price):  PRIMARY REFERENCE — 9:45 pivot
+Feb 24 LONG from HERE ray:            Near-term support below
+Feb 24/23 SHORT from HERE rays:       Overhead reference — not active entries
+FCR levels:                           Set fresh at 9:45 candle close
+5-min FVG:                            Must form after 9:45, not before
+EIA 10:30 window:                     No new entries 10:15–10:45
+
+---
+
+### 5. Expectations for the day?
+
+The two-day sell-off (Feb 23–24) produced one of the more significant bearish moves in the recent window. The overnight bounce is substantial — the SFP wick to ~6,892 on ES in the Asia session confirmed the 6,888 HVN is genuine structural support. Price has recovered and is approaching the new KEY level Christopher marked today, which sits just above current price on all three instruments.
+
+Today's character: The new key level is the decision point. The 9:45 first candle will tell us whether:
+- The bounce was a dead-cat relief rally that fades at resistance → Scenario A SHORT
+- The bounce has momentum and is breaking through resistance → Scenario B LONG (EMA-gated)
+
+Critical behavioral reminder entering today: Feb 24 lesson: Red EMAs + counter-trend long = immediate SL. The Scenario B veto is absolute. If red EMAs are steeply dominant at 9:45, there is no Scenario B. Watch. Do not enter. "Before clicking: EMAs direction? Mental state (number)?" If EMAs are bearish and you are looking at a long — stop. Re-read the pre-market plan. Walk away.
+
+EIA 10:30 — live position management: If in a trade at 10:30, the TP should already be set and working. Do not hold through the EIA spike with no plan. Set it, leave it.
+
+Mental checklist going in:
+- Do not trade to recover Feb 23 and Feb 24 losses
+- Today's setup must meet all criteria independently
+- One clean trade is a complete session
+
+Full pre-market analysis:
+https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/analysis/premarket_20260225_summary.md
+
+*Note: Per-instrument detail is consolidated in this file (no separate NQ/ES/YM files for this session).*
+
+---
+
+*🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
 *Anthropic claude-sonnet-4-6 | Feb 25, 2026*

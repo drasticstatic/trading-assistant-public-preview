@@ -2,6 +2,8 @@
 ### STB SmartTraderAI Export | Fortuna | For Coaches
 *Session summary + SmartTraderAI copy-paste fields*
 
+[Jump to 🤖 SmartTraderAI Copy-Paste](#-smarttraderai-post-market-copy-paste-fields)
+
 ---
 
 ## Session at a Glance
@@ -90,7 +92,7 @@ Market has continued lower into Mar 1, confirming the directional thesis for the
 
 ---
 
-## SmartTraderAI Post-Market Copy-Paste Fields
+## 🤖 SmartTraderAI Post-Market Copy-Paste Fields
 
 **What actually happened?**
 Scenario A SHORT monitoring session — no trade filled. ZTH 7:30 AM coaching session replaced the formal pre-market summary. ZTH coach opened with: *"How does it feel to find yourself more consistent and disciplined?"* — behavioral confirmation from the coaching team. Around lunchtime, Christopher identified a SHORT continuation setup at the same structural zone from Feb 26 (25,000–25,060 FVG resistance). A Sell Limit order was placed in the zone and left at the structural level — no adjustments made, despite the explicit urge to move it.
