@@ -1,6 +1,8 @@
 # 🗓️ Pre-Market Session Summary
 ### Feb 23, 2026 — NY Open | Fortuna
 
+[Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
+
 ---
 
 > ⏰ **Screenshots taken: 8:45–9:27 AM ET (updated at open)**
@@ -554,7 +556,9 @@ If TP hits: close the laptop. That's the session.
 
 ---
 
-# SMARTTRADERAI — PRE-MARKET REVIEW COPY-PASTE SECTION
+<a id="smarttraderai-copy-paste"></a>
+
+## 🤖 SmartTraderAI Pre-Market Copy-Paste Fields
 
 > The fields below are emoji-free and formatted for direct copy-paste into the
 > SmartTraderAI Pre-Market Review dashboard. Fill these in before 9:30 ET each session.
@@ -681,7 +685,7 @@ NG (Natural Gas) — Intraday bias: SHORT (pending 9:45)
 ---
 
 **Expectations for the day?**
-```
+
 Primary expectation: FCR SHORT setup on NQ/ES/YM.
   All three confirmed bearish at 9:45 first candle. This is
   the A+ scenario — triple SMT index sync, full confluence.
@@ -697,17 +701,15 @@ Instruments to avoid pre-9:45: CL entirely. Wait for candle.
 Mental state check (pre-session target): 7/10 minimum.
   If below 7 — observe only, no entries.
 
-```
-
-Full pre-market analysis:
+> Full pre-market summary:
 https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/analysis/premarket_20260223_summary.md
 
-> Full analysis:
-> - SI: `premarket_20260223_SI.md`
-> - NQ: `premarket_20260223_NQ.md`
-> - ES: `premarket_20260223_ES.md`
-> - YM: `premarket_20260223_YM.md`
-> - NG: `premarket_20260223_NG_RTH-marked.md`
+> Full pre-market analysis:
+- SI: `premarket_20260223_SI.md`
+- NQ: `premarket_20260223_NQ.md`
+- ES: `premarket_20260223_ES.md`
+- YM: `premarket_20260223_YM.md`
+- NG: `premarket_20260223_NG_RTH-marked.md`
 
 ---
 
