@@ -1,7 +1,7 @@
 # Pre-Market Summary — Feb 25, 2026 (Wednesday)
 ### STB SmartTraderAI | Fortuna | Session Prep
 
-[Jump to 🤖 SmartTraderAI Copy-Paste](#-smarttraderai-pre-market-copy-paste-fields)
+[Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
 
 ---
 
@@ -475,6 +475,8 @@ Watch the EMAs at the first candle close.
 
 ---
 
+<a id="smarttraderai-copy-paste"></a>
+
 ## 🤖 SmartTraderAI Pre-Market Copy-Paste Fields
 
 ---
@@ -647,10 +649,11 @@ Mental checklist going in:
 - Today's setup must meet all criteria independently
 - One clean trade is a complete session
 
-Full pre-market analysis:
+> Full pre-market summary:
 https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/analysis/premarket_20260225_summary.md
 
-*Note: Per-instrument detail is consolidated in this file (no separate NQ/ES/YM files for this session).*
+> Full pre-market analysis:
+*Note: Per-instrument detail is consolidated in this file (no separate NQ/ES/YM, etc. files for this session).*
 
 ---
 

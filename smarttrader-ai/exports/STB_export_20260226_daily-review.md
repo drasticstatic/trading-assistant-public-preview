@@ -2,7 +2,7 @@
 ### STB SmartTraderAI Export | Fortuna | For Coaches
 *Session summary + SmartTraderAI copy-paste fields*
 
-[Jump to 🤖 SmartTraderAI Copy-Paste](#-smarttraderai-post-market-copy-paste-fields)
+[Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
 
 ---
 
@@ -104,6 +104,8 @@ If Christopher had entered at 25,060 with SL at 25,139 (the first bounce high): 
 *23:33 — ETH session. Price reached 24,954. Scenario A SHORT played out. Entry was the only error.*
 
 ---
+
+<a id="smarttraderai-copy-paste"></a>
 
 ## 🤖 SmartTraderAI Post-Market Copy-Paste Fields
 
