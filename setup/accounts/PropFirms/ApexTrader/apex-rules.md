@@ -1,116 +1,266 @@
-# Apex Trader Funding — Rules Reference
-> Compiled from official Apex evaluation and PA PDFs + plan comparison images.
-> Source files: `Rules_Evaluation.pdf`, `Rules_Performance Account (PA).pdf`, `Apex 50K vs 100K vs 100K-static.png`
-> Last updated: February 2026
+# Apex Trader Funding — Rules Reference (New Products)
+
+> Compiled from official Apex webcopy for the new EOD and Intraday Trailing evaluation paths.
+> Source files: `apex-rules_new_webcopy_EOD.md`, `apex-rules_new_webcopy_Intraday.md`
+> Last updated: March 2026
+
+Apex now offers **two evaluation paths** to a funded Performance Account (PA):
+
+| Feature | EOD Drawdown Path | Intraday Trailing Path |
+|---------|-------------------|------------------------|
+| Drawdown type | Calculated once/day at close; enforced next session | Real-time trailing follows peak balance (incl. unrealized P&L) |
+| DLL during eval | Yes — fixed by account size | No |
+| DLL during PA | Yes — tier-based scaling | Yes — tier-based scaling |
+| Trailing stops (PA) | When threshold = Starting Balance + $100 | When threshold = Starting Balance + $100 |
+| Min trading days (eval) | None — may pass in 1 day | None — may pass in 1 day |
+| Access period (eval) | 30 calendar days | 30 calendar days |
+| PA activation window | 7 calendar days after pass | 7 calendar days after pass |
 
 ---
 
-## Plan Comparison
+## 1 · Evaluation Accounts
 
-| Plan | Contracts (Micros) | Profit Goal | Trailing Threshold | Daily Drawdown | Monthly Cost |
-|------|--------------------|-------------|-------------------|----------------|--------------|
-| 50K Full | 10 (100 micros) | $3,000 | $2,500 trailing | None | $197 |
-| 100K Full | 14 (140 micros) | $6,000 | $3,000 trailing | None | $297 |
-| 100K Static | 2 (20 micros) | $2,000 | $625 fixed (never moves) | None | $297 |
+### 1.1 Account Parameters (Both Paths)
 
-> **Active account:** 100K Full (currently +$50 as of Feb 2026, on Tradovate)
+| | 25K | 50K | 100K | 150K |
+|---|---|---|---|---|
+| **Profit Target** | $1,500 | $3,000 | $6,000 | $9,000 |
+| **Max Drawdown** | $1,000 | $2,000 | $3,000 | $4,000 |
+| **Max Contracts** | 4 | 6 | 8 | 12 |
+| **Access Period** | 30 Days | 30 Days | 30 Days | 30 Days |
+| **Consistency** | Not Applied | Not Applied | Not Applied | Not Applied |
+| **Scaling** | Not Applied | Not Applied | Not Applied | Not Applied |
 
----
+**EOD-only — Daily Loss Limit (fixed during eval):**
 
-## Full vs Static — Key Difference
+| | 25K | 50K | 100K | 150K |
+|---|---|---|---|---|
+| **DLL** | $500 | $1,000 | $1,500 | $2,000 |
 
-**Full accounts:** Trailing threshold moves up with your intraday peak balance. Once threshold = initial balance + $100, it stops trailing (you're "safe" and can't blow from profits).
+> Intraday Trailing evaluations have **no DLL**. Risk is controlled entirely by the real-time trailing threshold.
 
-**Static accounts:** Drawdown level is permanently fixed at $99,375 on a $100K account ($625 below start). It never moves — even if you profit.
+### 1.2 Passing the Evaluation
 
-> Static = conservative safety net. Full = larger contracts, higher risk/reward.
+- Reach the profit target while respecting all drawdown rules.
+- **No minimum trading days** — you may pass in one day.
+- Once passed, you have **7 calendar days** to activate your PA (same size/type).
+- The 7-day window starts when the eval is marked Passed after market close (≥ 6 PM ET), not when the target is reached intraday.
 
----
+### 1.3 EOD Drawdown Mechanics
 
-## Evaluation Rules
+- Threshold calculated once per day at **4:59:59 PM ET** based on closing balance.
+- Trails the highest achieved EOD balance; **never moves downward**.
+- Enforced in real time during the next session — touching or falling below = immediate liquidation + fail.
+- **Tradovate:** EOD drawdown trails indefinitely.
+- **Rithmic / Wealthcharts:** Trailing stops when threshold reaches Profit Target Balance + $2,000.
 
-### Minimum Trading Days
-- **7 minimum trading days** required (non-consecutive) to qualify for pass
-- **No maximum time limit** — take as long as you need
-- **No weekly trading requirement** — you do NOT need to trade every week to keep the account active
-- Account stays active as long as monthly subscription is paid
-- Failed accounts not reset within 8 days will be disabled if no active subscription
+### 1.4 Intraday Trailing Drawdown Mechanics
 
-### Drawdown
-- **No daily drawdown limit**
-- Trailing threshold is based on **highest intraday live balance** (not just end-of-day close)
-- Example: balance peaks at $100,875 intraday → threshold moves to $97,875, even if you close lower
-- **Tradovate:** trailing continues throughout the evaluation (does not stop at profit target)
-- **Rithmic:** trailing stops when threshold reaches the profit target level
+- Threshold follows the account's **Peak Balance** (highest intraday balance including unrealized P&L) in real time.
+- Maintains a fixed dollar distance behind the peak (see Max Drawdown table); **never moves downward**.
+- Touching or falling below = immediate liquidation + fail.
+- **Tradovate:** Trails indefinitely.
+- **Rithmic / Wealthcharts:** Trailing stops when threshold reaches Profit Target Balance + $2,000.
 
-### Trade Close-Out
-- All trades must be closed and pending orders cancelled by **4:59 PM ET**
-- Apex has an auto-close safeguard at 4:59 PM ET — this is a last resort, NOT a primary tool
-- Orders NOT attached to a position must be manually cancelled or they may liquidate the account
-- Markets with earlier closes (e.g. GC, CL) must be closed at their designated earlier time
-- **No overnight holds permitted**
+### 1.5 Daily Loss Limit (EOD Eval Only)
 
-### Holiday / Sunday Rules
-- Sundays count as part of Monday's trading day (session = 6:00 PM ET Sunday → 4:59 PM ET Monday)
-- You CAN trade on holidays if the market is open
-- Half-day holidays do NOT count as a trading day
-
-### Position Sizing
-- Max contracts applies across all instruments simultaneously
-  - Example (100K Full): 14 total — could be 10 NQ + 4 GC
-- Micros available: MES, MNQ, MYM, M2K, MGC, M6A, M6E, M6J, MCL
-
-### Account Violations
-- Dropping below trailing threshold = failed evaluation
-- Evaluation accounts: can be reset (cost applies)
-- Reset allows fresh start with full balance and threshold
+- Fixed dollar amount per session; does not trail or adjust intraday.
+- If reached → all positions auto-liquidated → trading paused for the day.
+- **Account remains active** — trading resumes next session (6 PM ET reset).
+- DLL and EOD Threshold are **separate rules** — hitting DLL does not affect the threshold.
 
 ---
 
-## Performance Account (PA) Rules
+## 2 · Performance Accounts (PA)
 
-> These rules apply AFTER passing the evaluation. More strict than eval.
+### 2.1 PA Parameters (Both Paths)
 
-### 1. Contract Scaling Rule
-- **Phase 1:** Restricted to **half** of maximum allowed contracts until threshold is cleared
-- **Threshold cleared when:** EOD balance > initial balance + trailing drawdown + $100
-  - 100K Static: full contracts allowed after reaching $2,600 safety net
-- After threshold is cleared: full contract limit available from next full session
+| | 25K | 50K | 100K | 150K |
+|---|---|---|---|---|
+| **Max Drawdown** | $1,000 | $2,000 | $3,000 | $4,000 |
+| **Scaling** | Tier-based | Tier-based | Tier-based | Tier-based |
+| **Max Contracts** | 2 | 4 | 6 | 10 |
+| **DLL** | Tier-based | Tier-based | Tier-based | Tier-based |
+| **Inactivity Rule** | Yes | Yes | Yes | Yes |
 
-### 2. 30% Negative P&L Rule (MAE)
-- Open (unrealized) negative P&L cannot exceed **30% of start-of-day profit balance**
-- This is NOT a daily loss limit — it's a per-trade/open exposure rule
-- Example: if start-of-day profit = $1,000, open loss cannot exceed $300 at any moment
-- If EOD profit balance doubles the safety net: 50% limit applies instead of 30%
+### 2.2 PA Trading Rules
 
-### 3. 5:1 Risk-Reward Ratio Rule
-- Stop loss cannot exceed **5x your profit target** on any trade
-- Example: if TP = $200, maximum SL = $1,000
-- Prevents taking massive stop losses relative to targets
+1. **Do not breach the drawdown threshold.** Balance (including unrealized P&L) may never touch or fall below the threshold. If breached → auto-liquidation → PA permanently closed.
+2. **No prohibited trading activity.** All trading must follow Apex risk and conduct guidelines (see §5).
 
-### 4. No Hedging
-- Holding simultaneous long AND short positions on the same or correlated instrument is **strictly prohibited**
-- Applies even during news events
+### 2.3 Drawdown Stops Trailing (PA)
 
-### 5. One Direction Rule
-- Only long OR short at any one time — never both
-- Cannot have open orders for both sides of the market simultaneously
+Once the threshold reaches **Starting Balance + $100**, it stops increasing and becomes fixed.
+
+Example (50K): Threshold stops at $50,100 — reached when highest balance hits $52,600.
 
 ---
 
-## Claude's Enforcement Checklist (Apex)
+## 3 · Scaling Tiers (PA — Both Paths)
+
+Tier levels are updated once per day based on EOD balance at 4:59:59 PM ET. They determine **max contracts** and **DLL** for the next session. Tiers never change intraday.
+
+### 25K PA
+
+| Profit Range | Max Contracts | DLL | Tier |
+|---|---|---|---|
+| $0 – $999 | 1 | $500 | Level 1 |
+| $1,000 – $1,999 | 2 | $500 | Level 2 |
+| $2,000+ | 2 | $1,250 | Level 3 |
+
+### 50K PA
+
+| Profit Range | Max Contracts | DLL | Tier |
+|---|---|---|---|
+| $0 – $1,499 | 2 | $1,000 | Level 1 |
+| $1,500 – $2,999 | 3 | $1,000 | Level 2 |
+| $3,000 – $5,999 | 4 | $2,000 | Level 3 |
+| $6,000+ | 4 | $3,000 | Level 4 |
+
+### 100K PA
+
+| Profit Range | Max Contracts | DLL | Tier |
+|---|---|---|---|
+| $0 – $1,999 | 3 | $1,750 | Level 1 |
+| $2,000 – $2,999 | 4 | $1,750 | Level 2 |
+| $3,000 – $4,999 | 5 | $1,750 | Level 3 |
+| $5,000 – $9,999 | 6 | $2,500 | Level 4 |
+| $10,000+ | 6 | $3,500 | Level 5 |
+
+### 150K PA
+
+| Profit Range | Max Contracts | DLL | Tier |
+|---|---|---|---|
+| $0 – $1,999 | 4 | $2,500 | Level 1 |
+| $2,000 – $2,999 | 5 | $2,500 | Level 2 |
+| $3,000 – $4,999 | 7 | $2,500 | Level 3 |
+| $5,000 – $9,999 | 10 | $3,000 | Level 4 |
+| $10,000+ | 10 | $4,000 | Level 5 |
+
+---
+
+## 4 · Payouts
+
+- **100% payout split** on all approved payouts.
+- **Maximum 6 payouts** per PA (PA closes after 6th payout).
+- **Minimum payout amount:** $500.
+- **50% consistency rule** applies (no single day ≥ 50% of total profit since last payout).
+- **Safety Net:** Drawdown limit + $100 — must be maintained for lifetime of PA.
+- **Minimum 5 qualifying trading days** before first payout request (allows weekly payouts).
+
+### 4.1 EOD PA Payout Requirements
+
+| Account | Min Trade Days | Min Daily Profit | Safety Net | Min Balance to Request | Max Payouts |
+|---|---|---|---|---|---|
+| $25K | 5 | $100 | $26,100 | $26,600 | 6 |
+| $50K | 5 | $250 | $52,100 | $52,600 | 6 |
+| $100K | 5 | $300 | $103,100 | $103,600 | 6 |
+| $150K | 5 | $350 | $154,100 | $154,600 | 6 |
+
+### 4.2 Intraday PA Payout Requirements
+
+| Account | Min Trade Days | Min Daily Profit | Safety Net | Min Balance to Request | Max Payouts |
+|---|---|---|---|---|---|
+| $25K | 5 | $100 | $26,100 | $26,600 | 6 |
+| $50K | 5 | $200 | $52,100 | $52,600 | 6 |
+| $100K | 5 | $250 | $103,100 | $103,600 | 6 |
+| $150K | 5 | $300 | $154,100 | $154,600 | 6 |
+
+### 4.3 Maximum Payout Per Request — EOD PA
+
+| Payout # | $25K | $50K | $100K | $150K |
+|---|---|---|---|---|
+| 1 | $1,000 | $1,500 | $2,000 | $2,500 |
+| 2 | $1,000 | $1,500 | $2,500 | $3,000 |
+| 3 | $1,000 | $2,000 | $2,500 | $3,000 |
+| 4 | $1,000 | $2,500 | $3,000 | $3,000 |
+| 5 | $1,000 | $2,500 | $4,000 | $4,000 |
+| 6 | $1,000 | $3,000 | $4,000 | $5,000 |
+
+### 4.4 Maximum Payout Per Request — Intraday PA
+
+| Payout # | $25K | $50K | $100K | $150K |
+|---|---|---|---|---|
+| 1 | $1,000 | $1,500 | $2,000 | $2,500 |
+| 2 | $1,000 | $2,000 | $2,500 | $3,000 |
+| 3 | $1,000 | $2,500 | $3,000 | $3,000 |
+| 4 | $1,000 | $2,500 | $3,000 | $4,000 |
+| 5 | $1,000 | $3,000 | $4,000 | $4,000 |
+| 6 | $1,000 | $3,000 | $4,000 | $5,000 |
+
+### 4.5 50% Consistency Rule
+
+- No single profitable day may account for ≥ 50% of total profit since last approved payout.
+- Quick calc: **Highest Profit Day ÷ 0.5 = Minimum Total Profit Required**.
+- Resets after each approved payout.
+- Being above 50% does **not** fail the account — payout option is simply unavailable until met.
+
+---
+
+## 5 · Inactivity Rule (PA)
+
+- Must record **≥ 2 trading days with $50+ net profit** within every rolling 30-day period.
+- Failure → account permanently closed; cannot be reinstated.
+- Breakeven or losing days do not count.
+
+---
+
+## 6 · Prohibited Activities
+
+1. **Account sharing** — May not share access credentials or accounts with anyone.
+2. **Third-party payments** — Must use your own bank account / card for fees and payouts.
+3. **Bad-faith chargebacks** — No disputes or refund requests in bad faith.
+4. **False information** — No misleading identity, residency, or financial documents.
+5. **VPN / proxy abuse** — No tools to misrepresent identity, device, or location to evade rules.
+6. **System manipulation** — No tampering with trade logs, communications, or impersonating staff.
+7. **Exploitative use** — No gaming or undermining the program's purpose.
+8. **No stop losses** — All trades must have pending or mental stop losses with defined risk management.
+9. **High-risk strategies** — No disproportionate risk (e.g., 5-tick TP with 150-tick SL).
+10. **Using threshold as stop loss** — May not use full drawdown as a stop-loss mechanism.
+11. **Stockpiling evals** — No cycling through discounted evals to chase windfall profits.
+12. **Unsustainable strategies** — Must demonstrate consistent growth and sustainability.
+13. **Deviating from professional standards** — Must trade as if using a personally funded account.
+14. **HFT / simulation exploitation** — No high-frequency trading or exploitative strategies.
+15. **Unauthorized users** — Only the registered owner may access or verify the account.
+16. **Resource sharing** — No sharing MAC addresses, IPs, credit cards, or trade copying with others.
+17. **Multiple user accounts** — Creating multiple accounts is a bannable offense.
+18. **Holding through close** — All positions must be closed before market close.
+19. **News gambling** — Normal news trading OK; "chasing" or straddling news outcomes is not.
+20. **No hedging** — Directional trading only. No simultaneous long/short on same or correlated instruments.
+
+---
+
+## 7 · Enforcement Checklist
 
 When reviewing any Apex trade, flag if:
-- [ ] Position size exceeded plan max (100K Full = 14 contracts / 140 micros)
-- [ ] Trade held past **4:00 PM ET** (personal EOD target — firm deadline is 4:59 PM ET, personal rule is more conservative)
-- [ ] Trailing threshold approached within 20% — flag immediately
-- [ ] PA: open loss exceeded 30% of start-of-day profit
-- [ ] PA: stop loss exceeded 5x profit target
-- [ ] PA: trading full contracts before threshold was cleared
-- [ ] PA: simultaneous long/short (hedging)
+
+- [ ] Position size exceeds current tier max contracts
+- [ ] Trade held past **4:59 PM ET** (all positions must be flat before close)
+- [ ] Drawdown threshold approached within 20% — flag immediately
+- [ ] PA: DLL reached or exceeded for the session
+- [ ] PA: trading above tier-allowed contract size
+- [ ] PA: simultaneous long/short positions (hedging)
+- [ ] PA: no stop loss or risk management on open trade
+- [ ] PA: single day profit approaching 50% of total (consistency risk)
+- [ ] Inactivity: fewer than 2 qualifying days ($50+ profit) in rolling 30-day window
 - [ ] Emotional state suggests revenge trading or forced entry
 
 ---
 
-## Notes / Open Items
-> 📝 Add account statement screenshots and current balance tracking here as accounts progress
+## 8 · Key Differences: EOD vs Intraday Quick Reference
+
+| | EOD Path | Intraday Trailing Path |
+|---|---|---|
+| **Eval drawdown** | Calculated at close, enforced next session | Real-time trailing with peak balance |
+| **Eval DLL** | Yes (fixed) | No |
+| **PA drawdown** | EOD-based, stops at Starting Balance + $100 | Intraday trailing, stops at Starting Balance + $100 |
+| **PA DLL** | Tier-based | Tier-based |
+| **Payout min daily profit (50K)** | $250 | $200 |
+| **Payout min daily profit (100K)** | $300 | $250 |
+| **Payout min daily profit (150K)** | $350 | $300 |
+| **Max payouts** | 6 | 6 |
+| **Payout split** | 100% | 100% |
+
+---
+
+> 📝 **Notes:** Max 20 PAs active simultaneously (across all types). PA activation fee is one-time, non-refundable. If PA is disqualified, a new eval must be passed.
