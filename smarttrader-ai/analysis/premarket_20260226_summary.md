@@ -2,6 +2,8 @@
 ### STB SmartTraderAI | Fortuna | Session Prep
 *Built from live session analysis — Fortuna + Christopher working simultaneously*
 
+[Jump to 🤖 SmartTraderAI Copy-Paste](#-smarttraderai-pre-market-copy-paste-fields)
+
 ---
 
 ## Session Bias
@@ -172,7 +174,7 @@ All confirming instruments aligned bearish at FCR (9:45). IT Foundation EMAs red
 
 ---
 
-## SmartTraderAI Pre-Market Copy-Paste Fields
+## 🤖 SmartTraderAI Pre-Market Copy-Paste Fields
 
 > *Note: This section reconstructed retroactively from session notes. The pre-market analysis was conducted live but not originally captured in SmartTraderAI format. All content derived from verified session documentation and confirmed session narrative.*
 
