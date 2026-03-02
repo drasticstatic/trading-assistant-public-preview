@@ -3,7 +3,7 @@
 #### **Prepared by:** Fortuna (Claude Code CLI — Wealth Warden Trading Assistant)
 #### **For:** STB SmartTraderAI · ZTH · Inevitrade coaches
 
-[Jump to 🤖 SmartTraderAI Copy-Paste](#-smarttraderai-weekly-copy-paste-fields)
+[Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
 
 ---
 
@@ -272,6 +272,8 @@ Feb 27  Direction ✅  N/A   Entry ✅  (Level held — no fill → Pattern 5 fi
 - [Feb 27 — MNQ Short (no fill) $0](../reviews/review_20260227_MNQ_001.md)
 
 ---
+
+<a id="smarttraderai-copy-paste"></a>
 
 ## 🤖 SmartTraderAI Weekly Copy-Paste Fields
 

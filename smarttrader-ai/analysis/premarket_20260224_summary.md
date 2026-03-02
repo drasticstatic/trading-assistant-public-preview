@@ -1,7 +1,7 @@
 # Pre-Market Summary — Feb 24, 2026 (Tuesday)
 ### STB SmartTraderAI | Fortuna | Session Prep
 
-[Jump to 🤖 SmartTraderAI Copy-Paste](#-smarttraderai-pre-market-copy-paste-fields)
+[Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
 
 ---
 
@@ -96,6 +96,8 @@ Do not revenge trade after yesterday's -$100.50 (Feb 23 — SL swept 1 tick on c
 FCR result (9:45 AM): See `review_20260224_MES_001.md` — Scenario A SHORT confirmed, counter-trend long taken anyway → 66-second SL. EMA veto was active and violated.
 
 ---
+
+<a id="smarttraderai-copy-paste"></a>
 
 ## 🤖 SmartTraderAI Pre-Market Copy-Paste Fields
 
@@ -197,10 +199,10 @@ Key decision point: The large KEY support level visible at the base of all three
 
 Mental checklist going in: Do not revenge trade after yesterday's missed move (MNQ -$100.50 Feb 23). Today's setup must meet all criteria independently. Trust the pre-market plan.
 
-Full pre-market analysis:
+> Full pre-market summary:
 https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/analysis/premarket_20260224_summary.md
 
-Full analysis:
+> Full pre-market analysis:
 - NQ: `premarket_20260224_NQ.md`
 - ES: `premarket_20260224_ES.md`
 - YM: `premarket_20260224_YM.md`
