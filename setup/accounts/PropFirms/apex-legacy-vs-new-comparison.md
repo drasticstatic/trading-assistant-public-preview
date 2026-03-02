@@ -111,3 +111,11 @@
 ### Bottom Line for Christopher
 > **Stay on Legacy for existing accounts.** The unlimited payouts, higher contract limits, and no DLL make Legacy more favorable for a trader who already has funded PAs. For **new evaluations**, the New Intraday path is the closest equivalent but with meaningful trade-offs: fewer contracts, a 30-day deadline, and a 6-payout cap per PA. The EOD path is worth considering if intraday threshold spikes have been a pain point.
 
+---
+
+## 📖 Deep Dive — Full Rules Reference
+
+For the complete rules documentation behind this comparison:
+
+- [**Apex New Rules (EOD + Intraday)**](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/ApexTrader/apex-rules.md) — Full reference for both new evaluation paths
+- [**Apex Legacy Rules (Intraday Trailing)**](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/ApexTrader/apex-rules_legacy.md) — Complete legacy model reference (Christopher's current accounts)
