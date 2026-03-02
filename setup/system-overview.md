@@ -89,7 +89,21 @@ Fortuna reads real-time chart events mid-session
 ## Export Spec
 
 All SmartTraderAI export formats (pre-market, post-market, weekly reviews) are defined in:
-[`setup/SMARTTRADERAI_EXPORT_SPEC.md`](SMARTTRADERAI_EXPORT_SPEC.md)
+[`specs/SMARTTRADERAI_EXPORT_SPEC.md`](../specs/SMARTTRADERAI_EXPORT_SPEC.md)
+
+## Spec-Driven Workflow
+
+This project is built using a **spec-driven development workflow** powered by [Augment Intent](https://www.augmentcode.com/) (Kavanah):
+
+1. **Spec** — Every feature starts as a specification document defining purpose, inputs/outputs, dependencies, and done criteria
+2. **Tasks** — The coordinator reads the spec and breaks it into discrete, delegatable work units
+3. **Delegate** — Specialized AI agents (implementation, testing, review) pick up tasks and execute against the spec
+4. **Verify** — Each agent runs verification checks before marking work complete
+5. **Commit & Sync** — Approved changes are committed and synced to the public repo
+
+This means the documentation, exports, and analysis you see here weren't hand-written — they were **generated, validated, and assembled by a coordinated fleet of AI agents**, each working from a shared specification. The spec is the single source of truth; the agents are the builders.
+
+> 💡 The full specs live in `specs/` and drive everything from Pine Script indicators to webhook pipelines to the export formats used in trading reviews.
 
 ## For Coaches
 This public repo contains analysis exports, session reviews, and methodology documentation.
