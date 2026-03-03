@@ -332,7 +332,7 @@ Links to individual reviews:
 - [Feb 23 — MNQ Short](review_20260223_MNQ_001.md)
 - [Feb 24 — MES Long](review_20260224_MES_001.md)
 - [Feb 25 — MNQ Long](review_20260225_MNQ_001.md)
-- [Feb 25 — SOL Long](review_20260225_SOL_001.md)
+- [Feb 25 — SOL Long](review_20260225_SOL_002.md)
 - [Feb 26 — MNQ Short](review_20260226_MNQ_001.md)
 - [Feb 27 — MNQ Short (no fill)](review_20260227_MNQ_001.md)
 - [Mar 2 — YM Long T1](review_20260302_YM_001.md)
@@ -340,7 +340,7 @@ Links to individual reviews:
 - [Mar 2 — ES Short T3 (re-entry)](review_20260302_ES_002.md)
 - [Mar 3 — ES Long T1](review_20260303_ES_001.md)
 - [Mar 3 — ES Short T2 (AutoLiq)](review_20260303_ES_002.md)
-- [Mar 3 — CL Long T1 (AutoLiq)](review_20260303_CL_001.md)
+- [Mar 3 — CL Long T3 (AutoLiq)](review_20260303_CL_003.md)
 
 ---
 
