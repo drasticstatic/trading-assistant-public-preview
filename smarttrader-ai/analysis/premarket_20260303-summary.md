@@ -26,19 +26,23 @@
 
 > **This is the second-to-last day of the evaluation.** The gap is $5,634 with one day remaining after today. Eval pressure is noted — and eval pressure is NOT a trading input. One A+ trade from full process is the goal. No FOMO opens, no re-entries chasing the day's first winner, no size-ups because the gap feels urgent.
 
+> **Red dominant ES + 104-pt overnight drop:** The market opened in your direction (bearish bias was correct from March 2 T2 setup). Do NOT chase the move lower. Wait for a structural re-entry point — a pullback into overhead resistance + fresh CHoCH. The first 104 pts are already traded. The next entry comes from process, not urgency.
+
 ---
 
 ## 🌙 Overnight / ETH Context
 
-**Screenshots:** `ES1!_2026-03-03_09-29-20_43366.png` + `ES1!_2026-03-03_09-31-46_e0add.png`
+**Screenshots:** `ES1!_2026-03-03_09-29-20_43366.png` | `ES1!_2026-03-03_09-31-46_e0add.png` | `ES1!_2026-03-03_09-40-10_629de.png`
 
 | Item | Value |
 |------|-------|
-| ES overnight direction | **Bearish** — significant sell-off from March 2 close |
-| ES March 2 close (approx) | ~6,876 (aligned with T2 entry area) |
-| ES current (9:31 AM ET) | **~6,772** |
-| Overnight move | **~−104 pts (−1.57%)** |
-| IT Foundation EMA read (ES 1hr) | TBD — add screenshot of EMA structure |
+| ES overnight direction | **Bearish** — sustained sell-off, no recovery attempt overnight |
+| ES March 2 close (approx) | ~6,876 (T2 entry area) |
+| ES at NY open (9:40 AM ET) | **~6,771–6,790** |
+| Overnight move | **~−104 pts (−1.57%)** — distributed lower all session |
+| IT Foundation EMAs (ES 1hr) | **RED DOMINANT** — confirmed. EMAs fanning out bearishly. |
+| Scenario B LONG (ES) | **VETOED** — red dominant gate closed |
+| Levels overhead | Most of Christopher's manually drawn level cluster now sits ABOVE current price as resistance |
 | CL overnight | Bullish continuation — green dominant confirmed (see `premarket_20260303_CL.md`) |
 
 ---
@@ -73,13 +77,16 @@
 
 ## 🔗 SMT Divergence Scenarios
 
+**ES is red dominant. Scenario B LONG on ES is VETOED. Short bias is the operative framework.**
+
 | Scenario | Signal | Action |
 |----------|--------|--------|
-| All three confirm bullish | Scenario A LONG | 5-min FVG displacement → limit entry → MNQ |
-| NQ leads, ES/YM join late | Scenario A LONG (delayed) | Wait for all three to close bullish before entry |
-| NQ elevated, ES/YM stall | Scenario C (mixed) | Flat. Wait. NQ alone is not enough. |
-| NQ at supply, ES/YM reject | Scenario A SHORT | SMT divergence — watch for CHoCH |
-| Counter-trend idea | Scenario B | IT Foundation EMAs must gate — green dominant only |
+| NQ bounces to supply, ES/YM stay weak | **Scenario A SHORT** — live SMT divergence | Wait for CHoCH + displacement on 5-min → MNQ or ES short |
+| All three bounce and reclaim EMAs | Scenario A LONG possible | ES must clear red EMAs + go green dominant first — high bar |
+| Choppy open, no clear direction | Scenario C | Flat. FCR candle (9:30–9:45) must confirm before any entry. |
+| Counter-trend long idea | Scenario B LONG | ES red dominant = **VETOED**. NQ must be independently green dominant. |
+
+**FCR read (9:45 AM close):** First 15-min candle direction pending. Screenshot taken at 9:40 — candle had not yet closed. Wait for 9:45 before scenario assignment.
 
 ---
 
