@@ -12,7 +12,7 @@ Monday opened with a bearish ETH context (MES down -0.7% overnight, red dominant
 
 ## 📊 Trade Data
 
-*Tradovate fills — TradeZella CSV pending (will update with exact behavioral data)*
+*Tradovate fills confirmed | TradeZella CSV processed March 3 — all behavioral scores updated*
 
 ### Trade 1 — YM Long Scalp
 
@@ -26,8 +26,22 @@ Monday opened with a bearish ETH context (MES down -0.7% overnight, red dominant
 | P&L | **+$185.00** |
 | Entry Time | 9:52 AM ET |
 | Exit Time | 9:54 AM ET |
-| Hold Time | ~2 minutes |
+| Hold Time | ~2 minutes (~134 sec) |
 | Confluence Grade | D — low confluence, acknowledged |
+| **Zella Score** | **88.09** |
+| TradeZella Rating | 1.5 / 5 |
+| Position MAE | −$85 (price dipped to 48,662) |
+| Position MFE | +$210 (price reached 48,721) |
+| Emotional State | Anxious, stressed, greedy, fearful, excited |
+| Emotionally Stable | No |
+| Entry Logic (TZ) | Fear of missing out; FVG; live trading with ZTH |
+| Entry Model | FCR |
+| Playbook | Break & Retest, STB \| FCR |
+| Profit Target | "Bailed on trade idea — not respected" |
+| Stop Loss | "Bailed on trade idea" |
+| Mistakes (TZ) | Scared self out of additional profit; fear of loss; not in plan; rushing; revenge trading |
+| What I Did Well | Exited in profit |
+| TZ Notes | *"not in my plan but worked out and with eval up in a few days i had to take some trades but as you'll see maybe 1 too many today lol"* |
 
 ### Trade 2 — ES Pivot Sell (A+ Trade)
 
@@ -41,8 +55,23 @@ Monday opened with a bearish ETH context (MES down -0.7% overnight, red dominant
 | P&L | **+$1,037.50** |
 | Entry Time | 11:18 AM ET |
 | Exit Time | 11:27 AM ET |
-| Hold Time | ~9 minutes |
+| Hold Time | ~9 minutes (~527 sec) |
 | Confluence Grade | A — full process followed |
+| **Zella Score** | **94.05** |
+| TradeZella Rating | 4.0 / 5 |
+| Position MAE | +$50 (barely went against — essentially straight line to TP) |
+| Position MFE | +$1,100 (price touched 6,854.50 — slightly through TP) |
+| Emotional State | Calm, confident, excited, happy |
+| Emotionally Stable | Yes |
+| Entry Logic (TZ) | Waited for pivot retracement |
+| Entry Model | CISD — Change in State of Delivery |
+| Playbook | ZTH \| Pivot |
+| Setup | Rejection, pivot sell |
+| Profit Target | Respected |
+| Stop Loss | Respected |
+| Mistakes (TZ) | None |
+| What I Did Well | *"committed to plan, did not touch the trade idea, simply watched it run to tp!"* |
+| TZ Notes | *"woah, if they all were like that lol"* |
 
 ### Trade 3 — ES Re-Entry Short
 
@@ -56,8 +85,25 @@ Monday opened with a bearish ETH context (MES down -0.7% overnight, red dominant
 | P&L | **-$762.50** |
 | Entry Time | 11:37 AM ET |
 | Exit Time | 4:58 PM ET (timer) |
-| Hold Time | ~5 hours 21 minutes |
+| Hold Time | ~5 hours 21 minutes (~19,311 sec) |
 | Confluence Grade | C — structural basis present but entry in risky direction |
+| **Zella Score** | **−35.47** |
+| TradeZella Rating | 1.5 / 5 |
+| Position MAE | −$2,150 (price reached 6,911.25 — 43 pts against) |
+| Position MFE | $0 (trade never moved in favor from entry) |
+| Emotional State | Ambivalent, anxious, frustrated, greedy, stressed, fearful |
+| Emotionally Stable | No |
+| Entry Logic (TZ) | Fear of missing out; momentum |
+| Entry Model | "Catching the move of the day" |
+| Playbook | Break & Retest, ZTH \| Pivot |
+| Setup | "Oops, pivot sell, continuation" |
+| Profit Target | "Aiming for the moon! 😂" |
+| Stop Loss | **Not respected — original stop would have hit** |
+| Mistakes (TZ) | Not an A+ setup; overtrade; rushing; moved TP & SL; kept moving stop loss; FOMO; fear of loss; continued to retrace after entry; chasing price; bleed |
+| What I Did Well | "Accepted it, calculated liquidation threshold for awareness" |
+| TZ Notes | *"hoped to break even and some, told myself 16:58 we close the position grateful but getting caught in a losing position is exhausting, had i cut my losses maybe i could have executed a different idea had i not been so narrow focused in saving the losing trade of the day"* |
+
+> **Notable:** Original SL was 6,905. Price MAE hit 6,911.25 — the original SL **would have been hit**. By widening to 6,915.75, the SL was not triggered, but a 5-hour hold resulted in a smaller actual loss (−$762.50) vs what the original SL would have cost (−$1,837.50). This does not validate the SL adjustment — the behavior remains Pattern 5. The outcome was favorable by coincidence, not by process.
 
 ### Day Summary
 
@@ -74,7 +120,17 @@ Monday opened with a bearish ETH context (MES down -0.7% overnight, red dominant
 
 ## 🧠 Behavioral Notes
 
-*Full TradeZella behavioral scores pending — updating when CSV arrives*
+*TradeZella CSV processed March 3, 2026 — all scores confirmed.*
+
+### Zella Score Summary
+
+| Trade | Instrument | Direction | Zella Score | Rating | Emotionally Stable |
+|-------|------------|-----------|-------------|--------|--------------------|
+| T1 — YM Scalp | YM | Long | **88.09** | 1.5 / 5 | No |
+| T2 — ES Pivot Sell | ES | Short | **94.05** | 4.0 / 5 | Yes |
+| T3 — ES Re-Entry | ES | Short | **−35.47** | 1.5 / 5 | No |
+
+> T2 is in the 94th percentile. T3's negative Zella Score reflects the full behavioral breakdown: FOMO entry, SL moved twice, never reached MFE, 5-hour hold through chop.
 
 **What worked:**
 - **Trade 1:** Quick acknowledgment that it was a feeling trade. No dwelling, fast exit, moved on. That's growth — Feb 13 this would have been held or sized up.
@@ -184,6 +240,10 @@ Direction: LONG
 Entry: 48,679 | Exit: 48,716 | +37 pts
 P&L: +$185
 Grade: D (low confluence — acknowledged, quick exit)
+Zella Score: 88.09 | Rating: 1.5 | Emotionally Stable: No
+Emotions: Anxious, stressed, greedy, fearful, excited
+MAE: −$85 | MFE: +$210
+Mistakes: Fear of loss; not in plan; rushing; FOMO
 Notes: Feeling trade at open before session established. Correct to exit fast.
 
 TRADE 2 — ES Pivot Sell (A+ Trade of the Day)
@@ -191,21 +251,31 @@ Direction: SHORT
 Entry: 6,876.50 | Exit (TP): 6,855.75 | +20.75 pts
 P&L: +$1,037.50
 Grade: A
+Zella Score: 94.05 | Rating: 4.0 | Emotionally Stable: Yes
+Emotions: Calm, confident, excited, happy
+MAE: +$50 (essentially straight to TP) | MFE: +$1,100
 Setup: ISM PMI spike into supply → SMT divergence (RTY/YM rolling, NQ lagging)
        → CHoCH + displacement confirmation → ES short entry
+Entry Model: CISD — Change in State of Delivery
 Hold: ~9 minutes. Full TP. No adjustments.
 Behavioral: Full process followed. Patient wait for divergence. No chasing.
+Mistakes: None recorded.
 
 TRADE 3 — ES Re-Entry Short
 Direction: SHORT
 Entry: 6,868.25 | Exit (timer): 6,883.50 | -15.25 pts
 P&L: -$762.50
 Grade: C
+Zella Score: −35.47 | Rating: 1.5 | Emotionally Stable: No
+Emotions: Ambivalent, anxious, frustrated, greedy, stressed, fearful
+MAE: −$2,150 (price hit 6,911.25 — 43 pts against) | MFE: $0 (never moved in favor)
 Setup: Re-entry after T2 TP — same thesis, structurally weaker entry
 SL: Widened 6,905 → 6,915.75 during hold (behavioral flag)
+    ⚠️ Original SL at 6,905 WOULD HAVE HIT (confirmed by TradeZella MAE: 6,911.25)
 Exit: Pre-committed timer at 16:58 (SFP spike near close)
 Behavioral: Re-entered 8.25 pts worse than original in risky direction.
             Multiple SL adjustments under pressure. Timer exit was disciplined.
+Mistakes (TZ): Not an A+ setup; overtrade; rushed; moved SL/TP; FOMO; chasing; bleed
 
 NET DAY: +$460.00
 Eval balance: ~$100,366 | Gap: ~$5,634 | Deadline: Mar 4
@@ -219,5 +289,5 @@ LONG re-entry: never buy higher than the original long entry.
 ---
 
 *Fortuna — Wealth Warden | Claude Code CLI*
-*Session review built from Tradovate fills + 29 screenshots | TradeZella CSV pending*
+*Session review built from Tradovate fills + 29 screenshots | TradeZella CSV: `data/exports/tradezella_20260302.csv` — processed March 3, 2026*
 *March 2, 2026*
