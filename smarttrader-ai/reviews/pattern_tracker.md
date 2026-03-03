@@ -16,6 +16,12 @@
 | 004 | Feb 25 | SOL/USDT | Long | $87.4701 | $91.5556 | **+$20.63 USDT** | — | — | — | ✅ EMA crossover + FVG | ✅ | **Yes** |
 | 005 | Feb 26 | MNQ | Short | 25,000.5 | SL 25,093.5 | **-$558.00** | — | -100 | 1/5 | ❌ FOMO (25,000 vs planned 25,060) | ✅ Held | No |
 | 006 | Feb 27 | MNQ | Short (planned) | 25,000–25,060 zone | No fill | **$0** | — | N/A | N/A | ✅ Level held — entry not adjusted | N/A | Partial |
+| 007 | Mar 2 | YM | Long | 48,679 | 48,716 | **+$185.00** | 88.09 | — | — | ⚠️ FOMO scalp — no FCR, Scenario C | ✅ Respected (exited) | Partial |
+| 008 | Mar 2 | ES | Short | 6,876.50 | 6,855.75 | **+$1,037.50** | 94.05 | 5/5 | A+ | ✅ All layers — ISM spike + SMT + CISD | ✅ Never threatened | **Yes** |
+| 009 | Mar 2 | ES | Short (re-entry) | 6,868.25 | SL 6,883.50 | **-$762.50** | -35.47 | 0/5 | F | ❌ Re-entered in risky direction (above original short) | ❌ Moved (6,905→6,915.75) | No |
+| 010 | Mar 3 | ES | Long | 6,765.25 | SL 6,757.75 | **-$375.00** | -93.75 | 0/5 | F | ❌ Counter-trend long, red dominant, pre-FCR | ✅ Held | No |
+| 011 | Mar 3 | ES | Short | 6,757.25 | 6,786.25 (AutoLiq) | **-$1,450.00** | -84.06 | 2/5 | D | ⚠️ FCR midpoint entry (rays at open/close vs High/Low) | ❌ Cancelled → AutoLiq | No |
+| 012 | Mar 3 | CL | Long | 76.38 | 75.92 (AutoLiq) | **-$460.00** | -45.10 | 3/5 | B | ✅ Green dominant, pullback — SL in place | ✅ AutoLiq (8 ticks better than SL) | Yes |
 
 ---
 
@@ -27,9 +33,11 @@ Feb 24    -$35.00   █░░░░░░░░░░░░░░  loss (improve
 Feb 25   +$565.00   ████████████████ WIN ✅
 Feb 26   -$558.00   ███████████████░ loss (correct direction, wrong entry)
 Feb 27       $0.00  ────────────────  no fill (correct direction, level held ✅)
+Mar 2    +$460.00   █████████████░░  NET win (+$185 YM, +$1,037.50 ES T2, -$762.50 ES T3)
+Mar 3  -$2,285.00   ██████████████░  loss — account auto-liquidated (eval blown)
 
-Cumulative (Feb 23–27): -$128.50
-Note: Feb 27 adds $0 — neutral outcome. Directional read correct (3rd consecutive session).
+Cumulative (Feb 23–Mar 3): -$1,953.50 (USD futures) + $20.63 USDT crypto
+Note: Mar 3 includes account breach. APEX-484839-05 trailing drawdown floor $98,130.50 — breached by $60.
 ```
 
 ---
@@ -45,6 +53,12 @@ Note: Feb 27 adds $0 — neutral outcome. Directional read correct (3rd consecut
 | Feb 25 SOL | — | ✅ | ✅ EMA + FVG | ✅ | None |
 | Feb 26 MNQ | Ambivalent, angry, anxious, fearful, frustrated, stressed | ❌ | ❌ FOMO (25,000 vs planned 25,060) | ✅ | Level abandoned under time/life pressure |
 | Feb 27 MNQ | Exhausted from monitoring; conviction held | Partial | ✅ Level held — entry not adjusted (Pattern 5 fix) | N/A (no fill) | No fill — correct response |
+| Mar 2 YM | Anxious, excited | Partial | ❌ FOMO scalp — no FCR confirmation, Scenario C | ✅ Exited quickly | Quick exit = growth vs Feb 13 |
+| Mar 2 ES (T2) | Calm, confident | **Yes** | ✅ All 5 layers — waited 78 min post-ISM | ✅ Never threatened | Benchmark A+ trade |
+| Mar 2 ES (T3) | Frustrated, revenge-seeking | No | ❌ Re-entered in risky direction (above original short) | ❌ Moved 6,905→6,915.75, hit 6,911.25 | New rule: never re-entry in risky direction |
+| Mar 3 ES (T1) | Anxious, frustrated | No | ❌ Counter-trend long, red dominant, 13 min post-open | ✅ Held | Eval urgency → Pattern 2 repeat |
+| Mar 3 ES (T2) | Stable→unstable in-trade | No | ⚠️ FCR midpoint (rays at open/close vs High/Low) | ❌ Cancelled → AutoLiq | Pattern 7 introduced |
+| Mar 3 CL (T3) | Ambivalent, stressed | Yes | ✅ Green dominant, pullback — process correct | ✅ AutoLiq (TradingView frozen = accidental protection) | Setup was correct; account ran out of buffer |
 
 **Trend:**
 ```
@@ -84,6 +98,12 @@ Entry filter discipline:
 | Feb 25 | **10/10** | **10/10** | **10/10** | **10/10** |
 | Feb 26 | ~4/10 | ~5/10 | ~4/10 | ~4/10 (SL held + direction correct = partial credit) |
 | Feb 27 | ~8/10 | ~8/10 | ~8/10 | ~8/10 (level held + direction correct; no fill = neutral, not a loss) |
+| Mar 2 T1 (YM) | ~4/10 | — | ~3/10 | ~3/10 (FOMO scalp, no FCR; quick exit = partial credit) |
+| Mar 2 T2 (ES) | **10/10** | **10/10** | **10/10** | **10/10** — A+ benchmark |
+| Mar 2 T3 (ES) | ~1/10 | ~1/10 | ~1/10 | ~1/10 (re-entry in risky direction + SL moved) |
+| Mar 3 T1 (ES) | ~0/10 | ~0/10 | ~0/10 | ~0/10 (counter-trend long, red dominant, pre-FCR) |
+| Mar 3 T2 (ES) | ~2/10 | ~2/10 | ~2/10 | ~2/10 (correct direction, wrong level; SL cancelled) |
+| Mar 3 T3 (CL) | ~6/10 | ~7/10 | ~7/10 | ~7/10 (process correct; account buffer caused forced exit) |
 
 ---
 
@@ -97,6 +117,12 @@ Entry filter discipline:
 | Feb 25 SOL | ✅ EMA crossover | ✅ Green dom | ✅ | — | — | 3/3 | **A** |
 | Feb 26 MNQ | ✅ Scenario A SHORT | ✅ Red dom | ⚠️ FVG (wrong level) | ⚠️ Partial | ✅ Fib used | 2/5 | **D** |
 | Feb 27 MNQ | ✅ Scenario A SHORT | ✅ Red dom | ✅ FVG at structural level | ✅ Confirmed | — | 4/5 | **B+** (no fill — level correct) |
+| Mar 2 YM T1 | ❌ Pre-FCR | ❌ No gate check | ❌ No FVG | ❌ | — | 0/5 | **F** (FOMO scalp) |
+| Mar 2 ES T2 | ✅ Scenario A SHORT | ✅ Red dom | ✅ CISD 5-min | ✅ SMT divergence | ✅ Fib confluence | **5/5** | **A+** |
+| Mar 2 ES T3 | ❌ Re-entry in risky direction | ❌ | ❌ | ❌ | ❌ | 0/5 | **F** |
+| Mar 3 ES T1 | ❌ Red dom — LONG vetoed | ❌ Violated | ❌ | ❌ | — | 0/5 | **F** |
+| Mar 3 ES T2 | ⚠️ FCR midpoint error | ✅ Red dom | ⚠️ Partial | ⚠️ Read correct | — | 2/5 | **D** |
+| Mar 3 CL T1 | ✅ Scenario B LONG | ✅ Green dom | ⚠️ Partial | — | — | 3/5 | **B** |
 
 ---
 
@@ -110,6 +136,12 @@ Entry filter discipline:
 | Feb 25 | SOL | ~2.5 hours | Exited near HOD | Good exit read |
 | Feb 26 | MNQ | 1h 10m 17s | SL hit at 25,093.5 | Direction correct post-SL — price reached 24,954 by 6 PM ET |
 | Feb 27 | MNQ | All day (~13:00–17:00) | No fill — orders cancelled at 5 PM | Level held. Entry not adjusted. Neutral outcome. Market continued lower Mar 1. |
+| Mar 2 | YM | ~1 min | Exited quickly — recognized error | Quick exit post-FOMO = growth vs Feb 13 hold-and-hope |
+| Mar 2 | ES (T2) | 9 min (10:24–10:33) | TP hit — clean exit | A+ benchmark. 78 min wait post-ISM spike before entry. |
+| Mar 2 | ES (T3) | 5h+ (11:20–16:58) | SL hit 6,911.25 (moved from 6,905→6,915.75) | 5-hour hold of a wrong trade. Timer exit at 16:58 was the one disciplined moment. |
+| Mar 3 | ES (T1) | 86 sec | SL hit — moved on | Quick exit = one correct behavior in an incorrect trade |
+| Mar 3 | ES (T2) | 39 min | AutoLiq — SL cancelled at 11:25 | Held without protection through 34.5 pt adverse move |
+| Mar 3 | CL (T1) | 12 min 37 sec | AutoLiq — TradingView frozen (accidental SL protection) | Setup correct; account equity forced exit |
 
 ---
 
@@ -167,6 +199,40 @@ Fix:        SL is placed structurally and never moved. Period.
 Status:     ✅ Held on Feb 23, Feb 24, Feb 25, Feb 26 — habit confirmed
 ```
 
+### Pattern 6 — Re-Entry in the Risky Direction (Mar 2 T3)
+```
+Trigger:    A+ trade wins → urgency to replicate → re-entry above (for short)
+            or below (for long) original entry price
+Symptom:    Mar 2: Shorted at 6,868.25 — 8.25 pts ABOVE original short (6,876.50)
+            Same SL as before → risk not doubled but directional logic flipped
+            (re-selling lower means selling into distribution, not fresh supply)
+Result:     -$762.50. SL moved (6,905→6,915.75). 5+ hour hold.
+Fix:        Re-entry rule: never re-enter in the risky direction from the original
+            entry. For a short: never re-sell BELOW the original short entry.
+            If the trade is done, it is done. Next entry must be a fresh setup.
+Status:     ⏳ Rule identified Mar 2. First test will come in a future session.
+```
+
+### Pattern 7 — SL Cancellation Under Eval Pressure (Mar 3 T2)
+```
+Trigger:    Eval deadline pressure + trade going against → rationalization:
+            "committed to what happens / one day left anyway"
+Symptom:    ES short SL at 6,811.00 cancelled at 11:25 AM
+            Account auto-liquidated at 6,786.25 (25 pts better than SL,
+            but 29 pts worse than entry = -$1,450)
+            ES ran to 6,807.75 post-auto-liq before correcting
+Result:     -$1,450. Trailing drawdown floor breached. Eval blown.
+Fix:        Eval deadline is not a trading input. SL stays — always.
+            Cancelling a SL is identical to moving a SL (Pattern 4).
+            "Committed to the outcome" with no SL = committed to a
+            potentially account-ending loss. The SL IS the commitment.
+Note:       Compare: CL SL remained in place (TradingView frozen).
+            CL auto-liq at 75.92 (8 ticks better than SL of 75.84).
+            CL then crashed 2+ points further. SL = saved ~$2,000–$3,000.
+            Same session. Both outcomes visible side by side.
+Status:     ⏳ Pattern identified Mar 3. Must not repeat.
+```
+
 ### Pattern 5 — Level Abandonment Under Pressure (Feb 26)
 ```
 Trigger:    Time pressure (needed to get to work) + FOMO of missing fill
@@ -210,10 +276,21 @@ Feb 27  ████████████████████  ⚪ No fil
                                "I wanted to move my entry... but I didn't want
                                to repeat of yesterday." — Pattern 5 fix confirmed.
                                Market continued lower Mar 1 — direction correct (3rd consecutive session).
+                               ↓ Mar 2: A+ trade executed cleanly. Then re-entry broke rule.
+Mar 2   ████████████████████  ✅ T2: A+ BENCHMARK — 5/5 layers, +$1,037.50, 9 minutes
+                               ⚠️ T1: FOMO scalp (quick exit = growth vs Feb 13) +$185
+                               ❌ T3: Re-entry in risky direction — new Pattern 6. -$762.50. Net: +$460
+                               ↓ Mar 3: Eval deadline pressure produced two pattern violations
+Mar 3   ████░░░░░░░░░░░░░░░░  ❌ EVAL BLOWN — 3 trades, -$2,285, auto-liquidated
+                               T1: Wrong scenario at open (Pattern 2 repeat)
+                               T2: FCR ray error + SL cancelled (Pattern 7, new)
+                               T3: Process correct — SL held — account had no buffer left
+                               "Maybe if I respected my stops I could move on to another
+                               trade after seeing the market's hand." — Pattern insight confirmed.
 
-Arc status: Ongoing. SL discipline confirmed (5/5 sessions, 0 stops moved).
-Entry discipline: Pattern 5 fix applied within 24 hours — confirmed behavioral change.
-Next frontier: Consistency. One A+ setup per session through eval week.
+Arc status: Eval cycle complete. SL discipline: 8/9 filled trades (T2 Mar 3 exception).
+Entry discipline: A+ achievable (Mar 2 T2 proves it). Consistency under pressure = next frontier.
+Next: Evaluate Apex renewal vs new account. Apply all patterns to next eval from day one.
 ```
 
 ---
@@ -222,25 +299,28 @@ Next frontier: Consistency. One A+ setup per session through eval week.
 
 | Metric | Value |
 |--------|-------|
-| Total trade entries | 5 (4 futures, 1 crypto) |
+| Total trade entries | 11 (10 futures, 1 crypto) |
 | Monitoring sessions (no fill) | 1 (Feb 27) |
-| Winners | 2 |
-| Losers | 3 |
+| Winners | 3 (Feb 25 MNQ, Mar 2 YM, Mar 2 ES T2) |
+| Losers | 8 |
 | No fills (neutral) | 1 |
-| Win rate (filled trades) | 40% |
-| Avg winner | +$292.82 (USD futures) |
-| Avg loser | -$230.50 (USD futures) |
-| Total P&L (USD futures) | -$128.50 |
+| Win rate (filled trades) | 27% (3/11) |
+| Avg winner | +$429.17 USD (Feb 25 MNQ +$565, Mar 2 YM +$185, Mar 2 ES +$1,037.50) |
+| Avg loser | -$554.25 USD (8 losses) |
+| Total P&L (USD futures) | -$1,953.50 |
 | Total P&L (crypto) | +$20.63 USDT |
-| SL respected | 5/5 filled sessions — 100% ✅ |
-| Stops moved | 0/5 ✅ |
-| A+ entry filters honored | 2/5 filled trades |
-| Level held at structural zone | 1/1 (Feb 27 — first application) |
-| Emotionally stable sessions | 1/5 (Feb 25) |
-| Zella Score range | -100 → 100 |
-| Best session | Feb 25 (100 Zella, 10/10 all scores) |
-| Directionally correct reads | 5/6 sessions (Feb 24 wrong scenario; all others correct direction including Feb 27 unfilled) |
-| Pattern 5 fix | ✅ Applied Feb 27 — within 24 hours of identification |
+| SL respected | 8/9 filled futures trades (Mar 3 T2 exception) |
+| Stops moved | 2 (Mar 2 T3: 6,905→6,915.75 | Mar 3 T2: cancelled) |
+| A+ entry filters honored | 2/11 filled trades (Feb 25 MNQ, Mar 2 ES T2) |
+| Emotionally stable sessions | 2/11 trades (Feb 25 MNQ, Mar 3 CL) |
+| Zella Score range | -93.75 → 94.05 |
+| Best trade | Mar 2 ES T2 (94.05 Zella, 5/5 layers, +$1,037.50, 9 min, A+) |
+| Worst trade | Mar 3 ES T1 (-93.75 Zella, counter-trend, red dominant, 86 sec) |
+| Directionally correct reads | 9/12 trades (Feb 24, Mar 2 T3, Mar 3 ES T2 structurally wrong) |
+| Eval accounts | 1 blown (APEX-484839-05, Mar 3) |
+| Pattern 5 fix | ✅ Applied Feb 27 — within 24 hours |
+| Pattern 6 identified | Mar 2 — re-entry in risky direction |
+| Pattern 7 identified | Mar 3 — SL cancellation under eval pressure |
 
 ---
 
@@ -255,6 +335,12 @@ Links to individual reviews:
 - [Feb 25 — SOL Long](review_20260225_SOL_001.md)
 - [Feb 26 — MNQ Short](review_20260226_MNQ_001.md)
 - [Feb 27 — MNQ Short (no fill)](review_20260227_MNQ_001.md)
+- [Mar 2 — YM Long T1](review_20260302_YM_001.md)
+- [Mar 2 — ES Short T2 (A+)](review_20260302_ES_001.md)
+- [Mar 2 — ES Short T3 (re-entry)](review_20260302_ES_002.md)
+- [Mar 3 — ES Long T1](review_20260303_ES_001.md)
+- [Mar 3 — ES Short T2 (AutoLiq)](review_20260303_ES_002.md)
+- [Mar 3 — CL Long T1 (AutoLiq)](review_20260303_CL_001.md)
 
 ---
 
