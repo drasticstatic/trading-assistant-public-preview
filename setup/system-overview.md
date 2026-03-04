@@ -105,6 +105,31 @@ This means the documentation, exports, and analysis you see here weren't hand-wr
 
 > 💡 The full specs live in `specs/` and drive everything from Pine Script indicators to webhook pipelines to the export formats used in trading reviews.
 
+## Agent Interface Architecture
+
+Each AI agent in this system can be accessed via multiple interfaces — all sharing the same underlying context and memory.
+
+### CLI vs VSCode Native Extension — How Context is Shared
+
+**Claude Code (Fortuna):** The VSCode extension and CLI share the same conversation history. `claude --resume` bridges a terminal session into VSCode and vice versa. Memory is file-based (MEMORY.md, AGENT_SYNC.md, project files) — fully interface-agnostic. Switching between terminal and VSCode loses nothing.
+
+**Augment Code (Auggie + Kavanah):** The Augment Native VSCode extension and Augment CLI share the same Context Engine backend — both pull from the same deep codebase index. Architectural understanding is unified across interfaces. Kavanah runs in **Augment Intent** — a standalone desktop application (separate from the VSCode extension) that provides spec-driven development with a Coordinator and 6 specialist agents (Investigate, Implement, Verify, Critique, Debug, Code Review) working in parallel across isolated git worktrees called Spaces.
+
+### Interface Decisions
+
+| Interface | Status | Notes |
+|-----------|--------|-------|
+| Claude Code CLI (terminal) | ✅ Primary for Fortuna | Full power — MCP servers, file access, session memory — also runs in VSCode terminal instance |
+| Claude Code VSCode extension | ⏸️ Optional | Same Fortuna, shared history via `claude --resume` |
+| Augment Native VSCode extension | ✅ Active | Primary for current web3 build repos — shares Context Engine with Augment CLI |
+| Augment CLI (terminal) | ✅ Primary for Auggie | Implementation builds, bulk tasks — shared Context Engine — also runs in VSCode terminal instance |
+| Augment Intent (Desktop Application) | ✅ Primary for Kavanah | Standalone desktop app — spec-driven development & agent orchestration. Self-updating living spec as source of truth. Separate from the VSCode extension. Current builds use shared main branch for cross-agent awareness; Intent's default worktree isolation applies for future isolated production builds. |
+| Claude Desktop App | ❌ Not needed | claude.ai wrapper only — no filesystem or MCP access |
+| Cowork | ❌ Not needed | Designed for non-technical browser-based workflows |
+| Cline (VS Code extension + CLI) | ❌ Not in use | Open-source AI coding assistant with `.clineignore` support. Available as both a VS Code extension and a standalone CLI for headless/CI-CD workflows. Wraps Claude and other AI APIs — redundant given Claude Code CLI + Augment in this stack. Reference only. |
+
+**CLI-first principle:** All agents use the terminal CLI as their primary interface. VSCode extensions and standalone apps are convenience layers — memory and coordination persist through files in `AGENT-SYNC/`, not interface-specific conversation history.
+
 ## For Coaches
 This public repo contains analysis exports, session reviews, and methodology documentation.
 Strategy details, Pine Script source, and agent specs are in the private workspace.
