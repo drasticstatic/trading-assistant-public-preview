@@ -40,7 +40,7 @@ TradeZella (Journaling)
 |---|---|---|---|
 | **Fortuna** | Claude Sonnet 4.6 (Claude Code CLI) | Primary collaborator — trading strategy, chart analysis, behavioral coaching, session management | MCP: `tv-alerts`, `tradovate`, `auggie` · Screenshot analysis · TradeZella exports |
 | **Auggie** | Claude Opus 4.6 (Augment Code) | Implementation engine — builds, infrastructure, Pine Script, Python, MCP servers | Full workspace read/write · Shell · Git · Package managers |
-| **Kavanah Fleet** | Augment Intent Coordinator | Spec-driven task orchestration — breaks intent into tasks, delegates to agents, tracks progress | Reads `specs/*.spec.md` · Delegates to Auggie, Research, Testing, Review agents |
+| **Kavanah Fleet** | Augment Intent Coordinator | Spec-driven task orchestration — breaks intent into tasks, delegates to implementor agents that write code, run commands, and push commits | Reads `specs/*.spec.md` · Delegates to implementor, verifier, and specialist agents · Full code editing via delegated agents |
 
 **Communication flow:**
 ```
