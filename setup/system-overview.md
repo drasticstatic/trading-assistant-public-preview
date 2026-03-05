@@ -153,19 +153,11 @@ Augment Intent creates its own git clone for each repository it manages, separat
 ```
 Intent clones (Kavanah):
 ~/intent/workspaces/md-sync/trading-assistant/
-~/intent/workspaces/md-sync/gratitude-token-project/
-~/intent/workspaces/md-sync/gratitude-token-project_docs/
-~/intent/workspaces/md-sync/resume/
-~/intent/workspaces/md-sync/trading-bot_arbitrage_.../
-~/intent/workspaces/md-sync/divorce-custody-assistant/
+~/intent/workspaces/md-sync/...
 
 Primary clones:
-~/ClaudeCodeCLI/trading-assistant/              (Fortuna)
-~/ClaudeCodeCLI/divorce-custody-assistant/       (Fortuna)
-~/dappu/gratitude-token-project/                 (Auggie)
-~/dappu/gratitude-token-project_docs/            (Auggie)
-~/dappu/resume/                                  (Auggie)
-~/dappu/trading-bot_arbitrage_DAPPUv3_hardhat_UNI-CAKE/ (Auggie)
+~/ClaudeCodeCLI/trading-assistant/ (Fortuna/Auggie)
+~/dappu/...
 ```
 
 **Why separate clones?** Intent agents work in isolated Spaces — if they edited the same clone that Fortuna or Auggie is using, mid-session file conflicts would be inevitable. Separate clones let each interface work independently without stepping on each other's uncommitted changes.
