@@ -34,31 +34,31 @@
 ## 📊 Screenshots
 
 ### 1 — Macro View (Long-Term)
-![NG Macro](../../data/screenshots/NG1!_2026-02-23_01-33-43_9933a.png)
+![NG Macro](../../../../data/screenshots/NG1!_2026-02-23_01-33-43_9933a.png)
 
 ### 2 — 1hr with Full Level Stack
-![NG 1hr Levels](../../data/screenshots/NG1!_2026-02-23_01-34-21_5a2d6.png)
+![NG 1hr Levels](../../../../data/screenshots/NG1!_2026-02-23_01-34-21_5a2d6.png)
 
 ### 3 — 1hr Clean View
-![NG 1hr Clean](../../data/screenshots/NG1!_2026-02-23_01-34-57_328e4.png)
+![NG 1hr Clean](../../../../data/screenshots/NG1!_2026-02-23_01-34-57_328e4.png)
 
 ### 4 — 1hr + FRVP
-![NG FRVP](../../data/screenshots/NG1!_2026-02-23_01-36-06_1bacc.png)
+![NG FRVP](../../../../data/screenshots/NG1!_2026-02-23_01-36-06_1bacc.png)
 
 ### 5 — IT Foundation EMAs + Clusters VP + VRVP
-![NG Indicators](../../data/screenshots/NG1!_2026-02-23_01-38-12_fbbb1.png)
+![NG Indicators](../../../../data/screenshots/NG1!_2026-02-23_01-38-12_fbbb1.png)
 
 ### 6 — ETH Level Marking: 1hr + Macro Context
-![NG ETH Levels](../../data/screenshots/NG1!_2026-02-23_02-47-27_b78d9.png)
+![NG ETH Levels](../../../../data/screenshots/NG1!_2026-02-23_02-47-27_b78d9.png)
 
 ### 7 — 1hr Clean (No Levels) — Baseline Reference
-![NG 1hr Clean Baseline](../../data/screenshots/NG1!_2026-02-23_02-47-36_2a099.png)
+![NG 1hr Clean Baseline](../../../../data/screenshots/NG1!_2026-02-23_02-47-36_2a099.png)
 
 ### 8 — 5min + VRVP (RTH Comparison)
-![NG 5min VRVP RTH](../../data/screenshots/NG1!_2026-02-23_02-49-51_fc1c8.png)
+![NG 5min VRVP RTH](../../../../data/screenshots/NG1!_2026-02-23_02-49-51_fc1c8.png)
 
 ### 9 — IT Foundation EMAs + RTH Session Markers + VRVP
-![NG EMAs RTH Sessions](../../data/screenshots/NG1!_2026-02-23_03-03-17_c152b.png)
+![NG EMAs RTH Sessions](../../../../data/screenshots/NG1!_2026-02-23_03-03-17_c152b.png)
 
 ---
 

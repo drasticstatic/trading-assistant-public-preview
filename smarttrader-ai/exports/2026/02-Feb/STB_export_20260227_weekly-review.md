@@ -31,15 +31,15 @@ The FCR bearish close was clean. Entry filled in the FVG on retrace. The structu
 <table>
 <tr>
 <td width="33%" align="center">
-<img src="../../data/screenshots/NQ1!_2026-02-23_09-45-55_5693e.png" width="100%"/>
+<img src="../../../../data/screenshots/NQ1!_2026-02-23_09-45-55_5693e.png" width="100%"/>
 <br/><sub><b>9:45 AM</b> — FCR candle closes bearish. Scenario A SHORT locked.</sub>
 </td>
 <td width="33%" align="center">
-<img src="../../data/screenshots/MNQ1!_2026-02-23_10-08-51_78b57.png" width="100%"/>
+<img src="../../../../data/screenshots/MNQ1!_2026-02-23_10-08-51_78b57.png" width="100%"/>
 <br/><sub><b>10:08 AM</b> — MNQ limit entry fills at 24,879.50 in FVG zone.</sub>
 </td>
 <td width="33%" align="center">
-<img src="../../data/screenshots/NQ1!_2026-02-23_10-11-40_defb1.png" width="100%"/>
+<img src="../../../../data/screenshots/NQ1!_2026-02-23_10-11-40_defb1.png" width="100%"/>
 <br/><sub><b>10:11 AM</b> — NQ moves lower. Trade 42% to TP. Looking good.</sub>
 </td>
 </tr>
@@ -48,15 +48,15 @@ The FCR bearish close was clean. Entry filled in the FVG on retrace. The structu
 <table>
 <tr>
 <td width="33%" align="center">
-<img src="../../data/screenshots/MNQ1!_2026-02-23_10-22-14_26141.png" width="100%"/>
+<img src="../../../../data/screenshots/MNQ1!_2026-02-23_10-22-14_26141.png" width="100%"/>
 <br/><sub><b>10:22 AM</b> — Retrace. 5/5 level swept 1 tick. SL fills at 24,929.75.</sub>
 </td>
 <td width="33%" align="center">
-<img src="../../data/screenshots/MNQ1!_2026-02-23_10-33-02_5613d.png" width="100%"/>
+<img src="../../../../data/screenshots/MNQ1!_2026-02-23_10-33-02_5613d.png" width="100%"/>
 <br/><sub><b>10:33 AM</b> — After stop-out, price resumes lower. Direction was right.</sub>
 </td>
 <td width="33%" align="center">
-<img src="../../data/screenshots/MNQ1!_2026-02-23_10-49-32_2d727.png" width="100%"/>
+<img src="../../../../data/screenshots/MNQ1!_2026-02-23_10-49-32_2d727.png" width="100%"/>
 <br/><sub><b>10:49 AM</b> — Price reaches the original TP at 24,783.50. Setup was valid end-to-end.</sub>
 </td>
 </tr>
@@ -75,15 +75,15 @@ Pre-market flagged a risk-off sell-off across all three indices. IT Foundation E
 <table>
 <tr>
 <td width="33%" align="center">
-<img src="../../data/screenshots/NQ1!_2026-02-24_09-27-20_f39aa.png" width="100%"/>
+<img src="../../../../data/screenshots/NQ1!_2026-02-24_09-27-20_f39aa.png" width="100%"/>
 <br/><sub><b>9:27 AM</b> — NQ pre-market. IT Foundation EMAs steeply red dominant. Scenario B gate: closed.</sub>
 </td>
 <td width="33%" align="center">
-<img src="../../data/screenshots/Screenshot 2026-02-24 at 09.54.11.png" width="100%"/>
+<img src="../../../../data/screenshots/Screenshot 2026-02-24 at 09.54.11.png" width="100%"/>
 <br/><sub><b>9:54 AM</b> — MES counter-trend long order placed. EMA veto already in effect.</sub>
 </td>
 <td width="33%" align="center">
-<img src="../../data/screenshots/Screenshot 2026-02-24 at 09.56.37.png" width="100%"/>
+<img src="../../../../data/screenshots/Screenshot 2026-02-24 at 09.56.37.png" width="100%"/>
 <br/><sub><b>9:56 AM</b> — SL fills 66 seconds after entry. -$35. No movement. Floor held.</sub>
 </td>
 </tr>
@@ -104,15 +104,15 @@ TP at 25,420 filled at 16:26 — 2 ticks better than target. ZTH's continuation 
 <table>
 <tr>
 <td width="33%" align="center">
-<img src="../../data/screenshots/NQ1!_2026-02-25_09-47-07_9804f.png" width="100%"/>
+<img src="../../../../data/screenshots/NQ1!_2026-02-25_09-47-07_9804f.png" width="100%"/>
 <br/><sub><b>9:47 AM</b> — NQ EMAs flipped green. Scenario B gate: open.</sub>
 </td>
 <td width="33%" align="center">
-<img src="../../data/screenshots/YM1!_2026-02-25_09-47-49_a7bd4.png" width="100%"/>
+<img src="../../../../data/screenshots/YM1!_2026-02-25_09-47-49_a7bd4.png" width="100%"/>
 <br/><sub><b>9:47 AM</b> — YM EMAs flipped + FVG labeled. All three confirmed.</sub>
 </td>
 <td width="33%" align="center">
-<img src="../../data/screenshots/Screenshot 2026-02-25 at 10.08.15.png" width="100%"/>
+<img src="../../../../data/screenshots/Screenshot 2026-02-25 at 10.08.15.png" width="100%"/>
 <br/><sub><b>10:08 AM</b> — MNQ order placed in FVG zone. 45-min wait ahead through EIA.</sub>
 </td>
 </tr>
@@ -121,15 +121,15 @@ TP at 25,420 filled at 16:26 — 2 ticks better than target. ZTH's continuation 
 <table>
 <tr>
 <td width="33%" align="center">
-<img src="../../data/screenshots/Screenshot 2026-02-25 at 10.39.19.png" width="100%"/>
+<img src="../../../../data/screenshots/Screenshot 2026-02-25 at 10.39.19.png" width="100%"/>
 <br/><sub><b>10:39 AM</b> — Post-EIA. Order approaching fill zone.</sub>
 </td>
 <td width="33%" align="center">
-<img src="../../data/screenshots/Screenshot 2026-02-25 at 11.09.58.png" width="100%"/>
+<img src="../../../../data/screenshots/Screenshot 2026-02-25 at 11.09.58.png" width="100%"/>
 <br/><sub><b>11:09 AM</b> — Trade running. HA candles green. He was on the lathe.</sub>
 </td>
 <td width="33%" align="center">
-<img src="../../data/screenshots/MNQ1!_2026-02-25_19-18-13_6354e.png" width="100%"/>
+<img src="../../../../data/screenshots/MNQ1!_2026-02-25_19-18-13_6354e.png" width="100%"/>
 <br/><sub><b>7:18 PM</b> — Full trade arc. TP hit at 16:26. +$565. SL never touched.</sub>
 </td>
 </tr>
@@ -150,15 +150,15 @@ Under time pressure (needed to leave for work), he moved the entry from 25,060 t
 <table>
 <tr>
 <td width="33%" align="center">
-<img src="../../data/screenshots/NQ1!_2026-02-26_09-49-34_8ff69.png" width="100%"/>
+<img src="../../../../data/screenshots/NQ1!_2026-02-26_09-49-34_8ff69.png" width="100%"/>
 <br/><sub><b>9:49 AM</b> — NQ Scenario A SHORT confirmed. STB coach entry visible.</sub>
 </td>
 <td width="33%" align="center">
-<img src="../../data/screenshots/RTY1!_2026-02-26_11-09-40_72fd3.png" width="100%"/>
+<img src="../../../../data/screenshots/RTY1!_2026-02-26_11-09-40_72fd3.png" width="100%"/>
 <br/><sub><b>11:09 AM</b> — RTY lagging the bounce. SMT divergence = bearish continuation signal.</sub>
 </td>
 <td width="33%" align="center">
-<img src="../../data/screenshots/Screenshot 2026-02-26 at 11.22.56.png" width="100%"/>
+<img src="../../../../data/screenshots/Screenshot 2026-02-26 at 11.22.56.png" width="100%"/>
 <br/><sub><b>11:22 AM</b> — Full trade plan mapped. Entry: 25,060. SL: 25,139. TP: 24,715. The plan was right.</sub>
 </td>
 </tr>
@@ -167,15 +167,15 @@ Under time pressure (needed to leave for work), he moved the entry from 25,060 t
 <table>
 <tr>
 <td width="33%" align="center">
-<img src="../../data/screenshots/Screenshot 2026-02-26 at 13.35.46.png" width="100%"/>
+<img src="../../../../data/screenshots/Screenshot 2026-02-26 at 13.35.46.png" width="100%"/>
 <br/><sub><b>13:35</b> — Two minutes before the FOMO adjustment. Time pressure building.</sub>
 </td>
 <td width="33%" align="center">
-<img src="../../data/screenshots/Screenshot 2026-02-26 at 13.37.35.png" width="100%"/>
+<img src="../../../../data/screenshots/Screenshot 2026-02-26 at 13.37.35.png" width="100%"/>
 <br/><sub><b>13:37</b> — Entry fills at 25,000.5. Not 25,060. Risk: $558 not $198.</sub>
 </td>
 <td width="33%" align="center">
-<img src="../../data/screenshots/Screenshot 2026-02-26 at 14.49.44.png" width="100%"/>
+<img src="../../../../data/screenshots/Screenshot 2026-02-26 at 14.49.44.png" width="100%"/>
 <br/><sub><b>14:49</b> — SL fills at 25,093.5. At 25,060 entry / SL 25,139: this level was never reached.</sub>
 </td>
 </tr>
@@ -184,11 +184,11 @@ Under time pressure (needed to leave for work), he moved the entry from 25,060 t
 <table>
 <tr>
 <td width="50%" align="center">
-<img src="../../data/screenshots/NQ1!_2026-02-26_23-31-36_ea727.png" width="100%"/>
+<img src="../../../../data/screenshots/NQ1!_2026-02-26_23-31-36_ea727.png" width="100%"/>
 <br/><sub><b>23:31</b> — Full RTH + ETH arc. Sell-off → bounce → continuation lower.</sub>
 </td>
 <td width="50%" align="center">
-<img src="../../data/screenshots/Screenshot 2026-02-26 at 23.17.35.png" width="100%"/>
+<img src="../../../../data/screenshots/Screenshot 2026-02-26 at 23.17.35.png" width="100%"/>
 <br/><sub><b>23:17</b> — ETH: price reaches 24,954. Directional read confirmed. Entry was the work.</sub>
 </td>
 </tr>
@@ -215,15 +215,15 @@ That sentence is Pattern 5 solved.
 <table>
 <tr>
 <td width="33%" align="center">
-<img src="../../data/screenshots/Screen Shot 2026-02-27 at 13.03.35.png" width="100%"/>
+<img src="../../../../data/screenshots/Screen Shot 2026-02-27 at 13.03.35.png" width="100%"/>
 <br/><sub><b>~13:03</b> — NQ1! 5-min. Sell Limit placed in FVG structural zone (~25,000–25,060). Price well below entry — not chasing.</sub>
 </td>
 <td width="33%" align="center">
-<img src="../../data/screenshots/IMG_3971.jpeg" width="100%"/>
+<img src="../../../../data/screenshots/IMG_3971.jpeg" width="100%"/>
 <br/><sub><b>~13:25</b> — Inevitrade coach's ES chart (light BG, phone photo). TCL sell limits at 6883/6876.50. Same thesis, different framework. Coach also never entered.</sub>
 </td>
 <td width="33%" align="center">
-<img src="../../data/screenshots/Screen Shot 2026-02-27 at 16.05.05.png" width="100%"/>
+<img src="../../../../data/screenshots/Screen Shot 2026-02-27 at 16.05.05.png" width="100%"/>
 <br/><sub><b>16:05</b> — NQ1! end of RTH. Entry zone still not reached. Order held open through 4 PM close → cancelled at 5 PM ETH.</sub>
 </td>
 </tr>
@@ -232,11 +232,11 @@ That sentence is Pattern 5 solved.
 <table>
 <tr>
 <td width="50%" align="center">
-<img src="../../data/screenshots/Screen Shot 2026-02-27 at 16.06.51.png" width="100%"/>
+<img src="../../../../data/screenshots/Screen Shot 2026-02-27 at 16.06.51.png" width="100%"/>
 <br/><sub><b>16:06</b> — NQ with Mar 1 context visible. Price never reached the entry zone. The plan respected its own criteria.</sub>
 </td>
 <td width="50%" align="center">
-<img src="../../data/screenshots/MNQ1!_2026-03-01_12-31-30_13e1f.png" width="100%"/>
+<img src="../../../../data/screenshots/MNQ1!_2026-03-01_12-31-30_13e1f.png" width="100%"/>
 <br/><sub><b>Mar 1, 12:31</b> — MNQ current state. Continued lower. Directional thesis correct for the third consecutive session.</sub>
 </td>
 </tr>

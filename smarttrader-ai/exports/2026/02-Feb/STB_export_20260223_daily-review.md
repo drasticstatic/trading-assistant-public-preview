@@ -31,7 +31,7 @@
 
 ## NQ Follow-Up — Afternoon Session
 
-![NQ Outcome](../../data/screenshots/NQ1!_2026-02-23_21-40-14_d6b2f.png)
+![NQ Outcome](../../../../data/screenshots/NQ1!_2026-02-23_21-40-14_d6b2f.png)
 
 After the morning FCR trade closed, Fortuna and Christopher analyzed a
 potential afternoon retest of the 24,880 level (the 3/5 ZTH entry from the
