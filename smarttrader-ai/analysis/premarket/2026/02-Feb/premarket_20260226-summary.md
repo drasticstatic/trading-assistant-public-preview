@@ -110,56 +110,56 @@ All confirming instruments aligned bearish at FCR (9:45). IT Foundation EMAs red
 
 ### CL — Weekly FCR (Pre-Market)
 
-![CL Weekly FCR](../../data/screenshots/CL1!_2026-02-26_09-05-29_9b1a4.png)
+![CL Weekly FCR](../../../../data/screenshots/CL1!_2026-02-26_09-05-29_9b1a4.png)
 *CL weekly FCR — bullish from Sunday open. Risk-off rotation signal confirmed.*
 
-![CL Pre-Session](../../data/screenshots/CL1!_2026-02-26_09-17-36_fdec6.png)
+![CL Pre-Session](../../../../data/screenshots/CL1!_2026-02-26_09-17-36_fdec6.png)
 *CL 5-min pre-session structure.*
 
 ### NQ — Primary Instrument
 
-![NQ FCR Open](../../data/screenshots/NQ1!_2026-02-26_09-30-44_1abba.png)
+![NQ FCR Open](../../../../data/screenshots/NQ1!_2026-02-26_09-30-44_1abba.png)
 *NQ FCR first candle at 9:30. IT Foundation EMAs red dominant.*
 
-![NQ Bounce Phase](../../data/screenshots/NQ1!_2026-02-26_10-11-19_b81c1.png)
+![NQ Bounce Phase](../../../../data/screenshots/NQ1!_2026-02-26_10-11-19_b81c1.png)
 *NQ bounce phase — ZTH 5/5 level active. Second retrace setup forming.*
 
-![NQ Fib Corrected](../../data/screenshots/NQ1!_2026-02-26_11-05-43_a8fb2.png)
+![NQ Fib Corrected](../../../../data/screenshots/NQ1!_2026-02-26_11-05-43_a8fb2.png)
 *NQ Fib corrected (past → current). ETH high anchor. Bounce targets visible.*
 
-![NQ Second Retrace Setup](../../data/screenshots/NQ1!_2026-02-26_12-02-35_afc7b.png)
+![NQ Second Retrace Setup](../../../../data/screenshots/NQ1!_2026-02-26_12-02-35_afc7b.png)
 *NQ 1-2-3 continuation. Planned entry: 25,060. SL: 25,139.*
 
-![NQ Session Arc](../../data/screenshots/NQ1!_2026-02-26_23-33-39_d7ced.png)
+![NQ Session Arc](../../../../data/screenshots/NQ1!_2026-02-26_23-33-39_d7ced.png)
 *NQ ETH session arc — full day. Scenario A SHORT confirmed.*
 
 ### ES — Level Quality Reference
 
-![ES FCR](../../data/screenshots/ES1!_2026-02-26_09-30-57_092c3.png)
+![ES FCR](../../../../data/screenshots/ES1!_2026-02-26_09-30-57_092c3.png)
 *ES FCR open. Confirming Scenario A SHORT.*
 
-![ES Bullish FVG](../../data/screenshots/ES1!_2026-02-26_11-09-27_2d1bc.png)
+![ES Bullish FVG](../../../../data/screenshots/ES1!_2026-02-26_11-09-27_2d1bc.png)
 *ES bullish FVG zone — cleanest level quality of the four indices.*
 
 ### YM — Leading Indicator on the Bounce
 
-![YM FCR](../../data/screenshots/YM1!_2026-02-26_09-31-24_27200.png)
+![YM FCR](../../../../data/screenshots/YM1!_2026-02-26_09-31-24_27200.png)
 *YM FCR confirming. Third index aligned.*
 
-![YM Hits FVG](../../data/screenshots/YM1!_2026-02-26_11-49-24_03085.png)
+![YM Hits FVG](../../../../data/screenshots/YM1!_2026-02-26_11-49-24_03085.png)
 *YM hits bullish FVG first — leading signal. When YM rolls, ES/NQ are approaching their zones.*
 
 ### RTY — SMT Divergence Reference
 
-![RTY FCR](../../data/screenshots/RTY1!_2026-02-26_09-35-22_488e4.png)
+![RTY FCR](../../../../data/screenshots/RTY1!_2026-02-26_09-35-22_488e4.png)
 *RTY FCR — fourth confirming index.*
 
-![RTY SMT Divergence](../../data/screenshots/RTY1!_2026-02-26_11-09-40_72fd3.png)
+![RTY SMT Divergence](../../../../data/screenshots/RTY1!_2026-02-26_11-09-40_72fd3.png)
 *RTY SMT divergence — lagging the bounce all session. Institutional weakness in small caps = bearish continuation.*
 
 ### GC — Safe Haven Macro Confirmation
 
-![GC Safe Haven](../../data/screenshots/GC1!_2026-02-26_11-50-04_16574.png)
+![GC Safe Haven](../../../../data/screenshots/GC1!_2026-02-26_11-50-04_16574.png)
 *GC holding elevated. Safe haven bid active — confirming equity bear environment.*
 
 ---

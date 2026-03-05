@@ -285,9 +285,9 @@ Mental checklist going in:
 | 9:47 AM | `NQ1!_2026-02-25_09-47-07_9804f.png` | NQ — 1hr EMAs (left) + 5min FCR levels (right) |
 | 9:47 AM | `YM1!_2026-02-25_09-47-49_a7bd4.png` | YM — 1hr EMAs (left) + 5min FCR levels (right) + FVG |
 
-![ES FCR 9:46](../../data/screenshots/ES1!_2026-02-25_09-46-35_99871.png)
-![NQ FCR 9:47](../../data/screenshots/NQ1!_2026-02-25_09-47-07_9804f.png)
-![YM FCR 9:47](../../data/screenshots/YM1!_2026-02-25_09-47-49_a7bd4.png)
+![ES FCR 9:46](../../../../data/screenshots/ES1!_2026-02-25_09-46-35_99871.png)
+![NQ FCR 9:47](../../../../data/screenshots/NQ1!_2026-02-25_09-47-07_9804f.png)
+![YM FCR 9:47](../../../../data/screenshots/YM1!_2026-02-25_09-47-49_a7bd4.png)
 
 **FCR Read — 9:45 Close:**
 
@@ -346,9 +346,9 @@ NEXT TRIGGER TO WATCH:
 | 9:58 AM | `NQ1!_2026-02-25_09-58-37_0c637.png` | NQ — EMAs flipped + FVG displacement |
 | 9:58 AM | `YM1!_2026-02-25_09-58-52_def8d.png` | YM — EMAs flipped + deeper retracement |
 
-![ES 9:58](../../data/screenshots/ES1!_2026-02-25_09-58-24_16314.png)
-![NQ 9:58](../../data/screenshots/NQ1!_2026-02-25_09-58-37_0c637.png)
-![YM 9:58](../../data/screenshots/YM1!_2026-02-25_09-58-52_def8d.png)
+![ES 9:58](../../../../data/screenshots/ES1!_2026-02-25_09-58-24_16314.png)
+![NQ 9:58](../../../../data/screenshots/NQ1!_2026-02-25_09-58-37_0c637.png)
+![YM 9:58](../../../../data/screenshots/YM1!_2026-02-25_09-58-52_def8d.png)
 
 ```
 IT FOUNDATION EMAs — ALL THREE AT 9:58 AM:
@@ -411,9 +411,9 @@ EIA RISK MANAGEMENT:
 | 9:18 AM | `NQ1!_2026-02-25_09-18-28_5fee4.png` | NQ 1hr — ZTH levels + new key level + VRVP | 1H |
 | 9:18 AM | `YM1!_2026-02-25_09-18-43_b90c9.png` | YM 1hr — ZTH levels + new key level + VRVP | 1H |
 
-![ES 1hr](../../data/screenshots/ES1!_2026-02-25_09-18-16_d7885.png)
-![NQ 1hr](../../data/screenshots/NQ1!_2026-02-25_09-18-28_5fee4.png)
-![YM 1hr](../../data/screenshots/YM1!_2026-02-25_09-18-43_b90c9.png)
+![ES 1hr](../../../../data/screenshots/ES1!_2026-02-25_09-18-16_d7885.png)
+![NQ 1hr](../../../../data/screenshots/NQ1!_2026-02-25_09-18-28_5fee4.png)
+![YM 1hr](../../../../data/screenshots/YM1!_2026-02-25_09-18-43_b90c9.png)
 
 ---
 
@@ -425,9 +425,9 @@ EIA RISK MANAGEMENT:
 | 9:22 AM | `ES1!_2026-02-25_09-22-50_c7f06.png` | ES 5min — FCR context + bounce structure | 5M RTH |
 | 9:23 AM | `NQ1!_2026-02-25_09-23-06_57ef6.png` | NQ 5min — FCR context + VRVP developing range | 5M RTH |
 
-![YM 5min](../../data/screenshots/YM1!_2026-02-25_09-22-38_4581e.png)
-![ES 5min](../../data/screenshots/ES1!_2026-02-25_09-22-50_c7f06.png)
-![NQ 5min](../../data/screenshots/NQ1!_2026-02-25_09-23-06_57ef6.png)
+![YM 5min](../../../../data/screenshots/YM1!_2026-02-25_09-22-38_4581e.png)
+![ES 5min](../../../../data/screenshots/ES1!_2026-02-25_09-22-50_c7f06.png)
+![NQ 5min](../../../../data/screenshots/NQ1!_2026-02-25_09-23-06_57ef6.png)
 
 ---
 
@@ -442,9 +442,9 @@ from the Feb 24 RTH lows through to the open.*
 | 9:27 AM | `ES1!_2026-02-25_09-27-51_cb238.png` | ES 5min ETH — overnight rally, price approaching key level | 5M ETH |
 | 9:28 AM | `YM1!_2026-02-25_09-28-17_c51af.png` | YM 5min ETH — overnight rally, VRVP POC upper range | 5M ETH |
 
-![NQ ETH 5min](../../data/screenshots/NQ1!_2026-02-25_09-27-15_1fba5.png)
-![ES ETH 5min](../../data/screenshots/ES1!_2026-02-25_09-27-51_cb238.png)
-![YM ETH 5min](../../data/screenshots/YM1!_2026-02-25_09-28-17_c51af.png)
+![NQ ETH 5min](../../../../data/screenshots/NQ1!_2026-02-25_09-27-15_1fba5.png)
+![ES ETH 5min](../../../../data/screenshots/ES1!_2026-02-25_09-27-51_cb238.png)
+![YM ETH 5min](../../../../data/screenshots/YM1!_2026-02-25_09-28-17_c51af.png)
 
 **ETH narrative — all three instruments in sync:**
 

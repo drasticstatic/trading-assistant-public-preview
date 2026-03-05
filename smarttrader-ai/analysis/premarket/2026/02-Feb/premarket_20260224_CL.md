@@ -17,10 +17,10 @@
 | 8:29 AM | `CL1!_2026-02-24_08-29-36_fa7bf.png` | Dual FRVP profiles |
 | 8:31 AM | `CL1!_2026-02-24_08-31-12_11530.png` | LuxAlgo OFS + EMAs + VRVP |
 
-![CL Levels](../../data/screenshots/CL1!_2026-02-24_08-24-08_32eb1.png)
-![CL EMAs](../../data/screenshots/CL1!_2026-02-24_08-28-22_f1dc4.png)
-![CL FRVP](../../data/screenshots/CL1!_2026-02-24_08-29-36_fa7bf.png)
-![CL Full](../../data/screenshots/CL1!_2026-02-24_08-31-12_11530.png)
+![CL Levels](../../../../data/screenshots/CL1!_2026-02-24_08-24-08_32eb1.png)
+![CL EMAs](../../../../data/screenshots/CL1!_2026-02-24_08-28-22_f1dc4.png)
+![CL FRVP](../../../../data/screenshots/CL1!_2026-02-24_08-29-36_fa7bf.png)
+![CL Full](../../../../data/screenshots/CL1!_2026-02-24_08-31-12_11530.png)
 
 ---
 

@@ -66,28 +66,28 @@ Market has continued lower into Mar 1, confirming the directional thesis for the
 
 ### The Setup — Lunchtime
 
-![NQ Trade Setup](../../data/screenshots/Screen%20Shot%202026-02-27%20at%2013.03.35.png)
+![NQ Trade Setup](../../../../data/screenshots/Screen%20Shot%202026-02-27%20at%2013.03.35.png)
 *~13:03 — NQ1! 5-min (dark background, Christopher's chart). Sell Limit placed in FVG structural zone. Price well below entry zone.*
 
-![NQ Full Session View](../../data/screenshots/Screen%20Shot%202026-02-27%20at%2013.05.13.png)
+![NQ Full Session View](../../../../data/screenshots/Screen%20Shot%202026-02-27%20at%2013.05.13.png)
 *~13:05 — NQ1! with FRVP + IT Foundation EMAs. Red dominant throughout. Overhead supply confirmed. Setup structurally valid.*
 
 ### Inevitrade Coach — Independent Read (Light Background)
 
-![Coach ES View](../../data/screenshots/IMG_3971.jpeg)
+![Coach ES View](../../../../data/screenshots/IMG_3971.jpeg)
 *~13:25 — Inevitrade coach's MES 1-min (phone photo, coach's screen). TCL sell limit orders placed at 6883/6876.50 on ES. Same directional thesis, different framework. Coach also did not enter.*
 
-![Coach Fibonacci](../../data/screenshots/IMG_3975.jpeg)
+![Coach Fibonacci](../../../../data/screenshots/IMG_3975.jpeg)
 *~14:37 — Coach's MESH2026 dual panel. Fibonacci 0.382/0.5/0.618 zone mapped on ES. Structural confluence confirmed across frameworks.*
 
 ### 4 PM — Holding the Order
 
-![Late Session Hold](../../data/screenshots/Screen%20Shot%202026-02-27%20at%2016.05.05.png)
+![Late Session Hold](../../../../data/screenshots/Screen%20Shot%202026-02-27%20at%2016.05.05.png)
 *16:05 — NQ1! full Friday session. Entry zone still not reached. Order held open through RTH close — conviction, not FOMO.*
 
 ### Post-Session — The Direction Was Right
 
-![Mar 1 Continuation](../../data/screenshots/MNQ1!_2026-03-01_12-31-30_13e1f.png)
+![Mar 1 Continuation](../../../../data/screenshots/MNQ1!_2026-03-01_12-31-30_13e1f.png)
 *Mar 1, 12:31 — MNQ current state. Continued lower from Friday's range. Directional thesis confirmed for the third consecutive session.*
 
 ---

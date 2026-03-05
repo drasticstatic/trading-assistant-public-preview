@@ -33,7 +33,7 @@
 
 ### 🥇 GC — Scenario A Is Alive
 
-![GC Overnight](../../data/screenshots/GC1!_2026-02-23_09-03-05_cd5c5.png)
+![GC Overnight](../../../../data/screenshots/GC1!_2026-02-23_09-03-05_cd5c5.png)
 
 **Status: ✅ Original analysis confirmed. Setup developing.**
 
@@ -61,7 +61,7 @@ at or above the EMA stack?
 
 ### 🥈 SI — Confirming GC, No Divergence
 
-![SI Overnight](../../data/screenshots/SI1!_2026-02-23_09-03-19_e3c87.png)
+![SI Overnight](../../../../data/screenshots/SI1!_2026-02-23_09-03-19_e3c87.png)
 
 **Status: ✅ Tracking GC. No SMT divergence detected.**
 
@@ -85,7 +85,7 @@ Watch: SI must participate if GC makes a new high
 
 ### 🛢️ CL — ⚠️ OVERNIGHT REVERSAL — ORIGINAL THESIS CHALLENGED
 
-![CL Overnight](../../data/screenshots/CL1!_2026-02-23_09-03-45_dec0d.png)
+![CL Overnight](../../../../data/screenshots/CL1!_2026-02-23_09-03-45_dec0d.png)
 
 **Status: 🚨 SIGNIFICANT CHANGE from Feb 22 analysis.**
 
@@ -130,7 +130,7 @@ If CHOPPY / NO DIRECTION → No trade. CL is
 
 ### ⛽ NG — Bearish Structure Intact
 
-![NG Overnight](../../data/screenshots/NG1!_2026-02-23_09-04-33_95129.png)
+![NG Overnight](../../../../data/screenshots/NG1!_2026-02-23_09-04-33_95129.png)
 
 **Status: ✅ Original analysis confirmed. Bearish.**
 
@@ -164,8 +164,8 @@ NG plan unchanged:
 
 ### 📊 NQ — ETH Context + FVG (9:09 AM)
 
-![NQ ETH FVG](../../data/screenshots/NQ1!_2026-02-23_09-09-07_9e3cc.png)
-![NQ ETH Zoom](../../data/screenshots/NQ1!_2026-02-23_09-10-18_35bc4.png)
+![NQ ETH FVG](../../../../data/screenshots/NQ1!_2026-02-23_09-09-07_9e3cc.png)
+![NQ ETH Zoom](../../../../data/screenshots/NQ1!_2026-02-23_09-10-18_35bc4.png)
 
 **What the ETH chart reveals:**
 
@@ -201,8 +201,8 @@ overnight recovery adds upside momentum into the open.
 
 ### 📊 ES + YM — At the Open (9:27 AM)
 
-![ES Open](../../data/screenshots/ES1!_2026-02-23_09-27-23_28179.png)
-![YM Open](../../data/screenshots/YM1!_2026-02-23_09-27-42_a0b82.png)
+![ES Open](../../../../data/screenshots/ES1!_2026-02-23_09-27-23_28179.png)
+![YM Open](../../../../data/screenshots/YM1!_2026-02-23_09-27-42_a0b82.png)
 
 **Taken 3 minutes before the NY bell — the freshest**
 **picture available going into the session.**
@@ -458,9 +458,9 @@ NOW → Review this document. Mental state check.
 
 ### ✅ 9:45 AM — First 15-Min Candle: BEARISH
 
-![NQ FCR Trigger](../../data/screenshots/NQ1!_2026-02-23_09-45-55_5693e.png)
-![ES FCR Trigger](../../data/screenshots/ES1!_2026-02-23_09-46-36_07f9b.png)
-![YM FCR Trigger](../../data/screenshots/YM1!_2026-02-23_09-47-32_c325b.png)
+![NQ FCR Trigger](../../../../data/screenshots/NQ1!_2026-02-23_09-45-55_5693e.png)
+![ES FCR Trigger](../../../../data/screenshots/ES1!_2026-02-23_09-46-36_07f9b.png)
+![YM FCR Trigger](../../../../data/screenshots/YM1!_2026-02-23_09-47-32_c325b.png)
 
 The first 15-min candle (9:30–9:45 ET) closed **BEARISH**
 on all three instruments. The ETH recovery was absorbed
@@ -484,7 +484,7 @@ The candle decided. The rule was applied.
 
 ### ✅ 9:50 AM — YM FVG Displacement Confirmed
 
-![YM FVG Live](../../data/screenshots/YM1!_2026-02-23_09-50-37_09858.png)
+![YM FVG Live](../../../../data/screenshots/YM1!_2026-02-23_09-50-37_09858.png)
 
 The standout screenshot of the session. Two **FVG**
 boxes are now labeled on YM — one pre-identified before
@@ -505,8 +505,8 @@ The market confirmed it. That pre-session read was correct.
 
 ### ✅ 9:52 AM — Trade Running
 
-![ES Running](../../data/screenshots/ES1!_2026-02-23_09-52-05_6e327.png)
-![NQ Running](../../data/screenshots/NQ1!_2026-02-23_09-52-52_a7fad.png)
+![ES Running](../../../../data/screenshots/ES1!_2026-02-23_09-52-05_6e327.png)
+![NQ Running](../../../../data/screenshots/NQ1!_2026-02-23_09-52-52_a7fad.png)
 
 By 9:52 AM, all three instruments are showing decisive
 bearish displacement. The large bearish candles on ES

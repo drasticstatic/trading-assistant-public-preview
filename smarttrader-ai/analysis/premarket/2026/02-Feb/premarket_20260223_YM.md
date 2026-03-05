@@ -22,19 +22,19 @@
 ## 📊 Screenshots
 
 ### 1 — 1hr Macro View
-![YM Macro](../../data/screenshots/YM1!_2026-02-23_08-49-53_39d0c.png)
+![YM Macro](../../../../data/screenshots/YM1!_2026-02-23_08-49-53_39d0c.png)
 
 ### 2 — 1hr Level Detail + FRVP
-![YM 1hr Levels](../../data/screenshots/YM1!_2026-02-23_08-50-28_6df07.png)
+![YM 1hr Levels](../../../../data/screenshots/YM1!_2026-02-23_08-50-28_6df07.png)
 
 ### 3 — VRVP
-![YM VRVP](../../data/screenshots/YM1!_2026-02-23_08-54-19_166c9.png)
+![YM VRVP](../../../../data/screenshots/YM1!_2026-02-23_08-54-19_166c9.png)
 
 ### 4 — IT Foundation EMAs + VRVP + FVG Annotated
-![YM EMAs FVG](../../data/screenshots/YM1!_2026-02-23_08-56-49_c717e.png)
+![YM EMAs FVG](../../../../data/screenshots/YM1!_2026-02-23_08-56-49_c717e.png)
 
 ### 5 — FVG Context + Full Indicator View
-![YM FVG Full](../../data/screenshots/YM1!_2026-02-23_08-57-24_33908.png)
+![YM FVG Full](../../../../data/screenshots/YM1!_2026-02-23_08-57-24_33908.png)
 
 ---
 
