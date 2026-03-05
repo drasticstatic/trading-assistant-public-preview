@@ -11,7 +11,7 @@
 > screenshot to coach export. Scroll down for a live example
 > from Feb 22, 2026.
 
-[Jump to Case Study — Feb 22, 2026](#-case-study--feb-22-2026)
+[Jump to Case Study — Feb 22, 2026](#case-study-feb-22-2026)
 
 ---
 
@@ -239,6 +239,8 @@ complete trade. The level doesn't owe you a
 second entry.
 
 ---
+
+<a id="case-study-feb-22-2026"></a>
 
 ## 📊 Case Study — Feb 22, 2026
 
