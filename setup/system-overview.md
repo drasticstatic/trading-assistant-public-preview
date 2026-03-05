@@ -130,6 +130,50 @@ Each AI agent in this system can be accessed via multiple interfaces — all sha
 
 **CLI-first principle:** All agents use the terminal CLI as their primary interface. VSCode extensions and standalone apps are convenience layers — memory and coordination persist through files in `AGENT-SYNC/`, not interface-specific conversation history.
 
+### Conversation History Siloing
+
+While the Augment Context Engine (codebase index) is shared across all Augment-powered interfaces, **conversation transcripts are completely siloed** per interface. No interface can read another's chat history.
+
+| Interface | Chat History Storage | Shared With Other Interfaces? |
+|-----------|---------------------|-------------------------------|
+| Augment VSCode Extension | Augment cloud (per-workspace) | ❌ No — isolated from CLI and Intent |
+| Augment CLI | Augment cloud (per-session) | ❌ No — isolated from VSCode ext and Intent |
+| Augment Intent | Intent workspace (per-Space) | ❌ No — isolated from VSCode ext and CLI |
+| Claude Code CLI | Local filesystem (`~/.claude/`) | ❌ No — isolated from Claude VSCode ext* |
+| Claude Code VSCode Extension | Local filesystem (`~/.claude/`) | ⚠️ Partial — shares with CLI via `claude --resume` |
+
+\* Claude Code CLI and VSCode extension can bridge sessions with `claude --resume`, but this is explicit opt-in — they don't passively share history.
+
+**Key implication:** An agent working in Augment CLI cannot see what was discussed in an Augment Intent Space, and vice versa. The **only bridge** between interfaces is the `AGENT-SYNC/` directory on disk — prompt files, handoff notes, and sync documents that agents read at session start. This is why the AGENT-SYNC convention exists: it's the cross-interface memory layer.
+
+### Intent Clone Architecture
+
+Augment Intent creates its own git clone for each repository it manages, separate from the primary working clones used by Fortuna (Claude Code CLI) and Auggie (Augment CLI). All Intent clones live under `~/intent/workspaces/md-sync/`:
+
+```
+Intent clones (Kavanah):
+~/intent/workspaces/md-sync/trading-assistant/
+~/intent/workspaces/md-sync/gratitude-token-project/
+~/intent/workspaces/md-sync/gratitude-token-project_docs/
+~/intent/workspaces/md-sync/resume/
+~/intent/workspaces/md-sync/trading-bot_arbitrage_.../
+~/intent/workspaces/md-sync/divorce-custody-assistant/
+
+Primary clones:
+~/ClaudeCodeCLI/trading-assistant/              (Fortuna)
+~/ClaudeCodeCLI/divorce-custody-assistant/       (Fortuna)
+~/dappu/gratitude-token-project/                 (Auggie)
+~/dappu/gratitude-token-project_docs/            (Auggie)
+~/dappu/resume/                                  (Auggie)
+~/dappu/trading-bot_arbitrage_DAPPUv3_hardhat_UNI-CAKE/ (Auggie)
+```
+
+**Why separate clones?** Intent agents work in isolated Spaces — if they edited the same clone that Fortuna or Auggie is using, mid-session file conflicts would be inevitable. Separate clones let each interface work independently without stepping on each other's uncommitted changes.
+
+**How changes sync:** After each work wave, agents commit and push to the shared remote. Other interfaces pull at session start (or when prompted). The `AGENT-SYNC/` directory is the coordination layer — agents check for handoff prompts before beginning work.
+
+**What is `md-sync`?** This is Intent's internal workspace group name. It appears in the clone path but has no special meaning outside of Intent's directory structure.
+
 ## For Coaches
 This public repo contains analysis exports, session reviews, and methodology documentation.
 Strategy details, Pine Script source, and agent specs are in the private workspace.
