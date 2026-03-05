@@ -107,24 +107,24 @@ After Trade 001 loss, price began recovering from session lows. EMAs flipped gre
 
 **Screenshots — Trade 002 Monitoring:**
 
-![MES 10:32 AM](../../data/screenshots/MES1!_2026-02-24_10-32-19_fd039.png)
-![ES 10:32 AM](../../data/screenshots/ES1!_2026-02-24_10-32-31_3b716.png)
-![MES 10:51 AM](../../data/screenshots/MES1!_2026-02-24_10-51-55_1bec4.png)
-![ES 10:52 AM](../../data/screenshots/ES1!_2026-02-24_10-52-55_5385f.png)
-![MES 10:56 AM](../../data/screenshots/MES1!_2026-02-24_10-56-36_62fc1.png)
-![ES 11:09 AM](../../data/screenshots/ES1!_2026-02-24_11-09-31_9bfc4.png)
-![MES 11:31 AM](../../data/screenshots/MES1!_2026-02-24_11-31-24_f633a.png)
-![MES 11:32 AM](../../data/screenshots/MES1!_2026-02-24_11-32-32_0fc23.png)
-![NQ 11:47 AM](../../data/screenshots/NQ1!_2026-02-24_11-47-06_a477e.png)
-![YM 11:47 AM](../../data/screenshots/YM1!_2026-02-24_11-47-18_5dc75.png)
-![ES 11:49 AM](../../data/screenshots/ES1!_2026-02-24_11-49-43_f2342.png)
-![ES 12:09 AM](../../data/screenshots/ES1!_2026-02-24_12-09-27_9727f.png)
-![NQ 12:11 PM](../../data/screenshots/NQ1!_2026-02-24_12-11-36_a91f1.png)
-![YM 12:13 PM](../../data/screenshots/YM1!_2026-02-24_12-13-01_398de.png)
-![ES 12:29 PM](../../data/screenshots/ES1!_2026-02-24_12-29-39_bef86.png)
-![ES 13:25 PM](../../data/screenshots/ES1!_2026-02-24_13-25-54_6b949.png)
-![RTY 13:52 PM — divergence](../../data/screenshots/Screenshot%202026-02-24%20at%2013.52.14.png)
-![NQ 13:55 PM — divergence](../../data/screenshots/Screenshot%202026-02-24%20at%2013.55.13.png)
+![MES 10:32 AM](../../../../data/screenshots/MES1!_2026-02-24_10-32-19_fd039.png)
+![ES 10:32 AM](../../../../data/screenshots/ES1!_2026-02-24_10-32-31_3b716.png)
+![MES 10:51 AM](../../../../data/screenshots/MES1!_2026-02-24_10-51-55_1bec4.png)
+![ES 10:52 AM](../../../../data/screenshots/ES1!_2026-02-24_10-52-55_5385f.png)
+![MES 10:56 AM](../../../../data/screenshots/MES1!_2026-02-24_10-56-36_62fc1.png)
+![ES 11:09 AM](../../../../data/screenshots/ES1!_2026-02-24_11-09-31_9bfc4.png)
+![MES 11:31 AM](../../../../data/screenshots/MES1!_2026-02-24_11-31-24_f633a.png)
+![MES 11:32 AM](../../../../data/screenshots/MES1!_2026-02-24_11-32-32_0fc23.png)
+![NQ 11:47 AM](../../../../data/screenshots/NQ1!_2026-02-24_11-47-06_a477e.png)
+![YM 11:47 AM](../../../../data/screenshots/YM1!_2026-02-24_11-47-18_5dc75.png)
+![ES 11:49 AM](../../../../data/screenshots/ES1!_2026-02-24_11-49-43_f2342.png)
+![ES 12:09 AM](../../../../data/screenshots/ES1!_2026-02-24_12-09-27_9727f.png)
+![NQ 12:11 PM](../../../../data/screenshots/NQ1!_2026-02-24_12-11-36_a91f1.png)
+![YM 12:13 PM](../../../../data/screenshots/YM1!_2026-02-24_12-13-01_398de.png)
+![ES 12:29 PM](../../../../data/screenshots/ES1!_2026-02-24_12-29-39_bef86.png)
+![ES 13:25 PM](../../../../data/screenshots/ES1!_2026-02-24_13-25-54_6b949.png)
+![RTY 13:52 PM — divergence](../../../../data/screenshots/Screenshot%202026-02-24%20at%2013.52.14.png)
+![NQ 13:55 PM — divergence](../../../../data/screenshots/Screenshot%202026-02-24%20at%2013.55.13.png)
 
 ---
 
@@ -140,7 +140,7 @@ Status:     Paper only. 6,888 limit never filled at any point.
 **16:51 ET — Session close screenshot:**
 Price had been elevated above 6,888 all day — the 6,888 limit order was never in danger of filling. MES order closed ("Closed" label visible). Structure showed exhaustion at session highs. The ascending trendline from the lows was intact but NQ/YM weakness was flagging a possible reversal. Reduced mental model to 1:1 R:R (had to leave by 4 PM constraint). Decision to not place a live trade — correct.
 
-![ES/MES 16:51 ET — order closed, limit never filled](../../data/screenshots/Screenshot%202026-02-24%20at%2016.51.10.png)
+![ES/MES 16:51 ET — order closed, limit never filled](../../../../data/screenshots/Screenshot%202026-02-24%20at%2016.51.10.png)
 
 **Overnight ETH — Asia session + SFP (23:49 ET screenshot):**
 
@@ -154,7 +154,7 @@ The 23:49 ET screenshot captures the ES 3D macro context (multi-day bearish stru
 
 **Retrospective verdict:** The 6,888 limit was never filled at any point during the RTH or ETH session. The HVN proved to be genuine structural support — the SFP wick stopping at 6,892 rather than penetrating 6,888 confirms the HVN was respected. The NQ/YM divergence at 13:52 was still a correct early warning that the long thesis was weakening at the session level; the Asia drive up was temporary and the SFP confirmed sellers were still present. Not placing a live trade was the correct outcome regardless.
 
-![ES 3D / MES 4H — 23:49 ET — Asia session + SFP wick](../../data/screenshots/Screenshot%202026-02-24%20at%2023.49.08.png)
+![ES 3D / MES 4H — 23:49 ET — Asia session + SFP wick](../../../../data/screenshots/Screenshot%202026-02-24%20at%2023.49.08.png)
 
 ---
 

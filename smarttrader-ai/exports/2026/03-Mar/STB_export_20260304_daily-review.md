@@ -18,7 +18,7 @@ All three indices closed the 9:30 first candle bearish — Middle East geopoliti
 
 **CL ETH move (9:45 AM):**
 
-![CL ETH move — Middle East geopolitical spike](../../data/screenshots/CL1!_2026-03-04_09-45-05_2aeed.png)
+![CL ETH move — Middle East geopolitical spike](../../../../data/screenshots/CL1!_2026-03-04_09-45-05_2aeed.png)
 
 ---
 
@@ -26,17 +26,17 @@ All three indices closed the 9:30 first candle bearish — Middle East geopoliti
 
 <table>
 <tr>
-<td width="50%"><img src="../../data/screenshots/ES1!_2026-03-04_10-17-18_18160.png" width="100%"><br><sub>ES 10:17 — V-recovery underway</sub></td>
-<td width="50%"><img src="../../data/screenshots/ES1!_2026-03-04_10-19-53_11a60.png" width="100%"><br><sub>ES 10:19 — above FCR ray confirmed</sub></td>
+<td width="50%"><img src="../../../../data/screenshots/ES1!_2026-03-04_10-17-18_18160.png" width="100%"><br><sub>ES 10:17 — V-recovery underway</sub></td>
+<td width="50%"><img src="../../../../data/screenshots/ES1!_2026-03-04_10-19-53_11a60.png" width="100%"><br><sub>ES 10:19 — above FCR ray confirmed</sub></td>
 </tr>
 </table>
 
 <table>
 <tr>
-<td width="25%"><img src="../../data/screenshots/NQ1!_2026-03-04_10-31-42_5b982.png" width="100%"><br><sub>NQ — strong bullish, leading</sub></td>
-<td width="25%"><img src="../../data/screenshots/ES1!_2026-03-04_10-30-08_e7236.png" width="100%"><br><sub>ES — above FCR ray, transitioning</sub></td>
-<td width="25%"><img src="../../data/screenshots/YM1!_2026-03-04_10-31-28_abc53.png" width="100%"><br><sub>YM — weakest, briefly under FCR ray</sub></td>
-<td width="25%"><img src="../../data/screenshots/RTY1!_2026-03-04_10-32-33_3aa83.png" width="100%"><br><sub>RTY — volatile recovery, participating</sub></td>
+<td width="25%"><img src="../../../../data/screenshots/NQ1!_2026-03-04_10-31-42_5b982.png" width="100%"><br><sub>NQ — strong bullish, leading</sub></td>
+<td width="25%"><img src="../../../../data/screenshots/ES1!_2026-03-04_10-30-08_e7236.png" width="100%"><br><sub>ES — above FCR ray, transitioning</sub></td>
+<td width="25%"><img src="../../../../data/screenshots/YM1!_2026-03-04_10-31-28_abc53.png" width="100%"><br><sub>YM — weakest, briefly under FCR ray</sub></td>
+<td width="25%"><img src="../../../../data/screenshots/RTY1!_2026-03-04_10-32-33_3aa83.png" width="100%"><br><sub>RTY — volatile recovery, participating</sub></td>
 </tr>
 </table>
 
@@ -48,9 +48,9 @@ NQ was the clear leader — IT Foundation EMAs green and fanned. YM was the weak
 
 <table>
 <tr>
-<td width="33%"><img src="../../data/screenshots/NQ1!_2026-03-04_10-56-51_01f1a.png" width="100%"><br><sub>NQ 15-min — far above FCR ray</sub></td>
-<td width="33%"><img src="../../data/screenshots/ES1!_2026-03-04_10-57-38_959a8.png" width="100%"><br><sub>ES 15-min — qualified bullish continuation candle</sub></td>
-<td width="33%"><img src="../../data/screenshots/YM1!_2026-03-04_10-58-31_92c5a.png" width="100%"><br><sub>YM 15-min — weakest of the three</sub></td>
+<td width="33%"><img src="../../../../data/screenshots/NQ1!_2026-03-04_10-56-51_01f1a.png" width="100%"><br><sub>NQ 15-min — far above FCR ray</sub></td>
+<td width="33%"><img src="../../../../data/screenshots/ES1!_2026-03-04_10-57-38_959a8.png" width="100%"><br><sub>ES 15-min — qualified bullish continuation candle</sub></td>
+<td width="33%"><img src="../../../../data/screenshots/YM1!_2026-03-04_10-58-31_92c5a.png" width="100%"><br><sub>YM 15-min — weakest of the three</sub></td>
 </tr>
 </table>
 
@@ -60,7 +60,7 @@ NQ still far above its FCR ray on the 15-min. ES showed a qualified bullish cont
 
 ## 11:51 AM — MNQ/MES SMT Divergence (Inevitrade TCL Context)
 
-![MNQ/MES SMT Divergence — MNQ new high, MES fails to confirm](../../data/screenshots/Screenshot%202026-03-04%20at%2011.51.19.png)
+![MNQ/MES SMT Divergence — MNQ new high, MES fails to confirm](../../../../data/screenshots/Screenshot%202026-03-04%20at%2011.51.19.png)
 
 MNQ printed a new session high (25,158.25). MES failed to confirm — SMT divergence clearly marked on both charts via the TCL Helper. This was the first structural signal pointing toward a short directional bias. Not actionable as a primary entry on the 15-sec chart, but directionally meaningful — and it pointed to the correct thesis that developed through the afternoon.
 
@@ -68,7 +68,7 @@ MNQ printed a new session high (25,158.25). MES failed to confirm — SMT diverg
 
 ## 1:12 PM — ES Manipulation Bubbles at Session Highs
 
-![ES manipulation bubbles — institutional selling at session highs](../../data/screenshots/ES1!_2026-03-04_13-12-40_06dd8.png)
+![ES manipulation bubbles — institutional selling at session highs](../../../../data/screenshots/ES1!_2026-03-04_13-12-40_06dd8.png)
 
 Manipulation bubbles clustering at the session highs — institutional order flow selling into retail longs. Volume profile on the right confirms clear HVN resistance at that zone. IT Foundation EMAs (green) still ascending at this point — Scenario B SHORT not yet valid (5-min EMA gate not confirmed red dominant). Short thesis built; entry conditions not yet met.
 
@@ -76,7 +76,7 @@ Manipulation bubbles clustering at the session highs — institutional order flo
 
 ## 1:25 PM — ES Trade Projection: Short at 6,910.75
 
-![ES trade projection — short at 6910.75, SL 6922.75](../../data/screenshots/Screenshot%202026-03-04%20at%2013.25.15.png)
+![ES trade projection — short at 6910.75, SL 6922.75](../../../../data/screenshots/Screenshot%202026-03-04%20at%2013.25.15.png)
 
 **Planned entry:** 6,910.75 (just above ZTH KEY level, past high-value node)
 **Stop loss:** 6,922.75 (beyond next HVN) · **Risk:** ~$600
@@ -93,7 +93,7 @@ Confluence at time of setup:
 
 ## 1:28 PM — ES 1-Hour Chart: EMAs Rolling Red
 
-![ES 1hr chart — IT Foundation EMAs beginning to roll and cross bearish](../../data/screenshots/Screenshot%202026-03-04%20at%2013.28.01.png)
+![ES 1hr chart — IT Foundation EMAs beginning to roll and cross bearish](../../../../data/screenshots/Screenshot%202026-03-04%20at%2013.28.01.png)
 
 The 1hr view shows the broader context: the morning run into the highs, and the EMAs beginning to roll over. This is the longer-timeframe EMA gate — when fully red dominant, it validates Scenario B SHORT. The slow development of this crossover is precisely why the short was a plan, not yet an entry. The structural case was strong; the EMA confirmation was not yet complete.
 
@@ -103,7 +103,7 @@ The 1hr view shows the broader context: the morning run into the highs, and the 
 
 ## 7:46 PM ETH — Continuation Short Thesis
 
-![ES ETH session — bearish continuation developing, EMAs going red](../../data/screenshots/Screenshot%202026-03-04%20at%2019.46.03.png)
+![ES ETH session — bearish continuation developing, EMAs going red](../../../../data/screenshots/Screenshot%202026-03-04%20at%2019.46.03.png)
 
 The ETH session shows the same thesis continuing to develop. IT Foundation EMAs on the right side of the chart are rolling red dominant — the gate that was incomplete during the day session. The peak formed during the day session is clearly visible; price has not pushed back to that high in ETH. The structural case (LVN above session high, manipulation bubbles, SMT divergence, EMAs rolling red) has not resolved.
 

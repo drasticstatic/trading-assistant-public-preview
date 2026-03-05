@@ -21,13 +21,13 @@
 | 8:57 AM | `SI1!_2026-02-24_08-57-17_7d337.png` | SI — IT Foundation EMAs + VRVP |
 | 8:57 AM | `SI1!_2026-02-24_08-57-46_80ed0.png` | SI — LuxAlgo OFS + FRVP + ZTH levels |
 
-![GC ZTH Levels](../../data/screenshots/GC1!_2026-02-24_08-41-25_ce863.png)
-![GC SMC + EMAs](../../data/screenshots/GC1!_2026-02-24_08-42-14_08ab9.png)
-![GC FRVP Macro](../../data/screenshots/GC1!_2026-02-24_08-43-02_fec40.png)
-![GC LuxAlgo + VRVP](../../data/screenshots/GC1!_2026-02-24_08-43-44_24f2b.png)
-![GC Full Picture](../../data/screenshots/GC1!_2026-02-24_08-44-28_33b47.png)
-![SI EMAs + VRVP](../../data/screenshots/SI1!_2026-02-24_08-57-17_7d337.png)
-![SI Full View](../../data/screenshots/SI1!_2026-02-24_08-57-46_80ed0.png)
+![GC ZTH Levels](../../../../data/screenshots/GC1!_2026-02-24_08-41-25_ce863.png)
+![GC SMC + EMAs](../../../../data/screenshots/GC1!_2026-02-24_08-42-14_08ab9.png)
+![GC FRVP Macro](../../../../data/screenshots/GC1!_2026-02-24_08-43-02_fec40.png)
+![GC LuxAlgo + VRVP](../../../../data/screenshots/GC1!_2026-02-24_08-43-44_24f2b.png)
+![GC Full Picture](../../../../data/screenshots/GC1!_2026-02-24_08-44-28_33b47.png)
+![SI EMAs + VRVP](../../../../data/screenshots/SI1!_2026-02-24_08-57-17_7d337.png)
+![SI Full View](../../../../data/screenshots/SI1!_2026-02-24_08-57-46_80ed0.png)
 
 ---
 

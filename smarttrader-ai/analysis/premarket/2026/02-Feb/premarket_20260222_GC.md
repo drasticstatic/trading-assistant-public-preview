@@ -13,19 +13,19 @@
 ## 📊 Screenshots
 
 ### 1 — Macro View (Wide)
-![GC Macro](../../data/screenshots/GC1!_2026-02-22_23-17-00_2ab4d.png)
+![GC Macro](../../../../data/screenshots/GC1!_2026-02-22_23-17-00_2ab4d.png)
 
 ### 2 — 1hr + 5min Dual View
-![GC Dual](../../data/screenshots/GC1!_2026-02-22_23-18-58_14be9.png)
+![GC Dual](../../../../data/screenshots/GC1!_2026-02-22_23-18-58_14be9.png)
 
 ### 3 — Clean Trend View
-![GC Trend](../../data/screenshots/GC1!_2026-02-22_23-19-21_2111a.png)
+![GC Trend](../../../../data/screenshots/GC1!_2026-02-22_23-19-21_2111a.png)
 
 ### 4 — 5min + VRVP
-![GC VRVP](../../data/screenshots/GC1!_2026-02-22_23-24-01_9c9d6.png)
+![GC VRVP](../../../../data/screenshots/GC1!_2026-02-22_23-24-01_9c9d6.png)
 
 ### 5 — 5min + IT Foundation EMAs + VRVP
-![GC Indicators](../../data/screenshots/GC1!_2026-02-22_23-28-25_fa2b1.png)
+![GC Indicators](../../../../data/screenshots/GC1!_2026-02-22_23-28-25_fa2b1.png)
 
 ---
 

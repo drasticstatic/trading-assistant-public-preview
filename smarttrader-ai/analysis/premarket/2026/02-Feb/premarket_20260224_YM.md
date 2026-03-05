@@ -21,11 +21,11 @@
 | 9:34 AM | `YM1!_2026-02-24_09-34-48_87854.png` | LuxAlgo OFS + all indicators — most detailed | ETH ref |
 | 9:36 AM | `YM1!_2026-02-24_09-36-47_fd7ad.png` | LuxAlgo channels — widest macro view | ETH ref |
 
-![YM ZTH Levels](../../data/screenshots/YM1!_2026-02-24_09-30-54_1aecd.png)
-![YM EMAs + FCR Rays](../../data/screenshots/YM1!_2026-02-24_09-31-20_ff038.png)
-![YM ZTH Macro](../../data/screenshots/YM1!_2026-02-24_09-32-46_58d76.png)
-![YM Full Picture](../../data/screenshots/YM1!_2026-02-24_09-34-48_87854.png)
-![YM Macro Channels](../../data/screenshots/YM1!_2026-02-24_09-36-47_fd7ad.png)
+![YM ZTH Levels](../../../../data/screenshots/YM1!_2026-02-24_09-30-54_1aecd.png)
+![YM EMAs + FCR Rays](../../../../data/screenshots/YM1!_2026-02-24_09-31-20_ff038.png)
+![YM ZTH Macro](../../../../data/screenshots/YM1!_2026-02-24_09-32-46_58d76.png)
+![YM Full Picture](../../../../data/screenshots/YM1!_2026-02-24_09-34-48_87854.png)
+![YM Macro Channels](../../../../data/screenshots/YM1!_2026-02-24_09-36-47_fd7ad.png)
 
 ---
 
