@@ -156,20 +156,20 @@
 
 **Trading Date:** Tuesday, March 3, 2026
 
-**What news releases are scheduled for today?**
+### 1. What news releases today?
 
 TBD — check Forex Factory for Tuesday March 3 events before open.
 Note: No EIA report today (Wednesdays only for CL).
 
 ---
 
-**What are the expected figures and historical effect of those releases?**
+### 2. What are the expected figures? What effect has this event had on the markets before?
 
 TBD — update once economic calendar confirmed.
 
 ---
 
-**What is the HTF (higher timeframe) bias and key levels?**
+### 3. List both your HTF bias and key levels
 
 STB market snapshot: NQ — Strong-Bullish. ES, YM, EUR-USD, GBP-USD, GC, BTC-USD, ETH-USD — all Neutral.
 
@@ -177,15 +177,9 @@ NQ leading strong-bullish while ES/YM are neutral = divergence within the equity
 
 ETH context: TBD — update with overnight screenshot.
 
-Full pre-market analysis: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260303-summary.md
-
-Per-instrument analysis:
-- [CL](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260303_CL.md)
-- [Mar 2 Evening Context](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260303_0302-evening-session.md)
-
 ---
 
-**What is the intraday bias and key levels to watch?**
+### 4. List your Intraday bias and levels
 
 Bias: Bullish, with conditions — NQ strong-bullish from STB. Scenario A LONG if ES/YM join. Scenario C (flat) if they don't. Watch for SMT divergence if NQ runs solo into supply.
 
@@ -195,13 +189,20 @@ Eval context: Gap ~$5,634 | Deadline March 4 | Balance ~$100,366.
 
 ---
 
-**What are your expectations for the day?**
+### 5. Expectations for the day?
 
 Primary expectation: NQ leads bullish, watch for ES/YM confirmation → Scenario A LONG opportunity in the first hour. If all three confirm, enter MNQ on 5-min FVG displacement. If ES/YM do not join: Scenario C, no trade, preserve capital for the deadline.
 
 Secondary: CL — check EMA completion from March 2 evening transition. If red dominant confirmed, potential short setup via [premarket_20260303_CL.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260303_CL.md) game plan.
 
 Behavioral expectation: One A+ trade or flat. No FOMO opens, no re-entries chasing the winner. Rest was taken — come back sharp, not urgent.
+
+> Full pre-market summary:
+https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260303-summary.md
+
+> Full pre-market analysis:
+- [CL](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260303_CL.md)
+- [Mar 2 Evening Context](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260303_0302-evening-session.md)
 
 ---
 

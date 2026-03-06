@@ -99,35 +99,39 @@ Coming into the next live session: APEX-06 is clean. TPT is clean. The eval pres
 
 ---
 
-**1. What is today's date and what are the key economic events/news to watch?**
+### 1. What news releases today?
 
 Thursday, March 5, 2026. No major economic events flagged. Session designated as infrastructure and education — no trading planned.
 
 ---
 
-**2. What economic figures are you expecting and what effect might they have?**
+### 2. What are the expected figures? What effect has this event had on the markets before?
 
 No events monitored. Next session will require a fresh economic calendar check before open.
 
 ---
 
-**3. What is the higher timeframe bias and key levels to watch?**
+### 3. List both your HTF bias and key levels
 
 HTF bias from Mar 4 context: bearish continuation on ES/NQ developing. Key short setup zone: ES 6,910–6,922 (planned entry from Mar 4 — no fill). Confirmation required: 5-min IT Foundation EMAs red dominant gate. Until confirmed, no position.
 
 ---
 
-**4. What is your intraday bias and key entry levels?**
+### 4. List your Intraday bias and levels
 
 No intraday analysis performed. Returning clean to the next session. Framework: wait for FCR close at 9:45, confirm scenario, apply five-layer filter before any entry.
 
 ---
 
-**5. What are your expectations for the session?**
+### 5. Expectations for the day?
 
 This was an architecture day — not a trading session. The expectation was met: infrastructure repaired, documents standardized, GitHub navigation fixed. The next live session begins from a fully prepared position with APEX-06 and TPT accounts intact.
 
-> Full pre-market summary: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260305-summary.md
+> Full pre-market summary:
+https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260305-summary.md
+
+> Full pre-market analysis:
+*Note: Per-instrument detail is consolidated in this file (no separate NQ/ES/YM, etc. files for this session).*
 
 ---
 
