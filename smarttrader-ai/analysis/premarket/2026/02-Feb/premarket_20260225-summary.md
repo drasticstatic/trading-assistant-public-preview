@@ -650,7 +650,7 @@ Mental checklist going in:
 - One clean trade is a complete session
 
 > Full pre-market summary:
-https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/analysis/premarket_20260225_summary.md
+https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260225-summary.md
 
 > Full pre-market analysis:
 *Note: Per-instrument detail is consolidated in this file (no separate NQ/ES/YM, etc. files for this session).*

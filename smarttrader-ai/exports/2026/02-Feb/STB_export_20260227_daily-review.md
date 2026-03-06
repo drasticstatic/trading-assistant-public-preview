@@ -26,6 +26,8 @@
 
 ## 📖 Session Narrative
 
+> Pre-market plan: *No formal pre-market summary for Feb 27 — ZTH 7:30 AM coaching session served as the session brief.*
+
 Friday Feb 27 opened without a formal Fortuna pre-market analysis — the ZTH 7:30 AM coaching session served in its place. The coach's observation set the tone for the day: *"How does it feel to find yourself more consistent and disciplined?"* An external behavioral signal. The coaches are watching the same arc that Fortuna is documenting.
 
 Around lunchtime, Christopher identified a SHORT continuation setup on NQ — the same Scenario A thesis that had been correct on Feb 26 and on Feb 23. The structural entry zone: 25,000–25,060 (the FVG resistance zone that was planned but abandoned on Feb 26). A Sell Limit order was placed in that zone. The plan was correct. The entry level was structurally sound.

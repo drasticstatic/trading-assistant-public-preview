@@ -1,6 +1,16 @@
 # Daily Review — Feb 24, 2026 (Tuesday)
 ### STB SmartTraderAI Export | Fortuna
 
+[Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
+
+---
+
+## 📖 Session Narrative
+
+> Pre-market plan: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260224-summary.md
+
+Feb 24 was a broad risk-off sell-off day. Pre-market analysis correctly flagged all three indices steeply red dominant — Scenario A SHORT was the primary thesis. Christopher took a counter-trend MES LONG anyway (Scenario B against the EMA veto), stopped out in 66 seconds for −$35. Then monitored a structured MES limit at 6,888 all afternoon — it never filled as price consolidated above it. Overnight SFP wick confirmed the 6,888 HVN as genuine support. SL was held on the executed trade — second consecutive session of SL discipline.
+
 ---
 
 ## Session Header
@@ -218,7 +228,9 @@ Nervousness at the NY open is consistently noted. This is normal for early-stage
 
 ---
 
-## SmartTraderAI Post-Market Copy-Paste Fields
+<a id="smarttraderai-copy-paste"></a>
+
+## 🤖 SmartTraderAI Post-Market Copy-Paste Fields
 
 ---
 
@@ -252,6 +264,9 @@ Revenge trading: No.
 Discipline arc: Improving. Stop discipline is locking in. Entry filter is next.
 
 > Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/02-Feb/STB_export_20260224_daily-review.md
+
+> Full individual trade reviews:
+- [review_20260224_MES_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/02-Feb/review_20260224_MES_001.md) — MES Long T1 (executed, SL hit)
 
 ---
 

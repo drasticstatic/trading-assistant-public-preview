@@ -39,6 +39,8 @@
 
 ## 📖 Session Narrative
 
+> Pre-market plan: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260303-summary.md
+
 March 3 was the second-to-last day of the APEX eval — a gap of ~$5,634 remained at open. The premarket brief correctly identified eval pressure as the primary behavioral risk. All three trades reflected that pressure in different ways.
 
 **T1 (ES Long — 9:43 AM):** Counter-trend long 13 minutes into the open with ES confirmed red dominant. FCR candle had not yet closed. Scenario B LONG was explicitly vetoed. Lasted 86 seconds. SL held. Lesson: eval urgency produced the exact error the premarket warned against.
@@ -130,7 +132,9 @@ Despite the outcome: SL discipline partially held (T1 and T3 respected). Pre-mar
 
 Next step: evaluate Apex renewal vs new account options. STB $50 voucher to verify. One A+ trade at a time.
 
-Full individual reviews:
+> Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260303_daily-review.md
+
+> Full individual trade reviews:
 - [review_20260303_ES_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260303_ES_001.md) — ES Long T1
 - [review_20260303_ES_002.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260303_ES_002.md) — ES Short T2
 - [review_20260303_CL_003.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260303_CL_003.md) — CL Long T3
@@ -142,8 +146,6 @@ Full individual reviews:
 1. **Evaluate Apex renewal options.** APEX-06 (deadline Mar 24, ~+$6K gap) and TPT 50K (end of March, ~+$3K gap) are the active accounts. One A+ trade at a time.
 2. **FCR rays = HIGH and LOW of the first candle.** Verify against the Auggie indicator before using manually drawn levels. No more midpoint entries.
 3. **The SL is the system.** The eval deadline is not a trading input — ever. Pattern 7 is now in the playbook.
-
-> Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260303_daily-review.md
 
 ---
 

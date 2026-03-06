@@ -1,6 +1,16 @@
 # Daily Review — Feb 25, 2026 (Wednesday)
 ### STB SmartTraderAI Export | Fortuna
 
+[Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
+
+---
+
+## 📖 Session Narrative
+
+> Pre-market plan: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260225-summary.md
+
+Feb 25 was the A+ session — two winners on two instruments using the same IT Foundation EMA crossover + FVG pullback framework. MNQ LONG filled in the FVG zone with five-layer confluence at 10:53 AM; TP hit at 25,418 at 4:25 PM for +$565.00. SOL LONG on BTCC via $20 voucher — entered at $87.47, exited at $91.56 near HOD for +$20.63 USDT. First double-green day of the recovery arc. All rules honored; entry filter and SL discipline both intact.
+
 ---
 
 ## Session Header
@@ -47,7 +57,7 @@ Overtrading: None.
 
 ## Trade 001 — MNQ LONG
 
-See full review: `review_20260225_MNQ_001.md`
+See full review: [review_20260225_MNQ_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/02-Feb/review_20260225_MNQ_001.md)
 
 ### Summary
 
@@ -99,7 +109,7 @@ TP hit:   ~16:25–16:30 ET — price wicked into 25,418 beautifully
 
 ## Trade 002 — SOLUSDT LONG (BTCC)
 
-See full review: `review_20260225_SOL_001.md`
+See full review: [review_20260225_SOL_002.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/02-Feb/review_20260225_SOL_002.md)
 
 ### Summary
 
@@ -155,7 +165,9 @@ IT Foundation EMA crossover + FVG pullback produced winning trades on NQ futures
 
 ---
 
-## SmartTraderAI Post-Market Copy-Paste Fields
+<a id="smarttraderai-copy-paste"></a>
+
+## 🤖 SmartTraderAI Post-Market Copy-Paste Fields
 
 **What actually happened?**
 
@@ -183,6 +195,10 @@ SL respected: Yes. Revenge trading: None. Overtrading: None.
 Discipline: 10/10. Best session of the recovery arc.
 
 > Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/02-Feb/STB_export_20260225_daily-review.md
+
+> Full individual trade reviews:
+- [review_20260225_MNQ_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/02-Feb/review_20260225_MNQ_001.md) — MNQ Long T1
+- [review_20260225_SOL_002.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/02-Feb/review_20260225_SOL_002.md) — SOL Long T2 (BTCC)
 
 ---
 
