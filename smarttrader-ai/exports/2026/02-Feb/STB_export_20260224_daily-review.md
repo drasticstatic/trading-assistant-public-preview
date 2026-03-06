@@ -13,7 +13,7 @@ Feb 24 was a broad risk-off sell-off day. Pre-market analysis correctly flagged 
 
 ---
 
-## Session Header
+## 📋 Session Summary
 
 ```
 DATES: February 24, 2026
@@ -24,7 +24,7 @@ MARKETS: MES (executed), ES (watched/paper), MNQ (no trade)
 
 ---
 
-## Trades Summary
+## 📊 Trade Summary
 
 ```
 Total Trades Executed: 1
@@ -41,7 +41,7 @@ Limit Orders Monitored (not executed):
 
 ---
 
-## Trade Log
+## 📋 Trade Details
 
 ### Trade 001 — MES LONG (EXECUTED — LOSS)
 
@@ -168,7 +168,7 @@ The 23:49 ET screenshot captures the ES 3D macro context (multi-day bearish stru
 
 ---
 
-## Strategy Execution Scores
+## 🧠 Behavioral Notes
 
 ```
 ZeroToHero Compliance Score: 5/10
@@ -195,7 +195,7 @@ Overall Discipline Score: 6/10
 
 ---
 
-## Discipline Notes
+## 🔑 Key Lessons
 
 **Rule violations:**
 1. Scenario B veto override — EMAs steeply red dominant at entry → Scenario B long = hard no
@@ -210,7 +210,7 @@ Overall Discipline Score: 6/10
 
 ---
 
-## Patterns Observed
+## 📈 Patterns Observed
 
 **Coach-lag pattern (new — flagged this session):**
 Following a live coach entry creates a different risk profile than taking the same setup independently. Coach entries are earlier, at better structure. Follower entries are later, at worse structure. On the same directional idea, the coach wins and the follower loses. Resolution: trust the pre-market plan and your own structural read. If you missed the entry the coach took, you missed it. Do not enter late.
@@ -280,7 +280,7 @@ Discipline arc: Improving. Stop discipline is locking in. Entry filter is next.
 
 ---
 
-## Claude Code Session Notes (for STB Coaches)
+## 📝 Notes for Coaches
 
 Session recovered after computer restart during live monitoring of Trade 002 (6,888 limit). Full context was reconstructed from git history and session JSONL backup. No data lost. The Feb 24 session included significant real-time SMT analysis — the NQ/YM divergence read at 13:52–13:55 was delivered live and confirmed bearish overnight. Christopher is developing strong chart-reading instincts. The primary coaching need is entry discipline: executing the pre-market plan over in-session emotional pulls (coach influence, FOMO urgency). The stop discipline is real and improving. The entry filter is the next habit to lock in.
 

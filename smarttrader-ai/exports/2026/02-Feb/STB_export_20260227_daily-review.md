@@ -6,7 +6,7 @@
 
 ---
 
-## Session at a Glance
+## 📋 Session Summary
 
 | Field | Value |
 |-------|-------|
@@ -42,7 +42,7 @@ Market has continued lower into Mar 1, confirming the directional thesis for the
 
 ---
 
-## Behavioral Summary
+## 🧠 Behavioral Notes
 
 | Category | Assessment |
 |----------|------------|

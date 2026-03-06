@@ -6,7 +6,7 @@
 
 ---
 
-## Session at a Glance
+## 📋 Session Summary
 
 | Field | Value |
 |-------|-------|
@@ -38,7 +38,7 @@ If Christopher had entered at 25,060 with SL at 25,139 (the first bounce high): 
 
 ---
 
-## Behavioral Summary
+## 🧠 Behavioral Notes
 
 | Category | Assessment |
 |----------|------------|
