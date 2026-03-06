@@ -1,4 +1,4 @@
-# Pre-Market Summary — Feb 24, 2026 (Tuesday)
+# 🗓️ Pre-Market Session Summary — Tuesday, February 24, 2026
 ### STB SmartTraderAI | Fortuna | Session Prep
 
 [Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
