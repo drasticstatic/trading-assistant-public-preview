@@ -199,15 +199,14 @@ Key decision point: The large KEY support level visible at the base of all three
 
 Mental checklist going in: Do not revenge trade after yesterday's missed move (MNQ -$100.50 Feb 23). Today's setup must meet all criteria independently. Trust the pre-market plan.
 
-> Full pre-market summary:
-https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/analysis/premarket_20260224_summary.md
+> Full pre-market summary: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260224-summary.md
 
-> Full pre-market analysis:
-- NQ: `premarket_20260224_NQ.md`
-- ES: `premarket_20260224_ES.md`
-- YM: `premarket_20260224_YM.md`
-- GC: `premarket_20260224_GC.md`
-- CL: `premarket_20260224_CL.md`
+> Per-instrument analysis:
+- [NQ](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260224_NQ.md)
+- [ES](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260224_ES.md)
+- [YM](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260224_YM.md)
+- [GC](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260224_GC.md)
+- [CL](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260224_CL.md)
 
 ---
 

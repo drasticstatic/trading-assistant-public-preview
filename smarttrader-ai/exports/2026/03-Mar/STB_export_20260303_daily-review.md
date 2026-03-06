@@ -135,6 +135,14 @@ Full individual reviews:
 - [review_20260303_ES_002.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260303_ES_002.md) — ES Short T2
 - [review_20260303_CL_003.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260303_CL_003.md) — CL Long T3
 
+---
+
+## 🎯 Forward Focus
+
+1. **Evaluate Apex renewal options.** APEX-06 (deadline Mar 24, ~+$6K gap) and TPT 50K (end of March, ~+$3K gap) are the active accounts. One A+ trade at a time.
+2. **FCR rays = HIGH and LOW of the first candle.** Verify against the Auggie indicator before using manually drawn levels. No more midpoint entries.
+3. **The SL is the system.** The eval deadline is not a trading input — ever. Pattern 7 is now in the playbook.
+
 > Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260303_daily-review.md
 
 ---

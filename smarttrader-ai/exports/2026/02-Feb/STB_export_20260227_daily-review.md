@@ -115,7 +115,7 @@ Pattern 5 fix confirmed in live market conditions — within 24 hours of identif
 
 ---
 
-## Forward Focus (Mar 1 Evening → Week)
+## 🎯 Forward Focus
 
 **Eval context (as of Mar 1):**
 | Account | Platform | Deadline | Current | Target | Gap |

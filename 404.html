@@ -5,89 +5,385 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page Not Found — Trading Assistant</title>
   <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: #21262d;
+      --border-hover: #30363d;
+      --text: #c9d1d9;
+      --muted: #8b949e;
+      --subtle: #484f58;
+      --green: #238636;
+      --green-bright: #3fb950;
+      --red: #da3633;
+      --red-bright: #f85149;
+      --blue: #58a6ff;
+      --yellow: #e3b341;
+      --purple: #bc8cff;
+    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
-      background: #0d1117;
-      color: #c9d1d9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      background: var(--bg);
+      color: var(--text);
       min-height: 100vh;
-      padding: 2rem;
-    }
-    .container {
-      max-width: 600px;
-      text-align: center;
-    }
-    .code {
-      font-size: 6rem;
-      font-weight: 700;
-      color: #238636;
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
-    h1 {
-      font-size: 1.5rem;
-      color: #f0f6fc;
-      margin-bottom: 0.75rem;
-    }
-    p {
-      color: #8b949e;
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-    }
-    .links {
       display: flex;
       flex-direction: column;
+      align-items: center;
+      padding: 3rem 1.5rem;
+    }
+
+    /* ─── CHART SVG ─── */
+    .chart-wrap {
+      width: 100%;
+      max-width: 520px;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    svg.chart {
+      width: 100%;
+      height: 180px;
+      overflow: visible;
+    }
+    .grid-line { stroke: #21262d; stroke-width: 1; }
+    .candle-wick { stroke-width: 1.5; }
+    .candle-body { rx: 1; }
+    .ema-fast { fill: none; stroke: #3fb950; stroke-width: 1.5; opacity: 0.8; }
+    .ema-slow { fill: none; stroke: #f85149; stroke-width: 1.5; opacity: 0.8; }
+    .fvg { opacity: 0.15; }
+
+    /* gap marker — the 404 moment */
+    .gap-zone { opacity: 0.12; }
+    .gap-line { stroke: var(--yellow); stroke-width: 1; stroke-dasharray: 4 3; opacity: 0.6; }
+    .gap-label {
+      font-size: 11px;
+      fill: var(--yellow);
+      font-family: monospace;
+      opacity: 0.8;
+    }
+
+    /* ─── HERO TEXT ─── */
+    .hero {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      max-width: 520px;
+    }
+    .code {
+      font-size: 5rem;
+      font-weight: 800;
+      letter-spacing: -2px;
+      background: linear-gradient(135deg, var(--green-bright) 0%, var(--blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    h1 {
+      font-size: 1.25rem;
+      color: #f0f6fc;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+
+    /* ─── SIGNAL BADGE ─── */
+    .signal {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #161b22;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.35rem 0.85rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+    .signal-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--yellow);
+      box-shadow: 0 0 6px var(--yellow);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* ─── NAVIGATION GRID ─── */
+    .nav-grid {
+      width: 100%;
+      max-width: 700px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 0.75rem;
       margin-bottom: 2rem;
     }
-    a {
-      color: #58a6ff;
+    .nav-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
       text-decoration: none;
-      padding: 0.5rem 1rem;
-      border: 1px solid #30363d;
-      border-radius: 6px;
-      display: inline-block;
-      transition: border-color 0.2s;
+      transition: border-color 0.15s, background 0.15s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
     }
-    a:hover {
-      border-color: #58a6ff;
-      background: #161b22;
+    .nav-card:hover {
+      border-color: var(--blue);
+      background: #1c2230;
     }
-    .note {
-      font-size: 0.8rem;
-      color: #484f58;
-      border-top: 1px solid #21262d;
+    .nav-card-icon {
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+    .nav-card-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--blue);
+    }
+    .nav-card-desc {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ─── FILE TREE ─── */
+    .tree-section {
+      width: 100%;
+      max-width: 700px;
+      margin-bottom: 2rem;
+    }
+    .tree-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--subtle);
+      margin-bottom: 0.5rem;
+      padding: 0 0.25rem;
+    }
+    .tree {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 0.78rem;
+      line-height: 2;
+    }
+    .tree a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+    .tree a:hover { text-decoration: underline; }
+    .tree-dir { color: var(--purple); }
+    .tree-indent { padding-left: 1.25rem; }
+    .tree-indent2 { padding-left: 2.5rem; }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      font-size: 0.72rem;
+      color: var(--subtle);
+      text-align: center;
+      border-top: 1px solid var(--border);
       padding-top: 1.5rem;
-      margin-top: 1rem;
+      width: 100%;
+      max-width: 700px;
     }
+    .footer a { color: var(--muted); text-decoration: none; }
+    .footer a:hover { color: var(--blue); }
   </style>
 </head>
 <body>
-  <div class="container">
+
+  <!-- ─── CANDLESTICK CHART ─── -->
+  <div class="chart-wrap">
+    <svg class="chart" viewBox="0 0 520 180" xmlns="http://www.w3.org/2000/svg">
+      <!-- grid -->
+      <line class="grid-line" x1="0" y1="45" x2="520" y2="45"/>
+      <line class="grid-line" x1="0" y1="90" x2="520" y2="90"/>
+      <line class="grid-line" x1="0" y1="135" x2="520" y2="135"/>
+
+      <!-- FVG zone (green) -->
+      <rect class="fvg" x="60" y="60" width="50" height="25" fill="#3fb950"/>
+
+      <!-- Candles: bullish run -->
+      <!-- c1 -->
+      <line class="candle-wick" x1="30" y1="100" x2="30" y2="68" stroke="#3fb950"/>
+      <rect class="candle-body" x="24" y="75" width="12" height="25" fill="#3fb950"/>
+      <!-- c2 -->
+      <line class="candle-wick" x1="55" y1="92" x2="55" y2="58" stroke="#3fb950"/>
+      <rect class="candle-body" x="49" y="65" width="12" height="27" fill="#3fb950"/>
+      <!-- c3 -->
+      <line class="candle-wick" x1="80" y1="85" x2="80" y2="50" stroke="#3fb950"/>
+      <rect class="candle-body" x="74" y="56" width="12" height="29" fill="#3fb950"/>
+      <!-- c4 small red -->
+      <line class="candle-wick" x1="105" y1="52" x2="105" y2="70" stroke="#f85149"/>
+      <rect class="candle-body" x="99" y="55" width="12" height="14" fill="#f85149"/>
+
+      <!-- GAP ZONE — the 404 moment -->
+      <rect class="gap-zone" x="118" y="0" width="60" height="180" fill="#e3b341"/>
+      <line class="gap-line" x1="118" y1="0" x2="118" y2="180"/>
+      <line class="gap-line" x1="178" y1="0" x2="178" y2="180"/>
+      <text class="gap-label" x="123" y="14">404</text>
+      <text class="gap-label" x="121" y="27" style="font-size:9px;">page moved</text>
+
+      <!-- Candles: bearish drop after gap -->
+      <!-- c5 -->
+      <line class="candle-wick" x1="200" y1="65" x2="200" y2="105" stroke="#f85149"/>
+      <rect class="candle-body" x="194" y="70" width="12" height="28" fill="#f85149"/>
+      <!-- c6 -->
+      <line class="candle-wick" x1="225" y1="90" x2="225" y2="125" stroke="#f85149"/>
+      <rect class="candle-body" x="219" y="96" width="12" height="24" fill="#f85149"/>
+      <!-- c7 doji -->
+      <line class="candle-wick" x1="250" y1="112" x2="250" y2="130" stroke="#8b949e"/>
+      <rect class="candle-body" x="244" y="118" width="12" height="8" fill="#8b949e"/>
+      <!-- c8 reversal green -->
+      <line class="candle-wick" x1="275" y1="108" x2="275" y2="128" stroke="#3fb950"/>
+      <rect class="candle-body" x="269" y="110" width="12" height="18" fill="#3fb950"/>
+      <!-- c9 -->
+      <line class="candle-wick" x1="300" y1="95" x2="300" y2="115" stroke="#3fb950"/>
+      <rect class="candle-body" x="294" y="98" width="12" height="17" fill="#3fb950"/>
+      <!-- c10 -->
+      <line class="candle-wick" x1="325" y1="82" x2="325" y2="104" stroke="#3fb950"/>
+      <rect class="candle-body" x="319" y="85" width="12" height="19" fill="#3fb950"/>
+      <!-- c11 small red -->
+      <line class="candle-wick" x1="350" y1="78" x2="350" y2="92" stroke="#f85149"/>
+      <rect class="candle-body" x="344" y="81" width="12" height="11" fill="#f85149"/>
+      <!-- c12 -->
+      <line class="candle-wick" x1="375" y1="72" x2="375" y2="88" stroke="#3fb950"/>
+      <rect class="candle-body" x="369" y="74" width="12" height="14" fill="#3fb950"/>
+      <!-- c13 -->
+      <line class="candle-wick" x1="400" y1="62" x2="400" y2="82" stroke="#3fb950"/>
+      <rect class="candle-body" x="394" y="65" width="12" height="17" fill="#3fb950"/>
+      <!-- c14 -->
+      <line class="candle-wick" x1="425" y1="55" x2="425" y2="72" stroke="#3fb950"/>
+      <rect class="candle-body" x="419" y="58" width="12" height="14" fill="#3fb950"/>
+      <!-- c15 -->
+      <line class="candle-wick" x1="450" y1="48" x2="450" y2="66" stroke="#3fb950"/>
+      <rect class="candle-body" x="444" y="51" width="12" height="15" fill="#3fb950"/>
+
+      <!-- EMA fast (green) — smooth curve through bullish run, dip, recovery -->
+      <polyline class="ema-fast" points="
+        0,112 30,90 55,76 80,63 105,62
+        148,68
+        200,78 225,100 250,115 275,112 300,104 325,92 350,88 375,82 400,72 425,62 450,55 520,44
+      "/>
+      <!-- EMA slow (red) — lags behind -->
+      <polyline class="ema-slow" points="
+        0,120 30,108 55,96 80,84 105,76
+        148,75
+        200,82 225,96 250,108 275,110 300,106 325,100 350,96 375,90 400,82 425,74 450,66 520,56
+      "/>
+
+      <!-- Volume bars at bottom -->
+      <rect x="24" y="160" width="12" height="12" fill="#3fb950" opacity="0.4" rx="1"/>
+      <rect x="49" y="156" width="12" height="16" fill="#3fb950" opacity="0.4" rx="1"/>
+      <rect x="74" y="154" width="12" height="18" fill="#3fb950" opacity="0.4" rx="1"/>
+      <rect x="99" y="163" width="12" height="9" fill="#f85149" opacity="0.4" rx="1"/>
+      <rect x="194" y="155" width="12" height="17" fill="#f85149" opacity="0.4" rx="1"/>
+      <rect x="219" y="158" width="12" height="14" fill="#f85149" opacity="0.4" rx="1"/>
+      <rect x="244" y="166" width="12" height="6" fill="#8b949e" opacity="0.4" rx="1"/>
+      <rect x="269" y="162" width="12" height="10" fill="#3fb950" opacity="0.4" rx="1"/>
+      <rect x="294" y="160" width="12" height="12" fill="#3fb950" opacity="0.4" rx="1"/>
+      <rect x="319" y="157" width="12" height="15" fill="#3fb950" opacity="0.4" rx="1"/>
+      <rect x="344" y="163" width="12" height="9" fill="#f85149" opacity="0.4" rx="1"/>
+      <rect x="369" y="161" width="12" height="11" fill="#3fb950" opacity="0.4" rx="1"/>
+      <rect x="394" y="158" width="12" height="14" fill="#3fb950" opacity="0.4" rx="1"/>
+      <rect x="419" y="156" width="12" height="16" fill="#3fb950" opacity="0.4" rx="1"/>
+      <rect x="444" y="154" width="12" height="18" fill="#3fb950" opacity="0.4" rx="1"/>
+    </svg>
+  </div>
+
+  <!-- ─── HERO ─── -->
+  <div class="hero">
     <div class="code">404</div>
-    <h1>Page Not Found</h1>
-    <p>
-      This link may have moved during a recent repo restructure.<br>
-      The content you are looking for is likely still here — just at a new path.
-    </p>
-    <div class="links">
-      <a href="https://github.com/drasticstatic/trading-assistant-public-preview">
-        Browse the repository
-      </a>
-      <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai">
-        SmartTraderAI — analysis, reviews, exports
-      </a>
-      <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/pattern_tracker.md">
-        Pattern Tracker
-      </a>
-    </div>
-    <p class="note">
-      Fortuna — Wealth Warden | Claude Code CLI<br>
-      Trading Assistant Public Preview
+    <h1>This link moved during a restructure</h1>
+    <p class="subtitle">
+      The content you're looking for is still here —<br>
+      the repo was reorganized under <code style="font-size:0.8em;color:var(--purple)">smarttrader-ai/YYYY/MM-Mon/</code> paths.<br>
+      Use the navigation below to find it.
     </p>
   </div>
+
+  <div class="signal">
+    <span class="signal-dot"></span>
+    Redirecting you to the right level — no SL needed
+  </div>
+
+  <!-- ─── QUICK NAV CARDS ─── -->
+  <div class="nav-grid">
+    <a class="nav-card" href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank">
+      <span class="nav-card-icon">🏠</span>
+      <span class="nav-card-title">Repository Root</span>
+      <span class="nav-card-desc">Browse all public files</span>
+    </a>
+    <a class="nav-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket" target="_blank">
+      <span class="nav-card-icon">🌤️</span>
+      <span class="nav-card-title">Pre-Market Summaries</span>
+      <span class="nav-card-desc">Daily pre-session analysis by month</span>
+    </a>
+    <a class="nav-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews" target="_blank">
+      <span class="nav-card-icon">🔍</span>
+      <span class="nav-card-title">Trade Reviews</span>
+      <span class="nav-card-desc">Individual trade analysis + behavioral arc</span>
+    </a>
+    <a class="nav-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports" target="_blank">
+      <span class="nav-card-icon">📋</span>
+      <span class="nav-card-title">Daily &amp; Weekly Reviews</span>
+      <span class="nav-card-desc">STB exports — session summaries</span>
+    </a>
+    <a class="nav-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/pattern_tracker.md" target="_blank">
+      <span class="nav-card-icon">📈</span>
+      <span class="nav-card-title">Pattern Tracker</span>
+      <span class="nav-card-desc">Full behavioral arc + trade log</span>
+    </a>
+    <a class="nav-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/screenshots" target="_blank">
+      <span class="nav-card-icon">📸</span>
+      <span class="nav-card-title">Screenshots</span>
+      <span class="nav-card-desc">All chart screenshots from sessions</span>
+    </a>
+  </div>
+
+  <!-- ─── FILE TREE ─── -->
+  <div class="tree-section">
+    <div class="tree-label">Repository structure</div>
+    <div class="tree">
+      <div><span class="tree-dir">smarttrader-ai/</span></div>
+      <div class="tree-indent"><span class="tree-dir">analysis/premarket/2026/</span></div>
+      <div class="tree-indent2"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket/2026/02-Feb" target="_blank">02-Feb/</a> &nbsp;<span style="color:var(--subtle)">— Feb premarket summaries</span></div>
+      <div class="tree-indent2"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket/2026/03-Mar" target="_blank">03-Mar/</a> &nbsp;<span style="color:var(--subtle)">— Mar premarket summaries</span></div>
+      <div class="tree-indent"><span class="tree-dir">reviews/2026/</span></div>
+      <div class="tree-indent2"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews/2026/02-Feb" target="_blank">02-Feb/</a> &nbsp;<span style="color:var(--subtle)">— Feb trade reviews</span></div>
+      <div class="tree-indent2"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews/2026/03-Mar" target="_blank">03-Mar/</a> &nbsp;<span style="color:var(--subtle)">— Mar trade reviews</span></div>
+      <div class="tree-indent2"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/pattern_tracker.md" target="_blank">pattern_tracker.md</a> &nbsp;<span style="color:var(--subtle)">— full behavioral arc</span></div>
+      <div class="tree-indent"><span class="tree-dir">exports/2026/</span></div>
+      <div class="tree-indent2"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports/2026/02-Feb" target="_blank">02-Feb/</a> &nbsp;<span style="color:var(--subtle)">— Feb daily + weekly reviews</span></div>
+      <div class="tree-indent2"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports/2026/03-Mar" target="_blank">03-Mar/</a> &nbsp;<span style="color:var(--subtle)">— Mar daily reviews</span></div>
+      <div><span class="tree-dir">data/</span></div>
+      <div class="tree-indent"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/screenshots" target="_blank">screenshots/</a> &nbsp;<span style="color:var(--subtle)">— all chart screenshots</span></div>
+      <div class="tree-indent"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/exports" target="_blank">exports/</a> &nbsp;<span style="color:var(--subtle)">— TradeZella + Tradovate CSVs</span></div>
+    </div>
+  </div>
+
+  <!-- ─── FOOTER ─── -->
+  <div class="footer">
+    <p>
+      <a href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank">Trading Assistant Public Preview</a>
+      &nbsp;·&nbsp; Fortuna — Wealth Warden &nbsp;·&nbsp; Claude Code CLI by Anthropic
+    </p>
+    <p style="margin-top:0.4rem">
+      Old links? The repo was restructured to <code>YYYY/MM-Mon/</code> subdirectories.
+      If you have a saved link, <a href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank">browse from the root</a>.
+    </p>
+  </div>
+
 </body>
 </html>

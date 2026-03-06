@@ -186,7 +186,7 @@ Discipline: 10/10. Best session of the recovery arc.
 
 ---
 
-## Focus for Next Session (Feb 26, 2026)
+## 🎯 Forward Focus
 
 1. **Same process, not same result.** Today was not a performance to repeat — it was a process to repeat. The process is: pre-market preparation → wait for the setup → honor the entry filter → set the levels → trust the levels. Do that again.
 
