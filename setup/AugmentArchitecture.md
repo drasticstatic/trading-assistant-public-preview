@@ -116,20 +116,32 @@ If I had to reduce the distinction to one line:
   }
 }}%%
 flowchart TD
-    U([You])
+    U([🧑 You])
 
-    subgraph SURFACES[Choose your surface]
-        VS[VS Code Agent<br/>Editor-native builder bench]
-        CL[Auggie CLI<br/>Terminal-native builder bench]
-        IN[Intent<br/>Spec-driven orchestration layer]
+    subgraph SURFACES[🚪 Choose your surface]
+        VS[💻 VS Code Agent<br/>Editor-native builder bench]
+        CL[⌨️ Auggie CLI<br/>Terminal-native builder bench]
+        IN[🧭 Intent<br/>Spec-driven orchestration layer]
     end
 
-    subgraph SHARED[Shared Augment system]
-        SM[Selected model<br/>Lead reasoning path]
-        CX[Context engine<br/>Tools + rules + workspace context]
-        AG[Coordinator + specialists<br/>Most explicit in Intent]
-        BG[Retrieval, tool use,<br/>and possible background routing]
-        OUT([Answers, edits,<br/>plans, reviews])
+    subgraph SHARED[⚙️ Shared Augment system]
+        SM[🧠 Selected model<br/>Lead reasoning path]
+        CX[🔎 Context engine<br/>Tools + rules + workspace context]
+        AG[🧩 Coordinator + specialists<br/>Most explicit in Intent]
+        BG[🔄 Retrieval, tool use,<br/>and possible background routing]
+        OUT([✅ Answers, edits,<br/>plans, reviews])
+    end
+
+    subgraph GUIDE[📝 How to read this diagram]
+        direction TB
+        CAP[💡 Surface changes the workflow you feel most directly;<br/>shared layers can still provide context, tools, routing,<br/>and MCP infrastructure for clients like Claude Code CLI]
+
+        subgraph LEGEND[🎨 Legend]
+            direction LR
+            L1[🔵 Front doors you choose]
+            L2[🟢 Shared Augment machinery]
+            L3[🟠 Intent-explicit coordination]
+        end
     end
 
     U --> VS
@@ -150,21 +162,20 @@ flowchart TD
     CX --> BG
     AG --> BG
     BG --> OUT
+    OUT -.-> CAP
 
     classDef entry fill:#eef2ff,stroke:#6376b8,color:#1f2a44,stroke-width:1.5px;
     classDef shared fill:#e8f3ec,stroke:#4d7a66,color:#163024,stroke-width:1.5px;
     classDef intent fill:#fff4e8,stroke:#c98742,color:#4a2d16,stroke-width:1.5px;
+    classDef guide fill:#fffbea,stroke:#d4a72c,color:#5c4400,stroke-width:1.5px;
     classDef result fill:#f8fafc,stroke:#6b7280,color:#111827,stroke-width:1.5px;
 
-    class VS,CL entry;
-    class IN,AG intent;
-    class SM,CX,BG shared;
+    class VS,CL,L1 entry;
+    class IN,AG,L3 intent;
+    class SM,CX,BG,L2 shared;
+    class CAP guide;
     class U,OUT result;
 ```
-
-*Diagram legend: blue = the front doors you choose, green = shared Augment machinery, orange = the coordination layer Intent makes most explicit.*
-
-*Diagram caption: the surface changes the workflow you feel most directly, while the underlying system can still share context, tools, possible routing behavior, and MCP-powered infrastructure for external clients like Claude Code CLI.*
 
 ## 🎭 Intent is where the cast becomes explicit
 
@@ -526,21 +537,21 @@ Even after all this, a few questions remain interesting:
 
 ## 🔗 Sources used for this note
 
-- Augment docs — Introducing Intent by Augment
+- Augment docs — Introducing Intent by Augment  
   <https://docs.augmentcode.com/intent/overview>
-- Augment docs — Using Agent
+- Augment docs — Using Agent  
   <https://docs.augmentcode.com/using-augment/agent>
-- Augment docs — Interactive mode
+- Augment docs — Interactive mode  
   <https://docs.augmentcode.com/cli/interactive>
-- Augment docs — Context Engine MCP
+- Augment docs — Context Engine MCP  
   <https://docs.augmentcode.com/context-services/mcp/overview>
-- Augment docs — Claude Code Quickstart
+- Augment docs — Claude Code Quickstart  
   <https://docs.augmentcode.com/context-services/mcp/quickstart-claude-code>
-- Augment docs — Rules & Guidelines for Agent and Chat
+- Augment docs — Rules & Guidelines for Agent and Chat  
   <https://docs.augmentcode.com/setup-augment/guidelines>
-- Augment docs — Rules & Guidelines (CLI)
+- Augment docs — Rules & Guidelines (CLI)  
   <https://docs.augmentcode.com/cli/rules>
-- Augment docs — Subagents
+- Augment docs — Subagents  
   <https://docs.augmentcode.com/cli/subagents>
-- Intent-native summaries captured in this workspace
+- Intent-native summaries captured in this workspace  
   Source: user-provided Intent role / workflow notes on 2026-03-06
