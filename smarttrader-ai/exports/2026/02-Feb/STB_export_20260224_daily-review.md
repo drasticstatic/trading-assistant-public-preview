@@ -255,7 +255,7 @@ Discipline arc: Improving. Stop discipline is locking in. Entry filter is next.
 
 ---
 
-## Focus for Next Session (Feb 25, 2026)
+## 🎯 Forward Focus
 
 1. **Entry filter first.** Before clicking the button: EMAs direction? Mental state (number)? If EMAs are bearish and I am looking at a long — stop. Re-read the pre-market plan. Walk away.
 

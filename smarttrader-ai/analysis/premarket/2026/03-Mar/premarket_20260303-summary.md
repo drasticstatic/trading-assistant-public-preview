@@ -43,7 +43,7 @@
 | IT Foundation EMAs (ES 1hr) | **RED DOMINANT** — confirmed. EMAs fanning out bearishly. |
 | Scenario B LONG (ES) | **VETOED** — red dominant gate closed |
 | Levels overhead | Most of Christopher's manually drawn level cluster now sits ABOVE current price as resistance |
-| CL overnight | Bullish continuation — green dominant confirmed (see `premarket_20260303_CL.md`) |
+| CL overnight | Bullish continuation — green dominant confirmed (see [premarket_20260303_CL.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260303_CL.md)) |
 
 ---
 
@@ -104,7 +104,7 @@
 
 1. **MNQ** — Primary. NQ strong-bullish on STB, showing relative strength vs ES/YM. Five-layer entry required.
 2. **ES / YM** — Confirming. ES down ~104 pts overnight to ~6,772. Both neutral on STB. Key resistance above: Christopher's cyan level ~6,858 area. Watch for recovery or rejection.
-3. **CL** — Secondary. Green dominant confirmed overnight (see `premarket_20260303_CL.md`). Bullish EMA structure — watch for pullback entry.
+3. **CL** — Secondary. Green dominant confirmed overnight (see [premarket_20260303_CL.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260303_CL.md)). Bullish EMA structure — watch for pullback entry.
 4. **GC** — Confluence reference only (halted on Apex). Neutral on STB.
 
 ### ES Key Levels (from Christopher's manually drawn chart, 9:29–9:31 AM ET)
@@ -177,9 +177,11 @@ NQ leading strong-bullish while ES/YM are neutral = divergence within the equity
 
 ETH context: TBD — update with overnight screenshot.
 
-Full pre-market analysis: `smarttrader-ai/analysis/premarket_20260303-summary.md`
-Instrument analysis: `smarttrader-ai/analysis/premarket_20260303_CL.md`
-March 2 evening context: `smarttrader-ai/analysis/premarket_20260303_0302-evening-session.md`
+Full pre-market analysis: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260303-summary.md
+
+Per-instrument analysis:
+- [CL](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260303_CL.md)
+- [Mar 2 Evening Context](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260303_0302-evening-session.md)
 
 ---
 
@@ -197,7 +199,7 @@ Eval context: Gap ~$5,634 | Deadline March 4 | Balance ~$100,366.
 
 Primary expectation: NQ leads bullish, watch for ES/YM confirmation → Scenario A LONG opportunity in the first hour. If all three confirm, enter MNQ on 5-min FVG displacement. If ES/YM do not join: Scenario C, no trade, preserve capital for the deadline.
 
-Secondary: CL — check EMA completion from March 2 evening transition. If red dominant confirmed, potential short setup via `premarket_20260303_CL.md` game plan.
+Secondary: CL — check EMA completion from March 2 evening transition. If red dominant confirmed, potential short setup via [premarket_20260303_CL.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260303_CL.md) game plan.
 
 Behavioral expectation: One A+ trade or flat. No FOMO opens, no re-entries chasing the winner. Rest was taken — come back sharp, not urgent.
 

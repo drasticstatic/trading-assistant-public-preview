@@ -189,6 +189,14 @@ Adjustment for next session: 5/5 entries only for FCR,
   or 3-5 tick SL buffer above 5/5 when entering at 3/5
 ```
 
+---
+
+## 🎯 Forward Focus
+
+1. **5/5 entries only for FCR** — or add a 3–5 tick SL buffer above the 5/5 when entering at a 3/5 level. Structural SLs only.
+2. **Mental state threshold: 6/10 or above** before any entry. Log it before clicking.
+3. **Post-loss hesitation is a pattern** — the MES valid setup at 11:02 was missed due to the morning loss. Separate outcome from process on the next setup.
+
 > Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/02-Feb/STB_export_20260223_daily-review.md
 
 ---

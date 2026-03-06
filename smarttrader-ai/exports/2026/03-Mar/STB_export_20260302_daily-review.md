@@ -97,6 +97,14 @@ Full individual trade reviews:
 - [review_20260302_ES_002.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260302_ES_002.md) — T2 ES Pivot Sell (A+)
 - [review_20260302_ES_003.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260302_ES_003.md) — T3 ES Re-Entry
 
+---
+
+## 🎯 Forward Focus
+
+1. **One A+ trade per session — then stop.** T2 was the session. T3 was the mistake. After a full TP: observe, don't re-enter.
+2. **Re-entry rule (new):** Never enter in the risky direction from the original entry. For a short: never re-sell below the original short entry.
+3. **Eval gap is ~$5,634 in 2 days.** Discipline — not aggression — closes that gap. The process produces the result.
+
 > Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260302_daily-review.md
 
 ---
