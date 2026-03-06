@@ -13,7 +13,7 @@ Feb 25 was the A+ session — two winners on two instruments using the same IT F
 
 ---
 
-## Session Header
+## 📋 Session Summary
 
 ```
 DATE: February 25, 2026
@@ -28,7 +28,7 @@ COACHES: Inevitrade call 11:00–13:00 ET (watching MNQ + SOL live)
 
 ---
 
-## Trades Summary
+## 📊 Trade Log
 
 ```
 Total Trades Executed: 2
@@ -129,7 +129,7 @@ Status:   BTCC account now carries positive balance
 
 ---
 
-## Strategy Execution Scores
+## 🧠 Behavioral Notes
 
 ```
 ZeroToHero Compliance Score: 10/10
@@ -142,7 +142,7 @@ Best executed session of the recovery arc.
 
 ---
 
-## Discipline Notes
+## 🔑 Key Lessons
 
 **The recovery arc is complete:**
 
