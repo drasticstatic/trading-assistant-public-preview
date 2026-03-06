@@ -18,7 +18,7 @@ Feb 23 opened with a triple-confirmation Scenario A SHORT across NQ, ES, and YM.
 
 ---
 
-## Session Summary
+## 📋 Session Summary
 
 | Item | Value |
 |------|-------|
@@ -39,7 +39,7 @@ Feb 23 opened with a triple-confirmation Scenario A SHORT across NQ, ES, and YM.
 
 ---
 
-## NQ Follow-Up — Afternoon Session
+## 📈 NQ Follow-Up — Afternoon Session
 
 ![NQ Outcome](../../../../data/screenshots/NQ1!_2026-02-23_21-40-14_d6b2f.png)
 
@@ -61,7 +61,7 @@ is the lesson demonstrated here.
 
 ---
 
-## Inevitrade Bootcamp — Session 4A Notes (Feb 23, 2026)
+## 📚 Inevitrade Bootcamp — Session 4A Notes (Feb 23, 2026)
 
 *Key takeaways from tonight's live session with Allen and Craig:*
 
@@ -91,7 +91,7 @@ Awaiting coach verification on ADX values and Fib placement.
 
 ---
 
-## STB SmartTrader AI Feedback — Received Feb 23, 2026
+## 🔑 Key Lessons — STB SmartTrader AI Feedback (Feb 23, 2026)
 
 *Summary of STB AI's response to the trade review and pre-market reports:*
 
