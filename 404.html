@@ -117,13 +117,29 @@
     }
 
     /* ─── NAVIGATION GRID ─── */
+    .repo-root {
+      width: 100%;
+      max-width: 700px;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+      background: #0d1f12;
+      border-color: #238636;
+    }
+    .repo-root:hover { border-color: var(--green-bright); background: #0f2615; }
+    .repo-root .nav-card-icon { font-size: 1.3rem; }
+    .repo-root .nav-card-title { color: var(--green-bright); font-size: 0.9rem; }
     .nav-grid {
       width: 100%;
       max-width: 700px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 0.75rem;
       margin-bottom: 2rem;
+    }
+    @media (max-width: 520px) {
+      .nav-grid { grid-template-columns: 1fr 1fr; }
     }
     .nav-card {
       background: var(--surface);
@@ -318,13 +334,15 @@
     Redirecting you to the right level — no SL needed
   </div>
 
+  <!-- ─── REPO ROOT BUTTON ─── -->
+  <a class="nav-card repo-root" href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank">
+    <span class="nav-card-icon">🏠</span>
+    <span class="nav-card-title">Repository Root — Browse All Public Files</span>
+    <span class="nav-card-desc">Start here if you're not sure where to look</span>
+  </a>
+
   <!-- ─── QUICK NAV CARDS ─── -->
   <div class="nav-grid">
-    <a class="nav-card" href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank">
-      <span class="nav-card-icon">🏠</span>
-      <span class="nav-card-title">Repository Root</span>
-      <span class="nav-card-desc">Browse all public files</span>
-    </a>
     <a class="nav-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket" target="_blank">
       <span class="nav-card-icon">🌤️</span>
       <span class="nav-card-title">Pre-Market Summaries</span>
@@ -345,10 +363,15 @@
       <span class="nav-card-title">Pattern Tracker</span>
       <span class="nav-card-desc">Full behavioral arc + trade log</span>
     </a>
-    <a class="nav-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/screenshots" target="_blank">
-      <span class="nav-card-icon">📸</span>
-      <span class="nav-card-title">Screenshots</span>
-      <span class="nav-card-desc">All chart screenshots from sessions</span>
+    <a class="nav-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/inevitrade%20progression" target="_blank">
+      <span class="nav-card-icon">🎓</span>
+      <span class="nav-card-title">Inevitrade Progression</span>
+      <span class="nav-card-desc">IT Foundation coaching progress + notes</span>
+    </a>
+    <a class="nav-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/setup" target="_blank">
+      <span class="nav-card-icon">⚙️</span>
+      <span class="nav-card-title">Setup</span>
+      <span class="nav-card-desc">System overview + infrastructure docs</span>
     </a>
   </div>
 
@@ -360,16 +383,21 @@
       <div class="tree-indent"><span class="tree-dir">analysis/premarket/2026/</span></div>
       <div class="tree-indent2"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket/2026/02-Feb" target="_blank">02-Feb/</a> &nbsp;<span style="color:var(--subtle)">— Feb premarket summaries</span></div>
       <div class="tree-indent2"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket/2026/03-Mar" target="_blank">03-Mar/</a> &nbsp;<span style="color:var(--subtle)">— Mar premarket summaries</span></div>
+      <div class="tree-indent"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/level-marking-methodology.md" target="_blank">level-marking-methodology.md</a> &nbsp;<span style="color:var(--subtle)">— ZTH level marking framework</span></div>
       <div class="tree-indent"><span class="tree-dir">reviews/2026/</span></div>
       <div class="tree-indent2"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews/2026/02-Feb" target="_blank">02-Feb/</a> &nbsp;<span style="color:var(--subtle)">— Feb trade reviews</span></div>
       <div class="tree-indent2"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews/2026/03-Mar" target="_blank">03-Mar/</a> &nbsp;<span style="color:var(--subtle)">— Mar trade reviews</span></div>
       <div class="tree-indent2"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/pattern_tracker.md" target="_blank">pattern_tracker.md</a> &nbsp;<span style="color:var(--subtle)">— full behavioral arc</span></div>
       <div class="tree-indent"><span class="tree-dir">exports/2026/</span></div>
-      <div class="tree-indent2"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports/2026/02-Feb" target="_blank">02-Feb/</a> &nbsp;<span style="color:var(--subtle)">— Feb daily + weekly reviews</span></div>
-      <div class="tree-indent2"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports/2026/03-Mar" target="_blank">03-Mar/</a> &nbsp;<span style="color:var(--subtle)">— Mar daily reviews</span></div>
+      <div class="tree-indent2"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/chart-analysis-methodology.md" target="_blank">chart-analysis-methodology.md</a> &nbsp;<span style="color:var(--subtle)">— chart reading framework</span></div>
+      <div class="tree-indent2"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports/2026/02-Feb" target="_blank">2026/02-Feb/</a> &nbsp;<span style="color:var(--subtle)">— Feb daily + weekly reviews</span></div>
+      <div class="tree-indent2"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports/2026/03-Mar" target="_blank">2026/03-Mar/</a> &nbsp;<span style="color:var(--subtle)">— Mar daily reviews</span></div>
       <div><span class="tree-dir">data/</span></div>
       <div class="tree-indent"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/screenshots" target="_blank">screenshots/</a> &nbsp;<span style="color:var(--subtle)">— all chart screenshots</span></div>
+      <div class="tree-indent"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/inevitrade%20progression" target="_blank">inevitrade progression/</a> &nbsp;<span style="color:var(--subtle)">— coaching progression notes</span></div>
       <div class="tree-indent"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/exports" target="_blank">exports/</a> &nbsp;<span style="color:var(--subtle)">— TradeZella + Tradovate CSVs</span></div>
+      <div><span class="tree-dir">setup/</span></div>
+      <div class="tree-indent"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/system-overview.md" target="_blank">system-overview.md</a> &nbsp;<span style="color:var(--subtle)">— full system architecture</span></div>
     </div>
   </div>
 
