@@ -13,7 +13,7 @@ An AI-assisted trading system built on **Claude Code CLI** (Anthropic) and **Aug
 - 🔗 **MCP Servers** — Model Context Protocol servers for brokerage and chart event access
 - 📡 **Webhook Pipeline** — TradingView alerts → tunnel → local server → AI receives events
 - 🎯 **Multi-Strategy Framework** — multiple trading methodologies with structured context
-- 📈 **Multi-Agent Orchestration** — Augment Intent coordinates specialized agents for builds
+- 📈 **Multi-Agent Orchestration** — Augment Intent acts as the orchestration layer for scoped build, review, and documentation tasks
 
 ## Architecture
 
@@ -28,7 +28,7 @@ Tradovate API (Brokerage)
 AI Agents
     ├── Fortuna (Claude Code) — strategy, coaching, session intelligence
     ├── Auggie (Augment Code) — builds, infrastructure, bulk tasks
-    └── Kavanah Fleet (Augment Intent) — spec-driven task orchestration
+    └── Kavanah (Augment Intent) — orchestration, spec management, delegation
 
 TradeZella (Journaling)
     └── CSV exports → AI analyzes trades vs rules
@@ -38,16 +38,16 @@ TradeZella (Journaling)
 
 | Agent | Model | Role | Key Tools / Access |
 |---|---|---|---|
-| **Fortuna** | Claude Sonnet 4.6 (Claude Code CLI) | Primary collaborator — trading strategy, chart analysis, behavioral coaching, session management | MCP: `tv-alerts`, `tradovate`, `auggie` · Screenshot analysis · TradeZella exports |
-| **Auggie** | Claude Opus 4.6 (Augment Code) | Implementation engine — builds, infrastructure, Pine Script, Python, MCP servers | Full workspace read/write · Shell · Git · Package managers |
-| **Kavanah Fleet** | Augment Intent Coordinator | Spec-driven task orchestration — breaks intent into tasks, delegates to implementor agents that write code, run commands, and push commits | Reads `specs/*.spec.md` · Delegates to implementor, verifier, and specialist agents · Full code editing via delegated agents |
+| **Fortuna** | Claude Code CLI | Primary collaborator — trading strategy, chart analysis, behavioral coaching, session management | MCP: `tv-alerts`, `tradovate`, `auggie` · Screenshot analysis · TradeZella exports |
+| **Auggie** | Augment CLI / VS Code Agent | Primary builder bench — implementation, infrastructure, Pine Script, Python, MCP servers | Full workspace read/write · Shell · Git · Package managers |
+| **Kavanah** | Augment Intent | Orchestration layer — keeps the live spec current, breaks work into tasks, and delegates scoped specialists such as implementors, verifiers, or UI-focused agents | Reads spec + task notes · Delegates task agents · Works from Intent's separate workspace clone |
 
 **Communication flow:**
 ```
-Christopher → Fortuna → Kavanah Coordinator → Agent Fleet (Auggie, Research, Testing, Review)
+Christopher / Fortuna / direct Intent request → Kavanah coordinator → delegated task agents → review / verification → summary back
 ```
 
-See [`specs/AGENTS.md`](../specs/AGENTS.md) for full fleet configuration.
+See [`specs/AGENTS.md`](../specs/AGENTS.md) for the repo's current orchestration guide, and [`setup/AugmentArchitecture.md`](./AugmentArchitecture.md) for the deeper architecture reference.
 
 ## Webhook Pipeline
 
@@ -95,25 +95,31 @@ All SmartTraderAI export formats (pre-market, post-market, weekly reviews) are d
 
 This project is built using a **spec-driven development workflow** powered by [Augment Intent](https://www.augmentcode.com/) (Kavanah):
 
-1. **Spec** — Every feature starts as a specification document defining purpose, inputs/outputs, dependencies, and done criteria
-2. **Tasks** — The coordinator reads the spec and breaks it into discrete, delegatable work units
-3. **Delegate** — Specialized AI agents (implementation, testing, review) pick up tasks and execute against the spec
-4. **Verify** — Each agent runs verification checks before marking work complete
-5. **Commit & Sync** — Approved changes are committed and synced to the public repo
+1. **Spec** — Every feature starts with a live spec and supporting reference docs that define purpose, boundaries, and done criteria
+2. **Tasks** — The coordinator breaks the work into discrete, delegatable task notes
+3. **Delegate** — Scoped specialists pick up only the implementation, review, research, or presentation work they need to do
+4. **Verify** — The assigned agent runs or requests the smallest useful checks before the task is marked complete
+5. **Sync** — Changes are synchronized across the active clones; public-safe exports are handled separately where applicable
 
-This means the documentation, exports, and analysis you see here weren't hand-written — they were **generated, validated, and assembled by a coordinated fleet of AI agents**, each working from a shared specification. The spec is the single source of truth; the agents are the builders.
+Much of the supporting documentation, exports, and analysis in this repo can be **generated, validated, and assembled through a coordinated agent workflow**. The live spec stays the source of truth; the delegated agents are the builders and reviewers.
 
-> 💡 The full specs live in `specs/` and drive everything from Pine Script indicators to webhook pipelines to the export formats used in trading reviews.
+> 💡 The full specs live in `specs/`, while `setup/AugmentArchitecture.md` is the best deep-dive reference for how the Augment surfaces and orchestration model fit together.
 
 ## Agent Interface Architecture
 
-Each AI agent in this system can be accessed via multiple interfaces — all sharing the same underlying context and memory.
+The best mental model is: **builder benches + orchestration layer + plumbing**.
+
+- **VS Code Agent / Auggie CLI** are the main builder benches.
+- **Intent** is the orchestration layer.
+- **MCP** extends the system with tools and retrieval, but is not a fourth native surface.
+
+These surfaces may share repo understanding or code retrieval, but they do **not** all share the same chat history.
 
 ### CLI vs VSCode Native Extension — How Context is Shared
 
-**Claude Code (Fortuna):** The VSCode extension and CLI share the same conversation history. `claude --resume` bridges a terminal session into VSCode and vice versa. Memory is file-based (MEMORY.md, AGENT_SYNC.md, project files) — fully interface-agnostic. Switching between terminal and VSCode loses nothing.
+**Claude Code (Fortuna):** The CLI and VS Code extension are the one important exception where conversation continuity can be bridged with `claude --resume`. Even there, durable workflow memory still lives best in files on disk such as notes, specs, and `AGENT-SYNC/`.
 
-**Augment Code (Auggie + Kavanah):** The Augment Native VSCode extension and Augment CLI share the same Context Engine backend — both pull from the same deep codebase index. Architectural understanding is unified across interfaces. Kavanah runs in **Augment Intent** — a standalone desktop application (separate from the VSCode extension) that provides spec-driven development with a Coordinator and 6 specialist agents (Investigate, Implement, Verify, Critique, Debug, Code Review) working in parallel across isolated git worktrees called Spaces.
+**Augment surfaces (Auggie + Kavanah):** VS Code Agent and Auggie CLI share Augment's codebase understanding, but their chat transcripts are still separate. Intent is a separate orchestration surface with its own spec notes, task flow, and agent conversations.
 
 ### Interface Decisions
 
@@ -121,14 +127,14 @@ Each AI agent in this system can be accessed via multiple interfaces — all sha
 |-----------|--------|-------|
 | Claude Code CLI (terminal) | ✅ Primary for Fortuna | Full power — MCP servers, file access, session memory — also runs in VSCode terminal instance |
 | Claude Code VSCode extension | ⏸️ Optional | Same Fortuna, shared history via `claude --resume` |
-| Augment Native VSCode extension | ✅ Active | Primary for current web3 build repos — shares Context Engine with Augment CLI |
-| Augment CLI (terminal) | ✅ Primary for Auggie | Implementation builds, bulk tasks — shared Context Engine — also runs in VSCode terminal instance |
-| Augment Intent (Desktop Application) | ✅ Primary for Kavanah | Standalone desktop app — spec-driven development & agent orchestration. Self-updating living spec as source of truth. Separate from the VSCode extension. Current builds use shared main branch for cross-agent awareness; Intent's default worktree isolation applies for future isolated production builds. |
+| Augment VS Code Agent | ✅ Active | Editor-native builder bench. Shares Augment's codebase understanding with Auggie CLI, but not a shared chat transcript |
+| Augment CLI (terminal) | ✅ Primary for Auggie | Terminal-native builder bench for implementation, shell-heavy work, and bulk tasks |
+| Augment Intent (Desktop Application) | ✅ Primary for Kavanah | Standalone orchestration layer. Public docs describe Spaces with dedicated branches/worktrees; this repo currently operates from Intent's separate clone on `main` plus task notes and delegated agents |
 | Claude Desktop App | ❌ Not needed | claude.ai wrapper only — no filesystem or MCP access |
 | Cowork | ❌ Not needed | Designed for non-technical browser-based workflows |
 | Cline (VS Code extension + CLI) | ❌ Not in use | Open-source AI coding assistant with `.clineignore` support. Available as both a VS Code extension and a standalone CLI for headless/CI-CD workflows. Wraps Claude and other AI APIs — redundant given Claude Code CLI + Augment in this stack. Reference only. |
 
-**CLI-first principle:** All agents use the terminal CLI as their primary interface. VSCode extensions and standalone apps are convenience layers — memory and coordination persist through files in `AGENT-SYNC/`, not interface-specific conversation history.
+**Practical principle:** use the surface that matches the job — builder benches for direct implementation, Intent for planning and delegation, and files on disk for durable cross-surface continuity.
 
 ### Conversation History Siloing
 
@@ -136,33 +142,32 @@ While the Augment Context Engine (codebase index) is shared across all Augment-p
 
 | Interface | Chat History Storage | Shared With Other Interfaces? |
 |-----------|---------------------|-------------------------------|
-| Augment VSCode Extension | Augment cloud (per-workspace) | ❌ No — isolated from CLI and Intent |
-| Augment CLI | Augment cloud (per-session) | ❌ No — isolated from VSCode ext and Intent |
-| Augment Intent | Intent workspace (per-Space) | ❌ No — isolated from VSCode ext and CLI |
-| Claude Code CLI | Local filesystem (`~/.claude/`) | ❌ No — isolated from Claude VSCode ext* |
-| Claude Code VSCode Extension | Local filesystem (`~/.claude/`) | ⚠️ Partial — shares with CLI via `claude --resume` |
+| Augment VS Code Agent | Augment workspace chat history | ❌ No — separate from Auggie CLI and Intent |
+| Augment CLI | Augment CLI conversation history | ❌ No — separate from VS Code Agent and Intent |
+| Augment Intent | Intent workspace notes + agent conversations | ❌ No — separate from the other Augment surfaces |
+| Claude Code CLI | Local session files (`~/.claude/`) | ✅ With Claude Code VS Code via `claude --resume` |
+| Claude Code VSCode Extension | Shared Claude session bridge | ✅ With Claude Code CLI via `claude --resume` |
 
-\* Claude Code CLI and VSCode extension can bridge sessions with `claude --resume`, but this is explicit opt-in — they don't passively share history.
+This is why durable handoff material belongs in `AGENT-SYNC/`, spec notes, task notes, and logs rather than in any one interface's chat transcript.
 
-**Key implication:** An agent working in Augment CLI cannot see what was discussed in an Augment Intent Space, and vice versa. The **only bridge** between interfaces is the `AGENT-SYNC/` directory on disk — prompt files, handoff notes, and sync documents that agents read at session start. This is why the AGENT-SYNC convention exists: it's the cross-interface memory layer.
+**Key implication:** shared repo understanding is not the same thing as shared conversation memory. An agent can understand the same codebase while still having no access to another interface's chat transcript.
 
 ### Intent Clone Architecture
 
-Augment Intent creates its own git clone for each repository it manages, separate from the primary working clones used by Fortuna (Claude Code CLI) and Auggie (Augment CLI). All Intent clones live under `~/intent/workspaces/md-sync/`:
+Public Intent docs describe a Space as having its own dedicated branch and worktree. In this repo's current operating pattern, Intent still works from a **separate git clone**, but that clone is kept on `main` for simpler sync with the primary clones used outside Intent.
 
 ```
-Intent clones (Kavanah):
+Intent clone (Kavanah):
 ~/intent/workspaces/md-sync/trading-assistant/
-~/intent/workspaces/md-sync/...
 
 Primary clones:
-~/ClaudeCodeCLI/trading-assistant/ (Fortuna/Auggie)
-~/dappu/...
+~/ClaudeCodeCLI/trading-assistant/        (Fortuna)
+~/dappu/...                               (Auggie in web3 repos)
 ```
 
-**Why separate clones?** Intent agents work in isolated Spaces — if they edited the same clone that Fortuna or Auggie is using, mid-session file conflicts would be inevitable. Separate clones let each interface work independently without stepping on each other's uncommitted changes.
+**Why separate clones?** They reduce mid-session conflicts, keep each interface's git state independent, and let orchestration happen without colliding with another tool's uncommitted work.
 
-**How changes sync:** After each work wave, agents commit and push to the shared remote. Other interfaces pull at session start (or when prompted). The `AGENT-SYNC/` directory is the coordination layer — agents check for handoff prompts before beginning work.
+**How changes sync:** Changes move across clones through normal git sync, while `AGENT-SYNC/`, spec notes, and task notes carry the human-readable handoff context.
 
 **What is `md-sync`?** This is Intent's internal workspace group name. It appears in the clone path but has no special meaning outside of Intent's directory structure.
 
