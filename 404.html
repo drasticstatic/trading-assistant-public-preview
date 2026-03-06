@@ -6,63 +6,79 @@
   <title>404 — Page Moved | Trading Assistant</title>
   <style>
     :root {
-      --bg: #0d1117;
-      --surface: #161b22;
-      --surface-alt: #0f1722;
-      --border: #21262d;
-      --border-hover: #30363d;
-      --text: #c9d1d9;
-      --muted: #8b949e;
-      --subtle: #484f58;
-      --green: #238636;
-      --green-bright: #3fb950;
-      --red: #da3633;
-      --red-bright: #f85149;
-      --blue: #58a6ff;
+      --bg: #0b1118;
+      --bg-alt: #101a25;
+      --surface: rgba(16, 25, 38, 0.74);
+      --surface-soft: rgba(13, 20, 31, 0.42);
+      --surface-strong: #121c28;
+      --border: rgba(139, 148, 158, 0.2);
+      --border-strong: rgba(139, 148, 158, 0.34);
+      --text: #d8dee4;
+      --muted: #99a4af;
+      --subtle: #66707b;
+      --green: #3fb950;
+      --red: #f85149;
+      --blue: #7cc2ff;
       --yellow: #e3b341;
       --purple: #bc8cff;
-      --shadow: 0 18px 40px rgba(1, 4, 9, 0.28);
+      --shadow-soft: 0 14px 36px rgba(2, 6, 23, 0.14);
+      --shadow: 0 24px 56px rgba(2, 6, 23, 0.2);
     }
 
     html.light {
-      --bg: #edf1f8;
-      --surface: #f4f7fc;
-      --surface-alt: #e8eef8;
-      --border: #d0d7de;
-      --border-hover: #9198a1;
+      --bg: #eef3fb;
+      --bg-alt: #f7faff;
+      --surface: rgba(255, 255, 255, 0.84);
+      --surface-soft: rgba(232, 238, 248, 0.72);
+      --surface-strong: #f8fbff;
+      --border: rgba(87, 96, 106, 0.2);
+      --border-strong: rgba(87, 96, 106, 0.34);
       --text: #1f2328;
       --muted: #57606a;
       --subtle: #6e7781;
       --green: #1a7f37;
-      --green-bright: #1a7f37;
       --red: #cf222e;
-      --red-bright: #cf222e;
       --blue: #0969da;
       --yellow: #9a6700;
       --purple: #8250df;
-      --shadow: 0 18px 40px rgba(31, 35, 40, 0.08);
+      --shadow-soft: 0 14px 28px rgba(31, 35, 40, 0.08);
+      --shadow: 0 22px 48px rgba(31, 35, 40, 0.1);
     }
 
-    html.light .grid-line { stroke: #d0d7de; }
-    html.light .chart-card {
-      background: linear-gradient(180deg, #f8fbff 0%, #f0f5fc 100%);
-    }
+    html.light .grid-line { stroke: rgba(87, 96, 106, 0.2); }
 
     * { box-sizing: border-box; }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-      background: var(--bg);
-      color: var(--text);
       min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(88, 166, 255, 0.12), transparent 30%),
+        radial-gradient(circle at top right, rgba(63, 185, 80, 0.08), transparent 32%),
+        linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
       line-height: 1.55;
       transition: background 0.2s ease, color 0.2s ease;
     }
 
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 18%),
+        radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.04), transparent 42%);
+    }
+
     a,
     button {
-      transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+      transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
     }
 
     a:focus-visible,
@@ -81,13 +97,14 @@
       position: absolute;
       left: 1rem;
       top: -3rem;
-      background: var(--surface);
-      color: var(--text);
-      border: 1px solid var(--border);
+      z-index: 200;
+      border: 1px solid var(--border-strong);
       border-radius: 999px;
       padding: 0.6rem 0.95rem;
+      color: var(--text);
+      background: var(--surface-strong);
       text-decoration: none;
-      z-index: 200;
+      box-shadow: var(--shadow-soft);
     }
 
     .skip-link:focus {
@@ -101,55 +118,90 @@
       z-index: 100;
       border: 1px solid var(--border);
       border-radius: 999px;
-      padding: 0.4rem 0.85rem;
-      background: var(--surface);
+      padding: 0.45rem 0.9rem;
+      background: rgba(18, 28, 40, 0.72);
       color: var(--muted);
-      font-size: 0.75rem;
+      font-size: 0.76rem;
       cursor: pointer;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    html.light .theme-toggle {
+      background: rgba(255, 255, 255, 0.84);
     }
 
     .theme-toggle:hover {
       border-color: var(--blue);
       color: var(--text);
+      transform: translateY(-1px);
     }
 
     .page {
+      position: relative;
       width: min(1120px, calc(100% - 2rem));
       margin: 0 auto;
-      padding: 5rem 0 2.5rem;
+      padding: 4.75rem 0 3rem;
     }
 
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
-      gap: 1.5rem;
-      align-items: stretch;
-      margin-bottom: 1.5rem;
+    .utility-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.6rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
     }
 
-    .hero-copy,
-    .chart-card,
-    .recovery-shell,
-    .restructure-note,
-    .category-map,
-    .footer {
-      background: var(--surface);
+    .utility-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .utility-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.48rem 0.8rem;
+      border-radius: 999px;
       border: 1px solid var(--border);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
+      background: var(--surface-soft);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.88rem;
     }
 
-    .hero-copy {
-      padding: 2rem;
+    .utility-link:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      transform: translateY(-1px);
+    }
+
+    .utility-note {
+      margin: 0;
+      max-width: 34rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .chart-band {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.36fr) minmax(0, 1fr);
+      gap: 1rem;
+      align-items: end;
+      margin-bottom: 2rem;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 0.55rem;
-      margin: 0 0 0.9rem;
+      margin: 0 0 0.75rem;
       color: var(--muted);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
@@ -159,92 +211,176 @@
       height: 8px;
       border-radius: 999px;
       background: var(--yellow);
-      box-shadow: 0 0 12px rgba(227, 179, 65, 0.55);
-      animation: pulse 2s ease-in-out infinite;
+      box-shadow: 0 0 0 6px rgba(227, 179, 65, 0.08);
     }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.45; }
+    .chart-band h2 {
+      margin: 0;
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+    }
+
+    .chart-band p {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+      max-width: 22rem;
+    }
+
+    .chart-shell {
+      position: relative;
+      overflow: hidden;
+      padding: 1.1rem 1rem 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(124, 194, 255, 0.06), transparent 35%),
+        linear-gradient(180deg, rgba(16, 25, 38, 0.85), rgba(11, 17, 24, 0.72));
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    html.light .chart-shell {
+      background:
+        linear-gradient(180deg, rgba(9, 105, 218, 0.05), transparent 35%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(244, 247, 252, 0.88));
+    }
+
+    .chart-shell::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 38%);
+      pointer-events: none;
+    }
+
+    .chart-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin: 0 0 0.75rem;
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .chart {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+
+    .grid-line { stroke: rgba(139, 148, 158, 0.14); stroke-width: 1; }
+    .candle-wick { stroke-width: 1.5; }
+    .candle-body { rx: 1; }
+    .ema-fast { fill: none; stroke: var(--green); stroke-width: 1.5; opacity: 0.82; }
+    .ema-slow { fill: none; stroke: var(--red); stroke-width: 1.5; opacity: 0.76; }
+    .fvg { opacity: 0.14; }
+    .gap-zone { opacity: 0.11; }
+    .gap-line { stroke: var(--yellow); stroke-width: 1; stroke-dasharray: 4 3; opacity: 0.6; }
+    .gap-label {
+      font-size: 11px;
+      fill: var(--yellow);
+      font-family: monospace;
+      opacity: 0.84;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.72fr);
+      gap: 1.6rem;
+      align-items: start;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
     }
 
     .code {
       margin: 0;
-      font-size: clamp(4rem, 10vw, 6rem);
+      font-size: clamp(3.8rem, 8vw, 5.6rem);
       font-weight: 800;
       letter-spacing: -0.08em;
       line-height: 0.95;
-      background: linear-gradient(135deg, var(--green-bright) 0%, var(--blue) 100%);
+      background: linear-gradient(135deg, var(--green) 0%, var(--blue) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
     .hero h1 {
-      margin: 0.6rem 0 0.8rem;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      line-height: 1.1;
-      letter-spacing: -0.03em;
+      margin: 0.6rem 0 0.85rem;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+      max-width: 12ch;
     }
 
     .subtitle {
       margin: 0;
+      max-width: 38rem;
       color: var(--muted);
-      font-size: 1rem;
-      max-width: 36rem;
+      font-size: 1.04rem;
     }
 
-    .signal {
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.3rem;
+    }
+
+    .hero-pill {
       display: inline-flex;
       align-items: center;
-      gap: 0.55rem;
-      margin-top: 1.1rem;
-      padding: 0.65rem 0.9rem;
+      gap: 0.45rem;
+      padding: 0.55rem 0.8rem;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: var(--surface-alt);
+      background: var(--surface-soft);
       color: var(--text);
-      font-size: 0.92rem;
-      font-weight: 500;
-      flex-wrap: wrap;
+      font-size: 0.88rem;
     }
 
-    .chart-card {
-      padding: 1.1rem 1rem 0.9rem;
-      background: linear-gradient(180deg, #101826 0%, #0f1520 100%);
+    .hero-aside {
+      padding: 1rem 1rem 1rem 1.1rem;
+      border-left: 1px solid var(--border-strong);
+      background: linear-gradient(180deg, rgba(124, 194, 255, 0.03), transparent 100%);
     }
 
-    .chart-meta {
-      margin: 0 0 0.75rem;
+    .hero-aside h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-aside p {
+      margin: 0 0 0.85rem;
       color: var(--muted);
-      font-size: 0.82rem;
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
+      font-size: 0.92rem;
     }
 
-    .chart {
-      width: 100%;
-      height: auto;
-      display: block;
-      overflow: visible;
+    .hero-steps {
+      margin: 0;
+      padding-left: 1.05rem;
+      color: var(--muted);
+      display: grid;
+      gap: 0.55rem;
+      font-size: 0.92rem;
     }
 
-    .grid-line { stroke: #21262d; stroke-width: 1; }
-    .candle-wick { stroke-width: 1.5; }
-    .candle-body { rx: 1; }
-    .ema-fast { fill: none; stroke: #3fb950; stroke-width: 1.5; opacity: 0.8; }
-    .ema-slow { fill: none; stroke: #f85149; stroke-width: 1.5; opacity: 0.8; }
-    .fvg { opacity: 0.15; }
-    .gap-zone { opacity: 0.12; }
-    .gap-line { stroke: var(--yellow); stroke-width: 1; stroke-dasharray: 4 3; opacity: 0.6; }
-    .gap-label {
-      font-size: 11px;
-      fill: var(--yellow);
-      font-family: monospace;
-      opacity: 0.85;
+    .panel,
+    .footer {
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--surface);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
 
     .recovery-shell,
@@ -261,21 +397,23 @@
 
     .kicker {
       margin: 0 0 0.35rem;
-      color: var(--green-bright);
-      font-size: 0.82rem;
+      color: var(--green);
+      font-size: 0.8rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
 
-    .section-heading h2 {
+    .section-heading h2,
+    .restructure-note h2 {
       margin: 0;
-      font-size: 1.45rem;
-      line-height: 1.15;
+      font-size: 1.42rem;
+      line-height: 1.16;
       letter-spacing: -0.02em;
     }
 
-    .section-heading p {
+    .section-heading p,
+    .restructure-note p {
       margin: 0.45rem 0 0;
       color: var(--muted);
     }
@@ -303,7 +441,7 @@
       color: inherit;
       border: 1px solid var(--border);
       border-radius: 18px;
-      background: var(--surface-alt);
+      background: var(--surface-soft);
       padding: 1rem;
     }
 
@@ -311,10 +449,13 @@
     .map-card:hover {
       border-color: var(--blue);
       transform: translateY(-1px);
+      box-shadow: var(--shadow-soft);
     }
 
     .action-card-primary {
-      background: linear-gradient(180deg, rgba(88, 166, 255, 0.08) 0%, rgba(88, 166, 255, 0.02) 100%), var(--surface-alt);
+      background:
+        linear-gradient(180deg, rgba(124, 194, 255, 0.08) 0%, rgba(124, 194, 255, 0.02) 100%),
+        var(--surface-soft);
     }
 
     .action-topline {
@@ -350,26 +491,16 @@
       margin-top: 0.7rem;
       padding: 0.25rem 0.55rem;
       border-radius: 999px;
-      background: rgba(88, 166, 255, 0.08);
+      background: rgba(124, 194, 255, 0.1);
       color: var(--blue);
       font-family: "SF Mono", "Fira Code", monospace;
       font-size: 0.75rem;
     }
 
     .restructure-note {
-      display: grid;
-      gap: 0.45rem;
-      background: linear-gradient(180deg, rgba(227, 179, 65, 0.08) 0%, rgba(227, 179, 65, 0.02) 100%), var(--surface);
-    }
-
-    .restructure-note h2 {
-      margin: 0;
-      font-size: 1.1rem;
-    }
-
-    .restructure-note p {
-      margin: 0;
-      color: var(--muted);
+      background:
+        linear-gradient(180deg, rgba(227, 179, 65, 0.08) 0%, rgba(227, 179, 65, 0.03) 100%),
+        var(--surface);
     }
 
     .map-grid {
@@ -428,6 +559,7 @@
     }
 
     @media (max-width: 960px) {
+      .chart-band,
       .hero {
         grid-template-columns: 1fr;
       }
@@ -436,20 +568,27 @@
       .map-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+
+      .hero h1 {
+        max-width: none;
+      }
+
+      .hero-aside {
+        border-left: 0;
+        border-top: 1px solid var(--border-strong);
+        padding: 1rem 0 0;
+      }
     }
 
     @media (max-width: 720px) {
       .page {
         width: min(100% - 1rem, 1120px);
-        padding-top: 4.5rem;
+        padding-top: 4.25rem;
       }
 
-      .hero-copy,
-      .chart-card,
-      .recovery-shell,
-      .restructure-note,
-      .category-map,
-      .footer {
+      .panel,
+      .footer,
+      .chart-shell {
         border-radius: 20px;
       }
 
@@ -463,13 +602,20 @@
         top: 0.75rem;
         right: 0.75rem;
       }
+
+      .utility-nav {
+        padding-right: 4.25rem;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
       *, *::before, *::after {
         animation: none !important;
         transition: none !important;
-        scroll-behavior: auto !important;
       }
     }
   </style>
@@ -479,20 +625,24 @@
   <button type="button" class="theme-toggle" onclick="toggleTheme()" id="themeBtn">☀️ Light mode</button>
 
   <main class="page">
-    <header class="hero">
-      <section class="hero-copy" aria-labelledby="page-title">
-        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Broken link detected</p>
-        <p class="code">404</p>
-        <h1 id="page-title">This page moved, but the content is still here.</h1>
-        <p class="subtitle">
-          Saved links may predate the move to <code>/YYYY/MM-Mon/</code> folders.
-          Start with the fastest recovery paths below, then use the lighter category map if you remember the section but not the exact file.
-        </p>
-        <p class="signal"><span aria-hidden="true">🧭</span> Missing chart section located — recovering without moving the stop <span aria-hidden="true">😅</span></p>
-      </section>
+    <nav class="utility-nav" aria-label="Utility recovery links">
+      <div class="utility-links">
+        <a class="utility-link" href="https://drasticstatic.github.io/trading-assistant-public-preview/">↩ Preview Home</a>
+        <a class="utility-link" href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer">GitHub Root ↗</a>
+        <a class="utility-link" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai" target="_blank" rel="noreferrer">smarttrader-ai Root ↗</a>
+      </div>
+      <p class="utility-note">Most older public links now resolve by returning to the same section, then choosing the matching <code>YYYY/MM-Mon/</code> folder.</p>
+    </nav>
 
-      <div class="chart-card" aria-hidden="true">
-        <p class="chart-meta"><span>Page moved</span><span>Gap still on chart</span></p>
+    <section class="chart-band" aria-labelledby="chart-title">
+      <div>
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Page moved, chart still readable</p>
+        <h2 id="chart-title">The missing page is treated like a gap on the chart — visible, understandable, and recoverable.</h2>
+        <p>The route shifted, but the underlying public content is still available through the same sections and dated folders.</p>
+      </div>
+
+      <div class="chart-shell" aria-hidden="true">
+        <p class="chart-meta"><span>Standalone signal</span><span>Page moved</span></p>
         <svg class="chart" viewBox="0 0 520 180" xmlns="http://www.w3.org/2000/svg">
           <line class="grid-line" x1="0" y1="45" x2="520" y2="45"/>
           <line class="grid-line" x1="0" y1="90" x2="520" y2="90"/>
@@ -558,9 +708,33 @@
           <rect x="444" y="154" width="12" height="18" fill="#3fb950" opacity="0.4" rx="1"/>
         </svg>
       </div>
+    </section>
+
+    <header class="hero" aria-labelledby="page-title">
+      <section>
+        <p class="code">404</p>
+        <h1 id="page-title">This page moved, but the content is still here.</h1>
+        <p class="subtitle">Saved links may predate the move to <code>/YYYY/MM-Mon/</code> folders. Start with the quickest recovery paths below, then use the category map if you remember the section but not the exact file.</p>
+
+        <div class="hero-points" aria-label="Recovery highlights">
+          <span class="hero-pill">🧭 Recovery-first navigation stays visible</span>
+          <span class="hero-pill">📁 Same sections, newer folder structure</span>
+          <span class="hero-pill">🔎 Category coverage remains intact</span>
+        </div>
+      </section>
+
+      <aside class="hero-aside" aria-label="Recovery guidance">
+        <h2>Fastest way back in</h2>
+        <p>If the exact file moved, the general path usually did not.</p>
+        <ol class="hero-steps">
+          <li>Return to the same public section.</li>
+          <li>Choose the most likely <code>YYYY/MM-Mon/</code> folder.</li>
+          <li>Use the category map below when you only remember the topic.</li>
+        </ol>
+      </aside>
     </header>
 
-    <nav class="recovery-shell" id="recovery-links" aria-labelledby="recovery-title">
+    <nav class="recovery-shell panel" id="recovery-links" aria-labelledby="recovery-title">
       <div class="section-heading">
         <p class="kicker">Fast recovery</p>
         <h2 id="recovery-title">Start with the most likely destination</h2>
@@ -628,14 +802,14 @@
       </div>
     </nav>
 
-    <section class="restructure-note" aria-labelledby="restructure-title">
+    <section class="restructure-note panel" aria-labelledby="restructure-title">
       <p class="kicker">Why this happened</p>
       <h2 id="restructure-title">The repo was reorganized into dated folders.</h2>
       <p>Most stale links can be recovered by going back to the same section and then choosing the right <code>YYYY/MM-Mon/</code> folder.</p>
       <p>If you only remember the general area, use the category map below instead of hunting through a full tree.</p>
     </section>
 
-    <section class="category-map" aria-labelledby="map-title">
+    <section class="category-map panel" aria-labelledby="map-title">
       <div class="section-heading">
         <p class="kicker">All current categories</p>
         <h2 id="map-title">Lighter category map, same coverage</h2>
@@ -649,6 +823,7 @@
           <ul class="map-list">
             <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket" target="_blank" rel="noreferrer">analysis/premarket/</a></li>
             <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/level-marking-methodology.md" target="_blank" rel="noreferrer">level-marking-methodology.md</a></li>
+            <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket/2026" target="_blank" rel="noreferrer">2026/</a></li>
             <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket/2026/02-Feb" target="_blank" rel="noreferrer">2026/02-Feb</a></li>
             <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket/2026/03-Mar" target="_blank" rel="noreferrer">2026/03-Mar</a></li>
           </ul>
@@ -660,6 +835,7 @@
           <ul class="map-list">
             <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews" target="_blank" rel="noreferrer">reviews/</a></li>
             <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/pattern_tracker.md" target="_blank" rel="noreferrer">pattern_tracker.md</a></li>
+            <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews/2026" target="_blank" rel="noreferrer">2026/</a></li>
             <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews/2026/02-Feb" target="_blank" rel="noreferrer">2026/02-Feb</a></li>
             <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews/2026/03-Mar" target="_blank" rel="noreferrer">2026/03-Mar</a></li>
           </ul>
@@ -671,6 +847,7 @@
           <ul class="map-list">
             <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports" target="_blank" rel="noreferrer">exports/</a></li>
             <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/chart-analysis-methodology.md" target="_blank" rel="noreferrer">chart-analysis-methodology.md</a></li>
+            <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports/2026" target="_blank" rel="noreferrer">2026/</a></li>
             <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports/2026/02-Feb" target="_blank" rel="noreferrer">2026/02-Feb</a></li>
             <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports/2026/03-Mar" target="_blank" rel="noreferrer">2026/03-Mar</a></li>
           </ul>
@@ -680,6 +857,7 @@
           <h3>data</h3>
           <p>Public datasets, screenshots, and progression references.</p>
           <ul class="map-list">
+            <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data" target="_blank" rel="noreferrer">data/</a></li>
             <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/screenshots" target="_blank" rel="noreferrer">screenshots/</a></li>
             <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/inevitrade%20progression" target="_blank" rel="noreferrer">inevitrade progression/</a></li>
             <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/exports" target="_blank" rel="noreferrer">exports/</a></li>
@@ -698,7 +876,7 @@
     </section>
 
     <footer class="footer">
-      <p><a href="https://drasticstatic.github.io/trading-assistant-public-preview/">Trading Assistant Public Preview</a> · 404 recovery-first navigation</p>
+      <p><a href="https://drasticstatic.github.io/trading-assistant-public-preview/">Trading Assistant Public Preview</a> · calmer 404 recovery-first navigation</p>
       <p>Saved links usually recover fastest by choosing the same section, then the right <code>YYYY/MM-Mon/</code> folder.</p>
     </footer>
   </main>
