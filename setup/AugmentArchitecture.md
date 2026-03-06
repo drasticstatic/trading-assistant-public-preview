@@ -4,6 +4,7 @@
 
 - **Augment is not best understood as one chatbot**. It behaves more like an agentic system with context, tools, rules, and sometimes specialized roles.
 - **The three main user-facing surfaces are different on purpose**: VS Code Agent is the editor-native builder bench, Auggie CLI is the terminal-native builder bench, and Intent is the orchestration layer.
+- **MCP extends the ecosystem without becoming a fourth native surface**: you can plug Augment Context Engine into external clients, for example **Claude Code CLI**, while Augment supplies the retrieval layer underneath.
 - **Intent makes the team metaphor explicit** with coordinator-style planning, specialist roles, specs, and delegated work.
 - **The most important open architecture question is model routing**: choosing something like `Opus` likely sets the lead reasoning path, but may not mean it is the only model or system involved in every behind-the-scenes step.
 
@@ -86,6 +87,12 @@ What stays similar across all three:
 - model choice still matters
 - shared repo understanding is **not** the same thing as shared chat history
 
+One extra twist is worth naming: **MCP is not really a fourth front door. It is plumbing.**
+
+That matters because Augment’s **Context Engine MCP** can be plugged into other agent clients too, which means the ecosystem is not limited to Augment’s native surfaces.
+
+For example, you might use **Claude Code CLI** while letting Augment provide the deep codebase retrieval layer underneath through MCP.
+
 If I had to reduce the distinction to one line:
 
 > **VS Code helps you build in place, CLI helps you build from the terminal, and Intent helps you organize the whole operation.**
@@ -157,7 +164,7 @@ flowchart TD
 
 *Diagram legend: blue = the front doors you choose, green = shared Augment machinery, orange = the coordination layer Intent makes most explicit.*
 
-*Diagram caption: the surface changes the workflow you feel most directly, while the underlying system can still share context, tools, and possible routing behavior.*
+*Diagram caption: the surface changes the workflow you feel most directly, while the underlying system can still share context, tools, possible routing behavior, and MCP-powered infrastructure for external clients like Claude Code CLI.*
 
 ## 🎭 Intent is where the cast becomes explicit
 
@@ -424,6 +431,9 @@ Here is the short version, without overloading the reader:
 - CLI docs say interactive mode shows **tool calls and results** and note Auggie is currently beta and does **not** support all IDE-plugin features yet
 - Agent docs say Augment Agent is powered by **Context Engine** and a powerful **LLM architecture**
 - Agent docs say the selected model in the Augment panel applies only to **Agent for the current workspace**
+- Context Engine MCP docs say you can **plug Augment Context Engine into any agent via MCP**
+- Context Engine MCP docs describe a **local server** for active development and a **remote server** for adding to / understanding code
+- MCP docs explicitly include quickstarts for external tools like **Claude Code CLI**, which makes the “Augment context + non-Augment agent client” pattern a documented capability
 - **User Guidelines** are stored locally in the IDE and apply to Agent and Chat in that IDE
 - **User Rules** live in `~/.augment/rules/` and apply across workspaces
 - **Workspace Rules** live in `<workspace_root>/.augment/rules/`
@@ -436,6 +446,10 @@ Here is the short version, without overloading the reader:
 The one subtle but important nuance:
 
 > only `AGENTS.md` and `CLAUDE.md` are discovered hierarchically — `.augment/rules/` is loaded from the workspace root, not every subdirectory
+
+Another useful nuance:
+
+> MCP extends Augment beyond its native interfaces. VS Code Agent, Auggie CLI, and Intent are the main Augment surfaces — but Context Engine MCP lets Augment also act like shared context infrastructure for other clients.
 
 ## 🧪 Subagents are very real
 
@@ -512,17 +526,21 @@ Even after all this, a few questions remain interesting:
 
 ## 🔗 Sources used for this note
 
-- Augment docs — Introducing Intent by Augment  
+- Augment docs — Introducing Intent by Augment
   <https://docs.augmentcode.com/intent/overview>
-- Augment docs — Using Agent  
+- Augment docs — Using Agent
   <https://docs.augmentcode.com/using-augment/agent>
-- Augment docs — Interactive mode  
+- Augment docs — Interactive mode
   <https://docs.augmentcode.com/cli/interactive>
-- Augment docs — Rules & Guidelines for Agent and Chat  
+- Augment docs — Context Engine MCP
+  <https://docs.augmentcode.com/context-services/mcp/overview>
+- Augment docs — Claude Code Quickstart
+  <https://docs.augmentcode.com/context-services/mcp/quickstart-claude-code>
+- Augment docs — Rules & Guidelines for Agent and Chat
   <https://docs.augmentcode.com/setup-augment/guidelines>
-- Augment docs — Rules & Guidelines (CLI)  
+- Augment docs — Rules & Guidelines (CLI)
   <https://docs.augmentcode.com/cli/rules>
-- Augment docs — Subagents  
+- Augment docs — Subagents
   <https://docs.augmentcode.com/cli/subagents>
-- Intent-native summaries captured in this workspace  
+- Intent-native summaries captured in this workspace
   Source: user-provided Intent role / workflow notes on 2026-03-06
