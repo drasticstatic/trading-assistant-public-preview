@@ -22,6 +22,8 @@
 
 ## 📖 Session Narrative
 
+> Pre-market plan: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260305-summary.md
+
 March 5 was a deliberate step back from the markets — the right call following three consecutive high-pressure sessions (Mar 2 net +$460, Mar 3 blown account, Mar 4 observation). The session was designated architecture and education before it began.
 
 **Infrastructure recovered:** A power outage had disrupted the development environment. ngrok was repaired, Augment Intent (auggie) was reinstalled on Node v22 LTS as the system-wide standard across all agents (Fortuna, Auggie, Kavanah). The tunnel is confirmed live.
@@ -85,6 +87,8 @@ Trades: 0 | P&L: $0.00 | Fills: 0
 
 APEX-06 and TPT accounts intact and preserved. Environment stable. Repo fully standardized. Ready for the next live session with a clean slate.
 
+> Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260305_daily-review.md
+
 ---
 
 ## 🎯 Forward Focus
@@ -92,10 +96,6 @@ APEX-06 and TPT accounts intact and preserved. Environment stable. Repo fully st
 1. **Return to full five-layer process on the next live session.** FCR at 9:45, scenario confirmed, all layers checked before entry. No urgency from APEX-05 blowup — that account is closed.
 2. **APEX-06 priority.** ~$6,000 gap, deadline March 24. Three weeks of runway. One A+ trade per session closes that gap without pressure.
 3. **Check ES short thesis at open.** 6,910–6,922 zone remains the planned short from Mar 4. Confirm 5-min EMA gate at the next session before considering entry.
-
-> Full pre-market summary: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260305-summary.md
-
-> Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260305_daily-review.md
 
 ---
 
