@@ -251,6 +251,8 @@ SL respected: Yes (second consecutive session).
 Revenge trading: No.
 Discipline arc: Improving. Stop discipline is locking in. Entry filter is next.
 
+> Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/02-Feb/STB_export_20260224_daily-review.md
+
 ---
 
 ## Focus for Next Session (Feb 25, 2026)

@@ -1,4 +1,4 @@
-# Pre-Market Summary — Wednesday March 4, 2026
+# 🗓️ Pre-Market Session Summary — Wednesday, March 4, 2026
 ### Volatile Open — Middle East Risk + Tariff Repricing | Fortuna
 *Written retroactively — Christopher was on coaching calls during the live session. Session updates filled in from live observation.*
 

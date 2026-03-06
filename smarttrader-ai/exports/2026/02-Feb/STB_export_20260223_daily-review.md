@@ -189,10 +189,11 @@ Adjustment for next session: 5/5 entries only for FCR,
   or 3-5 tick SL buffer above 5/5 when entering at 3/5
 ```
 
+> Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/02-Feb/STB_export_20260223_daily-review.md
+
 ---
 
 *Fortuna — Wealth Warden | Claude Code CLI*
 *Anthropic claude-sonnet-4-6 | Feb 23, 2026*
-*Full trade review: https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/reviews/review_20260223_MNQ_001.md*
-*Full pre-market analysis: https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/analysis/premarket_20260223_summary.md*
-*SMOG analysis: https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/analysis/smog_analysis_20260223_CL.md*
+*Full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/02-Feb/review_20260223_MNQ_001.md*
+*Full pre-market analysis: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260223-summary.md*

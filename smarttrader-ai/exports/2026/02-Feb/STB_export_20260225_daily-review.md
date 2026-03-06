@@ -182,6 +182,8 @@ SOL LONG (BTCC): +20.63 USDT. BTCC positive balance secured.
 SL respected: Yes. Revenge trading: None. Overtrading: None.
 Discipline: 10/10. Best session of the recovery arc.
 
+> Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/02-Feb/STB_export_20260225_daily-review.md
+
 ---
 
 ## Focus for Next Session (Feb 26, 2026)
