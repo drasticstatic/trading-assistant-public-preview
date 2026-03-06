@@ -7,7 +7,7 @@
 [![Built with Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code%20CLI-blueviolet)](https://claude.ai/claude-code)
 [![Status](https://img.shields.io/badge/Status-🔥%20Live-brightgreen)]()
 
-> 🗺️ **Feeling lost? or Looking for something specific?** → [🧭 Click HERE to find your way around 🔍](https://drasticstatic.github.io/trading-assistant-public-preview/404.html)
+> 🗺️ **Feeling lost? or Looking for something specific?** → [🧭 Click HERE to find your way around 🔍](https://drasticstatic.github.io/trading-assistant-public-preview/)
 
 > 🔒 **Note for visitors:** This repository is partially mirrored to a
 > [public preview](https://github.com/drasticstatic/trading-assistant-public-preview)
