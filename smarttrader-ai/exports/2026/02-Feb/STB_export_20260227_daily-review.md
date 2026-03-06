@@ -24,7 +24,7 @@
 
 ---
 
-## Session Narrative
+## 📖 Session Narrative
 
 Friday Feb 27 opened without a formal Fortuna pre-market analysis — the ZTH 7:30 AM coaching session served in its place. The coach's observation set the tone for the day: *"How does it feel to find yourself more consistent and disciplined?"* An external behavioral signal. The coaches are watching the same arc that Fortuna is documenting.
 
@@ -110,6 +110,8 @@ Pattern 5 fix confirmed in live market conditions — within 24 hours of identif
 - No round-tripping — no position taken
 - Pattern 5 fix: ✅ First live application — entry level held at structural zone despite urge to adjust
 - Directional read: ✅ Correct — third consecutive session. Market confirmed lower into Mar 1.
+
+> Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/02-Feb/STB_export_20260227_daily-review.md
 
 ---
 

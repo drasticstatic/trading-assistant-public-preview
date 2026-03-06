@@ -264,12 +264,12 @@ Feb 27  Direction ✅  N/A   Entry ✅  (Level held — no fill → Pattern 5 fi
 
 ## 📎 Full Reviews + Pattern Tracker
 
-- [Pattern Tracker — all sessions, behavioral arc](../reviews/pattern_tracker.md)
-- [Feb 23 — MNQ Short -$100.50](../reviews/review_20260223_MNQ_001.md)
-- [Feb 24 — MES Long -$35.00](../reviews/review_20260224_MES_001.md)
-- [Feb 25 — MNQ Long +$565.00](../reviews/review_20260225_MNQ_001.md)
-- [Feb 26 — MNQ Short -$558.00](../reviews/review_20260226_MNQ_001.md)
-- [Feb 27 — MNQ Short (no fill) $0](../reviews/review_20260227_MNQ_001.md)
+- [Pattern Tracker — all sessions, behavioral arc](../../../reviews/pattern_tracker.md)
+- [Feb 23 — MNQ Short -$100.50](../../../reviews/2026/02-Feb/review_20260223_MNQ_001.md)
+- [Feb 24 — MES Long -$35.00](../../../reviews/2026/02-Feb/review_20260224_MES_001.md)
+- [Feb 25 — MNQ Long +$565.00](../../../reviews/2026/02-Feb/review_20260225_MNQ_001.md)
+- [Feb 26 — MNQ Short -$558.00](../../../reviews/2026/02-Feb/review_20260226_MNQ_001.md)
+- [Feb 27 — MNQ Short (no fill) $0](../../../reviews/2026/02-Feb/review_20260227_MNQ_001.md)
 
 ---
 
@@ -326,6 +326,8 @@ Entry discipline under real-market conditions — specifically applying the pre-
 
 **How I plan to study the market this week:**
 Pre-market with Fortuna before each session. ZTH structure watch + IT Foundation EMA gate read before any setup is considered. Full FCR framework at 9:45. Reviewing pattern_tracker.md to keep the behavioral arc front of mind. Eval week — APEX -05 due Wednesday Mar 4. One clean A+ setup per session. Market has continued lower since Feb 27 — directional read is tracking, execution is the variable.
+
+> Full weekly review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/02-Feb/STB_export_20260227_weekly-review.md
 
 ---
 

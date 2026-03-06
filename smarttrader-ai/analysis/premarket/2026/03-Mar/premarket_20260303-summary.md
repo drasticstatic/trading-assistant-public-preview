@@ -1,4 +1,4 @@
-# Pre-Market Summary — Tuesday, March 3, 2026
+# 🗓️ Pre-Market Session Summary — Tuesday, March 3, 2026
 #### Fortuna — Wealth Warden | Claude Code CLI
 #### Instruments: MNQ (primary) | ES, YM (confirming) | CL (secondary)
 

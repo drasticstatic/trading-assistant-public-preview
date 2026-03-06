@@ -6,7 +6,7 @@
 
 ---
 
-## Session Narrative
+## 📖 Session Narrative
 
 Today was a deliberate no-trade session following the Mar 3 account liquidation (APEX-05 blown, Patterns 6+7). The intent was to sit out the volatile open, attend all three coaching calls (STB, ZTH, Inevitrade), and build pattern recognition without capital at risk. That objective was fully achieved.
 
@@ -185,7 +185,9 @@ No fill on the planned short. Price never reached entry. No adjustment made. Cor
 
 Behavioral result: Deliberate calm session achieved. Three coaching calls attended. Pattern recognition built without capital at risk. APEX-06 and TPT accounts fully preserved.
 
-> Full pre-market summary: `smarttrader-ai/analysis/premarket/premarket_20260304_summary.md`
+> Full pre-market summary: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260304_summary.md
+
+> Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260304_daily-review.md
 
 ---
 

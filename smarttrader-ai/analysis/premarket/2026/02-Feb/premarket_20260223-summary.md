@@ -1,5 +1,5 @@
-# 🗓️ Pre-Market Session Summary
-### Feb 23, 2026 — NY Open | Fortuna
+# 🗓️ Pre-Market Session Summary — Sunday, February 23, 2026
+### NY Open | Fortuna
 
 [Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
 

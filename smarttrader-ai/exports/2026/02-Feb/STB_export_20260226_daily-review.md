@@ -22,7 +22,7 @@
 
 ---
 
-## Session Narrative
+## 📖 Session Narrative
 
 Feb 26 was a textbook Scenario A SHORT day. The FCR confirmed bearish at 9:45 on NQ, ES, and YM simultaneously. RTY confirmed the bias with a lagging bounce (SMT divergence intact all day). STB coach entered short at 9:15 at an NQ order block using SMT divergence — the most advanced entry model, pre-FCR. He exited at 4.44R and expected a bounce before continuation.
 
@@ -123,6 +123,8 @@ Pattern 5 — Level Abandonment Under Pressure — identified for the first time
 - Net P&L: -$558.00 | Zella Score: -100
 - No round-tripping — SL was held and not moved (5/5 sessions, 0 stops moved post Feb 13 ✅)
 - Directional read: ✅ Correct — price confirmed lower to 24,954 by 6 PM ETH. Analysis worked. Entry was the only variable to fix.
+
+> Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/02-Feb/STB_export_20260226_daily-review.md
 
 ---
 

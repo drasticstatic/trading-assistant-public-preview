@@ -37,7 +37,7 @@
 
 ---
 
-## 🏛️ Session Narrative
+## 📖 Session Narrative
 
 March 3 was the second-to-last day of the APEX eval — a gap of ~$5,634 remained at open. The premarket brief correctly identified eval pressure as the primary behavioral risk. All three trades reflected that pressure in different ways.
 
@@ -131,9 +131,11 @@ Despite the outcome: SL discipline partially held (T1 and T3 respected). Pre-mar
 Next step: evaluate Apex renewal vs new account options. STB $50 voucher to verify. One A+ trade at a time.
 
 Full individual reviews:
-- `smarttrader-ai/reviews/review_20260303_ES_001.md` — ES Long T1
-- `smarttrader-ai/reviews/review_20260303_ES_002.md` — ES Short T2
-- `smarttrader-ai/reviews/review_20260303_CL_001.md` — CL Long T1
+- [review_20260303_ES_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260303_ES_001.md) — ES Long T1
+- [review_20260303_ES_002.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260303_ES_002.md) — ES Short T2
+- [review_20260303_CL_003.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260303_CL_003.md) — CL Long T3
+
+> Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260303_daily-review.md
 
 ---
 

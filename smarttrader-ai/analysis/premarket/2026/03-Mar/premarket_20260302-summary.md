@@ -1,6 +1,8 @@
-# Pre-Market Summary — Monday, March 2, 2026
+# 🗓️ Pre-Market Session Summary — Monday, March 2, 2026
 #### Fortuna — Wealth Warden | Claude Code CLI
 #### Instrument: MNQ (primary) | Session: NY AM | Eval Week
+
+[Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
 
 ---
 
@@ -144,26 +146,41 @@ Eval gap is ~$6K across 3 days (Mar 2–4). That requires discipline, not aggres
 
 ---
 
-## SmartTraderAI Post-Market Copy-Paste Fields
+<a id="smarttraderai-copy-paste"></a>
 
-> *Complete after session closes*
+## 🤖 SmartTraderAI Pre-Market Copy-Paste Fields
 
-```
-Date: 2026-03-02
-Session: NY AM
-Instrument: MNQ (primary)
-Direction Taken: TBD
-Entry Price: TBD
-Exit Price: TBD
-Result ($): TBD
-FCR Scenario: Mixed at open (Scenario C) — bullish flip
-IT Foundation EMAs: Red dominant ETH → monitoring flip
-SMT Confirmation: Bullish across all three at open
-Fibonacci Confluence: TBD
-Grade: TBD
-Behavioral Notes: Quick low-confluence scalp taken and exited early session. Reset and awaiting A+ setup.
-Eval Status: Day 1 of 3 | Gap ~$6K | Due Mar 4
-```
+---
+
+**1. What is today's date and what are the key economic events/news to watch?**
+
+Monday, March 2, 2026. ISM Manufacturing PMI at 10:00 AM ET (high impact — first Monday of the month, major volatility trigger). No new entries during the 10:00–10:15 window unless already positioned.
+
+---
+
+**2. What economic figures are you expecting and what effect might they have?**
+
+ISM Manufacturing PMI — a beat could spike equities bullish (risk-on); a miss could reinforce the ongoing bearish macro trend. ETH context was bearish → bullish open reversal, so market is already showing willingness to flip. The 10:00 print will be the session's directional catalyst.
+
+---
+
+**3. What is the higher timeframe bias and key levels to watch?**
+
+HTF bias: Bearish (red dominant IT Foundation EMAs from ETH through Sunday evening). Market reversed bullish at the NY open — this is a meaningful context flip. Key levels: ZTH overhead supply at YM 49,679 / 49,710 (~1,000 pts above open). MES resistance: 6,883 / 6,876.50 (former ETH sell limit entries). If price reclaims 6,883+ = ETH bears trapped, genuine reversal. If it rejects → SHORT opportunity.
+
+---
+
+**4. What is your intraday bias and key entry levels?**
+
+Intraday bias: Scenario C (mixed) until all three indices clearly confirm a direction at the 9:45 FCR close. Bullish scenario: all three close above FCR rays → Scenario A LONG → FVG on 5-min displacement. Bearish scenario: rejection at ZTH overhead levels after ISM PMI → Scenario A/B SHORT → FVG retrace entry. One clean A+ setup is the goal — Eval Day 1 of 3, gap ~$6K, due March 4.
+
+---
+
+**5. What are your expectations for the session?**
+
+Volatile open likely due to ISM PMI. First candle may be whippy — do not enter at 9:30. Wait for the 9:45 FCR close and confirm scenario. The ETH bearish → bullish reversal at the open signals potential upside, but the ZTH overhead supply (49,679–49,710 YM) represents significant resistance if that scenario develops. No chasing, no FOMO. Five-layer entry filter required — eval pressure is NOT a trading input.
+
+> Full pre-market summary: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260302-summary.md
 
 ---
 
