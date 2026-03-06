@@ -128,7 +128,7 @@ Pattern 5 — Level Abandonment Under Pressure — identified for the first time
 
 ---
 
-## Forward Focus (Feb 27)
+## 🎯 Forward Focus
 
 1. **ZTH 1-on-1 at 7:30 AM** — show deliverables on public-preview, review session arc
 2. **Entry rule to enforce:** Entry level is set pre-session and not adjusted at execution. Period. "If it doesn't fill at the structural level, the trade said no."

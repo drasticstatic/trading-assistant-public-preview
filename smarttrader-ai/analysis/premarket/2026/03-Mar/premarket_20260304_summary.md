@@ -205,7 +205,7 @@ Outcome: No trade taken. Sat out the volatile open (correct decision). Attended 
 
 Not ready for TCL live trades yet (Inevitrade) — using as confluence only. Starting with SMOG before TCL makes sense given prop firm drawdown limits (TCL requires multiple limit orders). APEX 100K accounts more manageable for TCL DCA than TPT 50K.
 
-> Full pre-market summary: `smarttrader-ai/analysis/premarket/premarket_20260304_summary.md`
+> Full pre-market summary: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260304_summary.md
 > Per-instrument detail consolidated in this file — no separate instrument files for this session.
 
 ---

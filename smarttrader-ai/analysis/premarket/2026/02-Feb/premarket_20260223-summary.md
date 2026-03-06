@@ -701,15 +701,14 @@ Instruments to avoid pre-9:45: CL entirely. Wait for candle.
 Mental state check (pre-session target): 7/10 minimum.
   If below 7 — observe only, no entries.
 
-> Full pre-market summary:
-https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/analysis/premarket_20260223_summary.md
+> Full pre-market summary: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260223-summary.md
 
-> Full pre-market analysis:
-- SI: `premarket_20260223_SI.md`
-- NQ: `premarket_20260223_NQ.md`
-- ES: `premarket_20260223_ES.md`
-- YM: `premarket_20260223_YM.md`
-- NG: `premarket_20260223_NG_RTH-marked.md`
+> Per-instrument analysis:
+- [SI](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260223_SI.md)
+- [NQ](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260223_NQ.md)
+- [ES](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260223_ES.md)
+- [YM](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260223_YM.md)
+- [NG](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260223_NG_RTH-marked.md)
 
 ---
 
