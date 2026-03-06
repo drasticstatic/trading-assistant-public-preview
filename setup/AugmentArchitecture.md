@@ -119,22 +119,27 @@ flowchart TD
     U([🧑 You])
 
     subgraph SURFACES[🚪 Choose your surface]
+        direction LR
         VS[💻 VS Code Agent<br/>Editor-native builder bench]
         CL[⌨️ Auggie CLI<br/>Terminal-native builder bench]
         IN[🧭 Intent<br/>Spec-driven orchestration layer]
     end
 
     subgraph SHARED[⚙️ Shared Augment system]
-        SM[🧠 Selected model<br/>Lead reasoning path]
-        CX[🔎 Context engine<br/>Tools + rules + workspace context]
-        AG[🧩 Coordinator + specialists<br/>Most explicit in Intent]
-        BG[🔄 Retrieval, tool use,<br/>and possible background routing]
+        direction TB
+        subgraph CORE[ ]
+            direction LR
+            SM[🧠 Selected model<br/>Lead reasoning path]
+            CX[🔎 Context engine<br/>Tools, rules, workspace context]
+            AG[🧩 Coordinator + specialists<br/>Intent makes this most explicit]
+        end
+        BG[🔄 Retrieval, tool use,<br/>and background routing]
         OUT([✅ Answers, edits,<br/>plans, reviews])
     end
 
     subgraph GUIDE[📝 How to read this diagram]
         direction TB
-        CAP[💡 Surface changes the workflow you feel most directly;<br/>shared layers can still provide context, tools, routing,<br/>and MCP infrastructure for clients like Claude Code CLI]
+        CAP[💡 Surface changes the workflow you feel most directly;<br/>shared layers still provide context, routing,<br/>and MCP infrastructure for clients like Claude Code CLI]
 
         subgraph LEGEND[🎨 Legend]
             direction LR
@@ -154,9 +159,9 @@ flowchart TD
 
     VS --> CX
     CL --> CX
-    IN --> CX
+    IN -->|uses shared context engine| CX
 
-    IN --> AG
+    IN -->|makes coordination explicit| AG
 
     SM --> BG
     CX --> BG
@@ -169,6 +174,8 @@ flowchart TD
     classDef intent fill:#fff4e8,stroke:#c98742,color:#4a2d16,stroke-width:1.5px;
     classDef guide fill:#fffbea,stroke:#d4a72c,color:#5c4400,stroke-width:1.5px;
     classDef result fill:#f8fafc,stroke:#6b7280,color:#111827,stroke-width:1.5px;
+
+    style CORE fill:none,stroke:none;
 
     class VS,CL,L1 entry;
     class IN,AG,L3 intent;
