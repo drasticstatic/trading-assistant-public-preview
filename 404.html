@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page Not Found — Trading Assistant</title>
+  <title>404 — Page Moved | Trading Assistant</title>
   <style>
     :root {
       --bg: #0d1117;
       --surface: #161b22;
+      --surface-alt: #0f1722;
       --border: #21262d;
       --border-hover: #30363d;
       --text: #c9d1d9;
@@ -20,10 +21,13 @@
       --blue: #58a6ff;
       --yellow: #e3b341;
       --purple: #bc8cff;
+      --shadow: 0 18px 40px rgba(1, 4, 9, 0.28);
     }
+
     html.light {
       --bg: #edf1f8;
       --surface: #f4f7fc;
+      --surface-alt: #e8eef8;
       --border: #d0d7de;
       --border-hover: #9198a1;
       --text: #1f2328;
@@ -36,444 +40,678 @@
       --blue: #0969da;
       --yellow: #9a6700;
       --purple: #8250df;
+      --shadow: 0 18px 40px rgba(31, 35, 40, 0.08);
     }
+
     html.light .grid-line { stroke: #d0d7de; }
-    html.light .repo-root { background: #eafbee; border-color: #1a7f37; }
-    html.light .repo-root:hover { background: #d4f7de; border-color: #1a7f37; }
-    html.light .nav-card:hover { background: #dde4f0; }
-    html.light .tree { background: #f4f7fc; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html.light .chart-card {
+      background: linear-gradient(180deg, #f8fbff 0%, #f0f5fc 100%);
+    }
+
+    * { box-sizing: border-box; }
+
     body {
+      margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 3rem 1.5rem;
-      transition: background 0.2s, color 0.2s;
+      line-height: 1.55;
+      transition: background 0.2s ease, color 0.2s ease;
     }
 
-    /* ─── THEME TOGGLE ─── */
+    a,
+    button {
+      transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--yellow);
+      outline-offset: 3px;
+    }
+
+    code {
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 0.92em;
+      color: var(--purple);
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -3rem;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.6rem 0.95rem;
+      text-decoration: none;
+      z-index: 200;
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
     .theme-toggle {
       position: fixed;
       top: 1rem;
       right: 1rem;
+      z-index: 100;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.4rem 0.85rem;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--blue);
+      color: var(--text);
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 5rem 0 2.5rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 1.5rem;
+      align-items: stretch;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-copy,
+    .chart-card,
+    .recovery-shell,
+    .restructure-note,
+    .category-map,
+    .footer {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 0.35rem 0.75rem;
-      font-size: 0.72rem;
-      color: var(--muted);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      z-index: 100;
-      transition: border-color 0.15s;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
     }
-    .theme-toggle:hover { border-color: var(--blue); color: var(--text); }
 
-    /* ─── CHART SVG ─── */
-    .chart-wrap {
-      width: 100%;
-      max-width: 520px;
-      margin-bottom: 2rem;
-      position: relative;
+    .hero-copy {
+      padding: 2rem;
     }
-    svg.chart {
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin: 0 0 0.9rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--yellow);
+      box-shadow: 0 0 12px rgba(227, 179, 65, 0.55);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.45; }
+    }
+
+    .code {
+      margin: 0;
+      font-size: clamp(4rem, 10vw, 6rem);
+      font-weight: 800;
+      letter-spacing: -0.08em;
+      line-height: 0.95;
+      background: linear-gradient(135deg, var(--green-bright) 0%, var(--blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero h1 {
+      margin: 0.6rem 0 0.8rem;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 36rem;
+    }
+
+    .signal {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin-top: 1.1rem;
+      padding: 0.65rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface-alt);
+      color: var(--text);
+      font-size: 0.92rem;
+      font-weight: 500;
+      flex-wrap: wrap;
+    }
+
+    .chart-card {
+      padding: 1.1rem 1rem 0.9rem;
+      background: linear-gradient(180deg, #101826 0%, #0f1520 100%);
+    }
+
+    .chart-meta {
+      margin: 0 0 0.75rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .chart {
       width: 100%;
-      height: 180px;
+      height: auto;
+      display: block;
       overflow: visible;
     }
+
     .grid-line { stroke: #21262d; stroke-width: 1; }
     .candle-wick { stroke-width: 1.5; }
     .candle-body { rx: 1; }
     .ema-fast { fill: none; stroke: #3fb950; stroke-width: 1.5; opacity: 0.8; }
     .ema-slow { fill: none; stroke: #f85149; stroke-width: 1.5; opacity: 0.8; }
     .fvg { opacity: 0.15; }
-
-    /* gap marker — the 404 moment */
     .gap-zone { opacity: 0.12; }
     .gap-line { stroke: var(--yellow); stroke-width: 1; stroke-dasharray: 4 3; opacity: 0.6; }
     .gap-label {
       font-size: 11px;
       fill: var(--yellow);
       font-family: monospace;
-      opacity: 0.8;
+      opacity: 0.85;
     }
 
-    /* ─── HERO TEXT ─── */
-    .hero {
-      text-align: center;
-      margin-bottom: 2.5rem;
-      max-width: 520px;
-    }
-    .code {
-      font-size: 5rem;
-      font-weight: 800;
-      letter-spacing: -2px;
-      background: linear-gradient(135deg, var(--green-bright) 0%, var(--blue) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1;
-      margin-bottom: 0.5rem;
-    }
-    h1 {
-      font-size: 1.25rem;
-      color: var(--text);
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    .subtitle {
-      color: var(--muted);
-      font-size: 0.875rem;
-      line-height: 1.6;
+    .recovery-shell,
+    .restructure-note,
+    .category-map,
+    .footer {
+      padding: 1.35rem;
+      margin-bottom: 1rem;
     }
 
-    /* ─── SIGNAL BADGE ─── */
-    .signal {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 0.35rem 0.85rem;
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-bottom: 2.5rem;
-    }
-    .signal-dot {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: var(--yellow);
-      box-shadow: 0 0 6px var(--yellow);
-      animation: pulse 2s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
+    .section-heading {
+      margin-bottom: 1rem;
     }
 
-    /* ─── NAVIGATION GRID ─── */
-    .repo-root {
-      width: 100%;
-      max-width: 700px;
-      flex-direction: row;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.75rem;
-      background: #0d1f12;
-      border-color: #238636;
-    }
-    .repo-root:hover { border-color: var(--green-bright); background: #0f2615; }
-    .repo-root .nav-card-icon { font-size: 1.3rem; }
-    .repo-root .nav-card-title { color: var(--green-bright); font-size: 0.9rem; }
-    .nav-grid {
-      width: 100%;
-      max-width: 700px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.75rem;
-      margin-bottom: 2rem;
-    }
-    @media (max-width: 520px) {
-      .nav-grid { grid-template-columns: 1fr 1fr; }
-    }
-    .nav-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1rem;
-      text-decoration: none;
-      transition: border-color 0.15s, background 0.15s;
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-    .nav-card:hover {
-      border-color: var(--blue);
-      background: var(--border);
-    }
-    .nav-card-icon {
-      font-size: 1.1rem;
-      line-height: 1;
-    }
-    .nav-card-title {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--blue);
-    }
-    .nav-card-desc {
-      font-size: 0.75rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    /* ─── FILE TREE ─── */
-    .tree-section {
-      width: 100%;
-      max-width: 700px;
-      margin-bottom: 2rem;
-    }
-    .tree-label {
-      font-size: 0.7rem;
+    .kicker {
+      margin: 0 0 0.35rem;
+      color: var(--green-bright);
+      font-size: 0.82rem;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--subtle);
-      margin-bottom: 0.5rem;
-      padding: 0 0.25rem;
     }
-    .tree {
-      background: var(--surface);
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: 1.45rem;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .section-heading p {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+    }
+
+    .primary-actions,
+    .quick-grid,
+    .map-grid {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .primary-actions {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-bottom: 0.9rem;
+    }
+
+    .quick-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .action-card,
+    .map-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 0.75rem 1rem;
-      font-family: "SF Mono", "Fira Code", monospace;
-      font-size: 0.78rem;
-      line-height: 2;
+      border-radius: 18px;
+      background: var(--surface-alt);
+      padding: 1rem;
     }
-    .tree a {
+
+    .action-card:hover,
+    .map-card:hover {
+      border-color: var(--blue);
+      transform: translateY(-1px);
+    }
+
+    .action-card-primary {
+      background: linear-gradient(180deg, rgba(88, 166, 255, 0.08) 0%, rgba(88, 166, 255, 0.02) 100%), var(--surface-alt);
+    }
+
+    .action-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.45rem;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .action-title {
+      margin: 0;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .action-desc {
+      margin: 0.35rem 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .path-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.7rem;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(88, 166, 255, 0.08);
+      color: var(--blue);
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 0.75rem;
+    }
+
+    .restructure-note {
+      display: grid;
+      gap: 0.45rem;
+      background: linear-gradient(180deg, rgba(227, 179, 65, 0.08) 0%, rgba(227, 179, 65, 0.02) 100%), var(--surface);
+    }
+
+    .restructure-note h2 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .restructure-note p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .map-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .map-card h3 {
+      margin: 0 0 0.25rem;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .map-card p {
+      margin: 0 0 0.8rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .map-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .map-list a {
       color: var(--blue);
       text-decoration: none;
     }
-    .tree a:hover { text-decoration: underline; }
-    .tree-dir { color: var(--purple); text-decoration: none; }
-    .tree a.tree-dir { color: var(--purple); }
-    .tree a.tree-dir:hover { text-decoration: underline; color: var(--purple); opacity: 0.8; }
-    .tree-indent { padding-left: 1.25rem; }
-    .tree-indent2 { padding-left: 2.5rem; }
-    .tree-indent3 { padding-left: 3.75rem; }
 
-    /* ─── FOOTER ─── */
-    .footer {
-      font-size: 0.72rem;
-      color: var(--subtle);
-      text-align: center;
-      border-top: 1px solid var(--border);
-      padding-top: 1.5rem;
-      width: 100%;
-      max-width: 700px;
+    .map-list a:hover {
+      text-decoration: underline;
     }
-    .footer a { color: var(--muted); text-decoration: none; }
-    .footer a:hover { color: var(--blue); }
+
+    .footer {
+      color: var(--subtle);
+      font-size: 0.86rem;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+
+    .footer p + p {
+      margin-top: 0.45rem;
+    }
+
+    .footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: var(--blue);
+    }
+
+    @media (max-width: 960px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-grid,
+      .map-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(100% - 1rem, 1120px);
+        padding-top: 4.5rem;
+      }
+
+      .hero-copy,
+      .chart-card,
+      .recovery-shell,
+      .restructure-note,
+      .category-map,
+      .footer {
+        border-radius: 20px;
+      }
+
+      .primary-actions,
+      .quick-grid,
+      .map-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .theme-toggle {
+        top: 0.75rem;
+        right: 0.75rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#recovery-links">Skip to recovery links</a>
+  <button type="button" class="theme-toggle" onclick="toggleTheme()" id="themeBtn">☀️ Light mode</button>
 
-  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">☀️ Light mode</button>
+  <main class="page">
+    <header class="hero">
+      <section class="hero-copy" aria-labelledby="page-title">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Broken link detected</p>
+        <p class="code">404</p>
+        <h1 id="page-title">This page moved, but the content is still here.</h1>
+        <p class="subtitle">
+          Saved links may predate the move to <code>/YYYY/MM-Mon/</code> folders.
+          Start with the fastest recovery paths below, then use the lighter category map if you remember the section but not the exact file.
+        </p>
+        <p class="signal"><span aria-hidden="true">🧭</span> Missing chart section located — recovering without moving the stop <span aria-hidden="true">😅</span></p>
+      </section>
 
-  <!-- ─── CANDLESTICK CHART ─── -->
-  <div class="chart-wrap">
-    <svg class="chart" viewBox="0 0 520 180" xmlns="http://www.w3.org/2000/svg">
-      <!-- grid -->
-      <line class="grid-line" x1="0" y1="45" x2="520" y2="45"/>
-      <line class="grid-line" x1="0" y1="90" x2="520" y2="90"/>
-      <line class="grid-line" x1="0" y1="135" x2="520" y2="135"/>
+      <div class="chart-card" aria-hidden="true">
+        <p class="chart-meta"><span>Page moved</span><span>Gap still on chart</span></p>
+        <svg class="chart" viewBox="0 0 520 180" xmlns="http://www.w3.org/2000/svg">
+          <line class="grid-line" x1="0" y1="45" x2="520" y2="45"/>
+          <line class="grid-line" x1="0" y1="90" x2="520" y2="90"/>
+          <line class="grid-line" x1="0" y1="135" x2="520" y2="135"/>
 
-      <!-- FVG zone (green) -->
-      <rect class="fvg" x="60" y="60" width="50" height="25" fill="#3fb950"/>
+          <rect class="fvg" x="60" y="60" width="50" height="25" fill="#3fb950"/>
 
-      <!-- Candles: bullish run -->
-      <!-- c1 -->
-      <line class="candle-wick" x1="30" y1="100" x2="30" y2="68" stroke="#3fb950"/>
-      <rect class="candle-body" x="24" y="75" width="12" height="25" fill="#3fb950"/>
-      <!-- c2 -->
-      <line class="candle-wick" x1="55" y1="92" x2="55" y2="58" stroke="#3fb950"/>
-      <rect class="candle-body" x="49" y="65" width="12" height="27" fill="#3fb950"/>
-      <!-- c3 -->
-      <line class="candle-wick" x1="80" y1="85" x2="80" y2="50" stroke="#3fb950"/>
-      <rect class="candle-body" x="74" y="56" width="12" height="29" fill="#3fb950"/>
-      <!-- c4 small red -->
-      <line class="candle-wick" x1="105" y1="52" x2="105" y2="70" stroke="#f85149"/>
-      <rect class="candle-body" x="99" y="55" width="12" height="14" fill="#f85149"/>
+          <line class="candle-wick" x1="30" y1="100" x2="30" y2="68" stroke="#3fb950"/>
+          <rect class="candle-body" x="24" y="75" width="12" height="25" fill="#3fb950"/>
+          <line class="candle-wick" x1="55" y1="92" x2="55" y2="58" stroke="#3fb950"/>
+          <rect class="candle-body" x="49" y="65" width="12" height="27" fill="#3fb950"/>
+          <line class="candle-wick" x1="80" y1="85" x2="80" y2="50" stroke="#3fb950"/>
+          <rect class="candle-body" x="74" y="56" width="12" height="29" fill="#3fb950"/>
+          <line class="candle-wick" x1="105" y1="52" x2="105" y2="70" stroke="#f85149"/>
+          <rect class="candle-body" x="99" y="55" width="12" height="14" fill="#f85149"/>
 
-      <!-- GAP ZONE — the 404 moment -->
-      <rect class="gap-zone" x="118" y="0" width="60" height="180" fill="#e3b341"/>
-      <line class="gap-line" x1="118" y1="0" x2="118" y2="180"/>
-      <line class="gap-line" x1="178" y1="0" x2="178" y2="180"/>
-      <text class="gap-label" x="123" y="14">404</text>
-      <text class="gap-label" x="121" y="27" style="font-size:9px;">page moved</text>
+          <rect class="gap-zone" x="118" y="0" width="60" height="180" fill="#e3b341"/>
+          <line class="gap-line" x1="118" y1="0" x2="118" y2="180"/>
+          <line class="gap-line" x1="178" y1="0" x2="178" y2="180"/>
+          <text class="gap-label" x="123" y="14">404</text>
+          <text class="gap-label" x="121" y="27" style="font-size:9px;">page moved</text>
 
-      <!-- Candles: bearish drop after gap -->
-      <!-- c5 -->
-      <line class="candle-wick" x1="200" y1="65" x2="200" y2="105" stroke="#f85149"/>
-      <rect class="candle-body" x="194" y="70" width="12" height="28" fill="#f85149"/>
-      <!-- c6 -->
-      <line class="candle-wick" x1="225" y1="90" x2="225" y2="125" stroke="#f85149"/>
-      <rect class="candle-body" x="219" y="96" width="12" height="24" fill="#f85149"/>
-      <!-- c7 doji -->
-      <line class="candle-wick" x1="250" y1="112" x2="250" y2="130" stroke="#8b949e"/>
-      <rect class="candle-body" x="244" y="118" width="12" height="8" fill="#8b949e"/>
-      <!-- c8 reversal green -->
-      <line class="candle-wick" x1="275" y1="108" x2="275" y2="128" stroke="#3fb950"/>
-      <rect class="candle-body" x="269" y="110" width="12" height="18" fill="#3fb950"/>
-      <!-- c9 -->
-      <line class="candle-wick" x1="300" y1="95" x2="300" y2="115" stroke="#3fb950"/>
-      <rect class="candle-body" x="294" y="98" width="12" height="17" fill="#3fb950"/>
-      <!-- c10 -->
-      <line class="candle-wick" x1="325" y1="82" x2="325" y2="104" stroke="#3fb950"/>
-      <rect class="candle-body" x="319" y="85" width="12" height="19" fill="#3fb950"/>
-      <!-- c11 small red -->
-      <line class="candle-wick" x1="350" y1="78" x2="350" y2="92" stroke="#f85149"/>
-      <rect class="candle-body" x="344" y="81" width="12" height="11" fill="#f85149"/>
-      <!-- c12 -->
-      <line class="candle-wick" x1="375" y1="72" x2="375" y2="88" stroke="#3fb950"/>
-      <rect class="candle-body" x="369" y="74" width="12" height="14" fill="#3fb950"/>
-      <!-- c13 -->
-      <line class="candle-wick" x1="400" y1="62" x2="400" y2="82" stroke="#3fb950"/>
-      <rect class="candle-body" x="394" y="65" width="12" height="17" fill="#3fb950"/>
-      <!-- c14 -->
-      <line class="candle-wick" x1="425" y1="55" x2="425" y2="72" stroke="#3fb950"/>
-      <rect class="candle-body" x="419" y="58" width="12" height="14" fill="#3fb950"/>
-      <!-- c15 -->
-      <line class="candle-wick" x1="450" y1="48" x2="450" y2="66" stroke="#3fb950"/>
-      <rect class="candle-body" x="444" y="51" width="12" height="15" fill="#3fb950"/>
+          <line class="candle-wick" x1="200" y1="65" x2="200" y2="105" stroke="#f85149"/>
+          <rect class="candle-body" x="194" y="70" width="12" height="28" fill="#f85149"/>
+          <line class="candle-wick" x1="225" y1="90" x2="225" y2="125" stroke="#f85149"/>
+          <rect class="candle-body" x="219" y="96" width="12" height="24" fill="#f85149"/>
+          <line class="candle-wick" x1="250" y1="112" x2="250" y2="130" stroke="#8b949e"/>
+          <rect class="candle-body" x="244" y="118" width="12" height="8" fill="#8b949e"/>
+          <line class="candle-wick" x1="275" y1="108" x2="275" y2="128" stroke="#3fb950"/>
+          <rect class="candle-body" x="269" y="110" width="12" height="18" fill="#3fb950"/>
+          <line class="candle-wick" x1="300" y1="95" x2="300" y2="115" stroke="#3fb950"/>
+          <rect class="candle-body" x="294" y="98" width="12" height="17" fill="#3fb950"/>
+          <line class="candle-wick" x1="325" y1="82" x2="325" y2="104" stroke="#3fb950"/>
+          <rect class="candle-body" x="319" y="85" width="12" height="19" fill="#3fb950"/>
+          <line class="candle-wick" x1="350" y1="78" x2="350" y2="92" stroke="#f85149"/>
+          <rect class="candle-body" x="344" y="81" width="12" height="11" fill="#f85149"/>
+          <line class="candle-wick" x1="375" y1="72" x2="375" y2="88" stroke="#3fb950"/>
+          <rect class="candle-body" x="369" y="74" width="12" height="14" fill="#3fb950"/>
+          <line class="candle-wick" x1="400" y1="62" x2="400" y2="82" stroke="#3fb950"/>
+          <rect class="candle-body" x="394" y="65" width="12" height="17" fill="#3fb950"/>
+          <line class="candle-wick" x1="425" y1="55" x2="425" y2="72" stroke="#3fb950"/>
+          <rect class="candle-body" x="419" y="58" width="12" height="14" fill="#3fb950"/>
+          <line class="candle-wick" x1="450" y1="48" x2="450" y2="66" stroke="#3fb950"/>
+          <rect class="candle-body" x="444" y="51" width="12" height="15" fill="#3fb950"/>
 
-      <!-- EMA fast (green) — smooth curve through bullish run, dip, recovery -->
-      <polyline class="ema-fast" points="
-        0,112 30,90 55,76 80,63 105,62
-        148,68
-        200,78 225,100 250,115 275,112 300,104 325,92 350,88 375,82 400,72 425,62 450,55 520,44
-      "/>
-      <!-- EMA slow (red) — lags behind -->
-      <polyline class="ema-slow" points="
-        0,120 30,108 55,96 80,84 105,76
-        148,75
-        200,82 225,96 250,108 275,110 300,106 325,100 350,96 375,90 400,82 425,74 450,66 520,56
-      "/>
+          <polyline class="ema-fast" points="0,112 30,90 55,76 80,63 105,62 148,68 200,78 225,100 250,115 275,112 300,104 325,92 350,88 375,82 400,72 425,62 450,55 520,44"/>
+          <polyline class="ema-slow" points="0,120 30,108 55,96 80,84 105,76 148,75 200,82 225,96 250,108 275,110 300,106 325,100 350,96 375,90 400,82 425,74 450,66 520,56"/>
 
-      <!-- Volume bars at bottom -->
-      <rect x="24" y="160" width="12" height="12" fill="#3fb950" opacity="0.4" rx="1"/>
-      <rect x="49" y="156" width="12" height="16" fill="#3fb950" opacity="0.4" rx="1"/>
-      <rect x="74" y="154" width="12" height="18" fill="#3fb950" opacity="0.4" rx="1"/>
-      <rect x="99" y="163" width="12" height="9" fill="#f85149" opacity="0.4" rx="1"/>
-      <rect x="194" y="155" width="12" height="17" fill="#f85149" opacity="0.4" rx="1"/>
-      <rect x="219" y="158" width="12" height="14" fill="#f85149" opacity="0.4" rx="1"/>
-      <rect x="244" y="166" width="12" height="6" fill="#8b949e" opacity="0.4" rx="1"/>
-      <rect x="269" y="162" width="12" height="10" fill="#3fb950" opacity="0.4" rx="1"/>
-      <rect x="294" y="160" width="12" height="12" fill="#3fb950" opacity="0.4" rx="1"/>
-      <rect x="319" y="157" width="12" height="15" fill="#3fb950" opacity="0.4" rx="1"/>
-      <rect x="344" y="163" width="12" height="9" fill="#f85149" opacity="0.4" rx="1"/>
-      <rect x="369" y="161" width="12" height="11" fill="#3fb950" opacity="0.4" rx="1"/>
-      <rect x="394" y="158" width="12" height="14" fill="#3fb950" opacity="0.4" rx="1"/>
-      <rect x="419" y="156" width="12" height="16" fill="#3fb950" opacity="0.4" rx="1"/>
-      <rect x="444" y="154" width="12" height="18" fill="#3fb950" opacity="0.4" rx="1"/>
-    </svg>
-  </div>
+          <rect x="24" y="160" width="12" height="12" fill="#3fb950" opacity="0.4" rx="1"/>
+          <rect x="49" y="156" width="12" height="16" fill="#3fb950" opacity="0.4" rx="1"/>
+          <rect x="74" y="154" width="12" height="18" fill="#3fb950" opacity="0.4" rx="1"/>
+          <rect x="99" y="163" width="12" height="9" fill="#f85149" opacity="0.4" rx="1"/>
+          <rect x="194" y="155" width="12" height="17" fill="#f85149" opacity="0.4" rx="1"/>
+          <rect x="219" y="158" width="12" height="14" fill="#f85149" opacity="0.4" rx="1"/>
+          <rect x="244" y="166" width="12" height="6" fill="#8b949e" opacity="0.4" rx="1"/>
+          <rect x="269" y="162" width="12" height="10" fill="#3fb950" opacity="0.4" rx="1"/>
+          <rect x="294" y="160" width="12" height="12" fill="#3fb950" opacity="0.4" rx="1"/>
+          <rect x="319" y="157" width="12" height="15" fill="#3fb950" opacity="0.4" rx="1"/>
+          <rect x="344" y="163" width="12" height="9" fill="#f85149" opacity="0.4" rx="1"/>
+          <rect x="369" y="161" width="12" height="11" fill="#3fb950" opacity="0.4" rx="1"/>
+          <rect x="394" y="158" width="12" height="14" fill="#3fb950" opacity="0.4" rx="1"/>
+          <rect x="419" y="156" width="12" height="16" fill="#3fb950" opacity="0.4" rx="1"/>
+          <rect x="444" y="154" width="12" height="18" fill="#3fb950" opacity="0.4" rx="1"/>
+        </svg>
+      </div>
+    </header>
 
-  <!-- ─── HERO ─── -->
-  <div class="hero">
-    <div class="code">404</div>
-    <br>
-    <h1>Oops... This link moved during a restructure</h1>
-    <br>
-    <p class="subtitle">
-      🔍 The content you're looking for is still here —<br>
-      The <code style="font-size:0.8em;color:var(--purple)">smarttrader-ai/</code> directory was reorgainzed by <code style="font-size:0.8em;color:var(--purple)">/YYYY/MM-Mon/</code> paths.<br>
-      Use the navigation below to find what you are looking for 🙂
-    </p>
-  </div>
+    <nav class="recovery-shell" id="recovery-links" aria-labelledby="recovery-title">
+      <div class="section-heading">
+        <p class="kicker">Fast recovery</p>
+        <h2 id="recovery-title">Start with the most likely destination</h2>
+        <p>Use Preview Home if you want the landing page again, or jump directly to the public section you were probably trying to reach.</p>
+      </div>
 
-  <div class="signal">
-    <span class="signal-dot"></span>
-    🧭 Redirecting you to the right level — no SL needed 😅
-    <span class="signal-dot"></span>
-  </div>
+      <div class="primary-actions">
+        <a class="action-card action-card-primary" href="https://drasticstatic.github.io/trading-assistant-public-preview/">
+          <div class="action-topline"><span>Best first click</span><span>Preview Home</span></div>
+          <p class="action-title">Go back to the public preview home</p>
+          <p class="action-desc">The fastest reset if you just want the main page and the top public destinations.</p>
+          <span class="path-chip">/trading-assistant-public-preview/</span>
+        </a>
 
-  <!-- ─── REPO ROOT BUTTON ─── -->
-  <a class="nav-card repo-root" href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank">
-    <span class="nav-card-icon">🏠</span>
-    <span class="nav-card-title">Repository Root — Browse All Public Files</span>
-    <span class="nav-card-desc">Start here if you're not sure where to look</span>
-  </a>
+        <a class="action-card action-card-primary" href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer">
+          <div class="action-topline"><span>Full public surface</span><span>GitHub Root</span></div>
+          <p class="action-title">Browse the repository root</p>
+          <p class="action-desc">Best when you want every public file and folder, not just the curated preview entry points.</p>
+          <span class="path-chip">github.com/.../trading-assistant-public-preview</span>
+        </a>
+      </div>
 
-  <!-- ─── QUICK NAV CARDS ─── -->
-  <div class="nav-grid">
-    <a class="nav-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket" target="_blank">
-      <span class="nav-card-icon">🌤️</span>
-      <span class="nav-card-title">Pre-Market Summaries</span>
-      <span class="nav-card-desc">Daily pre-session analysis by month</span>
-    </a>
-    <a class="nav-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews" target="_blank">
-      <span class="nav-card-icon">🔍</span>
-      <span class="nav-card-title">Trade Reviews</span>
-      <span class="nav-card-desc">Individual trade analysis + behavioral arc</span>
-    </a>
-    <a class="nav-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports" target="_blank">
-      <span class="nav-card-icon">📋</span>
-      <span class="nav-card-title">Daily &amp; Weekly Reviews</span>
-      <span class="nav-card-desc">STB exports — session summaries</span>
-    </a>
-    <a class="nav-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/pattern_tracker.md" target="_blank">
-      <span class="nav-card-icon">📈</span>
-      <span class="nav-card-title">Pattern Tracker</span>
-      <span class="nav-card-desc">Full behavioral arc + trade log</span>
-    </a>
-    <a class="nav-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/inevitrade%20progression" target="_blank">
-      <span class="nav-card-icon">🎓</span>
-      <span class="nav-card-title">Inevitrade Progression</span>
-      <span class="nav-card-desc">IT Foundation coaching progress + notes</span>
-    </a>
-    <a class="nav-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/setup" target="_blank">
-      <span class="nav-card-icon">⚙️</span>
-      <span class="nav-card-title">Setup</span>
-      <span class="nav-card-desc">System overview + infrastructure docs</span>
-    </a>
-  </div>
+      <div class="quick-grid">
+        <a class="action-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket" target="_blank" rel="noreferrer">
+          <div class="action-topline"><span>Recovery path</span><span>🌤️</span></div>
+          <p class="action-title">Pre-Market Summaries</p>
+          <p class="action-desc">Daily pre-session analysis organized by month.</p>
+          <span class="path-chip">smarttrader-ai/analysis/premarket/</span>
+        </a>
 
-  <!-- ─── FILE TREE ─── -->
-  <div class="tree-section">
-    <div class="tree-label">Repository structure</div>
-    <div class="tree">
-      <div><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai" target="_blank">smarttrader-ai/</a></div>
-      <div class="tree-indent"><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket" target="_blank">analysis/premarket/</a></div>
-      <div class="tree-indent2"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/level-marking-methodology.md" target="_blank">level-marking-methodology.md</a> &nbsp;<span style="color:var(--subtle)">— ZTH level marking framework</span></div>
-      <div class="tree-indent2"><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket/2026" target="_blank">2026/</a></div>
-      <div class="tree-indent3"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket/2026/02-Feb" target="_blank">02-Feb/</a> &nbsp;<span style="color:var(--subtle)">— Feb premarket summaries</span></div>
-      <div class="tree-indent3"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket/2026/03-Mar" target="_blank">03-Mar/</a> &nbsp;<span style="color:var(--subtle)">— Mar premarket summaries</span></div>
-      <div class="tree-indent"><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews" target="_blank">reviews/</a></div>
-      <div class="tree-indent2"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/pattern_tracker.md" target="_blank">pattern_tracker.md</a> &nbsp;<span style="color:var(--subtle)">— full behavioral arc</span></div>
-      <div class="tree-indent2"><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews/2026" target="_blank">2026/</a></div>
-      <div class="tree-indent3"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews/2026/02-Feb" target="_blank">02-Feb/</a> &nbsp;<span style="color:var(--subtle)">— Feb trade reviews</span></div>
-      <div class="tree-indent3"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews/2026/03-Mar" target="_blank">03-Mar/</a> &nbsp;<span style="color:var(--subtle)">— Mar trade reviews</span></div>
-      <div class="tree-indent"><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports" target="_blank">exports/</a></div>
-      <div class="tree-indent2"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/chart-analysis-methodology.md" target="_blank">chart-analysis-methodology.md</a> &nbsp;<span style="color:var(--subtle)">— chart reading framework</span></div>
-      <div class="tree-indent2"><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports/2026" target="_blank">2026/</a></div>
-      <div class="tree-indent3"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports/2026/02-Feb" target="_blank">02-Feb/</a> &nbsp;<span style="color:var(--subtle)">— Feb daily + weekly reviews</span></div>
-      <div class="tree-indent3"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports/2026/03-Mar" target="_blank">03-Mar/</a> &nbsp;<span style="color:var(--subtle)">— Mar daily reviews</span></div>
-      <div><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data" target="_blank">data/</a></div>
-      <div class="tree-indent"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/screenshots" target="_blank">screenshots/</a> &nbsp;<span style="color:var(--subtle)">— all chart screenshots</span></div>
-      <div class="tree-indent"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/inevitrade%20progression" target="_blank">inevitrade progression/</a> &nbsp;<span style="color:var(--subtle)">— coaching progression notes</span></div>
-      <div class="tree-indent"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/exports" target="_blank">exports/</a> &nbsp;<span style="color:var(--subtle)">— TradeZella + Tradovate CSVs</span></div>
-      <div><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/setup" target="_blank">setup/</a></div>
-      <div class="tree-indent"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/system-overview.md" target="_blank">system-overview.md</a> &nbsp;<span style="color:var(--subtle)">— full system architecture</span></div>
-    </div>
-  </div>
+        <a class="action-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews" target="_blank" rel="noreferrer">
+          <div class="action-topline"><span>Recovery path</span><span>🔍</span></div>
+          <p class="action-title">Trade Reviews</p>
+          <p class="action-desc">Individual trade breakdowns and behavioral review paths.</p>
+          <span class="path-chip">smarttrader-ai/reviews/</span>
+        </a>
 
-  <!-- ─── FOOTER ─── -->
-  <div class="footer">
-    <p>
-      <a href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank">Trading Assistant Public Preview</a>
-      &nbsp;·&nbsp; Fortuna — Wealth Warden &nbsp;·&nbsp; Claude Code CLI by Anthropic
-    </p>
-    <p style="margin-top:0.4rem">
-      Old links? The repo was restructured to <code>YYYY/MM-Mon/</code> subdirectories.
-      If you have a saved link, <a href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank">browse from the root</a>.
-    </p>
-  </div>
+        <a class="action-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports" target="_blank" rel="noreferrer">
+          <div class="action-topline"><span>Recovery path</span><span>📋</span></div>
+          <p class="action-title">Daily &amp; Weekly Reviews</p>
+          <p class="action-desc">STB exports, session summaries, and review artifacts.</p>
+          <span class="path-chip">smarttrader-ai/exports/</span>
+        </a>
+
+        <a class="action-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/pattern_tracker.md" target="_blank" rel="noreferrer">
+          <div class="action-topline"><span>Recovery path</span><span>📈</span></div>
+          <p class="action-title">Pattern Tracker</p>
+          <p class="action-desc">Behavioral arc, recurring setups, and trade-log context.</p>
+          <span class="path-chip">smarttrader-ai/reviews/pattern_tracker.md</span>
+        </a>
+
+        <a class="action-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/inevitrade%20progression" target="_blank" rel="noreferrer">
+          <div class="action-topline"><span>Recovery path</span><span>🎓</span></div>
+          <p class="action-title">Inevitrade Progression</p>
+          <p class="action-desc">Coaching progression notes and supporting public reference material.</p>
+          <span class="path-chip">data/inevitrade progression/</span>
+        </a>
+
+        <a class="action-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/setup" target="_blank" rel="noreferrer">
+          <div class="action-topline"><span>Recovery path</span><span>⚙️</span></div>
+          <p class="action-title">Setup</p>
+          <p class="action-desc">System overview and public-facing infrastructure context.</p>
+          <span class="path-chip">setup/</span>
+        </a>
+      </div>
+    </nav>
+
+    <section class="restructure-note" aria-labelledby="restructure-title">
+      <p class="kicker">Why this happened</p>
+      <h2 id="restructure-title">The repo was reorganized into dated folders.</h2>
+      <p>Most stale links can be recovered by going back to the same section and then choosing the right <code>YYYY/MM-Mon/</code> folder.</p>
+      <p>If you only remember the general area, use the category map below instead of hunting through a full tree.</p>
+    </section>
+
+    <section class="category-map" aria-labelledby="map-title">
+      <div class="section-heading">
+        <p class="kicker">All current categories</p>
+        <h2 id="map-title">Lighter category map, same coverage</h2>
+        <p>Everything surfaced on the previous 404 remains discoverable here, but in a faster-scanning format.</p>
+      </div>
+
+      <div class="map-grid">
+        <article class="map-card">
+          <h3>smarttrader-ai/analysis</h3>
+          <p>Premarket navigation and level-marking framework.</p>
+          <ul class="map-list">
+            <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket" target="_blank" rel="noreferrer">analysis/premarket/</a></li>
+            <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/level-marking-methodology.md" target="_blank" rel="noreferrer">level-marking-methodology.md</a></li>
+            <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket/2026/02-Feb" target="_blank" rel="noreferrer">2026/02-Feb</a></li>
+            <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket/2026/03-Mar" target="_blank" rel="noreferrer">2026/03-Mar</a></li>
+          </ul>
+        </article>
+
+        <article class="map-card">
+          <h3>smarttrader-ai/reviews</h3>
+          <p>Trade reviews and pattern-tracker entry points.</p>
+          <ul class="map-list">
+            <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews" target="_blank" rel="noreferrer">reviews/</a></li>
+            <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/pattern_tracker.md" target="_blank" rel="noreferrer">pattern_tracker.md</a></li>
+            <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews/2026/02-Feb" target="_blank" rel="noreferrer">2026/02-Feb</a></li>
+            <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews/2026/03-Mar" target="_blank" rel="noreferrer">2026/03-Mar</a></li>
+          </ul>
+        </article>
+
+        <article class="map-card">
+          <h3>smarttrader-ai/exports</h3>
+          <p>Session exports and chart-reading framework.</p>
+          <ul class="map-list">
+            <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports" target="_blank" rel="noreferrer">exports/</a></li>
+            <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/chart-analysis-methodology.md" target="_blank" rel="noreferrer">chart-analysis-methodology.md</a></li>
+            <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports/2026/02-Feb" target="_blank" rel="noreferrer">2026/02-Feb</a></li>
+            <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports/2026/03-Mar" target="_blank" rel="noreferrer">2026/03-Mar</a></li>
+          </ul>
+        </article>
+
+        <article class="map-card">
+          <h3>data</h3>
+          <p>Public datasets, screenshots, and progression references.</p>
+          <ul class="map-list">
+            <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/screenshots" target="_blank" rel="noreferrer">screenshots/</a></li>
+            <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/inevitrade%20progression" target="_blank" rel="noreferrer">inevitrade progression/</a></li>
+            <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/exports" target="_blank" rel="noreferrer">exports/</a></li>
+          </ul>
+        </article>
+
+        <article class="map-card">
+          <h3>setup</h3>
+          <p>Public-facing system documentation still available after the restructure.</p>
+          <ul class="map-list">
+            <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/setup" target="_blank" rel="noreferrer">setup/</a></li>
+            <li><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/system-overview.md" target="_blank" rel="noreferrer">system-overview.md</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p><a href="https://drasticstatic.github.io/trading-assistant-public-preview/">Trading Assistant Public Preview</a> · 404 recovery-first navigation</p>
+      <p>Saved links usually recover fastest by choosing the same section, then the right <code>YYYY/MM-Mon/</code> folder.</p>
+    </footer>
+  </main>
 
   <script>
     const html = document.documentElement;
     const btn = document.getElementById('themeBtn');
-    // Apply saved preference on load (dark is default)
+
     if (localStorage.getItem('theme') === 'light') {
       html.classList.add('light');
       btn.textContent = '🌙 Dark mode';
     }
+
     function toggleTheme() {
       const isLight = html.classList.toggle('light');
       btn.textContent = isLight ? '🌙 Dark mode' : '☀️ Light mode';
