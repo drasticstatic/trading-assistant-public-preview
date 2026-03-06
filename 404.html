@@ -22,8 +22,8 @@
       --purple: #bc8cff;
     }
     html.light {
-      --bg: #f6f8fa;
-      --surface: #ffffff;
+      --bg: #edf1f8;
+      --surface: #f4f7fc;
       --border: #d0d7de;
       --border-hover: #9198a1;
       --text: #1f2328;
@@ -40,7 +40,7 @@
     html.light .grid-line { stroke: #d0d7de; }
     html.light .repo-root { background: #eafbee; border-color: #1a7f37; }
     html.light .repo-root:hover { background: #d4f7de; border-color: #1a7f37; }
-    html.light .nav-card:hover { background: #eef2fa; }
+    html.light .nav-card:hover { background: #dde4f0; }
     html.light .tree { background: #ffffff; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -123,7 +123,7 @@
     }
     h1 {
       font-size: 1.25rem;
-      color: #f0f6fc;
+      color: var(--text);
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
@@ -138,7 +138,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      background: #161b22;
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 0.35rem 0.85rem;
@@ -196,7 +196,7 @@
     }
     .nav-card:hover {
       border-color: var(--blue);
-      background: #1c2230;
+      background: var(--border);
     }
     .nav-card-icon {
       font-size: 1.1rem;
