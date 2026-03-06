@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page Not Found — Trading Assistant</title>
+  <title>Trading Assistant — Three-Agent AI System</title>
   <style>
     :root {
       --bg: #0d1117;
@@ -41,7 +41,7 @@
     html.light .repo-root { background: #eafbee; border-color: #1a7f37; }
     html.light .repo-root:hover { background: #d4f7de; border-color: #1a7f37; }
     html.light .nav-card:hover { background: #dde4f0; }
-    html.light .tree { background: #ffffff; }
+    html.light .tree { background: #f4f7fc; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
@@ -92,49 +92,47 @@
     .candle-body { rx: 1; }
     .ema-fast { fill: none; stroke: #3fb950; stroke-width: 1.5; opacity: 0.8; }
     .ema-slow { fill: none; stroke: #f85149; stroke-width: 1.5; opacity: 0.8; }
-    .fvg { opacity: 0.15; }
-
-    /* gap marker — the 404 moment */
-    .gap-zone { opacity: 0.12; }
-    .gap-line { stroke: var(--yellow); stroke-width: 1; stroke-dasharray: 4 3; opacity: 0.6; }
-    .gap-label {
-      font-size: 11px;
-      fill: var(--yellow);
-      font-family: monospace;
-      opacity: 0.8;
-    }
+    .fvg { opacity: 0.12; }
 
     /* ─── HERO TEXT ─── */
     .hero {
       text-align: center;
-      margin-bottom: 2.5rem;
-      max-width: 520px;
+      margin-bottom: 2rem;
+      max-width: 860px;
     }
-    .code {
-      font-size: 5rem;
+    .hero-title {
+      font-size: 2.2rem;
       font-weight: 800;
-      letter-spacing: -2px;
+      letter-spacing: -1px;
       background: linear-gradient(135deg, var(--green-bright) 0%, var(--blue) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      line-height: 1;
+      line-height: 1.1;
       margin-bottom: 0.5rem;
     }
     h1 {
-      font-size: 1.25rem;
+      font-size: 1rem;
       color: var(--text);
-      font-weight: 600;
-      margin-bottom: 0.5rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      opacity: 0.75;
     }
     .subtitle {
       color: var(--muted);
       font-size: 0.875rem;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
-    /* ─── SIGNAL BADGE ─── */
-    .signal {
+    /* ─── AGENT BADGES ─── */
+    .agent-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+    .agent-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
@@ -142,17 +140,20 @@
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 0.35rem 0.85rem;
-      font-size: 0.75rem;
+      font-size: 0.73rem;
       color: var(--muted);
-      margin-bottom: 2.5rem;
+      text-decoration: none;
+      transition: border-color 0.15s, color 0.15s;
     }
-    .signal-dot {
+    .agent-badge:hover { border-color: var(--blue); color: var(--text); }
+    .dot {
       width: 7px; height: 7px;
       border-radius: 50%;
-      background: var(--yellow);
-      box-shadow: 0 0 6px var(--yellow);
       animation: pulse 2s ease-in-out infinite;
     }
+    .dot-green { background: var(--green-bright); box-shadow: 0 0 6px var(--green-bright); }
+    .dot-blue  { background: var(--blue);         box-shadow: 0 0 6px var(--blue); }
+    .dot-purple{ background: var(--purple);        box-shadow: 0 0 6px var(--purple); }
     @keyframes pulse {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.4; }
@@ -244,7 +245,7 @@
     .tree-dir { color: var(--purple); text-decoration: none; }
     .tree a.tree-dir { color: var(--purple); }
     .tree a.tree-dir:hover { text-decoration: underline; color: var(--purple); opacity: 0.8; }
-    .tree-indent { padding-left: 1.25rem; }
+    .tree-indent  { padding-left: 1.25rem; }
     .tree-indent2 { padding-left: 2.5rem; }
     .tree-indent3 { padding-left: 3.75rem; }
 
@@ -264,7 +265,7 @@
 </head>
 <body>
 
-  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">☀️ Light mode</button>
+  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">&#9728;&#65039; Light mode</button>
 
   <!-- ─── CANDLESTICK CHART ─── -->
   <div class="chart-wrap">
@@ -275,151 +276,148 @@
       <line class="grid-line" x1="0" y1="135" x2="520" y2="135"/>
 
       <!-- FVG zone (green) -->
-      <rect class="fvg" x="60" y="60" width="50" height="25" fill="#3fb950"/>
+      <rect class="fvg" x="80" y="90" width="55" height="28" fill="#3fb950"/>
 
-      <!-- Candles: bullish run -->
+      <!-- Bullish trend with pullback and continuation -->
       <!-- c1 -->
-      <line class="candle-wick" x1="30" y1="100" x2="30" y2="68" stroke="#3fb950"/>
-      <rect class="candle-body" x="24" y="75" width="12" height="25" fill="#3fb950"/>
+      <line class="candle-wick" x1="30"  y1="132" x2="30"  y2="112" stroke="#3fb950"/>
+      <rect class="candle-body" x="24"  y="116" width="12" height="16" fill="#3fb950"/>
       <!-- c2 -->
-      <line class="candle-wick" x1="55" y1="92" x2="55" y2="58" stroke="#3fb950"/>
-      <rect class="candle-body" x="49" y="65" width="12" height="27" fill="#3fb950"/>
-      <!-- c3 -->
-      <line class="candle-wick" x1="80" y1="85" x2="80" y2="50" stroke="#3fb950"/>
-      <rect class="candle-body" x="74" y="56" width="12" height="29" fill="#3fb950"/>
+      <line class="candle-wick" x1="55"  y1="122" x2="55"  y2="100" stroke="#3fb950"/>
+      <rect class="candle-body" x="49"  y="105" width="12" height="17" fill="#3fb950"/>
+      <!-- c3 small red pullback -->
+      <line class="candle-wick" x1="80"  y1="100" x2="80"  y2="112" stroke="#f85149"/>
+      <rect class="candle-body" x="74"  y="103" width="12" height="9"  fill="#f85149"/>
       <!-- c4 small red -->
-      <line class="candle-wick" x1="105" y1="52" x2="105" y2="70" stroke="#f85149"/>
-      <rect class="candle-body" x="99" y="55" width="12" height="14" fill="#f85149"/>
-
-      <!-- GAP ZONE — the 404 moment -->
-      <rect class="gap-zone" x="118" y="0" width="60" height="180" fill="#e3b341"/>
-      <line class="gap-line" x1="118" y1="0" x2="118" y2="180"/>
-      <line class="gap-line" x1="178" y1="0" x2="178" y2="180"/>
-      <text class="gap-label" x="123" y="14">404</text>
-      <text class="gap-label" x="121" y="27" style="font-size:9px;">page moved</text>
-
-      <!-- Candles: bearish drop after gap -->
-      <!-- c5 -->
-      <line class="candle-wick" x1="200" y1="65" x2="200" y2="105" stroke="#f85149"/>
-      <rect class="candle-body" x="194" y="70" width="12" height="28" fill="#f85149"/>
+      <line class="candle-wick" x1="105" y1="104" x2="105" y2="116" stroke="#f85149"/>
+      <rect class="candle-body" x="99"  y="107" width="12" height="9"  fill="#f85149"/>
+      <!-- c5 reversal -->
+      <line class="candle-wick" x1="130" y1="96"  x2="130" y2="114" stroke="#3fb950"/>
+      <rect class="candle-body" x="124" y="99"  width="12" height="15" fill="#3fb950"/>
       <!-- c6 -->
-      <line class="candle-wick" x1="225" y1="90" x2="225" y2="125" stroke="#f85149"/>
-      <rect class="candle-body" x="219" y="96" width="12" height="24" fill="#f85149"/>
-      <!-- c7 doji -->
-      <line class="candle-wick" x1="250" y1="112" x2="250" y2="130" stroke="#8b949e"/>
-      <rect class="candle-body" x="244" y="118" width="12" height="8" fill="#8b949e"/>
-      <!-- c8 reversal green -->
-      <line class="candle-wick" x1="275" y1="108" x2="275" y2="128" stroke="#3fb950"/>
-      <rect class="candle-body" x="269" y="110" width="12" height="18" fill="#3fb950"/>
+      <line class="candle-wick" x1="155" y1="86"  x2="155" y2="104" stroke="#3fb950"/>
+      <rect class="candle-body" x="149" y="89"  width="12" height="15" fill="#3fb950"/>
+      <!-- c7 -->
+      <line class="candle-wick" x1="180" y1="78"  x2="180" y2="96"  stroke="#3fb950"/>
+      <rect class="candle-body" x="174" y="81"  width="12" height="15" fill="#3fb950"/>
+      <!-- c8 small red -->
+      <line class="candle-wick" x1="205" y1="75"  x2="205" y2="88"  stroke="#f85149"/>
+      <rect class="candle-body" x="199" y="78"  width="12" height="10" fill="#f85149"/>
       <!-- c9 -->
-      <line class="candle-wick" x1="300" y1="95" x2="300" y2="115" stroke="#3fb950"/>
-      <rect class="candle-body" x="294" y="98" width="12" height="17" fill="#3fb950"/>
+      <line class="candle-wick" x1="230" y1="67"  x2="230" y2="84"  stroke="#3fb950"/>
+      <rect class="candle-body" x="224" y="70"  width="12" height="14" fill="#3fb950"/>
       <!-- c10 -->
-      <line class="candle-wick" x1="325" y1="82" x2="325" y2="104" stroke="#3fb950"/>
-      <rect class="candle-body" x="319" y="85" width="12" height="19" fill="#3fb950"/>
-      <!-- c11 small red -->
-      <line class="candle-wick" x1="350" y1="78" x2="350" y2="92" stroke="#f85149"/>
-      <rect class="candle-body" x="344" y="81" width="12" height="11" fill="#f85149"/>
-      <!-- c12 -->
-      <line class="candle-wick" x1="375" y1="72" x2="375" y2="88" stroke="#3fb950"/>
-      <rect class="candle-body" x="369" y="74" width="12" height="14" fill="#3fb950"/>
+      <line class="candle-wick" x1="255" y1="60"  x2="255" y2="76"  stroke="#3fb950"/>
+      <rect class="candle-body" x="249" y="63"  width="12" height="13" fill="#3fb950"/>
+      <!-- c11 -->
+      <line class="candle-wick" x1="280" y1="53"  x2="280" y2="70"  stroke="#3fb950"/>
+      <rect class="candle-body" x="274" y="56"  width="12" height="14" fill="#3fb950"/>
+      <!-- c12 small red -->
+      <line class="candle-wick" x1="305" y1="52"  x2="305" y2="64"  stroke="#f85149"/>
+      <rect class="candle-body" x="299" y="55"  width="12" height="9"  fill="#f85149"/>
       <!-- c13 -->
-      <line class="candle-wick" x1="400" y1="62" x2="400" y2="82" stroke="#3fb950"/>
-      <rect class="candle-body" x="394" y="65" width="12" height="17" fill="#3fb950"/>
+      <line class="candle-wick" x1="330" y1="46"  x2="330" y2="62"  stroke="#3fb950"/>
+      <rect class="candle-body" x="324" y="49"  width="12" height="13" fill="#3fb950"/>
       <!-- c14 -->
-      <line class="candle-wick" x1="425" y1="55" x2="425" y2="72" stroke="#3fb950"/>
-      <rect class="candle-body" x="419" y="58" width="12" height="14" fill="#3fb950"/>
+      <line class="candle-wick" x1="355" y1="40"  x2="355" y2="56"  stroke="#3fb950"/>
+      <rect class="candle-body" x="349" y="43"  width="12" height="13" fill="#3fb950"/>
       <!-- c15 -->
-      <line class="candle-wick" x1="450" y1="48" x2="450" y2="66" stroke="#3fb950"/>
-      <rect class="candle-body" x="444" y="51" width="12" height="15" fill="#3fb950"/>
+      <line class="candle-wick" x1="380" y1="35"  x2="380" y2="50"  stroke="#3fb950"/>
+      <rect class="candle-body" x="374" y="37"  width="12" height="13" fill="#3fb950"/>
+      <!-- c16 -->
+      <line class="candle-wick" x1="405" y1="30"  x2="405" y2="45"  stroke="#3fb950"/>
+      <rect class="candle-body" x="399" y="32"  width="12" height="13" fill="#3fb950"/>
+      <!-- c17 -->
+      <line class="candle-wick" x1="430" y1="26"  x2="430" y2="40"  stroke="#3fb950"/>
+      <rect class="candle-body" x="424" y="28"  width="12" height="12" fill="#3fb950"/>
+      <!-- c18 -->
+      <line class="candle-wick" x1="455" y1="22"  x2="455" y2="36"  stroke="#3fb950"/>
+      <rect class="candle-body" x="449" y="24"  width="12" height="12" fill="#3fb950"/>
 
-      <!-- EMA fast (green) — smooth curve through bullish run, dip, recovery -->
+      <!-- EMA fast (green) -->
       <polyline class="ema-fast" points="
-        0,112 30,90 55,76 80,63 105,62
-        148,68
-        200,78 225,100 250,115 275,112 300,104 325,92 350,88 375,82 400,72 425,62 450,55 520,44
+        0,142 30,124 55,108 80,106 105,108 130,102 155,92 180,82 205,78 230,72 255,64 280,57 305,54 330,50 355,44 380,39 405,34 430,29 455,25 520,18
       "/>
-      <!-- EMA slow (red) — lags behind -->
+      <!-- EMA slow (red) — lags -->
       <polyline class="ema-slow" points="
-        0,120 30,108 55,96 80,84 105,76
-        148,75
-        200,82 225,96 250,108 275,110 300,106 325,100 350,96 375,90 400,82 425,74 450,66 520,56
+        0,148 30,136 55,122 80,116 105,116 130,112 155,104 180,96 205,90 230,84 255,78 280,72 305,68 330,64 355,58 380,52 405,46 430,40 455,35 520,26
       "/>
 
-      <!-- Volume bars at bottom -->
-      <rect x="24" y="160" width="12" height="12" fill="#3fb950" opacity="0.4" rx="1"/>
-      <rect x="49" y="156" width="12" height="16" fill="#3fb950" opacity="0.4" rx="1"/>
-      <rect x="74" y="154" width="12" height="18" fill="#3fb950" opacity="0.4" rx="1"/>
-      <rect x="99" y="163" width="12" height="9" fill="#f85149" opacity="0.4" rx="1"/>
-      <rect x="194" y="155" width="12" height="17" fill="#f85149" opacity="0.4" rx="1"/>
-      <rect x="219" y="158" width="12" height="14" fill="#f85149" opacity="0.4" rx="1"/>
-      <rect x="244" y="166" width="12" height="6" fill="#8b949e" opacity="0.4" rx="1"/>
-      <rect x="269" y="162" width="12" height="10" fill="#3fb950" opacity="0.4" rx="1"/>
-      <rect x="294" y="160" width="12" height="12" fill="#3fb950" opacity="0.4" rx="1"/>
-      <rect x="319" y="157" width="12" height="15" fill="#3fb950" opacity="0.4" rx="1"/>
-      <rect x="344" y="163" width="12" height="9" fill="#f85149" opacity="0.4" rx="1"/>
-      <rect x="369" y="161" width="12" height="11" fill="#3fb950" opacity="0.4" rx="1"/>
-      <rect x="394" y="158" width="12" height="14" fill="#3fb950" opacity="0.4" rx="1"/>
-      <rect x="419" y="156" width="12" height="16" fill="#3fb950" opacity="0.4" rx="1"/>
-      <rect x="444" y="154" width="12" height="18" fill="#3fb950" opacity="0.4" rx="1"/>
+      <!-- Volume bars -->
+      <rect x="24"  y="160" width="12" height="12" fill="#3fb950" opacity="0.35" rx="1"/>
+      <rect x="49"  y="157" width="12" height="15" fill="#3fb950" opacity="0.35" rx="1"/>
+      <rect x="74"  y="163" width="12" height="9"  fill="#f85149" opacity="0.35" rx="1"/>
+      <rect x="99"  y="164" width="12" height="8"  fill="#f85149" opacity="0.35" rx="1"/>
+      <rect x="124" y="161" width="12" height="11" fill="#3fb950" opacity="0.35" rx="1"/>
+      <rect x="149" y="159" width="12" height="13" fill="#3fb950" opacity="0.35" rx="1"/>
+      <rect x="174" y="158" width="12" height="14" fill="#3fb950" opacity="0.35" rx="1"/>
+      <rect x="199" y="163" width="12" height="9"  fill="#f85149" opacity="0.35" rx="1"/>
+      <rect x="224" y="160" width="12" height="12" fill="#3fb950" opacity="0.35" rx="1"/>
+      <rect x="249" y="158" width="12" height="14" fill="#3fb950" opacity="0.35" rx="1"/>
+      <rect x="274" y="157" width="12" height="15" fill="#3fb950" opacity="0.35" rx="1"/>
+      <rect x="299" y="163" width="12" height="9"  fill="#f85149" opacity="0.35" rx="1"/>
+      <rect x="324" y="159" width="12" height="13" fill="#3fb950" opacity="0.35" rx="1"/>
+      <rect x="349" y="157" width="12" height="15" fill="#3fb950" opacity="0.35" rx="1"/>
+      <rect x="374" y="156" width="12" height="16" fill="#3fb950" opacity="0.35" rx="1"/>
+      <rect x="399" y="155" width="12" height="17" fill="#3fb950" opacity="0.35" rx="1"/>
+      <rect x="424" y="154" width="12" height="18" fill="#3fb950" opacity="0.35" rx="1"/>
+      <rect x="449" y="153" width="12" height="19" fill="#3fb950" opacity="0.35" rx="1"/>
     </svg>
   </div>
 
   <!-- ─── HERO ─── -->
   <div class="hero">
-    <div class="code">404</div>
-    <br>
-    <h1>Oops... This link moved during a restructure</h1>
-    <br>
+    <div class="hero-title">Trading Assistant</div>
+    <h1>Three-Agent System — Futures &amp; Crypto Futures</h1>
     <p class="subtitle">
-      🔍 The content you're looking for is still here —<br>
-      The <code style="font-size:0.8em;color:var(--purple)">smarttrader-ai/</code> directory was reorgainzed by <code style="font-size:0.8em;color:var(--purple)">/YYYY/MM-Mon/</code> paths.<br>
-      Use the navigation below to find what you are looking for 🙂
+      A live, multi-agent AI trading accountability system built w Anthropic on ClaudeCodeCLI + Augment<br>
+      Pre-market analysis &rarr; live session coaching &rarr; post-session review &rarr; SmartTraderAI exports
     </p>
   </div>
 
-  <div class="signal">
-    <span class="signal-dot"></span>
-    🧭 Redirecting you to the right level — no SL needed 😅
-    <span class="signal-dot"></span>
+  <!-- ─── AGENT BADGES ─── -->
+  <div class="agent-row">
+    <span class="agent-badge"><span class="dot dot-green"></span>&#128302; Fortuna &mdash; ClaudeCodeCLI &mdash; Assistant</span>
+    <span class="agent-badge"><span class="dot dot-blue"></span>&#128736;&#65039; Auggie &mdash; AugmentCLI &mdash; Infrastructure</span>
+    <span class="agent-badge"><span class="dot dot-purple"></span>&#128203; Kavanah &mdash; Augment Intent &mdash; Orchestration</span>
   </div>
 
   <!-- ─── REPO ROOT BUTTON ─── -->
   <a class="nav-card repo-root" href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank">
-    <span class="nav-card-icon">🏠</span>
-    <span class="nav-card-title">Repository Root — Browse All Public Files</span>
+    <span class="nav-card-icon">&#127968;</span>
+    <span class="nav-card-title">Repository Root &mdash; Browse All Public Files</span>
     <span class="nav-card-desc">Start here if you're not sure where to look</span>
   </a>
 
   <!-- ─── QUICK NAV CARDS ─── -->
   <div class="nav-grid">
     <a class="nav-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket" target="_blank">
-      <span class="nav-card-icon">🌤️</span>
+      <span class="nav-card-icon">&#127780;&#65039;</span>
       <span class="nav-card-title">Pre-Market Summaries</span>
       <span class="nav-card-desc">Daily pre-session analysis by month</span>
     </a>
     <a class="nav-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews" target="_blank">
-      <span class="nav-card-icon">🔍</span>
+      <span class="nav-card-icon">&#128269;</span>
       <span class="nav-card-title">Trade Reviews</span>
       <span class="nav-card-desc">Individual trade analysis + behavioral arc</span>
     </a>
     <a class="nav-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports" target="_blank">
-      <span class="nav-card-icon">📋</span>
+      <span class="nav-card-icon">&#128203;</span>
       <span class="nav-card-title">Daily &amp; Weekly Reviews</span>
-      <span class="nav-card-desc">STB exports — session summaries</span>
+      <span class="nav-card-desc">STB exports &mdash; session summaries</span>
     </a>
     <a class="nav-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/pattern_tracker.md" target="_blank">
-      <span class="nav-card-icon">📈</span>
+      <span class="nav-card-icon">&#128200;</span>
       <span class="nav-card-title">Pattern Tracker</span>
       <span class="nav-card-desc">Full behavioral arc + trade log</span>
     </a>
     <a class="nav-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/inevitrade%20progression" target="_blank">
-      <span class="nav-card-icon">🎓</span>
+      <span class="nav-card-icon">&#127891;</span>
       <span class="nav-card-title">Inevitrade Progression</span>
       <span class="nav-card-desc">IT Foundation coaching progress + notes</span>
     </a>
     <a class="nav-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/setup" target="_blank">
-      <span class="nav-card-icon">⚙️</span>
+      <span class="nav-card-icon">&#9881;&#65039;</span>
       <span class="nav-card-title">Setup</span>
       <span class="nav-card-desc">System overview + infrastructure docs</span>
     </a>
@@ -458,25 +456,24 @@
   <div class="footer">
     <p>
       <a href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank">Trading Assistant Public Preview</a>
-      &nbsp;·&nbsp; Fortuna — Wealth Warden &nbsp;·&nbsp; Claude Code CLI by Anthropic
+      &nbsp;&middot;&nbsp; Fortuna &mdash; Wealth Warden &nbsp;&middot;&nbsp; Claude Code CLI by Anthropic
     </p>
     <p style="margin-top:0.4rem">
-      Old links? The repo was restructured to <code>YYYY/MM-Mon/</code> subdirectories.
-      If you have a saved link, <a href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank">browse from the root</a>.
+      Hit a broken link? <a href="https://drasticstatic.github.io/trading-assistant-public-preview/404.html">Find your way around</a>
+      &nbsp;&middot;&nbsp; Repo was restructured to <code>YYYY/MM-Mon/</code> subdirectories.
     </p>
   </div>
 
   <script>
     const html = document.documentElement;
     const btn = document.getElementById('themeBtn');
-    // Apply saved preference on load (dark is default)
     if (localStorage.getItem('theme') === 'light') {
       html.classList.add('light');
-      btn.textContent = '🌙 Dark mode';
+      btn.textContent = '\uD83C\uDF19 Dark mode';
     }
     function toggleTheme() {
       const isLight = html.classList.toggle('light');
-      btn.textContent = isLight ? '🌙 Dark mode' : '☀️ Light mode';
+      btn.textContent = isLight ? '\uD83C\uDF19 Dark mode' : '\u2600\uFE0F Light mode';
       localStorage.setItem('theme', isLight ? 'light' : 'dark');
     }
   </script>
