@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1640 1440" role="img" aria-labelledby="title desc">
+  <title id="title">Augment architecture diagram optimized for GitHub dark mode</title>
+  <desc id="desc">Diagram showing VS Code Agent, Auggie CLI, and Intent as front doors into shared Augment machinery, with Context Engine MCP extending that shared context to external clients such as Claude Code CLI.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#010409" flood-opacity="0.35"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#8b949e"/>
+    </marker>
+  </defs>
+
+  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <rect x="80" y="140" width="1480" height="240" rx="28" fill="#161b22" fill-opacity="0.82" stroke="#30363d" stroke-width="1.5"/>
+    <text x="115" y="177" fill="#8b949e" font-size="22" font-weight="700">🚪 Front doors you choose</text>
+
+    <rect x="80" y="500" width="1480" height="470" rx="28" fill="#161b22" fill-opacity="0.82" stroke="#30363d" stroke-width="1.5"/>
+    <text x="115" y="537" fill="#8b949e" font-size="22" font-weight="700">⚙️ Shared Augment machinery</text>
+
+    <rect x="80" y="1040" width="1480" height="180" rx="28" fill="#161b22" fill-opacity="0.82" stroke="#30363d" stroke-width="1.5"/>
+    <text x="115" y="1077" fill="#8b949e" font-size="22" font-weight="700">🔌 Beyond native surfaces</text>
+
+    <rect x="80" y="1260" width="1480" height="150" rx="28" fill="#161b22" fill-opacity="0.82" stroke="#30363d" stroke-width="1.5"/>
+    <text x="115" y="1297" fill="#8b949e" font-size="22" font-weight="700">📝 How to read it</text>
+
+    <g fill="none" stroke="#8b949e" stroke-width="2.25" stroke-linecap="round" stroke-dasharray="6 8" stroke-opacity="0.82" marker-end="url(#arrow)">
+      <path d="M820 98C760 140 420 150 310 220"/>
+      <path d="M820 98C820 145 820 170 820 220"/>
+      <path d="M820 98C880 140 1220 150 1330 220"/>
+      <path d="M310 320C300 410 320 470 330 560"/>
+      <path d="M310 320C360 420 700 460 820 560"/>
+      <path d="M820 320C720 420 470 450 330 560"/>
+      <path d="M1330 320C1120 430 600 465 330 560"/>
+      <path d="M820 320C820 420 820 470 820 560"/>
+      <path d="M1330 320C1320 360 1240 380 1120 392"/>
+      <path d="M1120 428C1100 480 930 510 820 560"/>
+      <path d="M1330 320C1340 370 1335 405 1310 438"/>
+      <path d="M1310 474C1310 510 1310 530 1310 560"/>
+      <path d="M330 658C450 700 640 710 760 730"/>
+      <path d="M820 658C820 690 820 705 820 730"/>
+      <path d="M1310 658C1190 700 1000 710 880 730"/>
+      <path d="M820 830C820 850 820 855 820 870"/>
+      <path d="M820 658C780 810 660 920 580 988"/>
+      <path d="M580 1024C570 1060 550 1080 530 1110"/>
+      <path d="M710 1145C760 1125 780 1108 820 1086"/>
+      <path d="M820 1104C900 1108 980 1120 1110 1145"/>
+      <path d="M820 938C790 1045 680 1180 500 1315"/>
+    </g>
+
+    <rect x="700" y="34" width="240" height="64" rx="22" fill="#21262d" stroke="#8b949e" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="820" y="74" text-anchor="middle" fill="#e6edf3" font-size="26" font-weight="700">🧑 You</text>
+
+    <rect x="140" y="220" width="340" height="100" rx="24" fill="#18253f" stroke="#6ea8fe" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="650" y="220" width="340" height="100" rx="24" fill="#18253f" stroke="#6ea8fe" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="1160" y="220" width="340" height="100" rx="24" fill="#3b2a16" stroke="#e3b341" stroke-width="2" filter="url(#shadow)"/>
+    <text x="310" y="257" text-anchor="middle" fill="#e6edf3" font-size="24" font-weight="700">💻 VS Code Agent</text>
+    <text x="310" y="285" text-anchor="middle" fill="#b6c2cf" font-size="17">Editor-native builder bench</text>
+    <text x="820" y="257" text-anchor="middle" fill="#e6edf3" font-size="24" font-weight="700">⌨️ Auggie CLI</text>
+    <text x="820" y="285" text-anchor="middle" fill="#b6c2cf" font-size="17">Terminal-native builder bench</text>
+    <text x="1330" y="257" text-anchor="middle" fill="#ffd8a8" font-size="24" font-weight="700">🧭 Intent</text>
+    <text x="1330" y="285" text-anchor="middle" fill="#ffe7c2" font-size="17">Spec-driven orchestration layer</text>
+
+    <rect x="170" y="560" width="320" height="98" rx="24" fill="#132b22" stroke="#3fb950" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="660" y="560" width="320" height="98" rx="24" fill="#132b22" stroke="#3fb950" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="1150" y="560" width="320" height="98" rx="24" fill="#3b2a16" stroke="#e3b341" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="450" y="730" width="740" height="100" rx="24" fill="#132b22" stroke="#3fb950" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="650" y="870" width="340" height="68" rx="22" fill="#1f232a" stroke="#8b949e" stroke-width="2" filter="url(#shadow)"/>
+    <text x="330" y="596" text-anchor="middle" fill="#d2f4dd" font-size="22" font-weight="700">🧠 Selected model</text>
+    <text x="330" y="625" text-anchor="middle" fill="#a9d8b8" font-size="17">Lead reasoning path</text>
+    <text x="820" y="596" text-anchor="middle" fill="#d2f4dd" font-size="22" font-weight="700">🔎 Context engine</text>
+    <text x="820" y="625" text-anchor="middle" fill="#a9d8b8" font-size="17">Tools • rules • workspace context</text>
+    <text x="1310" y="596" text-anchor="middle" fill="#ffd8a8" font-size="22" font-weight="700">🧩 Coordination layer</text>
+    <text x="1310" y="625" text-anchor="middle" fill="#ffe7c2" font-size="17">Most explicit in Intent</text>
+    <text x="820" y="769" text-anchor="middle" fill="#d2f4dd" font-size="22" font-weight="700">🔄 Retrieval, tool use, and background routing</text>
+    <text x="820" y="798" text-anchor="middle" fill="#a9d8b8" font-size="17">Shared machinery behind the visible surfaces</text>
+    <text x="820" y="912" text-anchor="middle" fill="#e6edf3" font-size="22" font-weight="700">✅ Answers, edits, plans, reviews</text>
+
+    <rect x="980" y="392" width="280" height="36" rx="18" fill="#3b2a16" stroke="#e3b341" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="1120" y="415" text-anchor="middle" fill="#ffd8a8" font-size="14" font-weight="700">uses shared context engine</text>
+    <rect x="1160" y="438" width="300" height="36" rx="18" fill="#3b2a16" stroke="#e3b341" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="1310" y="461" text-anchor="middle" fill="#ffd8a8" font-size="14" font-weight="700">makes coordination explicit</text>
+    <rect x="460" y="988" width="240" height="36" rx="18" fill="#27193d" stroke="#bc8cff" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="580" y="1011" text-anchor="middle" fill="#f0d7ff" font-size="14" font-weight="700">exposed via MCP</text>
+
+    <rect x="350" y="1110" width="360" height="70" rx="22" fill="#27193d" stroke="#bc8cff" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="930" y="1110" width="360" height="70" rx="22" fill="#27193d" stroke="#bc8cff" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="690" y="1068" width="260" height="36" rx="18" fill="#27193d" stroke="#bc8cff" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="820" y="1091" text-anchor="middle" fill="#f0d7ff" font-size="14" font-weight="700">powers external clients</text>
+    <text x="530" y="1138" text-anchor="middle" fill="#f0d7ff" font-size="21" font-weight="700">🔌 Context Engine MCP</text>
+    <text x="530" y="1162" text-anchor="middle" fill="#e7c7ff" font-size="16">Shared context bridge</text>
+    <text x="1110" y="1138" text-anchor="middle" fill="#f0d7ff" font-size="21" font-weight="700">🤝 Claude Code CLI</text>
+    <text x="1110" y="1162" text-anchor="middle" fill="#e7c7ff" font-size="16">External client example</text>
+
+    <rect x="120" y="1315" width="760" height="64" rx="22" fill="#3a3311" stroke="#d29922" stroke-width="2" filter="url(#shadow)"/>
+    <text x="500" y="1341" text-anchor="middle" fill="#fff3bf" font-size="18" font-weight="700">💡 Surface choice changes the workflow you feel most directly.</text>
+    <text x="500" y="1365" text-anchor="middle" fill="#ffe68a" font-size="16">Shared layers still provide context, coordination, routing, and MCP-powered reach.</text>
+    <rect x="930" y="1308" width="240" height="34" rx="17" fill="#18253f" stroke="#6ea8fe" stroke-width="1.5"/>
+    <text x="1050" y="1330" text-anchor="middle" fill="#e6edf3" font-size="15">🔵 Native surfaces</text>
+    <rect x="930" y="1350" width="240" height="34" rx="17" fill="#132b22" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="1050" y="1372" text-anchor="middle" fill="#d2f4dd" font-size="15">🟢 Shared platform</text>
+    <rect x="1190" y="1308" width="300" height="34" rx="17" fill="#3b2a16" stroke="#e3b341" stroke-width="1.5"/>
+    <text x="1340" y="1330" text-anchor="middle" fill="#ffd8a8" font-size="15">🟠 Intent-explicit coordination</text>
+    <rect x="1190" y="1350" width="300" height="34" rx="17" fill="#27193d" stroke="#bc8cff" stroke-width="1.5"/>
+    <text x="1340" y="1372" text-anchor="middle" fill="#f0d7ff" font-size="15">🟣 MCP-powered extension</text>
+  </g>
+</svg>
