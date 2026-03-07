@@ -69,6 +69,8 @@ In plain English:
 
 That is exactly why the “Opus selected by default” question matters so much: the interesting architecture question is often not just *which model you picked*, but *what else the system may still be orchestrating around it*.
 
+<a id="front-doors"></a>
+
 ## 🧭 Same ecosystem, three very different front doors
 
 Before going deeper into Intent, it helps to separate the three surfaces users are most likely to touch.
@@ -87,6 +89,8 @@ What stays similar across all three:
 - model choice still matters
 - shared repo understanding is **not** the same thing as shared chat history
 
+<a id="mcp-extension"></a>
+
 One extra twist is worth naming: **MCP is not really a fourth front door. It is plumbing.**
 
 That matters because Augment’s **Context Engine MCP** can be plugged into other agent clients too, which means the ecosystem is not limited to Augment’s native surfaces.
@@ -97,74 +101,15 @@ If I had to reduce the distinction to one line:
 
 > **VS Code helps you build in place, CLI helps you build from the terminal, and Intent helps you organize the whole operation.**
 
-```mermaid
-%%{init: {
-  "theme": "base",
-  "themeVariables": {
-    "background": "#ffffff",
-    "primaryColor": "#e8f3ec",
-    "primaryTextColor": "#163024",
-    "primaryBorderColor": "#4d7a66",
-    "secondaryColor": "#eef2ff",
-    "secondaryTextColor": "#1f2a44",
-    "secondaryBorderColor": "#6376b8",
-    "tertiaryColor": "#fff4e8",
-    "tertiaryTextColor": "#4a2d16",
-    "tertiaryBorderColor": "#c98742",
-    "lineColor": "#6b7280",
-    "fontSize": "15px"
-  }
-}}%%
-flowchart TD
-    U([You])
+<a id="presentation-svg"></a>
 
-    subgraph SURFACES[Choose your surface]
-        VS[VS Code Agent<br/>Editor-native builder bench]
-        CL[Auggie CLI<br/>Terminal-native builder bench]
-        IN[Intent<br/>Spec-driven orchestration layer]
-    end
+[![Augment architecture diagram optimized for GitHub dark mode](./AugmentArchitecture-diagram-dark.svg)](#mermaid-fallback)
 
-    subgraph SHARED[Shared Augment system]
-        SM[Selected model<br/>Lead reasoning path]
-        CX[Context engine<br/>Tools + rules + workspace context]
-        AG[Coordinator + specialists<br/>Most explicit in Intent]
-        BG[Retrieval, tool use,<br/>and possible background routing]
-        OUT([Answers, edits,<br/>plans, reviews])
-    end
+*[Jump to Mermaid fallback](#mermaid-fallback)*
 
-    U --> VS
-    U --> CL
-    U --> IN
+*Presentation SVG above. The image itself links to the fallback Mermaid section at the bottom of this note.*
 
-    VS --> SM
-    CL --> SM
-    IN --> SM
-
-    VS --> CX
-    CL --> CX
-    IN --> CX
-
-    IN --> AG
-
-    SM --> BG
-    CX --> BG
-    AG --> BG
-    BG --> OUT
-
-    classDef entry fill:#eef2ff,stroke:#6376b8,color:#1f2a44,stroke-width:1.5px;
-    classDef shared fill:#e8f3ec,stroke:#4d7a66,color:#163024,stroke-width:1.5px;
-    classDef intent fill:#fff4e8,stroke:#c98742,color:#4a2d16,stroke-width:1.5px;
-    classDef result fill:#f8fafc,stroke:#6b7280,color:#111827,stroke-width:1.5px;
-
-    class VS,CL entry;
-    class IN,AG intent;
-    class SM,CX,BG shared;
-    class U,OUT result;
-```
-
-*Diagram legend: blue = the front doors you choose, green = shared Augment machinery, orange = the coordination layer Intent makes most explicit.*
-
-*Diagram caption: the surface changes the workflow you feel most directly, while the underlying system can still share context, tools, possible routing behavior, and MCP-powered infrastructure for external clients like Claude Code CLI.*
+*Topic links: [Front doors](#front-doors) · [Intent coordination](#intent-coordination) · [Shared context](#shared-context) · [Model routing](#model-routing) · [MCP extension](#mcp-extension)*
 
 ## 🎭 Intent is where the cast becomes explicit
 
@@ -193,6 +138,8 @@ If you want the shortest possible summary:
 - **Reviewer** = check it
 - **Shepherd** = move it to done
 - **UI Designer** = make it feel better
+
+<a id="intent-coordination"></a>
 
 ## 🧩 Where Intent gets interesting
 
@@ -357,6 +304,8 @@ The main exception you mentioned is **Claude Code CLI + Claude Code VS Code**, w
 
 So if someone expects one Augment surface to “remember the conversation” from another, that expectation will usually be wrong.
 
+<a id="shared-context"></a>
+
 ### Shared context is not the same as shared conversation
 
 Different Augment interfaces may share the same **codebase context or indexing**, but that is not the same thing as sharing chat history.
@@ -467,6 +416,8 @@ They can also run in parallel and report progress back to the main thread.
 
 That gives strong public support for the broader idea that **Augment can work as a system of specialists, not just one monolithic assistant**.
 
+<a id="model-routing"></a>
+
 ## 🧠 The one place to stay cautious: model routing
 
 This was the most speculative part of the original research, and it is still the part I would phrase most carefully.
@@ -526,21 +477,129 @@ Even after all this, a few questions remain interesting:
 
 ## 🔗 Sources used for this note
 
-- Augment docs — Introducing Intent by Augment
+- Augment docs — Introducing Intent by Augment  
   <https://docs.augmentcode.com/intent/overview>
-- Augment docs — Using Agent
+- Augment docs — Using Agent  
   <https://docs.augmentcode.com/using-augment/agent>
-- Augment docs — Interactive mode
+- Augment docs — Interactive mode  
   <https://docs.augmentcode.com/cli/interactive>
-- Augment docs — Context Engine MCP
+- Augment docs — Context Engine MCP  
   <https://docs.augmentcode.com/context-services/mcp/overview>
-- Augment docs — Claude Code Quickstart
+- Augment docs — Claude Code Quickstart  
   <https://docs.augmentcode.com/context-services/mcp/quickstart-claude-code>
-- Augment docs — Rules & Guidelines for Agent and Chat
+- Augment docs — Rules & Guidelines for Agent and Chat  
   <https://docs.augmentcode.com/setup-augment/guidelines>
-- Augment docs — Rules & Guidelines (CLI)
+- Augment docs — Rules & Guidelines (CLI)  
   <https://docs.augmentcode.com/cli/rules>
-- Augment docs — Subagents
+- Augment docs — Subagents  
   <https://docs.augmentcode.com/cli/subagents>
-- Intent-native summaries captured in this workspace
+- Intent-native summaries captured in this workspace  
   Source: user-provided Intent role / workflow notes on 2026-03-06
+
+<a id="mermaid-fallback"></a>
+
+## 🌙 Mermaid fallback
+
+*[Jump back to presentation SVG](#presentation-svg)*
+
+*Topic links: [Front doors](#front-doors) · [Intent coordination](#intent-coordination) · [Shared context](#shared-context) · [Model routing](#model-routing) · [MCP extension](#mcp-extension)*
+
+```mermaid
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "background": "#010409",
+    "lineColor": "#8b949e",
+    "fontSize": "16px",
+    "textColor": "#e6edf3",
+    "primaryTextColor": "#e6edf3",
+    "secondaryTextColor": "#e6edf3",
+    "tertiaryTextColor": "#e6edf3",
+    "titleColor": "#f0f6fc",
+    "edgeLabelBackground": "#161b22",
+    "clusterBkg": "#010409",
+    "clusterBorder": "#30363d"
+  }
+}}%%
+flowchart TD
+    U([🧑 You])
+
+    subgraph SURFACES["🚪 FRONT DOORS"]
+        direction LR
+        VS[💻 VS Code Agent<br/>Editor-native builder bench]
+        CL[⌨️ Auggie CLI<br/>Terminal-native builder bench]
+        IN[🧭 Intent<br/>Spec-driven orchestration layer]
+    end
+
+    subgraph SHARED["⚙️ SHARED MACHINERY"]
+        direction TB
+        subgraph CORE[ ]
+            direction LR
+            SM[🧠 Selected model<br/>Lead reasoning path]
+            CX[🔎 Context engine<br/>Tools • rules • workspace context]
+            AG[🧩 Coordination layer<br/>Most explicit in Intent]
+        end
+        BG[🔄 Retrieval, tool use,<br/>and background routing]
+        OUT([✅ Answers, edits,<br/>plans, reviews])
+    end
+
+    subgraph EXTEND["🔌 BEYOND NATIVE"]
+        direction LR
+        MCP[🔌 Context Engine MCP<br/>Shared context bridge]
+        CC[🤝 Claude Code CLI<br/>External client example]
+    end
+
+    subgraph GUIDE[" "]
+        direction LR
+        CAP[💡 Surface choice changes the workflow you feel most directly;<br/>shared layers still provide context, coordination,<br/>routing, and MCP-powered reach.]
+
+        subgraph LEGEND["🎨 LEGEND"]
+            direction LR
+            L1[🔵 Native surfaces]
+            L2[🟢 Shared platform]
+            L3[🟠 Intent-explicit coordination]
+            L4[🟣 MCP-powered extension]
+        end
+    end
+
+    U --> VS
+    U --> CL
+    U --> IN
+
+    VS --> SM
+    CL --> SM
+    IN --> SM
+
+    VS --> CX
+    CL --> CX
+    IN -->|uses shared context engine| CX
+
+    IN -->|makes coordination explicit| AG
+
+    SM --> BG
+    CX --> BG
+    AG --> BG
+    BG --> OUT
+
+    CX -->|exposed via MCP| MCP
+    MCP -.->|powers external clients| CC
+    OUT -.-> CAP
+
+    classDef actor fill:#0d1117,stroke:#8b949e,color:#e6edf3,stroke-width:1.5px;
+    classDef entry fill:#18253f,stroke:#6ea8fe,color:#e6edf3,stroke-width:1.5px;
+    classDef shared fill:#132b22,stroke:#3fb950,color:#d2f4dd,stroke-width:1.5px;
+    classDef intent fill:#3b2a16,stroke:#e3b341,color:#ffd8a8,stroke-width:1.5px;
+    classDef bridge fill:#27193d,stroke:#bc8cff,color:#f0d7ff,stroke-width:1.5px;
+    classDef guide fill:#3a3311,stroke:#d29922,color:#fff3bf,stroke-width:1.5px;
+    classDef result fill:#161b22,stroke:#8b949e,color:#e6edf3,stroke-width:1.5px;
+    style CORE fill:none,stroke:none;
+    class VS,CL,L1 entry;
+    class IN,AG,L3 intent;
+    class SM,CX,BG,L2 shared;
+    class MCP,CC,L4 bridge;
+    class CAP guide;
+    class U actor;
+    class OUT result;
+```
+
+*[Jump back to presentation SVG](#presentation-svg)*
