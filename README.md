@@ -2,19 +2,11 @@
 
 > *A live, multi-agent AI trading accountability system built on Claude Code CLI + Augment Code*
 
-[![Public Preview](https://img.shields.io/badge/🌐%20Public%20Preview-Available-brightgreen)](https://github.com/drasticstatic/trading-assistant-public-preview)
-[![Synced via GitExporter](https://img.shields.io/badge/Synced%20via-GitExporter-blue)](https://github.com/open-condo-software/gitexporter)
-[![Built with Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code%20CLI-blueviolet)](https://claude.ai/claude-code)
-[![Status](https://img.shields.io/badge/Status-🔥%20Live-brightgreen)]()
+[![Public Preview](https://img.shields.io/badge/🌐%20Public%20Preview-Available-brightgreen)](https://github.com/drasticstatic/trading-assistant-public-preview) [![Synced via GitExporter](https://img.shields.io/badge/Synced%20via-GitExporter-blue)](https://github.com/open-condo-software/gitexporter) [![Built with Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code%20CLI-blueviolet)](https://claude.ai/claude-code) [![Status](https://img.shields.io/badge/Status-🔥%20Live-brightgreen)]()
 
-> 🗺️ **Feeling lost? or Looking for something specific?** → [🧭 Click HERE to find your way around 🔍](https://drasticstatic.github.io/trading-assistant-public-preview/)
-
-> 🔒 **Note for visitors:** This repository is partially mirrored to a
-> [public preview](https://github.com/drasticstatic/trading-assistant-public-preview)
-> via an automated GitExporter pipeline. The public version includes this README and
-> all session export files. Strategy reference files are excluded — they contain
-> proprietary content from paid mentorship programs (ZeroToHero, Inevitrade, SmartTradingBlueprint)
-> and are not mine to share publicly.
+> 🗺️ Wondering where to go next? 🧭 → Click [HERE](https://drasticstatic.github.io/trading-assistant-public-preview/) to find your way around 🔍
+>
+> 🔒 **Note for visitors:** This repository is partially mirrored to a [public preview](https://drasticstatic.github.io/trading-assistant-public-preview/) via an automated GitExporter pipeline. The public version includes this README and session export files. Strategy reference files are excluded — they contain proprietary content from paid mentorship programs (ZeroToHero, Inevitrade, SmartTradingBlueprint) and are not mine to share publicly.
 
 ---
 
@@ -91,6 +83,10 @@ Kavanah (Augment Intent) — task orchestration, documentation, strategy refs
 
 ## 🗂️ Repo Structure
 
+If you're browsing the mirrored public-safe areas, start with the [public preview home](https://drasticstatic.github.io/trading-assistant-public-preview/), keep the recovery-friendly [`404.html`](https://drasticstatic.github.io/trading-assistant-public-preview/404.html) nearby, or jump straight into [`data/`](https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data) and [`setup/`](https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/setup).
+
+The most useful public paths live under [`smarttrader-ai/analysis`](https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis), [`smarttrader-ai/reviews`](https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews), and [`smarttrader-ai/exports`](https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports), with deeper system docs in [`setup/system-overview.md`](https://drasticstatic.github.io/trading-assistant-public-preview/setup/system-overview.md) and [`setup/AugmentArchitecture.md`](https://drasticstatic.github.io/trading-assistant-public-preview/setup/AugmentArchitecture.md).
+
 ```
 ~/ClaudeCodeCLI/trading-assistant/
 ├── ClaudeCodeCLI_trading-assistant_start-instructions.md
@@ -99,22 +95,41 @@ Kavanah (Augment Intent) — task orchestration, documentation, strategy refs
 │   ├── inevitrade/              # Inevitrade TCL, SMOG, 35A, G2 reference files
 │   └── smarttradingblueprint/   # STB/ICT concept reference files
 ├── data/
-│   ├── tradezella-exports/      ← CSV exports
-│   ├── screenshots/             ← Trade screenshots & annotated charts for session review
-│   └── analysis/                ← Pivot tables, data charts, etc.
+│   ├── imports/
+│   │   └── 2026/
+│   │       ├── 02-Feb/          # TradeZella + Tradovate CSV imports
+│   │       └── 03-Mar/
+│   ├── screenshots/             # Trade screenshots & annotated charts for session review
+│   └── inevitrade progression/  # Coaching progression notes + public reference material
 ├── smarttrader-ai/
-│   ├── exports/                 ← Summaries exported for STB AI + weekly STB export .md files (full session reviews)
-│   └── reviews/                 ← Deeper reviews exported for STB
+│   ├── analysis/
+│   │   ├── level-marking-methodology.md
+│   │   └── premarket/
+│   │       └── 2026/
+│   │           ├── 02-Feb/
+│   │           └── 03-Mar/
+│   ├── reviews/
+│   │   ├── pattern_tracker.md
+│   │   └── 2026/
+│   │       ├── 02-Feb/
+│   │       └── 03-Mar/
+│   └── exports/
+│       ├── chart-analysis-methodology.md
+│       └── 2026/
+│           ├── 02-Feb/
+│           └── 03-Mar/
 ├── logs/
 │   └── fortuna/                 ← Fortuna session logs
 ├── setup/
+│   ├── system-overview.md       # High-level system map
+│   ├── AugmentArchitecture.md   # Deeper Augment/Intent architecture guide
 │   └── accounts/
-│       └── PropFirms/           # Prop firm rules, progression plan, Scaling SOP
-│           ├── apextrader/      ← Apex rules, statements
-│           ├── takeprofittrader/← TPT rules, statements
-│           ├── lucid/           ← Lucid rules, statements
-│           └── tradeify/        ← Tradeify rules, statements
-│       └── crypto/              #
+│       ├── PropFirms/           # Prop firm rules, progression plan, Scaling SOP
+│       │   ├── apextrader/      ← Apex rules, statements
+│       │   ├── takeprofittrader/← TPT rules, statements
+│       │   ├── lucid/           ← Lucid rules, statements
+│       │   └── tradeify/        ← Tradeify rules, statements
+│       └── crypto/
 │           ├── CEX/             ← Centralized Exchanges
 │           │   ├── BTCC/
 │           │   ├── Bybit/
@@ -196,3 +211,5 @@ Informs me if there are any major news events or economic releases today I shoul
 ---
 
 *Built with [Claude Code CLI](https://claude.ai/claude-code) by Anthropic + [Augment Code](https://augmentcode.com).*
+
+🗺️ Still feeling lost? Looking for something specific? 🧭 → Click [HERE](https://drasticstatic.github.io/trading-assistant-public-preview/404.html) 🔍
