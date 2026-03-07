@@ -1,14 +1,12 @@
 # 💰 Trading Assistant — Three-Agent AI System
 
-> *A live, multi-agent AI trading accountability system built on Claude Code CLI + Augment Code*
+> A live, multi-agent AI trading accountability system built on Claude Code CLI + Augment Code
 
-[![Public Preview](https://img.shields.io/badge/🌐%20Public%20Preview-Available-brightgreen)](https://github.com/drasticstatic/trading-assistant-public-preview) [![Synced via GitExporter](https://img.shields.io/badge/Synced%20via-GitExporter-blue)](https://github.com/open-condo-software/gitexporter) [![Built with Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code%20CLI-blueviolet)](https://claude.ai/claude-code) [![Status](https://img.shields.io/badge/Status-🔥%20Live-brightgreen)]()
+[![Public Preview](https://img.shields.io/badge/%F0%9F%8C%90%20Public%20Preview-Available-brightgreen)](https://drasticstatic.github.io/trading-assistant-public-preview/) [![Synced via GitExporter](https://img.shields.io/badge/Synced%20via-GitExporter-blue)](https://github.com/drasticstatic/trading-assistant/blob/main/gitexporter.config.json) [![Built with Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code%20CLI-blueviolet)](https://code.claude.com/docs/en/overview) [![Status](https://img.shields.io/badge/Status-%F0%9F%94%A5%20Live-brightgreen)](https://code.claude.com/docs/en/cli-reference)
 
-> 🗺️ Wondering where to go next? 🧭 → Click [HERE](https://drasticstatic.github.io/trading-assistant-public-preview/) to find your way around 🔍
+> 🗺️ Wondering where to go next? 🧭 → Click [HERE](https://drasticstatic.github.io/trading-assistant-public-preview/404.html) to find your way around 🔍
 >
-> 🔒 **Note for visitors:** This repository is partially mirrored to a [public preview](https://drasticstatic.github.io/trading-assistant-public-preview/) via an automated GitExporter pipeline. The public version includes this README and session export files. Strategy reference files are excluded — they contain proprietary content from paid mentorship programs (ZeroToHero, Inevitrade, SmartTradingBlueprint) and are not mine to share publicly.
-
----
+> 🔒 **Note for visitors:** This repository is partially mirrored to a public preview via an automated GitExporter pipeline. The public version includes this README and session export files. Strategy reference files are excluded — they contain proprietary content from paid mentorship programs (ZeroToHero, Inevitrade, SmartTradingBlueprint) and are not mine to share publicly.
 
 👋 Hi! I'm Fortuna — an AI assistant built by Anthropic, and I've been set up as Christopher's dedicated wealth warden, trading assistant, accountability coach, success manager and analyst for his futures and crypto futures operation.
 
@@ -18,17 +16,16 @@ My job is to track his discipline, flag rule violations, identify behavioural pa
 
 I generate ready-to-paste content for all three of SmartTraderAI's check-in formats directly from our session data:
 
-- 🌅 **Daily Pre-market Review** — news releases, expected figures, HTF bias, key levels, intraday bias, and expectations for the day.
-- 📊 **Daily Post-market Review** — what actually happened, key lessons, trade results, P&L, and whether any gains were round-tripped.
-- 📅 **Weekly Check-in** — what worked, what didn't, observable market and trade patterns, mistakes made, recurring problems, solutions being implemented, yes/no performance questions and action steps for the coming week.
+- 🌅 **[Daily Pre-market Summary](smarttrader-ai/analysis/premarket/)** — news releases, expected figures, HTF bias, key levels, intraday bias, and expectations for the day.
+- 📊 **[Daily Post-market Review](smarttrader-ai/reviews/)** — what actually happened, key lessons, trade results, P&L, and whether any gains were round-tripped.
+- 📅 **[Weekly Check-in](smarttrader-ai/reviews/)** — what worked, what didn't, observable market and trade patterns, mistakes made, recurring problems, solutions being implemented, yes/no performance questions and action steps for the coming week.
 
 — *Fortuna (via Claude Code CLI)* 🙏🏼
-
----
 
 ## 🤖 The Three Agents
 
 ### 🔮 Fortuna — Trading Coach & Session Intelligence
+
 **Platform:** Claude Code CLI (Anthropic)
 
 Fortuna is the primary user-facing agent — Christopher's dedicated trading assistant, accountability coach, and analyst. At the start of every session, Fortuna checks in on mental state, reviews news events, and sets goals. After each session, Fortuna analyzes trade data and screenshots, evaluates every trade against the correct strategy framework, flags rule violations, identifies behavioral patterns across sessions, and celebrates genuine process wins.
@@ -36,16 +33,16 @@ Fortuna is the primary user-facing agent — Christopher's dedicated trading ass
 Fortuna also generates structured coaching exports (daily pre-market reviews, post-market reviews, and weekly check-ins) and manages the automated TradeZella → SmartTraderAI data pipeline end-to-end.
 
 ### 🛠️ Auggie — Implementation Engine
+
 **Platform:** Augment Code (Claude Opus 4.6)
 
 Auggie handles all infrastructure, code, and builds. This includes MCP server development (brokerage data access, webhook receivers), custom TradingView Pine Script indicators, Python automation scripts, and system architecture. Auggie built the Tradovate MCP server, the TradingView webhook pipeline, and maintains the technical infrastructure that powers the operation.
 
 ### 📋 Kavanah — Strategic Orchestration
+
 **Platform:** Augment Intent (Agent Fleet)
 
 Kavanah coordinates spec-driven task execution across the workspace. When large-scale documentation, strategy reference builds, or multi-file restructuring is needed, Kavanah breaks the work into tasks, delegates to specialized sub-agents, tracks progress, and ensures everything stays in sync. Kavanah built the complete Inevitrade strategy reference library and manages cross-agent coordination.
-
----
 
 ## 🏗️ Architecture
 
@@ -61,17 +58,20 @@ Kavanah (Augment Intent) — task orchestration, documentation, strategy refs
     ┌─────────────────────────────────────────┐
     │  TradingView ←→ Webhook Pipeline ←→ AI  │
     │  Tradovate API ←→ MCP Server ←→ AI      │
-    │  TradeZella ←→ Python Pipeline ←→ AI     │
+    │  TradeZella ←→ Python Pipeline ←→ AI    │
     └─────────────────────────────────────────┘
 ```
+
+- [`setup/system-overview.md`](setup/system-overview.md) — high-level map of the agents, clones, MCP servers, and workflow lanes.
+- [`setup/AugmentArchitecture.md`](setup/AugmentArchitecture.md) — deeper Augment / Intent architecture and delegation model.
 
 ## 📐 Strategy Stack
 
 | Strategy | Accounts | Markets | Status |
-|----------|----------|---------|--------|
-| **ZeroToHero (ZTH)** | Apex Trader Funding, Take Profit Trader | Futures (NQ, ES, CL, GC) | 🔥 Live |
-| **SmartTradingBlueprint / ICT (STB)** | All accounts — foundational layer | Futures & Crypto Futures | 🔥 Live |
-| **Inevitrade SMC (IT)** | Lucid, Tradeify, Crypto Futures | Futures & Crypto Futures | 🔥 Live |
+| --- | --- | --- | --- |
+| ZeroToHero (ZTH) | Apex Trader Funding, Take Profit Trader | Futures (NQ, ES, CL, GC) | 🔥 Live |
+| SmartTradingBlueprint / ICT (STB) | All accounts — foundational layer | Futures & Crypto Futures | 🔥 Live |
+| Inevitrade SMC (IT) | Lucid, Tradeify, Crypto Futures | Futures & Crypto Futures | 🔥 Live |
 
 ## ⚙️ Key Infrastructure
 
@@ -83,24 +83,38 @@ Kavanah (Augment Intent) — task orchestration, documentation, strategy refs
 
 ## 🗂️ Repo Structure
 
-If you're browsing the mirrored public-safe areas, start with the [public preview home](https://drasticstatic.github.io/trading-assistant-public-preview/), keep the recovery-friendly [`404.html`](https://drasticstatic.github.io/trading-assistant-public-preview/404.html) nearby, or jump straight into [`data/`](https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data) and [`setup/`](https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/setup).
+If you're browsing the mirrored public-safe areas, start with the [public preview home](https://drasticstatic.github.io/trading-assistant-public-preview/), keep the recovery-friendly `404.html` nearby, or jump straight into `data/` and `setup/`.
 
-The most useful public paths live under [`smarttrader-ai/analysis`](https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis), [`smarttrader-ai/reviews`](https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews), and [`smarttrader-ai/exports`](https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports), with deeper system docs in [`setup/system-overview.md`](https://drasticstatic.github.io/trading-assistant-public-preview/setup/system-overview.md) and [`setup/AugmentArchitecture.md`](https://drasticstatic.github.io/trading-assistant-public-preview/setup/AugmentArchitecture.md).
+The most useful public paths live under `smarttrader-ai/analysis`, `smarttrader-ai/reviews`, and `smarttrader-ai/exports`, with deeper system docs in `setup/system-overview.md` and `setup/AugmentArchitecture.md`.
 
 ```
 ~/ClaudeCodeCLI/trading-assistant/
 ├── ClaudeCodeCLI_trading-assistant_start-instructions.md
-├── strategies/
-│   ├── zerotohero/              # ZTH strategy reference files
-│   ├── inevitrade/              # Inevitrade TCL, SMOG, 35A, G2 reference files
-│   └── smarttradingblueprint/   # STB/ICT concept reference files
 ├── data/
 │   ├── imports/
 │   │   └── 2026/
 │   │       ├── 02-Feb/          # TradeZella + Tradovate CSV imports
 │   │       └── 03-Mar/
-│   ├── screenshots/             # Trade screenshots & annotated charts for session review
-│   └── inevitrade progression/  # Coaching progression notes + public reference material
+│   ├── inevitrade progression/  # Coaching progression notes + public reference material
+│   └── screenshots/             # Trade screenshots & annotated charts for session review
+├── logs/
+│   └── fortuna/                 ← Fortuna session logs
+├── README.md
+├── setup/
+│   ├── accounts/
+│   │   ├── crypto/
+│   │   │   ├── CEX/             ← Centralized Exchanges
+│   │   │   │   ├── BTCC/
+│   │   │   │   ├── Bybit/
+│   │   │   │   └── Phemex/
+│   │   │   └── DEX/             ← Decentralized Exchanges
+│   │   └── PropFirms/           # Prop firm rules, progression plan, Scaling SOP
+│   │       ├── apextrader/      ← Apex rules, statements
+│   │       ├── lucid/           ← Lucid rules, statements
+│   │       ├── takeprofittrader/← TPT rules, statements
+│   │       └── tradeify/        ← Tradeify rules, statements
+│   ├── AugmentArchitecture.md   # Deeper Augment/Intent architecture guide
+│   └── system-overview.md       # High-level system map
 ├── smarttrader-ai/
 │   ├── analysis/
 │   │   ├── level-marking-methodology.md
@@ -108,34 +122,20 @@ The most useful public paths live under [`smarttrader-ai/analysis`](https://gith
 │   │       └── 2026/
 │   │           ├── 02-Feb/
 │   │           └── 03-Mar/
-│   ├── reviews/
-│   │   ├── pattern_tracker.md
-│   │   └── 2026/
-│   │       ├── 02-Feb/
-│   │       └── 03-Mar/
-│   └── exports/
-│       ├── chart-analysis-methodology.md
-│       └── 2026/
-│           ├── 02-Feb/
-│           └── 03-Mar/
-├── logs/
-│   └── fortuna/                 ← Fortuna session logs
-├── setup/
-│   ├── system-overview.md       # High-level system map
-│   ├── AugmentArchitecture.md   # Deeper Augment/Intent architecture guide
-│   └── accounts/
-│       ├── PropFirms/           # Prop firm rules, progression plan, Scaling SOP
-│       │   ├── apextrader/      ← Apex rules, statements
-│       │   ├── takeprofittrader/← TPT rules, statements
-│       │   ├── lucid/           ← Lucid rules, statements
-│       │   └── tradeify/        ← Tradeify rules, statements
-│       └── crypto/
-│           ├── CEX/             ← Centralized Exchanges
-│           │   ├── BTCC/
-│           │   ├── Bybit/
-│           │   └── Phemex/
-│           └── DEX/             ← Decentralized Exchanges
-└── README.md
+│   ├── exports/
+│   │   ├── 2026/
+│   │   │   ├── 02-Feb/
+│   │   │   └── 03-Mar/
+│   │   └── chart-analysis-methodology.md
+│   └── reviews/
+│       ├── 2026/
+│       │   ├── 02-Feb/
+│       │   └── 03-Mar/
+│       └── pattern_tracker.md
+└── strategies/
+    ├── inevitrade/              # Inevitrade TCL, SMOG, 35A, G2 reference files
+    ├── smarttradingblueprint/   # STB/ICT concept reference files
+    └── zerotohero/              # ZTH strategy reference files
 ```
 
 ## 🧠 WORKFLOW CONTEXT — WITH SMARTTRADERAI 🤖
@@ -145,6 +145,7 @@ Christopher operates **Fortuna** — a Claude Code CLI agent — as a persistent
 I also work directly with the TradeZella → SmartTraderAI pipeline. After each session, Christopher drops his TradeZella CSV export onto the "TradeZella to STB" Automator app on his desktop — a drag-and-drop macOS application I can trigger or assist with directly via the command line. That app runs the Python conversion script (`tradezella_to_stb.py`), maps his TradeZella trade data into the STB Bulk Import format, and pushes it straight into his linked Google Sheet — ready for SmartTrader AI to ingest. I can monitor, troubleshoot, and assist that entire pipeline end-to-end from within our Claude Code CLI session, so the handoff between my analysis and the STB platform stays seamless and automated.
 
 ### ⚙️ Pipeline Overview
+
 ```
 TradeZella Export (.csv)
         ↓
@@ -162,13 +163,11 @@ TradeZella Export (.csv)
 **The pipeline:**
 
 1. 📤 **TradeZella** — trade journal and CSV export source
-   ↓
+   - Repo: [TradeZella_STB](https://github.com/drasticstatic/TradeZella_STB)
 2. 🤖 **Claude Code CLI (Fortuna)**
-   - User prompts agent to read the newest trade data from downloads folder
-   - Fortuna then analyzes it, flags rule violations, tracks patterns across sessions, and generates STB-formatted exports — all while automatically running **automator_drop_handler.sh** — macOS drag-and-drop app; runs `tradezella_to_stb.py` and pushes data to the STB Google Sheet automatically (no manual entry)
-   ↓
+   - User prompts agent to read the newest trade data from downloads folder.
+   - Fortuna then analyzes it, flags rule violations, tracks patterns across sessions, and generates STB-formatted exports — all while automatically running **automator_drop_handler.sh** — macOS drag-and-drop app; runs `tradezella_to_stb.py` and pushes data to the STB Google Sheet automatically (no manual entry).
 3. 📊 **SmartTraderAI** — receives exports and field-by-field check-ins for STB coaching oversight
-   ↓
 4. 🔁 **Claude Code CLI** — user prompts Fortuna to review SmartTraderAI's response to continue the feedback loop
 
 ## 🎯 WHO I AM & MY MISSION
@@ -187,8 +186,6 @@ Three complementary mentorship programs. Multiple prop firm evaluations. AI-powe
 
 The goal: consistent profitability through discipline, patience, and precision.
 
----
-
 ## 🤝 CLAUDE'S ROLE — Accountability Coach & Success Partner
 
 - 🔍 **Analyze** my trade data, journal entries, screenshots, and performance exports
@@ -199,17 +196,15 @@ The goal: consistent profitability through discipline, patience, and precision.
 - 🌱 **Help me grow** by connecting my real trade data to the strategies I am learning
 
 ### 🗣️ Coaching Tone
+
 The combination of a strict but caring mentor. When I follow my rules and execute well, Fortuna acknowledges it genuinely — even on losing trades where the process was correct. When I break rules, Fortuna is direct and honest. Fortuna does not lecture repeatedly on the same point in one session but says it once, clearly, and moves forward constructively. If the same mistake repeats across multiple sessions, Fortuna escalates the directness.
 
 Never shaming me. Always believing in my potential. Always pushing me toward the next level.
 
 ### 🌅 Daily Session Start
-At the start of each session, Fortuna greets me and asks me to rate my mental state and energy level (1–10)
-&
-Informs me if there are any major news events or economic releases today I should be aware of.
 
----
+At the start of each session, Fortuna greets me and asks me to rate my mental state and energy level (1–10)&Informs me if there are any major news events or economic releases today I should be aware of.
 
-*Built with [Claude Code CLI](https://claude.ai/claude-code) by Anthropic + [Augment Code](https://augmentcode.com).*
+*Built with *[*Claude Code CLI*](https://claude.ai/claude-code)* by Anthropic + *[*Augment Code*](https://augmentcode.com)*.*
 
 🗺️ Still feeling lost? Looking for something specific? 🧭 → Click [HERE](https://drasticstatic.github.io/trading-assistant-public-preview/404.html) 🔍
