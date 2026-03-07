@@ -162,16 +162,6 @@ No trades executed. Monitoring session only.
 
 ---
 
-## 🎯 Forward Focus
-
-1. **Monday: pre-market before the open.** Not in the afternoon. The ES bearish structure and ZTH/FVG setup carry forward — but levels need fresh verification at the open before any entry. Do not trade on stale carry-forward levels.
-
-2. **APEX-06 is the priority.** Mar 24 deadline, ~+$6,000 gap. One clean A+ trade per session builds it. No size-up, no forcing, no eval pressure as a trading input.
-
-3. **Weekend plan:** Pine Script work with Auggie, STB course study, master mind coaching calls. Come in Monday rested, studied, and with the levels pre-planned. The week ahead has to start stronger than this one — and it can.
-
----
-
 <a id="smarttraderai-copy-paste"></a>
 
 ## 🤖 SmartTraderAI Post-Market Copy-Paste Fields
@@ -195,6 +185,16 @@ The deeper lesson: today's session was built under the highest external pressure
 - Week close: bearish structure intact on ES, NQ, RTY — setup carries to Monday
 
 > Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260306_daily-review.md
+
+---
+
+## 🎯 Forward Focus
+
+1. **Monday: pre-market before the open.** Not in the afternoon. The ES bearish structure and ZTH/FVG setup carry forward — but levels need fresh verification at the open before any entry. Do not trade on stale carry-forward levels.
+
+2. **APEX-06 is the priority.** Mar 24 deadline, ~+$6,000 gap. One clean A+ trade per session builds it. No size-up, no forcing, no eval pressure as a trading input.
+
+3. **Weekend plan:** Pine Script work with Auggie, STB course study, master mind coaching calls. Come in Monday rested, studied, and with the levels pre-planned. The week ahead has to start stronger than this one — and it can.
 
 ---
 
