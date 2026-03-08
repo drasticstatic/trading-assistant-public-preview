@@ -346,7 +346,7 @@
     }
 
     .subtitle-line--fineprint {
-      font-size: 0.95em;
+      font-size: 0.8em;
     }
 
     .subtitle-line + .subtitle-line {
@@ -390,7 +390,7 @@
       display: block;
       max-width: 31rem;
       margin-inline: auto;
-      font-size: 0.86rem;
+      font-size: 0.8rem;
       line-height: 1.34;
     }
 
@@ -399,7 +399,7 @@
       height: 0.62rem;
       flex: none;
       border-radius: 999px;
-      background: var(--yellow);
+      background: var(--green);
       animation: breathe 4.2s ease-in-out infinite;
     }
 
@@ -696,6 +696,8 @@
       color: var(--subtle);
       font-size: 0.79rem;
       text-align: center;
+      display: grid;
+      justify-items: center;
     }
 
     .footer p {
@@ -709,17 +711,25 @@
 
     .footer-copy {
       max-width: 50rem;
+      width: min(100%, 50rem);
       margin-inline: auto;
       line-height: 1.72;
       text-align: center;
+      display: grid;
+      justify-items: center;
+      gap: 0.28rem;
     }
 
     .footer-copy-line {
       display: block;
+      width: fit-content;
+      max-width: 100%;
+      margin-inline: auto;
+      text-align: center;
     }
 
     .footer-copy-line + .footer-copy-line {
-      margin-top: 0.28rem;
+      margin-top: 0;
     }
 
     .footer-copy a,
@@ -755,6 +765,7 @@
       color: var(--subtle);
       line-height: 1.7;
       max-width: 42rem;
+      width: min(100%, 42rem);
       margin-inline: auto;
       text-align: center;
     }
@@ -929,11 +940,12 @@
 
       <p class="code">404</p>
       <h1 id="page-title"><span class="type-line">Oops... This link moved during a restructure</span></h1>
-      <p class="subtitle">
+      <p class="subtitle"><br/>
         <span class="subtitle-line">🔍 The content you're looking for is still here.</span>
         <span class="subtitle-line">The <code>smarttrader-ai/</code> directory was reorganized into <code>/YYYY/MM-Mon/</code> paths.</span>
+        <br/>
         <span class="subtitle-line subtitle-line--fineprint">Most older links recover by returning to the same section and choosing the matching folder.</span>
-        <span class="subtitle-line subtitle-line--fineprint">Traders: same level, new route. Developers: same public surface, cleaner folders.</span>
+        <span class="subtitle-line subtitle-line--fineprint">Traders: same level, new route. Developers: same public surface, cleaner folders.</span><br/>
       </p>
       <p class="hero-signal">
         <span class="hero-signal-line"><span class="hero-signal-dot" aria-hidden="true"></span><span>RECOVERY SIGNAL LIVE - PUBLIC PATH INTACT</span><span class="hero-signal-dot" aria-hidden="true"></span></span>

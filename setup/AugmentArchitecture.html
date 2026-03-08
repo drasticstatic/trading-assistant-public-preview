@@ -3,288 +3,662 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Augment Architecture — HTML Share Page | Trading Assistant</title>
-  <meta name="description" content="Clean HTML share page for the Augment architecture guide: surfaces, orchestration model, specialist workflow, and the open model-routing question.">
+  <title>Augment Architecture — Field Guide, Not a Mystery Box | Trading Assistant</title>
+  <meta name="description" content="Expanded HTML field guide to Augment’s surfaces, Intent coordination, specialists, shared context, MCP extension, and careful model-routing guidance.">
   <meta name="color-scheme" content="dark light">
-  <meta name="theme-color" content="#0d1117">
+  <meta name="theme-color" content="#0c1320">
   <link rel="canonical" href="https://drasticstatic.github.io/trading-assistant-public-preview/setup/AugmentArchitecture.html">
-  <!-- Direct HTML-page shares use the metadata below. GitHub blob/repo page previews are controlled by GitHub instead. -->
   <meta property="og:site_name" content="Trading Assistant Public Preview">
-  <meta property="og:title" content="Augment Architecture — HTML Share Page">
-  <meta property="og:description" content="Clean HTML share page for the Augment architecture guide: surfaces, orchestration model, specialist workflow, and the open model-routing question.">
+  <meta property="og:title" content="Augment Architecture — Field Guide, Not a Mystery Box">
+  <meta property="og:description" content="A fuller HTML field guide to Augment’s surfaces, specialists, MCP extension, and careful model-routing language.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/AugmentArchitecture.html">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Augment Architecture — HTML Share Page">
-  <meta name="twitter:description" content="Clean HTML share page for the Augment architecture guide: surfaces, orchestration model, specialist workflow, and the open model-routing question.">
-  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="../favicon.png" type="image/png" sizes="64x64">
-  <link rel="shortcut icon" href="../favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="../favicon.png">
+  <meta property="og:image" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/aug-arch-preview.png">
+  <meta property="og:image:secure_url" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/aug-arch-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Augment Architecture field guide preview with centered title lines, core surfaces, shared machinery, and careful model-routing framing.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Augment Architecture — Field Guide, Not a Mystery Box">
+  <meta name="twitter:description" content="Expanded HTML field guide covering Augment’s surfaces, specialists, MCP extension, and model-routing guidance.">
+  <meta name="twitter:image" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/aug-arch-preview.png">
+  <meta name="twitter:image:alt" content="Augment Architecture field guide preview with centered title lines, core surfaces, shared machinery, and careful model-routing framing.">
+  <link rel="icon" href="./favicon_aug.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="./favicon_aug.svg" type="image/svg+xml">
   <style>
     :root {
-      --bg: #0d1117;
-      --bg-alt: #111826;
-      --surface: rgba(17, 24, 38, 0.82);
-      --surface-strong: #161f32;
-      --border: rgba(139, 148, 158, 0.22);
-      --text: #d8dee9;
-      --muted: #9aa7b4;
-      --subtle: #6f7d8a;
-      --green: #3fb950;
+      --bg: #09111d;
+      --bg-alt: #0d1625;
+      --surface: rgba(11, 19, 32, 0.86);
+      --surface-strong: #111c2f;
+      --surface-soft: rgba(148, 163, 184, 0.08);
+      --border: rgba(148, 163, 184, 0.2);
+      --border-strong: rgba(148, 163, 184, 0.34);
+      --text: #e7edf6;
+      --muted: #a9b6c8;
+      --subtle: #8191a7;
+      --shadow: 0 26px 60px rgba(2, 8, 20, 0.34);
       --blue: #7cc2ff;
-      --purple: #bc8cff;
-      --yellow: #e3b341;
-      --shadow: 0 24px 48px rgba(2, 6, 23, 0.24);
-      --max: 1080px;
+      --cyan: #6ee7f9;
+      --green: #49d17d;
+      --gold: #f3c969;
+      --orange: #ff9f67;
+      --violet: #b693ff;
+      --rose: #ff9dc1;
+      --max: 1180px;
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 18px;
     }
 
     @media (prefers-color-scheme: light) {
       :root {
-        --bg: #edf2fb;
-        --bg-alt: #f7f9fd;
-        --surface: rgba(255, 255, 255, 0.88);
+        --bg: #edf3fb;
+        --bg-alt: #f8fbff;
+        --surface: rgba(255, 255, 255, 0.92);
         --surface-strong: #ffffff;
-        --border: rgba(87, 96, 106, 0.2);
-        --text: #1f2328;
-        --muted: #57606a;
-        --subtle: #6e7781;
-        --green: #1a7f37;
-        --blue: #0969da;
-        --purple: #8250df;
-        --yellow: #9a6700;
-        --shadow: 0 22px 40px rgba(31, 35, 40, 0.1);
+        --surface-soft: rgba(37, 99, 235, 0.05);
+        --border: rgba(71, 85, 105, 0.18);
+        --border-strong: rgba(71, 85, 105, 0.28);
+        --text: #162032;
+        --muted: #56667d;
+        --subtle: #6b7c93;
+        --shadow: 0 20px 48px rgba(15, 23, 42, 0.08);
+        --blue: #1864db;
+        --cyan: #0f9db6;
+        --green: #1f8f56;
+        --gold: #b7791f;
+        --orange: #d96a25;
+        --violet: #7851db;
+        --rose: #c93c7d;
       }
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
       color: var(--text);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.68;
       background:
-        radial-gradient(circle at top left, rgba(88, 166, 255, 0.14), transparent 24%),
+        radial-gradient(circle at top left, rgba(124, 194, 255, 0.16), transparent 26%),
+        radial-gradient(circle at top right, rgba(182, 147, 255, 0.14), transparent 24%),
         linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
-      line-height: 1.65;
     }
 
-    a {
-      color: var(--blue);
-      text-decoration: none;
-    }
-
+    img { max-width: 100%; display: block; }
+    a { color: var(--blue); text-decoration: none; }
     a:hover { text-decoration: underline; }
+
+    h1, h2, h3, h4, p, ul, ol, figure, blockquote, pre { margin-top: 0; }
+    code {
+      padding: 0.12rem 0.36rem;
+      border-radius: 0.45rem;
+      background: rgba(124, 194, 255, 0.12);
+      color: var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.94em;
+    }
 
     .page {
       width: min(var(--max), calc(100% - 2rem));
       margin: 0 auto;
-      padding: 2rem 0 3rem;
+      padding: 1.4rem 0 3rem;
     }
 
     .hero,
     .panel,
     .footer {
+      position: relative;
+      overflow: hidden;
       border: 1px solid var(--border);
-      border-radius: 24px;
+      border-radius: var(--radius-xl);
       background: var(--surface);
       box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
     }
 
     .hero {
-      padding: 2rem;
+      background:
+        radial-gradient(circle at top center, rgba(110, 231, 249, 0.16), transparent 34%),
+        linear-gradient(145deg, rgba(124, 194, 255, 0.18), rgba(182, 147, 255, 0.16) 42%, rgba(255, 157, 193, 0.08) 72%, rgba(9, 17, 29, 0.16) 100%),
+        var(--surface);
+      padding: clamp(2.2rem, 4vw, 3rem);
       margin-bottom: 1rem;
-      overflow: hidden;
+      text-align: center;
+    }
+
+    .hero::before,
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -8% -30% auto;
+      width: 22rem;
+      height: 22rem;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(124, 194, 255, 0.16), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 1;
+      margin-inline: auto;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.55rem;
       margin-bottom: 1rem;
       color: var(--muted);
-      font-size: 0.78rem;
-      font-weight: 700;
+      font-size: 0.8rem;
+      font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
     .eyebrow-dot {
-      width: 0.7rem;
-      height: 0.7rem;
+      width: 0.74rem;
+      height: 0.74rem;
       border-radius: 999px;
-      background: linear-gradient(135deg, var(--green), var(--blue));
+      background: linear-gradient(135deg, var(--green), var(--blue), var(--violet));
+      box-shadow: 0 0 0 0.22rem rgba(124, 194, 255, 0.08);
     }
 
-    h1,
-    h2,
-    h3,
-    p { margin-top: 0; }
-
     h1 {
-      max-width: 12ch;
-      margin-bottom: 0.75rem;
-      font-size: clamp(2.4rem, 5vw, 4.4rem);
+      max-width: 16ch;
+      margin-bottom: 0.95rem;
+      font-size: clamp(2.7rem, 6vw, 5rem);
       line-height: 0.96;
       letter-spacing: -0.05em;
+      text-wrap: balance;
+    }
+
+    h2 {
+      margin-bottom: 0.65rem;
+      font-size: clamp(1.8rem, 3vw, 2.55rem);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+    }
+
+    h3 {
+      margin-bottom: 0.45rem;
+      font-size: 1.1rem;
+      line-height: 1.2;
+    }
+
+    .hero-title-line {
+      display: block;
+      text-wrap: balance;
+    }
+
+    .hero-title-main {
+      color: var(--text);
+    }
+
+    .hero-title-mid {
+      margin-top: 0.42rem;
+      font-size: clamp(1.2rem, 2.35vw, 2rem);
+      font-weight: 760;
+      letter-spacing: -0.025em;
+      color: var(--cyan);
+    }
+
+    .hero-title-bottom {
+      margin-top: 0.22rem;
+      font-size: clamp(1.08rem, 2.05vw, 1.72rem);
+      font-weight: 760;
+      letter-spacing: -0.018em;
+      color: var(--rose);
+    }
+
+    .hero-lead,
+    .section-lead,
+    .card p,
+    .tone-callout p,
+    .summary-list,
+    .caption,
+    td,
+    li,
+    .footer {
+      color: var(--muted);
     }
 
     .hero-lead {
-      max-width: 62rem;
-      margin-bottom: 1.25rem;
-      color: var(--muted);
-      font-size: 1.05rem;
+      max-width: 60rem;
+      margin: 0 auto 1.35rem;
+      font-size: 1.06rem;
     }
 
     .hero-grid,
     .grid-2,
     .grid-3,
-    .workflow {
+    .surface-grid,
+    .workflow,
+    .signal-grid,
+    .note-grid,
+    .stat-grid,
+    .source-grid {
       display: grid;
       gap: 1rem;
     }
 
     .hero-grid,
-    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-2,
+    .note-grid,
+    .signal-grid,
+    .source-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
     .grid-3,
-    .workflow { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .surface-grid,
+    .workflow,
+    .stat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-      margin: 1rem 0 0;
-    }
-
-    .chip,
-    .mini-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: rgba(124, 194, 255, 0.08);
-      color: var(--text);
-    }
-
-    .chip {
-      padding: 0.6rem 0.9rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .mini-chip {
-      padding: 0.35rem 0.65rem;
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    .panel {
-      padding: 1.4rem;
-      margin-bottom: 1rem;
-    }
-
-    .kicker {
-      margin-bottom: 0.35rem;
-      color: var(--muted);
-      font-size: 0.76rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .section-lead {
-      max-width: 52rem;
-      color: var(--muted);
+    .stat-grid {
+      width: min(100%, 62rem);
+      margin: 1.25rem auto 1.4rem;
     }
 
     .card,
     .surface-card,
-    .fact-card,
-    .step-card {
+    .step-card,
+    .signal-card,
+    .note-card,
+    .source-card,
+    .tone-callout,
+    .fact-strip,
+    .stat-card {
+      position: relative;
       border: 1px solid var(--border);
-      border-radius: 20px;
-      background: rgba(17, 24, 38, 0.5);
-      padding: 1rem;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+      padding: 1rem 1.05rem;
     }
 
     @media (prefers-color-scheme: light) {
       .card,
       .surface-card,
-      .fact-card,
-      .step-card {
-        background: rgba(255, 255, 255, 0.72);
+      .step-card,
+      .signal-card,
+      .note-card,
+      .source-card,
+      .tone-callout,
+      .fact-strip,
+      .stat-card {
+        background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(248,250,252,0.8));
       }
     }
 
-    .card strong,
-    .surface-card strong,
-    .fact-card strong,
-    .step-card strong {
+    .stat-card strong {
+      display: block;
+      margin-bottom: 0.15rem;
       color: var(--text);
+      font-size: 1.7rem;
+      line-height: 1;
+      letter-spacing: -0.04em;
     }
 
-    .surface-card h3,
-    .fact-card h3,
-    .step-card h3 { margin-bottom: 0.45rem; }
-
-    .surface-card p,
-    .fact-card p,
-    .step-card p,
-    .card p { margin-bottom: 0.7rem; color: var(--muted); }
-
-    .visual-flow {
-      display: grid;
-      gap: 0.85rem;
-      grid-template-columns: 1fr auto 1.25fr auto 1fr;
-      align-items: center;
-      margin-top: 1rem;
+    .stat-card span,
+    .kicker,
+    .mini-label,
+    th {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    .flow-box {
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      background: var(--surface-strong);
-      padding: 1rem;
-      min-height: 100%;
+    .kicker { margin-bottom: 0.4rem; }
+
+    .panel > .tone-bar {
+      margin-inline: auto;
     }
 
-    .flow-box h3 { margin-bottom: 0.45rem; }
-    .flow-box p { margin-bottom: 0.6rem; color: var(--muted); }
-    .flow-arrow {
-      color: var(--subtle);
-      font-size: 1.8rem;
+    .panel > .kicker,
+    .panel > h2,
+    .panel > .section-lead,
+    .panel > blockquote,
+    .panel > .caption {
+      margin-left: auto;
+      margin-right: auto;
       text-align: center;
     }
 
-    ul {
-      margin: 0;
-      padding-left: 1.1rem;
-      color: var(--muted);
+    .panel > .section-lead,
+    .panel > blockquote {
+      max-width: 54rem;
     }
 
-    li + li { margin-top: 0.35rem; }
+    .chip-row,
+    .jump-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .chip-row { margin-top: 1.1rem; }
+    .jump-links { margin-top: 1.2rem; }
+
+    .hero-grid {
+      width: min(100%, 58rem);
+      margin-inline: auto;
+    }
+
+    .hero-grid .card,
+    .hero .stat-card,
+    .surface-card,
+    .step-card,
+    .source-card,
+    .fact-strip { text-align: center; }
+
+    .signal-card h3,
+    .note-card h3 { text-align: center; }
+
+    .hero-grid .card p:last-child,
+    .surface-card p,
+    .step-card p,
+    .source-card p,
+    .fact-strip p,
+    .fact-strip ol,
+    .fact-strip ul {
+      max-width: 34rem;
+      margin-inline: auto;
+    }
+
+    .hero .eyebrow,
+    .hero .chip-row {
+      justify-content: center;
+      width: min(100%, 60rem);
+    }
+
+    .chip,
+    .mini-chip,
+    .jump-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .chip,
+    .jump-link {
+      padding: 0.8rem 1.15rem;
+      background: linear-gradient(135deg, rgba(124, 194, 255, 0.22), rgba(182, 147, 255, 0.18));
+      border-color: rgba(124, 194, 255, 0.44);
+      box-shadow: 0 14px 32px rgba(7, 14, 26, 0.24), inset 0 1px 0 rgba(255,255,255,0.12), 0 0 0 1px rgba(124, 194, 255, 0.08);
+      font-size: 0.92rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+    }
+
+    .mini-chip {
+      padding: 0.34rem 0.62rem;
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .jump-link:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      background: linear-gradient(135deg, rgba(124, 194, 255, 0.3), rgba(182, 147, 255, 0.22));
+      box-shadow: 0 18px 38px rgba(12, 22, 38, 0.3), inset 0 1px 0 rgba(255,255,255,0.16), 0 0 0 1px rgba(124, 194, 255, 0.18);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    .chip:hover,
+    .chip:focus-visible,
+    .jump-link:focus-visible {
+      border-color: var(--blue);
+      color: var(--blue);
+      background: linear-gradient(135deg, rgba(124, 194, 255, 0.3), rgba(182, 147, 255, 0.22));
+      box-shadow: 0 18px 38px rgba(12, 22, 38, 0.3), inset 0 1px 0 rgba(255,255,255,0.16), 0 0 0 1px rgba(124, 194, 255, 0.18);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    .chip:active,
+    .jump-link:active { transform: translateY(0); }
+
+    .panel {
+      --tone: var(--blue);
+      --tone-soft: rgba(124, 194, 255, 0.08);
+      padding: 1.45rem;
+      margin-bottom: 1rem;
+      scroll-margin-top: 1rem;
+    }
+
+    .panel[data-tone="blue"] {
+      --tone: var(--blue);
+      --tone-soft: rgba(124, 194, 255, 0.1);
+      background: linear-gradient(145deg, rgba(124, 194, 255, 0.11), rgba(11, 19, 32, 0) 44%), var(--surface);
+    }
+    .panel[data-tone="gold"] {
+      --tone: var(--gold);
+      --tone-soft: rgba(243, 201, 105, 0.12);
+      background: linear-gradient(145deg, rgba(243, 201, 105, 0.12), rgba(11, 19, 32, 0) 44%), var(--surface);
+    }
+    .panel[data-tone="green"] {
+      --tone: var(--green);
+      --tone-soft: rgba(73, 209, 125, 0.11);
+      background: linear-gradient(145deg, rgba(73, 209, 125, 0.1), rgba(11, 19, 32, 0) 44%), var(--surface);
+    }
+    .panel[data-tone="violet"] {
+      --tone: var(--violet);
+      --tone-soft: rgba(182, 147, 255, 0.11);
+      background: linear-gradient(145deg, rgba(182, 147, 255, 0.11), rgba(11, 19, 32, 0) 44%), var(--surface);
+    }
+    .panel[data-tone="rose"] {
+      --tone: var(--rose);
+      --tone-soft: rgba(255, 157, 193, 0.12);
+      background: linear-gradient(145deg, rgba(255, 157, 193, 0.1), rgba(11, 19, 32, 0) 44%), var(--surface);
+    }
+    .panel[data-tone="cyan"] {
+      --tone: var(--cyan);
+      --tone-soft: rgba(110, 231, 249, 0.12);
+      background: linear-gradient(145deg, rgba(110, 231, 249, 0.11), rgba(11, 19, 32, 0) 44%), var(--surface);
+    }
+    .panel[data-tone="orange"] {
+      --tone: var(--orange);
+      --tone-soft: rgba(255, 159, 103, 0.12);
+      background: linear-gradient(145deg, rgba(255, 159, 103, 0.11), rgba(11, 19, 32, 0) 44%), var(--surface);
+    }
+    .panel[data-tone="slate"] {
+      --tone: var(--subtle);
+      --tone-soft: rgba(129, 145, 167, 0.1);
+      background: linear-gradient(145deg, rgba(129, 145, 167, 0.09), rgba(11, 19, 32, 0) 44%), var(--surface);
+    }
+
+    .panel::after {
+      content: "";
+      position: absolute;
+      inset: auto auto -7rem -5rem;
+      width: 16rem;
+      height: 16rem;
+      border-radius: 999px;
+      background: radial-gradient(circle, var(--tone-soft), transparent 72%);
+      pointer-events: none;
+    }
+
+    .tone-bar {
+      width: 4.5rem;
+      height: 0.32rem;
+      margin: 0 0 1rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--tone), transparent);
+    }
+
+    .panel .card,
+    .panel .surface-card,
+    .panel .step-card,
+    .panel .signal-card,
+    .panel .note-card,
+    .panel .source-card,
+    .tone-callout,
+    .fact-strip {
+      border-color: color-mix(in srgb, var(--tone) 35%, var(--border));
+      background: linear-gradient(180deg, var(--tone-soft), rgba(255,255,255,0.01));
+    }
+
+    .panel .kicker {
+      color: var(--tone);
+    }
+
+    .summary-list {
+      padding-left: 1.2rem;
+      margin-bottom: 0;
+    }
+
+    .summary-list li + li,
+    ul li + li,
+    ol li + li { margin-top: 0.35rem; }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.02);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 640px;
+    }
+
+    th,
+    td {
+      padding: 0.9rem 1rem;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tr:last-child td { border-bottom: 0; }
+    td strong { color: var(--text); }
+
+    .signal-card h3,
+    .surface-card h3,
+    .step-card h3,
+    .note-card h3,
+    .source-card h3,
+    .card h3 { margin-bottom: 0.4rem; }
+
+    .surface-card,
+    .signal-card,
+    .source-card {
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+
+    .surface-card::before,
+    .signal-card::before,
+    .source-card::before,
+    .step-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 0.22rem;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      background: linear-gradient(90deg, var(--tone), transparent 76%);
+      opacity: 0.92;
+    }
+
+    blockquote {
+      margin: 1rem 0 0;
+      padding: 1rem 1.05rem;
+      border-left: 3px solid var(--tone);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      background: var(--tone-soft);
+      color: var(--text);
+      font-size: 1.02rem;
+    }
+
+    .diagram-frame {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: #020712;
+    }
+
+    .diagram-frame img { width: 100%; height: auto; }
+
+    .caption {
+      margin-top: 0.75rem;
+      font-size: 0.92rem;
+    }
+
+    .caption-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.45rem 0.75rem;
+      margin-top: 0.28rem;
+    }
+
+    details {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.02);
+      padding: 0.9rem 1rem;
+    }
+
+    summary {
+      cursor: pointer;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    pre {
+      overflow-x: auto;
+      margin: 0.9rem 0 0;
+      padding: 1rem;
+      border-radius: var(--radius-md);
+      background: #060d18;
+      color: #dbe7f5;
+      line-height: 1.5;
+      font-size: 0.9rem;
+    }
 
     .footer {
-      padding: 1.3rem 1.4rem;
+      padding: 1.35rem 1.5rem;
       text-align: center;
-      color: var(--subtle);
-      font-size: 0.92rem;
+      font-size: 0.94rem;
     }
 
     .footer-links {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 0.75rem;
-      margin-top: 0.9rem;
+      gap: 0.7rem;
+      margin-top: 0.95rem;
     }
 
     .footer-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.45rem;
       padding: 0.72rem 1rem;
       border: 1px solid var(--border);
       border-radius: 999px;
@@ -300,169 +674,652 @@
       text-decoration: none;
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 920px) {
       .hero-grid,
       .grid-2,
       .grid-3,
+      .surface-grid,
       .workflow,
-      .visual-flow {
+      .signal-grid,
+      .note-grid,
+      .stat-grid,
+      .source-grid {
         grid-template-columns: 1fr;
       }
+    }
 
-      .flow-arrow { display: none; }
-      .page { width: min(100% - 1rem, var(--max)); }
+    @media (max-width: 720px) {
+      .page {
+        width: min(100% - 1rem, var(--max));
+        padding-top: 0.75rem;
+      }
+
+      .hero,
+      .panel,
+      .footer { border-radius: 24px; }
+
+      .hero,
+      .panel,
+      .footer { padding-inline: 1.05rem; }
+
+      table { min-width: 560px; }
+      h1 { max-width: none; }
     }
   </style>
 </head>
 <body>
   <main class="page">
     <header class="hero">
-      <div class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>Public HTML share page</div>
-      <h1>Augment architecture, rendered cleanly for sharing.</h1>
-      <p class="hero-lead">This is the HTML companion to <code>setup/AugmentArchitecture.md</code>. It keeps the guide readable on a clean public URL, especially in situations where the markdown route or Mermaid rendering can be awkward for Safari-based sharing and browsing.</p>
+      <div class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>HTML rendered for sharing</div>
+      <h1>
+        <span class="hero-title-line hero-title-main">Augment Architecture</span>
+        <span class="hero-title-line hero-title-mid">explained like a field guide</span>
+        <span class="hero-title-line hero-title-bottom">instead of a mystery box</span>
+      </h1>
+      <p class="hero-lead">This page is the fuller HTML companion to <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/AugmentArchitecture.md" target="_blank" rel="noreferrer"><code>setup/AugmentArchitecture.md</code></a>. It pulls over the substantive guidance from the markdown note, keeps the architecture readable on a clean public URL, and sharpens the model-routing section so it separates documented surface behavior from cautious inference about backend routing.</p>
+
+      <div class="stat-grid" aria-label="High-level guide stats">
+        <article class="stat-card"><strong>3</strong><span>main front doors: VS Code Agent, Auggie CLI, Intent</span></article>
+        <article class="stat-card"><strong>5</strong><span>starter roles called out in the guide</span></article>
+        <article class="stat-card"><strong>1</strong><span>key caution: model choice matters, but backend routing is not fully exposed</span></article>
+      </div>
+
       <div class="hero-grid">
-        <div class="card">
-          <p class="kicker">One-minute mental model</p>
-          <p><strong>Augment is easier to understand as a small software team than as one chatbot.</strong> The surfaces feel different on purpose, the tooling/context layer matters, and Intent makes the orchestration pattern the most explicit.</p>
-        </div>
-        <div class="card">
-          <p class="kicker">Preview control</p>
-          <p><strong>Direct shares of this HTML page use the preview metadata defined here.</strong> Shares of GitHub repo or <code>blob/main</code> pages use GitHub-controlled previews instead, which is why this clean-link page exists.</p>
-        </div>
+        <article class="card">
+          <p class="kicker">One-line mental model</p>
+          <p><strong>Augment makes more sense as a small software team than as one chatbot.</strong> The surfaces are intentionally different, the context/tooling layer matters, and Intent makes orchestration the most explicit.</p>
+        </article>
+        <article class="card">
+          <p class="kicker">Why this HTML exists</p>
+          <p><strong>Direct shares of this page use page-owned metadata, styling, and assets.</strong> That makes it easier to browse and present than relying on GitHub-controlled previews of a markdown blob URL.</p>
+        </article>
       </div>
-      <div class="chip-row" aria-label="Quick takeaways">
-        <span class="chip">🧠 Not one chatbot</span>
-        <span class="chip">🛠️ Three front doors</span>
-        <span class="chip">🧭 Intent = orchestration layer</span>
-        <span class="chip">❓ Model routing is still the open question</span>
-      </div>
+
+      <nav class="chip-row" aria-label="Topic jumps">
+        <a class="chip" href="#one-minute">🧠 One-minute view</a>
+        <a class="chip" href="#front-doors">🚪 Front doors</a>
+        <a class="chip" href="#intent-coordination">🧭 Intent coordination</a>
+        <a class="chip" href="#shared-context">🗂️ Shared context</a>
+        <a class="chip" href="#model-routing">🧪 Model routing</a>
+        <a class="chip" href="#sources">🔗 Sources</a>
+      </nav>
     </header>
 
-    <section class="panel" aria-labelledby="surfaces-title">
-      <p class="kicker">Three surfaces</p>
-      <h2 id="surfaces-title">Same ecosystem, three different front doors</h2>
-      <p class="section-lead">The simplest way to orient a new teammate is to separate the main surfaces first, then talk about the shared machinery underneath.</p>
-      <div class="grid-3">
+    <section class="panel" data-tone="blue" id="one-minute" aria-labelledby="one-minute-title">
+      <div class="tone-bar" aria-hidden="true"></div>
+      <p class="kicker">If you only read one minute</p>
+      <h2 id="one-minute-title">The shortest useful explanation</h2>
+      <div class="grid-2">
+        <article class="tone-callout">
+          <p><strong>Start with the surfaces:</strong> VS Code Agent is the editor-native builder bench, Auggie CLI is the terminal-native builder bench, and Intent is the orchestration layer.</p>
+          <ul class="summary-list">
+            <li><strong>General</strong> explores.</li>
+            <li><strong>Developer</strong> builds.</li>
+            <li><strong>PR Reviewer</strong> checks.</li>
+            <li><strong>PR Shepherd</strong> moves work toward merge-ready.</li>
+            <li><strong>UI Designer</strong> polishes presentation.</li>
+          </ul>
+        </article>
+        <article class="tone-callout">
+          <p><strong>The workflow is the real differentiator:</strong> one agent plans, one builds, one reviews, one polishes. That is why larger-repo work can feel surprisingly smooth when Intent is used like a coordinated team instead of one giant chat thread.</p>
+          <blockquote>Choosing a model likely affects the lead reasoning path, without proving that it is the only system involved in every behind-the-scenes step.</blockquote>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" data-tone="slate" id="mental-model" aria-labelledby="mental-model-title">
+      <div class="tone-bar" aria-hidden="true"></div>
+      <p class="kicker">Mental model</p>
+      <h2 id="mental-model-title">The layered view that makes the ecosystem click</h2>
+      <p class="section-lead">The safest framing is not “one prompt goes to one model.” It is “a surface, plus rules, tools, context, and sometimes specialist orchestration.” That keeps the guide accurate without flattening what the product actually feels like.</p>
+      <div class="table-wrap">
+        <table aria-label="Architecture layers and confidence">
+          <thead>
+            <tr>
+              <th>Layer</th>
+              <th>What it does</th>
+              <th>Confidence</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>VS Code Agent / Auggie CLI / Intent</strong></td>
+              <td>The user-facing surfaces where you interact with Augment.</td>
+              <td>✅ Documented and directly observable</td>
+            </tr>
+            <tr>
+              <td><strong>Rules &amp; guidelines</strong></td>
+              <td>Shape behavior with user, workspace, and hierarchical instruction layers.</td>
+              <td>✅ Documented</td>
+            </tr>
+            <tr>
+              <td><strong>Tools</strong></td>
+              <td>Let the agent read, edit, search, inspect, and run commands.</td>
+              <td>✅ Documented and observable</td>
+            </tr>
+            <tr>
+              <td><strong>Subagents / specialists</strong></td>
+              <td>Assign narrower jobs to agents with clearer boundaries and success criteria.</td>
+              <td>✅ Documented and observable</td>
+            </tr>
+            <tr>
+              <td><strong>Retrieval / context systems</strong></td>
+              <td>Help find the right code and docs quickly, including through Context Engine.</td>
+              <td>🟡 Strongly supported</td>
+            </tr>
+            <tr>
+              <td><strong>Internal model routing</strong></td>
+              <td>May optimize how work is handled under the hood, but the exact contract is not fully exposed in the docs reviewed here.</td>
+              <td>❓ Partly inferred</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <blockquote>Augment is best understood as an agentic system with roles, tools, and context — not just a single prompt going straight to a single model.</blockquote>
+    </section>
+
+    <section class="panel" data-tone="cyan" id="front-doors" aria-labelledby="front-doors-title">
+      <div class="tone-bar" aria-hidden="true"></div>
+      <p class="kicker">Three front doors</p>
+      <h2 id="front-doors-title">Same ecosystem, three deliberately different surfaces</h2>
+      <p class="section-lead">Before going deeper into Intent, separate the surfaces first. That alone explains a lot of why the ecosystem can feel coherent while still giving very different user experiences.</p>
+
+      <div class="surface-grid">
         <article class="surface-card">
           <h3>VS Code Agent</h3>
-          <p>Editor-native builder bench for tight iteration, file edits, and review loops without leaving the IDE.</p>
-          <div class="mini-chip">Best at: in-editor build work</div>
+          <p>Feels like a native IDE teammate focused on tight iteration, code edits, and reviewing changes without leaving the editor.</p>
+          <div class="chip-row">
+            <span class="mini-chip">Best at: in-editor build work</span>
+            <span class="mini-chip">Docs note: selected model in panel applies to Agent for the workspace</span>
+          </div>
         </article>
         <article class="surface-card">
           <h3>Auggie CLI</h3>
-          <p>Terminal-native builder bench for shell-heavy work, repo inspection, and command-driven implementation.</p>
-          <div class="mini-chip">Best at: terminal-first workflows</div>
+          <p>Feels terminal-first: shell-heavy work, repo inspection, command-driven tasks, and visible tool-call/result loops.</p>
+          <div class="chip-row">
+            <span class="mini-chip">Best at: terminal-native workflows</span>
+            <span class="mini-chip">Docs note: still missing some IDE-plugin features</span>
+          </div>
         </article>
         <article class="surface-card">
           <h3>Intent</h3>
-          <p>Spec-driven orchestration layer for planning, delegation, specialist lanes, and cleaner handoffs.</p>
-          <div class="mini-chip">Best at: coordination + task routing</div>
-        </article>
-      </div>
-    </section>
-
-    <section class="panel" aria-labelledby="flow-title">
-      <p class="kicker">System flow</p>
-      <h2 id="flow-title">How the architecture hangs together</h2>
-      <p class="section-lead">The surface you choose changes the workflow you feel most directly. The supporting system still combines tools, rules, retrieval, and sometimes specialist delegation around that surface.</p>
-      <div class="visual-flow" aria-label="Architecture flow summary">
-        <div class="flow-box">
-          <h3>1. Choose a surface</h3>
-          <p>VS Code Agent, Auggie CLI, or Intent.</p>
+          <p>Feels like the planning room: spec-driven development, delegation, parallel specialists, and cleaner handoffs.</p>
           <div class="chip-row">
-            <span class="mini-chip">IDE</span>
-            <span class="mini-chip">CLI</span>
-            <span class="mini-chip">Intent</span>
+            <span class="mini-chip">Best at: orchestration + task routing</span>
+            <span class="mini-chip">Docs note: describes Intent as spec-driven + orchestration app</span>
           </div>
-        </div>
-        <div class="flow-arrow" aria-hidden="true">→</div>
-        <div class="flow-box">
-          <h3>2. Shared Augment system</h3>
-          <p>Selected model, context engine, rules, tools, and workspace understanding shape the work.</p>
-          <ul>
-            <li>rules + guidelines</li>
-            <li>tool use + retrieval</li>
-            <li>workspace context</li>
-          </ul>
-        </div>
-        <div class="flow-arrow" aria-hidden="true">→</div>
-        <div class="flow-box">
-          <h3>3. Outputs</h3>
-          <p>Plans, edits, reviews, delegated tasks, and polished deliverables.</p>
-          <div class="chip-row">
-            <span class="mini-chip">answers</span>
-            <span class="mini-chip">edits</span>
-            <span class="mini-chip">handoffs</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="panel" aria-labelledby="workflow-title">
-      <p class="kicker">Workflow pattern</p>
-      <h2 id="workflow-title">Why Intent feels team-shaped</h2>
-      <p class="section-lead">The most useful pattern is not “pick one super-agent.” It is using narrower roles together so each one has less ambiguity about what good looks like.</p>
-      <div class="workflow">
-        <article class="step-card">
-          <h3>Coordinator</h3>
-          <p>Writes the plan, breaks work into scoped tasks, and keeps the spec or note structure clean.</p>
-        </article>
-        <article class="step-card">
-          <h3>Implementor</h3>
-          <p>Builds one lane cleanly, runs scoped verification, and reports exact files changed.</p>
-        </article>
-        <article class="step-card">
-          <h3>Reviewer / Verifier / UI</h3>
-          <p>Checks correctness, presentation, and regression risk without collapsing everything into one thread.</p>
         </article>
       </div>
+
+      <div class="table-wrap" style="margin-top: 1rem;">
+        <table aria-label="Surface comparison table">
+          <thead>
+            <tr>
+              <th>Surface</th>
+              <th>What it feels like</th>
+              <th>Best at</th>
+              <th>Distinct thing users notice</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>VS Code Agent</strong></td>
+              <td>A native IDE teammate</td>
+              <td>Tight iteration, code edits, review loops inside the editor</td>
+              <td>Public docs say the selected model in the Augment panel applies to Agent for the current workspace.</td>
+            </tr>
+            <tr>
+              <td><strong>Auggie CLI</strong></td>
+              <td>A terminal-first agentic assistant</td>
+              <td>Shell-heavy work, repo inspection, quick command-driven tasks</td>
+              <td>Interactive mode shows tool calls and results, and CLI docs note it does not yet include every IDE-plugin feature.</td>
+            </tr>
+            <tr>
+              <td><strong>Intent</strong></td>
+              <td>A spec-driven orchestration layer</td>
+              <td>Planning, delegation, parallel specialists, and cleaner handoffs</td>
+              <td>Public docs describe it as both a spec-driven development app and an agent orchestration app.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <article class="fact-strip" style="margin-top: 1rem;">
+        <h3>What stays similar across all three</h3>
+        <ul class="summary-list">
+          <li>They belong to the same Augment ecosystem.</li>
+          <li>Rules, tools, workspace context, and model choice still matter.</li>
+          <li>They rely on Augment’s codebase understanding and retrieval systems.</li>
+          <li>Shared repo understanding is <strong>not</strong> the same thing as shared chat history.</li>
+        </ul>
+      </article>
     </section>
 
-    <section class="panel" aria-labelledby="facts-title">
-      <p class="kicker">What seems clear vs open</p>
-      <h2 id="facts-title">Two buckets that keep the guide honest</h2>
+    <section class="panel" data-tone="violet" id="mcp-extension" aria-labelledby="mcp-title">
+      <div class="tone-bar" aria-hidden="true"></div>
+      <p class="kicker">MCP extension</p>
+      <h2 id="mcp-title">MCP is not a fourth front door — it is the plumbing</h2>
       <div class="grid-2">
-        <article class="fact-card">
-          <h3>Clear from docs + usage</h3>
-          <ul>
-            <li>Augment exposes multiple user-facing surfaces on purpose.</li>
-            <li>Rules, tools, and codebase context meaningfully shape behavior.</li>
-            <li>Specialists/subagents are a real supported pattern, not just a metaphor.</li>
-            <li>Shared repo understanding is not the same thing as shared chat history.</li>
+        <article class="signal-card">
+          <h3>Why this matters</h3>
+          <p>Augment’s Context Engine MCP can be plugged into other agent clients, so the ecosystem is not limited to Augment’s native surfaces.</p>
+          <p>That means you can use an external client while letting Augment provide the deep retrieval layer underneath.</p>
+        </article>
+        <article class="signal-card">
+          <h3>Concrete example</h3>
+          <p>You might use <strong>Claude Code CLI</strong> while Augment supplies codebase context through MCP. The external client is still the front end; Augment becomes part of the infrastructure.</p>
+          <blockquote>VS Code helps you build in place, CLI helps you build from the terminal, and Intent helps you organize the whole operation.</blockquote>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" data-tone="blue" id="presentation-svg" aria-labelledby="diagram-title">
+      <div class="tone-bar" aria-hidden="true"></div>
+      <p class="kicker">Architecture diagram</p>
+      <h2 id="diagram-title">Visual summary of the field guide</h2>
+      <figure class="diagram-frame">
+        <a href="#mermaid-fallback"><img src="./AugmentArchitecture-diagram-dark.svg" alt="Augment architecture diagram showing front doors, shared machinery, MCP extension, and outputs."></a>
+      </figure>
+      <figcaption class="caption">Presentation SVG above. The image links to the Mermaid fallback lower on the page.<span class="caption-links">Topic links: <a href="#front-doors">Front doors</a> · <a href="#intent-coordination">Intent coordination</a> · <a href="#shared-context">Shared context</a> · <a href="#model-routing">Model routing</a> · <a href="#mcp-extension">MCP extension</a></span></figcaption>
+    </section>
+
+    <section class="panel" data-tone="gold" id="intent-coordination" aria-labelledby="intent-title">
+      <div class="tone-bar" aria-hidden="true"></div>
+      <p class="kicker">Intent makes the cast explicit</p>
+      <h2 id="intent-title">Where the team-shaped workflow becomes part of the product</h2>
+      <p class="section-lead">VS Code Agent and Auggie CLI can still feel agentic. Intent is where the role structure becomes first-class: plans, specs, task waves, specialists, and handoffs are visible instead of implicit.</p>
+
+      <div class="table-wrap">
+        <table aria-label="Agent type summary">
+          <thead>
+            <tr>
+              <th>Agent type</th>
+              <th>Best for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>General</strong></td>
+              <td>Exploring a repo, planning work, documenting, and figuring out next steps.</td>
+            </tr>
+            <tr>
+              <td><strong>Developer</strong></td>
+              <td>Building features, editing files, fixing bugs, and implementing scoped tasks.</td>
+            </tr>
+            <tr>
+              <td><strong>PR Reviewer</strong></td>
+              <td>Reviewing changes, checking for issues, and giving feedback.</td>
+            </tr>
+            <tr>
+              <td><strong>PR Shepherd</strong></td>
+              <td>Moving work toward merge-ready by coordinating fixes and follow-up.</td>
+            </tr>
+            <tr>
+              <td><strong>UI Designer</strong></td>
+              <td>Layout, visual polish, UX, navigation clarity, and front-end presentation.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="workflow" style="margin-top: 1rem;">
+        <article class="step-card">
+          <h3>1. Coordinator plans</h3>
+          <p>Break the work into scoped tasks, define the shape of done, and keep the spec or task structure clean.</p>
+        </article>
+        <article class="step-card">
+          <h3>2. Developer / implementor builds</h3>
+          <p>Execute one lane cleanly, run scoped verification, and report exact files changed.</p>
+        </article>
+        <article class="step-card">
+          <h3>3. Reviewer / verifier / UI follows</h3>
+          <p>Check correctness, regression risk, and presentation without collapsing everything into one thread.</p>
+        </article>
+      </div>
+
+      <blockquote>The value is not just the role label. The value is combining roles into a workflow with clear responsibilities.</blockquote>
+    </section>
+
+    <section class="panel" data-tone="orange" id="specialists" aria-labelledby="specialists-title">
+      <div class="tone-bar" aria-hidden="true"></div>
+      <p class="kicker">Specialists and communication</p>
+      <h2 id="specialists-title">Narrower jobs, clearer boundaries, cleaner handoffs</h2>
+
+      <div class="grid-2">
+        <article class="signal-card">
+          <h3>What a specialist really is</h3>
+          <p>A specialist is an agent with a narrower job than a general starter type. In practice that means:</p>
+          <ul class="summary-list">
+            <li>give the agent a single role</li>
+            <li>give it clear boundaries</li>
+            <li>give it success criteria</li>
+            <li>let it hand off when needed</li>
           </ul>
         </article>
-        <article class="fact-card">
-          <h3>Still worth watching</h3>
-          <ul>
-            <li>The exact internal model-routing contract is not fully exposed in the public docs reviewed for the markdown guide.</li>
-            <li>Your chosen model likely matters a lot, but it may not be the only system involved in every behind-the-scenes step.</li>
-            <li>That is why the safest phrasing is “lead reasoning path,” not “only model ever used.”</li>
+        <article class="signal-card">
+          <h3>Why it helps</h3>
+          <p>As work gets bigger, specialists reduce ambiguity about what “good” looks like. That is a major reason team-shaped workflows often feel more reliable than one catch-all thread.</p>
+        </article>
+      </div>
+
+      <div class="table-wrap" style="margin-top: 1rem;">
+        <table aria-label="Specialist examples">
+          <thead>
+            <tr>
+              <th>Specialist</th>
+              <th>Job</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Coordinator specialist</strong></td>
+              <td>Writes the plan, breaks work into waves, and delegates.</td>
+            </tr>
+            <tr>
+              <td><strong>Pine Script developer specialist</strong></td>
+              <td>Focuses only on Pine code, tests, and task notes.</td>
+            </tr>
+            <tr>
+              <td><strong>Verifier specialist</strong></td>
+              <td>Checks whether output matches the spec and catches regressions.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note-grid" style="margin-top: 1rem;">
+        <article class="note-card">
+          <h3>Persistent workspace agents</h3>
+          <p>These are agents you keep around manually in a workspace. They stay available, become part of the standing workflow, and accumulate familiarity with the repo over time.</p>
+        </article>
+        <article class="note-card">
+          <h3>Task-based delegated agents</h3>
+          <p>These are created or assigned for a specific scoped task. They split work into passes so one giant conversation does not have to do everything at once.</p>
+        </article>
+      </div>
+
+      <article class="fact-strip" style="margin-top: 1rem;">
+        <h3>Standing verifier tab vs delegated verifier task agent</h3>
+        <p>A standing <strong>Verifier</strong> tab is a persistent workspace teammate you keep around as part of the cast. A delegated verifier task agent is a scoped reviewer assigned to one specific task or verification pass. Same verification function, different lifecycle and coordination role.</p>
+      </article>
+
+      <article class="fact-strip" style="margin-top: 1rem;">
+        <h3>A practical use pattern that works well</h3>
+        <ol class="summary-list">
+          <li>Start with <strong>General</strong> when you need discovery or planning.</li>
+          <li>Use <strong>Developer</strong> when implementation begins.</li>
+          <li>Add <strong>UI Designer</strong> when presentation matters.</li>
+          <li>Add <strong>PR Reviewer</strong> when you want a standing review layer.</li>
+          <li>Use a <strong>Coordinator-style</strong> agent once the repo or task is complex enough to benefit from planning and delegation.</li>
+        </ol>
+      </article>
+    </section>
+
+    <section class="panel" data-tone="green" id="shared-context" aria-labelledby="shared-context-title">
+      <div class="tone-bar" aria-hidden="true"></div>
+      <p class="kicker">Important architecture notes</p>
+      <h2 id="shared-context-title">Easy-to-miss distinctions that matter in real use</h2>
+      <div class="grid-2">
+        <article class="signal-card">
+          <h3>Chat history is siloed by interface</h3>
+          <p>Augment VS Code, Augment CLI, and Augment Intent do <strong>not</strong> share chat transcripts. If someone expects one surface to remember a conversation from another, that expectation will usually be wrong.</p>
+        </article>
+        <article class="signal-card">
+          <h3>Shared context is not shared conversation</h3>
+          <p>Different interfaces may understand the same repo or index, but that is not the same thing as sharing conversational memory. Shared context and shared history are separate concepts.</p>
+        </article>
+        <article class="signal-card">
+          <h3>Files on disk are the bridge</h3>
+          <p>If continuity matters across tools, write down the important decisions in specs, notes, handoffs, decision logs, or TODO files. Files are a safer bridge than hoping memory is shared.</p>
+        </article>
+        <article class="signal-card">
+          <h3>Separate working copies can be a feature</h3>
+          <p>Intent can operate in its own clone or working copy. The upside is less accidental interference; the tradeoff is that syncing between clones matters when multiple surfaces are active.</p>
+        </article>
+      </div>
+
+      <blockquote>If a decision matters, write it somewhere the next tool can read.</blockquote>
+    </section>
+
+    <section class="panel" data-tone="violet" id="rules-subagents" aria-labelledby="rules-title">
+      <div class="tone-bar" aria-hidden="true"></div>
+      <p class="kicker">Rules and subagents</p>
+      <h2 id="rules-title">How behavior gets shaped in practice</h2>
+      <div class="table-wrap">
+        <table aria-label="Rules and configuration table">
+          <thead>
+            <tr>
+              <th>If you want to…</th>
+              <th>Use this</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Set personal preferences everywhere</td>
+              <td><code>~/.augment/rules/</code> or user guidelines</td>
+            </tr>
+            <tr>
+              <td>Share repo-wide standards</td>
+              <td><code>&lt;workspace_root&gt;/.augment/rules/</code></td>
+            </tr>
+            <tr>
+              <td>Add directory-specific behavior</td>
+              <td><code>AGENTS.md</code> or <code>CLAUDE.md</code> in subdirectories</td>
+            </tr>
+            <tr>
+              <td>Create a reusable specialist</td>
+              <td><code>./.augment/agents/</code> subagent</td>
+            </tr>
+            <tr>
+              <td>Make a read-only reviewer</td>
+              <td>Subagent with restricted or disabled tools</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note-grid" style="margin-top: 1rem;">
+        <article class="note-card">
+          <h3>What the docs clearly support</h3>
+          <ul class="summary-list">
+            <li>user rules and workspace rules</li>
+            <li>hierarchical <code>AGENTS.md</code> and <code>CLAUDE.md</code></li>
+            <li>CLI subagents with their own prompt, model, and tool permissions</li>
+            <li>tool-call visibility in CLI interactive mode</li>
+          </ul>
+        </article>
+        <article class="note-card">
+          <h3>The nuance worth keeping</h3>
+          <p>Only <code>AGENTS.md</code> and <code>CLAUDE.md</code> are discovered hierarchically. <code>.augment/rules/</code> is loaded from the workspace root, not from every subdirectory. That matters when explaining which instructions follow the agent where.</p>
+        </article>
+      </div>
+
+      <article class="fact-strip" style="margin-top: 1rem;">
+        <h3>Subagents are very real</h3>
+        <p>CLI docs explicitly describe subagents with their own prompt, context window, model, tool restrictions, and storage location, and note that they can run in parallel and report back. That is strong support for explaining Augment as a configurable system of specialists rather than one monolithic assistant.</p>
+      </article>
+    </section>
+
+    <section class="panel" data-tone="rose" id="model-routing" aria-labelledby="model-routing-title">
+      <div class="tone-bar" aria-hidden="true"></div>
+      <p class="kicker">Careful model-routing guidance</p>
+      <h2 id="model-routing-title">What is documented, what is observable, what is inferred, and what remains open</h2>
+      <p class="section-lead">This is the section that most benefits from careful wording. The goal is not to treat routing as a mystery box. The goal is to separate what the docs and product surfaces actually show from the backend details they do not fully expose.</p>
+
+      <div class="signal-grid">
+        <article class="signal-card">
+          <h3>Documented about surfaces and model selection</h3>
+          <ul class="summary-list">
+            <li>Docs say the selected model in the Augment panel applies to Agent for the current workspace.</li>
+            <li>CLI docs describe subagents with their own model configuration.</li>
+            <li>Agent docs describe Context Engine plus a broader LLM architecture rather than a one-line “single model only” story.</li>
+          </ul>
+        </article>
+        <article class="signal-card">
+          <h3>Observable in normal use</h3>
+          <ul class="summary-list">
+            <li>The chosen surface changes how the workflow feels most directly.</li>
+            <li>Tool calls, retrieval, rules, and task delegation meaningfully shape outcomes.</li>
+            <li>Specialists and parallel work are product realities, not just metaphors.</li>
+          </ul>
+        </article>
+        <article class="signal-card">
+          <h3>Reasonable but cautious inference</h3>
+          <ul class="summary-list">
+            <li>Your selected model likely matters a lot for the lead reasoning path.</li>
+            <li>That still leaves room for retrieval, tool orchestration, and supporting infrastructure to participate around it.</li>
+            <li>It is plausible that some work is optimized behind the scenes without being exposed as a public routing contract.</li>
+          </ul>
+        </article>
+        <article class="signal-card">
+          <h3>Still genuinely open</h3>
+          <ul class="summary-list">
+            <li>The exact per-subtask routing policy is not spelled out in the docs reviewed here.</li>
+            <li>We do not have a public contract saying “Opus always does X, Sonnet always does Y, Haiku always does Z.”</li>
+            <li>We should not present backend delegation details as fact unless Augment documents them directly.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="note-grid" style="margin-top: 1rem;">
+        <article class="note-card">
+          <h3>Safe phrasing to use with teammates</h3>
+          <blockquote>Choosing a model in Augment likely affects primary reasoning behavior, but the public docs reviewed here do not define an exact per-subtask routing contract.</blockquote>
+        </article>
+        <article class="note-card">
+          <h3>Phrasing to avoid</h3>
+          <ul class="summary-list">
+            <li>“Opus always plans, Sonnet always executes, Haiku always handles cheap work.”</li>
+            <li>“The selected model is the only system touching every step.”</li>
+            <li>Any other statement that claims backend routing specifics as a guaranteed internal contract.</li>
           </ul>
         </article>
       </div>
     </section>
 
-    <section class="panel" aria-labelledby="source-title">
-      <p class="kicker">Source trail</p>
-      <h2 id="source-title">Where this HTML page points back</h2>
-      <p class="section-lead">The full long-form note, citations, and source list remain in the markdown source. This HTML page is the clean-link companion for browsing and sharing.</p>
+    <section class="panel" data-tone="slate" id="teammate-explainer" aria-labelledby="teammate-title">
+      <div class="tone-bar" aria-hidden="true"></div>
+      <p class="kicker">Explain it quickly</p>
+      <h2 id="teammate-title">The most useful quick explanation to hand someone else</h2>
       <div class="grid-2">
-        <div class="card">
+        <article class="source-card">
+          <h3>Three-surface version</h3>
+          <ul class="summary-list">
+            <li><strong>VS Code Agent</strong> = the fastest builder bench when you want to stay in the editor.</li>
+            <li><strong>Auggie CLI</strong> = the fastest builder bench when your workflow already lives in the terminal.</li>
+            <li><strong>Intent</strong> = the best orchestration layer when the work benefits from specs, delegation, and specialist handoffs.</li>
+          </ul>
+        </article>
+        <article class="source-card">
+          <h3>Questions still worth watching</h3>
+          <ol class="summary-list">
+            <li>What is the exact internal routing policy between high-end and lightweight models?</li>
+            <li>Does model selection behave identically across VS Code, CLI, and Intent in every case?</li>
+            <li>How stable are Intent role labels and orchestration patterns over time?</li>
+            <li>How much orchestration is model-to-model delegation versus retrieval, tooling, and background infrastructure?</li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" data-tone="blue" id="sources" aria-labelledby="sources-title">
+      <div class="tone-bar" aria-hidden="true"></div>
+      <p class="kicker">Sources and scope</p>
+      <h2 id="sources-title">Where this HTML page points back</h2>
+      <p class="section-lead">The markdown note remains the long-form source, but this HTML page now carries nearly all of its substantive guidance for easier sharing and browsing. Source scope: public Augment docs reviewed on 2026-03-06 plus Intent-native observations captured in this workspace.</p>
+      <div class="source-grid">
+        <article class="source-card">
           <h3>Primary markdown source</h3>
           <p><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/AugmentArchitecture.md" target="_blank" rel="noreferrer">GitHub blob/main → setup/AugmentArchitecture.md</a></p>
-        </div>
-        <div class="card">
+        </article>
+        <article class="source-card">
           <h3>Nearby public context</h3>
-          <p><a href="https://drasticstatic.github.io/trading-assistant-public-preview/" target="_blank" rel="noreferrer">Trading Assistant public preview home</a><br><a href="https://drasticstatic.github.io/trading-assistant-public-preview/setup/system-overview.md" target="_blank" rel="noreferrer">System overview markdown</a></p>
-        </div>
+          <p><a href="https://drasticstatic.github.io/trading-assistant-public-preview/" target="_blank" rel="noreferrer">Trading Assistant public preview home</a><br><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/system-overview.md" target="_blank" rel="noreferrer">System overview markdown</a></p>
+        </article>
       </div>
+
+      <div class="table-wrap" style="margin-top: 1rem;">
+        <table aria-label="Source list">
+          <thead>
+            <tr>
+              <th>Source</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Introducing Intent by Augment</strong></td><td><a href="https://docs.augmentcode.com/intent/overview" target="_blank" rel="noreferrer">docs.augmentcode.com/intent/overview</a></td></tr>
+            <tr><td><strong>Using Agent</strong></td><td><a href="https://docs.augmentcode.com/using-augment/agent" target="_blank" rel="noreferrer">docs.augmentcode.com/using-augment/agent</a></td></tr>
+            <tr><td><strong>Interactive mode</strong></td><td><a href="https://docs.augmentcode.com/cli/interactive" target="_blank" rel="noreferrer">docs.augmentcode.com/cli/interactive</a></td></tr>
+            <tr><td><strong>Context Engine MCP overview</strong></td><td><a href="https://docs.augmentcode.com/context-services/mcp/overview" target="_blank" rel="noreferrer">docs.augmentcode.com/context-services/mcp/overview</a></td></tr>
+            <tr><td><strong>Claude Code Quickstart</strong></td><td><a href="https://docs.augmentcode.com/context-services/mcp/quickstart-claude-code" target="_blank" rel="noreferrer">docs.augmentcode.com/context-services/mcp/quickstart-claude-code</a></td></tr>
+            <tr><td><strong>Rules &amp; Guidelines for Agent and Chat</strong></td><td><a href="https://docs.augmentcode.com/setup-augment/guidelines" target="_blank" rel="noreferrer">docs.augmentcode.com/setup-augment/guidelines</a></td></tr>
+            <tr><td><strong>Rules &amp; Guidelines (CLI)</strong></td><td><a href="https://docs.augmentcode.com/cli/rules" target="_blank" rel="noreferrer">docs.augmentcode.com/cli/rules</a></td></tr>
+            <tr><td><strong>Subagents</strong></td><td><a href="https://docs.augmentcode.com/cli/subagents" target="_blank" rel="noreferrer">docs.augmentcode.com/cli/subagents</a></td></tr>
+            <tr><td><strong>Intent-native summaries captured in this workspace</strong></td><td>User-provided Intent role / workflow notes on 2026-03-06</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel" data-tone="slate" id="mermaid-fallback" aria-labelledby="mermaid-title">
+      <div class="tone-bar" aria-hidden="true"></div>
+      <p class="kicker">Mermaid fallback</p>
+      <h2 id="mermaid-title">Fallback source for the architecture diagram</h2>
+      <p class="section-lead">Jump back to the <a href="#presentation-svg">presentation SVG</a> or expand the Mermaid source below if you want the text representation carried over from the markdown note. This HTML page intentionally keeps the SVG as the primary view instead of shipping a client-side Mermaid runtime; if you want native Mermaid rendering, the best fallback is usually the <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/AugmentArchitecture.md" target="_blank" rel="noreferrer">GitHub view of the markdown source</a>.</p>
+      <details>
+        <summary>View Mermaid fallback source</summary>
+        <pre><code>flowchart TD
+    U([🧑 You])
+
+    subgraph SURFACES["🚪 FRONT DOORS"]
+        direction LR
+        VS[💻 VS Code Agent&lt;br/&gt;Editor-native builder bench]
+        CL[⌨️ Auggie CLI&lt;br/&gt;Terminal-native builder bench]
+        IN[🧭 Intent&lt;br/&gt;Spec-driven orchestration layer]
+    end
+
+    subgraph SHARED["⚙️ SHARED MACHINERY"]
+        direction TB
+        subgraph CORE[ ]
+            direction LR
+            SM[🧠 Selected model&lt;br/&gt;Lead reasoning path]
+            CX[🔎 Context engine&lt;br/&gt;Tools • rules • workspace context]
+            AG[🧩 Coordination layer&lt;br/&gt;Most explicit in Intent]
+        end
+        BG[🔄 Retrieval, tool use,&lt;br/&gt;and background routing]
+        OUT([✅ Answers, edits,&lt;br/&gt;plans, reviews])
+    end
+
+    subgraph EXTEND["🔌 BEYOND NATIVE"]
+        direction LR
+        MCP[🔌 Context Engine MCP&lt;br/&gt;Shared context bridge]
+        CC[🤝 Claude Code CLI&lt;br/&gt;External client example]
+    end
+
+    U --&gt; VS
+    U --&gt; CL
+    U --&gt; IN
+    VS --&gt; SM
+    CL --&gt; SM
+    IN --&gt; SM
+    VS --&gt; CX
+    CL --&gt; CX
+    IN --&gt; CX
+    IN --&gt; AG
+    SM --&gt; BG
+    CX --&gt; BG
+    AG --&gt; BG
+    BG --&gt; OUT
+    CX --&gt; MCP
+    MCP -.-&gt; CC</code></pre>
+      </details>
     </section>
 
     <footer class="footer">
-      <p>This HTML page controls its own direct-share metadata and favicon coverage. GitHub repo and blob URLs keep GitHub-controlled previews.</p>
+      <p>GitHub repo and blob URLs still keep GitHub-controlled previews.</p>
       <div class="footer-links">
         <a class="footer-link" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/AugmentArchitecture.md" target="_blank" rel="noreferrer">Open the markdown source ↗</a>
-        <a class="footer-link" href="https://drasticstatic.github.io/trading-assistant-public-preview/">Back to public preview home ↩</a>
+        <a class="footer-link" href="https://drasticstatic.github.io/trading-assistant-public-preview/" target="_blank" rel="noreferrer">Back to public preview home ↩</a>
       </div>
     </footer>
   </main>
