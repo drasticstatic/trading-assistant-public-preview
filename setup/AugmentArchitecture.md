@@ -6,7 +6,7 @@
 - **The three main user-facing surfaces are different on purpose**: VS Code Agent is the editor-native builder bench, Auggie CLI is the terminal-native builder bench, and Intent is the orchestration layer.
 - **MCP extends the ecosystem without becoming a fourth native surface**: you can plug Augment Context Engine into external clients, for example **Claude Code CLI**, while Augment supplies the retrieval layer underneath.
 - **Intent makes the team metaphor explicit** with coordinator-style planning, specialist roles, specs, and delegated work.
-- **The most important open architecture question is model routing**: choosing something like `Opus` likely sets the lead reasoning path, but may not mean it is the only model or system involved in every behind-the-scenes step.
+- **The biggest architecture caution is model routing**: choosing something like `Opus` likely sets the lead reasoning path, but the public docs reviewed here do not spell out an exact per-subtask routing contract for every behind-the-scenes step.
 
 This started as class research and turned into something better: a **shareable field guide** to how Augment feels in real use.
 
@@ -107,7 +107,7 @@ If I had to reduce the distinction to one line:
 
 *[Jump to Mermaid fallback](#mermaid-fallback)*
 
-*Presentation SVG above. The image itself links to the fallback Mermaid section at the bottom of this note.*
+*Presentation SVG above. If your local markdown preview does not render Mermaid cleanly, use the SVG here or open the [GitHub view of this note](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/AugmentArchitecture.md), where Mermaid support is usually better. The image itself links to the fallback Mermaid section at the bottom of this note.*
 
 *Topic links: [Front doors](#front-doors) · [Intent coordination](#intent-coordination) · [Shared context](#shared-context) · [Model routing](#model-routing) · [MCP extension](#mcp-extension)*
 
@@ -208,6 +208,17 @@ Why that matters:
 - work can be split into passes
 - different agents can own different kinds of thinking
 - you do not need one giant conversation doing everything at once
+
+### Quick note: standing verifier tab vs delegated verifier task agent
+
+These are easy to blur together, but they are not the same thing.
+
+- a **standing Verifier tab / workspace agent** is a persistent teammate you keep around as part of the cast
+- a **delegated verifier task agent** is a scoped reviewer assigned to one specific task or verification pass
+
+Both can verify work.
+
+The difference is lifecycle and coordination style: one is part of the standing bench, and the other is part of task routing.
 
 In practice, a coordinator-style agent can:
 
@@ -443,6 +454,13 @@ The best cautious explanation for teammates is:
 - it is very plausible that Augment combines the chosen model with retrieval, tooling, and possibly lighter-weight background handling
 - the exact “Opus delegates to Sonnet/Haiku in these specific cases” contract is **not** clearly spelled out in the public docs reviewed here
 
+A tighter four-part framing that stays aligned with the HTML companion is:
+
+- **Documented:** surface-level model selection and subagent model settings are real, public features
+- **Observable:** tool calls, retrieval, rules, and delegation clearly shape outcomes in day-to-day use
+- **Reasonable inference:** the selected model likely sets the lead reasoning path while supporting systems can still participate around it
+- **Still open:** the exact per-subtask routing contract is not publicly spelled out in the docs reviewed here
+
 What I would avoid presenting as fact:
 
 - “Opus always plans, Sonnet always executes, Haiku always handles cheap work.”
@@ -501,6 +519,8 @@ Even after all this, a few questions remain interesting:
 ## 🌙 Mermaid fallback
 
 *[Jump back to presentation SVG](#presentation-svg)*
+
+*If you want native Mermaid rendering, the best bet is usually the [GitHub view of this markdown file](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/AugmentArchitecture.md). This note keeps the presentation SVG near the top so the architecture stays readable even where Mermaid support is missing or inconsistent.*
 
 *Topic links: [Front doors](#front-doors) · [Intent coordination](#intent-coordination) · [Shared context](#shared-context) · [Model routing](#model-routing) · [MCP extension](#mcp-extension)*
 
