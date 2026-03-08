@@ -2,15 +2,7 @@
 
 > A live, multi-agent AI trading accountability system built on Claude Code CLI + Augment Code
 
-![Public Preview](https://img.shields.io/badge/%F0%9F%8C%90%20Public%20Preview-Available-brightgreen)
-
-![Synced via GitExporter](https://img.shields.io/badge/Synced%20via-GitExporter-blue)
-
-![Built with Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code%20CLI-blueviolet)
-
-![Built with Augment](https://img.shields.io/badge/Built%20with-Augment-0B0F19)
-
-![Status](https://img.shields.io/badge/Status-%F0%9F%94%A5%20Live-brightgreen)
+[![Public Preview](https://img.shields.io/badge/%F0%9F%8C%90%20Public%20Preview-Available-brightgreen)](https://drasticstatic.github.io/trading-assistant-public-preview/) [![Synced via GitExporter](https://img.shields.io/badge/Synced%20via-GitExporter-blue)](https://github.com/drasticstatic/trading-assistant/blob/main/gitexporter.config.json) [![Built with Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code%20CLI-blueviolet)](https://code.claude.com/docs/en/overview) [![Built with Augment](https://img.shields.io/badge/Built%20with-Augment-0B0F19)](https://augmentcode.com) [![Status](https://img.shields.io/badge/Status-%F0%9F%94%A5%20Live-brightgreen)](https://code.claude.com/docs/en/cli-reference)
 
 > [🗺️ Wondering where to go next? 🧭 → Click HERE to find your way around 🔍](https://drasticstatic.github.io/trading-assistant-public-preview/)
 
@@ -70,9 +62,9 @@ Kavanah (Augment Intent) — task orchestration, documentation, strategy refs
     └─────────────────────────────────────────┘
 ```
 
-- `setup/system-overview.md` — high-level map of the agents, clones, MCP servers, and workflow lanes.
-- `setup/AugmentArchitecture.md` — deeper Augment / Intent architecture and delegation model.
-- `setup/AugmentArchitecture.html` — clean HTML companion for the Augment architecture guide.
+- [`setup/system-overview.md`](setup/system-overview.md) — high-level map of the agents, clones, MCP servers, and workflow lanes.
+- [`setup/AugmentArchitecture.md`](setup/AugmentArchitecture.md) — deeper Augment / Intent architecture and delegation model.
+- [`setup/AugmentArchitecture.html`](https://drasticstatic.github.io/trading-assistant-public-preview/setup/AugmentArchitecture.html) — clean HTML companion for the Augment architecture guide.
 
 ## 📐 Strategy Stack
 
