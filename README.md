@@ -12,7 +12,7 @@
 
 ![Status](https://img.shields.io/badge/Status-%F0%9F%94%A5%20Live-brightgreen)
 
-> 🗺️ Wondering where to go next? 🧭 → Click [HERE](https://drasticstatic.github.io/trading-assistant-public-preview/404.html) to find your way around 🔍
+> 🗺️ Wondering where to go next? 🧭 → Click [HERE](https://drasticstatic.github.io/trading-assistant-public-preview/) to find your way around 🔍
 
 > 🔒 Note for visitors: This repository is partially mirrored to a public preview via an automated GitExporter pipeline. The public version includes this README and session export files. Strategy reference files are excluded — they contain proprietary content from paid mentorship programs (ZeroToHero, Inevitrade, SmartTradingBlueprint) and are not mine to share publicly.
 
