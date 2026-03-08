@@ -13,17 +13,17 @@
   <meta property="og:description" content="A fuller HTML field guide to Augment’s surfaces, specialists, MCP extension, and careful model-routing language.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/AugmentArchitecture.html">
-  <meta property="og:image" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/aug-arch-preview.png">
-  <meta property="og:image:secure_url" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/aug-arch-preview.png">
-  <meta property="og:image:type" content="image/png">
+  <meta property="og:image" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/aug-arch-preview.svg">
+  <meta property="og:image:secure_url" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/aug-arch-preview.svg">
+  <meta property="og:image:type" content="image/svg+xml">
   <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Augment Architecture field guide preview with centered title lines, core surfaces, shared machinery, and careful model-routing framing.">
+  <meta property="og:image:height" content="720">
+  <meta property="og:image:alt" content="Augment Architecture field guide preview with centered title lines, four surface cards, and a blue-green-purple divider accent.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Augment Architecture — Field Guide, Not a Mystery Box">
   <meta name="twitter:description" content="Expanded HTML field guide covering Augment’s surfaces, specialists, MCP extension, and model-routing guidance.">
-  <meta name="twitter:image" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/aug-arch-preview.png">
-  <meta name="twitter:image:alt" content="Augment Architecture field guide preview with centered title lines, core surfaces, shared machinery, and careful model-routing framing.">
+  <meta name="twitter:image" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/aug-arch-preview.svg">
+  <meta name="twitter:image:alt" content="Augment Architecture field guide preview with centered title lines, four surface cards, and a blue-green-purple divider accent.">
   <link rel="icon" href="./favicon_aug.svg" type="image/svg+xml">
   <link rel="shortcut icon" href="./favicon_aug.svg" type="image/svg+xml">
   <style>
@@ -380,6 +380,34 @@
       margin-inline: auto;
     }
 
+    .fact-strip.roomy {
+      padding: 1.12rem 1.3rem;
+    }
+
+    .fact-strip.roomy p,
+    .fact-strip.roomy ol,
+    .fact-strip.roomy ul {
+      max-width: 46rem;
+    }
+
+    .fact-strip.stretch-copy p,
+    .fact-strip.stretch-copy ol,
+    .fact-strip.stretch-copy ul {
+      max-width: 56rem;
+    }
+
+    .fact-strip.copy-left p,
+    .fact-strip.copy-left ol,
+    .fact-strip.copy-left ul {
+      max-width: 42rem;
+      text-align: left;
+    }
+
+    .panel.panel-roomy > .section-lead,
+    .panel.panel-roomy > blockquote {
+      max-width: 62rem;
+    }
+
     .hero .eyebrow,
     .hero .chip-row {
       justify-content: center;
@@ -389,6 +417,7 @@
     .chip,
     .mini-chip,
     .jump-link {
+      position: relative;
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
@@ -400,14 +429,57 @@
 
     .chip,
     .jump-link {
+      --pointer-x: 50%;
+      --pointer-y: 50%;
+      --mag-x: 0px;
+      --mag-y: 0px;
+      --cta-lift: 0px;
+      --cta-scale: 1;
       padding: 0.8rem 1.15rem;
+      overflow: hidden;
+      isolation: isolate;
       background: linear-gradient(135deg, rgba(124, 194, 255, 0.22), rgba(182, 147, 255, 0.18));
       border-color: rgba(124, 194, 255, 0.44);
       box-shadow: 0 14px 32px rgba(7, 14, 26, 0.24), inset 0 1px 0 rgba(255,255,255,0.12), 0 0 0 1px rgba(124, 194, 255, 0.08);
       font-size: 0.92rem;
       font-weight: 800;
       cursor: pointer;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+      transform: translate3d(var(--mag-x), calc(var(--mag-y) + var(--cta-lift)), 0) scale(var(--cta-scale));
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, color 0.18s ease, background 0.18s ease, filter 0.18s ease;
+      animation: cta-pulse 3.9s ease-in-out infinite;
+    }
+
+    .chip::before,
+    .jump-link::before {
+      content: "";
+      position: absolute;
+      inset: -55% auto auto -28%;
+      width: 42%;
+      height: 210%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.28), transparent);
+      opacity: 0;
+      transform: translateX(-16%) rotate(18deg);
+      transition: transform 0.42s ease, opacity 0.28s ease;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      z-index: -1;
+    }
+
+    .chip::after,
+    .jump-link::after {
+      content: "";
+      position: absolute;
+      left: var(--pointer-x);
+      top: var(--pointer-y);
+      width: 10.5rem;
+      height: 10.5rem;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(255,255,255,0.18), rgba(110, 231, 249, 0.14) 24%, rgba(182, 147, 255, 0.1) 48%, transparent 72%);
+      transform: translate(-50%, -50%) scale(0.5);
+      opacity: 0;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      pointer-events: none;
+      z-index: -1;
     }
 
     .mini-chip {
@@ -423,7 +495,9 @@
       color: var(--blue);
       background: linear-gradient(135deg, rgba(124, 194, 255, 0.3), rgba(182, 147, 255, 0.22));
       box-shadow: 0 18px 38px rgba(12, 22, 38, 0.3), inset 0 1px 0 rgba(255,255,255,0.16), 0 0 0 1px rgba(124, 194, 255, 0.18);
-      transform: translateY(-2px);
+      --cta-lift: -2px;
+      --cta-scale: 1.015;
+      filter: saturate(1.08);
       text-decoration: none;
     }
 
@@ -434,12 +508,33 @@
       color: var(--blue);
       background: linear-gradient(135deg, rgba(124, 194, 255, 0.3), rgba(182, 147, 255, 0.22));
       box-shadow: 0 18px 38px rgba(12, 22, 38, 0.3), inset 0 1px 0 rgba(255,255,255,0.16), 0 0 0 1px rgba(124, 194, 255, 0.18);
-      transform: translateY(-2px);
+      --cta-lift: -2px;
+      --cta-scale: 1.015;
+      filter: saturate(1.08);
       text-decoration: none;
     }
 
+    .chip:hover::before,
+    .chip:focus-visible::before,
+    .jump-link:hover::before,
+    .jump-link:focus-visible::before {
+      opacity: 0.95;
+      transform: translateX(240%) rotate(18deg);
+    }
+
+    .chip:hover::after,
+    .chip:focus-visible::after,
+    .jump-link:hover::after,
+    .jump-link:focus-visible::after {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
     .chip:active,
-    .jump-link:active { transform: translateY(0); }
+    .jump-link:active {
+      --cta-lift: 0px;
+      --cta-scale: 0.995;
+    }
 
     .panel {
       --tone: var(--blue);
@@ -571,18 +666,78 @@
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
     }
 
+    .surface-card,
+    .signal-card,
+    .source-card,
+    .step-card {
+      overflow: hidden;
+      isolation: isolate;
+      transition: box-shadow 0.22s ease, transform 0.22s ease;
+    }
+
     .surface-card::before,
     .signal-card::before,
     .source-card::before,
     .step-card::before {
       content: "";
       position: absolute;
-      inset: 0 auto auto 0;
-      width: 100%;
-      height: 0.22rem;
-      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-      background: linear-gradient(90deg, var(--tone), transparent 76%);
-      opacity: 0.92;
+      inset: 0;
+      padding: 1.25px;
+      border-radius: inherit;
+      background: conic-gradient(
+        from 0deg,
+        transparent 0deg 234deg,
+        color-mix(in srgb, var(--tone) 24%, white 10%) 262deg,
+        color-mix(in srgb, var(--tone) 74%, white 12%) 294deg,
+        rgba(255,255,255,0.72) 312deg,
+        color-mix(in srgb, var(--tone) 62%, white 12%) 328deg,
+        transparent 350deg 360deg
+      );
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask-composite: exclude;
+      opacity: 0.72;
+      animation: card-border-travel 8.6s linear infinite;
+      pointer-events: none;
+    }
+
+    .surface-card:hover,
+    .signal-card:hover,
+    .source-card:hover,
+    .step-card:hover,
+    .surface-card:focus-within,
+    .signal-card:focus-within,
+    .source-card:focus-within,
+    .step-card:focus-within {
+      transform: translateY(-1.5px);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 18px 36px rgba(5, 12, 24, 0.16);
+    }
+
+    .surface-card:hover::before,
+    .signal-card:hover::before,
+    .source-card:hover::before,
+    .step-card:hover::before,
+    .surface-card:focus-within::before,
+    .signal-card:focus-within::before,
+    .source-card:focus-within::before,
+    .step-card:focus-within::before {
+      opacity: 0.96;
+      animation-duration: 6.3s;
+    }
+
+    @keyframes card-border-travel {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes cta-pulse {
+      0%, 100% {
+        box-shadow: 0 14px 32px rgba(7, 14, 26, 0.24), inset 0 1px 0 rgba(255,255,255,0.12), 0 0 0 1px rgba(124, 194, 255, 0.08);
+      }
+      50% {
+        box-shadow: 0 16px 36px rgba(7, 14, 26, 0.28), inset 0 1px 0 rgba(255,255,255,0.15), 0 0 0 1px rgba(124, 194, 255, 0.14), 0 0 0 0.26rem rgba(110, 231, 249, 0.045);
+      }
     }
 
     blockquote {
@@ -672,6 +827,34 @@
       border-color: var(--blue);
       color: var(--blue);
       text-decoration: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+
+      .chip,
+      .jump-link,
+      .surface-card,
+      .signal-card,
+      .source-card,
+      .step-card {
+        animation: none;
+        transition: none;
+      }
+
+      .surface-card::before,
+      .signal-card::before,
+      .source-card::before,
+      .step-card::before {
+        animation: none;
+      }
+
+      .chip::before,
+      .chip::after,
+      .jump-link::before,
+      .jump-link::after {
+        transition: none;
+      }
     }
 
     @media (max-width: 920px) {
@@ -884,7 +1067,7 @@
         </table>
       </div>
 
-      <article class="fact-strip" style="margin-top: 1rem;">
+      <article class="fact-strip roomy copy-left" style="margin-top: 1rem;">
         <h3>What stays similar across all three</h3>
         <ul class="summary-list">
           <li>They belong to the same Augment ecosystem.</li>
@@ -1038,12 +1221,12 @@
         </article>
       </div>
 
-      <article class="fact-strip" style="margin-top: 1rem;">
+      <article class="fact-strip roomy stretch-copy" style="margin-top: 1rem;">
         <h3>Standing verifier tab vs delegated verifier task agent</h3>
         <p>A standing <strong>Verifier</strong> tab is a persistent workspace teammate you keep around as part of the cast. A delegated verifier task agent is a scoped reviewer assigned to one specific task or verification pass. Same verification function, different lifecycle and coordination role.</p>
       </article>
 
-      <article class="fact-strip" style="margin-top: 1rem;">
+      <article class="fact-strip roomy copy-left" style="margin-top: 1rem;">
         <h3>A practical use pattern that works well</h3>
         <ol class="summary-list">
           <li>Start with <strong>General</strong> when you need discovery or planning.</li>
@@ -1134,7 +1317,7 @@
         </article>
       </div>
 
-      <article class="fact-strip" style="margin-top: 1rem;">
+      <article class="fact-strip roomy stretch-copy" style="margin-top: 1rem;">
         <h3>Subagents are very real</h3>
         <p>CLI docs explicitly describe subagents with their own prompt, context window, model, tool restrictions, and storage location, and note that they can run in parallel and report back. That is strong support for explaining Augment as a configurable system of specialists rather than one monolithic assistant.</p>
       </article>
@@ -1261,7 +1444,7 @@
       </div>
     </section>
 
-    <section class="panel" data-tone="slate" id="mermaid-fallback" aria-labelledby="mermaid-title">
+    <section class="panel panel-roomy" data-tone="slate" id="mermaid-fallback" aria-labelledby="mermaid-title">
       <div class="tone-bar" aria-hidden="true"></div>
       <p class="kicker">Mermaid fallback</p>
       <h2 id="mermaid-title">Fallback source for the architecture diagram</h2>
@@ -1323,5 +1506,37 @@
       </div>
     </footer>
   </main>
+  <script>
+    (() => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        return;
+      }
+
+      document.querySelectorAll('.chip, .jump-link').forEach((button) => {
+        const reset = () => {
+          button.style.setProperty('--mag-x', '0px');
+          button.style.setProperty('--mag-y', '0px');
+          button.style.setProperty('--pointer-x', '50%');
+          button.style.setProperty('--pointer-y', '50%');
+        };
+
+        button.addEventListener('pointermove', (event) => {
+          const rect = button.getBoundingClientRect();
+          const offsetX = event.clientX - rect.left;
+          const offsetY = event.clientY - rect.top;
+          const shiftX = (offsetX - rect.width / 2) * 0.05;
+          const shiftY = (offsetY - rect.height / 2) * 0.06;
+
+          button.style.setProperty('--pointer-x', `${offsetX}px`);
+          button.style.setProperty('--pointer-y', `${offsetY}px`);
+          button.style.setProperty('--mag-x', `${shiftX.toFixed(2)}px`);
+          button.style.setProperty('--mag-y', `${shiftY.toFixed(2)}px`);
+        });
+
+        button.addEventListener('pointerleave', reset);
+        button.addEventListener('blur', reset);
+      });
+    })();
+  </script>
 </body>
 </html>
