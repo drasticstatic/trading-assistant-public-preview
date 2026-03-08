@@ -11,12 +11,20 @@
   <!-- Direct HTML-page shares use the metadata below. GitHub blob/repo page previews are controlled by GitHub instead. -->
   <meta property="og:site_name" content="Trading Assistant Public Preview">
   <meta property="og:title" content="404 — Page Moved | Trading Assistant">
-  <meta property="og:description" content="Recovery-first 404 page for the Trading Assistant public preview, with direct links back into the reorganized public-safe paths.">
+  <meta property="og:description" content="Recovery-first 404 page for the Trading Assistant public preview, with direct links back into the reorganized public-safe paths and public-safe recovery routes.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://drasticstatic.github.io/trading-assistant-public-preview/404.html">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://drasticstatic.github.io/trading-assistant-public-preview/404-preview.png">
+  <meta property="og:image:secure_url" content="https://drasticstatic.github.io/trading-assistant-public-preview/404-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Trading Assistant 404 preview graphic with a candlestick-style chart, a highlighted 404 gap zone, and recovery-first routing cues.">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="404 — Page Moved | Trading Assistant">
-  <meta name="twitter:description" content="Recovery-first 404 page for the Trading Assistant public preview, with direct links back into the reorganized public-safe paths.">
+  <meta name="twitter:description" content="Recovery-first 404 page for the Trading Assistant public preview, with direct links back into the reorganized public-safe paths and public-safe recovery routes.">
+  <meta name="twitter:image" content="https://drasticstatic.github.io/trading-assistant-public-preview/404-preview.png">
+  <meta name="twitter:image:alt" content="Trading Assistant 404 preview graphic with a candlestick-style chart, a highlighted 404 gap zone, and recovery-first routing cues.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
   <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
@@ -244,18 +252,40 @@
     }
 
     .grid-line { stroke: rgba(139, 148, 158, 0.14); stroke-width: 1; }
-    .candle-wick { stroke-width: 1.5; }
-    .candle-body { rx: 1; }
-    .ema-fast { fill: none; stroke: var(--green); stroke-width: 1.5; opacity: 0.82; }
-    .ema-slow { fill: none; stroke: var(--red); stroke-width: 1.5; opacity: 0.76; }
+    .candle-wick { stroke-width: 1.75; stroke-linecap: round; opacity: 0.92; }
+    .candle-body { rx: 1.2; }
+    .ema-fast {
+      fill: none;
+      stroke: var(--green);
+      stroke-width: 2;
+      opacity: 0.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .ema-slow {
+      fill: none;
+      stroke: var(--red);
+      stroke-width: 2;
+      opacity: 0.82;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
     .fvg { opacity: 0.14; }
     .gap-zone { opacity: 0.11; }
     .gap-line { stroke: var(--yellow); stroke-width: 1; stroke-dasharray: 4 3; opacity: 0.6; }
     .gap-label {
       font-size: 11px;
       fill: var(--yellow);
-      font-family: monospace;
-      opacity: 0.84;
+      font-family: "SF Mono", "Fira Code", monospace;
+      opacity: 0.88;
+      letter-spacing: 0.04em;
+    }
+    .gap-label-sub {
+      font-size: 8.75px;
+      fill: var(--yellow);
+      font-family: "SF Mono", "Fira Code", monospace;
+      opacity: 0.8;
+      letter-spacing: 0.03em;
     }
 
     .hero {
@@ -307,8 +337,20 @@
       margin: 0;
       max-width: 42rem;
       color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.75;
+      font-size: 0.92rem;
+      line-height: 1.62;
+    }
+
+    .subtitle-line {
+      display: block;
+    }
+
+    .subtitle-line--fineprint {
+      font-size: 0.95em;
+    }
+
+    .subtitle-line + .subtitle-line {
+      margin-top: 0.24rem;
     }
 
     .hero-signal {
@@ -316,17 +358,17 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 0.4rem;
+      gap: 0.34rem;
       max-width: min(100%, 40rem);
       margin: 0;
-      padding: 0.8rem 1rem;
+      padding: 0.68rem 0.9rem;
       border: 1px solid var(--border-strong);
       border-radius: 20px;
       background:
         linear-gradient(180deg, rgba(227, 179, 65, 0.08), rgba(227, 179, 65, 0.03)),
         var(--surface-soft);
       color: var(--text);
-      font-size: 0.92rem;
+      font-size: 0.86rem;
       box-shadow: var(--shadow-soft);
     }
 
@@ -337,16 +379,19 @@
       gap: 0.55rem;
       text-align: center;
       color: var(--text);
-      font-size: 0.78rem;
+      font-size: 0.7rem;
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.075em;
       text-transform: uppercase;
     }
 
     .hero-signal-subline {
       color: var(--muted);
-      font-size: 0.98rem;
-      line-height: 1.45;
+      display: block;
+      max-width: 31rem;
+      margin-inline: auto;
+      font-size: 0.86rem;
+      line-height: 1.34;
     }
 
     .hero-signal-dot {
@@ -449,6 +494,7 @@
     .action-card,
     .map-card {
       display: block;
+      position: relative;
       text-decoration: none;
       color: inherit;
       border: 1px solid var(--border);
@@ -482,10 +528,27 @@
     }
 
     .action-icon {
-      display: block;
-      margin-bottom: 0.65rem;
-      font-size: 2.35rem;
+      position: absolute;
+      top: 0.9rem;
+      right: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.35rem;
+      height: 2.35rem;
+      margin: 0;
+      border-radius: 999px;
+      background: rgba(124, 194, 255, 0.08);
+      border: 1px solid rgba(124, 194, 255, 0.14);
+      font-size: 1.25rem;
       line-height: 1;
+      box-shadow: 0 12px 24px rgba(2, 6, 23, 0.16);
+      pointer-events: none;
+    }
+
+    .action-content {
+      display: block;
+      padding-right: 3rem;
     }
 
     .action-topline {
@@ -627,11 +690,11 @@
     }
 
     .footer {
-      margin-top: 1.55rem;
+      margin-top: 1.9rem;
       padding-top: 1.35rem;
       border-top: 1px solid var(--border);
       color: var(--subtle);
-      font-size: 0.82rem;
+      font-size: 0.79rem;
       text-align: center;
     }
 
@@ -645,9 +708,18 @@
     }
 
     .footer-copy {
-      max-width: 54rem;
+      max-width: 50rem;
       margin-inline: auto;
-      line-height: 1.8;
+      line-height: 1.72;
+      text-align: center;
+    }
+
+    .footer-copy-line {
+      display: block;
+    }
+
+    .footer-copy-line + .footer-copy-line {
+      margin-top: 0.28rem;
     }
 
     .footer-copy a,
@@ -682,6 +754,9 @@
     .footer-byline {
       color: var(--subtle);
       line-height: 1.7;
+      max-width: 42rem;
+      margin-inline: auto;
+      text-align: center;
     }
 
     .footer-actions {
@@ -793,70 +868,76 @@
 
           <rect class="fvg" x="60" y="60" width="50" height="25" fill="#3fb950"/>
 
-          <line class="candle-wick" x1="30" y1="100" x2="30" y2="68" stroke="#3fb950"/>
-          <rect class="candle-body" x="24" y="75" width="12" height="25" fill="#3fb950"/>
-          <line class="candle-wick" x1="55" y1="92" x2="55" y2="58" stroke="#3fb950"/>
-          <rect class="candle-body" x="49" y="65" width="12" height="27" fill="#3fb950"/>
-          <line class="candle-wick" x1="80" y1="85" x2="80" y2="50" stroke="#3fb950"/>
-          <rect class="candle-body" x="74" y="56" width="12" height="29" fill="#3fb950"/>
-          <line class="candle-wick" x1="105" y1="52" x2="105" y2="70" stroke="#f85149"/>
-          <rect class="candle-body" x="99" y="55" width="12" height="14" fill="#f85149"/>
+          <line class="candle-wick" x1="30" y1="112" x2="30" y2="56" stroke="#3fb950"/>
+          <rect class="candle-body" x="24" y="72" width="12" height="28" fill="#3fb950"/>
+          <line class="candle-wick" x1="55" y1="102" x2="55" y2="46" stroke="#3fb950"/>
+          <rect class="candle-body" x="49" y="60" width="12" height="29" fill="#3fb950"/>
+          <line class="candle-wick" x1="80" y1="93" x2="80" y2="38" stroke="#3fb950"/>
+          <rect class="candle-body" x="74" y="49" width="12" height="31" fill="#3fb950"/>
+          <line class="candle-wick" x1="105" y1="34" x2="105" y2="88" stroke="#f85149"/>
+          <rect class="candle-body" x="99" y="46" width="12" height="24" fill="#f85149"/>
 
           <rect class="gap-zone" x="118" y="0" width="60" height="180" fill="#e3b341"/>
           <line class="gap-line" x1="118" y1="0" x2="118" y2="180"/>
           <line class="gap-line" x1="178" y1="0" x2="178" y2="180"/>
           <text class="gap-label" x="123" y="14">404</text>
+          <text class="gap-label-sub" x="121" y="28">page moved</text>
 
-          <line class="candle-wick" x1="200" y1="65" x2="200" y2="105" stroke="#f85149"/>
-          <rect class="candle-body" x="194" y="70" width="12" height="28" fill="#f85149"/>
-          <line class="candle-wick" x1="225" y1="90" x2="225" y2="125" stroke="#f85149"/>
-          <rect class="candle-body" x="219" y="96" width="12" height="24" fill="#f85149"/>
-          <line class="candle-wick" x1="250" y1="112" x2="250" y2="130" stroke="#8b949e"/>
-          <rect class="candle-body" x="244" y="118" width="12" height="8" fill="#8b949e"/>
-          <line class="candle-wick" x1="275" y1="108" x2="275" y2="128" stroke="#3fb950"/>
-          <rect class="candle-body" x="269" y="110" width="12" height="18" fill="#3fb950"/>
-          <line class="candle-wick" x1="300" y1="95" x2="300" y2="115" stroke="#3fb950"/>
-          <rect class="candle-body" x="294" y="98" width="12" height="17" fill="#3fb950"/>
-          <line class="candle-wick" x1="325" y1="82" x2="325" y2="104" stroke="#3fb950"/>
-          <rect class="candle-body" x="319" y="85" width="12" height="19" fill="#3fb950"/>
-          <line class="candle-wick" x1="350" y1="78" x2="350" y2="92" stroke="#f85149"/>
-          <rect class="candle-body" x="344" y="81" width="12" height="11" fill="#f85149"/>
-          <line class="candle-wick" x1="375" y1="72" x2="375" y2="88" stroke="#3fb950"/>
-          <rect class="candle-body" x="369" y="74" width="12" height="14" fill="#3fb950"/>
-          <line class="candle-wick" x1="400" y1="62" x2="400" y2="82" stroke="#3fb950"/>
-          <rect class="candle-body" x="394" y="65" width="12" height="17" fill="#3fb950"/>
-          <line class="candle-wick" x1="425" y1="55" x2="425" y2="72" stroke="#3fb950"/>
-          <rect class="candle-body" x="419" y="58" width="12" height="14" fill="#3fb950"/>
-          <line class="candle-wick" x1="450" y1="48" x2="450" y2="66" stroke="#3fb950"/>
-          <rect class="candle-body" x="444" y="51" width="12" height="15" fill="#3fb950"/>
+          <line class="candle-wick" x1="200" y1="54" x2="200" y2="122" stroke="#f85149"/>
+          <rect class="candle-body" x="194" y="68" width="12" height="34" fill="#f85149"/>
+          <line class="candle-wick" x1="225" y1="82" x2="225" y2="142" stroke="#f85149"/>
+          <rect class="candle-body" x="219" y="96" width="12" height="26" fill="#f85149"/>
+          <line class="candle-wick" x1="250" y1="102" x2="250" y2="149" stroke="#8b949e"/>
+          <rect class="candle-body" x="244" y="118" width="12" height="10" fill="#8b949e"/>
+          <line class="candle-wick" x1="275" y1="92" x2="275" y2="146" stroke="#3fb950"/>
+          <rect class="candle-body" x="269" y="104" width="12" height="28" fill="#3fb950"/>
+          <line class="candle-wick" x1="300" y1="84" x2="300" y2="132" stroke="#3fb950"/>
+          <rect class="candle-body" x="294" y="92" width="12" height="24" fill="#3fb950"/>
+          <line class="candle-wick" x1="325" y1="72" x2="325" y2="118" stroke="#f85149"/>
+          <rect class="candle-body" x="319" y="86" width="12" height="18" fill="#f85149"/>
+          <line class="candle-wick" x1="350" y1="58" x2="350" y2="110" stroke="#3fb950"/>
+          <rect class="candle-body" x="344" y="73" width="12" height="26" fill="#3fb950"/>
+          <line class="candle-wick" x1="375" y1="52" x2="375" y2="98" stroke="#3fb950"/>
+          <rect class="candle-body" x="369" y="64" width="12" height="20" fill="#3fb950"/>
+          <line class="candle-wick" x1="400" y1="48" x2="400" y2="90" stroke="#f85149"/>
+          <rect class="candle-body" x="394" y="58" width="12" height="16" fill="#f85149"/>
+          <line class="candle-wick" x1="425" y1="40" x2="425" y2="84" stroke="#3fb950"/>
+          <rect class="candle-body" x="419" y="50" width="12" height="22" fill="#3fb950"/>
+          <line class="candle-wick" x1="450" y1="34" x2="450" y2="74" stroke="#3fb950"/>
+          <rect class="candle-body" x="444" y="42" width="12" height="20" fill="#3fb950"/>
 
-          <polyline class="ema-fast" points="0,112 30,90 55,76 80,63 105,62 148,68 200,78 225,100 250,115 275,112 300,104 325,92 350,88 375,82 400,72 425,62 450,55 520,44"/>
-          <polyline class="ema-slow" points="0,120 30,108 55,96 80,84 105,76 148,75 200,82 225,96 250,108 275,110 300,106 325,100 350,96 375,90 400,82 425,74 450,66 520,56"/>
+          <path class="ema-fast" d="M0,118 C22,106 48,88 78,66 C96,54 116,56 138,64 C160,72 182,82 202,90 C220,96 236,112 252,122 C268,128 286,122 304,112 C322,102 340,90 360,82 C378,74 398,68 420,58 C438,50 460,44 520,34"/>
+          <path class="ema-slow" d="M0,126 C24,120 50,108 80,92 C102,80 124,74 150,76 C172,78 194,84 218,94 C236,102 252,110 272,114 C292,116 312,110 334,102 C356,94 378,86 400,78 C422,70 446,62 520,50"/>
 
-          <rect x="24" y="160" width="12" height="12" fill="#3fb950" opacity="0.4" rx="1"/>
-          <rect x="49" y="156" width="12" height="16" fill="#3fb950" opacity="0.4" rx="1"/>
-          <rect x="74" y="154" width="12" height="18" fill="#3fb950" opacity="0.4" rx="1"/>
-          <rect x="99" y="163" width="12" height="9" fill="#f85149" opacity="0.4" rx="1"/>
-          <rect x="194" y="155" width="12" height="17" fill="#f85149" opacity="0.4" rx="1"/>
-          <rect x="219" y="158" width="12" height="14" fill="#f85149" opacity="0.4" rx="1"/>
-          <rect x="244" y="166" width="12" height="6" fill="#8b949e" opacity="0.4" rx="1"/>
-          <rect x="269" y="162" width="12" height="10" fill="#3fb950" opacity="0.4" rx="1"/>
-          <rect x="294" y="160" width="12" height="12" fill="#3fb950" opacity="0.4" rx="1"/>
-          <rect x="319" y="157" width="12" height="15" fill="#3fb950" opacity="0.4" rx="1"/>
-          <rect x="344" y="163" width="12" height="9" fill="#f85149" opacity="0.4" rx="1"/>
-          <rect x="369" y="161" width="12" height="11" fill="#3fb950" opacity="0.4" rx="1"/>
-          <rect x="394" y="158" width="12" height="14" fill="#3fb950" opacity="0.4" rx="1"/>
-          <rect x="419" y="156" width="12" height="16" fill="#3fb950" opacity="0.4" rx="1"/>
-          <rect x="444" y="154" width="12" height="18" fill="#3fb950" opacity="0.4" rx="1"/>
+          <rect x="24" y="156" width="12" height="16" fill="#3fb950" opacity="0.4" rx="1"/>
+          <rect x="49" y="152" width="12" height="20" fill="#3fb950" opacity="0.4" rx="1"/>
+          <rect x="74" y="148" width="12" height="24" fill="#3fb950" opacity="0.4" rx="1"/>
+          <rect x="99" y="160" width="12" height="12" fill="#f85149" opacity="0.4" rx="1"/>
+          <rect x="194" y="146" width="12" height="26" fill="#f85149" opacity="0.4" rx="1"/>
+          <rect x="219" y="152" width="12" height="20" fill="#f85149" opacity="0.4" rx="1"/>
+          <rect x="244" y="162" width="12" height="10" fill="#8b949e" opacity="0.4" rx="1"/>
+          <rect x="269" y="154" width="12" height="18" fill="#3fb950" opacity="0.4" rx="1"/>
+          <rect x="294" y="152" width="12" height="20" fill="#3fb950" opacity="0.4" rx="1"/>
+          <rect x="319" y="157" width="12" height="15" fill="#f85149" opacity="0.4" rx="1"/>
+          <rect x="344" y="150" width="12" height="22" fill="#3fb950" opacity="0.4" rx="1"/>
+          <rect x="369" y="154" width="12" height="18" fill="#3fb950" opacity="0.4" rx="1"/>
+          <rect x="394" y="156" width="12" height="16" fill="#f85149" opacity="0.4" rx="1"/>
+          <rect x="419" y="150" width="12" height="22" fill="#3fb950" opacity="0.4" rx="1"/>
+          <rect x="444" y="148" width="12" height="24" fill="#3fb950" opacity="0.4" rx="1"/>
         </svg>
       </div>
 
       <p class="code">404</p>
       <h1 id="page-title"><span class="type-line">Oops... This link moved during a restructure</span></h1>
-      <p class="subtitle">🔍 The content you're looking for is still here <br/> The <code>smarttrader-ai/</code> directory was reorganized by <code>/YYYY/MM-Mon/</code> paths <br/> Use the navigation below to find what you are looking for 🙂 Most older links recover by returning to the same section and choosing the matching folder - Traders: think same level, new route. Developers: same public surface, cleaner folders</p>
+      <p class="subtitle">
+        <span class="subtitle-line">🔍 The content you're looking for is still here.</span>
+        <span class="subtitle-line">The <code>smarttrader-ai/</code> directory was reorganized into <code>/YYYY/MM-Mon/</code> paths.</span>
+        <span class="subtitle-line subtitle-line--fineprint">Most older links recover by returning to the same section and choosing the matching folder.</span>
+        <span class="subtitle-line subtitle-line--fineprint">Traders: same level, new route. Developers: same public surface, cleaner folders.</span>
+      </p>
       <p class="hero-signal">
         <span class="hero-signal-line"><span class="hero-signal-dot" aria-hidden="true"></span><span>RECOVERY SIGNAL LIVE - PUBLIC PATH INTACT</span><span class="hero-signal-dot" aria-hidden="true"></span></span>
-        <span class="hero-signal-subline">🧭 Redirecting you to the right level — no stop-loss adjustment required 😅</span>
+        <span class="hero-signal-subline">🧭 Redirecting you to the right level<br/>No stop-loss adjustment required 😅</span>
       </p>
     </header>
 
@@ -869,37 +950,56 @@
       <div class="quick-grid">
         <a class="action-card recovery-priority" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket" target="_blank" rel="noreferrer">
           <span class="action-icon" aria-hidden="true">🌤️</span>
-          <p class="action-title">Pre-Market Summaries</p>
-          <p class="action-desc">Daily pre-session analysis organized by month.</p>
-          <span class="path-chip">smarttrader-ai/analysis/premarket/</span>
+          <div class="action-content">
+            <p class="action-title">Pre-Market Summaries</p>
+            <p class="action-desc">Daily pre-session analysis organized by month.</p>
+            <span class="path-chip">smarttrader-ai/analysis/premarket/</span>
+          </div>
         </a>
 
         <a class="action-card recovery-priority" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews" target="_blank" rel="noreferrer">
           <span class="action-icon" aria-hidden="true">🔍</span>
-          <p class="action-title">Trade Reviews</p>
-          <p class="action-desc">Individual trade breakdowns and behavioral review paths.</p>
-          <span class="path-chip">smarttrader-ai/reviews/</span>
+          <div class="action-content">
+            <p class="action-title">Trade Reviews</p>
+            <p class="action-desc">Individual trade breakdowns and behavioral review paths.</p>
+            <span class="path-chip">smarttrader-ai/reviews/</span>
+          </div>
         </a>
 
         <a class="action-card recovery-priority" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports" target="_blank" rel="noreferrer">
           <span class="action-icon" aria-hidden="true">📋</span>
-          <p class="action-title">Daily &amp; Weekly Reviews</p>
-          <p class="action-desc">STB exports, session summaries, and review artifacts.</p>
-          <span class="path-chip">smarttrader-ai/exports/</span>
+          <div class="action-content">
+            <p class="action-title">Daily &amp; Weekly Reviews</p>
+            <p class="action-desc">STB exports, session summaries, and review artifacts.</p>
+            <span class="path-chip">smarttrader-ai/exports/</span>
+          </div>
         </a>
 
         <a class="action-card recovery-priority" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/pattern_tracker.md" target="_blank" rel="noreferrer">
           <span class="action-icon" aria-hidden="true">📈</span>
-          <p class="action-title">Pattern Tracker</p>
-          <p class="action-desc">Long-form behavioral arc + trade log.</p>
-          <span class="path-chip">smarttrader-ai/reviews/pattern_tracker.md</span>
+          <div class="action-content">
+            <p class="action-title">Pattern Tracker</p>
+            <p class="action-desc">Long-form behavioral arc + trade log.</p>
+            <span class="path-chip">smarttrader-ai/reviews/pattern_tracker.md</span>
+          </div>
         </a>
 
         <a class="action-card recovery-priority" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/inevitrade%20progression" target="_blank" rel="noreferrer">
           <span class="action-icon" aria-hidden="true">🎓</span>
-          <p class="action-title">Inevitrade Progression</p>
-          <p class="action-desc">Coaching progression notes and supporting public reference material.</p>
-          <span class="path-chip">data/inevitrade progression/</span>
+          <div class="action-content">
+            <p class="action-title">Inevitrade Progression</p>
+            <p class="action-desc">Coaching progression notes and supporting public reference material.</p>
+            <span class="path-chip">data/inevitrade progression/</span>
+          </div>
+        </a>
+
+        <a class="action-card recovery-priority" href="https://drasticstatic.github.io/trading-assistant-public-preview/">
+          <span class="action-icon" aria-hidden="true">🏠</span>
+          <div class="action-content">
+            <p class="action-title">↩ Return Home</p>
+            <p class="action-desc">Restart from the public hub  and re-enter through the calmer top-level index.html map.</p>
+            <span class="path-chip">public-preview/</span>
+          </div>
         </a>
       </div>
     </nav>
@@ -908,7 +1008,7 @@
       <div class="section-heading">
         <p class="kicker">REPOSITORY STRUCTURE</p>
         <h2 id="map-title">If you remember the topic, start here</h2>
-        <p>If you remember the topic, start here - the broader paths are still available, but organized into a calmer map.</p>
+        <p>The broader paths are still available, but organized into a calmer map.</p>
       </div>
 
       <div class="tree">
@@ -939,8 +1039,7 @@
     </section>
 
     <footer class="footer">
-      <p class="footer-copy">Do you find yourself here because of an older saved link? Saved links usually recover fastest by returning to the section's parent directory and then choosing the right <span class="footer-folder">YYYY/MM-Mon/</span> subdirectory via our <a href="https://drasticstatic.github.io/trading-assistant-public-preview/">Trading Assistant Public Preview</a></p>
-      <p class="footer-home-row"><a class="footer-link-button footer-home-link" href="https://drasticstatic.github.io/trading-assistant-public-preview/">↩ Return to Trading Assistant's public-preview Home 🏠</a><span class="footer-note">← a quieter recovery-first index navigation</span></p>
+      <p class="footer-copy"><span class="footer-copy-line">Older saved links recover fastest by returning to the section's parent directory and choosing the right <span class="footer-folder">YYYY/MM-Mon/</span> subdirectory.</span><span class="footer-copy-line">If you want a clean restart, use the home recovery card above and re-enter from the main public hub.</span></p>
       <p class="footer-byline">Fortuna — Wealth Warden · Claude Code CLI by Anthropic + Auggie &amp; Kavanah — Infrastructure Implementation &amp; Orchestration · Augment</p>
       <div class="footer-actions">
         <a class="footer-link-button" href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer">GitHub Root ↗</a>
