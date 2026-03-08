@@ -24,8 +24,8 @@
   <meta name="twitter:description" content="Expanded HTML field guide covering Augment’s surfaces, specialists, MCP extension, and model-routing guidance.">
   <meta name="twitter:image" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/aug-arch-preview.svg">
   <meta name="twitter:image:alt" content="Augment Architecture field guide preview with centered title lines, four surface cards, and a blue-green-purple divider accent.">
-  <link rel="icon" href="./favicon_aug.svg" type="image/svg+xml">
-  <link rel="shortcut icon" href="./favicon_aug.svg" type="image/svg+xml">
+  <link rel="icon" href="./favicon_aug.svg?v=20260308" type="image/svg+xml" sizes="any">
+  <link rel="shortcut icon" href="./favicon_aug.svg?v=20260308" type="image/svg+xml">
   <style>
     :root {
       --bg: #09111d;
@@ -670,6 +670,9 @@
     .signal-card,
     .source-card,
     .step-card {
+      --card-border-track-inset: 1.15px;
+      --card-border-segment-size: clamp(4.5rem, 24%, 7.3rem);
+      --card-border-segment-thickness: 2px;
       overflow: hidden;
       isolation: isolate;
       transition: box-shadow 0.22s ease, transform 0.22s ease;
@@ -684,21 +687,49 @@
       inset: 0;
       padding: 1.25px;
       border-radius: inherit;
-      background: conic-gradient(
-        from 0deg,
-        transparent 0deg 234deg,
-        color-mix(in srgb, var(--tone) 24%, white 10%) 262deg,
-        color-mix(in srgb, var(--tone) 74%, white 12%) 294deg,
-        rgba(255,255,255,0.72) 312deg,
-        color-mix(in srgb, var(--tone) 62%, white 12%) 328deg,
-        transparent 350deg 360deg
+      background: linear-gradient(
+        140deg,
+        color-mix(in srgb, var(--tone) 16%, rgba(255,255,255,0.08)) 0%,
+        rgba(255,255,255,0.02) 36%,
+        color-mix(in srgb, var(--tone) 28%, rgba(124, 194, 255, 0.14)) 66%,
+        rgba(255,255,255,0.02) 100%
       );
       -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
       -webkit-mask-composite: xor;
       mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
       mask-composite: exclude;
-      opacity: 0.72;
+      opacity: 0.54;
+      pointer-events: none;
+    }
+
+    .surface-card::after,
+    .signal-card::after,
+    .source-card::after,
+    .step-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: var(--card-border-segment-size);
+      height: var(--card-border-segment-thickness);
+      border-radius: 999px;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        color-mix(in srgb, var(--tone) 28%, rgba(124, 194, 255, 0.2)) 14%,
+        color-mix(in srgb, var(--tone) 70%, white 14%) 42%,
+        rgba(255,255,255,0.84) 56%,
+        color-mix(in srgb, var(--tone) 56%, rgba(182, 147, 255, 0.5)) 80%,
+        transparent 100%
+      );
+      box-shadow:
+        0 0 12px color-mix(in srgb, var(--tone) 44%, rgba(255,255,255,0.12)),
+        0 0 28px color-mix(in srgb, var(--tone) 26%, rgba(124, 194, 255, 0.12));
+      offset-path: inset(var(--card-border-track-inset) round calc(var(--radius-lg) - 1px));
+      offset-distance: 0%;
+      offset-rotate: auto;
       animation: card-border-travel 8.6s linear infinite;
+      opacity: 0.9;
       pointer-events: none;
     }
 
@@ -722,13 +753,24 @@
     .signal-card:focus-within::before,
     .source-card:focus-within::before,
     .step-card:focus-within::before {
-      opacity: 0.96;
+      opacity: 0.68;
+    }
+
+    .surface-card:hover::after,
+    .signal-card:hover::after,
+    .source-card:hover::after,
+    .step-card:hover::after,
+    .surface-card:focus-within::after,
+    .signal-card:focus-within::after,
+    .source-card:focus-within::after,
+    .step-card:focus-within::after {
+      opacity: 1;
       animation-duration: 6.3s;
     }
 
     @keyframes card-border-travel {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      from { offset-distance: 0%; }
+      to { offset-distance: 100%; }
     }
 
     @keyframes cta-pulse {
