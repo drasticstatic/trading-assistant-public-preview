@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Augment Architecture — Field Guide, Not a Mystery Box | Trading Assistant</title>
-  <meta name="description" content="Expanded HTML field guide to Augment’s surfaces, Intent coordination, specialists, shared context, MCP extension, and careful model-routing guidance.">
+  <meta name="description" content="Expanded HTML field guide to Augment’s surfaces, Intent coordination, curated role-reference guidance, specialists, shared context, MCP extension, and careful model-routing guidance.">
   <meta name="color-scheme" content="dark light">
   <meta name="theme-color" content="#0c1320">
   <link rel="canonical" href="https://drasticstatic.github.io/trading-assistant-public-preview/setup/AugmentArchitecture.html">
   <meta property="og:site_name" content="Trading Assistant Public Preview">
   <meta property="og:title" content="Augment Architecture — Field Guide, Not a Mystery Box">
-  <meta property="og:description" content="A fuller HTML field guide to Augment’s surfaces, specialists, MCP extension, and careful model-routing language.">
+  <meta property="og:description" content="A fuller HTML field guide to Augment’s surfaces, curated role-reference workflow, specialists, MCP extension, and careful model-routing language.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/AugmentArchitecture.html">
   <meta property="og:image" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/aug-arch-preview.png?v=20260308-embed2">
@@ -21,7 +21,7 @@
   <meta property="og:image:alt" content="Augment Architecture field guide preview with centered title lines, four surface cards, and a blue-green-purple divider accent.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Augment Architecture — Field Guide, Not a Mystery Box">
-  <meta name="twitter:description" content="Expanded HTML field guide covering Augment’s surfaces, specialists, MCP extension, and model-routing guidance.">
+  <meta name="twitter:description" content="Expanded HTML field guide covering Augment’s surfaces, curated role-reference workflow, specialists, MCP extension, and model-routing guidance.">
   <meta name="twitter:image" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/aug-arch-preview.png?v=20260308-embed2">
   <meta name="twitter:image:alt" content="Augment Architecture field guide preview with centered title lines, four surface cards, and a blue-green-purple divider accent.">
   <link rel="icon" href="./favicon_aug.png?v=20260308-icon2" type="image/png" sizes="128x128">
@@ -91,6 +91,21 @@
         linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
     }
 
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -8rem -12vw auto;
+      height: 24rem;
+      background:
+        radial-gradient(circle at 18% 42%, rgba(124, 194, 255, 0.16), transparent 34%),
+        radial-gradient(circle at 82% 18%, rgba(182, 147, 255, 0.14), transparent 32%),
+        radial-gradient(circle at 50% 0%, rgba(110, 231, 249, 0.1), transparent 42%);
+      transform: translate3d(0, var(--page-aura-shift, 0px), 0);
+      pointer-events: none;
+      z-index: 0;
+      transition: transform 0.4s ease;
+    }
+
     img { max-width: 100%; display: block; }
     a { color: var(--blue); text-decoration: none; }
     a:hover { text-decoration: underline; }
@@ -106,6 +121,8 @@
     }
 
     .page {
+      position: relative;
+      z-index: 1;
       width: min(var(--max), calc(100% - 2rem));
       margin: 0 auto;
       padding: 1.4rem 0 3rem;
@@ -114,18 +131,23 @@
     .hero,
     .panel,
     .footer {
+      --panel-parallax: 0px;
+      --panel-hover-lift: 0px;
       position: relative;
       overflow: hidden;
       border: 1px solid var(--border);
       border-radius: var(--radius-xl);
-      background: var(--surface);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.018)), var(--surface);
+      box-shadow: 0 26px 64px rgba(2, 8, 20, 0.36), inset 0 1px 0 rgba(255,255,255,0.08);
+      backdrop-filter: blur(22px) saturate(1.08);
+      transform: translate3d(0, calc(var(--panel-parallax) - var(--panel-hover-lift)), 0);
+      transition: transform 0.42s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease;
     }
 
     .hero {
       background:
         radial-gradient(circle at top center, rgba(110, 231, 249, 0.16), transparent 34%),
+        radial-gradient(circle at 50% calc(12% + var(--hero-glow-shift, 0px)), rgba(255,255,255,0.09), transparent 32%),
         linear-gradient(145deg, rgba(124, 194, 255, 0.18), rgba(182, 147, 255, 0.16) 42%, rgba(255, 157, 193, 0.08) 72%, rgba(9, 17, 29, 0.16) 100%),
         var(--surface);
       padding: clamp(2.2rem, 4vw, 3rem);
@@ -182,12 +204,17 @@
     }
 
     h1 {
-      max-width: 16ch;
+      display: grid;
+      justify-items: center;
+      gap: 0.18rem;
+      max-width: 32ch;
       margin-bottom: 0.95rem;
       font-size: clamp(2.7rem, 6vw, 5rem);
       line-height: 0.96;
       letter-spacing: -0.05em;
       text-wrap: balance;
+      transform-origin: center top;
+      animation: hero-title-breathe 7.8s ease-in-out infinite;
     }
 
     h2 {
@@ -209,23 +236,51 @@
     }
 
     .hero-title-main {
+      max-width: 16ch;
       color: var(--text);
+      text-shadow: 0 0.08em 0.55em rgba(124, 194, 255, 0.12);
     }
 
-    .hero-title-mid {
-      margin-top: 0.42rem;
-      font-size: clamp(1.2rem, 2.35vw, 2rem);
-      font-weight: 760;
-      letter-spacing: -0.025em;
-      color: var(--cyan);
+    .hero-title-typewriter {
+      margin-top: 0.34rem;
+      font-size: clamp(0.98rem, 1.72vw, 1.48rem);
+      font-weight: 780;
+      letter-spacing: -0.015em;
     }
 
-    .hero-title-bottom {
-      margin-top: 0.22rem;
-      font-size: clamp(1.08rem, 2.05vw, 1.72rem);
-      font-weight: 760;
-      letter-spacing: -0.018em;
-      color: var(--rose);
+    .hero-title-typewriter-shell {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      max-width: 100%;
+      margin-inline: auto;
+      padding-right: 0.18rem;
+      background-image: linear-gradient(110deg, color-mix(in srgb, var(--cyan) 82%, white 18%), rgba(255,255,255,0.96) 36%, color-mix(in srgb, var(--rose) 84%, rgba(110, 231, 249, 0.28)) 68%, color-mix(in srgb, var(--violet) 80%, white 20%) 100%);
+      background-size: 190% 100%;
+      background-position: 50% 50%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 0.12rem 0.5rem rgba(124, 194, 255, 0.18));
+    }
+
+    .hero-title-typewriter-text {
+      min-height: 1em;
+      text-wrap: balance;
+    }
+
+    .hero-title-typewriter-shell::after {
+      content: "";
+      width: 0.11em;
+      height: 1.02em;
+      margin-left: 0.14rem;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), color-mix(in srgb, var(--cyan) 70%, var(--rose) 30%));
+      box-shadow: 0 0 0.65rem rgba(124, 194, 255, 0.32);
+      flex: 0 0 auto;
+      animation: type-caret-blink 1s steps(1, end) infinite;
     }
 
     .hero-lead,
@@ -244,6 +299,7 @@
       max-width: 60rem;
       margin: 0 auto 1.35rem;
       font-size: 1.06rem;
+      text-wrap: pretty;
     }
 
     .hero-grid,
@@ -284,11 +340,31 @@
     .tone-callout,
     .fact-strip,
     .stat-card {
+      --card-border-track-inset: 1px;
+      --card-border-segment-size: clamp(5.25rem, 27%, 8.4rem);
+      --card-border-segment-thickness: 2.35px;
+      --card-border-speed: 7.8s;
+      --card-border-opacity: 0.98;
+      --card-sheen-opacity: 0.64;
+      --card-hover-lift: 0px;
+      --card-parallax-x: 0px;
+      --card-parallax-y: 0px;
+      --card-glow-opacity: 0%;
+      --card-glow-x: 50%;
+      --card-glow-y: 50%;
       position: relative;
+      overflow: hidden;
+      isolation: isolate;
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+      background:
+        radial-gradient(circle at var(--card-glow-x) var(--card-glow-y), color-mix(in srgb, color-mix(in srgb, var(--tone, var(--blue)) 14%, rgba(255,255,255,0.14)) var(--card-glow-opacity), transparent) 0%, transparent 42%),
+        linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.018));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+      backdrop-filter: blur(16px) saturate(1.06);
       padding: 1rem 1.05rem;
+      transform: translate3d(var(--card-parallax-x), calc(var(--card-parallax-y) - var(--card-hover-lift)), 0);
+      transition: box-shadow 0.24s ease, transform 0.24s ease, border-color 0.24s ease, background 0.24s ease, filter 0.24s ease;
     }
 
     @media (prefers-color-scheme: light) {
@@ -301,7 +377,9 @@
       .tone-callout,
       .fact-strip,
       .stat-card {
-        background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(248,250,252,0.8));
+        background:
+          radial-gradient(circle at var(--card-glow-x) var(--card-glow-y), color-mix(in srgb, rgba(124, 194, 255, 0.09) var(--card-glow-opacity), transparent) 0%, transparent 44%),
+          linear-gradient(180deg, rgba(255,255,255,0.92), rgba(248,250,252,0.82));
       }
     }
 
@@ -416,6 +494,10 @@
       width: min(100%, 60rem);
     }
 
+    .surface-card .chip-row {
+      justify-content: center;
+    }
+
     .chip,
     .mini-chip,
     .jump-link {
@@ -437,18 +519,22 @@
       --mag-y: 0px;
       --cta-lift: 0px;
       --cta-scale: 1;
+      --cta-rest-ring: rgba(110, 231, 249, 0.11);
       padding: 0.8rem 1.15rem;
       overflow: hidden;
       isolation: isolate;
-      background: linear-gradient(135deg, rgba(124, 194, 255, 0.22), rgba(182, 147, 255, 0.18));
-      border-color: rgba(124, 194, 255, 0.44);
-      box-shadow: 0 14px 32px rgba(7, 14, 26, 0.24), inset 0 1px 0 rgba(255,255,255,0.12), 0 0 0 1px rgba(124, 194, 255, 0.08);
+      background: linear-gradient(135deg, rgba(124, 194, 255, 0.3), rgba(182, 147, 255, 0.24) 52%, rgba(110, 231, 249, 0.18) 100%);
+      background-size: 190% 190%;
+      background-position: 48% 52%;
+      border-color: rgba(124, 194, 255, 0.56);
+      box-shadow: 0 16px 34px rgba(7, 14, 26, 0.28), inset 0 1px 0 rgba(255,255,255,0.14), 0 0 0 1px rgba(124, 194, 255, 0.16), 0 0 0 0.18rem var(--cta-rest-ring);
       font-size: 0.92rem;
       font-weight: 800;
+      text-shadow: 0 0.04rem 0.18rem rgba(6, 14, 24, 0.18);
       cursor: pointer;
       transform: translate3d(var(--mag-x), calc(var(--mag-y) + var(--cta-lift)), 0) scale(var(--cta-scale));
       transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, color 0.18s ease, background 0.18s ease, filter 0.18s ease;
-      animation: cta-pulse 3.9s ease-in-out infinite;
+      animation: cta-pulse 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
 
     .chip::before,
@@ -473,10 +559,10 @@
       position: absolute;
       left: var(--pointer-x);
       top: var(--pointer-y);
-      width: 10.5rem;
-      height: 10.5rem;
+      width: 11.75rem;
+      height: 11.75rem;
       border-radius: 999px;
-      background: radial-gradient(circle, rgba(255,255,255,0.18), rgba(110, 231, 249, 0.14) 24%, rgba(182, 147, 255, 0.1) 48%, transparent 72%);
+      background: radial-gradient(circle, rgba(255,255,255,0.22), rgba(110, 231, 249, 0.18) 24%, rgba(182, 147, 255, 0.14) 48%, transparent 72%);
       transform: translate(-50%, -50%) scale(0.5);
       opacity: 0;
       transition: transform 0.2s ease, opacity 0.2s ease;
@@ -486,10 +572,13 @@
 
     .mini-chip {
       padding: 0.34rem 0.62rem;
-      background: rgba(255,255,255,0.04);
-      color: var(--muted);
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.025));
+      color: color-mix(in srgb, var(--text) 80%, var(--muted));
       font-size: 0.78rem;
       font-weight: 700;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
     }
 
     .jump-link:hover {
@@ -544,6 +633,15 @@
       padding: 1.45rem;
       margin-bottom: 1rem;
       scroll-margin-top: 1rem;
+    }
+
+    .hero:hover,
+    .hero:focus-within,
+    .panel:hover,
+    .panel:focus-within {
+      --panel-hover-lift: 2px;
+      border-color: color-mix(in srgb, var(--tone, var(--blue)) 22%, var(--border-strong));
+      box-shadow: 0 30px 70px rgba(2, 8, 20, 0.4), inset 0 1px 0 rgba(255,255,255,0.12);
     }
 
     .panel[data-tone="blue"] {
@@ -615,7 +713,70 @@
     .tone-callout,
     .fact-strip {
       border-color: color-mix(in srgb, var(--tone) 35%, var(--border));
-      background: linear-gradient(180deg, var(--tone-soft), rgba(255,255,255,0.01));
+      background:
+        radial-gradient(circle at var(--card-glow-x) var(--card-glow-y), color-mix(in srgb, color-mix(in srgb, var(--tone) 18%, rgba(255,255,255,0.16)) var(--card-glow-opacity), transparent) 0%, transparent 40%),
+        linear-gradient(180deg, color-mix(in srgb, var(--tone-soft) 92%, rgba(255,255,255,0.035)), rgba(255,255,255,0.01));
+    }
+
+    .table-wrap,
+    .diagram-frame,
+    details,
+    .footer-link {
+      --frame-border-track-inset: 1px;
+      --frame-border-radius: var(--radius-lg);
+      --frame-border-segment-size: clamp(5.4rem, 20%, 8.9rem);
+      --frame-border-segment-thickness: 2px;
+      --frame-border-speed: 8.8s;
+      --frame-border-opacity: 0.84;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .footer-link {
+      --frame-border-radius: 999px;
+      --frame-border-segment-size: clamp(4.4rem, 38%, 6.6rem);
+      --frame-border-speed: 6.9s;
+      --frame-border-opacity: 0.92;
+    }
+
+    .table-wrap::before,
+    .diagram-frame::before,
+    details::before,
+    .footer-link::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 1.1px;
+      border-radius: inherit;
+      background: linear-gradient(140deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.02) 34%, rgba(124, 194, 255, 0.2) 66%, rgba(255,255,255,0.04) 100%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask-composite: exclude;
+      opacity: 0.68;
+      pointer-events: none;
+    }
+
+    .table-wrap::after,
+    .diagram-frame::after,
+    details::after,
+    .footer-link::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: var(--frame-border-segment-size);
+      height: var(--frame-border-segment-thickness);
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent 0%, rgba(124, 194, 255, 0.26) 16%, rgba(255,255,255,0.9) 50%, rgba(182, 147, 255, 0.56) 82%, transparent 100%);
+      box-shadow: 0 0 14px rgba(124, 194, 255, 0.22), 0 0 28px rgba(182, 147, 255, 0.14);
+      offset-path: inset(var(--frame-border-track-inset) round var(--frame-border-radius));
+      offset-distance: 0%;
+      offset-rotate: auto;
+      animation: card-border-travel var(--frame-border-speed) linear infinite;
+      opacity: var(--frame-border-opacity);
+      pointer-events: none;
     }
 
     .panel .kicker {
@@ -662,28 +823,65 @@
     .source-card h3,
     .card h3 { margin-bottom: 0.4rem; }
 
+    .card,
     .surface-card,
     .signal-card,
-    .source-card {
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+    .source-card,
+    .step-card,
+    .note-card,
+    .tone-callout,
+    .fact-strip,
+    .stat-card {
+      --card-hover-shadow: 0 22px 40px rgba(5, 12, 24, 0.18);
+    }
+
+    .tone-callout,
+    .fact-strip {
+      --card-border-speed: 10.2s;
+      --card-border-segment-size: clamp(6rem, 30%, 9.25rem);
+      --card-border-opacity: 0.84;
+      --card-sheen-opacity: 0.52;
     }
 
     .surface-card,
     .signal-card,
     .source-card,
-    .step-card {
-      --card-border-track-inset: 1.15px;
-      --card-border-segment-size: clamp(4.5rem, 24%, 7.3rem);
-      --card-border-segment-thickness: 2px;
-      overflow: hidden;
-      isolation: isolate;
-      transition: box-shadow 0.22s ease, transform 0.22s ease;
+    .step-card,
+    .note-card,
+    .card,
+    .stat-card {
+      --card-border-speed: 7.2s;
     }
 
+    .surface-grid .surface-card,
+    .signal-grid .signal-card,
+    .source-grid .source-card,
+    .workflow .step-card {
+      --card-border-speed: 6.4s;
+      --card-border-opacity: 1;
+      --card-sheen-opacity: 0.74;
+    }
+
+    .card-spotlight,
+    .surface-grid .surface-card:last-child,
+    #intent-coordination .step-card:first-child,
+    #model-routing .signal-card:first-child {
+      --card-border-speed: 5.7s;
+      --card-border-segment-size: clamp(5.1rem, 29%, 8.4rem);
+      --card-border-opacity: 1;
+      --card-sheen-opacity: 0.82;
+      --card-hover-shadow: 0 24px 48px rgba(5, 12, 24, 0.24);
+    }
+
+    .card::before,
     .surface-card::before,
     .signal-card::before,
     .source-card::before,
-    .step-card::before {
+    .step-card::before,
+    .note-card::before,
+    .tone-callout::before,
+    .fact-strip::before,
+    .stat-card::before {
       content: "";
       position: absolute;
       inset: 0;
@@ -700,14 +898,19 @@
       -webkit-mask-composite: xor;
       mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
       mask-composite: exclude;
-      opacity: 0.54;
+      opacity: var(--card-sheen-opacity);
       pointer-events: none;
     }
 
+    .card::after,
     .surface-card::after,
     .signal-card::after,
     .source-card::after,
-    .step-card::after {
+    .step-card::after,
+    .note-card::after,
+    .tone-callout::after,
+    .fact-strip::after,
+    .stat-card::after {
       content: "";
       position: absolute;
       top: 0;
@@ -730,44 +933,88 @@
       offset-path: inset(var(--card-border-track-inset) round calc(var(--radius-lg) - 1px));
       offset-distance: 0%;
       offset-rotate: auto;
-      animation: card-border-travel 8.6s linear infinite;
-      opacity: 0.9;
+      animation: card-border-travel var(--card-border-speed) linear infinite;
+      opacity: var(--card-border-opacity);
       pointer-events: none;
     }
 
+    .card:hover,
     .surface-card:hover,
     .signal-card:hover,
     .source-card:hover,
     .step-card:hover,
+    .note-card:hover,
+    .tone-callout:hover,
+    .fact-strip:hover,
+    .stat-card:hover,
+    .card:focus-within,
     .surface-card:focus-within,
     .signal-card:focus-within,
     .source-card:focus-within,
-    .step-card:focus-within {
-      transform: translateY(-1.5px);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 18px 36px rgba(5, 12, 24, 0.16);
+    .step-card:focus-within,
+    .note-card:focus-within,
+    .tone-callout:focus-within,
+    .fact-strip:focus-within,
+    .stat-card:focus-within {
+      --card-glow-opacity: 100%;
+      --card-hover-lift: 1.8px;
+      filter: saturate(1.04);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), var(--card-hover-shadow);
     }
 
+    .card:hover::before,
     .surface-card:hover::before,
     .signal-card:hover::before,
     .source-card:hover::before,
     .step-card:hover::before,
+    .note-card:hover::before,
+    .tone-callout:hover::before,
+    .fact-strip:hover::before,
+    .stat-card:hover::before,
+    .card:focus-within::before,
     .surface-card:focus-within::before,
     .signal-card:focus-within::before,
     .source-card:focus-within::before,
-    .step-card:focus-within::before {
-      opacity: 0.68;
+    .step-card:focus-within::before,
+    .note-card:focus-within::before,
+    .tone-callout:focus-within::before,
+    .fact-strip:focus-within::before,
+    .stat-card:focus-within::before {
+      opacity: calc(var(--card-sheen-opacity) + 0.12);
     }
 
+    .card:hover::after,
     .surface-card:hover::after,
     .signal-card:hover::after,
     .source-card:hover::after,
     .step-card:hover::after,
+    .note-card:hover::after,
+    .tone-callout:hover::after,
+    .fact-strip:hover::after,
+    .stat-card:hover::after,
+    .card:focus-within::after,
     .surface-card:focus-within::after,
     .signal-card:focus-within::after,
     .source-card:focus-within::after,
-    .step-card:focus-within::after {
+    .step-card:focus-within::after,
+    .note-card:focus-within::after,
+    .tone-callout:focus-within::after,
+    .fact-strip:focus-within::after,
+    .stat-card:focus-within::after {
       opacity: 1;
-      animation-duration: 6.3s;
+      animation-duration: calc(var(--card-border-speed) * 0.74);
+    }
+
+    .table-wrap:hover::after,
+    .diagram-frame:hover::after,
+    details:hover::after,
+    .footer-link:hover::after,
+    .table-wrap:focus-within::after,
+    .diagram-frame:focus-within::after,
+    details:focus-within::after,
+    .footer-link:focus-visible::after {
+      opacity: 1;
+      animation-duration: calc(var(--frame-border-speed) * 0.78);
     }
 
     @keyframes card-border-travel {
@@ -777,11 +1024,36 @@
 
     @keyframes cta-pulse {
       0%, 100% {
-        box-shadow: 0 14px 32px rgba(7, 14, 26, 0.24), inset 0 1px 0 rgba(255,255,255,0.12), 0 0 0 1px rgba(124, 194, 255, 0.08);
+        background-position: 48% 52%;
+        box-shadow: 0 16px 34px rgba(7, 14, 26, 0.28), inset 0 1px 0 rgba(255,255,255,0.14), 0 0 0 1px rgba(124, 194, 255, 0.16), 0 0 0 0.18rem rgba(110, 231, 249, 0.08);
+        filter: saturate(1.02);
+      }
+      38% {
+        background-position: 58% 40%;
+        box-shadow: 0 20px 42px rgba(7, 14, 26, 0.34), inset 0 1px 0 rgba(255,255,255,0.18), 0 0 0 1px rgba(124, 194, 255, 0.24), 0 0 0 0.28rem rgba(110, 231, 249, 0.12), 0 0 1.4rem rgba(124, 194, 255, 0.18);
+        filter: saturate(1.12);
+      }
+      62% {
+        background-position: 62% 38%;
+        box-shadow: 0 22px 46px rgba(7, 14, 26, 0.36), inset 0 1px 0 rgba(255,255,255,0.18), 0 0 0 1px rgba(124, 194, 255, 0.28), 0 0 0 0.34rem rgba(182, 147, 255, 0.1), 0 0 1.7rem rgba(110, 231, 249, 0.16);
+        filter: saturate(1.16);
+      }
+    }
+
+    @keyframes hero-title-breathe {
+      0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 0 rgba(124, 194, 255, 0);
       }
       50% {
-        box-shadow: 0 16px 36px rgba(7, 14, 26, 0.28), inset 0 1px 0 rgba(255,255,255,0.15), 0 0 0 1px rgba(124, 194, 255, 0.14), 0 0 0 0.26rem rgba(110, 231, 249, 0.045);
+        transform: scale(1.012);
+        text-shadow: 0 0 1.35rem rgba(124, 194, 255, 0.08);
       }
+    }
+
+    @keyframes type-caret-blink {
+      0%, 46% { opacity: 1; }
+      47%, 100% { opacity: 0; }
     }
 
     blockquote {
@@ -802,6 +1074,24 @@
     }
 
     .diagram-frame img { width: 100%; height: auto; }
+
+    .diagram-frame,
+    .table-wrap,
+    details,
+    .footer-link {
+      transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease, background 0.24s ease;
+    }
+
+    .diagram-frame:hover,
+    .diagram-frame:focus-within,
+    .table-wrap:hover,
+    .table-wrap:focus-within,
+    details:hover,
+    details:focus-within {
+      transform: translateY(-1.5px);
+      border-color: color-mix(in srgb, var(--tone, var(--blue)) 26%, var(--border-strong));
+      box-shadow: 0 18px 36px rgba(5, 12, 24, 0.14);
+    }
 
     .caption {
       margin-top: 0.75rem;
@@ -870,34 +1160,72 @@
     .footer-link:hover {
       border-color: var(--blue);
       color: var(--blue);
+      transform: translateY(-1px);
+      box-shadow: 0 16px 30px rgba(5, 12, 24, 0.14);
       text-decoration: none;
     }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
 
+      body::before,
       .chip,
       .jump-link,
+      .card,
       .surface-card,
       .signal-card,
       .source-card,
-      .step-card {
+      .step-card,
+      .note-card,
+      .tone-callout,
+      .fact-strip,
+      .stat-card,
+      h1,
+      .hero-title-typewriter,
+      .hero,
+      .panel,
+      .footer {
         animation: none;
         transition: none;
       }
 
+      .card::before,
       .surface-card::before,
       .signal-card::before,
       .source-card::before,
-      .step-card::before {
+      .step-card::before,
+      .note-card::before,
+      .tone-callout::before,
+      .fact-strip::before,
+      .stat-card::before,
+      .card::after,
+      .surface-card::after,
+      .signal-card::after,
+      .source-card::after,
+      .step-card::after,
+      .note-card::after,
+      .tone-callout::after,
+      .fact-strip::after,
+      .stat-card::after {
         animation: none;
+        transition: none;
       }
 
       .chip::before,
       .chip::after,
       .jump-link::before,
-      .jump-link::after {
+      .jump-link::after,
+      .hero-title-typewriter-shell::after,
+      .table-wrap::before,
+      .table-wrap::after,
+      .diagram-frame::before,
+      .diagram-frame::after,
+      details::before,
+      details::after,
+      .footer-link::before,
+      .footer-link::after {
         transition: none;
+        animation: none;
       }
     }
 
@@ -940,19 +1268,18 @@
       <div class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>HTML rendered for sharing</div>
       <h1>
         <span class="hero-title-line hero-title-main">Augment Architecture</span>
-        <span class="hero-title-line hero-title-mid">explained like a field guide</span>
-        <span class="hero-title-line hero-title-bottom">instead of a mystery box</span>
+        <span class="hero-title-line hero-title-typewriter" data-type-text="explained like a field guide instead of a mystery box" aria-label="explained like a field guide instead of a mystery box"><span class="hero-title-typewriter-shell"><span class="hero-title-typewriter-text">explained like a field guide instead of a mystery box</span></span></span>
       </h1>
-      <p class="hero-lead">This page is the fuller HTML companion to <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/AugmentArchitecture.md" target="_blank" rel="noreferrer"><code>setup/AugmentArchitecture.md</code></a>. It pulls over the substantive guidance from the markdown note, keeps the architecture readable on a clean public URL, and sharpens the model-routing section so it separates documented surface behavior from cautious inference about backend routing.</p>
+      <p class="hero-lead">This page is the fuller HTML companion to <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/AugmentArchitecture.md" target="_blank" rel="noreferrer"><code>setup/AugmentArchitecture.md</code></a>. It pulls over the substantive guidance from the markdown note, folds in a curated role-reference chooser for Coordinator / UI Designer / Developer / Verifier, and keeps the architecture readable on a clean public URL.</p>
 
       <div class="stat-grid" aria-label="High-level guide stats">
         <article class="stat-card"><strong>3</strong><span>main front doors: VS Code Agent, Auggie CLI, Intent</span></article>
-        <article class="stat-card"><strong>5</strong><span>starter roles called out in the guide</span></article>
+        <article class="stat-card"><strong>2</strong><span>useful role lenses: starter types and an operational chooser</span></article>
         <article class="stat-card"><strong>1</strong><span>key caution: model choice matters, but backend routing is not fully exposed</span></article>
       </div>
 
       <div class="hero-grid">
-        <article class="card">
+        <article class="card card-spotlight">
           <p class="kicker">One-line mental model</p>
           <p><strong>Augment makes more sense as a small software team than as one chatbot.</strong> The surfaces are intentionally different, the context/tooling layer matters, and Intent makes orchestration the most explicit.</p>
         </article>
@@ -977,7 +1304,7 @@
       <p class="kicker">If you only read one minute</p>
       <h2 id="one-minute-title">The shortest useful explanation</h2>
       <div class="grid-2">
-        <article class="tone-callout">
+        <article class="tone-callout card-spotlight">
           <p><strong>Start with the surfaces:</strong> VS Code Agent is the editor-native builder bench, Auggie CLI is the terminal-native builder bench, and Intent is the orchestration layer.</p>
           <ul class="summary-list">
             <li><strong>General</strong> explores.</li>
@@ -989,6 +1316,7 @@
         </article>
         <article class="tone-callout">
           <p><strong>The workflow is the real differentiator:</strong> one agent plans, one builds, one reviews, one polishes. That is why larger-repo work can feel surprisingly smooth when Intent is used like a coordinated team instead of one giant chat thread.</p>
+          <p><strong>Role-reference default:</strong> if you are unsure which lane should move first, start with <strong>Coordinator</strong>, then route design, build, and verification from there.</p>
           <blockquote>Choosing a model likely affects the lead reasoning path, without proving that it is the only system involved in every behind-the-scenes step.</blockquote>
         </article>
       </div>
@@ -1189,18 +1517,62 @@
         </table>
       </div>
 
+      <article class="fact-strip roomy stretch-copy" style="margin-top: 1rem;">
+        <h3>Starter labels vs the role-reference chooser</h3>
+        <p>The visible starter types and the newer role-reference guide are not competing taxonomies. The starter labels describe the bench you can work with. The role-reference chooser is the operational lens for deciding what kind of help should go first.</p>
+      </article>
+
+      <div class="table-wrap" style="margin-top: 1rem;">
+        <table aria-label="Role-reference quick chooser">
+          <thead>
+            <tr>
+              <th>Role</th>
+              <th>Reach for it when</th>
+              <th>What to provide</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Coordinator</strong></td>
+              <td>You need scoping, sequencing, delegation, dependencies, or approval alignment.</td>
+              <td>Goal, priorities, constraints, and non-goals.</td>
+            </tr>
+            <tr>
+              <td><strong>UI Designer</strong></td>
+              <td>A page or flow needs hierarchy, accessibility, storytelling, or mobile-usability direction before coding.</td>
+              <td>Exact surface, desired user-facing outcome, and what must stay unchanged.</td>
+            </tr>
+            <tr>
+              <td><strong>Developer</strong></td>
+              <td>The task is approved and ready for concrete code, markup, style, or behavior updates.</td>
+              <td>Acceptance criteria, scope boundaries, likely files, and required checks.</td>
+            </tr>
+            <tr>
+              <td><strong>Verifier</strong></td>
+              <td>Completed work needs an independent acceptance-criteria, accessibility, or public-safe wording review.</td>
+              <td>Acceptance criteria, changed files, what was already tested, and known risks.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <article class="fact-strip roomy stretch-copy" style="margin-top: 1rem;">
+        <h3>Best default when unsure</h3>
+        <p>Start with <strong>Coordinator</strong>. That role is the orchestration hub for deciding what should happen next, keeping scope narrow, and routing the next handoff cleanly.</p>
+      </article>
+
       <div class="workflow" style="margin-top: 1rem;">
         <article class="step-card">
-          <h3>1. Coordinator plans</h3>
-          <p>Break the work into scoped tasks, define the shape of done, and keep the spec or task structure clean.</p>
+          <h3>1. Coordinator scopes and sequences</h3>
+          <p>Decide what should happen next, define the shape of done, and keep priorities, approvals, and task structure aligned.</p>
         </article>
         <article class="step-card">
-          <h3>2. Developer / implementor builds</h3>
-          <p>Execute one lane cleanly, run scoped verification, and report exact files changed.</p>
+          <h3>2. UI Designer or Developer narrows the slice</h3>
+          <p>Use UI Designer when presentation direction is still open; use Developer when the task is already approved and ready for concrete implementation.</p>
         </article>
         <article class="step-card">
-          <h3>3. Reviewer / verifier / UI follows</h3>
-          <p>Check correctness, regression risk, and presentation without collapsing everything into one thread.</p>
+          <h3>3. Verifier closes the loop</h3>
+          <p>Check acceptance criteria, interaction quality, regression risk, accessibility, and public-safe wording without collapsing everything into one thread.</p>
         </article>
       </div>
 
@@ -1279,6 +1651,17 @@
           <li>Add <strong>PR Reviewer</strong> when you want a standing review layer.</li>
           <li>Use a <strong>Coordinator-style</strong> agent once the repo or task is complex enough to benefit from planning and delegation.</li>
         </ol>
+      </article>
+
+      <article class="fact-strip roomy copy-left" style="margin-top: 1rem;">
+        <h3>Shared guidance that makes the role system work</h3>
+        <ul class="summary-list">
+          <li>Keep tasks <strong>narrow, concrete, and easy to verify</strong>.</li>
+          <li>State <strong>constraints and non-goals up front</strong>.</li>
+          <li>Give Developers acceptance criteria, likely files, and required checks.</li>
+          <li>Give Verifiers evidence, not just a vague approval request.</li>
+          <li>For shareable or public-facing artifacts, strip private coordination details and workspace-only process notes.</li>
+        </ul>
       </article>
     </section>
 
@@ -1453,7 +1836,7 @@
       <div class="tone-bar" aria-hidden="true"></div>
       <p class="kicker">Sources and scope</p>
       <h2 id="sources-title">Where this HTML page points back</h2>
-      <p class="section-lead">The markdown note remains the long-form source, but this HTML page now carries nearly all of its substantive guidance for easier sharing and browsing. Source scope: public Augment docs reviewed on 2026-03-06 plus Intent-native observations captured in this workspace.</p>
+      <p class="section-lead">The markdown note remains the long-form source, but this HTML page now carries nearly all of its substantive guidance for easier sharing and browsing. Source scope: public Augment docs reviewed on 2026-03-06 plus curated Intent-native role and workflow observations captured in this workspace.</p>
       <div class="source-grid">
         <article class="source-card">
           <h3>Primary markdown source</h3>
@@ -1482,7 +1865,7 @@
             <tr><td><strong>Rules &amp; Guidelines for Agent and Chat</strong></td><td><a href="https://docs.augmentcode.com/setup-augment/guidelines" target="_blank" rel="noreferrer">docs.augmentcode.com/setup-augment/guidelines</a></td></tr>
             <tr><td><strong>Rules &amp; Guidelines (CLI)</strong></td><td><a href="https://docs.augmentcode.com/cli/rules" target="_blank" rel="noreferrer">docs.augmentcode.com/cli/rules</a></td></tr>
             <tr><td><strong>Subagents</strong></td><td><a href="https://docs.augmentcode.com/cli/subagents" target="_blank" rel="noreferrer">docs.augmentcode.com/cli/subagents</a></td></tr>
-            <tr><td><strong>Intent-native summaries captured in this workspace</strong></td><td>User-provided Intent role / workflow notes on 2026-03-06</td></tr>
+            <tr><td><strong>Intent-native summaries captured in this workspace</strong></td><td>User-provided Intent role / workflow notes on 2026-03-06, plus a curated internal role-reference summary integrated on 2026-03-09</td></tr>
           </tbody>
         </table>
       </div>
@@ -1552,34 +1935,197 @@
   </main>
   <script>
     (() => {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+      if ('scrollRestoration' in window.history) {
+        window.history.scrollRestoration = 'manual';
+      }
+
+      const initialHash = window.location.hash;
+
+      const clearSectionHash = () => {
+        const cleanUrl = `${window.location.pathname}${window.location.search}`;
+        window.history.replaceState(window.history.state, document.title, cleanUrl);
+      };
+
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener('click', (event) => {
+          if (
+            event.defaultPrevented ||
+            event.button !== 0 ||
+            event.metaKey ||
+            event.ctrlKey ||
+            event.shiftKey ||
+            event.altKey
+          ) {
+            return;
+          }
+
+          const rawHash = link.getAttribute('href');
+
+          if (!rawHash || rawHash === '#') {
+            return;
+          }
+
+          const target = document.querySelector(rawHash);
+
+          if (!target) {
+            return;
+          }
+
+          event.preventDefault();
+          target.scrollIntoView({ behavior: reducedMotion.matches ? 'auto' : 'smooth', block: 'start' });
+          clearSectionHash();
+        });
+      });
+
+      if (initialHash) {
+        const initialTarget = document.querySelector(initialHash);
+
+        if (initialTarget) {
+          window.requestAnimationFrame(() => {
+            initialTarget.scrollIntoView({ behavior: 'auto', block: 'start' });
+          });
+        }
+      } else {
+        window.requestAnimationFrame(() => window.scrollTo(0, 0));
+      }
+
+      if (reducedMotion.matches) {
         return;
       }
 
-      document.querySelectorAll('.chip, .jump-link').forEach((button) => {
-        const reset = () => {
-          button.style.setProperty('--mag-x', '0px');
-          button.style.setProperty('--mag-y', '0px');
-          button.style.setProperty('--pointer-x', '50%');
-          button.style.setProperty('--pointer-y', '50%');
-        };
+      const typewriter = document.querySelector('.hero-title-typewriter');
 
-        button.addEventListener('pointermove', (event) => {
-          const rect = button.getBoundingClientRect();
-          const offsetX = event.clientX - rect.left;
-          const offsetY = event.clientY - rect.top;
-          const shiftX = (offsetX - rect.width / 2) * 0.05;
-          const shiftY = (offsetY - rect.height / 2) * 0.06;
+      if (typewriter) {
+        const textNode = typewriter.querySelector('.hero-title-typewriter-text');
+        const fullText = typewriter.dataset.typeText || textNode?.textContent?.trim() || '';
 
-          button.style.setProperty('--pointer-x', `${offsetX}px`);
-          button.style.setProperty('--pointer-y', `${offsetY}px`);
-          button.style.setProperty('--mag-x', `${shiftX.toFixed(2)}px`);
-          button.style.setProperty('--mag-y', `${shiftY.toFixed(2)}px`);
+        if (textNode && fullText) {
+          let charIndex = 0;
+          let deleting = false;
+
+          const tickTypewriter = () => {
+            if (!deleting) {
+              charIndex = Math.min(fullText.length, charIndex + 1);
+              textNode.textContent = fullText.slice(0, charIndex);
+
+              if (charIndex === fullText.length) {
+                deleting = true;
+                window.setTimeout(tickTypewriter, 2400);
+                return;
+              }
+
+              window.setTimeout(tickTypewriter, charIndex < 14 ? 42 : 30);
+              return;
+            }
+
+            charIndex = Math.max(0, charIndex - 1);
+            textNode.textContent = fullText.slice(0, charIndex);
+
+            if (charIndex === 0) {
+              deleting = false;
+              window.setTimeout(tickTypewriter, 520);
+              return;
+            }
+
+            window.setTimeout(tickTypewriter, 14);
+          };
+
+          textNode.textContent = '';
+          window.setTimeout(tickTypewriter, 460);
+        }
+      }
+
+      const setPointerVars = (element, event, xFactor, yFactor) => {
+        const rect = element.getBoundingClientRect();
+        const offsetX = event.clientX - rect.left;
+        const offsetY = event.clientY - rect.top;
+        const shiftX = (offsetX - rect.width / 2) * xFactor;
+        const shiftY = (offsetY - rect.height / 2) * yFactor;
+
+        element.style.setProperty('--pointer-x', `${offsetX}px`);
+        element.style.setProperty('--pointer-y', `${offsetY}px`);
+        element.style.setProperty('--mag-x', `${shiftX.toFixed(2)}px`);
+        element.style.setProperty('--mag-y', `${shiftY.toFixed(2)}px`);
+      };
+
+      if (finePointer.matches) {
+        document.querySelectorAll('.chip, .jump-link').forEach((button) => {
+          const reset = () => {
+            button.style.setProperty('--mag-x', '0px');
+            button.style.setProperty('--mag-y', '0px');
+            button.style.setProperty('--pointer-x', '50%');
+            button.style.setProperty('--pointer-y', '50%');
+          };
+
+          button.addEventListener('pointermove', (event) => setPointerVars(button, event, 0.05, 0.06));
+          button.addEventListener('pointerleave', reset);
+          button.addEventListener('blur', reset);
         });
 
-        button.addEventListener('pointerleave', reset);
-        button.addEventListener('blur', reset);
-      });
+        document.querySelectorAll('.card, .surface-card, .signal-card, .source-card, .step-card, .note-card, .tone-callout, .fact-strip, .stat-card').forEach((card) => {
+          const reset = () => {
+            card.style.setProperty('--card-parallax-x', '0px');
+            card.style.setProperty('--card-parallax-y', '0px');
+            card.style.setProperty('--card-glow-opacity', '0%');
+            card.style.setProperty('--card-glow-x', '50%');
+            card.style.setProperty('--card-glow-y', '50%');
+          };
+
+          card.addEventListener('pointermove', (event) => {
+            const rect = card.getBoundingClientRect();
+            const offsetX = event.clientX - rect.left;
+            const offsetY = event.clientY - rect.top;
+            const shiftX = (offsetX - rect.width / 2) * 0.014;
+            const shiftY = (offsetY - rect.height / 2) * 0.018;
+
+            card.style.setProperty('--card-parallax-x', `${shiftX.toFixed(2)}px`);
+            card.style.setProperty('--card-parallax-y', `${shiftY.toFixed(2)}px`);
+            card.style.setProperty('--card-glow-opacity', '100%');
+            card.style.setProperty('--card-glow-x', `${offsetX}px`);
+            card.style.setProperty('--card-glow-y', `${offsetY}px`);
+          });
+
+          card.addEventListener('pointerleave', reset);
+          card.addEventListener('blur', reset);
+        });
+      }
+
+      const layers = document.querySelectorAll('.hero, .panel');
+      let ticking = false;
+
+      const updateParallax = () => {
+        const viewportHeight = window.innerHeight || 1;
+
+        layers.forEach((layer, index) => {
+          const rect = layer.getBoundingClientRect();
+          const centerOffset = (rect.top + rect.height / 2 - viewportHeight / 2) / viewportHeight;
+          const depth = layer.classList.contains('hero') ? 1.15 : Math.max(0.45, 0.78 - index * 0.03);
+          const shift = Math.max(-9, Math.min(9, centerOffset * depth * -12));
+          const glowShift = Math.max(-28, Math.min(28, centerOffset * depth * -38));
+
+          layer.style.setProperty('--panel-parallax', `${shift.toFixed(2)}px`);
+          layer.style.setProperty('--hero-glow-shift', `${glowShift.toFixed(2)}px`);
+        });
+
+        document.body.style.setProperty('--page-aura-shift', `${(window.scrollY * -0.035).toFixed(2)}px`);
+        ticking = false;
+      };
+
+      const requestParallax = () => {
+        if (ticking) {
+          return;
+        }
+
+        ticking = true;
+        window.requestAnimationFrame(updateParallax);
+      };
+
+      updateParallax();
+      window.addEventListener('scroll', requestParallax, { passive: true });
+      window.addEventListener('resize', requestParallax);
     })();
   </script>
 </body>
