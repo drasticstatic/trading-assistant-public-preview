@@ -20,7 +20,7 @@ One of the biggest questions behind this whole note is also one of the most inte
 
 > *When you choose something like Opus, are you really getting only Opus — or is Augment still quietly routing some behind-the-scenes work to lighter models or supporting systems?*
 
-> **Sources used here:** public Augment docs reviewed on 2026-03-06 + Intent-native observations shared from this workspace
+> **Sources used here:** public Augment docs reviewed on 2026-03-06 + curated Intent-native role / workflow observations shared from this workspace (updated 2026-03-09)
 
 ## ✨ If you only read one minute of this
 
@@ -37,6 +37,15 @@ It also gets easier when you separate the three main front doors people actually
 - **PR Reviewer** checks
 - **PR Shepherd** helps move work toward merge-ready
 - **UI Designer** polishes the experience
+
+A second, more operational chooser from this workspace’s role reference is:
+
+- **Coordinator** scopes, sequences, and keeps task maintenance aligned
+- **UI Designer** shapes hierarchy, accessibility, and mobile-usability before code
+- **Developer** implements the approved slice
+- **Verifier** acts as the independent acceptance-criteria gate
+
+If you are unsure which role should go first, **start with Coordinator**.
 
 But the real magic is not just the starter types.
 
@@ -139,6 +148,17 @@ If you want the shortest possible summary:
 - **Shepherd** = move it to done
 - **UI Designer** = make it feel better
 
+That is the starter-label lens. The newer role-reference lens is a little different on purpose: it is less about naming every visible tab and more about deciding which kind of help to reach for first.
+
+| Role-reference lens | Reach for it when | What to hand it |
+| --- | --- | --- |
+| `Coordinator` | You need scoping, sequencing, delegation, dependencies, or approval alignment | goal, priorities, constraints, non-goals |
+| `UI Designer` | A page or flow needs hierarchy, storytelling, accessibility, or mobile-usability direction before coding | exact surface, desired outcome, what must stay unchanged |
+| `Developer` | The task is approved and ready for concrete implementation | acceptance criteria, scope boundaries, likely files, required checks |
+| `Verifier` | Completed work needs an independent acceptance-criteria pass | changed files, acceptance criteria, what was already tested, known risks |
+
+In other words: **starter types describe the bench; the role-reference chooser helps route the work.**
+
 <a id="intent-coordination"></a>
 
 ## 🧩 Where Intent gets interesting
@@ -149,10 +169,10 @@ It is using agents like a **small team instead of one all-purpose chatbot**.
 
 A common pattern looks like this:
 
-1. **Coordinator** plans the work
-2. **Developer / Implementor** builds it
-3. **Reviewer / Verifier** checks it
-4. **UI Designer** improves presentation when needed
+1. **Coordinator** scopes the task, sequences the work, and keeps the handoff clean
+2. **UI Designer** sharpens hierarchy and accessibility if the presentation is still under-defined
+3. **Developer / Implementor** builds the approved slice with explicit criteria and checks
+4. **Verifier** reviews the result against acceptance criteria, interaction quality, and public-safe wording when needed
 
 So the real advantage is not just the role label.
 
@@ -247,6 +267,8 @@ Why this works:
 - one checks
 - one polishes
 
+Role-reference default: if you are unsure which operational lane should move first, start with **Coordinator** and let that role narrow the next handoff.
+
 That structure becomes especially helpful when a project mixes:
 
 - docs
@@ -302,6 +324,18 @@ Once they exist in the workspace, they can be worked with in two broad ways:
 That is one of the best reasons to use Intent for multi-step work:
 
 > the workflow stays structured instead of dissolving into one endlessly branching chat
+
+## 🧾 Shared guidance that makes the role system work
+
+The role reference also adds a few workflow rules that are worth carrying into the architecture explanation because they make the system feel coherent instead of chaotic:
+
+- keep tasks **narrow, concrete, and easy to verify**
+- state **constraints and non-goals up front**
+- give Developers **acceptance criteria, likely files, and required checks**
+- give Verifiers **evidence**, not just a vague “looks good?” request
+- for **shareable or public-facing artifacts**, strip out private coordination details and workspace-only process notes
+
+That last point matters more than it sounds: a good multi-agent architecture does not just route work well — it also knows which internal notes should **not** leak into the public artifact.
 
 ## 🧱 Important architecture notes that are easy to miss
 
@@ -512,7 +546,7 @@ Even after all this, a few questions remain interesting:
 - Augment docs — Subagents  
   <https://docs.augmentcode.com/cli/subagents>
 - Intent-native summaries captured in this workspace  
-  Source: user-provided Intent role / workflow notes on 2026-03-06
+  Source: user-provided Intent role / workflow notes on 2026-03-06, plus a curated internal role-reference summary integrated on 2026-03-09
 
 <a id="mermaid-fallback"></a>
 
