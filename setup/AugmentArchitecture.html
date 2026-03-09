@@ -1943,6 +1943,26 @@
       }
 
       const initialHash = window.location.hash;
+      const scrollHashTargetIntoView = (hash) => {
+        const target = document.querySelector(hash);
+
+        if (!target) {
+          return;
+        }
+
+        const alignTarget = () => {
+          const top = Math.max(0, target.getBoundingClientRect().top + window.scrollY - 16);
+          window.scrollTo({ top, left: 0, behavior: 'auto' });
+        };
+
+        window.requestAnimationFrame(alignTarget);
+        window.addEventListener('load', () => {
+          window.requestAnimationFrame(alignTarget);
+          window.setTimeout(alignTarget, 180);
+          window.setTimeout(alignTarget, 900);
+          window.setTimeout(alignTarget, 1800);
+        }, { once: true });
+      };
 
       const clearSectionHash = () => {
         const cleanUrl = `${window.location.pathname}${window.location.search}`;
@@ -1981,13 +2001,7 @@
       });
 
       if (initialHash) {
-        const initialTarget = document.querySelector(initialHash);
-
-        if (initialTarget) {
-          window.requestAnimationFrame(() => {
-            initialTarget.scrollIntoView({ behavior: 'auto', block: 'start' });
-          });
-        }
+        scrollHashTargetIntoView(initialHash);
       } else {
         window.requestAnimationFrame(() => window.scrollTo(0, 0));
       }
