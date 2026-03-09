@@ -166,17 +166,26 @@ No trades executed. Monitoring session only.
 
 ## 🤖 SmartTraderAI Post-Market Copy-Paste Fields
 
+---
+
 **What actually happened?**
+
 Friday March 6 was an afternoon-only monitoring session — morning occupied by STB live coaching session and a vet appointment for Christopher's dog (bloodwork). No formal pre-market built. Desk arrival ~13:45 ET. Analysis focused on ES and CL. ES setup identified and built in stages: ZTH 5/5 + 3/5 confluence at structural resistance, FVG layering (smaller FVG nested within larger FVGs for refined entry), IT Foundation EMAs confirmed RED DOMINANT on the 10-min chart (initial 1-min read caught and corrected mid-session). Conservative short entry planned with SL above local 8:30 AM wick outside the high value node. CL showed a bearish projection setup at the resistance retest of the morning's spike high.
 
 Market sold lower through the session but without enough retracement to reach the ES short entry zone. By 3:25 PM, four-index SMT review returned: NQ and RTY confirming bearish, YM still diverging with upward momentum, ES at the decision zone but time compressed to 35 minutes. Scenario C read. Stand-down called. After RTH close, ES continued lower into ETH confirming the directional thesis for the third consecutive monitoring session. No trades taken.
 
+---
+
 **What did you learn?**
+
 EMA gate requires the correct timeframe — 1-min is noise, 10-min is the signal. Caught and corrected mid-session. SMT divergence (YM) correctly identified as a quality disqualifier with 35 minutes to close on a Friday. Stand-down driven by analysis, not fear — the setup was real but the conditions for executing it were not there. Three consecutive monitoring sessions (Feb 27, Mar 4, Mar 6) with correct directional reads and no fill confirms the analytical edge is working. Entry execution conditions remain the variable.
 
 The deeper lesson: today's session was built under the highest external pressure of this entire recovery arc — car unreliable and unsafe, work write-up received, financial obligations mounting, personal circumstances ongoing. The analysis was still methodical. The process ran. That is the data point worth carrying forward: the system works even when everything else is difficult. That is what we are building.
 
+---
+
 **What were your results for the day?**
+
 - 0 trades filled — monitoring session only
 - Net P&L: $0.00 | Zella Score: N/A
 - Directional read: ✅ Correct — ES bearish confirmed through ETH close

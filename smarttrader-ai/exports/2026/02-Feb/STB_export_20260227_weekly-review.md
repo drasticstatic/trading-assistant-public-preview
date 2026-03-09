@@ -277,27 +277,48 @@ Feb 27  Direction ✅  N/A   Entry ✅  (Level held — no fill → Pattern 5 fi
 
 ## 🤖 SmartTraderAI Weekly Copy-Paste Fields
 
+---
+
 **What trade setups/tactics worked this week?**
+
 The five-layer entry filter worked exactly as designed on Feb 25 (Scenario B LONG, MNQ): FCR bullish close + IT Foundation EMAs green dominant + FVG displacement confirmed + SMT divergence at fill + Fibonacci golden pocket alignment = 2.34R, +$565, 5h 33m hold, SL never threatened. The IT Foundation EMA gate also worked as a veto on Feb 24 — the loss was contained because the structural stop held. On Feb 27, the Pattern 5 fix worked: structural entry zone held, no fill, $0 — the correct behavior identified and applied within 24 hours of the Feb 26 failure.
 
+---
+
 **What didn't work this week?**
+
 Entry discipline was the week's primary failure point across three different mechanisms. Feb 23: FVG entry at 3/5 mitigated level instead of 5/5 active (SL placed at 5/5 = institutional stop hunt target, swept 1 tick). Feb 24: IT Foundation EMA gate said no — counter-trend long taken anyway under emotional pressure (EMA veto ignored). Feb 26: structural entry level (25,060) abandoned at execution in favor of round number (25,000) under time pressure — risk tripled, SL hit on a directionally correct trade.
 
+---
+
 **What observable patterns did you see in the market this week?**
+
 Three consecutive Scenario A SHORT sessions (Feb 23, 26, 27) with confirmed bearish structure: IT Foundation EMAs red dominant, FRVP overhead, CL/GC macro risk-off. Feb 25 was the counter-trend exception — ETH rally from Feb 24 lows was structural (VRVP POC formed in upper half of overnight range, EMAs flipped green at RTH open, Scenario B fully valid). The 1-2-3 continuation pattern (initial sell-off → bounce → second retrace SHORT) was present on Feb 26 and in the forward plan for Feb 27. When CL rallies and GC holds elevated simultaneously — institutional risk-off rotation is confirmed before 9:30.
 
+---
+
 **What observable patterns did you see in your trades this week?**
+
 SL discipline is now confirmed habit (5/5 sessions, 0 stops moved — the Feb 13 behavior is not repeating). Entry discipline is the active work: Feb 23 (B-grade FVG level), Feb 24 (wrong scenario), Feb 26 (level abandoned under pressure), Feb 27 (level held — Pattern 5 fix). The one session where all rules were honored (Feb 25) produced the best result (+$565, 100 Zella, 10/10). The correlation between full execution discipline and outcome is not theoretical — it is confirmed in this week's data.
 
+---
+
 **What mistakes did you make this week?**
+
 1. Feb 23: FVG entry at 3/5 mitigated level instead of 5/5 active — SL swept 1 tick by institutional stop hunt at the 5/5 above.
 2. Feb 24: Counter-trend long taken despite IT Foundation EMAs steeply red dominant — EMA gate was an explicit veto, ignored under emotional pressure.
 3. Feb 26: Entry level adjusted from structural zone (25,060) to round number (25,000) under time pressure (needed to leave for work) — risk tripled from $198 to $558, SL hit on a directionally correct trade.
 
+---
+
 **What recurring problems are you seeing week over week?**
+
 Entry-level discipline under external pressure. Three different mechanisms — FOMO at a lower-quality FVG level (Feb 23), wrong scenario selection under emotional pressure (Feb 24), and last-minute level adjustment under time pressure (Feb 26) — all share the same root cause: an external stressor overriding the pre-session plan at the moment of execution. The plan is correct. The analysis is correct. The entry execution is where the behavioral work is concentrated.
 
+---
+
 **What solutions are you implementing to fix those problems?**
+
 Five-layer entry filter is the gate — all five required for A+ grade, no shortcuts. Pattern 5 rule applied and confirmed: entry level is set pre-session in calm analysis and not adjusted at execution under any external pressure. "If it doesn't fill at the structural level, the trade said no." No trading under external time pressure — if a hard stop time exists, the trade completes before it or doesn't happen.
 
 ---
@@ -316,15 +337,22 @@ Five-layer entry filter is the gate — all five required for A+ grade, no short
 ---
 
 **This week my action steps are:**
+
 1. Five-layer filter required for every entry — A+ grade criteria only, no partial shortcuts
 2. Entry level set pre-session, not adjusted at execution under any circumstances
 3. No trading under external time pressure — plan completes before any hard stop or doesn't happen
 4. One clean A+ trade per session through eval week (APEX -05 due Wednesday Mar 4) — do not stack or chase
 
+---
+
 **What I want to work on / improve / get better at:**
+
 Entry discipline under real-market conditions — specifically applying the pre-session plan without modification at execution. Feb 27 showed Pattern 5 can be fixed immediately. Consistency is the work. The A+ template (Feb 25) and the Pattern 5 fix (Feb 27) both exist. The task is making them the standard, not the exception.
 
+
+
 **How I plan to study the market this week:**
+
 Pre-market with Fortuna before each session. ZTH structure watch + IT Foundation EMA gate read before any setup is considered. Full FCR framework at 9:45. Reviewing pattern_tracker.md to keep the behavioral arc front of mind. Eval week — APEX -05 due Wednesday Mar 4. One clean A+ setup per session. Market has continued lower since Feb 27 — directional read is tracking, execution is the variable.
 
 > Full weekly review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/02-Feb/STB_export_20260227_weekly-review.md

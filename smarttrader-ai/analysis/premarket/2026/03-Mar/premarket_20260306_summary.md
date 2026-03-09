@@ -129,11 +129,19 @@ The behavioral rule that applied today: **a $0 session with correct discipline i
 
 ## 🤖 SmartTraderAI Pre-Market Copy-Paste Fields
 
+---
+
 ### 1. What news releases today?
+
 No major scheduled releases for Friday March 6 afternoon session. EIA Crude Oil Inventories was Wednesday — no CL window restriction on Friday. No Fed speakers or major macro events tracked during the monitored session window. The primary market driver this week has been broader risk-off sentiment and institutional distribution from February highs.
 
+---
+
 ### 2. What are the expected figures? What effect has this event had on the markets before?
+
 N/A — no scheduled macro events during the monitored window. ES and NQ have been in sustained bearish mode since mid-February driven by tariff uncertainty, risk-off rotation, and distribution. The weekly bearish close confirms institutional sellers remain in control heading into next week.
+
+---
 
 ### 3. List both your HTF bias and key levels
 **HTF bias: BEARISH across ES, NQ, RTY.** YM showing relative strength and divergence but approaching descending channel resistance by session end.
@@ -145,10 +153,14 @@ Key levels (carry-forward from Mar 4/5 — require fresh Monday verification):
 - Lower channel boundary = bounce target / partial profit zone
 - CL: Prior high breakdown zone = resistance for short retest entry
 
+---
+
 ### 4. List your Intraday bias and levels
 **Intraday bias: SHORT on ES.** Setup carry-forward: FVG + ZTH confluence resistance zone. Entry: limit short above smaller FVG nested within larger FVG zone. SL: above 8:30 AM local wick + outside HVN. Target: prior support / lower channel boundary.
 
 Not triggered today — carry forward to Monday with fresh open verification. Do not enter on stale levels without confirming the structure holds.
+
+---
 
 ### 5. Expectations for the day?
 No formal pre-market built — STB coaching session served as morning brief. Desk arrival afternoon only. Expectation was to catch the ES short at the ZTH/FVG confluence on sufficient retracement. Market did not provide that retracement during the available window. Correct stand-down at 3:25 PM with 35 minutes to close and YM SMT unresolved. ES confirmed lower direction through ETH close — directional thesis correct for the third consecutive monitoring session.
