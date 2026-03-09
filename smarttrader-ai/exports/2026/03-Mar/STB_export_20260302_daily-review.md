@@ -81,12 +81,16 @@ Net day: **+$460.00**.
 
 Monday opened bearish overnight but reversed bullish at the NY open. ISM Manufacturing PMI (10:00 AM) spiked all three equity indices into overhead supply. After 78 minutes of watching SMT divergence form (RTY/YM rolling, NQ lagging), entered Scenario A ES SHORT at 6,876.50 via CISD/CHoCH confirmation. Full TP hit in 9 minutes (+$1,037.50). Re-entered short 19 minutes later at 6,868.25 (8.25 pts below original in the risky direction). Trade churned for 5+ hours, SL widened twice (6,905 → 6,915.75). Timer exit at 16:58 → −$762.50. Net: +$460.00. Eval balance ~$100,366. Gap: ~$5,634 in 2 days (Mar 3–4).
 
+---
+
 **What did you learn?**
 
 1. Process = calm = execution. T2 (94 Zella, 9 min, full TP) vs T3 (−35 Zella, 5+ hrs, no TP) — same thesis, entirely different process. One A+ trade per session beats three B/C grade trades every time.
 2. New rule confirmed: on re-entries, never enter in the risky direction from the original entry.
 3. Post-TP urgency is a trigger. T3 entered 19 min after a $1,037 win. Correct response after full TP: observe, don't re-enter.
 4. Pre-committed timer exits work. Setting 16:58 before pressure built and honoring it = rule-based exit. This is the developing Pattern 5 antidote.
+
+---
 
 **What were your results for the day?**
 
