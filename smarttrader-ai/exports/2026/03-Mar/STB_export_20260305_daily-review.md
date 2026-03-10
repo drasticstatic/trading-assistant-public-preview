@@ -43,6 +43,14 @@ March 5 was a deliberate step back from the markets — the right call following
 
 ---
 
+## 📸 Key Charts
+
+**ES ETH — end-of-day context (17:18 ET)**
+![ES ETH 17:18](../../../../data/screenshots/ES1!_2026-03-05_17-18-03_7d232.png)
+*ES ETH 17:18 ET — bearish continuation of the descending channel structure. ES short thesis from Mar 4 still active heading into Mar 6.*
+
+---
+
 ## 🧠 Behavioral Notes
 
 | Metric | Grade | Notes |
