@@ -139,7 +139,7 @@ All instruments tracking together but at different levels on their own respectiv
 
 **GC (this morning):** Coach took a quick long win off a pivot setup during the 8 AM–open coaching session. Neutral Bearish on the STB snapshot — key structural level in play.
 
-**Retest developing:** Price now pulling back to retest the long-from-here FCR ray. Watching for: candle close above → hold → bullish continuation toward session highs.
+**Retest developing → confirmed hold:** Price pulled back to retest the long-from-here FCR ray. 1-hr candle body holding above the level — not wicking back into range. FCR HIGH + prior ZTH 5/5 level now acting as support. Bullish continuation toward session highs remains the primary thesis.
 
 ---
 
