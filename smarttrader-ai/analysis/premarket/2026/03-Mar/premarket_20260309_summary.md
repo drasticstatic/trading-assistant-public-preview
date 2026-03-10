@@ -42,14 +42,14 @@
 
 CL spiked at the Sunday 18:00 futures open — up 21% of the range initially, extending to 31% total before reversing. As of the 10:59 AM screenshot: retraced 17% from the high, now 21% from the high and still **280 ticks above Friday's end-of-day range**. The full retracement to Friday's close has not yet completed. This spike — likely geopolitical/macro driven — set the volatility tone for the overnight session and directly impacted how equity indices opened.
 
-![CL 10:59 ET](../../../../data/screenshots/CL1!_2026-03-09_10-59-13_2fbf2.png)
+![CL 10:59 ET](../../../../../data/screenshots/CL1!_2026-03-09_10-59-13_2fbf2.png)
 *CL1! 10:59 ET — Sunday 18:00 spike clearly visible. 31% range extension then reversal. Still 280 ticks above Friday EOD range as of screenshot. Retracement thesis active.*
 
 **GC — Safe-Haven Context:**
 
 Gold remains elevated from the safe-haven demand that built through the Feb–Mar sell-off. As of 11:09 AM, GC is showing distribution/choppiness at the highs with IT Foundation EMAs beginning to roll. If GC continues to lose strength while equities are testing key levels, that's the safe-haven exhaustion signal — reducing the macro tailwind for further equity selling.
 
-![GC 11:09 ET](../../../../data/screenshots/GC1!_2026-03-09_11-09-55_e44b6.png)
+![GC 11:09 ET](../../../../../data/screenshots/GC1!_2026-03-09_11-09-55_e44b6.png)
 *GC1! 11:09 ET — Elevated at highs. EMAs beginning to roll. Distribution visible. Safe-haven bid may be fading.*
 
 **Equity ETH — Key Level Tests Across All Three:**
@@ -123,8 +123,8 @@ Long-term uptrend intact — large IT Foundation EMA (green) still rising from b
 **ETH current read:** Bouncing from the support test. IT Foundation EMAs on the shorter timeframe beginning to curl green. The question is whether this is a genuine reversal or a dead-cat bounce before another leg lower.
 
 <table><tr>
-<td width="50%"><img src="../../../../data/screenshots/NQ1!_2026-03-09_11-56-19_2f40a.png" width="100%"><br><sub>NQ Daily — Long-term uptrend intact (large green EMA). Intermediate structure broken from ATH distribution. Daily key support zone (green block) tested at Sunday open and held.</sub></td>
-<td width="50%"><img src="../../../../data/screenshots/NQ1!_2026-03-09_11-48-18_0f58e.png" width="100%"><br><sub>NQ ETH/RTH view — Support test at Sunday open, hold, bounce visible. EMAs beginning to curl on shorter timeframe.</sub></td>
+<td width="50%"><img src="../../../../../data/screenshots/NQ1!_2026-03-09_11-56-19_2f40a.png" width="100%"><br><sub>NQ Daily — Long-term uptrend intact (large green EMA). Intermediate structure broken from ATH distribution. Daily key support zone (green block) tested at Sunday open and held.</sub></td>
+<td width="50%"><img src="../../../../../data/screenshots/NQ1!_2026-03-09_11-48-18_0f58e.png" width="100%"><br><sub>NQ ETH/RTH view — Support test at Sunday open, hold, bounce visible. EMAs beginning to curl on shorter timeframe.</sub></td>
 </tr></table>
 
 ---
@@ -140,8 +140,8 @@ Same long-term uptrend structure as NQ — large green EMA rising from far below
 **ETH current read:** Pressing into resistance. This is where the session's directional bias will be determined. Watch the candle reaction at this zone closely.
 
 <table><tr>
-<td width="50%"><img src="../../../../data/screenshots/ES1!_2026-03-09_11-57-03_8b3fc.png" width="100%"><br><sub>ES Daily — Former support now overhead resistance. Current ETH bounce pressing into this zone. Bears defending from above is the short case. Break and hold reclaims structure for bulls.</sub></td>
-<td width="50%"><img src="../../../../data/screenshots/ES1!_2026-03-09_11-44-27_acd57.png" width="100%"><br><sub>ES ETH/RTH view — Bounce from lows pressing into resistance. RTH descending channel intact. Decision zone active now.</sub></td>
+<td width="50%"><img src="../../../../../data/screenshots/ES1!_2026-03-09_11-57-03_8b3fc.png" width="100%"><br><sub>ES Daily — Former support now overhead resistance. Current ETH bounce pressing into this zone. Bears defending from above is the short case. Break and hold reclaims structure for bulls.</sub></td>
+<td width="50%"><img src="../../../../../data/screenshots/ES1!_2026-03-09_11-44-27_acd57.png" width="100%"><br><sub>ES ETH/RTH view — Bounce from lows pressing into resistance. RTH descending channel intact. Decision zone active now.</sub></td>
 </tr></table>
 
 ---
@@ -157,8 +157,8 @@ YM daily structure is notably different from NQ and ES. The sell-off from the hi
 **ETH current read:** Leading the bounce. If YM holds above its key level through the evening, that is the primary long confirmation signal for the session.
 
 <table><tr>
-<td width="50%"><img src="../../../../data/screenshots/YM1!_2026-03-09_12-00-12_3f192.png" width="100%"><br><sub>YM Daily — Relative strength vs NQ/ES. Healthier structure on the daily. Multiple support zones intact. Less severe sell-off from highs.</sub></td>
-<td width="50%"><img src="../../../../data/screenshots/YM1!_2026-03-09_11-43-21_77b0f.png" width="100%"><br><sub>YM ETH/RTH view — Cleared key level in ETH, testing as support from above. Relative strength leader throughout this period.</sub></td>
+<td width="50%"><img src="../../../../../data/screenshots/YM1!_2026-03-09_12-00-12_3f192.png" width="100%"><br><sub>YM Daily — Relative strength vs NQ/ES. Healthier structure on the daily. Multiple support zones intact. Less severe sell-off from highs.</sub></td>
+<td width="50%"><img src="../../../../../data/screenshots/YM1!_2026-03-09_11-43-21_77b0f.png" width="100%"><br><sub>YM ETH/RTH view — Cleared key level in ETH, testing as support from above. Relative strength leader throughout this period.</sub></td>
 </tr></table>
 
 ---
