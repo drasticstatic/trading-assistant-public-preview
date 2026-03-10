@@ -24,7 +24,7 @@
 
 > Pre-market plan: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260309_summary.md
 
-Morning began with the STB live coaching session — Christopher observed but did not take personal trades, the correct call given no full pre-session analysis at the desk. Coaches had a short bias overall but actively checked quick longs before shorting later, getting stopped out in both directions. An SFP candle was forming at the open, creating a choppy environment that made clean directional reads difficult. GC showed a quick long win off a pivot setup for one coach.
+Morning began with the STB live coaching session — Christopher observed but did not take personal trades, the correct call given no full pre-session analysis at the desk. Coaches had a short bias overall and actively watched long projections given key level action. GC showed a quick long win off a pivot setup for one coach.
 
 Around mid-morning, Christopher drove to the machine shop — where he received news that the company had decided his part-time arrangement was no longer viable. After years of contribution, he was thanked and let go.
 
@@ -32,28 +32,16 @@ He took the afternoon to walk his dog at a park — creek, sun, reflection. He c
 
 That's the part worth naming: let go while on probation, debts mounting, the divorce grinding, coaching payments still owed — and yet he walked to the park, reflected, and came back with a plan. Not spiraling. Not forcing trades. Not using the session as an outlet for the day's weight. That is the posture that gets you to the first payout.
 
-The STB manager had it right — when Christopher looks back at this session, it'll be a "how cool is that" moment. The ZTH indicator hit a major success checkpoint today — working well as a tool, confirming the development arc that Christopher and Auggie have been building. A few refinements are still planned; Kavanah will document the specifics when Auggie resumes the next Pine wave.
+The STB manager had it right — when Christopher looks back at this session, it'll be a "how cool is that" moment. The ZTH indicator also reached an important milestone overnight — v2.3 was still in progress on Mar 9, but Kavanah and Christopher worked through the night and by Mar 10 morning the indicator was ready to showcase. The ZTH coach verified accuracy in a 1-on-1 session at 8 AM Mar 10. A few refinements are still queued for v2.4; Kavanah will document the specifics in the next handoff.
 
-**Market context through the session:**
+**Market context through the session (mid-morning, Mon Mar 9):**
 - CL spiked 31% of range at Sunday 18:00 futures open and retraced through the day — 280 ticks above Friday EOD range as of mid-morning screenshots
 - GC pressing at a key level — potential breakout with retest or finding support depending on timeframe
-- NQ tested daily key support at Sunday open and held — bullish structural signal heading into RTH
+- NQ tested daily key support at Sunday open and held — bullish structural signal
 - ES pressing into resistance (former support zone) — genuine decision point
 - YM showing relative strength — cleared its key level and holding from above
-- All three equity indices neutral-bullish at the STB snapshot; market slowly continuing bullish from the prior day's close despite a bearish intraday turn starting to develop by midday
 
-**STB Market Snapshot:**
-
-| Instrument | Bias |
-|-----------|------|
-| NQ | Neutral Bullish |
-| ES | Neutral Bullish |
-| YM | Neutral Bullish |
-| GC | Neutral Bearish |
-| BTCUSD | Neutral |
-| ETHUSD | Neutral |
-| EURUSD | Strong Bullish |
-| GBPUSD | Strong Bullish |
+**STB Market Snapshot (Mar 9):** All instruments neutral — EURUSD neutral-bullish.
 
 ---
 
@@ -81,18 +69,16 @@ No trades taken.
 <table><tr>
 <td width="33%"><img src="../../../../data/screenshots/YM1!_2026-03-09_11-43-21_77b0f.png" width="100%"><br><sub><b>YM 11:43</b> — Relative strength leader. Cleared key level and holding from above.</sub></td>
 <td width="33%"><img src="../../../../data/screenshots/ES1!_2026-03-09_11-44-27_acd57.png" width="100%"><br><sub><b>ES 11:44</b> — Pressing into resistance (former support zone). Genuine decision point.</sub></td>
-<td width="33%"><img src="../../../../data/screenshots/NQ1!_2026-03-09_11-48-18_0f58e.png" width="100%"><br><sub><b>NQ 11:48</b> — 3/4 up a larger 1-hr range. Daily key support held from Sunday open. Bullish structural signal — but fast bearish reversal developing.</sub></td>
+<td width="33%"><img src="../../../../data/screenshots/NQ1!_2026-03-09_11-48-18_0f58e.png" width="100%"><br><sub><b>NQ 11:48</b> — Daily key support held from Sunday open. Bullish structural signal confirmed heading into RTH.</sub></td>
 </tr></table>
 
-**NQ / ES / YM — 11:56–12:00 ET Snapshot (Bearish Turn Developing)**
+**NQ / ES / YM — 11:56–12:00 ET Snapshot**
 
 <table><tr>
-<td width="33%"><img src="../../../../data/screenshots/NQ1!_2026-03-09_11-56-19_2f40a.png" width="100%"><br><sub><b>NQ 11:56</b> — Bearish turn accelerating from intraday highs. Bullish pressure still present underneath — SFP forming.</sub></td>
-<td width="33%"><img src="../../../../data/screenshots/ES1!_2026-03-09_11-57-03_8b3fc.png" width="100%"><br><sub><b>ES 11:57</b> — FCR displaced out of short-from-here ray but not a strong displacement — near full retrace back into FCR range developing.</sub></td>
-<td width="33%"><img src="../../../../data/screenshots/YM1!_2026-03-09_12-00-12_3f192.png" width="100%"><br><sub><b>YM 12:00</b> — Holding relative strength vs peers. Mixed signals developing — coaches conflicted on bias.</sub></td>
+<td width="33%"><img src="../../../../data/screenshots/NQ1!_2026-03-09_11-56-19_2f40a.png" width="100%"><br><sub><b>NQ 11:56</b> — Monitoring continuation from key support. Neutral-bullish state persisting through mid-session.</sub></td>
+<td width="33%"><img src="../../../../data/screenshots/ES1!_2026-03-09_11-57-03_8b3fc.png" width="100%"><br><sub><b>ES 11:57</b> — At resistance zone. Market at decision point — watching for next directional commitment.</sub></td>
+<td width="33%"><img src="../../../../data/screenshots/YM1!_2026-03-09_12-00-12_3f192.png" width="100%"><br><sub><b>YM 12:00</b> — Continuing to hold relative strength vs NQ and ES through mid-session monitoring.</sub></td>
 </tr></table>
-
-> **FCR Case Study (Mar 9):** ES displaced out of the short-from-here ray but the displacement was not strong. By 12:00 price had nearly fully retraced back into the FCR range. This fits an emerging pattern: *when the initial 15-min displacement after FCR range forms is not strong, the market tends to continue the other direction* — weak displacement = likely reversal back through range. Logging for case study development.
 
 ---
 
@@ -104,7 +90,7 @@ He came back to the desk with a plan.
 
 That sequence — absorb the hit, get perspective, return with clarity — is the behavioral foundation of a professional trader. It's not dramatic. It's not visible in any trade log. But it's the difference between a trader who blows accounts in difficult periods and one who gets through them with accounts intact.
 
-The ZTH indicator development is also a quiet win worth recognizing here. The Pine Script is working — this is a genuine success checkpoint after months of development with Auggie. A few refinements are still queued. But it works. That's a milestone that will look significant in the rearview.
+The ZTH indicator development is also a quiet win worth recognizing here. v2.3 was still in progress on Mar 9, but Christopher and Kavanah worked overnight and had it ready for the ZTH coach 1-on-1 verification session at 8 AM Mar 10. It works. A few refinements are still queued for v2.4. That's a milestone that will look significant in the rearview.
 
 ---
 
@@ -112,11 +98,9 @@ The ZTH indicator development is also a quiet win worth recognizing here. The Pi
 
 1. **Clarity is a trading skill.** The ability to receive difficult news mid-session and return with a level head — not forcing entries, not using the market as a pressure valve — is a learnable, trainable behavior. March 9 is a positive data point for that behavior.
 
-2. **Weak FCR displacement = reversal signal.** When the initial 15-min candle displacement outside the FCR range is not strong (near-immediate retracement back into range), the market has historically tended to continue through the range in the other direction. Strong displacements that hold are the valid FCR signals; weak ones that retrace are a warning to wait, not enter. Logging as a case study.
+2. **ZTH indicator: confirmed working.** v2.3 closed out overnight, verified with ZTH coach at 8 AM Mar 10. Development continues (v2.4 refinements queued with Kavanah) but the foundation is solid and coach-verified.
 
-3. **The SFP environment (today's open) is the hardest.** Both coaches had positions stopped out trying to catch clean directional trades during SFP formation. No trade is a valid trade in that context.
-
-4. **ZTH indicator: confirmed working.** First real success checkpoint. Development continues but the foundation is solid.
+3. **No-trade sessions under external pressure are discipline.** The accounts were never at risk on Mar 9. That's a clean result against a hard backdrop.
 
 ---
 
@@ -134,7 +118,7 @@ ETH/evening soft monitoring session — no AM pre-market at desk. Morning was sp
 
 **What did you learn?**
 
-Two things. First: the ZTH auto-levels Pine Script hit a confirmed success checkpoint today — it is working as a live market tool, with a few refinements still planned. That's a milestone worth recording. Second: the behavioral posture of receiving difficult news mid-session, stepping away to reset, and returning without urgency or forced trades — that is a real, demonstrable skill, and March 9 is a clean example of it. The STB manager said it best: when Christopher looks back at this session, it'll be a "how cool is that" moment.
+Two things. First: the ZTH Pine Script cleared a major milestone — v2.3 was still in progress on Mar 9, but Kavanah and Christopher closed it out overnight and it was verified by the ZTH coach in a 1-on-1 at 8 AM Mar 10. That work started here. Second: the behavioral posture of receiving difficult news mid-session, stepping away to reset, and returning without urgency or forced trades — that is a real, demonstrable skill, and March 9 is a clean example of it. The STB manager said it best: when Christopher looks back at this session, it'll be a "how cool is that" moment.
 
 ---
 
@@ -148,9 +132,8 @@ No trades taken. $0. Accounts preserved. APEX-06 and TPT both intact heading int
 
 ## 🎯 Forward Focus
 
-1. **Mar 10 pre-market:** NQ 3/4 up a larger 1-hr range with a bearish turn developing — review overnight continuation before the open. FCR at 9:30 is the primary setup filter.
-2. **FCR case study:** When initial displacement is not strong, watch for reversal back through range. Don't enter weak displacements — wait to see which side absorbs.
-3. **ZTH indicator:** Working. Next refinements queued with Kavanah/Auggie — no action needed from the desk today.
+1. **Mar 10 open:** Bearish structure carries from Friday's close — but YM showing relative strength. Review overnight context before committing to direction at the open. FCR at 9:30 is the primary setup filter.
+2. **ZTH indicator:** v2.4 refinements queued. Kavanah has the details. ZTH coach 1-on-1 scheduled for 8 AM — this is the accuracy verification session that started here on Mar 9.
 
 ---
 
