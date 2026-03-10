@@ -177,6 +177,18 @@ Bounce developing from entry zone as of 12:01 ET.
 | TP | 25,195 | Working ✅ |
 | Qty | — | 3 contracts |
 
+**~16:09 ET — 1 tick from SL. SL held. Back above entry.**
+
+![MNQ 16:09 — Sharp drop to within 1 tick of SL (24,955) before V-recovery back above entry. SL not moved. Trade live.](../../../../../data/screenshots/Screenshot%202026-03-10%20at%2016.09.41.png)
+
+Price dropped to within 1 tick of the SL. Christopher felt the urge to move it — and instead switched windows to work on the Pine Script bug with Kavanah. Came back to find price recovered above entry. SL respected. **This is the Pattern 7 fix in live action.**
+
+**⚠️ FCR Pine Script bug discovered (Mar 10):** FCR rays display correctly on the 15min chart but change price values when switching to other timeframes. Verified by drawing a static reference line — the rays do not stay anchored to the 15min HIGH/LOW when the chart timeframe changes. This means prior sessions viewing FCR on non-15min charts may have shown incorrect ray levels. Bug flagged for Kavanah → standalone FCR indicator affected as well. **FCR levels should only be read from the 15min chart until this is resolved.**
+
+**Mar 10 FCR read caveat:** The initial apparent "displacement below short-from-here" may have been partially influenced by incorrect ray values on the viewed timeframe. True FCR boundaries confirmed from 15min only. The FCR LONG that followed was validated on the correct timeframe.
+
+Exit plan: before 16:59 ET, or earlier if market signals a clean exit.
+
 ---
 
 <a id="smarttraderai-copy-paste"></a>
