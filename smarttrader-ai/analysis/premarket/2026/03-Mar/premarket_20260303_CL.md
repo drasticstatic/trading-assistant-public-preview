@@ -36,13 +36,17 @@
 - GC aligned bearishly = commodity sector headwind for CL
 - Not tradeable on Apex — reference only
 
-**Screenshot reference:** `CL1!_2026-03-02_17-28-58_d4dde.png` | `GC1!_2026-03-02_17-30-20_484fc.png`
+<table><tr>
+<td width="50%"><img src="../../../../../data/screenshots/CL1!_2026-03-02_17-28-58_d4dde.png" width="100%"><br><sub>CL 17:28 ET — ISM spike visible, EMAs converging post-run. Transitioning, not yet red dominant.</sub></td>
+<td width="50%"><img src="../../../../../data/screenshots/GC1!_2026-03-02_17-30-20_484fc.png" width="100%"><br><sub>GC 17:30 ET — Red dominant confirmed. Bearish commodity alignment for CL context.</sub></td>
+</tr></table>
 
 ---
 
 ## Into Tuesday March 3 — Overnight Update
 
-**Screenshot:** `CL1!_2026-03-03_08-59-23_5b1f7.png` — CL 1-hour as of 8:59 AM ET
+![CL 8:59 ET — green dominant confirmed](../../../../../data/screenshots/CL1!_2026-03-03_08-59-23_5b1f7.png)
+*CL 1hr at 8:59 AM ET — overnight resolution bullish. EMAs fanned out green dominant. Strong bullish structure.*
 
 **Overnight resolution:** The EMA transition flagged in the March 2 evening session resolved **bullish**. CL did not roll over — it continued higher through the overnight ETH session.
 
