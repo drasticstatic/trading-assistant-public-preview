@@ -141,6 +141,12 @@ All instruments tracking together but at different levels on their own respectiv
 
 **Retest developing → confirmed hold:** Price pulled back to retest the long-from-here FCR ray. 1-hr candle body holding above the level — not wicking back into range. FCR HIGH + prior ZTH 5/5 level now acting as support. Bullish continuation toward session highs remains the primary thesis.
 
+**~12:01 ET — NQ trade projection placed. Entry: mid-FCR range.**
+
+![NQ 12:01 — Trade projection. Long entry set at middle of FCR range. If price wicks down to fill, trade is on. If it moves without filling, no forced entry — stop tightness is not the concern when entry placement is disciplined.](../../../../../data/screenshots/Screenshot%202026-03-10%20at%2012.01.26.png)
+
+> **Entry approach note:** Placing the limit at the mid-point of the FCR range rather than chasing the breakout. If it wicks down to fill → trade is live with room. If it doesn't fill → market moved without a forced entry, which is fine. This removes stop-too-tight anxiety because the entry itself is doing the risk management work.
+
 ---
 
 <a id="smarttraderai-copy-paste"></a>

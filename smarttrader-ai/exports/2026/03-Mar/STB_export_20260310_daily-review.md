@@ -28,7 +28,9 @@ ZTH indicator accuracy verified with ZTH coach in a 1-on-1 at 8 AM — a meaning
 
 Open produced a classic SFP environment: coaches tested short and quick longs, stopped out in both directions. Initial FCR displacement was SHORT (below short-from-here) but not sustained — near-full retrace back into range. Consistent bullish candles then closed above the long-from-here ray. ChoCH formed with bullish FVGs. Coaches pivoted from looking at session lows to session highs. FCR LONG was the active setup heading into mid-session.
 
-**NQ confluence:** The long-from-here FCR ray sits at a previous 5/5 ZTH level from a few days prior. Only mitigated once — by Wednesday's huge opening candle. Now being retested on the 1-hr chart. All instruments tracking together at proportionate levels on their own charts. Price pulling back to retest the FCR HIGH ray before potential continuation toward session highs.
+**NQ confluence:** The long-from-here FCR ray sits at a previous 5/5 ZTH level from a few days prior. Only mitigated once — by Wednesday's huge opening candle. Now being retested on the 1-hr chart. All instruments tracking together at proportionate levels on their own charts. 1-hr candle body confirmed holding above — not wicking back into range.
+
+Trade projection placed: limit entry at the mid-point of the FCR range. If price wicks down to fill → trade is live with room. If it moves without filling → no forced entry. This approach addresses a recurring issue with stops feeling too tight on breakout entries — by entering at the range midpoint, the entry itself is doing the risk management work.
 
 *Christopher to add session notes, trade details, and any additional screenshots.*
 
