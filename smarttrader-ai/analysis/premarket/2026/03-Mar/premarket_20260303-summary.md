@@ -32,10 +32,11 @@
 
 ## 🌙 Overnight / ETH Context
 
-<table><tr>
-<td width="50%"><img src="../../../../../data/screenshots/ES1!_2026-03-03_09-29-20_43366.png" width="100%"><br><sub>ES 9:29 ET — Christopher's manually drawn levels. Level cluster overhead as resistance.</sub></td>
-<td width="50%"><img src="../../../../../data/screenshots/ES1!_2026-03-03_09-31-46_e0add.png" width="100%"><br><sub>ES 9:31 ET — zoomed to recent range. Multiple levels now above price after −104 pt overnight drop.</sub></td>
-</tr></table>
+**9:29 ET — ES Christopher's manually drawn levels, cluster overhead as resistance**
+![ES 9:29 ET — Christopher's manually drawn levels. Level cluster overhead as resistance.](../../../../../data/screenshots/ES1!_2026-03-03_09-29-20_43366.png)
+
+**9:31 ET — ES zoomed to recent range, multiple levels now above price after −104 pt overnight drop**
+![ES 9:31 ET — zoomed to recent range. Multiple levels now above price after −104 pt overnight drop.](../../../../../data/screenshots/ES1!_2026-03-03_09-31-46_e0add.png)
 
 ![ES 9:40 ET — near-open context](../../../../../data/screenshots/ES1!_2026-03-03_09-40-10_629de.png)
 *ES 9:40 ET — at the open, red dominant confirmed, FCR candle forming. −104 pts from March 2 close.*

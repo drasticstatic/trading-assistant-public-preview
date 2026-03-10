@@ -131,7 +131,15 @@ The STB manager had it right. When this moment is looked back on, it'll be a "ho
 
 ## ⏱️ Live Session Updates
 
-*To be added as session develops.*
+**~10:15 ET — FCR resolved LONG | NQ 5/5 level confluence**
+
+All instruments tracking together but at different levels on their own respective charts — proportionate movement, not tight lockstep. FCR LONG confirmed (consistent bullish candles above long-from-here ray, ChoCH, bullish FVGs). Coaches pivoting to session highs.
+
+**NQ key confluence note:** The NQ long-from-here FCR ray sits at a previous 5/5 ZTH level from a few days ago. That level was only mitigated once — by Wednesday's huge opening candle — and is now being tested again on the 1-hour chart. Current 1-hr candle in progress at that level. This is significant: FCR HIGH + prior ZTH 5/5 = stacked confluence. If price closes this 1-hr candle above and holds, the setup has layered structural support.
+
+**GC (this morning):** Coach took a quick long win off a pivot setup during the 8 AM–open coaching session. Neutral Bearish on the STB snapshot — key structural level in play.
+
+**Retest developing:** Price now pulling back to retest the long-from-here FCR ray. Watching for: candle close above → hold → bullish continuation toward session highs.
 
 ---
 
