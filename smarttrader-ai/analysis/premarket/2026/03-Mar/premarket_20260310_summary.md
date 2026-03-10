@@ -166,6 +166,17 @@ All instruments tracking together but at different levels on their own respectiv
 
 Bounce developing from entry zone as of 12:01 ET.
 
+**14:17 ET — FILLED. Trade live.**
+
+![MNQ 14:17 — LONG 3x MNQH6 filled @ 25,023.75. SL and TP working orders confirmed.](../../../../../data/screenshots/Screenshot%202026-03-10%20at%2014.17.41.png)
+
+| Field | Planned | Actual |
+|-------|---------|--------|
+| Entry | 25,024 | **25,023.75** ✅ (0.25 pts better) |
+| SL | 24,955 | Working ✅ |
+| TP | 25,195 | Working ✅ |
+| Qty | — | 3 contracts |
+
 ---
 
 <a id="smarttraderai-copy-paste"></a>
