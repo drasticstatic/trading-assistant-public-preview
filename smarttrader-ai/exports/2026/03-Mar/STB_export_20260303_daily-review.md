@@ -53,6 +53,26 @@ March 3 was the second-to-last day of the APEX eval — a gap of ~$5,634 remaine
 
 ---
 
+## 📸 Key Charts
+
+### Pine Script Development — FCR Ray Comparison (9:29–9:31 ET)
+
+Before the session opened, Christopher and Auggie captured side-by-side comparisons of the manually drawn levels vs. the indicator output. This work directly revealed the FCR ray placement error that contributed to T2's structural flaw — the indicator was drawing correctly (HIGH/LOW), while Christopher had manually drawn at open/close. The ZTH Auto Levels script (v2.x) was still in active development this session and could not be relied upon as a live reference, adding to the session's preparation challenges.
+
+<table><tr>
+<td width="50%"><img src="../../../../data/screenshots/ES1!_2026-03-03_09-29-20_43366.png" width="100%"><br><sub>Christopher's manually drawn levels — FCR rays placed at open/close (incorrect)</sub></td>
+<td width="50%"><img src="../../../../data/screenshots/ES1!_2026-03-03_09-29-25_405c7_Auggie-Plot.png" width="100%"><br><sub>Auggie's pine script output — FCR rays at HIGH/LOW (correct). Only ~2 ZTH levels visible — Bug 9 (under-detection) active.</sub></td>
+</tr></table>
+
+<table><tr>
+<td width="50%"><img src="../../../../data/screenshots/ES1!_2026-03-03_09-31-46_e0add.png" width="100%"><br><sub>Christopher's levels zoomed to recent range — dense manual level cluster overhead</sub></td>
+<td width="50%"><img src="../../../../data/screenshots/ES1!_2026-03-03_09-31-50_1dfa5_Auggie-Plot.png" width="100%"><br><sub>Auggie's plot zoomed — single line, full-width (Bug 8 + Bug 9 both visible). FCR rays correct.</sub></td>
+</tr></table>
+
+> The indicator development work this session had a real cost: without a reliable auto-levels reference, Christopher was trading off manually drawn levels with stale markup from prior sessions still on the chart. The FCR ray error was not operator carelessness — it was the kind of error that happens when you can't cross-check your work against a trusted tool. Getting the indicator accurate is directly connected to trading performance.
+
+---
+
 ## 📈 What CL and ES Did After Auto-Liq
 
 | Instrument | Direction | What Happened |
