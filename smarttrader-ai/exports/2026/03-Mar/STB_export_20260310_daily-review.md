@@ -42,7 +42,7 @@ MNQ trade projection placed. Entry refined to the bottom of the 1hr FVG, which a
 
 | # | Time | Instrument | Dir | Entry | Exit | P&L | Grade |
 |---|------|-----------|-----|-------|------|-----|-------|
-| — | — | — | — | — | — | — | — |
+| 1 | 14:17 ET | MNQH6 | ↑ Long | 25,023.75 | *open* | *pending* | *TBD* |
 
 ---
 
