@@ -122,10 +122,11 @@ Long-term uptrend intact — large IT Foundation EMA (green) still rising from b
 
 **ETH current read:** Bouncing from the support test. IT Foundation EMAs on the shorter timeframe beginning to curl green. The question is whether this is a genuine reversal or a dead-cat bounce before another leg lower.
 
-<table><tr>
-<td width="50%"><img src="../../../../../data/screenshots/NQ1!_2026-03-09_11-56-19_2f40a.png" width="100%"><br><sub>NQ Daily — Long-term uptrend intact (large green EMA). Intermediate structure broken from ATH distribution. Daily key support zone (green block) tested at Sunday open and held.</sub></td>
-<td width="50%"><img src="../../../../../data/screenshots/NQ1!_2026-03-09_11-48-18_0f58e.png" width="100%"><br><sub>NQ ETH/RTH view — Support test at Sunday open, hold, bounce visible. EMAs beginning to curl on shorter timeframe.</sub></td>
-</tr></table>
+**11:56 ET — NQ Daily: long-term uptrend intact, daily key support zone tested and held**
+![NQ Daily — Long-term uptrend intact (large green EMA). Intermediate structure broken from ATH distribution. Daily key support zone (green block) tested at Sunday open and held.](../../../../../data/screenshots/NQ1!_2026-03-09_11-56-19_2f40a.png)
+
+**11:48 ET — NQ ETH/RTH: support test at Sunday open, hold, bounce visible**
+![NQ ETH/RTH view — Support test at Sunday open, hold, bounce visible. EMAs beginning to curl on shorter timeframe.](../../../../../data/screenshots/NQ1!_2026-03-09_11-48-18_0f58e.png)
 
 ---
 
@@ -139,10 +140,11 @@ Same long-term uptrend structure as NQ — large green EMA rising from far below
 
 **ETH current read:** Pressing into resistance. This is where the session's directional bias will be determined. Watch the candle reaction at this zone closely.
 
-<table><tr>
-<td width="50%"><img src="../../../../../data/screenshots/ES1!_2026-03-09_11-57-03_8b3fc.png" width="100%"><br><sub>ES Daily — Former support now overhead resistance. Current ETH bounce pressing into this zone. Bears defending from above is the short case. Break and hold reclaims structure for bulls.</sub></td>
-<td width="50%"><img src="../../../../../data/screenshots/ES1!_2026-03-09_11-44-27_acd57.png" width="100%"><br><sub>ES ETH/RTH view — Bounce from lows pressing into resistance. RTH descending channel intact. Decision zone active now.</sub></td>
-</tr></table>
+**11:57 ET — ES Daily: former support now overhead resistance, ETH bounce pressing into this zone**
+![ES Daily — Former support now overhead resistance. Current ETH bounce pressing into this zone. Bears defending from above is the short case. Break and hold reclaims structure for bulls.](../../../../../data/screenshots/ES1!_2026-03-09_11-57-03_8b3fc.png)
+
+**11:44 ET — ES ETH/RTH: bounce from lows pressing into resistance, decision zone active**
+![ES ETH/RTH view — Bounce from lows pressing into resistance. RTH descending channel intact. Decision zone active now.](../../../../../data/screenshots/ES1!_2026-03-09_11-44-27_acd57.png)
 
 ---
 
@@ -156,10 +158,11 @@ YM daily structure is notably different from NQ and ES. The sell-off from the hi
 
 **ETH current read:** Leading the bounce. If YM holds above its key level through the evening, that is the primary long confirmation signal for the session.
 
-<table><tr>
-<td width="50%"><img src="../../../../../data/screenshots/YM1!_2026-03-09_12-00-12_3f192.png" width="100%"><br><sub>YM Daily — Relative strength vs NQ/ES. Healthier structure on the daily. Multiple support zones intact. Less severe sell-off from highs.</sub></td>
-<td width="50%"><img src="../../../../../data/screenshots/YM1!_2026-03-09_11-43-21_77b0f.png" width="100%"><br><sub>YM ETH/RTH view — Cleared key level in ETH, testing as support from above. Relative strength leader throughout this period.</sub></td>
-</tr></table>
+**12:00 ET — YM Daily: relative strength vs NQ/ES, healthier structure, multiple support zones intact**
+![YM Daily — Relative strength vs NQ/ES. Healthier structure on the daily. Multiple support zones intact. Less severe sell-off from highs.](../../../../../data/screenshots/YM1!_2026-03-09_12-00-12_3f192.png)
+
+**11:43 ET — YM ETH/RTH: cleared key level, testing as support from above**
+![YM ETH/RTH view — Cleared key level in ETH, testing as support from above. Relative strength leader throughout this period.](../../../../../data/screenshots/YM1!_2026-03-09_11-43-21_77b0f.png)
 
 ---
 

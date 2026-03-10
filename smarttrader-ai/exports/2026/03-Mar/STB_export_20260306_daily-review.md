@@ -92,13 +92,17 @@ No trades executed. Monitoring session only.
 
 ### Four-Index SMT Review — 15:25 ET
 
-<table><tr>
-<td width="50%"><img src="../../../../data/screenshots/YM1!_2026-03-06_15-25-00_2d33f.png" width="100%"><br><sub>YM 15:25 — Bounced harder than peers, testing descending channel resistance. Upward divergence = Scenario C concern.</sub></td>
-<td width="50%"><img src="../../../../data/screenshots/NQ1!_2026-03-06_15-25-25_51a2a.png" width="100%"><br><sub>NQ 15:25 — Clear bearish descending channel. Bounce stalling at resistance. Bearish confirmed.</sub></td>
-</tr><tr>
-<td width="50%"><img src="../../../../data/screenshots/RTY1!_2026-03-06_15-25-52_ea8a5.png" width="100%"><br><sub>RTY 15:25 — Bearish channel. Below resistance. Red dominant EMAs. Short thesis confirmed.</sub></td>
-<td width="50%"><img src="../../../../data/screenshots/ES1!_2026-03-06_15-26-11_fd6b4.png" width="100%"><br><sub>ES 15:26 — At FVG/ZTH resistance zone. Bearish structure intact. Entry zone reached — but YM diverging and 35 minutes to close.</sub></td>
-</tr></table>
+**15:25 ET — YM bounced harder than peers, testing descending channel resistance**
+![YM 15:25 — Bounced harder than peers, testing descending channel resistance. Upward divergence = Scenario C concern.](../../../../data/screenshots/YM1!_2026-03-06_15-25-00_2d33f.png)
+
+**15:25 ET — NQ clear bearish descending channel, bounce stalling at resistance**
+![NQ 15:25 — Clear bearish descending channel. Bounce stalling at resistance. Bearish confirmed.](../../../../data/screenshots/NQ1!_2026-03-06_15-25-25_51a2a.png)
+
+**15:25 ET — RTY bearish channel, red dominant EMAs, short thesis confirmed**
+![RTY 15:25 — Bearish channel. Below resistance. Red dominant EMAs. Short thesis confirmed.](../../../../data/screenshots/RTY1!_2026-03-06_15-25-52_ea8a5.png)
+
+**15:26 ET — ES at FVG/ZTH resistance zone, entry zone reached**
+![ES 15:26 — At FVG/ZTH resistance zone. Bearish structure intact. Entry zone reached — but YM diverging and 35 minutes to close.](../../../../data/screenshots/ES1!_2026-03-06_15-26-11_fd6b4.png)
 
 *15:25 ET — NQ ✅ bearish · RTY ✅ bearish · ES ⚠️ at decision · YM ❌ diverging up. Scenario C. Stand-down confirmed.*
 
@@ -113,10 +117,11 @@ No trades executed. Monitoring session only.
 
 ### End of Week — ETH Close (ES + CL)
 
-<table><tr>
-<td width="50%"><img src="../../../../data/screenshots/CL1!_2026-03-06_19-54-10_daddb.png" width="100%"><br><sub>CL 19:54 ET ETH — Bounced and complex. IT Foundation EMAs green overall. Short thesis at resistance retest still active, not yet confirmed. Carry to next week.</sub></td>
-<td width="50%"><img src="../../../../data/screenshots/ES1!_2026-03-06_20-06-26_bc071.png" width="100%"><br><sub>ES 20:06 ET — Full week view. Bearish descending channel dominant. Week closed in the lower portion of the structure.</sub></td>
-</tr></table>
+**19:54 ET — CL ETH bounced and complex, short thesis at resistance retest still active**
+![CL 19:54 ET ETH — Bounced and complex. IT Foundation EMAs green overall. Short thesis at resistance retest still active, not yet confirmed. Carry to next week.](../../../../data/screenshots/CL1!_2026-03-06_19-54-10_daddb.png)
+
+**20:06 ET — ES full week view, bearish descending channel dominant**
+![ES 20:06 ET — Full week view. Bearish descending channel dominant. Week closed in the lower portion of the structure.](../../../../data/screenshots/ES1!_2026-03-06_20-06-26_bc071.png)
 
 ![ES EOD 20:14](../../../../data/screenshots/ES1!_2026-03-06_20-14-05_658da.png)
 *ES 20:14 ET — FVG structure and week close. ES sold lower from the identified resistance zone into the close and through ETH. Directional thesis confirmed — entry never triggered.*

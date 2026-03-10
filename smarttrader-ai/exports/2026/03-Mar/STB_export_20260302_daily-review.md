@@ -75,31 +75,39 @@ Net day: **+$460.00**.
 
 ### Pre-Open Context (9:23–9:26 ET)
 
-<table><tr>
-<td width="33%"><img src="../../../../data/screenshots/NQ1!_2026-03-02_09-23-48_759f2.png" width="100%"><br><sub>NQ 9:23 ET — pre-open structure</sub></td>
-<td width="33%"><img src="../../../../data/screenshots/ES1!_2026-03-02_09-23-58_fd1f7.png" width="100%"><br><sub>ES 9:23 ET — pre-open structure</sub></td>
-<td width="33%"><img src="../../../../data/screenshots/YM1!_2026-03-02_09-24-14_f2d88.png" width="100%"><br><sub>YM 9:24 ET — pre-open structure</sub></td>
-</tr></table>
+**9:23 ET — NQ pre-open structure**
+![NQ 9:23 ET — pre-open structure](../../../../data/screenshots/NQ1!_2026-03-02_09-23-48_759f2.png)
 
-<table><tr>
-<td width="33%"><img src="../../../../data/screenshots/GC1!_2026-03-02_09-24-27_88d61.png" width="100%"><br><sub>GC 9:24 ET — safe-haven context pre-open</sub></td>
-<td width="33%"><img src="../../../../data/screenshots/SI1!_2026-03-02_09-24-42_b3a8a.png" width="100%"><br><sub>SI 9:24 ET — silver pre-open context</sub></td>
-<td width="33%"><img src="../../../../data/screenshots/CL1!_2026-03-02_09-26-05_14e9e.png" width="100%"><br><sub>CL 9:26 ET — crude oil pre-open context</sub></td>
-</tr></table>
+**9:23 ET — ES pre-open structure**
+![ES 9:23 ET — pre-open structure](../../../../data/screenshots/ES1!_2026-03-02_09-23-58_fd1f7.png)
+
+**9:24 ET — YM pre-open structure**
+![YM 9:24 ET — pre-open structure](../../../../data/screenshots/YM1!_2026-03-02_09-24-14_f2d88.png)
+
+**9:24 ET — GC safe-haven context pre-open**
+![GC 9:24 ET — safe-haven context pre-open](../../../../data/screenshots/GC1!_2026-03-02_09-24-27_88d61.png)
+
+**9:24 ET — SI silver pre-open context**
+![SI 9:24 ET — silver pre-open context](../../../../data/screenshots/SI1!_2026-03-02_09-24-42_b3a8a.png)
+
+**9:26 ET — CL crude oil pre-open context**
+![CL 9:26 ET — crude oil pre-open context](../../../../data/screenshots/CL1!_2026-03-02_09-26-05_14e9e.png)
 
 ### Macro Confirmation — ISM Context (10:23 ET)
 
-<table><tr>
-<td width="50%"><img src="../../../../data/screenshots/GC1!_2026-03-02_10-23-15_72441.png" width="100%"><br><sub>GC 10:23 ET — macro confirmation post-ISM spike</sub></td>
-<td width="50%"><img src="../../../../data/screenshots/CL1!_2026-03-02_10-23-24_e353e.png" width="100%"><br><sub>CL 10:23 ET — risk-off macro context</sub></td>
-</tr></table>
+**10:23 ET — GC macro confirmation post-ISM spike**
+![GC 10:23 ET — macro confirmation post-ISM spike](../../../../data/screenshots/GC1!_2026-03-02_10-23-15_72441.png)
+
+**10:23 ET — CL risk-off macro context**
+![CL 10:23 ET — risk-off macro context](../../../../data/screenshots/CL1!_2026-03-02_10-23-24_e353e.png)
 
 ### ETH Close Context (17:28–17:30 ET)
 
-<table><tr>
-<td width="50%"><img src="../../../../data/screenshots/CL1!_2026-03-02_17-28-58_d4dde.png" width="100%"><br><sub>CL ETH 17:28 ET — crude oil ETH close</sub></td>
-<td width="50%"><img src="../../../../data/screenshots/GC1!_2026-03-02_17-30-20_484fc.png" width="100%"><br><sub>GC ETH 17:30 ET — gold ETH close</sub></td>
-</tr></table>
+**17:28 ET — CL crude oil ETH close**
+![CL ETH 17:28 ET — crude oil ETH close](../../../../data/screenshots/CL1!_2026-03-02_17-28-58_d4dde.png)
+
+**17:30 ET — GC gold ETH close**
+![GC ETH 17:30 ET — gold ETH close](../../../../data/screenshots/GC1!_2026-03-02_17-30-20_484fc.png)
 
 ---
 

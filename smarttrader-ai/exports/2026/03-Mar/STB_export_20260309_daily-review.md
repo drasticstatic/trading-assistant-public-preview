@@ -24,7 +24,7 @@
 
 > Pre-market plan: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260309_summary.md
 
-Morning began with the STB live coaching session — Christopher observed but did not take personal trades, the correct call given no full pre-session analysis at the desk. Coaches had a short bias overall and actively watched long projections given key level action. GC showed a quick long win off a pivot setup for one coach.
+Morning began with the STB live coaching session — Christopher observed but did not take personal trades, the correct call given no full pre-session analysis at the desk. Coaches had a short bias overall and actively watched long projections given key level action.
 
 Around mid-morning, Christopher drove to the machine shop — where he received news that the company had decided his part-time arrangement was no longer viable. After years of contribution, he was thanked and let go.
 
