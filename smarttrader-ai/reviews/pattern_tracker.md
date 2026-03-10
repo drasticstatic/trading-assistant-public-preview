@@ -22,6 +22,7 @@
 | 010 | Mar 3 | ES | Long | 6,765.25 | SL 6,757.75 | **-$375.00** | -93.75 | 0/5 | F | ❌ Counter-trend long, red dominant, pre-FCR | ✅ Held | No |
 | 011 | Mar 3 | ES | Short | 6,757.25 | 6,786.25 (AutoLiq) | **-$1,450.00** | -84.06 | 2/5 | D | ⚠️ FCR midpoint entry (rays at open/close vs High/Low) | ❌ Cancelled → AutoLiq | No |
 | 012 | Mar 3 | CL | Long | 76.38 | 75.92 (AutoLiq) | **-$460.00** | -45.10 | 3/5 | B | ✅ Green dominant, pullback — SL in place | ✅ AutoLiq (8 ticks better than SL) | Yes |
+| 013 | Mar 10 | MNQ | Long | 25,023.75 | 25,005.75 (Apex hard close) | **-$108.00** | — | *pending* | B− | ✅ FCR LONG (15min) + 5/5 ZTH level + 1hr/5min FVG + HVN VRVP + OB below SL | ✅ Held (1-tick approach — Pattern 7 fix confirmed ✅) | Partial |
 
 ---
 
@@ -36,7 +37,10 @@ Feb 27       $0.00  ────────────────  no fill (c
 Mar 2    +$460.00   █████████████░░  NET win (+$185 YM, +$1,037.50 ES T2, -$762.50 ES T3)
 Mar 3  -$2,285.00   ██████████████░  loss — account auto-liquidated (eval blown)
 
-Cumulative (Feb 23–Mar 3): -$1,953.50 (USD futures) + $20.63 USDT crypto
+Mar 4–9   $0.00 ────────────────  no fills — correct process under pressure (3 observation sessions)
+Mar 10    -$108.00  ███░░░░░░░░░░░░  minimal loss — strong entry, exit passivity (Pattern 8)
+
+Cumulative (Feb 23–Mar 10): -$2,061.50 (USD futures) + $20.63 USDT crypto
 Note: Mar 3 includes account breach. APEX-484839-05 trailing drawdown floor $98,130.50 — breached by $60.
 ```
 
@@ -59,6 +63,7 @@ Note: Mar 3 includes account breach. APEX-484839-05 trailing drawdown floor $98,
 | Mar 3 ES (T1) | Anxious, frustrated | No | ❌ Counter-trend long, red dominant, 13 min post-open | ✅ Held | Eval urgency → Pattern 2 repeat |
 | Mar 3 ES (T2) | Stable→unstable in-trade | No | ⚠️ FCR midpoint (rays at open/close vs High/Low) | ❌ Cancelled → AutoLiq | Pattern 7 introduced |
 | Mar 3 CL (T3) | Ambivalent, stressed | Yes | ✅ Green dominant, pullback — process correct | ✅ AutoLiq (TradingView frozen = accidental protection) | Setup was correct; account ran out of buffer |
+| Mar 10 MNQ (T1) | Calm at entry; nervous at 16:09/16:45 | Partial | ✅ FCR LONG + 5/5 ZTH + 1hr/5min FVG + HVN VRVP + OB below SL | ✅ Held — 1 tick from SL, stepped away (Pattern 7 fix ✅) | No active exit made — prop firm closed position (Pattern 8) |
 
 **Trend:**
 ```
@@ -233,6 +238,24 @@ Note:       Compare: CL SL remained in place (TradingView frozen).
 Status:     ⏳ Pattern identified Mar 3. Must not repeat.
 ```
 
+### Pattern 8 — Exit Passivity / Prop Firm Reliance (Mar 10)
+```
+Trigger:    No defined exit rule between entry and TP/SL.
+            Two exits recognized in real time — both passed.
+Symptom 1:  ~14:30 — unrealized gains. Held thinking "it might go more."
+            Fear of closing a "potential winning" position.
+Symptom 2:  ~16:45 — back near break-even after deep reversal.
+            Held hoping to recover rather than taking the scratch.
+Outcome:    Apex hard close at 16:59. Exit was the prop firm's decision.
+Fix:        Define exit rules before entry:
+            (1) Partial profit level — set it on the chart before placing
+            (2) Scratch rule — if price returns to break-even after a deep
+                reversal, exit actively. The trade has spoken.
+            (3) Personal hard exit time — 16:00 ET. Not the platform's ceiling.
+                Never let the prop firm be the exit mechanism.
+Status:     ⏳ Pattern identified Mar 10. Fix to implement next session.
+```
+
 ### Pattern 5 — Level Abandonment Under Pressure (Feb 26)
 ```
 Trigger:    Time pressure (needed to get to work) + FOMO of missing fill
@@ -288,9 +311,18 @@ Mar 3   ████░░░░░░░░░░░░░░░░  ❌ EVAL B
                                "Maybe if I respected my stops I could move on to another
                                trade after seeing the market's hand." — Pattern insight confirmed.
 
-Arc status: Eval cycle complete. SL discipline: 8/9 filled trades (T2 Mar 3 exception).
-Entry discipline: A+ achievable (Mar 2 T2 proves it). Consistency under pressure = next frontier.
-Next: Evaluate Apex renewal vs new account. Apply all patterns to next eval from day one.
+Mar 4–9 ────────────────────  ⚪ No fills — 3 correct observation sessions
+                               ZTH v2.3 built overnight Mar 9→10, coach-verified Mar 10 8am
+                               ↓ Mar 10: back in the market
+Mar 10  ████████████████░░░░  ⚠️ B− — strong entry, SL held, exit passive
+                               FCR LONG + 5/5 ZTH + 1hr/5min FVG + HVN VRVP
+                               1-tick SL approach — stepped away, not moved ✅ (Pattern 7 fix live)
+                               Two exits recognized, neither taken. Apex closed at 16:59.
+                               -$108. Minimal loss. Pattern 8 identified.
+
+Arc status: SL discipline: 9/10 filled trades — Pattern 7 fix confirmed live under maximum pressure.
+Entry discipline: Process-correct entries established (Mar 2 T2, Mar 10). Next frontier: exit process.
+Pattern 8 identified: exit passivity. Fix = pre-defined exit rules before every entry.
 ```
 
 ---
@@ -341,6 +373,7 @@ Links to individual reviews:
 - [Mar 3 — ES Long T1](review_20260303_ES_001.md)
 - [Mar 3 — ES Short T2 (AutoLiq)](review_20260303_ES_002.md)
 - [Mar 3 — CL Long T3 (AutoLiq)](review_20260303_CL_003.md)
+- [Mar 10 — MNQ Long T1 (-$108)](2026/03-Mar/review_20260310_MNQ_001.md)
 
 ---
 

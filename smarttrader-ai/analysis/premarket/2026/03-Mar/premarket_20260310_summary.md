@@ -187,7 +187,9 @@ Price dropped to within 1 tick of the SL. Christopher felt the urge to move it �
 
 **Mar 10 FCR read caveat:** The initial apparent "displacement below short-from-here" may have been partially influenced by incorrect ray values on the viewed timeframe. True FCR boundaries confirmed from 15min only. The FCR LONG that followed was validated on the correct timeframe.
 
-Exit plan: before 16:59 ET, or earlier if market signals a clean exit.
+**16:59 ET — Apex hard close. Exit @ 25,005.75. -18 pts / -$108.**
+
+No active exit decision made. Two manual opportunities passed (~14:30 unrealized gains, ~16:45 near break-even). Prop firm closed the position. Pattern 8 identified — see daily review and trade review.
 
 ---
 
