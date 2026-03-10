@@ -71,6 +71,9 @@ If Christopher had entered at 25,060 with SL at 25,139 (the first bounce high): 
 ![YM FCR](../../../../data/screenshots/YM1!_2026-02-26_09-31-24_27200.png)
 *9:31 — YM confirming. All three aligned.*
 
+![STB Snapshot 9:37](../../../../data/screenshots/Screen%20Shot%202026-02-26%20at%2009.37.34.png)
+*9:37 — STB market snapshot mid-FCR candle. All instruments showing bearish bias heading into the 9:45 close.*
+
 ### Macro Confirmation
 
 ![CL Risk-Off](../../../../data/screenshots/CL1!_2026-02-26_11-49-54_17186.png)

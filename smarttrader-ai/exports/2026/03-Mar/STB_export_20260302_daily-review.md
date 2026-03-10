@@ -71,6 +71,38 @@ Net day: **+$460.00**.
 
 ---
 
+## 📸 Key Charts
+
+### Pre-Open Context (9:23–9:26 ET)
+
+<table><tr>
+<td width="33%"><img src="../../../../data/screenshots/NQ1!_2026-03-02_09-23-48_759f2.png" width="100%"><br><sub>NQ 9:23 ET — pre-open structure</sub></td>
+<td width="33%"><img src="../../../../data/screenshots/ES1!_2026-03-02_09-23-58_fd1f7.png" width="100%"><br><sub>ES 9:23 ET — pre-open structure</sub></td>
+<td width="33%"><img src="../../../../data/screenshots/YM1!_2026-03-02_09-24-14_f2d88.png" width="100%"><br><sub>YM 9:24 ET — pre-open structure</sub></td>
+</tr></table>
+
+<table><tr>
+<td width="33%"><img src="../../../../data/screenshots/GC1!_2026-03-02_09-24-27_88d61.png" width="100%"><br><sub>GC 9:24 ET — safe-haven context pre-open</sub></td>
+<td width="33%"><img src="../../../../data/screenshots/SI1!_2026-03-02_09-24-42_b3a8a.png" width="100%"><br><sub>SI 9:24 ET — silver pre-open context</sub></td>
+<td width="33%"><img src="../../../../data/screenshots/CL1!_2026-03-02_09-26-05_14e9e.png" width="100%"><br><sub>CL 9:26 ET — crude oil pre-open context</sub></td>
+</tr></table>
+
+### Macro Confirmation — ISM Context (10:23 ET)
+
+<table><tr>
+<td width="50%"><img src="../../../../data/screenshots/GC1!_2026-03-02_10-23-15_72441.png" width="100%"><br><sub>GC 10:23 ET — macro confirmation post-ISM spike</sub></td>
+<td width="50%"><img src="../../../../data/screenshots/CL1!_2026-03-02_10-23-24_e353e.png" width="100%"><br><sub>CL 10:23 ET — risk-off macro context</sub></td>
+</tr></table>
+
+### ETH Close Context (17:28–17:30 ET)
+
+<table><tr>
+<td width="50%"><img src="../../../../data/screenshots/CL1!_2026-03-02_17-28-58_d4dde.png" width="100%"><br><sub>CL ETH 17:28 ET — crude oil ETH close</sub></td>
+<td width="50%"><img src="../../../../data/screenshots/GC1!_2026-03-02_17-30-20_484fc.png" width="100%"><br><sub>GC ETH 17:30 ET — gold ETH close</sub></td>
+</tr></table>
+
+---
+
 <a id="smarttraderai-copy-paste"></a>
 
 ## 🤖 SmartTraderAI Post-Market Copy-Paste Fields
