@@ -26,21 +26,23 @@ All three indices closed the 9:30 first candle bearish — Middle East geopoliti
 
 ## 10:17–10:32 AM — All Four Indices: NQ Leading, Divergence Beginning
 
-<table>
-<tr>
-<td width="50%"><img src="../../../../data/screenshots/ES1!_2026-03-04_10-17-18_18160.png" width="100%"><br><sub>ES 10:17 — V-recovery underway</sub></td>
-<td width="50%"><img src="../../../../data/screenshots/ES1!_2026-03-04_10-19-53_11a60.png" width="100%"><br><sub>ES 10:19 — above FCR ray confirmed</sub></td>
-</tr>
-</table>
+**10:17 ET — ES V-recovery underway**
+![ES 10:17 — V-recovery underway](../../../../data/screenshots/ES1!_2026-03-04_10-17-18_18160.png)
 
-<table>
-<tr>
-<td width="25%"><img src="../../../../data/screenshots/NQ1!_2026-03-04_10-31-42_5b982.png" width="100%"><br><sub>NQ — strong bullish, leading</sub></td>
-<td width="25%"><img src="../../../../data/screenshots/ES1!_2026-03-04_10-30-08_e7236.png" width="100%"><br><sub>ES — above FCR ray, transitioning</sub></td>
-<td width="25%"><img src="../../../../data/screenshots/YM1!_2026-03-04_10-31-28_abc53.png" width="100%"><br><sub>YM — weakest, briefly under FCR ray</sub></td>
-<td width="25%"><img src="../../../../data/screenshots/RTY1!_2026-03-04_10-32-33_3aa83.png" width="100%"><br><sub>RTY — volatile recovery, participating</sub></td>
-</tr>
-</table>
+**10:19 ET — ES above FCR ray confirmed**
+![ES 10:19 — above FCR ray confirmed](../../../../data/screenshots/ES1!_2026-03-04_10-19-53_11a60.png)
+
+**10:31 ET — NQ strong bullish, leading**
+![NQ — strong bullish, leading](../../../../data/screenshots/NQ1!_2026-03-04_10-31-42_5b982.png)
+
+**10:30 ET — ES above FCR ray, transitioning**
+![ES — above FCR ray, transitioning](../../../../data/screenshots/ES1!_2026-03-04_10-30-08_e7236.png)
+
+**10:31 ET — YM weakest, briefly under FCR ray**
+![YM — weakest, briefly under FCR ray](../../../../data/screenshots/YM1!_2026-03-04_10-31-28_abc53.png)
+
+**10:32 ET — RTY volatile recovery, participating**
+![RTY — volatile recovery, participating](../../../../data/screenshots/RTY1!_2026-03-04_10-32-33_3aa83.png)
 
 NQ was the clear leader — IT Foundation EMAs green and fanned. YM was the weakest, briefly trading back under the FCR ray before recovering. RTY participating. This NQ/YM divergence would become the short thesis later in the session.
 
@@ -48,13 +50,14 @@ NQ was the clear leader — IT Foundation EMAs green and fanned. YM was the weak
 
 ## 10:56–10:58 AM — 15-Min Timeframe: FCR Ray Context
 
-<table>
-<tr>
-<td width="33%"><img src="../../../../data/screenshots/NQ1!_2026-03-04_10-56-51_01f1a.png" width="100%"><br><sub>NQ 15-min — far above FCR ray</sub></td>
-<td width="33%"><img src="../../../../data/screenshots/ES1!_2026-03-04_10-57-38_959a8.png" width="100%"><br><sub>ES 15-min — qualified bullish continuation candle</sub></td>
-<td width="33%"><img src="../../../../data/screenshots/YM1!_2026-03-04_10-58-31_92c5a.png" width="100%"><br><sub>YM 15-min — weakest of the three</sub></td>
-</tr>
-</table>
+**10:56 ET — NQ 15-min far above FCR ray**
+![NQ 15-min — far above FCR ray](../../../../data/screenshots/NQ1!_2026-03-04_10-56-51_01f1a.png)
+
+**10:57 ET — ES 15-min qualified bullish continuation candle**
+![ES 15-min — qualified bullish continuation candle](../../../../data/screenshots/ES1!_2026-03-04_10-57-38_959a8.png)
+
+**10:58 ET — YM 15-min weakest of the three**
+![YM 15-min — weakest of the three](../../../../data/screenshots/YM1!_2026-03-04_10-58-31_92c5a.png)
 
 NQ still far above its FCR ray on the 15-min. ES showed a qualified bullish continuation candle after the 9:30 reversal — textbook FCR confirmation. YM the laggard. All three still above their respective "long from here" rays by this point.
 

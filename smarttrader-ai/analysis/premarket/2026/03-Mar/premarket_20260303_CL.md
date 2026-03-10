@@ -36,10 +36,11 @@
 - GC aligned bearishly = commodity sector headwind for CL
 - Not tradeable on Apex — reference only
 
-<table><tr>
-<td width="50%"><img src="../../../../../data/screenshots/CL1!_2026-03-02_17-28-58_d4dde.png" width="100%"><br><sub>CL 17:28 ET — ISM spike visible, EMAs converging post-run. Transitioning, not yet red dominant.</sub></td>
-<td width="50%"><img src="../../../../../data/screenshots/GC1!_2026-03-02_17-30-20_484fc.png" width="100%"><br><sub>GC 17:30 ET — Red dominant confirmed. Bearish commodity alignment for CL context.</sub></td>
-</tr></table>
+**17:28 ET — CL ISM spike visible, EMAs converging post-run, transitioning**
+![CL 17:28 ET — ISM spike visible, EMAs converging post-run. Transitioning, not yet red dominant.](../../../../../data/screenshots/CL1!_2026-03-02_17-28-58_d4dde.png)
+
+**17:30 ET — GC red dominant confirmed, bearish commodity alignment for CL context**
+![GC 17:30 ET — Red dominant confirmed. Bearish commodity alignment for CL context.](../../../../../data/screenshots/GC1!_2026-03-02_17-30-20_484fc.png)
 
 ---
 
