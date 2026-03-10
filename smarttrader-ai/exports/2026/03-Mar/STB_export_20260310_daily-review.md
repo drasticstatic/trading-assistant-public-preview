@@ -30,7 +30,7 @@ Open produced a classic SFP environment: coaches tested short and quick longs, s
 
 **NQ confluence:** The long-from-here FCR ray sits at a previous 5/5 ZTH level from a few days prior. Only mitigated once — by Wednesday's huge opening candle. Now being retested on the 1-hr chart. All instruments tracking together at proportionate levels on their own charts. 1-hr candle body confirmed holding above — not wicking back into range.
 
-MNQ trade projection placed: limit entry at the mid-point of the FCR range. If price wicks down to fill → trade is live with room. If it moves without filling → no forced entry. This approach addresses a recurring issue with stops feeling too tight on breakout entries — by entering at the range midpoint, the entry itself is doing the risk management work.
+MNQ trade projection placed. Entry refined to the bottom of the 1hr FVG, which aligns with the low of the 5min FVG — sitting just below an HVN shelf on VRVP. FCR long-from-here at 25,080. Entry: 25,024 · SL: 24,955 · TP: 25,195 (~2.5:1 R:R). Order block below SL provides structural buffer beneath the stop. Bounce developing from the entry zone as of ~12:01 ET.
 
 *Christopher to add session notes, trade details, and any additional screenshots.*
 

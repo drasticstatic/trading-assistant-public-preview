@@ -145,7 +145,26 @@ All instruments tracking together but at different levels on their own respectiv
 
 ![MNQ 12:01 — Trade projection. Long entry set at middle of FCR range. If price wicks down to fill, trade is on. If it moves without filling, no forced entry — stop tightness is not the concern when entry placement is disciplined.](../../../../../data/screenshots/Screenshot%202026-03-10%20at%2012.01.26.png)
 
-> **Entry approach note:** Placing the limit at the mid-point of the FCR range rather than chasing the breakout. If it wicks down to fill → trade is live with room. If it doesn't fill → market moved without a forced entry, which is fine. This removes stop-too-tight anxiety because the entry itself is doing the risk management work.
+> **Entry approach note:** Placing the limit below the breakout rather than chasing. If it wicks down to fill → trade is live with room. If it doesn't fill → market moved without a forced entry, which is fine. This removes stop-too-tight anxiety because the entry itself is doing the risk management work.
+
+**Entry refined — full setup:**
+
+| Field | Level | Notes |
+|-------|-------|-------|
+| **FCR long-from-here** | 25,080 | Previous 5/5 ZTH level — now resistance turned support |
+| **Entry** | 25,024 | Bottom of 1hr FVG = low of 5min FVG (alignment confluence) · sits just below HVN shelf on VRVP |
+| **Stop Loss** | 24,955 | 69 pts below entry · order block below SL provides additional structural buffer |
+| **Take Profit** | 25,195 | 171 pts above entry |
+| **R:R** | ~2.5:1 | |
+
+**Confluence stack:**
+1. FCR LONG confirmed (bullish candles consistently above 25,080 long-from-here ray)
+2. Prior 5/5 ZTH level at FCR HIGH — only mitigated once (Wednesday open candle)
+3. 1hr FVG bottom = 5min FVG low — dual-timeframe FVG alignment at entry
+4. HVN shelf on VRVP just above entry — institutional volume node providing support
+5. Order block below SL — structural buffer beneath the stop
+
+Bounce developing from entry zone as of 12:01 ET.
 
 ---
 
