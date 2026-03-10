@@ -25,6 +25,42 @@
 
 ---
 
+## 📈 Behavioral Arc — The Week in One View
+
+```
+Mar 2  T1: Impulsive ❌   SL ✅  Entry ❌  (feeling trade, pre-process) → +$185
+Mar 2  T2: Process ✅     SL ✅  Entry ✅  (A+ full 5-layer) → +$1,037.50
+Mar 2  T3: Re-entry ❌    SL ❌  Entry ❌  (risky direction, stop moved 2x) → −$762.50
+Mar 3  T1: Eval FOMO ❌   SL ✅  Entry ❌  (pre-FCR, red dominant, vetoed scenario) → −$375
+Mar 3  T2: Eval fear ❌   SL ❌  Entry ❌  (FCR ray error + SL cancelled = blown) → −$1,450
+Mar 3  T3: Process ✅     SL ✅  Entry ✅  (accidental SL save = structural lesson) → −$460
+Mar 4  Observation ✅     N/A   N/A        (deliberate no-trade, entry held) → $0
+Mar 5  Architecture ✅    N/A   N/A        (environment recovered, repo standardized) → $0
+Mar 6  Monitoring ✅      N/A   N/A        (stand-down correct, Scenario C) → $0
+```
+
+**What is resolved:** Mar 4–6 showed three consecutive correct directional reads with no forced trades — the post-blowup behavioral reset worked. Entry discipline (Pattern 5 fix from Feb 27) held all three observation days.
+
+**What is the work:** SL discipline. Mar 2 T3 (moved twice) and Mar 3 T2 (cancelled) both broke the SL rule in different ways. The SL is the system. Any mechanism that removes it — urgency, rationalization, eval deadline — is the same underlying failure.
+
+**What the coaches should see:** The account did not blow from a single catastrophic error. It blew from two compounding errors in one session (FCR ray placement + SL cancellation) under eval pressure that had been building since Mar 2's re-entry. The pressure chain is: post-TP urgency (Mar 2 T3) → eval deadline anxiety → premature entry (Mar 3 T1) → structural error + SL removal (Mar 3 T2). Each step enabled the next. Isolating the final error misses the arc.
+
+**The broader context:** This week Christopher also managed: an unreliable car that made work attendance unsafe (resulting in a formal write-up), a vet appointment, mounting financial obligations to courts, domestic relations, and the IRS, coaching payments owed while coaches continue supporting regardless — all while sleeping at his mother's house during a divorce he did not initiate. He attended every coaching call. He completed an infrastructure recovery day. He built correct analysis on Mar 4 and Mar 6 and stood down both times when conditions were wrong. The $0 sessions with correct process under these conditions are building something real.
+
+---
+
+## 📎 Full Reviews + Pattern Tracker
+
+- [Pattern Tracker — all sessions, behavioral arc](../../../reviews/pattern_tracker.md)
+- [Mar 2 — YM Scalp +$185](../../../reviews/2026/03-Mar/review_20260302_YM_001.md)
+- [Mar 2 — ES Pivot Sell +$1,037.50 (A+)](../../../reviews/2026/03-Mar/review_20260302_ES_002.md)
+- [Mar 2 — ES Re-Entry −$762.50](../../../reviews/2026/03-Mar/review_20260302_ES_003.md)
+- [Mar 3 — ES Long −$375](../../../reviews/2026/03-Mar/review_20260303_ES_001.md)
+- [Mar 3 — ES Short −$1,450 (APEX-05 blown)](../../../reviews/2026/03-Mar/review_20260303_ES_002.md)
+- [Mar 3 — CL Long −$460](../../../reviews/2026/03-Mar/review_20260303_CL_003.md)
+
+---
+
 ## Mar 2 — "One A+ trade — and then the work undid itself"
 
 **Result: 🟢 +$460.00 net** &nbsp;|&nbsp; 3 trades &nbsp;|&nbsp; Behavioral grade: **B−**
@@ -175,42 +211,6 @@ Market sold off through the session but insufficient retracement to reach the ES
 </table>
 
 > **Lesson (confirmed twice — Mar 4 and Mar 6):** A B+ setup at 3:25 PM on a Friday afternoon is a different trade than a B+ setup at 10:00 AM on a Monday. Friday compression changes the equation — stand-down when the window is gone.
-
----
-
-## 📈 Behavioral Arc — The Week in One View
-
-```
-Mar 2  T1: Impulsive ❌   SL ✅  Entry ❌  (feeling trade, pre-process) → +$185
-Mar 2  T2: Process ✅     SL ✅  Entry ✅  (A+ full 5-layer) → +$1,037.50
-Mar 2  T3: Re-entry ❌    SL ❌  Entry ❌  (risky direction, stop moved 2x) → −$762.50
-Mar 3  T1: Eval FOMO ❌   SL ✅  Entry ❌  (pre-FCR, red dominant, vetoed scenario) → −$375
-Mar 3  T2: Eval fear ❌   SL ❌  Entry ❌  (FCR ray error + SL cancelled = blown) → −$1,450
-Mar 3  T3: Process ✅     SL ✅  Entry ✅  (accidental SL save = structural lesson) → −$460
-Mar 4  Observation ✅     N/A   N/A        (deliberate no-trade, entry held) → $0
-Mar 5  Architecture ✅    N/A   N/A        (environment recovered, repo standardized) → $0
-Mar 6  Monitoring ✅      N/A   N/A        (stand-down correct, Scenario C) → $0
-```
-
-**What is resolved:** Mar 4–6 showed three consecutive correct directional reads with no forced trades — the post-blowup behavioral reset worked. Entry discipline (Pattern 5 fix from Feb 27) held all three observation days.
-
-**What is the work:** SL discipline. Mar 2 T3 (moved twice) and Mar 3 T2 (cancelled) both broke the SL rule in different ways. The SL is the system. Any mechanism that removes it — urgency, rationalization, eval deadline — is the same underlying failure.
-
-**What the coaches should see:** The account did not blow from a single catastrophic error. It blew from two compounding errors in one session (FCR ray placement + SL cancellation) under eval pressure that had been building since Mar 2's re-entry. The pressure chain is: post-TP urgency (Mar 2 T3) → eval deadline anxiety → premature entry (Mar 3 T1) → structural error + SL removal (Mar 3 T2). Each step enabled the next. Isolating the final error misses the arc.
-
-**The broader context:** This week Christopher also managed: an unreliable car that made work attendance unsafe (resulting in a formal write-up), a vet appointment, mounting financial obligations to courts, domestic relations, and the IRS, coaching payments owed while coaches continue supporting regardless — all while sleeping at his mother's house during a divorce he did not initiate. He attended every coaching call. He completed an infrastructure recovery day. He built correct analysis on Mar 4 and Mar 6 and stood down both times when conditions were wrong. The $0 sessions with correct process under these conditions are building something real.
-
----
-
-## 📎 Full Reviews + Pattern Tracker
-
-- [Pattern Tracker — all sessions, behavioral arc](../../../reviews/pattern_tracker.md)
-- [Mar 2 — YM Scalp +$185](../../../reviews/2026/03-Mar/review_20260302_YM_001.md)
-- [Mar 2 — ES Pivot Sell +$1,037.50 (A+)](../../../reviews/2026/03-Mar/review_20260302_ES_002.md)
-- [Mar 2 — ES Re-Entry −$762.50](../../../reviews/2026/03-Mar/review_20260302_ES_003.md)
-- [Mar 3 — ES Long −$375](../../../reviews/2026/03-Mar/review_20260303_ES_001.md)
-- [Mar 3 — ES Short −$1,450 (APEX-05 blown)](../../../reviews/2026/03-Mar/review_20260303_ES_002.md)
-- [Mar 3 — CL Long −$460](../../../reviews/2026/03-Mar/review_20260303_CL_003.md)
 
 ---
 
