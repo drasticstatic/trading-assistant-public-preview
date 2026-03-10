@@ -99,21 +99,23 @@ FCR range established at 9:45. Initial market behavior:
 
 ## 📸 Market Development Screenshots (~10:12–10:18 ET)
 
-**Four-Index View — ~10:12–10:15 ET**
+**10:12 ET — NQ**
+![NQ 10:12 — 3/4 up a larger 1-hr range. FCR development in progress. Watching for displacement confirmation.](../../../../../data/screenshots/NQ1!_2026-03-10_10-12-34_3f997.png)
 
-<table><tr>
-<td width="25%"><img src="../../../../../data/screenshots/NQ1!_2026-03-10_10-12-34_3f997.png" width="100%"><br><sub><b>NQ 10:12</b> — 3/4 up a larger 1-hr range. FCR development in progress. Watching for displacement confirmation.</sub></td>
-<td width="25%"><img src="../../../../../data/screenshots/RTY1!_2026-03-10_10-13-32_edaea.png" width="100%"><br><sub><b>RTY 10:13</b> — Monitoring for SMT confirmation or divergence vs NQ/ES/YM.</sub></td>
-<td width="25%"><img src="../../../../../data/screenshots/ES1!_2026-03-10_10-14-16_5f7c1.png" width="100%"><br><sub><b>ES 10:14</b> — FCR range active. Initial short displacement not strong — watching for bullish resolution.</sub></td>
-<td width="25%"><img src="../../../../../data/screenshots/YM1!_2026-03-10_10-15-05_eb0aa.png" width="100%"><br><sub><b>YM 10:15</b> — Relative strength leader. Key level held. Monitoring for continued leadership.</sub></td>
-</tr></table>
+**10:13 ET — RTY**
+![RTY 10:13 — Monitoring for SMT confirmation or divergence vs NQ/ES/YM.](../../../../../data/screenshots/RTY1!_2026-03-10_10-13-32_edaea.png)
 
-**GC + CL — ~10:16–10:18 ET**
+**10:14 ET — ES**
+![ES 10:14 — FCR range active. Initial short displacement not strong — watching for bullish resolution.](../../../../../data/screenshots/ES1!_2026-03-10_10-14-16_5f7c1.png)
 
-<table><tr>
-<td width="50%"><img src="../../../../../data/screenshots/GC1!_2026-03-10_10-16-42_505bf.png" width="100%"><br><sub><b>GC 10:16</b> — Neutral Bearish. At key structural level — breakout retest or support find. Not tradeable on Apex.</sub></td>
-<td width="50%"><img src="../../../../../data/screenshots/CL1!_2026-03-10_10-18-15_2e81a.png" width="100%"><br><sub><b>CL 10:18</b> — Continuing retrace from Sunday open spike. Watchlist for A+ setups only.</sub></td>
-</tr></table>
+**10:15 ET — YM**
+![YM 10:15 — Relative strength leader. Key level held. Monitoring for continued leadership.](../../../../../data/screenshots/YM1!_2026-03-10_10-15-05_eb0aa.png)
+
+**10:16 ET — GC**
+![GC 10:16 — Neutral Bearish. At key structural level — breakout retest or support find. Not tradeable on Apex.](../../../../../data/screenshots/GC1!_2026-03-10_10-16-42_505bf.png)
+
+**10:18 ET — CL**
+![CL 10:18 — Continuing retrace from Sunday open spike. Watchlist for A+ setups only.](../../../../../data/screenshots/CL1!_2026-03-10_10-18-15_2e81a.png)
 
 ---
 
