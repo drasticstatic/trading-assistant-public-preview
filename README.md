@@ -96,7 +96,9 @@ The most useful public paths live under `smarttrader-ai/analysis`, `smarttrader-
 │   │   └── 2026/
 │   │       ├── 02-Feb/          # TradeZella + Tradovate CSV imports
 │   │       └── 03-Mar/
-│   ├── inevitrade progression/  # Coaching progression notes + public reference material
+│   ├── progression/
+│   │   ├── SmartTradingBlueprint/ # STB progression workspace (currently empty/tracked)
+│   │   └── inevitrade/            # Coaching progression notes + public reference material
 │   └── screenshots/             # Trade screenshots & annotated charts for session review
 ├── logs/                        # session logs
 ├── setup/
