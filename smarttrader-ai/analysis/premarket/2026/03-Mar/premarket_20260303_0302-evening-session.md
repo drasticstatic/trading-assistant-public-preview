@@ -35,7 +35,8 @@ NY AM session is closed. All equity index positions (NQ/ES/YM) are done for the 
 
 ## CL — 1-Hour Chart Read (5:28 PM ET)
 
-**Screenshot:** `CL1!_2026-03-02_17-28-58_d4dde.png`
+![CL 17:28 ET — transitioning EMAs](../../../../../data/screenshots/CL1!_2026-03-02_17-28-58_d4dde.png)
+*CL 1hr at 5:28 PM ET — ISM spike visible, EMAs converging post-spike. No longer clean green dominant.*
 
 ### Structure
 - The ISM spike from this morning is clearly visible as a large vertical move on the 1-hour chart
@@ -68,7 +69,8 @@ NY AM session is closed. All equity index positions (NQ/ES/YM) are done for the 
 
 ## GC — 1-Hour Chart Read (5:30 PM ET) — Confluence Reference Only
 
-**Screenshot:** `GC1!_2026-03-02_17-30-20_484fc.png`
+![GC 17:30 ET — red dominant confirmed](../../../../../data/screenshots/GC1!_2026-03-02_17-30-20_484fc.png)
+*GC 1hr at 5:30 PM ET — red dominant EMA cross confirmed, distributing lower post-ISM spike.*
 
 > **Reminder:** GC is halted on Apex. This read is for cross-asset confluence only — no trade will be taken in GC.
 

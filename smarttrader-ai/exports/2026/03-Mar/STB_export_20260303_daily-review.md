@@ -57,16 +57,16 @@ March 3 was the second-to-last day of the APEX eval — a gap of ~$5,634 remaine
 
 ### Pine Script Development — FCR Ray Comparison (9:29–9:31 ET)
 
-Before the session opened, Christopher and Auggie captured side-by-side comparisons of the manually drawn levels vs. the indicator output. This work directly revealed the FCR ray placement error that contributed to T2's structural flaw — the indicator was drawing correctly (HIGH/LOW), while Christopher had manually drawn at open/close. The ZTH Auto Levels script (v2.x) was still in active development this session and could not be relied upon as a live reference, adding to the session's preparation challenges.
+Before the session opened, Christopher and Auggie captured side-by-side comparisons of the manually drawn levels vs. the indicator output. This work directly revealed the FCR ray placement error that contributed to T2's structural flaw — the indicator was drawing FCR correctly (HIGH/LOW), while Christopher on this particular high-pressure eval day mentally reverted to drawing them at open/close. The ZTH Auto Levels ZTH levels were still largely inaccurate (Bugs 8+9 — under-detection + full-width lines), so Christopher could not rely on the indicator as a live reference, leaving him working off stale manually drawn markup with older levels still on the chart.
 
 <table><tr>
-<td width="50%"><img src="../../../../data/screenshots/ES1!_2026-03-03_09-29-20_43366.png" width="100%"><br><sub>Christopher's manually drawn levels — FCR rays placed at open/close (incorrect)</sub></td>
-<td width="50%"><img src="../../../../data/screenshots/ES1!_2026-03-03_09-29-25_405c7_Auggie-Plot.png" width="100%"><br><sub>Auggie's pine script output — FCR rays at HIGH/LOW (correct). Only ~2 ZTH levels visible — Bug 9 (under-detection) active.</sub></td>
+<td width="50%"><img src="../../../../data/screenshots/ES1!_2026-03-03_09-29-20_43366.png" width="100%"><br><sub>Christopher's manually drawn ZTH levels — the reference for what the script should produce. Note: FCR rays drawn at open/close this session (one-day mental revert on a high-pressure eval day); the script's FCR output was the accurate reference.</sub></td>
+<td width="50%"><img src="../../../../data/screenshots/ES1!_2026-03-03_09-29-25_405c7_Auggie-Plot.png" width="100%"><br><sub>Auggie's script output — FCR rays at HIGH/LOW ✅ (working correctly). ZTH levels: ~2 visible vs Christopher's ~12–15 (Bugs 8+9 — under-detection + full-width extension).</sub></td>
 </tr></table>
 
 <table><tr>
-<td width="50%"><img src="../../../../data/screenshots/ES1!_2026-03-03_09-31-46_e0add.png" width="100%"><br><sub>Christopher's levels zoomed to recent range — dense manual level cluster overhead</sub></td>
-<td width="50%"><img src="../../../../data/screenshots/ES1!_2026-03-03_09-31-50_1dfa5_Auggie-Plot.png" width="100%"><br><sub>Auggie's plot zoomed — single line, full-width (Bug 8 + Bug 9 both visible). FCR rays correct.</sub></td>
+<td width="50%"><img src="../../../../data/screenshots/ES1!_2026-03-03_09-31-46_e0add.png" width="100%"><br><sub>Christopher's ZTH levels zoomed — correct reference cluster for this range</sub></td>
+<td width="50%"><img src="../../../../data/screenshots/ES1!_2026-03-03_09-31-50_1dfa5_Auggie-Plot.png" width="100%"><br><sub>Auggie's plot zoomed — single full-width line (Bug 8: extends both directions; Bug 9: near-zero detection). FCR rays still accurate ✅.</sub></td>
 </tr></table>
 
 > The indicator development work this session had a real cost: without a reliable auto-levels reference, Christopher was trading off manually drawn levels with stale markup from prior sessions still on the chart. The FCR ray error was not operator carelessness — it was the kind of error that happens when you can't cross-check your work against a trusted tool. Getting the indicator accurate is directly connected to trading performance.
