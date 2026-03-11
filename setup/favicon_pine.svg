@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Auto Levels Pine favicon</title>
+  <desc id="desc">A pine-tree themed icon on a dark rounded square with teal and gold accents for the Auto Levels guide and changelog pages.</desc>
+  <defs>
+    <linearGradient id="bg" x1="16" y1="12" x2="112" y2="116" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#153726"/>
+      <stop offset="1" stop-color="#07120d"/>
+    </linearGradient>
+    <linearGradient id="tree" x1="34" y1="22" x2="96" y2="104" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b3f8cf"/>
+      <stop offset="0.52" stop-color="#7be6b0"/>
+      <stop offset="1" stop-color="#41c985"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="32" y1="24" x2="96" y2="96" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#52d6c7" stop-opacity="0.94"/>
+      <stop offset="1" stop-color="#f3cf7a" stop-opacity="0.74"/>
+    </linearGradient>
+    <filter id="softGlow" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+  <rect width="128" height="128" rx="32" fill="#05100b"/>
+  <rect x="4" y="4" width="120" height="120" rx="28" fill="url(#bg)" stroke="#315942" stroke-width="2.5"/>
+  <circle cx="98" cy="28" r="16" fill="url(#glow)" opacity="0.24" filter="url(#softGlow)"/>
+  <circle cx="32" cy="96" r="18" fill="#52d6c7" opacity="0.12" filter="url(#softGlow)"/>
+  <path d="M64 18 91 52H78L101 78H83L105 106H23L45 78H27L50 52H37Z" fill="url(#tree)" stroke="#eefef6" stroke-width="2.4" stroke-linejoin="round"/>
+  <rect x="57" y="96" width="14" height="16" rx="4" fill="#7a5132"/>
+  <path d="M24 103C39 95 49 92 64 92c16 0 27 3 40 11" fill="none" stroke="#f3cf7a" stroke-linecap="round" stroke-width="4.6" opacity="0.96"/>
+  <rect x="20" y="20" width="26" height="8" rx="4" fill="#52d6c7" opacity="0.72"/>
+  <circle cx="42" cy="18" r="3" fill="#f3cf7a" opacity="0.9"/>
+</svg>

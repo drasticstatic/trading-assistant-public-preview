@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Levels Pine Guide | Trading Assistant</title>
+  <meta name="description" content="Public-facing manual guide for the Auto Levels Pine overlay: feature map, settings, level legend, workflow, and the practical difference between the guide and the changelog.">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0b1d16">
+  <link rel="canonical" href="https://drasticstatic.github.io/trading-assistant-public-preview/setup/auto-levels.pine_indicator-guide.html">
+  <meta property="og:site_name" content="Trading Assistant Public Preview">
+  <meta property="og:title" content="Auto Levels Pine Guide">
+  <meta property="og:description" content="A Pine-themed manual guide for the Auto Levels overlay — what it shows, how to configure it, and how to read the main levels without digging through private source files.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/auto-levels.pine_indicator-guide.html">
+  <meta property="og:image" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/indicator-guide-preview.png?v=20260311-pine2">
+  <meta property="og:image:url" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/indicator-guide-preview.png?v=20260311-pine2">
+  <meta property="og:image:secure_url" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/indicator-guide-preview.png?v=20260311-pine2">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Auto Levels Pine guide preview with a pine-themed title and cards for the level map, settings map, and session workflow.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Auto Levels Pine Guide">
+  <meta name="twitter:description" content="Manual-first Auto Levels guide for settings, level structure, and chart-reading workflow.">
+  <meta name="twitter:image" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/indicator-guide-preview.png?v=20260311-pine2">
+  <meta name="twitter:image:alt" content="Auto Levels Pine guide preview with a pine-themed title and cards for the level map, settings map, and session workflow.">
+  <link rel="icon" href="./favicon_pine.png?v=20260311-pine2" type="image/png" sizes="128x128">
+  <link rel="icon" href="./favicon_pine.svg?v=20260311-pine2" type="image/svg+xml" sizes="any">
+  <link rel="shortcut icon" href="./favicon_pine.png?v=20260311-pine2" type="image/png">
+  <link rel="apple-touch-icon" href="./favicon_pine.png?v=20260311-pine2">
+  <style>
+    :root {
+      --bg: #07130f;
+      --bg-alt: #0d1e17;
+      --surface: rgba(10, 24, 18, 0.86);
+      --surface-strong: #132a1f;
+      --surface-soft: rgba(141, 241, 184, 0.08);
+      --border: rgba(167, 255, 205, 0.18);
+      --border-strong: rgba(167, 255, 205, 0.34);
+      --text: #edf7ef;
+      --muted: #b3c8ba;
+      --subtle: #8ca597;
+      --pine: #54d68d;
+      --pine-bright: #8df1b8;
+      --teal: #52d6c7;
+      --gold: #f3cf7a;
+      --ember: #ff8f69;
+      --violet: #a99aff;
+      --focus: #f3cf7a;
+      --shadow: 0 26px 60px rgba(2, 12, 8, 0.34);
+      --max: 1120px;
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 18px;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #eef8f1;
+        --bg-alt: #f7fcf8;
+        --surface: rgba(255, 255, 255, 0.94);
+        --surface-strong: #ffffff;
+        --surface-soft: rgba(84, 214, 141, 0.08);
+        --border: rgba(54, 94, 72, 0.18);
+        --border-strong: rgba(54, 94, 72, 0.3);
+        --text: #153024;
+        --muted: #4f6a5b;
+        --subtle: #607969;
+        --pine: #1f9e5f;
+        --pine-bright: #167f4c;
+        --teal: #147d72;
+        --gold: #ab7a1a;
+        --ember: #c95d39;
+        --violet: #6957d6;
+        --focus: #ab7a1a;
+        --shadow: 0 20px 48px rgba(12, 32, 22, 0.09);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.68;
+      background:
+        radial-gradient(circle at top left, rgba(141, 241, 184, 0.15), transparent 28%),
+        radial-gradient(circle at top right, rgba(82, 214, 199, 0.14), transparent 26%),
+        linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -9rem -10vw auto;
+      height: 24rem;
+      background:
+        radial-gradient(circle at 18% 34%, rgba(141, 241, 184, 0.16), transparent 32%),
+        radial-gradient(circle at 74% 14%, rgba(82, 214, 199, 0.14), transparent 30%),
+        radial-gradient(circle at 50% 0%, rgba(243, 207, 122, 0.08), transparent 40%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: var(--pine-bright); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 4px;
+      border-radius: 0.9rem;
+    }
+
+    h1, h2, h3, p, ul, ol, figure, table { margin-top: 0; }
+    code {
+      padding: 0.12rem 0.38rem;
+      border-radius: 0.45rem;
+      background: rgba(141, 241, 184, 0.11);
+      color: var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.94em;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 1.3rem 0 3rem;
+    }
+
+    .hero,
+    .panel,
+    .footer {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.018)), var(--surface);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px) saturate(1.06);
+    }
+
+    .hero {
+      padding: clamp(2.1rem, 4vw, 3rem);
+      text-align: center;
+      background:
+        radial-gradient(circle at top center, rgba(82, 214, 199, 0.16), transparent 34%),
+        radial-gradient(circle at 50% 10%, rgba(255,255,255,0.08), transparent 34%),
+        linear-gradient(145deg, rgba(84, 214, 141, 0.18), rgba(82, 214, 199, 0.16) 44%, rgba(243, 207, 122, 0.08) 76%, rgba(7, 19, 15, 0.18) 100%),
+        var(--surface);
+    }
+
+    .hero::before,
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent);
+      pointer-events: none;
+    }
+
+    .panel,
+    .footer { padding: 1.5rem; }
+    .hero > *,
+    .panel > * { position: relative; z-index: 1; }
+
+    .hero,
+    .panel,
+    .footer {
+      --tone: var(--pine-bright);
+      --tone-secondary: var(--teal);
+      --tone-soft: rgba(141, 241, 184, 0.14);
+      --snake-size: clamp(5.3rem, 22%, 8.5rem);
+      --snake-thickness: 2px;
+      --snake-speed: 8.4s;
+      --snake-opacity: 0.88;
+      isolation: isolate;
+    }
+
+    .hero::after,
+    .panel::after,
+    .footer::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: var(--snake-size);
+      height: var(--snake-thickness);
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent 0%, color-mix(in srgb, var(--tone) 38%, rgba(255,255,255,0.16)) 16%, rgba(255,255,255,0.92) 50%, color-mix(in srgb, var(--tone-secondary) 70%, rgba(255,255,255,0.12)) 82%, transparent 100%);
+      box-shadow: 0 0 12px color-mix(in srgb, var(--tone) 36%, rgba(255,255,255,0.12)), 0 0 28px color-mix(in srgb, var(--tone-secondary) 22%, rgba(82, 214, 199, 0.14));
+      offset-path: inset(1px round calc(var(--radius-xl) - 1px));
+      offset-distance: 0%;
+      offset-rotate: auto;
+      animation: card-border-travel var(--snake-speed) linear infinite;
+      opacity: var(--snake-opacity);
+      pointer-events: none;
+    }
+
+    .eyebrow,
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin: 0 0 0.95rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow-dot {
+      width: 0.78rem;
+      height: 0.78rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--pine), var(--teal), var(--gold));
+      box-shadow: 0 0 0 0.24rem rgba(141, 241, 184, 0.08);
+    }
+
+    h1 {
+      margin-bottom: 0.9rem;
+      font-size: clamp(2.7rem, 6vw, 4.9rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      text-wrap: balance;
+    }
+
+    h2 {
+      margin-bottom: 0.65rem;
+      font-size: clamp(1.7rem, 3vw, 2.45rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    h3 {
+      margin-bottom: 0.42rem;
+      font-size: 1.08rem;
+      line-height: 1.24;
+    }
+
+    .hero-lead,
+    .section-lead {
+      width: min(100%, 62rem);
+      margin: 0 auto 1rem;
+      color: var(--muted);
+    }
+
+    .panel > .kicker,
+    .panel > h2,
+    .panel > .section-lead,
+    .footer > p {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .panel > .kicker {
+      justify-content: center;
+      color: var(--tone);
+    }
+
+    .panel > h2 {
+      color: color-mix(in srgb, var(--text) 82%, var(--tone) 18%);
+    }
+
+    .stat-grid,
+    .grid,
+    .legend-grid,
+    .steps {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .stat-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-top: 1.25rem; }
+    .grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .legend-grid { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+    .steps { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+
+    .stat,
+    .card,
+    .step-card,
+    .legend-card {
+      --card-glow-opacity: 0%;
+      --card-glow-x: 50%;
+      --card-glow-y: 50%;
+      --card-border-size: clamp(5rem, 26%, 8.2rem);
+      --card-border-thickness: 2px;
+      --card-border-speed: 7.8s;
+      --card-border-opacity: 0.92;
+      --card-lift: 0px;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      height: 100%;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background:
+        radial-gradient(circle at var(--card-glow-x) var(--card-glow-y), color-mix(in srgb, color-mix(in srgb, var(--tone) 18%, rgba(255,255,255,0.14)) var(--card-glow-opacity), transparent) 0%, transparent 40%),
+        linear-gradient(180deg, color-mix(in srgb, var(--tone-soft) 84%, rgba(255,255,255,0.035)), rgba(255,255,255,0.018)),
+        rgba(255,255,255,0.03);
+      transform: translate3d(0, var(--card-lift), 0);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, filter 0.2s ease;
+    }
+
+    .stat::before,
+    .card::before,
+    .step-card::before,
+    .legend-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 1px;
+      border-radius: inherit;
+      background: linear-gradient(140deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.03) 28%, color-mix(in srgb, var(--tone) 26%, rgba(255,255,255,0.06)) 64%, rgba(255,255,255,0.05) 100%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask-composite: exclude;
+      opacity: 0.72;
+      pointer-events: none;
+    }
+
+    .stat::after,
+    .card::after,
+    .step-card::after,
+    .legend-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: var(--card-border-size);
+      height: var(--card-border-thickness);
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent 0%, color-mix(in srgb, var(--tone) 34%, rgba(255,255,255,0.16)) 14%, rgba(255,255,255,0.92) 52%, color-mix(in srgb, var(--tone-secondary, var(--tone)) 72%, rgba(255,255,255,0.08)) 82%, transparent 100%);
+      box-shadow: 0 0 12px color-mix(in srgb, var(--tone) 40%, rgba(255,255,255,0.12)), 0 0 24px color-mix(in srgb, var(--tone-secondary, var(--tone)) 24%, rgba(82, 214, 199, 0.12));
+      offset-path: inset(1px round calc(var(--radius-lg) - 1px));
+      offset-distance: 0%;
+      offset-rotate: auto;
+      animation: card-border-travel var(--card-border-speed) linear infinite;
+      opacity: var(--card-border-opacity);
+      pointer-events: none;
+    }
+
+    .stat strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 1.72rem;
+      line-height: 1.1;
+    }
+
+    .card:hover,
+    .card:focus-within,
+    .step-card:hover,
+    .step-card:focus-within,
+    .legend-card:hover,
+    .legend-card:focus-within {
+      --card-glow-opacity: 100%;
+      --card-lift: -2px;
+      border-color: var(--border-strong);
+      box-shadow: 0 16px 30px rgba(5, 16, 12, 0.16);
+      background:
+        radial-gradient(circle at var(--card-glow-x) var(--card-glow-y), color-mix(in srgb, color-mix(in srgb, var(--tone) 20%, rgba(255,255,255,0.18)) var(--card-glow-opacity), transparent) 0%, transparent 42%),
+        linear-gradient(180deg, color-mix(in srgb, var(--tone-soft) 92%, rgba(255,255,255,0.04)), rgba(255,255,255,0.02)),
+        rgba(255,255,255,0.045);
+      filter: saturate(1.04);
+    }
+
+    .tone-bar {
+      width: 100%;
+      height: 4px;
+      margin: -1.5rem 0 1rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, color-mix(in srgb, var(--tone) 90%, white 10%), var(--tone-secondary), color-mix(in srgb, var(--tone) 28%, var(--gold) 72%));
+    }
+
+    .tone-guide { --tone: #8df1b8; --tone-secondary: #52d6c7; --tone-soft: rgba(141, 241, 184, 0.16); }
+    .tone-sprout { --tone: #9af3bd; --tone-secondary: #5edcb0; --tone-soft: rgba(154, 243, 189, 0.15); }
+    .tone-teal { --tone: #52d6c7; --tone-secondary: #76e5d5; --tone-soft: rgba(82, 214, 199, 0.15); }
+    .tone-fern { --tone: #78df9a; --tone-secondary: #52d6c7; --tone-soft: rgba(120, 223, 154, 0.15); }
+    .tone-moss { --tone: #b5e587; --tone-secondary: #72cf8f; --tone-soft: rgba(181, 229, 135, 0.14); }
+    .tone-gold { --tone: #f3cf7a; --tone-secondary: #8df1b8; --tone-soft: rgba(243, 207, 122, 0.14); }
+    .tone-violet { --tone: #b8aaff; --tone-secondary: #72cf8f; --tone-soft: rgba(169, 154, 255, 0.14); }
+
+    .hero,
+    .hero .stat,
+    .panel .stat,
+    .panel .card,
+    .panel .step-card,
+    .panel .legend-card,
+    .panel .table-wrap,
+    .footer {
+      --tone-secondary: var(--tone-secondary, var(--teal));
+    }
+
+    .panel .table-wrap {
+      --snake-size: clamp(5.1rem, 18%, 7.5rem);
+      --snake-thickness: 2px;
+      --snake-speed: 7.6s;
+      --snake-opacity: 0.82;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .panel .table-wrap::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 1px;
+      border-radius: inherit;
+      background: linear-gradient(140deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.03) 32%, color-mix(in srgb, var(--tone) 24%, rgba(255,255,255,0.08)) 66%, rgba(255,255,255,0.04) 100%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask-composite: exclude;
+      opacity: 0.68;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .panel .table-wrap::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: var(--snake-size);
+      height: var(--snake-thickness);
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent 0%, color-mix(in srgb, var(--tone) 36%, rgba(255,255,255,0.16)) 16%, rgba(255,255,255,0.9) 50%, color-mix(in srgb, var(--tone-secondary) 70%, rgba(255,255,255,0.1)) 82%, transparent 100%);
+      box-shadow: 0 0 12px color-mix(in srgb, var(--tone) 34%, rgba(255,255,255,0.12)), 0 0 24px color-mix(in srgb, var(--tone-secondary) 22%, rgba(82, 214, 199, 0.12));
+      offset-path: inset(1px round calc(var(--radius-lg) - 1px));
+      offset-distance: 0%;
+      offset-rotate: auto;
+      animation: card-border-travel var(--snake-speed) linear infinite;
+      opacity: var(--snake-opacity);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 1.3rem;
+    }
+
+    .mini-card-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      width: min(100%, 46rem);
+      margin: 1rem auto 0;
+      text-align: center;
+    }
+
+    .mini-card {
+      min-width: 9.5rem;
+      padding: 0.66rem 0.9rem;
+      border: 1px solid color-mix(in srgb, var(--tone) 24%, var(--border));
+      border-radius: 1rem;
+      background: linear-gradient(180deg, color-mix(in srgb, var(--tone-soft) 90%, rgba(255,255,255,0.03)), rgba(255,255,255,0.02));
+      color: color-mix(in srgb, var(--text) 84%, var(--tone) 16%);
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+
+    .button {
+      --pointer-x: 50%;
+      --pointer-y: 50%;
+      --mag-x: 0px;
+      --mag-y: 0px;
+      --cta-lift: 0px;
+      --cta-scale: 1;
+      --btn-tone: var(--pine-bright);
+      --btn-tone-secondary: var(--teal);
+      --btn-ring: rgba(141, 241, 184, 0.14);
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.78rem 1rem;
+      overflow: hidden;
+      isolation: isolate;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: linear-gradient(135deg, color-mix(in srgb, var(--btn-tone) 30%, rgba(255,255,255,0.08)), color-mix(in srgb, var(--btn-tone-secondary) 22%, rgba(255,255,255,0.06)) 52%, rgba(243, 207, 122, 0.12) 100%);
+      background-size: 190% 190%;
+      background-position: 48% 52%;
+      color: var(--text);
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 16px 34px rgba(7, 14, 26, 0.24), inset 0 1px 0 rgba(255,255,255,0.14), 0 0 0 1px color-mix(in srgb, var(--btn-tone) 26%, rgba(255,255,255,0.08)), 0 0 0 0.18rem var(--btn-ring);
+      transform: translate3d(var(--mag-x), calc(var(--mag-y) + var(--cta-lift)), 0) scale(var(--cta-scale));
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease, filter 0.18s ease;
+      animation: cta-pulse 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    .button::before {
+      content: "";
+      position: absolute;
+      inset: -55% auto auto -28%;
+      width: 42%;
+      height: 210%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.28), transparent);
+      opacity: 0;
+      transform: translateX(-16%) rotate(18deg);
+      transition: transform 0.42s ease, opacity 0.28s ease;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      z-index: 0;
+    }
+
+    .button::after {
+      content: "";
+      position: absolute;
+      left: var(--pointer-x);
+      top: var(--pointer-y);
+      width: 11rem;
+      height: 11rem;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(255,255,255,0.22), color-mix(in srgb, var(--btn-tone) 42%, rgba(255,255,255,0.08)) 24%, color-mix(in srgb, var(--btn-tone-secondary) 36%, rgba(255,255,255,0.06)) 48%, transparent 72%);
+      transform: translate(-50%, -50%) scale(0.5);
+      opacity: 0;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .button > * { position: relative; z-index: 1; }
+
+    .button.secondary {
+      --btn-tone: var(--teal);
+      --btn-tone-secondary: #7be3cd;
+      --btn-ring: rgba(82, 214, 199, 0.13);
+    }
+
+    .button.tertiary {
+      --btn-tone: var(--gold);
+      --btn-tone-secondary: var(--pine-bright);
+      --btn-ring: rgba(243, 207, 122, 0.14);
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      --cta-lift: -2px;
+      --cta-scale: 1.015;
+      border-color: var(--btn-tone);
+      box-shadow: 0 18px 38px rgba(12, 22, 38, 0.3), inset 0 1px 0 rgba(255,255,255,0.16), 0 0 0 1px color-mix(in srgb, var(--btn-tone) 28%, rgba(255,255,255,0.08));
+      color: var(--btn-tone);
+      filter: saturate(1.08);
+      text-decoration: none;
+    }
+
+    .button:hover::before,
+    .button:focus-visible::before {
+      opacity: 0.95;
+      transform: translateX(240%) rotate(18deg);
+    }
+
+    .button:hover::after,
+    .button:focus-visible::after {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .button:active {
+      --cta-lift: 0px;
+      --cta-scale: 0.995;
+    }
+
+    .list-tight { margin-bottom: 0; padding-left: 1.2rem; }
+    .list-tight li + li { margin-top: 0.4rem; }
+
+    .line-sample {
+      display: inline-flex;
+      min-width: 4rem;
+      align-items: center;
+      gap: 0.55rem;
+      margin-bottom: 0.6rem;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .line-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2rem;
+      padding: 0.26rem 0.68rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .line-swatch {
+      width: 3rem;
+      height: 0;
+      border-top-width: 3px;
+      border-top-style: solid;
+      border-radius: 999px;
+    }
+
+    .key { border-top-color: #63d2ff; }
+    .five { border-top-color: #63d2ff; border-top-width: 2px; }
+    .four { border-top-color: #2cd4c1; border-top-style: dashed; border-top-width: 2px; }
+    .three { border-top-color: #63d2ff; border-top-style: dotted; border-top-width: 2px; }
+    .ghost { border-top-color: #9f8cff; border-top-style: dotted; border-top-width: 2px; }
+    .fcr { border-top-color: #3fb86f; border-top-width: 3px; }
+
+    .fcr-sample {
+      gap: 0.5rem;
+      padding: 0.22rem 0.26rem 0.22rem 0.2rem;
+      border: 1px solid rgba(63, 184, 111, 0.34);
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(63, 184, 111, 0.18), rgba(82, 214, 199, 0.08));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 0 0 1px rgba(63, 184, 111, 0.08);
+      color: color-mix(in srgb, var(--text) 78%, #8df1b8 22%);
+    }
+
+    .fcr-sample .line-label {
+      border-color: rgba(63, 184, 111, 0.3);
+      background: rgba(6, 17, 13, 0.18);
+      color: #9bf0be;
+      letter-spacing: 0.08em;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.02);
+    }
+
+    table { width: 100%; border-collapse: collapse; }
+    th,
+    td {
+      padding: 0.82rem 0.9rem;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: rgba(84, 214, 141, 0.11);
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    .footer {
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    @keyframes card-border-travel {
+      from { offset-distance: 0%; }
+      to { offset-distance: 100%; }
+    }
+
+    @keyframes cta-pulse {
+      0%, 100% {
+        background-position: 48% 52%;
+        box-shadow: 0 16px 34px rgba(7, 14, 26, 0.24), inset 0 1px 0 rgba(255,255,255,0.14), 0 0 0 1px color-mix(in srgb, var(--btn-tone) 26%, rgba(255,255,255,0.08)), 0 0 0 0.18rem var(--btn-ring);
+        filter: saturate(1.02);
+      }
+      38% {
+        background-position: 58% 40%;
+        box-shadow: 0 20px 42px rgba(7, 14, 26, 0.3), inset 0 1px 0 rgba(255,255,255,0.18), 0 0 0 1px color-mix(in srgb, var(--btn-tone) 34%, rgba(255,255,255,0.1)), 0 0 0 0.28rem color-mix(in srgb, var(--btn-ring) 78%, rgba(255,255,255,0.04)), 0 0 1.4rem color-mix(in srgb, var(--btn-tone) 18%, rgba(255,255,255,0.06));
+        filter: saturate(1.1);
+      }
+      62% {
+        background-position: 62% 38%;
+        box-shadow: 0 22px 46px rgba(7, 14, 26, 0.32), inset 0 1px 0 rgba(255,255,255,0.18), 0 0 0 1px color-mix(in srgb, var(--btn-tone) 36%, rgba(255,255,255,0.12)), 0 0 0 0.32rem color-mix(in srgb, var(--btn-tone-secondary) 14%, rgba(255,255,255,0.06)), 0 0 1.6rem color-mix(in srgb, var(--btn-tone-secondary) 16%, rgba(255,255,255,0.06));
+        filter: saturate(1.14);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .page { width: min(100% - 1rem, var(--max)); padding-top: 0.8rem; }
+      .hero,
+      .panel,
+      .footer { border-radius: 24px; }
+      .panel,
+      .footer { padding: 1.2rem; }
+      th,
+      td { min-width: 180px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero tone-guide">
+      <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>TradingView · Indicator Guide · Instruction Manual</p>
+      <h1>Auto-Levels Pine Guide</h1>
+      <p class="hero-lead">This page is the manual-first surface for the current <code>Auto Levels</code> overlay. Use it when you want the settings map, level legend, and practical chart-reading workflow. If you want revision history, bug trails, or known-issue context, jump to the paired changelog instead.</p>
+      <div class="stat-grid" aria-label="Guide at a glance">
+        <article class="stat"><strong>Unified overlay</strong><span>Auto levels, 4/5 session opens, FCR, EMA stack, FVG, patterns, and prior-day context live in one main script.</span></article>
+        <article class="stat"><strong>Manual-first</strong><span>This guide stays focused on usage, interpretation, and settings instead of private workflow narration.</span></article>
+        <article class="stat"><strong>Paired surface</strong><span>The companion changelog keeps version detail, bug boundaries, and deeper revision notes separate.</span></article>
+      </div>
+      <div class="mini-card-row" aria-label="Guide focus areas">
+        <span class="mini-card">level legend</span>
+        <span class="mini-card">settings map</span>
+        <span class="mini-card">session rails</span>
+        <span class="mini-card">workflow cues</span>
+      </div>
+      <nav class="button-row" aria-label="Guide navigation">
+        <a class="button" href="#quick-start">Jump to quick start</a>
+        <a class="button secondary" href="#settings">Open settings map</a>
+        <a class="button tertiary" href="./auto-levels.pine_changelog.html">Open changelog ↗</a>
+      </nav>
+    </header>
+
+    <section class="panel tone-sprout" aria-labelledby="split-title">
+      <div class="tone-bar" aria-hidden="true"></div>
+      <p class="kicker">Guide vs. changelog</p>
+      <h2 id="split-title">Choose the right page for the job</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Use this guide when you need</h3>
+          <ul class="list-tight">
+            <li>a clean feature map for the overlay</li>
+            <li>the meaning of KEY, 5/5, 4/5, 3/5, Ghost, and FCR</li>
+            <li>the display toggles and how they change what you see</li>
+            <li>a practical starting workflow for live charts</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Open the changelog when you need</h3>
+          <ul class="list-tight">
+            <li>revision-by-revision version history</li>
+            <li>what changed in <code>v2.5</code> versus earlier passes</li>
+            <li>known/open issues and validation boundaries</li>
+            <li>the minimal name-history context that still matters publicly</li>
+          </ul>
+          <p style="margin-top:0.85rem;"><a href="./auto-levels.pine_changelog.html">Open the changelog ↗</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel tone-teal" id="quick-start" aria-labelledby="quick-start-title">
+      <div class="tone-bar" aria-hidden="true"></div>
+      <p class="kicker">Quick start</p>
+      <h2 id="quick-start-title">Start with the core structure, then layer optional signals</h2>
+      <p class="section-lead">The easiest onboarding path is to begin with the core level structure, session context, and trend context. Once that feels stable, turn on the noisier overlays only when you want extra confirmation.</p>
+      <div class="steps">
+        <article class="step-card"><h3>1. Leave the defaults mostly intact</h3><p>Keep levels, 4/5 session opens, FCR, EMA stack, and prior-day context visible. Save FVG and pattern labels for later.</p></article>
+        <article class="step-card"><h3>2. Read the main map first</h3><p>Use KEY and 5/5 levels for structure, then add 4/5 and FCR for the session-specific rails around the current trading day.</p></article>
+        <article class="step-card"><h3>3. Treat FCR as an event rail</h3><p>The <code>▲ LONG</code> line tracks the 9:30 candle high and the <code>▼ SHORT</code> line tracks the low. That gives you a session-specific reference before optional overlays come online.</p></article>
+        <article class="step-card"><h3>4. Use the ETH/RTH toggle intentionally</h3><p>On whitelisted RTH-primary index symbols, ETH-born ZTH levels are hidden by default for a cleaner chart. Turn them back on only when you explicitly want overnight context.</p></article>
+      </div>
+    </section>
+
+    <section class="panel tone-fern" aria-labelledby="features-title">
+      <div class="tone-bar" aria-hidden="true"></div>
+      <p class="kicker">Feature map</p>
+      <h2 id="features-title">What the main overlay is responsible for</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Auto Levels</h3>
+          <p>1-hour color flips create levels at the flip candle open. Structural flips can become KEY levels, then auto-manage through the 5/5 → 3/5 → Ghost lifecycle.</p>
+        </article>
+        <article class="card">
+          <h3>4/5 session opens</h3>
+          <p>The 9:30 AM ET session open is shown as a dashed teal rail. Current day stays strongest; prior days remain visible with increasing fade.</p>
+        </article>
+        <article class="card">
+          <h3>FCR</h3>
+          <p>The first-candle-rule rails mark the exact 9:30 15-minute candle high and low as <code>▲ LONG</code> and <code>▼ SHORT</code>.</p>
+        </article>
+        <article class="card">
+          <h3>Trend and context</h3>
+          <p>EMA stack, prior-day high/low/close, and the optional top-right info table help frame bias around the main levels.</p>
+        </article>
+        <article class="card">
+          <h3>Optional signal overlays</h3>
+          <p>FVG zones and pattern labels are intentionally optional because they add density. Turn them on when you want confirmation, not as the default baseline.</p>
+        </article>
+        <article class="card">
+          <h3>Companion split that still matters</h3>
+          <p><code>auto-levels.pine</code> is the main visual overlay. The webhook alert companion stays separate, and the changelog page stays separate so the guide can remain usage-oriented.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel tone-moss" aria-labelledby="legend-title">
+      <div class="tone-bar" aria-hidden="true"></div>
+      <p class="kicker">Level legend</p>
+      <h2 id="legend-title">What the main level types mean on the chart</h2>
+      <div class="legend-grid">
+        <article class="legend-card">
+          <div class="line-sample"><span class="line-swatch key" aria-hidden="true"></span>KEY</div>
+          <p>The strongest structural read in the system. A flip open near confirmed swing structure can be promoted to KEY and drawn with the heaviest emphasis.</p>
+        </article>
+        <article class="legend-card">
+          <div class="line-sample"><span class="line-swatch five" aria-hidden="true"></span>5/5</div>
+          <p>The standard active color-flip level. This is the main baseline structure if the flip does not qualify as KEY.</p>
+        </article>
+        <article class="legend-card">
+          <div class="line-sample"><span class="line-swatch four" aria-hidden="true"></span>4/5</div>
+          <p>The 9:30 session-open rail. Think of it as session context, not a replacement for the ZTH lifecycle.</p>
+        </article>
+        <article class="legend-card">
+          <div class="line-sample"><span class="line-swatch three" aria-hidden="true"></span>3/5</div>
+          <p>A 5/5 that has already been mitigated once. It still matters, but the script visually downshifts its weight.</p>
+        </article>
+        <article class="legend-card">
+          <div class="line-sample"><span class="line-swatch ghost" aria-hidden="true"></span>Ghost</div>
+          <p>The late-stage fading remainder of an older level. Ghosts are intentionally weaker and eventually remove themselves.</p>
+        </article>
+        <article class="legend-card">
+          <div class="line-sample fcr-sample"><span class="line-swatch fcr" aria-hidden="true"></span><span class="line-label">FCR</span></div>
+          <p>A session event rail rather than a ZTH lifecycle state. Use it with the current session’s directional context.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel tone-gold" id="settings" aria-labelledby="settings-title">
+      <div class="tone-bar" aria-hidden="true"></div>
+      <p class="kicker">Settings map</p>
+      <h2 id="settings-title">The main controls, grouped the way the script presents them</h2>
+      <div class="table-wrap">
+        <table aria-label="Auto Levels settings overview">
+          <thead>
+            <tr><th>Group</th><th>What to watch first</th><th>Why it matters</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Display</strong></td><td><code>Show Session Opens (4/5)</code>, <code>Show FCR</code>, <code>Show EMA Stack</code>, and the <code>RTH-Primary</code> ETH toggle</td><td>This is where the chart gets simpler or denser. Most day-to-day usability comes from these switches.</td></tr>
+            <tr><td><strong>Level Management</strong></td><td><code>Max Active Levels</code></td><td>Controls how many visible ZTH levels remain on chart at once.</td></tr>
+            <tr><td><strong>Level Colors</strong></td><td>KEY, 5/5, 4/5, 3/5, Ghost</td><td>Lets you reinforce the visual hierarchy without changing the lifecycle logic.</td></tr>
+            <tr><td><strong>FCR</strong></td><td>Long/short colors and prior-day visibility</td><td>Useful when you want the first-candle-rule rails to stay prominent but visually distinct from ZTH levels.</td></tr>
+            <tr><td><strong>EMAs</strong></td><td>Fast, mid, and slow periods</td><td>Trend context is optional, but many chart reads become clearer when the EMA stack stays visible.</td></tr>
+            <tr><td><strong>FVG / Patterns / Prior Day</strong></td><td>Use these as opt-in overlays</td><td>These can be helpful, but they are intentionally easier to toggle on demand rather than leave permanently busy.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel tone-sprout" aria-labelledby="workflow-title">
+      <div class="tone-bar" aria-hidden="true"></div>
+      <p class="kicker">Practical workflow</p>
+      <h2 id="workflow-title">A clean way to use the overlay without overloading the chart</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Bias first</h3>
+          <p>Start by locating the nearest KEY and 5/5 levels, then compare current price to those anchors before you care about smaller signals.</p>
+        </article>
+        <article class="card">
+          <h3>Session rails second</h3>
+          <p>Add the current 4/5 rail and FCR rails to understand the day’s opening map. Those levels tell you where the session began and where the first-candle high/low live.</p>
+        </article>
+        <article class="card">
+          <h3>Trend context third</h3>
+          <p>Check the EMA stack and prior-day levels to decide whether the current move is aligned with the broader intraday picture.</p>
+        </article>
+        <article class="card">
+          <h3>Optional confirmations last</h3>
+          <p>Turn on FVG or pattern labels only when you want extra confirmation. They are most helpful after the structural read is already clear.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel tone-violet" aria-labelledby="notes-title">
+      <div class="tone-bar" aria-hidden="true"></div>
+      <p class="kicker">Important notes</p>
+      <h2 id="notes-title">Two public-safe caveats worth keeping visible</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Name history, kept minimal</h3>
+          <p>Older notes or screenshots may still refer to the indicator as <code>zth_auto_levels.pine</code>. The current active visual overlay is the <code>Auto Levels</code> family, and the older manual-input <code>fcr_levels.pine</code> path is historical only.</p>
+        </article>
+        <article class="card">
+          <h3>Guide boundary</h3>
+          <p>This page reflects the current user-facing intent of the overlay. For version-by-version bug detail, known issues, and which fixes are source-landed versus still awaiting fresh chart confirmation, use the changelog.</p>
+          <p style="margin-top:0.85rem;"><a href="./auto-levels.pine_changelog.html">Open the changelog ↗</a></p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer tone-guide">
+      <p>The guide stays focused on setup, reading, and workflow. The changelog stays focused on revision history, bug detail, and validation status so the two surfaces do not blur together.</p>
+      <div class="footer-links">
+        <a class="button" href="./auto-levels.pine_changelog.html">Open the changelog ↗</a>
+        <a class="button secondary" href="../index.html">Back to public preview home ↩</a>
+      </div>
+    </footer>
+  </main>
+  <script>
+    (() => {
+      const finePointer = window.matchMedia('(pointer: fine)');
+      if (!finePointer.matches) {
+        return;
+      }
+
+      const setButtonPointer = (element, event, xFactor, yFactor) => {
+        const rect = element.getBoundingClientRect();
+        const offsetX = event.clientX - rect.left;
+        const offsetY = event.clientY - rect.top;
+        const shiftX = (offsetX - rect.width / 2) * xFactor;
+        const shiftY = (offsetY - rect.height / 2) * yFactor;
+
+        element.style.setProperty('--pointer-x', `${offsetX}px`);
+        element.style.setProperty('--pointer-y', `${offsetY}px`);
+        element.style.setProperty('--mag-x', `${shiftX.toFixed(2)}px`);
+        element.style.setProperty('--mag-y', `${shiftY.toFixed(2)}px`);
+      };
+
+      document.querySelectorAll('.button').forEach((button) => {
+        const reset = () => {
+          button.style.setProperty('--mag-x', '0px');
+          button.style.setProperty('--mag-y', '0px');
+          button.style.setProperty('--pointer-x', '50%');
+          button.style.setProperty('--pointer-y', '50%');
+        };
+
+        const sync = (event) => setButtonPointer(button, event, 0.05, 0.06);
+        button.addEventListener('pointerenter', sync);
+        button.addEventListener('pointermove', sync);
+        button.addEventListener('pointerleave', reset);
+        button.addEventListener('blur', reset);
+      });
+
+      document.querySelectorAll('.stat, .card, .step-card, .legend-card, .table-wrap').forEach((card) => {
+        const reset = () => {
+          card.style.setProperty('--card-glow-opacity', '0%');
+          card.style.setProperty('--card-glow-x', '50%');
+          card.style.setProperty('--card-glow-y', '50%');
+        };
+
+        const sync = (event) => {
+          const rect = card.getBoundingClientRect();
+          const offsetX = event.clientX - rect.left;
+          const offsetY = event.clientY - rect.top;
+          card.style.setProperty('--card-glow-opacity', '100%');
+          card.style.setProperty('--card-glow-x', `${offsetX}px`);
+          card.style.setProperty('--card-glow-y', `${offsetY}px`);
+        };
+
+        card.addEventListener('pointerenter', sync);
+        card.addEventListener('pointermove', sync);
+        card.addEventListener('pointerleave', reset);
+      });
+    })();
+  </script>
+</body>
+</html>
