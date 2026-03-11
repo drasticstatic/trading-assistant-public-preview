@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Auto Levels Pine guide share preview</title>
+  <desc id="desc">Share preview for the Auto Levels Pine guide showing a centered pine-themed title, guide-only navigation chips, and distinct section cards for legend, settings, and workflow.</desc>
+  <defs>
+    <linearGradient id="bg" x1="72" y1="24" x2="1136" y2="608" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#11291e"/>
+      <stop offset="1" stop-color="#06110d"/>
+    </linearGradient>
+    <linearGradient id="frame" x1="112" y1="0" x2="1088" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9af3bd"/>
+      <stop offset="0.45" stop-color="#52d6c7"/>
+      <stop offset="1" stop-color="#f3cf7a"/>
+    </linearGradient>
+    <linearGradient id="cardLegend" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#17382a"/>
+      <stop offset="1" stop-color="#10231b"/>
+    </linearGradient>
+    <linearGradient id="cardSettings" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#12362f"/>
+      <stop offset="1" stop-color="#0d221e"/>
+    </linearGradient>
+    <linearGradient id="cardWorkflow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2f2917"/>
+      <stop offset="1" stop-color="#17140d"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="#040c09"/>
+  <rect x="28" y="28" width="1144" height="574" rx="38" fill="url(#bg)" stroke="#284b39" stroke-width="2"/>
+  <circle cx="950" cy="118" r="148" fill="#52d6c7" opacity="0.12" filter="url(#glow)"/>
+  <circle cx="258" cy="520" r="170" fill="#8df1b8" opacity="0.08" filter="url(#glow)"/>
+  <circle cx="618" cy="90" r="118" fill="#f3cf7a" opacity="0.08" filter="url(#glow)"/>
+
+  <text x="600" y="94" fill="#b7c9c1" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="3" text-anchor="middle">TRADINGVIEW SCRIPT · AUTO LEVELS · MANUAL GUIDE</text>
+  <text x="600" y="184" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="66" font-weight="800" text-anchor="middle">Auto Levels Pine Guide</text>
+  <text x="600" y="245" fill="#8df1b8" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle">manual-first setup, chart-reading cues, and settings context</text>
+  <text x="600" y="300" fill="#d9e8df" font-family="Inter, Arial, sans-serif" font-size="24" text-anchor="middle">A public surface for using the unified overlay without opening Pine source or muddying it with release history.</text>
+
+  <g font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" text-anchor="middle">
+    <rect x="248" y="332" width="156" height="42" rx="21" fill="#12261d" stroke="#4a8a6a"/>
+    <rect x="428" y="332" width="162" height="42" rx="21" fill="#102723" stroke="#3f877f"/>
+    <rect x="612" y="332" width="164" height="42" rx="21" fill="#10261d" stroke="#6a9e66"/>
+    <rect x="800" y="332" width="152" height="42" rx="21" fill="#211d12" stroke="#8b7540"/>
+    <text x="326" y="358" fill="#9af3bd">LEVEL LEGEND</text>
+    <text x="509" y="358" fill="#52d6c7">SETTINGS MAP</text>
+    <text x="694" y="358" fill="#b5e587">SESSION RAILS</text>
+    <text x="876" y="358" fill="#f3cf7a">WORKFLOW</text>
+  </g>
+
+  <rect x="104" y="394" width="296" height="154" rx="28" fill="url(#cardLegend)" stroke="#4f8a67"/>
+  <rect x="452" y="394" width="296" height="154" rx="28" fill="url(#cardSettings)" stroke="#3f8b80"/>
+  <rect x="800" y="394" width="296" height="154" rx="28" fill="url(#cardWorkflow)" stroke="#9a8445"/>
+  <rect x="134" y="398" width="92" height="4" rx="2" fill="#9af3bd"/>
+  <rect x="482" y="398" width="92" height="4" rx="2" fill="#52d6c7"/>
+  <rect x="830" y="398" width="92" height="4" rx="2" fill="#f3cf7a"/>
+
+  <text x="252" y="430" fill="#9af3bd" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" text-anchor="middle">LEGEND + FCR TREATMENT</text>
+  <text x="252" y="474" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle">KEY → 5/5 → 3/5</text>
+  <rect x="196" y="494" width="112" height="34" rx="17" fill="#11241b" stroke="#41c985"/>
+  <text x="252" y="517" fill="#9bf0be" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" letter-spacing="2" text-anchor="middle">FCR LABEL</text>
+
+  <text x="600" y="430" fill="#52d6c7" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" text-anchor="middle">SETTINGS + OPTIONAL MODULES</text>
+  <text x="600" y="474" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle">Display Toggles</text>
+  <text x="600" y="513" fill="#bcd3c7" font-family="Inter, Arial, sans-serif" font-size="20" text-anchor="middle">RTH / ETH / FVG / EMA stack / pattern signals</text>
+
+  <text x="948" y="430" fill="#f3cf7a" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" text-anchor="middle">PRACTICAL FLOW</text>
+  <text x="948" y="474" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle">Read It Fast</text>
+  <text x="948" y="513" fill="#bcd3c7" font-family="Inter, Arial, sans-serif" font-size="20" text-anchor="middle">Quick-start cues, session rails, and guide-only workflow context</text>
+
+  <path d="M1010 134 1035 172H1020L1042 201H1024L1045 230H973L994 201H976L998 172H983Z" fill="#8df1b8" opacity="0.92" stroke="#effff6" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="1003" y="224" width="10" height="15" rx="3" fill="#7a5132"/>
+  <path d="M969 235C982 228 992 226 1008 226c15 0 25 2 36 9" fill="none" stroke="#f3cf7a" stroke-linecap="round" stroke-width="4" opacity="0.9"/>
+  <rect x="96" y="566" width="1008" height="4" rx="2" fill="url(#frame)" opacity="0.98"/>
+</svg>

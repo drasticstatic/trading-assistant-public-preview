@@ -2074,7 +2074,10 @@
             button.style.setProperty('--pointer-y', '50%');
           };
 
-          button.addEventListener('pointermove', (event) => setPointerVars(button, event, 0.05, 0.06));
+          const syncButtonPointer = (event) => setPointerVars(button, event, 0.05, 0.06);
+
+          button.addEventListener('pointerenter', syncButtonPointer);
+          button.addEventListener('pointermove', syncButtonPointer);
           button.addEventListener('pointerleave', reset);
           button.addEventListener('blur', reset);
         });
@@ -2088,7 +2091,7 @@
             card.style.setProperty('--card-glow-y', '50%');
           };
 
-          card.addEventListener('pointermove', (event) => {
+          const syncCardPointer = (event) => {
             const rect = card.getBoundingClientRect();
             const offsetX = event.clientX - rect.left;
             const offsetY = event.clientY - rect.top;
@@ -2100,7 +2103,10 @@
             card.style.setProperty('--card-glow-opacity', '100%');
             card.style.setProperty('--card-glow-x', `${offsetX}px`);
             card.style.setProperty('--card-glow-y', `${offsetY}px`);
-          });
+          };
+
+          card.addEventListener('pointerenter', syncCardPointer);
+          card.addEventListener('pointermove', syncCardPointer);
 
           card.addEventListener('pointerleave', reset);
           card.addEventListener('blur', reset);

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Auto Levels Pine changelog share preview</title>
+  <desc id="desc">Share preview for the Auto Levels Pine changelog showing a centered release-history title, distinct current/archive/known-issues panels, and a conservative version-trail summary.</desc>
+  <defs>
+    <linearGradient id="bg" x1="72" y1="24" x2="1136" y2="608" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#14291f"/>
+      <stop offset="1" stop-color="#08120d"/>
+    </linearGradient>
+    <linearGradient id="frame" x1="112" y1="0" x2="1088" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9af3bd"/>
+      <stop offset="0.45" stop-color="#52d6c7"/>
+      <stop offset="1" stop-color="#ff8f69"/>
+    </linearGradient>
+    <linearGradient id="cardCurrent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#153228"/>
+      <stop offset="1" stop-color="#0f2219"/>
+    </linearGradient>
+    <linearGradient id="cardArchive" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#103028"/>
+      <stop offset="1" stop-color="#0c211c"/>
+    </linearGradient>
+    <linearGradient id="cardHistory" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14291d"/>
+      <stop offset="1" stop-color="#0d1d16"/>
+    </linearGradient>
+    <linearGradient id="cardIssues" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2c2515"/>
+      <stop offset="1" stop-color="#18140d"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="#040b08"/>
+  <rect x="28" y="28" width="1144" height="574" rx="38" fill="url(#bg)" stroke="#294a39" stroke-width="2"/>
+  <circle cx="220" cy="130" r="138" fill="#8df1b8" opacity="0.1" filter="url(#glow)"/>
+  <circle cx="968" cy="500" r="164" fill="#52d6c7" opacity="0.08" filter="url(#glow)"/>
+  <circle cx="924" cy="122" r="132" fill="#ff8f69" opacity="0.08" filter="url(#glow)"/>
+
+  <text x="600" y="94" fill="#b7c9c1" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="3" text-anchor="middle">TRADINGVIEW SCRIPT · AUTO LEVELS · RELEASE HISTORY</text>
+  <text x="600" y="184" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="66" font-weight="800" text-anchor="middle">Auto Levels Changelog</text>
+  <text x="600" y="245" fill="#52d6c7" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle">version detail, validation trail, and known-issue boundaries</text>
+  <text x="600" y="300" fill="#d9e8df" font-family="Inter, Arial, sans-serif" font-size="24" text-anchor="middle">A conservative public revision surface that keeps what shipped, what changed, and what still needs confirmation clearly separate.</text>
+
+  <rect x="100" y="390" width="234" height="156" rx="28" fill="url(#cardCurrent)" stroke="#4d8c69"/>
+  <rect x="366" y="390" width="234" height="156" rx="28" fill="url(#cardArchive)" stroke="#3e887e"/>
+  <rect x="632" y="390" width="234" height="156" rx="28" fill="url(#cardHistory)" stroke="#6a9e66"/>
+  <rect x="892" y="328" width="230" height="218" rx="30" fill="url(#cardIssues)" stroke="#9a8445"/>
+  <rect x="130" y="394" width="88" height="4" rx="2" fill="#9af3bd"/>
+  <rect x="396" y="394" width="88" height="4" rx="2" fill="#52d6c7"/>
+  <rect x="662" y="394" width="88" height="4" rx="2" fill="#b5e587"/>
+  <rect x="922" y="332" width="88" height="4" rx="2" fill="#f3cf7a"/>
+
+  <text x="217" y="428" fill="#9af3bd" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" text-anchor="middle">CURRENT BASELINE</text>
+  <text x="217" y="474" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="800" text-anchor="middle">Status</text>
+  <text x="217" y="514" fill="#bcd3c7" font-family="Inter, Arial, sans-serif" font-size="20" text-anchor="middle">public-ready tweaks + active bugs</text>
+
+  <text x="483" y="428" fill="#52d6c7" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" text-anchor="middle">REVISION TRAIL</text>
+  <text x="483" y="474" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="800" text-anchor="middle">Version Trail</text>
+  <text x="483" y="514" fill="#bcd3c7" font-family="Inter, Arial, sans-serif" font-size="20" text-anchor="middle">name changes, validation notes, ship boundaries</text>
+
+  <text x="749" y="428" fill="#c8e88f" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" text-anchor="middle">FOUNDATION</text>
+  <text x="749" y="474" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="800" text-anchor="middle">Detection Roots</text>
+  <text x="749" y="514" fill="#bcd3c7" font-family="Inter, Arial, sans-serif" font-size="20" text-anchor="middle">how the current branch was assembled</text>
+
+  <text x="1007" y="368" fill="#f3cf7a" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" text-anchor="middle">KNOWN ISSUES</text>
+  <text x="1007" y="414" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle">Case ≠ Closed</text>
+  <text x="1007" y="455" fill="#d7d4ca" font-family="Inter, Arial, sans-serif" font-size="19" text-anchor="middle">• source placement still needs live confirmation</text>
+  <text x="1007" y="490" fill="#d7d4ca" font-family="Inter, Arial, sans-serif" font-size="19" text-anchor="middle">• changelog keeps ship notes separate from guide use</text>
+
+  <path d="M1010 120 1032 154H1018L1037 181H1022L1040 208H978L996 181H981L1000 154H987Z" fill="#8df1b8" opacity="0.9" stroke="#effff6" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="1004" y="203" width="10" height="15" rx="3" fill="#7a5132"/>
+  <rect x="96" y="566" width="1008" height="4" rx="2" fill="url(#frame)" opacity="0.98"/>
+</svg>
