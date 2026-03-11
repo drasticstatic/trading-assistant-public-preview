@@ -131,65 +131,10 @@ The STB manager had it right. When this moment is looked back on, it'll be a "ho
 
 ## ⏱️ Live Session Updates
 
-**~10:15 ET — FCR resolved LONG | NQ 5/5 level confluence**
-
-All instruments tracking together but at different levels on their own respective charts — proportionate movement, not tight lockstep. FCR LONG confirmed (consistent bullish candles above long-from-here ray, ChoCH, bullish FVGs). Coaches pivoting to session highs.
-
-**NQ key confluence note:** The NQ long-from-here FCR ray sits at a previous 5/5 ZTH level from a few days ago. That level was only mitigated once — by Wednesday's huge opening candle — and is now being tested again on the 1-hour chart. Current 1-hr candle in progress at that level. This is significant: FCR HIGH + prior ZTH 5/5 = stacked confluence. If price closes this 1-hr candle above and holds, the setup has layered structural support.
-
-**GC (this morning):** Coach took a quick long win off a pivot setup during the 8 AM–open coaching session. Neutral Bearish on the STB snapshot — key structural level in play.
-
-**Retest developing → confirmed hold:** Price pulled back to retest the long-from-here FCR ray. 1-hr candle body holding above the level — not wicking back into range. FCR HIGH + prior ZTH 5/5 level now acting as support. Bullish continuation toward session highs remains the primary thesis.
-
-**~12:01 ET — MNQ trade projection placed. Entry: mid-FCR range.**
-
-![MNQ 12:01 — Trade projection. Long entry set at middle of FCR range. If price wicks down to fill, trade is on. If it moves without filling, no forced entry — stop tightness is not the concern when entry placement is disciplined.](../../../../../data/screenshots/Screenshot%202026-03-10%20at%2012.01.26.png)
-
-> **Entry approach note:** Placing the limit below the breakout rather than chasing. If it wicks down to fill → trade is live with room. If it doesn't fill → market moved without a forced entry, which is fine. This removes stop-too-tight anxiety because the entry itself is doing the risk management work.
-
-**Entry refined — full setup:**
-
-| Field | Level | Notes |
-|-------|-------|-------|
-| **FCR long-from-here** | 25,080 | Previous 5/5 ZTH level — now resistance turned support |
-| **Entry** | 25,024 | Bottom of 1hr FVG = low of 5min FVG (alignment confluence) · sits just below HVN shelf on VRVP |
-| **Stop Loss** | 24,955 | 69 pts below entry · order block below SL provides additional structural buffer |
-| **Take Profit** | 25,195 | 171 pts above entry |
-| **R:R** | ~2.5:1 | |
-
-**Confluence stack:**
-1. FCR LONG confirmed (bullish candles consistently above 25,080 long-from-here ray)
-2. Prior 5/5 ZTH level at FCR HIGH — only mitigated once (Wednesday open candle)
-3. 1hr FVG bottom = 5min FVG low — dual-timeframe FVG alignment at entry
-4. HVN shelf on VRVP just above entry — institutional volume node providing support
-5. Order block below SL — structural buffer beneath the stop
-
-Bounce developing from entry zone as of 12:01 ET.
-
-**14:17 ET — FILLED. Trade live.**
-
-![MNQ 14:17 — LONG 3x MNQH6 filled @ 25,023.75. SL and TP working orders confirmed.](../../../../../data/screenshots/Screenshot%202026-03-10%20at%2014.17.41.png)
-
-| Field | Planned | Actual |
-|-------|---------|--------|
-| Entry | 25,024 | **25,023.75** ✅ (0.25 pts better) |
-| SL | 24,955 | Working ✅ |
-| TP | 25,195 | Working ✅ |
-| Qty | — | 3 contracts |
-
-**~16:09 ET — 1 tick from SL. SL held. Back above entry.**
-
-![MNQ 16:09 — Sharp drop to within 1 tick of SL (24,955) before V-recovery back above entry. SL not moved. Trade live.](../../../../../data/screenshots/Screenshot%202026-03-10%20at%2016.09.41.png)
-
-Price dropped to within 1 tick of the SL. Christopher felt the urge to move it — and instead switched windows to work on the Pine Script bug with Kavanah. Came back to find price recovered above entry. SL respected. **This is the Pattern 7 fix in live action.**
-
-**⚠️ FCR Pine Script bug discovered (Mar 10):** FCR rays display correctly on the 15min chart but change price values when switching to other timeframes. Verified by drawing a static reference line — the rays do not stay anchored to the 15min HIGH/LOW when the chart timeframe changes. This means prior sessions viewing FCR on non-15min charts may have shown incorrect ray levels. Bug flagged for Kavanah → standalone FCR indicator affected as well. **FCR levels should only be read from the 15min chart until this is resolved.**
-
-**Mar 10 FCR read caveat:** The initial apparent "displacement below short-from-here" may have been partially influenced by incorrect ray values on the viewed timeframe. True FCR boundaries confirmed from 15min only. The FCR LONG that followed was validated on the correct timeframe.
-
-**16:59 ET — Apex hard close. Exit @ 25,005.75. -18 pts / -$108.**
-
-No active exit decision made. Two manual opportunities passed (~14:30 unrealized gains, ~16:45 near break-even). Prop firm closed the position. Pattern 8 identified — see daily review and trade review.
+- FCR resolved LONG ~10:15 ET. NQ long-from-here (25,080) = prior 5/5 ZTH level. 1hr candle holding above. ZTH coach long on GC pivot during morning session.
+- MNQ trade projection: limit at 1hr/5min FVG alignment below HVN shelf on VRVP. Filled 3x @ 25,023.75 (14:17 ET).
+- ~16:09: 1 tick from SL — SL held. FCR Pine Script timeframe bug discovered and flagged to Kavanah.
+- 16:59: Apex hard close @ 25,005.75. -$108. Pattern 8 identified. See `STB_export_20260310_daily-review.md` and `review_20260310_MNQ_001.md`.
 
 ---
 

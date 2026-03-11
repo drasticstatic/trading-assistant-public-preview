@@ -24,7 +24,7 @@
 
 > Pre-market plan: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260310_summary.md
 
-Day began with a ZTH coach 1-on-1 at 8 AM — ZTH indicator v2.3 (built overnight with Kavanah) verified accurate by the coach. A milestone. GC coach caught a quick long win off a pivot setup in the morning coaching session.
+Day began with a ZTH coach 1-on-1 at 8 AM — ZTH indicator v2.3 (built overnight with Kavanah) verified accurate by the coach. A milestone. ZTH coach also caught a quick long win on GC off a pivot setup during the morning session.
 
 Open produced a classic SFP environment. Coaches tested both directions early and got stopped out. FCR dynamics played out through mid-morning. An initial apparent short displacement was later clarified as potentially influenced by a Pine Script bug discovered during the session — FCR rays change values when switching timeframes, meaning readings on non-15min charts may be inaccurate. FCR LONG was confirmed from the 15min chart directly: consistent bullish candles above the long-from-here ray, ChoCH, bullish FVGs. Coaches pivoted to looking at session highs.
 
@@ -42,7 +42,7 @@ Two manual exit opportunities were recognized and passed: unrealized gains aroun
 
 | # | Time | Instrument | Dir | Entry | Exit | P&L | Grade |
 |---|------|-----------|-----|-------|------|-----|-------|
-| 1 | 14:17 ET | MNQH6 | ↑ Long | 25,023.75 | 25,005.75 | **-$108.00** | B− |
+| 1 | 14:17 ET | MNQH6 | ↑ Long | 25,023.75 | 25,005.75 (AutoLiq) | **-$108.00** | B− · Zella -21.69 |
 
 ---
 
