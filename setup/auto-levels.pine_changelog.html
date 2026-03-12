@@ -13,9 +13,9 @@
   <meta property="og:description" content="Version-by-version Auto Levels revision history, known-issue context, and the boundary between source-landed fixes and fresh TradingView confirmation.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/auto-levels.pine_changelog.html">
-  <meta property="og:image" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/changelog-preview.png?v=20260311-pine2">
-  <meta property="og:image:url" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/changelog-preview.png?v=20260311-pine2">
-  <meta property="og:image:secure_url" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/changelog-preview.png?v=20260311-pine2">
+  <meta property="og:image" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/changelog-preview.png?v=20260312-pine3">
+  <meta property="og:image:url" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/changelog-preview.png?v=20260312-pine3">
+  <meta property="og:image:secure_url" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/changelog-preview.png?v=20260312-pine3">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -23,12 +23,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Auto Levels Pine Changelog">
   <meta name="twitter:description" content="Version detail, bug trail context, and known/open issue boundaries for the Auto Levels Pine family.">
-  <meta name="twitter:image" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/changelog-preview.png?v=20260311-pine2">
+  <meta name="twitter:image" content="https://drasticstatic.github.io/trading-assistant-public-preview/setup/changelog-preview.png?v=20260312-pine3">
   <meta name="twitter:image:alt" content="Auto Levels Pine changelog preview with a pine-themed title, release cards, and a known-issues panel.">
-  <link rel="icon" href="./favicon_pine.png?v=20260311-pine2" type="image/png" sizes="128x128">
-  <link rel="icon" href="./favicon_pine.svg?v=20260311-pine2" type="image/svg+xml" sizes="any">
-  <link rel="shortcut icon" href="./favicon_pine.png?v=20260311-pine2" type="image/png">
-  <link rel="apple-touch-icon" href="./favicon_pine.png?v=20260311-pine2">
+  <link rel="icon" href="./favicon_pine.png?v=20260312-pine3" type="image/png" sizes="128x128">
+  <link rel="icon" href="./favicon_pine.svg?v=20260312-pine3" type="image/svg+xml" sizes="any">
+  <link rel="shortcut icon" href="./favicon_pine.png?v=20260312-pine3" type="image/png">
+  <link rel="apple-touch-icon" href="./favicon_pine.png?v=20260312-pine3">
   <style>
     :root {
       --bg: #07130f;
@@ -303,6 +303,13 @@
       transform: translate3d(0, var(--card-lift), 0);
     }
 
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      padding: 1rem;
+    }
+
     .stat::before,
     .card::before,
     .release::before {
@@ -340,7 +347,6 @@
       pointer-events: none;
     }
 
-    .stat,
     .card { padding: 1rem; }
 
     .stat strong {
@@ -348,6 +354,25 @@
       margin-bottom: 0.3rem;
       font-size: 1.72rem;
       line-height: 1.1;
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted);
+    }
+
+    .stat-action-card {
+      margin-top: auto;
+      padding: 0.72rem;
+      border: 1px solid color-mix(in srgb, var(--tone) 24%, var(--border));
+      border-radius: calc(var(--radius-md) - 2px);
+      background: linear-gradient(180deg, color-mix(in srgb, var(--tone-soft) 92%, rgba(255,255,255,0.05)), rgba(255,255,255,0.02));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.07);
+    }
+
+    .stat-action-card .button {
+      width: 100%;
+      min-height: 3rem;
     }
 
     .tone-bar {
@@ -691,15 +716,28 @@
       <h1>Auto-Levels Pine Changelog</h1>
       <p class="hero-lead">This page is the revision-history surface for the current <code>Auto Levels</code> family. It tracks what shipped, what changed in each version, and which items are source-landed versus still awaiting fresh TradingView confirmation. If you need settings, a level legend, or usage guidance, open the paired guide instead.</p>
       <div class="stat-grid" aria-label="Changelog at a glance">
-        <article class="stat"><strong>Current public baseline</strong><span><code>v2.5</code> is the active source snapshot represented here.</span></article>
-        <article class="stat"><strong>Expandable revision notes</strong><span>Each milestone below can be opened for the deeper why/what detail.</span></article>
-        <article class="stat"><strong>Validation boundary stays visible</strong><span>Source-landed fixes are not automatically treated as fully chart-verified fixes.</span></article>
+        <article class="stat">
+          <strong>Current public baseline</strong>
+          <span><code>v2.5</code> is the active source snapshot represented here.</span>
+          <div class="stat-action-card">
+            <a class="button tertiary" href="./auto-levels.pine_indicator-guide.html">Open guide ↗</a>
+          </div>
+        </article>
+        <article class="stat">
+          <strong>Expandable revision notes</strong>
+          <span>Each milestone below can be opened for the deeper why/what detail.</span>
+          <div class="stat-action-card">
+            <a class="button" href="#timeline">Jump to version history</a>
+          </div>
+        </article>
+        <article class="stat">
+          <strong>Validation boundary stays visible</strong>
+          <span>Source-landed fixes are not automatically treated as fully chart-verified fixes.</span>
+          <div class="stat-action-card">
+            <a class="button secondary" href="#known-issues">Open known issues</a>
+          </div>
+        </article>
       </div>
-      <nav class="button-row" aria-label="Changelog navigation">
-        <a class="button" href="#timeline">Jump to version history</a>
-        <a class="button secondary" href="#known-issues">Open known issues</a>
-        <a class="button tertiary" href="./auto-levels.pine_indicator-guide.html">Open guide ↗</a>
-      </nav>
     </header>
 
     <section class="panel tone-layout" aria-labelledby="scope-title">
