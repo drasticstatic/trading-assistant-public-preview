@@ -396,11 +396,18 @@
     }
 
     .hero-signal-dot {
-      width: 0.62rem;
-      height: 0.62rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       flex: none;
+      width: 2.2rem;
+      height: 2.2rem;
       border-radius: 999px;
-      background: var(--green);
+      background: rgba(63, 185, 80, 0.1);
+      border: 1px solid rgba(63, 185, 80, 0.22);
+      font-size: 1.1rem;
+      line-height: 1;
+      box-shadow: 0 0 12px rgba(63, 185, 80, 0.12);
       animation: breathe 4.2s ease-in-out infinite;
     }
 
@@ -488,10 +495,6 @@
       margin-top: 0.9rem;
     }
 
-    .map-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
     .action-card,
     .map-card {
       display: block;
@@ -507,8 +510,8 @@
 
     .action-card:hover {
       border-color: var(--blue);
-      box-shadow: 0 20px 42px rgba(2, 6, 23, 0.24);
-      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 12px 36px rgba(124, 194, 255, 0.2), 0 20px 42px rgba(2, 6, 23, 0.24);
+      transform: translateY(-4px) scale(1.012);
     }
 
     .map-card:hover {
@@ -525,8 +528,57 @@
 
     .recovery-priority:hover {
       background:
-        linear-gradient(180deg, rgba(124, 194, 255, 0.14) 0%, rgba(124, 194, 255, 0.04) 100%),
+        linear-gradient(180deg, rgba(124, 194, 255, 0.16) 0%, rgba(124, 194, 255, 0.05) 100%),
         var(--surface-soft);
+    }
+
+    .map-grid {
+      grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+      align-items: stretch;
+    }
+
+    .aside-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      height: 100%;
+    }
+
+    .aside-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--surface-soft);
+      padding: 1rem;
+      min-width: 0;
+      cursor: pointer;
+      transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
+    }
+
+    .aside-card:hover {
+      border-color: var(--blue);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(124, 194, 255, 0.18), var(--shadow-soft);
+    }
+
+    .aside-card-preview {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      display: block;
+      margin-bottom: 0.75rem;
+      object-fit: cover;
+    }
+
+    .card-label {
+      margin: 0 0 0.45rem;
+      color: var(--blue);
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
     .action-icon {
@@ -692,9 +744,12 @@
     }
 
     .footer {
-      margin-top: 1.9rem;
-      padding-top: 1.35rem;
-      border-top: 1px solid var(--border);
+      margin-top: 1rem;
+      padding: 1.35rem;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--surface);
+      box-shadow: var(--shadow-soft);
       color: var(--subtle);
       font-size: 0.79rem;
       text-align: center;
@@ -950,7 +1005,7 @@
         <span class="subtitle-line subtitle-line--fineprint">Traders: same level, new route &nbsp;&nbsp;·&nbsp;&nbsp; Developers: same public surface, cleaner folders</span><br/>
       </p>
       <p class="hero-signal">
-        <span class="hero-signal-line"><span class="hero-signal-dot" aria-hidden="true"></span><span>RECOVERY SIGNAL LIVE - PUBLIC PATH INTACT</span><span class="hero-signal-dot" aria-hidden="true"></span></span>
+        <span class="hero-signal-line"><span class="hero-signal-dot" aria-hidden="true">🧭</span><span>RECOVERY SIGNAL LIVE - PUBLIC PATH INTACT</span><span class="hero-signal-dot" aria-hidden="true">🧭</span></span>
         <span class="hero-signal-subline">🧭 Redirecting you to the right level<br/>No stop-loss adjustment required 😅</span>
       </p>
     </header>
@@ -1010,14 +1065,17 @@
           </div>
         </div>
 
-        <a class="action-card recovery-priority" href="https://drasticstatic.github.io/trading-assistant-public-preview/">
-          <span class="action-icon" aria-hidden="true">🏠</span>
+        <div class="action-card recovery-priority">
+          <span class="action-icon" aria-hidden="true">🛠️</span>
           <div class="action-content">
-            <p class="action-title">↩ Return Home</p>
-            <p class="action-desc">Restart from the public hub  and re-enter through the calmer top-level index.html map</p>
-            <span class="path-chip">public-preview/</span>
+            <p class="action-title">Setup &amp; System Docs</p>
+            <p class="action-desc">System overview and public infrastructure documentation</p>
+            <div style="display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.5rem;">
+              <a href="setup/augmentArchitecture.html" style="display:inline-flex;align-items:center;gap:.3rem;padding:.22rem .55rem;border-radius:999px;background:rgba(124,194,255,.1);border:1px solid rgba(124,194,255,.24);color:var(--blue);font-size:.76rem;font-weight:700;text-decoration:none;">⚙️ Augment Architecture</a>
+              <a href="setup/auto-levels.pine_indicator-guide.html" style="display:inline-flex;align-items:center;gap:.3rem;padding:.22rem .55rem;border-radius:999px;background:rgba(188,140,255,.1);border:1px solid rgba(188,140,255,.24);color:var(--purple);font-size:.76rem;font-weight:700;text-decoration:none;">📐 Auto-Levels Indicator</a>
+            </div>
           </div>
-        </a>
+        </div>
       </div>
     </nav>
 
@@ -1029,38 +1087,52 @@
       </div>
 
       <div class="tree">
-        <div><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai" target="_blank" rel="noreferrer">smarttrader-ai/</a></div>
-        <div class="tree-indent"><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket" target="_blank" rel="noreferrer">analysis/premarket/</a> <span class="tree-note">— Premarket navigation and level-marking framework</span></div>
-        <div class="tree-indent2"><a class="tree-leaf" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/level-marking-methodology.md" target="_blank" rel="noreferrer">level-marking-methodology.md</a></div>
-        <div class="tree-indent2"><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket/2026" target="_blank" rel="noreferrer">2026/</a></div>
-        <div class="tree-indent3"><a class="tree-leaf" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket/2026/03-Mar" target="_blank" rel="noreferrer">03-Mar/</a></div>
+      <div class="map-grid">
+        <div class="tree">
+          <div><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai" target="_blank" rel="noreferrer">smarttrader-ai/</a></div>
+          <div class="tree-indent"><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket" target="_blank" rel="noreferrer">analysis/premarket/</a> <span class="tree-note">— Premarket navigation and level-marking framework</span></div>
+          <div class="tree-indent2"><a class="tree-leaf" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/level-marking-methodology.md" target="_blank" rel="noreferrer">level-marking-methodology.md</a></div>
+          <div class="tree-indent2"><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket/2026" target="_blank" rel="noreferrer">2026/</a></div>
+          <div class="tree-indent3"><a class="tree-leaf" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket/2026/03-Mar" target="_blank" rel="noreferrer">03-Mar/</a></div>
 
-        <div class="tree-indent"><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews" target="_blank" rel="noreferrer">reviews/</a> <span class="tree-note">— Trade reviews and the long-form pattern tracker</span></div>
-        <div class="tree-indent2"><a class="tree-leaf" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/pattern_tracker.md" target="_blank" rel="noreferrer">pattern_tracker.md</a></div>
-        <div class="tree-indent2"><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews/2026" target="_blank" rel="noreferrer">2026/</a></div>
-        <div class="tree-indent3"><a class="tree-leaf" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews/2026/03-Mar" target="_blank" rel="noreferrer">03-Mar/</a></div>
+          <div class="tree-indent"><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews" target="_blank" rel="noreferrer">reviews/</a> <span class="tree-note">— Trade reviews and the long-form pattern tracker</span></div>
+          <div class="tree-indent2"><a class="tree-leaf" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/pattern_tracker.md" target="_blank" rel="noreferrer">pattern_tracker.md</a></div>
+          <div class="tree-indent2"><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews/2026" target="_blank" rel="noreferrer">2026/</a></div>
+          <div class="tree-indent3"><a class="tree-leaf" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews/2026/03-Mar" target="_blank" rel="noreferrer">03-Mar/</a></div>
 
-        <div class="tree-indent"><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports" target="_blank" rel="noreferrer">exports/</a> <span class="tree-note">— Session exports and chart-reading framework</span></div>
-        <div class="tree-indent2"><a class="tree-leaf" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/chart-analysis-methodology.md" target="_blank" rel="noreferrer">chart-analysis-methodology.md</a></div>
-        <div class="tree-indent2"><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports/2026" target="_blank" rel="noreferrer">2026/</a></div>
-        <div class="tree-indent3"><a class="tree-leaf" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports/2026/03-Mar" target="_blank" rel="noreferrer">03-Mar/</a></div>
+          <div class="tree-indent"><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports" target="_blank" rel="noreferrer">exports/</a> <span class="tree-note">— Session exports and chart-reading framework</span></div>
+          <div class="tree-indent2"><a class="tree-leaf" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/chart-analysis-methodology.md" target="_blank" rel="noreferrer">chart-analysis-methodology.md</a></div>
+          <div class="tree-indent2"><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports/2026" target="_blank" rel="noreferrer">2026/</a></div>
+          <div class="tree-indent3"><a class="tree-leaf" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports/2026/03-Mar" target="_blank" rel="noreferrer">03-Mar/</a></div>
 
-        <div><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data" target="_blank" rel="noreferrer">data/</a> <span class="tree-note">— Public datasets, screenshots, and progression references</span></div>
-        <div class="tree-indent"><a class="tree-leaf" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/screenshots" target="_blank" rel="noreferrer">screenshots/</a></div>
-        <div class="tree-indent"><a class="tree-leaf" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/progression" target="_blank" rel="noreferrer">progression/</a> <span class="tree-note">— Inevitrade + STB coaching workbooks</span></div>
-        <div class="tree-indent"><a class="tree-leaf" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/imports" target="_blank" rel="noreferrer">imports/</a></div>
+          <div><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data" target="_blank" rel="noreferrer">data/</a> <span class="tree-note">— Public datasets, screenshots, and progression references</span></div>
+          <div class="tree-indent"><a class="tree-leaf" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/screenshots" target="_blank" rel="noreferrer">screenshots/</a></div>
+          <div class="tree-indent"><a class="tree-leaf" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/progression" target="_blank" rel="noreferrer">progression/</a> <span class="tree-note">— Inevitrade + STB coaching workbooks</span></div>
+          <div class="tree-indent"><a class="tree-leaf" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/imports" target="_blank" rel="noreferrer">imports/</a></div>
 
-        <div><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/setup" target="_blank" rel="noreferrer">setup/</a> <span class="tree-note">— Public-facing system documentation</span></div>
-        <div class="tree-indent"><a class="tree-leaf" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/system-overview.md" target="_blank" rel="noreferrer">system-overview.md</a></div>
+          <div><a class="tree-dir" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/setup" target="_blank" rel="noreferrer">setup/</a> <span class="tree-note">— Public-facing system documentation</span></div>
+          <div class="tree-indent"><a class="tree-leaf" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/system-overview.md" target="_blank" rel="noreferrer">system-overview.md</a></div>
+        </div>
+
+        <div class="aside-stack">
+          <a class="aside-card" href="https://drasticstatic.github.io/trading-assistant-public-preview/" style="flex:1.5;">
+            <p class="card-label">Return home</p>
+            <img src="data/screenshots/index-preview.png" alt="Main hub preview" class="aside-card-preview" onerror="this.style.display='none'">
+            <h3 style="margin:0;font-size:1rem;color:var(--text);">↩ Return Home</h3>
+            <p style="margin:.35rem 0 0;color:var(--muted);font-size:.9rem;">Restart from the main public hub and re-enter through the top-level map</p>
+          </a>
+          <a class="aside-card" href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer" style="flex:1;">
+            <p class="card-label">🐱 GitHub Root</p>
+            <h3 style="margin:0;font-size:1rem;color:var(--text);">GitHub Root ↗</h3>
+            <p style="margin:.35rem 0 0;color:var(--muted);font-size:.9rem;">Browse the full public-preview repository surface on GitHub</p>
+          </a>
+        </div>
       </div>
     </section>
 
     <footer class="footer">
       <p class="footer-copy"><span class="footer-copy-line">Older saved links recover fastest by returning to the section's parent directory and choosing the right <span class="footer-folder">YYYY/MM-Mon/</span> subdirectory</span><span class="footer-copy-line">If you want a clean restart, use the home recovery card above and re-enter from the main public hub</span></p>
       <p class="footer-byline">Fortuna — Wealth Warden · Claude Code CLI by Anthropic + Auggie &amp; Kavanah — Infrastructure Implementation &amp; Orchestration · Augment</p>
-      <div class="footer-actions">
-        <a class="footer-link-button" href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer">GitHub Root ↗</a>
-      </div>
     </footer>
   </main>
 
