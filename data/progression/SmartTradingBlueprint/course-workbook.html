@@ -312,9 +312,20 @@
 
   <!-- SIDEBAR -->
   <nav class="sidebar" id="sidebar" aria-label="Workbook navigation">
-    <div class="sidebar-title">Contents</div>
+    <div class="sidebar-title">📘 Course Workbook</div>
 
-    <div class="sidebar-week" style="color:var(--w1)">Week 1 — Foundations</div>
+    <a class="sidebar-item" href="#welcome">
+      <span class="sidebar-dot" style="background:var(--blue)"></span>
+      Welcome
+      <span class="sidebar-progress">✓</span>
+    </a>
+    <a class="sidebar-item" href="#prereqs-anchor">
+      <span class="sidebar-dot" style="background:var(--blue)"></span>
+      Prerequisites
+      <span class="sidebar-progress">⚡</span>
+    </a>
+
+    <div class="sidebar-week" style="color:var(--w1)">WEEK 1</div>
     <a class="sidebar-item" href="#lesson-1-1"><span class="sidebar-dot" style="background:var(--w1)"></span>1.1 Candle + Structure<span class="sidebar-progress" id="sp-1-1"></span></a>
     <a class="sidebar-item" href="#lesson-1-2"><span class="sidebar-dot" style="background:var(--w1)"></span>1.2 Premium &amp; Discount<span class="sidebar-progress" id="sp-1-2"></span></a>
     <a class="sidebar-item" href="#lesson-1-3"><span class="sidebar-dot" style="background:var(--w1)"></span>1.3 Range Structure<span class="sidebar-progress" id="sp-1-3"></span></a>
@@ -323,8 +334,14 @@
     <a class="sidebar-item" href="#lesson-1-6"><span class="sidebar-dot" style="background:var(--w1)"></span>1.6 Displacement vs Manip.<span class="sidebar-progress" id="sp-1-6"></span></a>
     <a class="sidebar-item" href="#week-1-review"><span class="sidebar-dot" style="background:var(--w1)"></span>Week 1 Review<span class="sidebar-progress" id="sp-w1r"></span></a>
 
-    <div class="sidebar-week" style="color:var(--w2)">Week 2+</div>
+    <div class="sidebar-week" style="color:var(--w2)">WEEK 2</div>
     <a class="sidebar-item" href="#week-2"><span class="sidebar-dot" style="background:var(--border)"></span>Week 2 (coming soon)</a>
+
+    <div class="sidebar-week" style="color:var(--w3)">WEEK 3</div>
+    <a class="sidebar-item" href="#week-3"><span class="sidebar-dot" style="background:var(--border)"></span>Week 3 (coming soon)</a>
+
+    <div class="sidebar-week" style="color:var(--w4)">WEEK 4</div>
+    <a class="sidebar-item" href="#week-4"><span class="sidebar-dot" style="background:var(--border)"></span>Week 4 (coming soon)</a>
 
     <a class="sidebar-back" href="../../../index.html">← Back to hub</a>
   </nav>
@@ -387,7 +404,7 @@
     </details>
 
     <!-- PREREQS -->
-    <div class="prereqs">
+    <div class="prereqs" id="prereqs-anchor">
       <h3>Prerequisites &amp; Setup</h3>
       <ul class="check-list">
         <li><span class="chk done">✓</span> TradingView account active (MNQ, ES charts available)</li>
@@ -1053,7 +1070,7 @@
   }
 
   // ── SCROLLSPY ──
-  const sections = document.querySelectorAll('[id^="lesson-"], [id^="week-"]');
+  const sections = document.querySelectorAll('#welcome, #prereqs-anchor, [id^="lesson-"], [id^="week-"]');
   const sidebarLinks = document.querySelectorAll('.sidebar-item');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
