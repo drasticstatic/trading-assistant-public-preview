@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartTradingBlueprint Course Workbook — Christopher Wilson</title>
+  <meta name="description" content="SmartTradingBlueprint Course Workbook — Christopher Wilson, Feb 2026 Cohort. Interactive coaching reference with answers, reflections, and progress tracking.">
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../../favicon.png" type="image/png" sizes="64x64">
+  <style>
+    :root {
+      --bg: #0c1218; --bg-alt: #101821;
+      --surface: rgba(16,24,33,0.8); --surface-soft: rgba(14,21,29,0.56); --surface-strong: #121b24;
+      --border: rgba(139,148,158,0.2); --border-strong: rgba(139,148,158,0.32);
+      --text: #d8dee4; --muted: #99a4af; --subtle: #6b7580;
+      --green: #3fb950; --red: #f85149; --blue: #7cc2ff; --yellow: #e3b341; --purple: #bc8cff;
+      --shadow: 0 18px 36px rgba(2,6,23,0.2);
+      --w1: #7cc2ff; --w2: #3fb950; --w3: #bc8cff; --w4: #e3b341;
+    }
+    html.light {
+      --bg: #eef3fb; --bg-alt: #f7faff;
+      --surface: rgba(255,255,255,0.88); --surface-soft: rgba(238,243,251,0.86); --surface-strong: #fff;
+      --border: rgba(87,96,106,0.2); --border-strong: rgba(87,96,106,0.34);
+      --text: #1f2328; --muted: #57606a; --subtle: #6e7781;
+      --green: #1a7f37; --red: #cf222e; --blue: #0969da; --yellow: #9a6700; --purple: #8250df;
+    }
+    html { scroll-behavior: smooth; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      font-size: 15px; line-height: 1.65; color: var(--text);
+      background: radial-gradient(circle at top right, rgba(124,194,255,0.09), transparent 30%),
+                  linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+      transition: background 0.2s, color 0.2s;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+    code { font-family: "SF Mono","Fira Code",monospace; font-size: 0.88em; color: var(--purple); }
+
+    /* ── SKIP LINK ── */
+    .skip { position:absolute; left:1rem; top:-3rem; z-index:300; padding:.6rem 1rem;
+      border:1px solid var(--border-strong); border-radius:999px; background:var(--surface-strong);
+      color:var(--text); font-size:.82rem; }
+    .skip:focus { top:.75rem; }
+
+    /* ── THEME TOGGLE ── */
+    .theme-btn {
+      position:fixed; top:1rem; right:1rem; z-index:200;
+      border:1px solid var(--border); border-radius:999px; padding:.42rem .8rem;
+      background:rgba(18,27,36,.74); color:var(--muted); font-size:.75rem; cursor:pointer;
+      backdrop-filter:blur(10px); transition:border-color .15s, color .15s, transform .15s;
+    }
+    html.light .theme-btn { background:rgba(255,255,255,.9); }
+    .theme-btn:hover { border-color:var(--blue); color:var(--text); transform:translateY(-1px); }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      position:sticky; top:0; z-index:150;
+      display:flex; align-items:center; gap:.75rem; flex-wrap:wrap;
+      padding:.6rem 1.25rem; border-bottom:1px solid var(--border);
+      background:rgba(12,18,24,.88); backdrop-filter:blur(14px);
+    }
+    html.light .topbar { background:rgba(238,243,251,.92); }
+    .breadcrumb { display:flex; align-items:center; gap:.4rem; font-size:.78rem; color:var(--muted); flex:1; min-width:0; }
+    .breadcrumb a { color:var(--muted); }
+    .breadcrumb a:hover { color:var(--blue); }
+    .breadcrumb span { opacity:.5; }
+    .topbar-actions { display:flex; gap:.5rem; align-items:center; margin-left:auto; }
+    .pill-btn {
+      display:inline-flex; align-items:center; gap:.35rem;
+      padding:.35rem .75rem; border:1px solid var(--border); border-radius:999px;
+      background:var(--surface-soft); color:var(--muted); font-size:.76rem; cursor:pointer;
+      transition:border-color .15s, color .15s, transform .15s;
+    }
+    .pill-btn:hover { border-color:var(--blue); color:var(--text); transform:translateY(-1px); }
+
+    /* ── LAYOUT ── */
+    .layout { display:grid; grid-template-columns:240px minmax(0,1fr); min-height:calc(100vh - 44px); }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      position:sticky; top:44px; height:calc(100vh - 44px); overflow-y:auto;
+      padding:1.2rem .85rem 2rem; border-right:1px solid var(--border);
+      background:var(--bg-alt); scrollbar-width:thin; scrollbar-color:var(--border) transparent;
+      display:flex; flex-direction:column; gap:.15rem;
+    }
+    .sidebar-title { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em;
+      color:var(--subtle); padding:.2rem .4rem .6rem; margin-bottom:.2rem;
+      border-bottom:1px solid var(--border); }
+    .sidebar-week { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em;
+      color:var(--muted); padding:.55rem .4rem .2rem; margin-top:.3rem; }
+    .sidebar-item {
+      display:flex; align-items:center; gap:.45rem;
+      padding:.32rem .55rem; border-radius:8px; font-size:.82rem; color:var(--muted);
+      cursor:pointer; transition:background .12s, color .12s; text-decoration:none;
+    }
+    .sidebar-item:hover { background:rgba(124,194,255,.08); color:var(--text); text-decoration:none; }
+    .sidebar-item.active { background:rgba(124,194,255,.12); color:var(--blue); font-weight:600; }
+    .sidebar-dot { width:7px; height:7px; border-radius:999px; flex-shrink:0; }
+    .sidebar-progress { font-size:.68rem; margin-left:auto; color:var(--subtle); }
+    .sidebar-back { display:flex; align-items:center; gap:.4rem; margin-top:auto; padding-top:.8rem;
+      border-top:1px solid var(--border); font-size:.78rem; color:var(--muted); cursor:pointer; }
+    .sidebar-back:hover { color:var(--blue); text-decoration:none; }
+
+    /* ── MAIN ── */
+    .main { padding:2rem 2.25rem 4rem; max-width:860px; }
+
+    /* ── HERO ── */
+    .workbook-hero {
+      padding:1.5rem; margin-bottom:1.75rem;
+      border:1px solid var(--border); border-radius:20px;
+      background:var(--surface); box-shadow:var(--shadow);
+      backdrop-filter:blur(12px);
+    }
+    .wh-eyebrow { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.09em;
+      color:var(--muted); margin:0 0 .5rem; display:flex; align-items:center; gap:.5rem; }
+    .live-dot { width:7px; height:7px; border-radius:999px; background:var(--blue);
+      box-shadow:0 0 0 5px rgba(124,194,255,0.12); animation:pulse 3s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{box-shadow:0 0 0 5px rgba(124,194,255,.12)} 50%{box-shadow:0 0 0 8px rgba(124,194,255,.04)} }
+    .wh-title { margin:0 0 .35rem; font-size:1.65rem; font-weight:800; letter-spacing:-.03em;
+      background:linear-gradient(135deg, var(--blue) 0%, var(--purple) 55%, var(--yellow) 100%);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .wh-meta { color:var(--muted); font-size:.88rem; margin:0 0 1.1rem; }
+    .progress-row { display:flex; align-items:center; gap:.8rem; flex-wrap:wrap; }
+    .progress-track { flex:1; min-width:120px; height:5px; border-radius:999px;
+      background:rgba(139,148,158,.18); overflow:hidden; }
+    .progress-fill { height:100%; border-radius:999px;
+      background:linear-gradient(90deg, var(--blue), var(--purple)); transition:width .4s ease; }
+    .progress-label { font-size:.78rem; color:var(--muted); white-space:nowrap; }
+    .week-jumps { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem; }
+    .week-jump { display:inline-flex; align-items:center; gap:.35rem; padding:.3rem .7rem;
+      border:1px solid var(--border); border-radius:999px; font-size:.76rem; font-weight:600;
+      color:var(--muted); cursor:pointer; background:var(--surface-soft); transition:all .15s; }
+    .week-jump:hover { transform:translateY(-1px); text-decoration:none; }
+    .week-jump.w1 { border-color:rgba(124,194,255,.3); } .week-jump.w1:hover { border-color:var(--w1); color:var(--w1); }
+    .week-jump.w2 { border-color:rgba(63,185,80,.3); } .week-jump.w2:hover { border-color:var(--w2); color:var(--w2); }
+    .week-jump.w3 { border-color:rgba(188,140,255,.3); } .week-jump.w3:hover { border-color:var(--w3); color:var(--w3); }
+    .week-jump.w4 { border-color:rgba(227,179,65,.3); } .week-jump.w4:hover { border-color:var(--w4); color:var(--w4); }
+
+    /* ── PREREQS ── */
+    .prereqs { margin-bottom:1.5rem; padding:1rem 1.2rem;
+      border:1px solid var(--border); border-radius:16px; background:var(--surface-soft); }
+    .prereqs h3 { margin:0 0 .7rem; font-size:.88rem; font-weight:700; color:var(--muted);
+      text-transform:uppercase; letter-spacing:.07em; }
+    .check-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.35rem; }
+    .check-list li { display:flex; align-items:center; gap:.6rem; font-size:.88rem; }
+    .chk { width:16px; height:16px; border-radius:4px; border:1.5px solid; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center; font-size:.65rem; font-weight:800; }
+    .chk.done { background:var(--blue); border-color:var(--blue); color:#fff; }
+    .chk.todo { border-color:var(--border-strong); color:transparent; }
+
+    /* ── WEEK BLOCKS ── */
+    .week-block { margin-bottom:2rem; }
+    .week-banner {
+      display:flex; align-items:center; gap:.85rem; padding:.75rem 1.1rem; margin-bottom:.85rem;
+      border:1px solid var(--border); border-radius:16px; background:var(--surface-soft);
+    }
+    .week-number { font-size:1.5rem; font-weight:900; line-height:1; letter-spacing:-.05em; }
+    .week-number.w1 { color:var(--w1); } .week-number.w2 { color:var(--w2); }
+    .week-number.w3 { color:var(--w3); } .week-number.w4 { color:var(--w4); }
+    .week-info { flex:1; }
+    .week-info h2 { margin:0; font-size:1.05rem; font-weight:700; }
+    .week-info p { margin:.15rem 0 0; font-size:.82rem; color:var(--muted); }
+    .week-stat { font-size:.75rem; font-weight:700; color:var(--subtle);
+      padding:.28rem .6rem; border:1px solid var(--border); border-radius:999px; }
+
+    /* ── CLASS DETAILS (accordion) ── */
+    .class-card { margin-bottom:.65rem; border:1px solid var(--border); border-radius:14px;
+      background:var(--surface); overflow:hidden; }
+    .class-card summary {
+      display:flex; align-items:center; gap:.75rem; padding:.85rem 1.1rem;
+      cursor:pointer; list-style:none; user-select:none;
+      transition:background .12s;
+    }
+    .class-card summary::-webkit-details-marker { display:none; }
+    .class-card summary:hover { background:rgba(124,194,255,.04); }
+    .class-badge { font-size:.72rem; font-weight:800; letter-spacing:.05em;
+      padding:.2rem .55rem; border-radius:6px; background:rgba(124,194,255,.12);
+      color:var(--blue); flex-shrink:0; }
+    .class-title-text { font-size:.95rem; font-weight:700; flex:1; }
+    .class-status { font-size:.72rem; font-weight:700; padding:.18rem .5rem;
+      border-radius:999px; flex-shrink:0; }
+    .class-status.complete { background:rgba(63,185,80,.14); color:var(--green); }
+    .class-status.partial { background:rgba(227,179,65,.12); color:var(--yellow); }
+    .class-status.pending { background:rgba(139,148,158,.1); color:var(--muted); }
+    .acc-icon { font-size:.82rem; color:var(--muted); flex-shrink:0; transition:transform .2s; }
+    .class-card[open] .acc-icon { transform:rotate(180deg); }
+    .class-body { padding:.25rem 1.1rem 1.1rem; border-top:1px solid var(--border); }
+
+    /* ── SECTION HEADERS inside class ── */
+    .sec-header { display:flex; align-items:center; gap:.5rem; margin:1rem 0 .6rem; }
+    .sec-chip { font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em;
+      padding:.2rem .55rem; border-radius:999px; }
+    .chip-concepts { background:rgba(124,194,255,.12); color:var(--blue); }
+    .chip-reflect { background:rgba(188,140,255,.12); color:var(--purple); }
+    .chip-col { background:rgba(63,185,80,.12); color:var(--green); }
+    .chip-quiz { background:rgba(63,185,80,.12); color:var(--green); }
+    .chip-action { background:rgba(227,179,65,.12); color:var(--yellow); }
+
+    /* ── QA ROWS ── */
+    .qa-grid { display:flex; flex-direction:column; gap:.6rem; }
+    .qa-row { border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+    .qa-q { padding:.55rem .8rem; font-size:.82rem; font-weight:600; color:var(--muted);
+      background:var(--surface-soft); border-bottom:1px solid var(--border); }
+    .qa-a { padding:.65rem .8rem; font-size:.88rem; line-height:1.65;
+      border-left:3px solid var(--blue); }
+    .qa-a.pending { border-left-color:var(--yellow); font-style:italic; color:var(--muted); }
+    .qa-a.pending::before { content:"📝 "; }
+    .inline-answer { font-weight:700; color:var(--text);
+      background:rgba(124,194,255,.1); padding:.05em .3em; border-radius:4px; }
+
+    /* ── COL BLOCK ── */
+    .col-block { display:flex; flex-direction:column; gap:.5rem; }
+    .col-item { padding:.6rem .85rem; border:1px solid var(--border); border-radius:10px;
+      font-size:.88rem; line-height:1.65; border-left:3px solid var(--blue); }
+
+    /* ── QUIZ TABLE ── */
+    .quiz-table { width:100%; border-collapse:collapse; font-size:.84rem; margin:.25rem 0; }
+    .quiz-table th { text-align:left; padding:.45rem .65rem; color:var(--muted);
+      font-size:.72rem; text-transform:uppercase; letter-spacing:.07em;
+      border-bottom:1px solid var(--border); }
+    .quiz-table td { padding:.5rem .65rem; border-bottom:1px solid var(--border); vertical-align:top; }
+    .quiz-table tr:last-child td { border-bottom:none; }
+    .ans-chip { display:inline-block; padding:.15rem .5rem; border-radius:6px;
+      font-weight:700; font-size:.78rem; background:rgba(124,194,255,.14); color:var(--blue); }
+
+    /* ── TABLE GENERIC ── */
+    .data-table { width:100%; border-collapse:collapse; font-size:.84rem; margin:.25rem 0; }
+    .data-table th { padding:.4rem .65rem; text-align:left; font-size:.72rem; text-transform:uppercase;
+      letter-spacing:.07em; color:var(--muted); border-bottom:1px solid var(--border); }
+    .data-table td { padding:.45rem .65rem; border-bottom:1px solid var(--border); vertical-align:top; }
+    .data-table tr:last-child td { border-bottom:none; }
+    .data-table td:first-child { font-weight:600; color:var(--text); }
+    .data-table td:nth-child(2) { color:var(--muted); font-size:.82rem; }
+
+    /* ── ACTION CHECKLIST ── */
+    .action-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.4rem; }
+    .action-list li { display:flex; align-items:flex-start; gap:.6rem; font-size:.88rem; }
+    .action-list li .chk { margin-top:.15rem; }
+
+    /* ── CALLOUT ── */
+    .callout { padding:.7rem .9rem; border-radius:10px; font-size:.84rem; line-height:1.65;
+      display:flex; gap:.55rem; align-items:flex-start; }
+    .callout.info { background:rgba(124,194,255,.08); border:1px solid rgba(124,194,255,.18); }
+    .callout.warn { background:rgba(227,179,65,.07); border:1px solid rgba(227,179,65,.18); color:var(--text); }
+    .callout.tip { background:rgba(188,140,255,.07); border:1px solid rgba(188,140,255,.18); }
+    .callout-icon { flex-shrink:0; font-size:1rem; line-height:1.5; }
+
+    /* ── PLACEHOLDER BLOCK ── */
+    .placeholder-block { padding:2rem 1.5rem; text-align:center;
+      border:2px dashed var(--border); border-radius:16px; color:var(--subtle); }
+    .placeholder-block .ph-icon { font-size:2rem; margin-bottom:.6rem; }
+    .placeholder-block p { margin:.3rem 0; font-size:.88rem; }
+
+    /* ── FOOTER ── */
+    .workbook-footer { margin-top:2rem; padding:1.2rem; border:1px solid var(--border); border-radius:16px;
+      background:var(--surface); text-align:center; font-size:.8rem; color:var(--subtle); }
+    .workbook-footer p { margin:0; }
+    .workbook-footer p + p { margin-top:.5rem; }
+
+    /* ── PRINT ── */
+    @media print {
+      .topbar, .sidebar, .theme-btn, .skip { display:none !important; }
+      .layout { grid-template-columns:1fr; }
+      .main { padding:1rem; max-width:none; }
+      .class-card { break-inside:avoid; }
+      details { display:block !important; }
+      details .class-body { display:block !important; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width:860px) {
+      .layout { grid-template-columns:1fr; }
+      .sidebar { display:none; }
+      .sidebar.open { display:flex; position:fixed; left:0; top:44px; width:240px; height:calc(100vh - 44px);
+        z-index:190; box-shadow:4px 0 24px rgba(2,6,23,.3); }
+      .main { padding:1.25rem 1rem 3rem; }
+    }
+    @media (max-width:560px) {
+      .wh-title { font-size:1.35rem; }
+      .week-jumps { gap:.35rem; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      html { scroll-behavior:auto; }
+      *, *::before, *::after { animation:none !important; transition:none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip" href="#main-content">Skip to content</a>
+<button class="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">☀️ Light</button>
+
+<!-- TOP BAR -->
+<header class="topbar" role="banner">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../../../index.html">🏠 Trading Assistant</a>
+    <span>›</span>
+    <span>Progression</span>
+    <span>›</span>
+    <span>SmartTradingBlueprint</span>
+    <span>›</span>
+    <span>Course Workbook</span>
+  </nav>
+  <div class="topbar-actions">
+    <button class="pill-btn" onclick="toggleSidebar()" aria-label="Toggle navigation">☰ Nav</button>
+    <button class="pill-btn" onclick="expandAll()" aria-label="Expand all sections">⊞ Expand all</button>
+    <button class="pill-btn" onclick="window.print()" aria-label="Print workbook">🖨 Print</button>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar" id="sidebar" aria-label="Workbook navigation">
+    <div class="sidebar-title">Contents</div>
+
+    <div class="sidebar-week" style="color:var(--w1)">Week 1 — Foundations</div>
+    <a class="sidebar-item" href="#lesson-1-1"><span class="sidebar-dot" style="background:var(--w1)"></span>1.1 Candle + Structure<span class="sidebar-progress" id="sp-1-1"></span></a>
+    <a class="sidebar-item" href="#lesson-1-2"><span class="sidebar-dot" style="background:var(--w1)"></span>1.2 Premium &amp; Discount<span class="sidebar-progress" id="sp-1-2"></span></a>
+    <a class="sidebar-item" href="#lesson-1-3"><span class="sidebar-dot" style="background:var(--w1)"></span>1.3 Range Structure<span class="sidebar-progress" id="sp-1-3"></span></a>
+    <a class="sidebar-item" href="#lesson-1-4"><span class="sidebar-dot" style="background:var(--w1)"></span>1.4 Impulse Structure<span class="sidebar-progress" id="sp-1-4"></span></a>
+    <a class="sidebar-item" href="#lesson-1-5"><span class="sidebar-dot" style="background:var(--w1)"></span>1.5 Top-Down Structure<span class="sidebar-progress" id="sp-1-5"></span></a>
+    <a class="sidebar-item" href="#lesson-1-6"><span class="sidebar-dot" style="background:var(--w1)"></span>1.6 Displacement vs Manip.<span class="sidebar-progress" id="sp-1-6"></span></a>
+    <a class="sidebar-item" href="#week-1-review"><span class="sidebar-dot" style="background:var(--w1)"></span>Week 1 Review<span class="sidebar-progress" id="sp-w1r"></span></a>
+
+    <div class="sidebar-week" style="color:var(--w2)">Week 2+</div>
+    <a class="sidebar-item" href="#week-2"><span class="sidebar-dot" style="background:var(--border)"></span>Week 2 (coming soon)</a>
+
+    <a class="sidebar-back" href="../../../index.html">← Back to hub</a>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main" id="main-content">
+
+    <!-- HERO -->
+    <div class="workbook-hero">
+      <p class="wh-eyebrow"><span class="live-dot"></span> SmartTradingBlueprint · Feb 2026 Cohort · Living Document</p>
+      <h1 class="wh-title">Course Workbook</h1>
+      <p class="wh-meta">Christopher Wilson · Week 1 — Market Structure Foundations · In Progress</p>
+      <div class="progress-row">
+        <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+        <span class="progress-label" id="progressLabel">Calculating…</span>
+      </div>
+      <div class="week-jumps">
+        <a class="week-jump w1" href="#week-1">📐 Week 1 — Structure</a>
+        <a class="week-jump w2" href="#week-2">🔜 Week 2</a>
+        <a class="week-jump w3" href="#week-3">🔜 Week 3</a>
+        <a class="week-jump w4" href="#week-4">🔜 Week 4</a>
+      </div>
+    </div>
+
+    <!-- PREREQS -->
+    <div class="prereqs">
+      <h3>Prerequisites &amp; Setup</h3>
+      <ul class="check-list">
+        <li><span class="chk done">✓</span> TradingView account active (MNQ, ES charts available)</li>
+        <li><span class="chk done">✓</span> Feb 2026 Cohort enrollment confirmed</li>
+        <li><span class="chk done">✓</span> Week 1 lessons accessed and begun</li>
+        <li><span class="chk todo">✓</span> Trader scorecard setup (update weekly)</li>
+        <li><span class="chk todo">✓</span> TradingView chart layout for top-down analysis prepared</li>
+      </ul>
+    </div>
+
+    <!-- ════════════════════════════════════════ WEEK 1 -->
+    <section class="week-block" id="week-1">
+      <div class="week-banner">
+        <div class="week-number w1">W1</div>
+        <div class="week-info">
+          <h2>Market Structure Foundations</h2>
+          <p>Candle reading · Premium &amp; Discount · Range &amp; Impulse · Top-Down · Displacement vs. Manipulation</p>
+        </div>
+        <span class="week-stat">6 Lessons + Review</span>
+      </div>
+
+      <!-- ── Lesson 1.1 ── -->
+      <details class="class-card" id="lesson-1-1" open>
+        <summary>
+          <span class="class-badge">1.1</span>
+          <span class="class-title-text">Reading a Candle + What is Market Structure</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+
+            <div class="qa-row">
+              <div class="qa-q">Q1 — On a bullish candle, is the bottom of the body the opening or closing price?</div>
+              <div class="qa-a">On a bullish candle, the <span class="inline-answer">bottom of the body is the opening price</span> and the top is the closing price. Price moved upward during the period — it opened lower and closed higher.</div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q2 — What defines a high or a low?</div>
+              <div class="qa-a">A <span class="inline-answer">high</span> is the highest point price reached during the period — visualized by the top of the upper wick. A <span class="inline-answer">low</span> is the lowest point reached — the bottom of the lower wick. These wicks extend beyond the body to show the full range of price movement, not just the open-to-close range.</div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q3 — What do wicks represent?</div>
+              <div class="qa-a">Wicks (also called shadows) represent <span class="inline-answer">price movement outside the opening and closing prices</span> — they show the maximum volatility or full range during that timeframe. A long upper wick means price pushed significantly higher but was rejected before the close. A long lower wick means price swept lower before recovering. <strong>Wicks are where manipulation lives and where stop hunts happen.</strong></div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q4 — What is a "timeframe"?</div>
+              <div class="qa-a">A timeframe is the <span class="inline-answer">specific, chosen duration for a single candle</span> — ranging from 1 second to 1 month. It defines how much price action is compressed into each candle. Choosing your timeframe determines your perspective: context (HTF) vs. precision (LTF).</div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q5 — Write down 3 key takeaways from this lesson.</div>
+              <div class="qa-a">
+                <ol style="margin:.3rem 0 0 1rem; padding:0; display:flex; flex-direction:column; gap:.4rem;">
+                  <li><strong>Slight LLs or HHs opposing the trend = manipulation.</strong> Small moves against the trend that don't hold are designed to trigger stop losses — they are not genuine reversals.</li>
+                  <li><strong>Wait for displacement.</strong> A larger decisive move that breaks range structure is the signal. A wick is not enough — a displacement close confirms real institutional intent.</li>
+                  <li><strong>Then re-enter at discount after.</strong> After displacement, price often returns to fill the imbalance (FVG) left behind. That retracement is your entry — not the initial move.</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q6 — Write down a time in your trading career relating to the teachings in this lesson.</div>
+              <div class="qa-a pending">Personal reflection: a trade where you chased a breakout candle (should have waited for displacement), or a time when awareness of context would have changed the outcome. — <em>Initial reflection noted: "Knowing which direction to go in life — how it aligns with others around you. Awareness and context as the key." Expand with a specific trading session.</em></div>
+            </div>
+
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 1.2 ── -->
+      <details class="class-card" id="lesson-1-2">
+        <summary>
+          <span class="class-badge">1.2</span>
+          <span class="class-title-text">Premium &amp; Discount</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+
+            <div class="qa-row">
+              <div class="qa-q">Q1 — What is premium and discount, and why is it important?</div>
+              <div class="qa-a">
+                <p style="margin:0 0 .5rem"><strong>Premium and Discount</strong> are a framework for defining whether price is "expensive" or "cheap" relative to a specific range — typically the distance between a recent Swing High and Swing Low. A <span class="inline-answer">50% equilibrium line</span> divides the range:</p>
+                <table class="data-table">
+                  <tr><th>Zone</th><th>Meaning</th><th>Smart Money Action</th></tr>
+                  <tr><td>📈 Premium (above 50%)</td><td>Price is expensive</td><td>Bearish market: <strong>SELL here</strong></td></tr>
+                  <tr><td>📉 Discount (below 50%)</td><td>Price is cheap</td><td>Bullish market: <strong>BUY here</strong></td></tr>
+                </table>
+                <p style="margin:.5rem 0 0">This concept prevents chasing — it stops you from buying a top or selling a bottom.</p>
+              </div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q2 — If your business is trading, what is your product?</div>
+              <div class="qa-a">
+                Your product is <span class="inline-answer">Risk</span>. When you enter the market, you are a <strong>Risk Manager</strong>.
+                <table class="data-table" style="margin-top:.5rem">
+                  <tr><th>Business Component</th><th>Trading Equivalent</th></tr>
+                  <tr><td>Raw Material</td><td>Your capital</td></tr>
+                  <tr><td>The Factory</td><td>Your strategy / edge (the rules you follow)</td></tr>
+                  <tr><td>The Product</td><td>The risk you take on in exchange for potential reward</td></tr>
+                  <tr><td>The Profit</td><td>Your statistical edge over a large sample of trades</td></tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q3 — Do you want to sell this product for a premium or discounted price?</div>
+              <div class="qa-a"><span class="inline-answer">Premium.</span> When you're short (selling), you want to sell at a premium price — above the equilibrium — where price is overextended and likely to reverse or retrace.</div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q4 — Do you want to buy this product for a premium or discounted price?</div>
+              <div class="qa-a"><span class="inline-answer">Discounted.</span> When you're long (buying), you want to buy at a discount — below the equilibrium — where price represents genuine value and the path of least resistance is upward.</div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q5 — Does premium or discount influence your decision making in trading?</div>
+              <div class="qa-a"><strong>Yes — it should be a primary filter.</strong> Before entering any trade, ask: <em>Is price currently in a premium or discount zone relative to the key range?</em> If you're looking for a long entry but price is deep in premium, wait for a pullback to discount. Trading at the wrong zone means you're buying expensive or selling cheap — exactly what smart money exploits.</div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q6 — Write down 3 key takeaways from this lesson.</div>
+              <div class="qa-a">
+                <ol style="margin:.3rem 0 0 1rem; padding:0; display:flex; flex-direction:column; gap:.4rem;">
+                  <li><strong>Define value via equilibrium.</strong> The 50% midpoint of any range is your reference. Above = premium (expensive), below = discount (cheap). This lets you define value objectively, not emotionally.</li>
+                  <li><strong>Align with institutional "smart money."</strong> Institutions accumulate (buy) in discount zones and distribute (sell) in premium zones. Trading in these zones puts you on the same side as the flow — not fighting it.</li>
+                  <li><strong>Prioritize Risk-to-Reward through zone selection.</strong> Buying at a genuine discount vs. chasing a move already in premium dramatically improves your R:R. Entering in the wrong zone means your stop is far and your target is close — structurally poor trades.</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q7 — Write down a time in your trading career relating to these teachings.</div>
+              <div class="qa-a pending">Expand on your initial reflection: "I have bought premium many times in my life — and have undervalued myself / undersold my services." Add a specific trading example: a time you chased a move already deep in premium and got stopped out, then watched price retrace to discount before continuing.</div>
+            </div>
+
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 1.3 ── -->
+      <details class="class-card" id="lesson-1-3">
+        <summary>
+          <span class="class-badge">1.3</span>
+          <span class="class-title-text">Range Structure</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+
+            <div class="qa-row">
+              <div class="qa-q">Q1 — What is range structure and why is it important?</div>
+              <div class="qa-a">
+                <p style="margin:0 0 .5rem"><strong>Range structure</strong> (also called consolidation or a sideways market) occurs when price is <span class="inline-answer">trapped between a clear ceiling (resistance) and a clear floor (support)</span>, moving horizontally rather than trending. It forms when supply and demand are roughly equal — neither buyers nor sellers dominate.</p>
+                <p style="margin:0 0 .4rem"><strong>Why it matters:</strong></p>
+                <ul style="margin:0 0 0 1rem; padding:0; display:flex; flex-direction:column; gap:.3rem;">
+                  <li>Most markets spend ~70% of their time ranging, not trending</li>
+                  <li>The range boundaries reveal where "big players" are building positions</li>
+                  <li>The breakout direction from a range defines the next trend</li>
+                  <li>The middle of a range is typically a no-trade zone (choppy, unpredictable)</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q2 — Provide 3 examples of range structure on an H1 timeframe chart.</div>
+              <div class="qa-a pending">Your screenshots here — draw 3 examples on an H1 chart of MNQ or another instrument. Mark the support floor, resistance ceiling, and the no-trade zone in the middle.</div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q3 — If this is difficult, which part do you not understand?</div>
+              <div class="qa-a pending">Your reflection — if any part of identifying range structure feels unclear, note it here for coaching review.</div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q4 — What is the purpose of mapping out range structure?</div>
+              <div class="qa-a">Mapping a range identifies the <strong>boundaries of value</strong> and serves three functions:
+                <ol style="margin:.4rem 0 0 1rem; padding:0; display:flex; flex-direction:column; gap:.3rem;">
+                  <li>Defines the <strong>"no-trade zone"</strong> — the middle of a range is choppy and unreliable; avoid entries there</li>
+                  <li>Marks potential <strong>reversal points</strong> — the floor = look for buy signals; the ceiling = look for sell signals</li>
+                  <li>Sets up <strong>breakout recognition</strong> — knowing exactly where the range ends allows you to identify the moment price escapes and a new trend begins</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q5 — Do we draw trendlines when mapping range structure?</div>
+              <div class="qa-a"><span class="inline-answer">Generally, no.</span> In a range, use <strong>horizontal levels</strong> (support/resistance lines or rectangles). Trendlines are designed for diagonal trending markets — forcing them onto a horizontal range creates false signals. <em>Exception: if the range has a slight diagonal tilt (a "channel"), a trendline may be appropriate.</em></div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q6 — Does range structure determine the trend of the market?</div>
+              <div class="qa-a">Range structure itself is <span class="inline-answer">neutral</span> — but it is the "birthplace" of the next trend.
+                <ul style="margin:.4rem 0 0 1rem; padding:0; display:flex; flex-direction:column; gap:.3rem;">
+                  <li><strong>Breakout above the range</strong> → New uptrend begins (HH/HL structure)</li>
+                  <li><strong>Breakout below the range</strong> → New downtrend begins (LH/LL structure)</li>
+                  <li><strong>Context matters:</strong> A range after a long move up may be re-accumulation (trend continues) or distribution (reversal incoming). HTF bias determines which is more likely.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q7 — Write down 3 key takeaways from this lesson.</div>
+              <div class="qa-a">
+                <ol style="margin:.3rem 0 0 1rem; padding:0; display:flex; flex-direction:column; gap:.4rem;">
+                  <li><strong>Boundaries define the play.</strong> Range structure is mapped with horizontal support and resistance — not diagonal trendlines. The horizontal lines are the reference points.</li>
+                  <li><strong>Equilibrium = tug-of-war.</strong> A range represents neither buyers nor sellers winning yet. Don't take sides until the breakout (displacement) confirms direction.</li>
+                  <li><strong>The "Springboard" effect.</strong> The longer a market stays in a range, the more volatile the eventual breakout is likely to be — because more orders have accumulated at the boundaries.</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q8 — Write down a time in your trading career relating to these teachings.</div>
+              <div class="qa-a pending">Your reflection — a time you traded inside a range (choppy, no follow-through) when you should have waited for the breakout. Or a time you missed a powerful breakout because you didn't recognize the preceding range.</div>
+            </div>
+
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 1.4 ── -->
+      <details class="class-card" id="lesson-1-4">
+        <summary>
+          <span class="class-badge">1.4</span>
+          <span class="class-title-text">Impulse Structure</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+
+            <div class="qa-row">
+              <div class="qa-q">Q1 — What is impulse structure and why is it important?</div>
+              <div class="qa-a">
+                <p style="margin:0 0 .5rem"><strong>Impulse structure</strong> is a <span class="inline-answer">strong, decisive, directional move in price</span> that creates a series of Higher Highs and Higher Lows (bullish impulse) or Lower Highs and Lower Lows (bearish impulse). It represents a clear shift in market control — one side has overwhelmed the other.</p>
+                <p style="margin:0 0 .4rem"><strong>Why it matters:</strong></p>
+                <ul style="margin:0 0 0 1rem; padding:0; display:flex; flex-direction:column; gap:.3rem;">
+                  <li>Impulse moves identify the <strong>direction of least resistance</strong> — the path you want to trade with, not against</li>
+                  <li>They create <strong>imbalances (FVGs)</strong> that price is statistically drawn back to — your entry opportunity</li>
+                  <li>In the STB/FCR framework: <em>displacement IS impulse</em> — the first candle establishes the range, and displacement outside it is the impulse signal</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q2 — What is the difference between range structure and impulse structure?</div>
+              <div class="qa-a">
+                <table class="data-table">
+                  <tr><th></th><th>Range Structure</th><th>Impulse Structure</th></tr>
+                  <tr><td>Direction</td><td>Horizontal — bouncing between levels</td><td>Directional — breaking out and trending</td></tr>
+                  <tr><td>Character</td><td>Indecision, equilibrium</td><td>Conviction, one side dominant</td></tr>
+                  <tr><td>Creates</td><td>Accumulation / distribution zones</td><td>New highs/lows, FVGs, reference points</td></tr>
+                  <tr><td>Trading</td><td>Wait for breakout; avoid the middle</td><td>Trade continuation or FVG retracement</td></tr>
+                  <tr><td>Analogy</td><td>Coiling spring</td><td>Spring releasing</td></tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q3 — Do you find impulse structure easier or harder to spot than range structure?</div>
+              <div class="qa-a pending">Your personal answer — initially many traders find impulse "easier" because the moves are dramatic. However, the real challenge is distinguishing true impulse from manipulation (the fake move before the real one). Complete with your honest reflection.</div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q4 — Provide 3 examples of impulse structure using a highlighter on any H1 TradingView chart.</div>
+              <div class="qa-a pending">Your screenshots here — highlight 3 clear impulse legs on an H1 chart. Each should show: the prior range or consolidation, then the displacement move that broke structure.</div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q5 — Write down 3 key takeaways from this lesson.</div>
+              <div class="qa-a">
+                <ol style="margin:.3rem 0 0 1rem; padding:0; display:flex; flex-direction:column; gap:.4rem;">
+                  <li><strong>Impulse creates the reference points.</strong> Swing highs and lows left by impulse moves become the structure map for all future analysis — they define where BSL and SSL rest.</li>
+                  <li><strong>Impulse is followed by retracement.</strong> After a strong impulse, price almost always returns to fill the imbalance (FVG) it left behind — this pullback is not a reversal, it's your entry.</li>
+                  <li><strong>Momentum matters.</strong> A steep, full-bodied impulse candle = strong institutional conviction. A shallow, wick-heavy impulse = weaker move, more likely to be manipulation before reversal.</li>
+                </ol>
+                <p style="margin:.5rem 0 0; font-size:.82rem; color:var(--muted)"><em>📝 Add/edit with your own takeaways from the lesson.</em></p>
+              </div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q6 — Write down a time in your trading career relating to these teachings.</div>
+              <div class="qa-a pending">Your reflection — the FCR strategy is built directly on this concept. Every FCR trade starts with displacement (impulse) outside the first candle. Think of a specific session where you identified the impulse and either took the continuation correctly or missed it.</div>
+            </div>
+
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 1.5 ── -->
+      <details class="class-card" id="lesson-1-5">
+        <summary>
+          <span class="class-badge">1.5</span>
+          <span class="class-title-text">Top-Down Structure</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+
+            <div class="qa-row">
+              <div class="qa-q">Q1 — What is top-down structure and why is it important?</div>
+              <div class="qa-a">
+                <p style="margin:0 0 .5rem"><strong>Top-down structure</strong> is the practice of <span class="inline-answer">analyzing market context from the highest relevant timeframe down to your entry timeframe</span> — reading the big picture before zooming in.</p>
+                <p style="margin:0 0 .4rem"><strong>Why it matters:</strong> Lower timeframe moves only make sense within higher timeframe context. Top-down structure ensures:</p>
+                <ul style="margin:0 0 0 1rem; padding:0; display:flex; flex-direction:column; gap:.3rem;">
+                  <li>You're never trading against the dominant institutional flow</li>
+                  <li>Your entry is aligned with the path of least resistance</li>
+                  <li>Stop placement respects the higher timeframe's structure</li>
+                  <li>Targets are placed at meaningful HTF levels, not arbitrary points</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q2 — Provide 1 example of full top-down analysis using a daily and H1 chart.</div>
+              <div class="qa-a pending">Your screenshot here — show a daily chart with HTF bias marked (trend direction, key levels), then an H1 chart showing how the LTF setup aligned with that bias. Walk through your reasoning.</div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q3 — Do you start from the lower timeframe or higher timeframe when mapping top-down structure?</div>
+              <div class="qa-a"><span class="inline-answer">Always start from the higher timeframe.</span> Read the story on the Daily/Weekly first, then zoom to H4/H1, then to your entry timeframe (15-min, 5-min, 1-min). The HTF defines the <em>bias</em>; the LTF defines the <em>entry precision</em>. Never start on the 1-min and work up — you'll find a "setup" that contradicts the actual direction of institutional flow.</div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q4 — Do you think top-down structure should be used in your trading plan?</div>
+              <div class="qa-a"><strong>Yes — unconditionally.</strong> Christopher already uses this framework under different labels:
+                <ul style="margin:.4rem 0 0 1rem; padding:0; display:flex; flex-direction:column; gap:.3rem;">
+                  <li>Pre-market prep = HTF bias mapping (Daily context)</li>
+                  <li>IT Foundation EMA gate = timeframe confluence filter</li>
+                  <li>FCR at 9:30 AM = entry precision on the 15-min/1-min within the daily context</li>
+                </ul>
+                <p style="margin:.4rem 0 0">Every A+ grade setup (all 5 layers confirmed) is by definition a top-down aligned trade.</p>
+              </div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q5 — Name a situation where it would be OK to skip top-down structure.</div>
+              <div class="qa-a">There is essentially <span class="inline-answer">no valid situation to skip it</span> — but two scenarios where context is implicit:
+                <ul style="margin:.4rem 0 0 1rem; padding:0; display:flex; flex-direction:column; gap:.3rem;">
+                  <li><strong>FCR at the open:</strong> The first 15-min candle IS the context. However, even here, knowing the daily trend direction improves your confidence in which direction to trade the displacement.</li>
+                  <li><strong>Very short-term scalping:</strong> The "HTF" might just be the 1-min or 5-min — the principle still applies, just compressed.</li>
+                </ul>
+                <p style="margin:.4rem 0 0; font-size:.85rem; color:var(--muted)"><em>The honest answer: there is no scenario where more context is a disadvantage. The only risk is spending too long analyzing and missing the entry — but that's an execution timing issue, not a structural one.</em></p>
+              </div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q6 — Write down 3 key takeaways from this lesson.</div>
+              <div class="qa-a">
+                <ol style="margin:.3rem 0 0 1rem; padding:0; display:flex; flex-direction:column; gap:.4rem;">
+                  <li><strong>HTF sets the bias; LTF provides the entry.</strong> You never trade against the daily trend looking for a reversal on the 1-min — unless you're a very advanced counter-trend trader with specific criteria.</li>
+                  <li><strong>Conflicting signals across timeframes = no trade.</strong> This is Scenario C in the IT Foundation framework: when the daily says one thing and the 15-min says another, the answer is patience.</li>
+                  <li><strong>Stop and target logic should respect HTF structures.</strong> A stop placed below a HTF support level is more meaningful than one placed 10 ticks below entry for convenience.</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q7 — Write down a time in your trading career relating to these teachings.</div>
+              <div class="qa-a pending">Your reflection — think about a trade where you didn't check HTF bias and got stopped out, only to watch price do exactly what you expected after retracing to a HTF level. Or a time when HTF alignment gave you the confidence to stay in a trade longer.</div>
+            </div>
+
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 1.6 ── -->
+      <details class="class-card" id="lesson-1-6">
+        <summary>
+          <span class="class-badge">1.6</span>
+          <span class="class-title-text">Displacement vs. Manipulation</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="callout info" style="margin-bottom:.85rem">
+            <span class="callout-icon">💡</span>
+            <span>This lesson is the foundation of the FCR strategy. Every FCR signal requires displacement — a displacement close above the high ray (long) or below the low ray (short). Understanding the difference between displacement and manipulation prevents chasing wicks.</span>
+          </div>
+          <div class="qa-grid">
+
+            <div class="qa-row">
+              <div class="qa-q">Q1 — What is Displacement and why is it important?</div>
+              <div class="qa-a">
+                <p style="margin:0 0 .5rem"><strong>Displacement</strong> is a <span class="inline-answer">large, swift, decisive move in price that creates an imbalance (Fair Value Gap)</span> — representing genuine institutional order flow entering the market. Unlike manipulation, displacement closes outside the key level with conviction and typically does not immediately retrace to fill.</p>
+                <p style="margin:0"><strong>Why it matters:</strong> Displacement tells you WHERE institutions moved. The FVG left behind is their footprint — a zone where orders remain unfilled, making it a high-probability area for price to return and be supported/resisted. In the FCR strategy: displacement above the high ray = long signal. Displacement below the low ray = short signal.</p>
+              </div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q2 — What is manipulation and why is it important?</div>
+              <div class="qa-a">
+                <p style="margin:0 0 .5rem"><strong>Manipulation</strong> is a move designed to <span class="inline-answer">trigger retail stop losses and orders before the real institutional move</span>. It often appears as a brief spike through a key level that quickly reverses — leaving retail traders stopped out with a loss just before the market moves in the "correct" direction.</p>
+                <p style="margin:0 0 .4rem"><strong>Why it matters — understanding manipulation teaches you:</strong></p>
+                <ul style="margin:0 0 0 1rem; padding:0; display:flex; flex-direction:column; gap:.3rem;">
+                  <li><strong>Not to place stops at obvious retail levels</strong> — directly below equal lows or above equal highs where manipulation targets</li>
+                  <li><strong>The wick is not the signal</strong> — a wick through a level followed by rejection is manipulation, not displacement</li>
+                  <li><strong>Patience pays</strong> — waiting for a displacement close reduces false entries significantly</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q3 — How do you ensure you are trading with smart money?</div>
+              <div class="qa-a">
+                <ol style="margin:.3rem 0 0 1rem; padding:0; display:flex; flex-direction:column; gap:.4rem;">
+                  <li><strong>Wait for displacement confirmation</strong> — a closing candle body that has moved decisively through a key level, not just a wick</li>
+                  <li><strong>Use HTF bias</strong> to confirm you're on the right side before the entry</li>
+                  <li><strong>Enter on retracements into FVGs/imbalances</strong> after displacement, not on the initial spike</li>
+                  <li><strong>Avoid placing stops at obvious retail levels</strong> — place them at structural invalidation points</li>
+                  <li><strong>Watch BSL and SSL</strong> — institutions need liquidity pools to fill positions. When price sweeps toward BSL or SSL, it's likely engineering a fill before reversing.</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q4 — What is the reason the markets move?</div>
+              <div class="qa-a">
+                <p style="margin:0 0 .5rem"><span class="inline-answer">Markets move to find and consume liquidity.</span></p>
+                <p style="margin:0 0 .5rem">The "big players" — institutions, central banks, hedge funds — need massive order flow to fill their positions. They cannot simply place a market order without moving price significantly. So they engineer moves toward areas where retail orders are concentrated:</p>
+                <ul style="margin:0 0 0 1rem; padding:0; display:flex; flex-direction:column; gap:.3rem;">
+                  <li><strong>Stop losses above equal highs (BSL)</strong> → institutions sell there</li>
+                  <li><strong>Stop losses below equal lows (SSL)</strong> → institutions buy there</li>
+                </ul>
+                <p style="margin:.5rem 0 0; font-size:.85rem; color:var(--muted)"><em>Once they've consumed the liquidity and filled their positions, price reverses and moves in their intended direction. The "irrational" spike that stopped you out was rational from the institutional perspective — they needed your stop to get filled.</em></p>
+              </div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q5 — Provide 3 examples of displacement on any chart.</div>
+              <div class="qa-a pending">Your screenshots here — mark 3 examples of true displacement: decisive moves with full-body candles that break key levels cleanly and create FVGs. Compare to the manipulation examples in Q6.</div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q6 — Provide 3 examples of manipulation on any chart.</div>
+              <div class="qa-a pending">Your screenshots here — mark 3 examples of manipulation: wicks through key levels that quickly reverse, or slight new highs/lows that get rejected without follow-through. Contrast with your displacement examples.</div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q7 — Write down 3 key takeaways from this lesson.</div>
+              <div class="qa-a">
+                <ol style="margin:.3rem 0 0 1rem; padding:0; display:flex; flex-direction:column; gap:.4rem;">
+                  <li><strong>Manipulation precedes displacement.</strong> The fake-out almost always comes BEFORE the real move — institutions need your stop loss as their entry fill. Recognizing manipulation is how you stop getting hunted.</li>
+                  <li><strong>Displacement leaves evidence.</strong> The Fair Value Gap (imbalance) is the institutional footprint. Where they moved fast, orders remain — and price will return to those zones.</li>
+                  <li><strong>Your job is to wait, not react.</strong> Wait for displacement (close outside the level), then enter on the return to imbalance — don't chase the initial move. The return to the FVG is your entry, not the displacement candle itself.</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q8 — Write down a time in your trading career relating to these teachings.</div>
+              <div class="qa-a pending">Your reflection — the FCR strategy is built directly on this. Think of a specific session: the first candle range was set, a wick briefly went above/below the ray (manipulation), then price displaced through it with a close (real signal). Did you take it? Did you miss it? Did you chase the initial wick?</div>
+            </div>
+
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Week 1 Review ── -->
+      <details class="class-card" id="week-1-review">
+        <summary>
+          <span class="class-badge" style="background:rgba(63,185,80,.12);color:var(--green)">W1 ✓</span>
+          <span class="class-title-text">Week 1 Review</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+
+          <div class="callout warn" style="margin-bottom:1rem">
+            <span class="callout-icon">📋</span>
+            <span>Complete this review after finishing all six Week 1 lessons. Bring your completed scorecard and chart examples to your next coaching session.</span>
+          </div>
+
+          <div class="sec-header"><span class="sec-chip chip-reflect">Review &amp; Reflection</span></div>
+          <div class="qa-grid">
+
+            <div class="qa-row">
+              <div class="qa-q">Q1 — Write 3 key takeaways from this week's teachings.</div>
+              <div class="qa-a">
+                <ol style="margin:.3rem 0 0 1rem; padding:0; display:flex; flex-direction:column; gap:.4rem;">
+                  <li><strong>Market structure (range, impulse, top-down) provides the context</strong> — never trade without it. A setup on the 1-min is only valid if it aligns with the story on the higher timeframes.</li>
+                  <li><strong>Premium/Discount and Displacement/Manipulation reveal WHERE and WHY smart money moves</strong> — aligning with these zones and waiting for displacement closes is the foundation of real edge.</li>
+                  <li><strong>Your product is Risk</strong> — manage it like a business. Buy at discount, sell at premium, never enter without a defined stop and target, and always know your R before you click.</li>
+                </ol>
+              </div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q2 — Write about a time in your trading career that you've struggled with these concepts.</div>
+              <div class="qa-a pending">Your reflection — early trading: buying breakouts (buying premium), getting stopped out on "manipulation" wicks before the real move, then watching price go the intended direction. Be specific with a session or setup.</div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q3 — Write about a time you've benefited from understanding these concepts, if any.</div>
+              <div class="qa-a pending">Your reflection — once you started using FCR, you started recognizing displacement vs. manipulation directly in real-time. Think of a session where this understanding produced a clean entry.</div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q4 — Do you feel you understand these concepts better than before starting this module?</div>
+              <div class="qa-a pending">Your honest self-assessment.</div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q5 — Which concepts do you understand most, and which are you feeling unsure about?</div>
+              <div class="qa-a pending">Your reflection — common areas of confidence: candle reading, premium/discount. Common areas still developing: consistently distinguishing manipulation vs. early displacement in real-time.</div>
+            </div>
+
+            <div class="qa-row">
+              <div class="qa-q">Q6 — Have you updated your trader scorecard this week?</div>
+              <div class="qa-a pending">Check off when complete: ☐ Yes — scorecard updated</div>
+            </div>
+
+          </div>
+        </div>
+      </details>
+
+    </section><!-- /week-1 -->
+
+    <!-- ════════════════════════════════════════ WEEK 2 -->
+    <section class="week-block" id="week-2">
+      <div class="week-banner">
+        <div class="week-number w2">W2</div>
+        <div class="week-info">
+          <h2>Coming Soon</h2>
+          <p>Content will be added as Christopher progresses through the course</p>
+        </div>
+        <span class="week-stat">Not Started</span>
+      </div>
+      <div class="placeholder-block">
+        <div class="ph-icon">📖</div>
+        <p><strong>Week 2 lessons are not yet available in this workbook.</strong></p>
+        <p>Add course content here as you progress through Week 2 lessons — use the same Q&A format as Week 1.</p>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════ WEEK 3 -->
+    <section class="week-block" id="week-3">
+      <div class="week-banner">
+        <div class="week-number w3">W3</div>
+        <div class="week-info">
+          <h2>Coming Soon</h2>
+          <p>Content will be added as Christopher progresses through the course</p>
+        </div>
+        <span class="week-stat">Not Started</span>
+      </div>
+      <div class="placeholder-block">
+        <div class="ph-icon">📖</div>
+        <p><strong>Week 3 content coming.</strong></p>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════ WEEK 4 -->
+    <section class="week-block" id="week-4">
+      <div class="week-banner">
+        <div class="week-number w4">W4</div>
+        <div class="week-info">
+          <h2>Coming Soon</h2>
+          <p>Content will be added as Christopher progresses through the course</p>
+        </div>
+        <span class="week-stat">Not Started</span>
+      </div>
+      <div class="placeholder-block">
+        <div class="ph-icon">📖</div>
+        <p><strong>Week 4 content coming.</strong></p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="workbook-footer">
+      <p>📌 SmartTradingBlueprint Course Workbook · Christopher Wilson · Feb 2026 Cohort</p>
+      <p>Living document — updated as course progresses · <a href="https://github.com/drasticstatic/trading-assistant">trading-assistant repo</a></p>
+    </footer>
+
+  </main>
+</div><!-- /layout -->
+
+<script>
+  // ── THEME ──
+  const html = document.documentElement;
+  const themeBtn = document.querySelector('.theme-btn');
+  (function() {
+    const saved = localStorage.getItem('stb-theme');
+    if (saved === 'light') { html.classList.add('light'); themeBtn.textContent = '🌙 Dark'; }
+  })();
+  function toggleTheme() {
+    const isLight = html.classList.toggle('light');
+    themeBtn.textContent = isLight ? '🌙 Dark' : '☀️ Light';
+    localStorage.setItem('stb-theme', isLight ? 'light' : 'dark');
+  }
+
+  // ── SIDEBAR TOGGLE ──
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('open');
+  }
+
+  // ── EXPAND ALL ──
+  function expandAll() {
+    document.querySelectorAll('.class-card').forEach(d => d.open = true);
+  }
+
+  // ── PROGRESS ──
+  function calcProgress() {
+    const total = document.querySelectorAll('.qa-a').length;
+    const pending = document.querySelectorAll('.qa-a.pending').length;
+    const answered = total - pending;
+    const pct = total ? Math.round((answered / total) * 100) : 0;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = answered + ' / ' + total + ' answered (' + pct + '%)';
+  }
+
+  // ── SIDEBAR PER-LESSON PROGRESS ──
+  function calcSidebarProgress() {
+    const lessons = [
+      { id: 'lesson-1-1', sp: 'sp-1-1' },
+      { id: 'lesson-1-2', sp: 'sp-1-2' },
+      { id: 'lesson-1-3', sp: 'sp-1-3' },
+      { id: 'lesson-1-4', sp: 'sp-1-4' },
+      { id: 'lesson-1-5', sp: 'sp-1-5' },
+      { id: 'lesson-1-6', sp: 'sp-1-6' },
+      { id: 'week-1-review', sp: 'sp-w1r' },
+    ];
+    lessons.forEach(({ id, sp }) => {
+      const el = document.getElementById(id);
+      const spEl = document.getElementById(sp);
+      if (!el || !spEl) return;
+      const total = el.querySelectorAll('.qa-a').length;
+      const pending = el.querySelectorAll('.qa-a.pending').length;
+      const answered = total - pending;
+      spEl.textContent = total ? answered + '/' + total : '';
+    });
+  }
+
+  // ── SCROLLSPY ──
+  const sections = document.querySelectorAll('[id^="lesson-"], [id^="week-"]');
+  const sidebarLinks = document.querySelectorAll('.sidebar-item');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        sidebarLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector('.sidebar-item[href="#' + entry.target.id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px', threshold: 0 });
+  sections.forEach(s => observer.observe(s));
+
+  // ── INIT ──
+  calcProgress();
+  calcSidebarProgress();
+</script>
+</body>
+</html>
