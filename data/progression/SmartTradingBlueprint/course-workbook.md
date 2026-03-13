@@ -15,6 +15,39 @@
 
 ---
 
+## 🎉 Welcome to SmartTradingBlueprint
+
+> *"I’m excited to welcome you into the Smart Trading Blueprint family! Let’s work together to help make your trading dreams a reality."*
+
+With all of our tools and resources under one roof, success in trading is within reach — **this will be the last course that you need** — as long as you put in dedicated effort. One hour of focused dedication every day can propel you closer towards reaching those seemingly unattainable goals. It’s time for action — no excuses!
+
+---
+
+### 🎯 How to Get the Most Out of This Program
+
+- 📵 **Minimize distractions** — turn off your phone and pay full attention to each lesson
+- 📚 **Work chronologically** — progress through the material in order; each module builds on the last
+- ⏱️ **One focused hour per day** — consistency compounds; short daily sessions beat irregular long ones
+- 🤝 **Reach out freely** — 1-on-1 sessions are available by request; coaching is part of the package
+
+> *"I care deeply about all aspects of your success. After all, we’re family!"*
+
+---
+
+### 🌐 Community & Support
+
+| Resource | Details |
+|----------|---------|
+| 💬 **Discord** | Private community — live trading, announcements, coaching/audit channels |
+| 📅 **1-on-1 Sessions** | Available by request — book through the course platform |
+| 📖 **This Workbook** | Your companion document — update as you progress, bring to coaching audits |
+
+---
+
+> 💡 *"Patience is key: every success story begins by taking one step at a time. Your journey starts here."*
+
+---
+
 # 🗓️ WEEK 1 — Market Structure Foundations
 
 ---
