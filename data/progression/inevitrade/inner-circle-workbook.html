@@ -308,15 +308,15 @@
     <button class="pill-btn" onclick="expandAll()">⊞ Expand</button>
     <button class="pill-btn" onclick="collapseAll()">⊟ Collapse</button>
     <a class="pill-btn" href="../SmartTradingBlueprint/course-workbook.html">📘 STB →</a>
-    <button class="pill-btn" onclick="window.print()">🖨 Print</button>
-    <button class="pill-btn" onclick="toggleTheme()" id="themeBtn">☀️ Light</button>
+    <button class="pill-btn" onclick="window.print()">🖨</button>
+    <button class="pill-btn" onclick="toggleTheme()" id="themeBtn">☀️</button>
   </div>
 </div>
 
 <div class="layout">
   <!-- ── SIDEBAR ── -->
   <nav class="sidebar" id="sidebar" aria-label="Workbook navigation">
-    <div class="sidebar-title">📘 Inner Circle Workbook</div>
+    <div class="sidebar-title">📌 Inner Circle Workbook</div>
 
     <a class="sidebar-item" href="#prereqs">
       <span class="sidebar-dot" style="background:var(--green)"></span>
@@ -352,18 +352,18 @@
 
     <!-- HERO -->
     <div class="workbook-hero">
-      <p class="wh-eyebrow"><span class="live-dot"></span>Living Document · Updated as course progresses</p>
-      <h1 class="wh-title">Inevitrade Inner Circle Bootcamp</h1>
+      <p class="wh-eyebrow"><span class="live-dot"></span>In Progress · Living Document · Updated as course progresses</p>
+      <h1 class="wh-title">📗 Inevitrade - Inner Circle Bootcamp - Workbook</h1>
       <p class="wh-meta">Christopher Wilson &nbsp;·&nbsp; Feb 2026 Cohort &nbsp;·&nbsp; Craig &amp; Team</p>
       <div class="progress-row">
         <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
         <span class="progress-label" id="progressLabel">Calculating…</span>
       </div>
       <div class="week-jumps">
-        <a class="week-jump w1" href="#week-1">📗 Week 1</a>
-        <a class="week-jump w2" href="#week-2">📘 Week 2</a>
-        <a class="week-jump w3" href="#week-3">📙 Week 3</a>
-        <a class="week-jump w4" href="#week-4">📒 Week 4</a>
+        <a class="week-jump w1" href="#week-1">🧠 Week 1 - Alignment</a>
+        <a class="week-jump w2" href="#week-2">🔩 Week 2 - Core</a>
+        <a class="week-jump w3" href="#week-3">📝 Week 3 - Auditng</a>
+        <a class="week-jump w4" href="#week-4">🧭 Week 4 - Scale</a>
       </div>
     </div>
 
@@ -1063,8 +1063,8 @@
 
     <!-- FOOTER -->
     <footer class="workbook-footer">
-      <p>📘 Inevitrade Inner Circle Bootcamp Workbook · Christopher Wilson · Feb 2026 Cohort</p>
-      <p>Source: Inevitrade Inner Circle · Craig &amp; Team · Maintained in <a href="https://github.com/drasticstatic/trading-assistant-public-preview">trading-assistant public repo</a></p>
+      <p>📓 Inevitrade Inner Circle · Bootcamp Workbook · Christopher Wilson · Feb 2026 Cohort</p>
+      <p><a href="https://github.com/drasticstatic/trading-assistant">↩ Trading-Assistant · Public Repo</a></p>
     </footer>
 
   </main>
@@ -1076,7 +1076,7 @@
   try { if (localStorage.getItem('theme') === 'light') { html.classList.add('light'); btn.textContent = '🌙 Dark'; } } catch(e) {}
   function toggleTheme() {
     const light = html.classList.toggle('light');
-    btn.textContent = light ? '🌙 Dark' : '☀️ Light';
+    btn.textContent = light ? '🌙' : '☀️';
     try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch(e) {}
   }
 
