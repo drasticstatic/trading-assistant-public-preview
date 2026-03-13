@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inevitrade Inner Circle Workbook — Christopher Wilson</title>
+  <meta name="description" content="Inevitrade Inner Circle Bootcamp Workbook — Christopher Wilson, Feb 2026 Cohort. Interactive coaching reference with answers, reflections, and progress tracking.">
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../../favicon.png" type="image/png" sizes="64x64">
+  <style>
+    :root {
+      --bg: #0c1218; --bg-alt: #101821;
+      --surface: rgba(16,24,33,0.8); --surface-soft: rgba(14,21,29,0.56); --surface-strong: #121b24;
+      --border: rgba(139,148,158,0.2); --border-strong: rgba(139,148,158,0.32);
+      --text: #d8dee4; --muted: #99a4af; --subtle: #6b7580;
+      --green: #3fb950; --red: #f85149; --blue: #7cc2ff; --yellow: #e3b341; --purple: #bc8cff;
+      --shadow: 0 18px 36px rgba(2,6,23,0.2);
+      --w1: #3fb950; --w2: #7cc2ff; --w3: #bc8cff; --w4: #e3b341;
+    }
+    html.light {
+      --bg: #eef3fb; --bg-alt: #f7faff;
+      --surface: rgba(255,255,255,0.88); --surface-soft: rgba(238,243,251,0.86); --surface-strong: #fff;
+      --border: rgba(87,96,106,0.2); --border-strong: rgba(87,96,106,0.34);
+      --text: #1f2328; --muted: #57606a; --subtle: #6e7781;
+      --green: #1a7f37; --red: #cf222e; --blue: #0969da; --yellow: #9a6700; --purple: #8250df;
+    }
+    html { scroll-behavior: smooth; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      font-size: 15px; line-height: 1.65; color: var(--text);
+      background: radial-gradient(circle at top left, rgba(88,166,255,0.1), transparent 28%),
+                  linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+      transition: background 0.2s, color 0.2s;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+    code { font-family: "SF Mono","Fira Code",monospace; font-size: 0.88em; color: var(--purple); }
+
+    /* ── SKIP LINK ── */
+    .skip { position:absolute; left:1rem; top:-3rem; z-index:300; padding:.6rem 1rem;
+      border:1px solid var(--border-strong); border-radius:999px; background:var(--surface-strong);
+      color:var(--text); font-size:.82rem; }
+    .skip:focus { top:.75rem; }
+
+    /* ── THEME TOGGLE ── */
+    .theme-btn {
+      position:fixed; top:1rem; right:1rem; z-index:200;
+      border:1px solid var(--border); border-radius:999px; padding:.42rem .8rem;
+      background:rgba(18,27,36,.74); color:var(--muted); font-size:.75rem; cursor:pointer;
+      backdrop-filter:blur(10px); transition:border-color .15s, color .15s, transform .15s;
+    }
+    html.light .theme-btn { background:rgba(255,255,255,.9); }
+    .theme-btn:hover { border-color:var(--blue); color:var(--text); transform:translateY(-1px); }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      position:sticky; top:0; z-index:150;
+      display:flex; align-items:center; gap:.75rem; flex-wrap:wrap;
+      padding:.6rem 1.25rem; border-bottom:1px solid var(--border);
+      background:rgba(12,18,24,.88); backdrop-filter:blur(14px);
+    }
+    html.light .topbar { background:rgba(238,243,251,.92); }
+    .breadcrumb { display:flex; align-items:center; gap:.4rem; font-size:.78rem; color:var(--muted); flex:1; min-width:0; }
+    .breadcrumb a { color:var(--muted); }
+    .breadcrumb a:hover { color:var(--blue); }
+    .breadcrumb span { opacity:.5; }
+    .topbar-actions { display:flex; gap:.5rem; align-items:center; margin-left:auto; }
+    .pill-btn {
+      display:inline-flex; align-items:center; gap:.35rem;
+      padding:.35rem .75rem; border:1px solid var(--border); border-radius:999px;
+      background:var(--surface-soft); color:var(--muted); font-size:.76rem; cursor:pointer;
+      transition:border-color .15s, color .15s, transform .15s;
+    }
+    .pill-btn:hover { border-color:var(--blue); color:var(--text); transform:translateY(-1px); }
+
+    /* ── LAYOUT ── */
+    .layout { display:grid; grid-template-columns:240px minmax(0,1fr); min-height:calc(100vh - 44px); }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      position:sticky; top:44px; height:calc(100vh - 44px); overflow-y:auto;
+      padding:1.2rem .85rem 2rem; border-right:1px solid var(--border);
+      background:var(--bg-alt); scrollbar-width:thin; scrollbar-color:var(--border) transparent;
+      display:flex; flex-direction:column; gap:.15rem;
+    }
+    .sidebar-title { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em;
+      color:var(--subtle); padding:.2rem .4rem .6rem; margin-bottom:.2rem;
+      border-bottom:1px solid var(--border); }
+    .sidebar-week { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em;
+      color:var(--muted); padding:.55rem .4rem .2rem; margin-top:.3rem; }
+    .sidebar-item {
+      display:flex; align-items:center; gap:.45rem;
+      padding:.32rem .55rem; border-radius:8px; font-size:.82rem; color:var(--muted);
+      cursor:pointer; transition:background .12s, color .12s; text-decoration:none;
+    }
+    .sidebar-item:hover { background:rgba(124,194,255,.08); color:var(--text); text-decoration:none; }
+    .sidebar-item.active { background:rgba(124,194,255,.12); color:var(--blue); font-weight:600; }
+    .sidebar-dot { width:7px; height:7px; border-radius:999px; flex-shrink:0; }
+    .sidebar-progress { font-size:.68rem; margin-left:auto; color:var(--subtle); }
+    .sidebar-back { display:flex; align-items:center; gap:.4rem; margin-top:auto; padding-top:.8rem;
+      border-top:1px solid var(--border); font-size:.78rem; color:var(--muted); cursor:pointer; }
+    .sidebar-back:hover { color:var(--blue); text-decoration:none; }
+
+    /* ── MAIN ── */
+    .main { padding:2rem 2.25rem 4rem; max-width:860px; }
+
+    /* ── HERO ── */
+    .workbook-hero {
+      padding:1.5rem; margin-bottom:1.75rem;
+      border:1px solid var(--border); border-radius:20px;
+      background:var(--surface); box-shadow:var(--shadow);
+      backdrop-filter:blur(12px);
+    }
+    .wh-eyebrow { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.09em;
+      color:var(--muted); margin:0 0 .5rem; display:flex; align-items:center; gap:.5rem; }
+    .live-dot { width:7px; height:7px; border-radius:999px; background:var(--green);
+      box-shadow:0 0 0 5px rgba(63,185,80,.1); animation:pulse 3s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{box-shadow:0 0 0 5px rgba(63,185,80,.1)} 50%{box-shadow:0 0 0 8px rgba(63,185,80,.04)} }
+    .wh-title { margin:0 0 .35rem; font-size:1.65rem; font-weight:800; letter-spacing:-.03em;
+      background:linear-gradient(135deg, var(--green) 0%, var(--blue) 55%, var(--purple) 100%);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .wh-meta { color:var(--muted); font-size:.88rem; margin:0 0 1.1rem; }
+    .progress-row { display:flex; align-items:center; gap:.8rem; flex-wrap:wrap; }
+    .progress-track { flex:1; min-width:120px; height:5px; border-radius:999px;
+      background:rgba(139,148,158,.18); overflow:hidden; }
+    .progress-fill { height:100%; border-radius:999px;
+      background:linear-gradient(90deg, var(--green), var(--blue)); transition:width .4s ease; }
+    .progress-label { font-size:.78rem; color:var(--muted); white-space:nowrap; }
+    .week-jumps { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem; }
+    .week-jump { display:inline-flex; align-items:center; gap:.35rem; padding:.3rem .7rem;
+      border:1px solid var(--border); border-radius:999px; font-size:.76rem; font-weight:600;
+      color:var(--muted); cursor:pointer; background:var(--surface-soft); transition:all .15s; }
+    .week-jump:hover { transform:translateY(-1px); text-decoration:none; }
+    .week-jump.w1 { border-color:rgba(63,185,80,.3); } .week-jump.w1:hover { border-color:var(--w1); color:var(--w1); }
+    .week-jump.w2 { border-color:rgba(124,194,255,.3); } .week-jump.w2:hover { border-color:var(--w2); color:var(--w2); }
+    .week-jump.w3 { border-color:rgba(188,140,255,.3); } .week-jump.w3:hover { border-color:var(--w3); color:var(--w3); }
+    .week-jump.w4 { border-color:rgba(227,179,65,.3); } .week-jump.w4:hover { border-color:var(--w4); color:var(--w4); }
+
+    /* ── PREREQS ── */
+    .prereqs { margin-bottom:1.5rem; padding:1rem 1.2rem;
+      border:1px solid var(--border); border-radius:16px; background:var(--surface-soft); }
+    .prereqs h3 { margin:0 0 .7rem; font-size:.88rem; font-weight:700; color:var(--muted);
+      text-transform:uppercase; letter-spacing:.07em; }
+    .check-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.35rem; }
+    .check-list li { display:flex; align-items:center; gap:.6rem; font-size:.88rem; }
+    .chk { width:16px; height:16px; border-radius:4px; border:1.5px solid; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center; font-size:.65rem; font-weight:800; }
+    .chk.done { background:var(--green); border-color:var(--green); color:#fff; }
+    .chk.todo { border-color:var(--border-strong); color:transparent; }
+
+    /* ── WEEK BLOCKS ── */
+    .week-block { margin-bottom:2rem; }
+    .week-banner {
+      display:flex; align-items:center; gap:.85rem; padding:.75rem 1.1rem; margin-bottom:.85rem;
+      border:1px solid var(--border); border-radius:16px; background:var(--surface-soft);
+    }
+    .week-number { font-size:1.5rem; font-weight:900; line-height:1; letter-spacing:-.05em; }
+    .week-number.w1 { color:var(--w1); } .week-number.w2 { color:var(--w2); }
+    .week-number.w3 { color:var(--w3); } .week-number.w4 { color:var(--w4); }
+    .week-info { flex:1; }
+    .week-info h2 { margin:0; font-size:1.05rem; font-weight:700; }
+    .week-info p { margin:.15rem 0 0; font-size:.82rem; color:var(--muted); }
+    .week-stat { font-size:.75rem; font-weight:700; color:var(--subtle);
+      padding:.28rem .6rem; border:1px solid var(--border); border-radius:999px; }
+
+    /* ── CLASS DETAILS (accordion) ── */
+    .class-card { margin-bottom:.65rem; border:1px solid var(--border); border-radius:14px;
+      background:var(--surface); overflow:hidden; }
+    .class-card summary {
+      display:flex; align-items:center; gap:.75rem; padding:.85rem 1.1rem;
+      cursor:pointer; list-style:none; user-select:none;
+      transition:background .12s;
+    }
+    .class-card summary::-webkit-details-marker { display:none; }
+    .class-card summary:hover { background:rgba(124,194,255,.04); }
+    .class-badge { font-size:.72rem; font-weight:800; letter-spacing:.05em;
+      padding:.2rem .55rem; border-radius:6px; background:rgba(124,194,255,.12);
+      color:var(--blue); flex-shrink:0; }
+    .class-title-text { font-size:.95rem; font-weight:700; flex:1; }
+    .class-status { font-size:.72rem; font-weight:700; padding:.18rem .5rem;
+      border-radius:999px; flex-shrink:0; }
+    .class-status.complete { background:rgba(63,185,80,.14); color:var(--green); }
+    .class-status.partial { background:rgba(227,179,65,.12); color:var(--yellow); }
+    .class-status.pending { background:rgba(139,148,158,.1); color:var(--muted); }
+    .acc-icon { font-size:.82rem; color:var(--muted); flex-shrink:0; transition:transform .2s; }
+    .class-card[open] .acc-icon { transform:rotate(180deg); }
+    .class-body { padding:.25rem 1.1rem 1.1rem; border-top:1px solid var(--border); }
+
+    /* ── SECTION HEADERS inside class ── */
+    .sec-header { display:flex; align-items:center; gap:.5rem; margin:1rem 0 .6rem; }
+    .sec-chip { font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em;
+      padding:.2rem .55rem; border-radius:999px; }
+    .chip-concepts { background:rgba(124,194,255,.12); color:var(--blue); }
+    .chip-reflect { background:rgba(188,140,255,.12); color:var(--purple); }
+    .chip-col { background:rgba(63,185,80,.12); color:var(--green); }
+    .chip-quiz { background:rgba(63,185,80,.12); color:var(--green); }
+    .chip-action { background:rgba(227,179,65,.12); color:var(--yellow); }
+
+    /* ── QA ROWS ── */
+    .qa-grid { display:flex; flex-direction:column; gap:.6rem; }
+    .qa-row { border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+    .qa-q { padding:.55rem .8rem; font-size:.82rem; font-weight:600; color:var(--muted);
+      background:var(--surface-soft); border-bottom:1px solid var(--border); }
+    .qa-a { padding:.65rem .8rem; font-size:.88rem; line-height:1.65;
+      border-left:3px solid var(--green); }
+    .qa-a.pending { border-left-color:var(--yellow); font-style:italic; color:var(--muted); }
+    .qa-a.pending::before { content:"📝 "; }
+    .inline-answer { font-weight:700; color:var(--text);
+      background:rgba(63,185,80,.1); padding:.05em .3em; border-radius:4px; }
+
+    /* ── COL BLOCK ── */
+    .col-block { display:flex; flex-direction:column; gap:.5rem; }
+    .col-item { padding:.6rem .85rem; border:1px solid var(--border); border-radius:10px;
+      font-size:.88rem; line-height:1.65; border-left:3px solid var(--green); }
+
+    /* ── QUIZ TABLE ── */
+    .quiz-table { width:100%; border-collapse:collapse; font-size:.84rem; margin:.25rem 0; }
+    .quiz-table th { text-align:left; padding:.45rem .65rem; color:var(--muted);
+      font-size:.72rem; text-transform:uppercase; letter-spacing:.07em;
+      border-bottom:1px solid var(--border); }
+    .quiz-table td { padding:.5rem .65rem; border-bottom:1px solid var(--border); vertical-align:top; }
+    .quiz-table tr:last-child td { border-bottom:none; }
+    .ans-chip { display:inline-block; padding:.15rem .5rem; border-radius:6px;
+      font-weight:700; font-size:.78rem; background:rgba(63,185,80,.14); color:var(--green); }
+
+    /* ── TABLE GENERIC ── */
+    .data-table { width:100%; border-collapse:collapse; font-size:.84rem; margin:.25rem 0; }
+    .data-table th { padding:.4rem .65rem; text-align:left; font-size:.72rem; text-transform:uppercase;
+      letter-spacing:.07em; color:var(--muted); border-bottom:1px solid var(--border); }
+    .data-table td { padding:.45rem .65rem; border-bottom:1px solid var(--border); vertical-align:top; }
+    .data-table tr:last-child td { border-bottom:none; }
+    .data-table td:first-child { font-weight:600; color:var(--text); }
+    .data-table td:nth-child(2) { color:var(--muted); font-size:.82rem; }
+
+    /* ── ACTION CHECKLIST ── */
+    .action-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.4rem; }
+    .action-list li { display:flex; align-items:flex-start; gap:.6rem; font-size:.88rem; }
+    .action-list li .chk { margin-top:.15rem; }
+
+    /* ── IDENTITY CARD ── */
+    .identity-card { padding:.85rem 1rem; border:1px solid rgba(124,194,255,.25); border-radius:12px;
+      background:linear-gradient(135deg,rgba(124,194,255,.06),rgba(188,140,255,.04));
+      font-size:.9rem; font-style:italic; line-height:1.7; color:var(--text); }
+
+    /* ── CALLOUT ── */
+    .callout { padding:.7rem .9rem; border-radius:10px; font-size:.84rem; line-height:1.65;
+      display:flex; gap:.55rem; align-items:flex-start; }
+    .callout.info { background:rgba(124,194,255,.08); border:1px solid rgba(124,194,255,.18); }
+    .callout.warn { background:rgba(227,179,65,.07); border:1px solid rgba(227,179,65,.18); color:var(--text); }
+    .callout-icon { flex-shrink:0; font-size:1rem; line-height:1.5; }
+
+    /* ── RANK TABLE ── */
+    .rank-row { display:flex; align-items:center; gap:.75rem; padding:.4rem 0;
+      border-bottom:1px solid var(--border); font-size:.86rem; }
+    .rank-row:last-child { border-bottom:none; }
+    .rank-label { flex:1; color:var(--text); }
+    .rank-bar-wrap { width:100px; height:6px; background:rgba(139,148,158,.18); border-radius:999px; overflow:hidden; }
+    .rank-bar { height:100%; border-radius:999px; background:var(--green); }
+    .rank-val { font-size:.78rem; font-weight:700; color:var(--muted); width:32px; text-align:right; }
+
+    /* ── FOOTER ── */
+    .workbook-footer { margin-top:2rem; padding:1.2rem; border:1px solid var(--border); border-radius:16px;
+      background:var(--surface); text-align:center; font-size:.8rem; color:var(--subtle); }
+    .workbook-footer p { margin:0; }
+    .workbook-footer p + p { margin-top:.5rem; }
+
+    /* ── PRINT ── */
+    @media print {
+      .topbar, .sidebar, .theme-btn, .skip { display:none !important; }
+      .layout { grid-template-columns:1fr; }
+      .main { padding:1rem; max-width:none; }
+      .class-card { break-inside:avoid; }
+      details { display:block !important; }
+      details .class-body { display:block !important; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width:860px) {
+      .layout { grid-template-columns:1fr; }
+      .sidebar { display:none; }
+      .sidebar.open { display:flex; position:fixed; left:0; top:44px; width:240px; height:calc(100vh - 44px);
+        z-index:190; box-shadow:4px 0 24px rgba(2,6,23,.3); }
+      .main { padding:1.25rem 1rem 3rem; }
+    }
+    @media (max-width:560px) {
+      .wh-title { font-size:1.35rem; }
+      .week-jumps { gap:.35rem; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      html { scroll-behavior:auto; }
+      *, *::before, *::after { animation:none !important; transition:none !important; }
+    }
+  </style>
+</head>
+<body>
+<a class="skip" href="#main-content">Skip to workbook content</a>
+<button class="theme-btn" onclick="toggleTheme()" id="themeBtn">☀️ Light</button>
+
+<div class="topbar">
+  <nav class="breadcrumb" aria-label="breadcrumb">
+    <a href="../../../index.html">🏠 Trading Assistant</a>
+    <span>›</span>
+    <span>Progression</span>
+    <span>›</span>
+    <span>Inevitrade</span>
+    <span>›</span>
+    <strong>Inner Circle Workbook</strong>
+  </nav>
+  <div class="topbar-actions">
+    <button class="pill-btn" onclick="toggleSidebar()" id="sidebarBtn" aria-label="Toggle navigation">☰ Nav</button>
+    <button class="pill-btn" onclick="expandAll()">⊞ Expand all</button>
+    <button class="pill-btn" onclick="window.print()">🖨 Print</button>
+  </div>
+</div>
+
+<div class="layout">
+  <!-- ── SIDEBAR ── -->
+  <nav class="sidebar" id="sidebar" aria-label="Workbook navigation">
+    <div class="sidebar-title">📘 Inner Circle Workbook</div>
+
+    <a class="sidebar-item" href="#prereqs">
+      <span class="sidebar-dot" style="background:var(--green)"></span>
+      Prerequisites
+      <span class="sidebar-progress">✓</span>
+    </a>
+
+    <div class="sidebar-week" style="color:var(--w1)">WEEK 1</div>
+    <a class="sidebar-item" href="#class-1a"><span class="sidebar-dot" style="background:var(--w1)"></span>1A — Onboarding<span class="sidebar-progress">✓</span></a>
+    <a class="sidebar-item" href="#class-1b"><span class="sidebar-dot" style="background:var(--w1)"></span>1B — Mindset<span class="sidebar-progress">✓</span></a>
+    <a class="sidebar-item" href="#class-1c"><span class="sidebar-dot" style="background:var(--w1)"></span>1C — Markets<span class="sidebar-progress">✓</span></a>
+
+    <div class="sidebar-week" style="color:var(--w2)">WEEK 2</div>
+    <a class="sidebar-item" href="#class-2a"><span class="sidebar-dot" style="background:var(--w2)"></span>2A — SMOG<span class="sidebar-progress">⚡</span></a>
+    <a class="sidebar-item" href="#class-2b"><span class="sidebar-dot" style="background:var(--w2)"></span>2B — TCL<span class="sidebar-progress">⚡</span></a>
+    <a class="sidebar-item" href="#class-2c"><span class="sidebar-dot" style="background:var(--w2)"></span>2C — Confluences<span class="sidebar-progress">✓</span></a>
+
+    <div class="sidebar-week" style="color:var(--w3)">WEEK 3</div>
+    <a class="sidebar-item" href="#class-3a"><span class="sidebar-dot" style="background:var(--w3)"></span>3A — Journaling<span class="sidebar-progress">⚡</span></a>
+    <a class="sidebar-item" href="#class-3b"><span class="sidebar-dot" style="background:var(--w3)"></span>3B — Backtesting<span class="sidebar-progress">✓</span></a>
+    <a class="sidebar-item" href="#class-3c"><span class="sidebar-dot" style="background:var(--w3)"></span>3C — Scaling<span class="sidebar-progress">✓</span></a>
+
+    <div class="sidebar-week" style="color:var(--w4)">WEEK 4</div>
+    <a class="sidebar-item" href="#class-4a"><span class="sidebar-dot" style="background:var(--w4)"></span>4A — Live Trading<span class="sidebar-progress">⚡</span></a>
+    <a class="sidebar-item" href="#class-4b"><span class="sidebar-dot" style="background:var(--w4)"></span>4B — Investing<span class="sidebar-progress">⚡</span></a>
+    <a class="sidebar-item" href="#class-4c"><span class="sidebar-dot" style="background:var(--w4)"></span>4C — Review<span class="sidebar-progress">✓</span></a>
+
+    <a class="sidebar-back" href="../../../index.html">← Back to hub</a>
+  </nav>
+
+  <!-- ── MAIN ── -->
+  <main class="main" id="main-content">
+
+    <!-- HERO -->
+    <div class="workbook-hero">
+      <p class="wh-eyebrow"><span class="live-dot"></span>Living Document · Updated as course progresses</p>
+      <h1 class="wh-title">Inevitrade Inner Circle Bootcamp</h1>
+      <p class="wh-meta">Christopher Wilson &nbsp;·&nbsp; Feb 2026 Cohort &nbsp;·&nbsp; Craig &amp; Team</p>
+      <div class="progress-row">
+        <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+        <span class="progress-label" id="progressLabel">Calculating…</span>
+      </div>
+      <div class="week-jumps">
+        <a class="week-jump w1" href="#week-1">📗 Week 1</a>
+        <a class="week-jump w2" href="#week-2">📘 Week 2</a>
+        <a class="week-jump w3" href="#week-3">📙 Week 3</a>
+        <a class="week-jump w4" href="#week-4">📒 Week 4</a>
+      </div>
+    </div>
+
+    <!-- PREREQS -->
+    <div class="prereqs" id="prereqs">
+      <h3>📋 Pre-Bootcamp Prerequisites</h3>
+      <ul class="check-list">
+        <li><span class="chk done">✓</span> Watch ALL lessons inside the Inner Circle Whop</li>
+        <li><span class="chk done">✓</span> Download &amp; share Readiness Progression Tracker</li>
+        <li><span class="chk done">✓</span> Choose journaling tool (TradeZella + Readiness Progression Notion)</li>
+        <li><span class="chk done">✓</span> Download &amp; add ALL Premium Indicators via Whop</li>
+      </ul>
+    </div>
+
+    <!-- ══════════════════════════════════════════════
+         WEEK 1
+    ══════════════════════════════════════════════ -->
+    <section class="week-block" id="week-1">
+      <div class="week-banner">
+        <div class="week-number w1">W1</div>
+        <div class="week-info">
+          <h2>Setup, Market Fit &amp; Personalization</h2>
+          <p>Onboarding · Mindset · Market Principles</p>
+        </div>
+        <span class="week-stat">3 classes</span>
+      </div>
+
+      <!-- 1A -->
+      <details class="class-card" id="class-1a" open>
+        <summary>
+          <span class="class-badge">1A</span>
+          <span class="class-title-text">Onboarding &amp; Direction</span>
+          <span class="class-status complete">✓ Complete</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+
+          <div class="sec-header"><span class="sec-chip chip-concepts">🧩 Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">1. "I want to become a trader who ________ by the end of these 4 weeks."</div>
+              <div class="qa-a"><span class="inline-answer">consistently executes rules-based setups with disciplined risk management and no emotional override</span></div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">2. Inner Circle readiness follows the Readiness ________ Tracker.</div>
+              <div class="qa-a"><span class="inline-answer">Progression</span></div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">3. My main market focus — because it fits my ________, ________, and ________.</div>
+              <div class="qa-a">☑ <strong>Futures (MNQ/MES)</strong> — fits my <span class="inline-answer">NY session schedule</span>, <span class="inline-answer">prop firm capital access</span>, and <span class="inline-answer">rules-based structured personality</span></div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">4. Income goal — Target monthly / Desired funding</div>
+              <div class="qa-a">Monthly: <span class="inline-answer">$10,000</span> &nbsp;·&nbsp; Funding: <span class="inline-answer">$300K–$400K</span> (multiple scaled prop firm accounts)</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">5. Essential tools</div>
+              <div class="qa-a">TradingView: <span class="inline-answer">Premium</span> · Journaling: <span class="inline-answer">TradeZella</span> · Tracker: ✓ Set up · Discord: ✓ Joined</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">6. Primary trading session — time zone + availability</div>
+              <div class="qa-a">☑ <span class="inline-answer">New York</span> — Eastern Time (ET) · 9:15–10:30 AM open; ZTH setups all day</div>
+            </div>
+          </div>
+
+          <div class="sec-header"><span class="sec-chip chip-reflect">🪞 Reflection</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">Why am I pursuing trading now, and not "someday later"?</div>
+              <div class="qa-a">The tools, community, and infrastructure are already in place — multiple funded prop accounts active, the AI system built, strategies mapped. "Someday" means waiting while evaluation windows expire. Financial freedom from W2 income dependency is the target, and every session is a step toward it.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">Non-negotiable life commitments that trading must be built around</div>
+              <div class="qa-a pending">Add your personal answer — family, health, work, schedule constraints.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">12 months from now as a consistent trader — finances / time freedom / confidence</div>
+              <div class="qa-a">
+                <strong>Finances:</strong> Prop firm payouts covering monthly living expenses + consistent investment contributions. No paycheck-to-paycheck dependency.<br>
+                <strong>Time freedom:</strong> No employer requirement — trading as primary income on my own schedule. NY session 9:15–10:30 AM ET.<br>
+                <strong>Confidence:</strong> Executing setups without second-guessing, trusting pre-set levels. Plan written pre-session; executed without emotional override.
+              </div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">What has stopped me from getting consistent before?</div>
+              <div class="qa-a">Moving stop losses mid-trade out of fear of loss. FOMO entries at suboptimal prices — entering before the level was reached (e.g., 25,000 vs the correct 25,060). Abandoning pre-set entries at the execution moment. Direction was often correct; the behavioral breakdown was the variable.</div>
+            </div>
+          </div>
+
+          <div class="sec-header"><span class="sec-chip chip-col">✏️ Check-on-Learning</span></div>
+          <div class="col-block">
+            <div class="col-item"><strong>Market that fits your lifestyle?</strong><br>Futures &amp; crypto</div>
+            <div class="col-item"><strong>Biggest obstacle to consistency?</strong><br>Fear of losing more</div>
+            <div class="col-item"><strong>Realistic income goal — 6–12 months?</strong><br>$10K / month</div>
+          </div>
+
+          <div class="sec-header"><span class="sec-chip chip-quiz">✅ Quick Quiz</span></div>
+          <table class="quiz-table">
+            <thead><tr><th>#</th><th>Question</th><th>Answer</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Purpose of the 4-week structure?</td><td><span class="ans-chip">b</span> Give me a personalized, executable plan</td></tr>
+              <tr><td>2</td><td>Choose market primarily based on?</td><td><span class="ans-chip">b</span> Time zone, capital, personality, lifestyle</td></tr>
+              <tr><td>3</td><td>Readiness Progression Tracker exists to?</td><td><span class="ans-chip">c</span> Measure actual steps toward live-readiness</td></tr>
+              <tr><td>4</td><td>Can succeed without tools/schedule if I watch every session?</td><td><span class="ans-chip">False</span></td></tr>
+            </tbody>
+          </table>
+
+          <div class="sec-header"><span class="sec-chip chip-action">☑️ Action Steps</span></div>
+          <ul class="action-list">
+            <li><span class="chk done">✓</span> Primary market decided: Futures (MNQ) + crypto (SOL/USDT) as secondary</li>
+            <li><span class="chk done">✓</span> Primary session: New York (9:15–10:30 AM ET), ZTH setups all day</li>
+            <li><span class="chk done">✓</span> TradingView Premium confirmed</li>
+            <li><span class="chk done">✓</span> TradeZella: active and journaling</li>
+            <li><span class="chk done">✓</span> Readiness Progression Tracker: set up</li>
+            <li><span class="chk done">✓</span> Discord joined — live trading, announcements, coaching/audit channels</li>
+          </ul>
+          <div class="identity-card" style="margin-top:.8rem">
+            ✍ <em>"This week I will show up as a trader who executes the plan I set before the session, trusts the stop loss I placed for a reason, and does not enter before my level is reached."</em>
+          </div>
+        </div>
+      </details>
+
+      <!-- 1B -->
+      <details class="class-card" id="class-1b" open>
+        <summary>
+          <span class="class-badge">1B</span>
+          <span class="class-title-text">Mindset &amp; Performance Readiness</span>
+          <span class="class-status complete">✓ Complete</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+
+          <div class="sec-header"><span class="sec-chip chip-concepts">🧩 Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row"><div class="qa-q">1. Success stems more from how I ________ and ________ than from any indicator.</div>
+              <div class="qa-a"><span class="inline-answer">think</span> and <span class="inline-answer">recover</span></div></div>
+            <div class="qa-row"><div class="qa-q">2. "Every trade is ________, but my edge shows up over ________ of trades."</div>
+              <div class="qa-a"><span class="inline-answer">independent and unique</span> … <span class="inline-answer">a large sample</span></div></div>
+            <div class="qa-row"><div class="qa-q">3. Fear of ________ leads to revenge trading, exiting too early, not taking valid setups.</div>
+              <div class="qa-a"><span class="inline-answer">loss</span></div></div>
+            <div class="qa-row"><div class="qa-q">4. My job is to execute my ________ with consistency.</div>
+              <div class="qa-a"><span class="inline-answer">plan / rules / process</span></div></div>
+            <div class="qa-row"><div class="qa-q">5. A rule is a ________ I make with myself.</div>
+              <div class="qa-a"><span class="inline-answer">commitment</span></div></div>
+          </div>
+
+          <div class="sec-header"><span class="sec-chip chip-reflect">🪞 Reflection — Emotional Inventory</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">What emotion shows up most when I'm in a trade? How does it show up?</div>
+              <div class="qa-a"><strong>Emotion:</strong> Fear of loss<br><strong>How it shows up:</strong> Moving the stop loss wider mid-trade "to give it room to breathe," or exiting early to lock in a small winner rather than trusting the pre-set target. Both actions break the plan.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">Describe a recent trade where emotion took over</div>
+              <div class="qa-a"><strong>What happened:</strong> Feb 26 — Entered at 25,000 (FOMO) instead of waiting for the proper 25,060 level. Direction was correct; suboptimal entry increased risk and reduced edge grade.<br>
+              <strong>What I felt:</strong> Impatience. Pressure to "catch the move" before it left.<br>
+              <strong>How a professional would handle it:</strong> Wait for 25,060 with patience. If it doesn't fill, let it go — protecting the account from B-grade trades is more important than catching every move.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">Rank 1–10 (1=weak, 10=strong)</div>
+              <div class="qa-a">
+                <div class="rank-row"><span class="rank-label">Rule-following</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:70%"></div></div><span class="rank-val">7/10</span></div>
+                <div class="rank-row"><span class="rank-label">Risk acceptance</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:60%"></div></div><span class="rank-val">6/10</span></div>
+                <div class="rank-row"><span class="rank-label">Emotional recovery after loss</span><div class="rank-bar-wrap"><div class="rank-bar" style="width:70%"></div></div><span class="rank-val">7/10</span></div>
+              </div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">If coaching myself, what would I say I need to work on first?</div>
+              <div class="qa-a">Trusting the stop loss placement once set. The analysis that placed the stop was done from a clear mind pre-session — the in-trade emotional state is the worst time to override it. <em>Lock it in and let price decide.</em></div>
+            </div>
+          </div>
+
+          <div class="sec-header"><span class="sec-chip chip-col">✏️ Check-on-Learning</span></div>
+          <div class="col-block">
+            <div class="col-item"><strong>Emotions that sabotage trading?</strong><br>FOMO &amp; fear of loss</div>
+            <div class="col-item"><strong>Mindset concept that hit hardest?</strong><br>Trading success has less to do with skill and more to do with recovery</div>
+            <div class="col-item"><strong>What will you change about your pre-trading routine?</strong><br>Work to forgive myself and let go of the past</div>
+            <div class="col-item"><strong>Most susceptible to?</strong><br>Fear of loss — moving SL to breathe mid-trade</div>
+          </div>
+
+          <div class="sec-header"><span class="sec-chip chip-quiz">✅ Quick Quiz</span></div>
+          <table class="quiz-table">
+            <thead><tr><th>#</th><th>Question</th><th>Answer</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Trading "in the zone" is?</td><td><span class="ans-chip">b</span> Following rules with emotional stability</td></tr>
+              <tr><td>2</td><td>Biggest shift amateur → professional?</td><td><span class="ans-chip">b</span> Outcome obsession → process obsession</td></tr>
+              <tr><td>3</td><td>Losses are proof my edge doesn't work.</td><td><span class="ans-chip">False</span></td></tr>
+              <tr><td>4</td><td>"Risk is the price of _______, not a sign something is wrong."</td><td><span class="ans-chip">opportunity</span></td></tr>
+            </tbody>
+          </table>
+
+          <div class="sec-header"><span class="sec-chip chip-action">☑️ Action Steps</span></div>
+          <ul class="action-list">
+            <li><span class="chk done">✓</span> #1 emotional pattern identified: Fear of loss → SL manipulation</li>
+            <li><span class="chk done">✓</span> Replacement behavior: <em>"When I feel the urge to move my SL, I close the chart 30 sec, breathe, recite: 'The SL was set from a clear mind — honor it.'"</em></li>
+            <li><span class="chk done">✓</span> Pre-trading routine (5 steps): Review HTF bias · Confirm setup criteria · Define SL/TP before entry · State risk amount aloud · Only then execute</li>
+            <li><span class="chk done">✓</span> Post-trade question: "Did I follow every step of my plan? If no — where and why?"</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- 1C -->
+      <details class="class-card" id="class-1c" open>
+        <summary>
+          <span class="class-badge">1C</span>
+          <span class="class-title-text">Crypto vs Futures Market Principles</span>
+          <span class="class-status complete">✓ Complete</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+
+          <div class="sec-header"><span class="sec-chip chip-concepts">🧩 Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row"><div class="qa-q">1. Crypto position size measured in ________ or ________.</div>
+              <div class="qa-a"><span class="inline-answer">coins/tokens</span> or <span class="inline-answer">units</span> (BTC, ETH, SOL)</div></div>
+            <div class="qa-row"><div class="qa-q">2. One futures contract represents ________.</div>
+              <div class="qa-a"><span class="inline-answer">a fixed notional value</span> of the underlying asset (MNQ = $2 × Nasdaq-100 index value)</div></div>
+            <div class="qa-row"><div class="qa-q">3. Fees primarily charged as ________ and/or ________.</div>
+              <div class="qa-a"><span class="inline-answer">commissions</span> and <span class="inline-answer">exchange/clearing fees</span></div></div>
+            <div class="qa-row"><div class="qa-q">4. Prop firms allow trading if I show ________ and follow ________.</div>
+              <div class="qa-a"><span class="inline-answer">consistent risk management</span> and their <span class="inline-answer">specific rules</span> (max drawdown, daily loss limits)</div></div>
+            <div class="qa-row"><div class="qa-q">5. Two order types I'll use most</div>
+              <div class="qa-a"><span class="inline-answer">Market order</span> (instant execution) &amp; <span class="inline-answer">Limit order</span> (specified price entry)</div></div>
+          </div>
+
+          <div class="sec-header"><span class="sec-chip chip-reflect">🪞 Reflection</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">Market chosen + why</div>
+              <div class="qa-a">☑ <strong>Futures (MNQ/MES)</strong> with crypto (SOL/USDT on BTCC) as secondary. Regulated environment, prop firm leverage, NY session availability, MNQ tick value makes risk management precise and scalable.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">Biggest risks to respect in this market</div>
+              <div class="qa-a">Leverage amplification · Prop firm daily max loss limits (Apex 100K: $3,000/day) · News event volatility (FOMC, NFP, EIA Wednesdays) · Metals halted on Apex as of Feb 6, 2026</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">How capital affects sizing / leverage</div>
+              <div class="qa-a"><strong>Sizing:</strong> Using MNQ (micro) instead of NQ (full) — notional exposure proportionate to account size.<br><strong>Leverage:</strong> Operating within prop firm margin rules — never sizing where one stop-out breaches daily max loss.</div>
+            </div>
+          </div>
+
+          <div class="sec-header"><span class="sec-chip chip-col">✏️ Check-on-Learning</span></div>
+          <div class="col-block">
+            <div class="col-item"><strong>Market you're leaning toward?</strong><br>Futures (MNQ/MES) + Crypto (SOL/BTC)</div>
+            <div class="col-item"><strong>What sizing/contract rules confused you?</strong><br>Managing margin and leverage risk appropriately</div>
+          </div>
+
+          <div class="sec-header"><span class="sec-chip chip-quiz">✅ Quick Quiz</span></div>
+          <table class="quiz-table">
+            <thead><tr><th>#</th><th>Question</th><th>Answer</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>In crypto, I can ignore fees because the moves are big.</td><td><span class="ans-chip">False</span></td></tr>
+              <tr><td>2</td><td>Futures contracts are?</td><td><span class="ans-chip">b</span> Standardized units defined by the exchange</td></tr>
+              <tr><td>3</td><td>Prop firms make money by?</td><td><span class="ans-chip">b</span> Selling evaluations and sharing trader profits</td></tr>
+            </tbody>
+          </table>
+
+          <div class="sec-header"><span class="sec-chip chip-action">☑️ Action Steps</span></div>
+          <ul class="action-list">
+            <li><span class="chk done">✓</span> Primary market: Futures (MNQ) confirmed</li>
+            <li><span class="chk done">✓</span> Accounts verified: APEX-484839-06 (100K active) · TPT 50K (active)</li>
+            <li><span class="chk done">✓</span> Edge goal: <em>"I am learning to exploit displacement from key liquidity levels and FVGs in MNQ futures during the NY open session."</em></li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         WEEK 2
+    ══════════════════════════════════════════════ -->
+    <section class="week-block" id="week-2">
+      <div class="week-banner">
+        <div class="week-number w2">W2</div>
+        <div class="week-info">
+          <h2>Market Principles, Models &amp; Confluences</h2>
+          <p>SMOG · TCL · Confluences &amp; Advanced Edges</p>
+        </div>
+        <span class="week-stat">3 classes</span>
+      </div>
+
+      <!-- 2A -->
+      <details class="class-card" id="class-2a" open>
+        <summary>
+          <span class="class-badge">2A</span>
+          <span class="class-title-text">Core Trading Models — SMOG</span>
+          <span class="class-status partial">⚡ Draft</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+
+          <div class="sec-header"><span class="sec-chip chip-concepts">🧩 Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row"><div class="qa-q">1. SMOG identifies ________ where probability leans in our favor.</div>
+              <div class="qa-a"><span class="inline-answer">high-probability zones and setups</span></div></div>
+            <div class="qa-row"><div class="qa-q">2. Every SMOG trade must have a clearly defined ________, ________, and ________ before entry.</div>
+              <div class="qa-a"><span class="inline-answer">entry</span>, <span class="inline-answer">stop loss</span>, and <span class="inline-answer">profit target</span></div></div>
+            <div class="qa-row"><div class="qa-q">3. Execute my SMOG checklist with ________.</div>
+              <div class="qa-a"><span class="inline-answer">consistency</span></div></div>
+          </div>
+
+          <div class="sec-header"><span class="sec-chip chip-reflect">📋 Personal SMOG Checklist v1.0</span></div>
+          <table class="data-table">
+            <thead><tr><th>Element</th><th>My Setup</th></tr></thead>
+            <tbody>
+              <tr><td>Market / Timeframe</td><td>MNQ — 1-min/5-min entries within 15-min context</td></tr>
+              <tr><td>Minimum condition 1</td><td>HTF bias confirmed (daily/H1 structure read)</td></tr>
+              <tr><td>Minimum condition 2</td><td>New York session active (9:15 AM ET onward)</td></tr>
+              <tr><td>Minimum condition 3</td><td>Clear liquidity zone or structure level identified</td></tr>
+              <tr><td>Entry trigger</td><td>Displacement close through key level → retracement into FVG aligns with HTF bias</td></tr>
+              <tr><td>Stop placement</td><td>1–2 MNQ points below/above displacement candle's low/high</td></tr>
+              <tr><td>Default target</td><td>Minimum 2R — scale at first target, trail remainder</td></tr>
+            </tbody>
+          </table>
+
+          <div class="sec-header"><span class="sec-chip chip-col">✏️ Check-on-Learning</span></div>
+          <table class="data-table">
+            <thead><tr><th>SMOG Pros</th><th>SMOG Cons</th></tr></thead>
+            <tbody>
+              <tr><td>Defined entry/SL/target eliminates guesswork</td><td>Setup requires patience — takes time to develop</td></tr>
+              <tr><td>Aligns with institutional order flow</td><td>False displacement signals require experience to filter</td></tr>
+              <tr><td>Scalable across multiple instruments</td><td>Can miss trades that don't perfectly meet checklist</td></tr>
+            </tbody>
+          </table>
+
+          <div class="sec-header"><span class="sec-chip chip-quiz">✅ Quick Quiz</span></div>
+          <table class="quiz-table">
+            <thead><tr><th>#</th><th>Question</th><th>Answer</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>A SMOG setup is valid even without a SMOG signal.</td><td><span class="ans-chip">False</span></td></tr>
+              <tr><td>2</td><td>A checklist exists to?</td><td><span class="ans-chip">b</span> Remove decision fatigue and enforce consistency</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- 2B -->
+      <details class="class-card" id="class-2b" open>
+        <summary>
+          <span class="class-badge">2B</span>
+          <span class="class-title-text">Core Trading Models — TCL</span>
+          <span class="class-status partial">⚡ Draft</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+
+          <div class="sec-header"><span class="sec-chip chip-concepts">🧩 Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row"><div class="qa-q">1. TCL captures moves that ________ after structure/liquidity behavior.</div>
+              <div class="qa-a"><span class="inline-answer">continue in the trend direction</span></div></div>
+            <div class="qa-row"><div class="qa-q">2. TCL trades must respect the overall ________ to avoid forcing setups.</div>
+              <div class="qa-a"><span class="inline-answer">trend / bias</span></div></div>
+            <div class="qa-row"><div class="qa-q">3. TCL edge appears over a ________ of trades.</div>
+              <div class="qa-a"><span class="inline-answer">large sample size</span></div></div>
+          </div>
+
+          <div class="sec-header"><span class="sec-chip chip-reflect">📋 Personal TCL Checklist</span></div>
+          <table class="data-table">
+            <thead><tr><th>Element</th><th>My Setup</th></tr></thead>
+            <tbody>
+              <tr><td>Market / Timeframe</td><td>MNQ — H1/15-min context, 5-min entry</td></tr>
+              <tr><td>Pre-condition 1</td><td>Clear directional trend (HH/HL bullish · LH/LL bearish)</td></tr>
+              <tr><td>Pre-condition 2</td><td>Price has retraced after prior impulse leg</td></tr>
+              <tr><td>Pre-condition 3</td><td>Retracement lands in confluence zone (EMA area, FVG, prior S/R)</td></tr>
+              <tr><td>Entry trigger</td><td>LTF structure shifts back in trend direction · IT Foundation EMAs confirm gate open</td></tr>
+              <tr><td>Stop</td><td>Below/above low/high of retracement consolidation</td></tr>
+              <tr><td>Target</td><td>Next structural level — scale at 1R, trail to 2R+</td></tr>
+            </tbody>
+          </table>
+
+          <div class="sec-header"><span class="sec-chip chip-col">✏️ Check-on-Learning</span></div>
+          <div class="col-block">
+            <div class="col-item"><strong>What part of the model makes most sense?</strong><br>The continuation logic — once a trend is established and price pulls back to a valid zone, the high-probability trade is in the same direction as the prior impulse. This directly mirrors FCR: the first candle establishes the range, displacement is the impulse, and the continuation is the trade.</div>
+          </div>
+
+          <div class="sec-header"><span class="sec-chip chip-quiz">✅ Quick Quiz</span></div>
+          <table class="quiz-table">
+            <thead><tr><th>#</th><th>Question</th><th>Answer</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>TCL can be applied without context as long as the pattern "looks right."</td><td><span class="ans-chip">False</span></td></tr>
+              <tr><td>2</td><td>Purpose of this week?</td><td><span class="ans-chip">b</span> Turn SMOG and TCL into clear, repeatable checklists</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- 2C -->
+      <details class="class-card" id="class-2c" open>
+        <summary>
+          <span class="class-badge">2C</span>
+          <span class="class-title-text">Confluences &amp; Advanced Student Edges</span>
+          <span class="class-status complete">✓ Complete</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+
+          <div class="sec-header"><span class="sec-chip chip-concepts">🧩 Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row"><div class="qa-q">1. Confluence adds ________ when it aligns with my core model.</div>
+              <div class="qa-a"><span class="inline-answer">probability and conviction</span></div></div>
+            <div class="qa-row"><div class="qa-q">2. Enough confluence to build ________, not confusion.</div>
+              <div class="qa-a"><span class="inline-answer">confidence</span></div></div>
+            <div class="qa-row"><div class="qa-q">3. Base edge comes from a model, not from a single ________.</div>
+              <div class="qa-a"><span class="inline-answer">indicator</span></div></div>
+          </div>
+
+          <div class="sec-header"><span class="sec-chip chip-reflect">🪞 Reflection — Confluence vs. Clutter</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">Which tools naturally make sense? Which confuse or distract?</div>
+              <div class="qa-a"><strong>Makes sense:</strong> IT Foundation EMAs · FVG/Imbalance · SMT Divergence (triple-index)<br><strong>Confuse/distract:</strong> Oscillators (RSI, stoch) in isolation — they lag and create second-guessing when structure and order flow should be the primary signal.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">If I had to choose only 2–3 confluences to pair with my base models</div>
+              <div class="qa-a">
+                <strong>a.</strong> IT Foundation EMA gate — multi-timeframe trend filter<br>
+                <strong>b.</strong> FVG / Fair Value Gap alignment — entry precision<br>
+                <strong>c.</strong> SMT Divergence (NQ/ES/YM) — confirms or invalidates institutional direction
+              </div>
+            </div>
+          </div>
+
+          <div class="sec-header"><span class="sec-chip chip-col">✏️ Check-on-Learning</span></div>
+          <div class="col-block">
+            <div class="col-item"><strong>Strongest confluence you understand so far?</strong><br>FVG alignment + IT Foundation EMA gate — when price is in a discount FVG AND EMAs confirm trend direction, probability of continuation is highest. EMA gate prevents counter-trend trades; FVG provides the precise entry with optimal R:R.</div>
+          </div>
+
+          <div class="sec-header"><span class="sec-chip chip-quiz">✅ Quick Quiz</span></div>
+          <table class="quiz-table">
+            <thead><tr><th>#</th><th>Question</th><th>Answer</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>7 confluences = automatically good trade.</td><td><span class="ans-chip">False</span></td></tr>
+              <tr><td>2</td><td>Trading identity defined by?</td><td><span class="ans-chip">b</span> Small number of core models executed well</td></tr>
+            </tbody>
+          </table>
+
+          <div class="identity-card" style="margin-top:.85rem">
+            ✍ <em>"For the next 30–90 days, I am primarily a <strong>FCR/SMOG displacement</strong> trader, using <strong>imbalance and liquidity targeting</strong> on <strong>MNQ futures (NY session)</strong> with <strong>IT Foundation EMAs and FVG alignment</strong> as confluence."</em>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         WEEK 3
+    ══════════════════════════════════════════════ -->
+    <section class="week-block" id="week-3">
+      <div class="week-banner">
+        <div class="week-number w3">W3</div>
+        <div class="week-info">
+          <h2>Journaling, Data Edge &amp; Scaling Plan</h2>
+          <p>Data Collection · Backtesting · Paladin Protocol</p>
+        </div>
+        <span class="week-stat">3 classes</span>
+      </div>
+
+      <!-- 3A -->
+      <details class="class-card" id="class-3a" open>
+        <summary>
+          <span class="class-badge">3A</span>
+          <span class="class-title-text">Trade Journaling &amp; Data Collection</span>
+          <span class="class-status partial">⚡ In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">🧩 Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row"><div class="qa-q">1. What gets measured gets ________.</div>
+              <div class="qa-a"><span class="inline-answer">managed and improved</span></div></div>
+            <div class="qa-row"><div class="qa-q">2. A journal captures ________, ________, and ________.</div>
+              <div class="qa-a"><span class="inline-answer">behavior</span>, <span class="inline-answer">emotional patterns</span>, and <span class="inline-answer">setup quality</span></div></div>
+            <div class="qa-row"><div class="qa-q">3. Expectancy is average R per trade over a ________ of trades.</div>
+              <div class="qa-a"><span class="inline-answer">large sample (50–100+)</span></div></div>
+          </div>
+          <div class="sec-header"><span class="sec-chip chip-reflect">🪞 Reflection — Week Data</span></div>
+          <div class="qa-grid">
+            <div class="qa-row"><div class="qa-q">How many trades logged? Patterns in wins? Patterns in losses? Emotional notes?</div>
+              <div class="qa-a pending">Review TradeZella data — fill from weekly summary export.</div></div>
+          </div>
+          <div class="callout info" style="margin-top:.75rem">
+            <span class="callout-icon">💡</span>
+            <span>Data extracted from TradeZella weekly. Most meaningful metric: <strong>setup grade vs. outcome correlation</strong> — do A+ setups produce better expectancy than B-grade? If yes, the data confirms: <em>only take A+ setups.</em></span>
+          </div>
+        </div>
+      </details>
+
+      <!-- 3B -->
+      <details class="class-card" id="class-3b" open>
+        <summary>
+          <span class="class-badge">3B</span>
+          <span class="class-title-text">Backtesting &amp; Personal Data Edge</span>
+          <span class="class-status complete">✓ Complete</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">🧩 Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row"><div class="qa-q">1. Backtesting simulates my model on ________ data without risking real money.</div>
+              <div class="qa-a"><span class="inline-answer">historical</span></div></div>
+            <div class="qa-row"><div class="qa-q">2. "Slow" pace focuses on ________ over rapid growth. "Aggressive" accepts volatility for ________.</div>
+              <div class="qa-a"><span class="inline-answer">consistency and emotional safety</span> · <span class="inline-answer">accelerated/compounded growth</span></div></div>
+          </div>
+          <div class="sec-header"><span class="sec-chip chip-reflect">🪞 My Trading Flywheel</span></div>
+          <table class="data-table">
+            <thead><tr><th>Block</th><th>Activity</th></tr></thead>
+            <tbody>
+              <tr><td>Inputs</td><td>Pre-market prep (30 min): HTF bias, FCR rays, key levels, ZTH watch list</td></tr>
+              <tr><td>Execution</td><td>NY session 9:15–10:30 AM ET (FCR primary) · ZTH setups available all day</td></tr>
+              <tr><td>Review</td><td>Same-day TradeZella journaling · Weekly review doc · Pattern tracker update</td></tr>
+            </tbody>
+          </table>
+          <div class="sec-header"><span class="sec-chip chip-col">✏️ Check-on-Learning</span></div>
+          <div class="col-block">
+            <div class="col-item"><strong>Most important data point for my edge?</strong><br>Setup grade vs. outcome correlation — whether A+ setups (all 5 layers confirmed) produce better expectancy than B-grade setups. Data confirms: only take A+ setups.</div>
+            <div class="col-item"><strong>Selected pace:</strong> <span class="inline-answer">Balanced</span> — recovering from blown account while maintaining two active prop accounts. Consistent execution before scaling.</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- 3C -->
+      <details class="class-card" id="class-3c" open>
+        <summary>
+          <span class="class-badge">3C</span>
+          <span class="class-title-text">Scaling Plan — Paladin Protocol</span>
+          <span class="class-status complete">✓ Complete</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">🧩 Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row"><div class="qa-q">1. Scaling = increasing ________ as my edge proves itself.</div>
+              <div class="qa-a"><span class="inline-answer">position size / contract count</span></div></div>
+            <div class="qa-row"><div class="qa-q">2. Multiple prop firms allow me to ________ risk across accounts.</div>
+              <div class="qa-a"><span class="inline-answer">diversify and spread</span></div></div>
+            <div class="qa-row"><div class="qa-q">3. Size up only after ________ sample of consistent, rule-based trading.</div>
+              <div class="qa-a"><span class="inline-answer">50–100 trade</span></div></div>
+          </div>
+          <div class="sec-header"><span class="sec-chip chip-reflect">📋 Scaling Framework</span></div>
+          <table class="data-table">
+            <thead><tr><th>Element</th><th>My Plan</th></tr></thead>
+            <tbody>
+              <tr><td>Primary accounts</td><td>APEX-484839-06 (100K) · TPT 50K</td></tr>
+              <tr><td>Risk per trade</td><td>$100–$200 MNQ (calibrated to prop firm daily max loss)</td></tr>
+              <tr><td>Trigger to size up</td><td>30+ compliant trades + 3 consecutive winning weeks + drawdown &lt; 3% over 2 weeks</td></tr>
+              <tr><td>Trigger to pause</td><td>Daily max loss hit OR any rule violation (SL moved, FOMO entry)</td></tr>
+              <tr><td>Long-term target</td><td>3–5 funded accounts scaled to $300K–$500K combined</td></tr>
+            </tbody>
+          </table>
+          <div class="sec-header"><span class="sec-chip chip-col">✏️ Check-on-Learning</span></div>
+          <div class="col-block">
+            <div class="col-item"><strong>When should you size up?</strong><br>Only after your sample data — not your emotions — tells you that your edge is real and your execution is consistent. Size up is earned by the journal, not by confidence after one good week.</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+         WEEK 4
+    ══════════════════════════════════════════════ -->
+    <section class="week-block" id="week-4">
+      <div class="week-banner">
+        <div class="week-number w4">W4</div>
+        <div class="week-info">
+          <h2>Live Trading, Investing &amp; Continuity</h2>
+          <p>Execution Workflow · Wealth Building · 90-Day Roadmap</p>
+        </div>
+        <span class="week-stat">3 classes</span>
+      </div>
+
+      <!-- 4A -->
+      <details class="class-card" id="class-4a" open>
+        <summary>
+          <span class="class-badge">4A</span>
+          <span class="class-title-text">Real Trading &amp; Execution Workflow</span>
+          <span class="class-status partial">⚡ In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">🧩 Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row"><div class="qa-q">1. Complete workflow: ________ → ________ → ________.</div>
+              <div class="qa-a"><span class="inline-answer">pre-session prep</span> → <span class="inline-answer">live execution</span> → <span class="inline-answer">post-session review</span></div></div>
+            <div class="qa-row"><div class="qa-q">2. Same-day journaling keeps memory ________ and data accurate.</div>
+              <div class="qa-a"><span class="inline-answer">fresh and accurate</span></div></div>
+            <div class="qa-row"><div class="qa-q">3. Prop firm rules are non-negotiable ________.</div>
+              <div class="qa-a"><span class="inline-answer">constraints</span></div></div>
+          </div>
+          <div class="sec-header"><span class="sec-chip chip-reflect">📋 Personal Workflow</span></div>
+          <table class="data-table">
+            <thead><tr><th>Phase</th><th>Steps</th></tr></thead>
+            <tbody>
+              <tr><td>Pre-session</td><td>Read HTF bias · Map FCR rays · Identify ZTH zones · Set entry/SL/TP before open · State risk amount</td></tr>
+              <tr><td>During session</td><td>Execute at level only · No SL adjustments unless at BE milestone · Screenshot all trades</td></tr>
+              <tr><td>Post-session</td><td>TradeZella entry same day · Screenshot embed · Grade trade · Update pattern tracker</td></tr>
+            </tbody>
+          </table>
+          <div class="sec-header"><span class="sec-chip chip-reflect">🪞 After Live Session</span></div>
+          <div class="qa-grid">
+            <div class="qa-row"><div class="qa-q">Did I follow my plan? Where did I deviate? Emotional responses in real time?</div>
+              <div class="qa-a pending">Fill after each live session — use as a running self-audit log.</div></div>
+          </div>
+          <div class="sec-header"><span class="sec-chip chip-col">✏️ Check-on-Learning</span></div>
+          <div class="col-block">
+            <div class="col-item"><strong>Most common execution mistake?</strong><br>Entering before the level is reached (FOMO trigger). Second most common: not having TP set before entry, leading to manual exit decisions under pressure.</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- 4B -->
+      <details class="class-card" id="class-4b" open>
+        <summary>
+          <span class="class-badge">4B</span>
+          <span class="class-title-text">From Trading Profits → Investing</span>
+          <span class="class-status partial">⚡ In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">🧩 Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row"><div class="qa-q">1. Trading income flows into ________, ________, and ________.</div>
+              <div class="qa-a"><span class="inline-answer">saving</span>, <span class="inline-answer">investing</span>, and <span class="inline-answer">spending</span></div></div>
+            <div class="qa-row"><div class="qa-q">2. Long-term wealth through ________, ________, and ________.</div>
+              <div class="qa-a"><span class="inline-answer">equities</span>, <span class="inline-answer">crypto</span>, and <span class="inline-answer">cash-flow assets</span></div></div>
+            <div class="qa-row"><div class="qa-q">3. Tax-advantaged accounts like ________ and ________ accelerate net worth.</div>
+              <div class="qa-a"><span class="inline-answer">Roth IRA</span> and <span class="inline-answer">SEP IRA</span></div></div>
+          </div>
+          <div class="sec-header"><span class="sec-chip chip-reflect">💸 Money Flow Draft</span></div>
+          <table class="data-table">
+            <thead><tr><th>Allocation</th><th>Destination</th></tr></thead>
+            <tbody>
+              <tr><td>First 30%</td><td>Tax reserve / emergency savings</td></tr>
+              <tr><td>Next 40%</td><td>Long-term investments (Roth IRA, Schwab, crypto portfolio)</td></tr>
+              <tr><td>Up to 30%</td><td>Lifestyle / quality of life</td></tr>
+            </tbody>
+          </table>
+          <div class="callout warn" style="margin-top:.7rem">
+            <span class="callout-icon">📝</span>
+            <span>Adjust percentages to your actual situation. Add personal answers: historical money behavior, 3–5 year wealth goal, current accounts checklist (Acorns, Schwab, Roth IRA, SEP IRA).</span>
+          </div>
+        </div>
+      </details>
+
+      <!-- 4C -->
+      <details class="class-card" id="class-4c" open>
+        <summary>
+          <span class="class-badge">4C</span>
+          <span class="class-title-text">Personal Review &amp; Next Steps</span>
+          <span class="class-status complete">✓ Complete</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">🧩 Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row"><div class="qa-q">1. Next 90 days = building depth, not chasing new ________.</div>
+              <div class="qa-a"><span class="inline-answer">strategies / shiny objects</span></div></div>
+            <div class="qa-row"><div class="qa-q">2. 1-on-1 call finalizes my personal growth ________ and removes confusion.</div>
+              <div class="qa-a"><span class="inline-answer">plan / roadmap</span></div></div>
+            <div class="qa-row"><div class="qa-q">3. Continuity = live trading + audits + mentorship keeps edge and behavior sharp.</div>
+              <div class="qa-a">✓ Confirmed — Inner Circle live sessions, monthly coaching audits, ongoing community engagement.</div></div>
+          </div>
+          <div class="sec-header"><span class="sec-chip chip-reflect">🗺 90-Day Roadmap</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">ONE primary strategy/market combo for 90 days</div>
+              <div class="qa-a"><strong>FCR / ZTH setups on MNQ futures during the NY session</strong> — with SOL/USDT on BTCC as secondary when high-probability setups align.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">Top 3 goals for the next 90 days</div>
+              <div class="qa-a">
+                <strong>a.</strong> Maintain APEX-484839-06 through Mar 24 evaluation deadline — close the ~$6K gap without rule violations<br>
+                <strong>b.</strong> Hit first TPT 50K payout — consistent execution through end of March<br>
+                <strong>c.</strong> Execute 50+ rule-compliant trades — zero SL manipulation, zero FOMO entries, every trade logged
+              </div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">Biggest behavioral shift to lock in</div>
+              <div class="qa-a">Trusting the stop loss placement I set pre-session. <em>The analysis that set it was done from clarity — mid-trade fear does not get a vote.</em></div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">"Someone looking at my life from the outside in 90 days should say…"</div>
+              <div class="qa-a"><em>"They've become the kind of person who sets a plan before every session and executes it without exception — who no longer bets against their own analysis mid-trade."</em></div>
+            </div>
+          </div>
+
+          <div class="sec-header"><span class="sec-chip chip-action">☑️ Action Steps</span></div>
+          <ul class="action-list">
+            <li><span class="chk todo"></span> Schedule / attend 1-on-1 call</li>
+            <li><span class="chk todo"></span> Clarify which live sessions / audits to commit to weekly</li>
+            <li><span class="chk todo"></span> Save / bookmark exact Discord channels and resources</li>
+            <li><span class="chk todo"></span> Final trader identity statement confirmed (below)</li>
+          </ul>
+          <div class="identity-card" style="margin-top:.85rem">
+            ✍ <em>"I am a trader who <strong>executes rule-based setups without emotional override</strong>, trading <strong>MNQ futures on prop firm accounts</strong>, using <strong>FCR displacement + IT Foundation EMAs + FVG alignment</strong>, and growing toward <strong>full-time trading income as my primary financial foundation</strong>."</em>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="workbook-footer">
+      <p>📘 Inevitrade Inner Circle Bootcamp Workbook · Christopher Wilson · Feb 2026 Cohort</p>
+      <p>Source: Inevitrade Inner Circle · Craig &amp; Team · Maintained in <a href="https://github.com/drasticstatic/trading-assistant-public-preview">trading-assistant public repo</a></p>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+  const html = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  try { if (localStorage.getItem('theme') === 'light') { html.classList.add('light'); btn.textContent = '🌙 Dark'; } } catch(e) {}
+  function toggleTheme() {
+    const light = html.classList.toggle('light');
+    btn.textContent = light ? '🌙 Dark' : '☀️ Light';
+    try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch(e) {}
+  }
+
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('open');
+  }
+
+  function expandAll() {
+    document.querySelectorAll('details').forEach(d => d.open = true);
+  }
+
+  // Progress counter
+  function calcProgress() {
+    const total = document.querySelectorAll('.qa-a').length;
+    const pending = document.querySelectorAll('.qa-a.pending').length;
+    const answered = total - pending;
+    const pct = total ? Math.round((answered / total) * 100) : 0;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = answered + ' / ' + total + ' answered (' + pct + '%)';
+  }
+  calcProgress();
+
+  // Sidebar scrollspy
+  const sidebarLinks = document.querySelectorAll('.sidebar-item');
+  const sections = ['prereqs','class-1a','class-1b','class-1c','class-2a','class-2b','class-2c','class-3a','class-3b','class-3c','class-4a','class-4b','class-4c'];
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        sidebarLinks.forEach(l => l.classList.remove('active'));
+        const link = document.querySelector('.sidebar-item[href="#' + e.target.id + '"]');
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  sections.forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
+</script>
+</body>
+</html>
