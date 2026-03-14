@@ -165,11 +165,6 @@
     .snake-card {
       position: relative;
       isolation: isolate;
-      animation: cta-pulse 4.4s ease-in-out infinite;
-    }
-
-    .snake-card:hover {
-      animation-play-state: paused;
     }
 
     .snake-card::before {
@@ -181,21 +176,22 @@
       background: linear-gradient(140deg,
         rgba(255,255,255,0.12) 0%,
         rgba(255,255,255,0.02) 34%,
-        rgba(124,194,255,0.2) 66%,
+        rgba(124,194,255,0.22) 66%,
         rgba(255,255,255,0.04) 100%);
       -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
       -webkit-mask-composite: xor;
       mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
       mask-composite: exclude;
-      opacity: 0.68;
       pointer-events: none;
+      /* heartbeat lives here — opacity only, GPU composited */
+      animation: border-pulse 4.4s ease-in-out infinite;
     }
 
     .snake-card::after {
       content: "";
       position: absolute;
       top: 0; left: 0;
-      width: clamp(1.2rem, 4%, 1.8rem);
+      width: clamp(2rem, 6%, 3rem);
       height: 2px;
       border-radius: 999px;
       background: linear-gradient(90deg,
@@ -208,14 +204,17 @@
       offset-path: inset(1px round 18px);
       offset-distance: 0%;
       offset-rotate: auto;
-      animation: card-border-travel 7s linear infinite;
+      will-change: transform;
+      animation: card-border-travel 9s linear infinite;
+      animation-delay: -3s;
       pointer-events: none;
     }
 
     .snake-pill {
       position: relative;
       isolation: isolate;
-      animation: pill-glow-pulse 3.5s ease-in-out infinite;
+      animation: pill-glow-pulse 4s ease-in-out infinite;
+      animation-delay: -2s;
     }
 
     .snake-pill:hover {
@@ -229,7 +228,7 @@
       content: "";
       position: absolute;
       top: 0; left: 0;
-      width: clamp(0.6rem, 10%, 1rem);
+      width: clamp(1rem, 16%, 1.5rem);
       height: 2px;
       border-radius: 999px;
       background: linear-gradient(90deg,
@@ -242,7 +241,9 @@
       offset-path: inset(1px round 999px);
       offset-distance: 0%;
       offset-rotate: auto;
-      animation: card-border-travel 3.5s linear infinite;
+      will-change: transform;
+      animation: card-border-travel 4.5s linear infinite;
+      animation-delay: -2.25s;
       pointer-events: none;
     }
 
@@ -251,23 +252,17 @@
       to { offset-distance: 100%; }
     }
 
-    @keyframes cta-pulse {
-      0%, 100% {
-        border-color: rgba(139,148,158,0.2);
-        box-shadow: 0 6px 18px rgba(7,14,26,0.14);
-      }
-      50% {
-        border-color: rgba(124,194,255,0.3);
-        box-shadow: 0 8px 22px rgba(7,14,26,0.18),
-          inset 0 0 14px rgba(124,194,255,0.05);
-      }
+    /* opacity-only pulse: GPU composited, no layout/paint cost */
+    @keyframes border-pulse {
+      0%, 100% { opacity: 0.45; }
+      50% { opacity: 0.92; }
     }
 
     @keyframes pill-glow-pulse {
       0%, 100% { box-shadow: none; }
       50% {
         box-shadow: 0 0 0 2px rgba(124,194,255,0.2),
-          0 0 12px rgba(124,194,255,0.14);
+          0 0 10px rgba(124,194,255,0.12);
       }
     }
 
@@ -448,9 +443,10 @@
       overflow: hidden;
       white-space: nowrap;
       border-right: 0.08em solid rgba(124, 194, 255, 0.85);
+      will-change: width;
       animation:
-        typing 2.9s steps(44, end) 0.2s forwards,
-        caret-blink 0.9s step-end infinite;
+        typing 2.9s steps(44, end) 0.5s forwards,
+        caret-blink 0.9s step-end 0.5s infinite;
     }
 
     .subtitle {
