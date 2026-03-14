@@ -924,7 +924,7 @@
 </head>
 <body>
   <a class="skip-link" href="#recovery-links">Skip to recovery links</a>
-  <button type="button" class="theme-toggle" onclick="toggleTheme()" id="themeBtn">☀️ Light mode</button>
+  <button type="button" class="theme-toggle" onclick="toggleTheme()" id="themeBtn">☀️</button>
 
   <main class="page">
     <header class="hero" aria-labelledby="page-title">
@@ -1005,8 +1005,9 @@
         <span class="subtitle-line subtitle-line--fineprint">Traders: same level, new route &nbsp;&nbsp;·&nbsp;&nbsp; Developers: same public surface, cleaner folders</span><br/>
       </p>
       <p class="hero-signal">
-        <span class="hero-signal-line"><span class="hero-signal-dot" aria-hidden="true">🧭</span><span>RECOVERY SIGNAL LIVE - PUBLIC PATH INTACT</span><span class="hero-signal-dot" aria-hidden="true">🧭</span></span>
-        <span class="hero-signal-subline">🧭 Redirecting you to the right level<br/>No stop-loss adjustment required 😅</span>
+        <span class="hero-signal-line"><span class="hero-signal-dot" aria-hidden="true">📍</span><span>RECOVERY SIGNAL LIVE - PUBLIC PATH INTACT</span><span class="hero-signal-dot" aria-hidden="true">🗺️</span></span>
+        <span class="hero-signal-subline"><span class="hero-signal-dot" aria-hidden="true">🧭</span>Redirecting you to the right level</span>
+        <span class="hero-signal-subline"><span></span>No stop-loss adjustment required</span><span class="hero-signal-dot" aria-hidden="true">😅</span></span>
       </p>
     </header>
 
@@ -1066,12 +1067,12 @@
         </div>
 
         <div class="action-card recovery-priority">
-          <span class="action-icon" aria-hidden="true">🛠️</span>
+          <span class="action-icon" aria-hidden="true">⚙️</span>
           <div class="action-content">
             <p class="action-title">Setup &amp; System Docs</p>
             <p class="action-desc">System overview and public infrastructure documentation</p>
             <div style="display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.5rem;">
-              <a href="setup/augmentArchitecture.html" style="display:inline-flex;align-items:center;gap:.3rem;padding:.22rem .55rem;border-radius:999px;background:rgba(124,194,255,.1);border:1px solid rgba(124,194,255,.24);color:var(--blue);font-size:.76rem;font-weight:700;text-decoration:none;">⚙️ Augment Architecture</a>
+              <a href="setup/AugmentArchitecture.html" style="display:inline-flex;align-items:center;gap:.3rem;padding:.22rem .55rem;border-radius:999px;background:rgba(124,194,255,.1);border:1px solid rgba(124,194,255,.24);color:var(--blue);font-size:.76rem;font-weight:700;text-decoration:none;">🤖 Augment Architecture</a>
               <a href="setup/auto-levels.pine_indicator-guide.html" style="display:inline-flex;align-items:center;gap:.3rem;padding:.22rem .55rem;border-radius:999px;background:rgba(188,140,255,.1);border:1px solid rgba(188,140,255,.24);color:var(--purple);font-size:.76rem;font-weight:700;text-decoration:none;">📐 Auto-Levels Indicator</a>
             </div>
           </div>
@@ -1116,7 +1117,7 @@
 
         <div class="aside-stack">
           <a class="aside-card" href="https://drasticstatic.github.io/trading-assistant-public-preview/" style="flex:1.5;">
-            <p class="card-label">Return home</p>
+            <p class="card-label">🏠 Return home</p>
             <img src="data/screenshots/index-preview.png" alt="Main hub preview" class="aside-card-preview" onerror="this.style.display='none'">
             <h3 style="margin:0;font-size:1rem;color:var(--text);">↩ Return Home</h3>
             <p style="margin:.35rem 0 0;color:var(--muted);font-size:.9rem;">Restart from the main public hub and re-enter through the top-level map</p>
@@ -1143,7 +1144,7 @@
     try {
       if (localStorage.getItem('theme') === 'light') {
         html.classList.add('light');
-        btn.textContent = '🌙 Dark mode';
+        btn.textContent = '🌙';
       }
     } catch (error) {
       console.warn('Theme preference unavailable.', error);
@@ -1151,7 +1152,7 @@
 
     function toggleTheme() {
       const isLight = html.classList.toggle('light');
-      btn.textContent = isLight ? '🌙 Dark mode' : '☀️ Light mode';
+      btn.textContent = isLight ? '🌙 Dark mode' : '☀️';
       try {
         localStorage.setItem('theme', isLight ? 'light' : 'dark');
       } catch (error) {
