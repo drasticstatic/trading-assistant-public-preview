@@ -138,37 +138,43 @@ Looking forward: returning to full trading workflow Monday with a clear head, de
 
 ### Trading Execution
 
-**Not yet passing evals.** I have been close but have not crossed the threshold on either account. I need an honest read on whether this is a setups problem, a sizing problem, a discipline problem, or all three — and which one to address first.
+**Not yet passing evals.** — I have been close to being profitable in the beginning but have not crossed the threshold of success on any eval account yet; similar to how my crypto trading journey went. I need an honest read on whether this is a discipline problem.
 
-**Market going against most of my reads.** Direction has felt wrong more often than right lately. I may be reading structure incorrectly at the higher timeframe, or I'm entering before genuine confirmation. I want to calibrate this with a coach rather than guess.
+**Market going against most of my reads.** — Direction has felt wrong more often than right lately. I may be reading structure incorrectly at the higher timeframe, or I'm entering before genuine confirmation. I want to calibrate this with a coach rather than feel like I am second guessing myself.
 
-**Exit passivity (Pattern 8 — just named this week).** I identified two clean exit opportunities on March 10 and took neither. The prop firm closed the trade. I have a strong entry process; I do not yet have a strong exit process. I need frameworks for when to take partial profit, when to scratch, and when to hold — written in advance, not decided mid-trade.
+**Exit passivity (Pattern 8 — just named this week).** — I identified two clean exit opportunities on March 10 and took neither. The prop firm closed the trade. I have a strong entry process; I do not yet have a strong exit process. I need frameworks for when to take partial profit, when to scratch, and when to hold — in advance, not decided mid-trade.
 
-**Hesitation at valid entries.** When I have a good setup I sometimes don't execute or size down, then watch it work. Then I chase the next one instead.
+**Hesitation at valid entries.** — When I have a good setup I sometimes don't execute or size down, then watch it work. Then I chase the next one instead.
 
-**Weak displacement reads — especially FCR.** Identifying genuine displacement vs. a fake-out before the real move is still something I'm calibrating. The FCR bug (rays change on timeframe switch) added noise to this week's reads. Bug is now fixed, but the pattern recognition needs more deliberate study.
+**Weak displacement reads — especially FCR.** — Identifying genuine displacement vs. a fake-out before the real move is still something I'm calibrating. The FCR bug (rays change on timeframe switch) added noise to this week's reads. Bug is now fixed, but the pattern recognition needs more deliberate study.
+
+**FOMO trades off-plan** — I've logged this as Pattern behavior. Taking entries that don't meet all five filter layers, usually because of time pressure or fear of missing a run.
+
+**Stop-loss management** — Previously moved stops, which cost accounts. The fix is in place but the psychological pull is still there when a trade breathes against me.
 
 ---
 
 ### Psychology & Environment
 
-**Urgency is affecting decision quality — and I want to name it directly.** I am not trading from a position of financial safety. The pressure behind every trade is existential right now. Primary employment ended this week. I owe STB and Inevitrade coaching fees. I have significant debt — court fines, legal fees, domestic arrears. Bank accounts are negative. Retirement funds and crypto are liquidated. 2024 and 2025 taxes are still pending. My car needs repair. There is a divorce and custody case (which I was wrongly criminalized in) that looms over everything.
+**Urgency is affecting decision quality — and I want to name it directly.** — I am not trading from a position of financial safety. The pressure behind every trade is existential right now. Primary income/employment ending this week. I owe STB and Inevitrade coaching costs. I have significant debt — court fines, legal fees, domestic arrears. Bank accounts are negative. Retirement funds and crypto are liquidated. 2024 and 2025 taxes are still pending with penalties. My car needs repair. And then there is the divorce and custody case (which I was wrongly criminalized in) that looms over everything.
 
-I am not telling you this for sympathy. I am telling you this because it is a live variable in my trading psychology and you should know it's there. I want help building the ability to trade as if the outcome of each trade doesn't decide my survival — because that is not the right state to be making execution decisions from.
+I am not disclosing this for sympathy - but because it is a live variable in my trading psychology. I want help building the ability to trade as if the outcome of each trade doesn't decide my survival or fear of going to jail again — because that is not the right state to be making execution decisions from.
 
-**Fear of never making it.** I have put everything into this — time, money, relationships, all of it. The fear that this doesn't work is a real presence. I am managing it but I will not pretend it isn't there. I want it named and addressed rather than buried.
+**Fear of never making it.** — I have put everything into this — time, money, relationships, all of it. The fear that this doesn't work is a real presence. I am managing it but I will not pretend it isn't there, naming and addressing it rather than burying it because it is part of my “why.”
 
-**Weeks without income.** The gap between "learning to trade" and "collecting a payout that sustains me" is the most psychologically dangerous place I have ever operated from. I need the eval pass and first payout to be soon — not because I'm impatient, but because the financial runway is genuinely short.
+**Weeks without income.** — The gap between "learning to trade" and "collecting a payout that sustains me" is the most psychologically dangerous place I have ever operated from. I need the eval pass and first payout to be soon — not because I'm impatient, but because the financial runway is genuinely short.
 
-**Multiple simultaneous stressors compressing my decision space.** Legal/custody situation, debt load, overdue taxes, employment loss. These don't disappear when the market opens. I am learning to not let them enter the trade, but it takes active work and I am not always succeeding.
+**Multiple simultaneous stressors compressing my decision space.** — Legal/custody situation, debt load, overdue taxes, employment loss. These don't disappear when the market opens. I am learning to not let them enter the trade, but it takes active work and I am not always succeeding.
+
+
 
 ---
 
 ### What I Need from My Success Manager
 
-- An honest read on whether my core setup understanding is sound and I'm losing on execution, or whether there are gaps I haven't caught. Tell me what you see.
-- Help with the exit discipline question — do you see a structural approach that works for the kind of setups I'm taking?
-- Frameworks for trading under real financial pressure without that pressure entering the trade. Not "just don't think about it" — actual techniques.
+- Help identifying whether my core setup understanding is sound and I'm losing on execution, or whether there are gaps in my strategy understanding I haven't caught
+- Help with the exit discipline question — is there a structural approach?
+- Frameworks for trading under real financial pressure without that pressure entering the trade— how do I compartmentalize enough to execute cleanly without pretending the pressure doesn't exist?
 - An accountability structure focused on process metrics (setup quality, rule adherence) rather than P&L — for this period in particular, while I build to the first payout.
 
 ---
