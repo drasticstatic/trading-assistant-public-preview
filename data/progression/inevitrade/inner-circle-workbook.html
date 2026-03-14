@@ -25,15 +25,27 @@
       --text: #1f2328; --muted: #57606a; --subtle: #6e7781;
       --green: #1a7f37; --red: #cf222e; --blue: #0969da; --yellow: #9a6700; --purple: #8250df;
     }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 64px; }
     *, *::before, *::after { box-sizing: border-box; }
     body {
       margin: 0; min-height: 100vh;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
       font-size: 15px; line-height: 1.65; color: var(--text);
-      background: radial-gradient(circle at top left, rgba(88,166,255,0.1), transparent 28%),
-                  linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+      background:
+        radial-gradient(ellipse at 20% 10%, rgba(63,185,80,0.12) 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 20%, rgba(124,194,255,0.09) 0%, transparent 35%),
+        radial-gradient(ellipse at 50% 80%, rgba(188,140,255,0.07) 0%, transparent 40%),
+        linear-gradient(160deg, var(--bg-alt) 0%, var(--bg) 100%);
+      background-attachment: fixed;
       transition: background 0.2s, color 0.2s;
+    }
+    html.light body {
+      background:
+        radial-gradient(ellipse at 20% 10%, rgba(26,127,55,0.07) 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 20%, rgba(9,105,218,0.06) 0%, transparent 35%),
+        radial-gradient(ellipse at 50% 80%, rgba(130,80,223,0.05) 0%, transparent 40%),
+        linear-gradient(160deg, var(--bg-alt) 0%, var(--bg) 100%);
+      background-attachment: fixed;
     }
     a { color: var(--blue); text-decoration: none; }
     a:hover { text-decoration: underline; }
@@ -72,7 +84,7 @@
     .pill-btn:hover { border-color:var(--blue); color:var(--text); transform:translateY(-1px); }
 
     /* ── LAYOUT ── */
-    .layout { display:grid; grid-template-columns:240px minmax(0,1fr); min-height:calc(100vh - 44px); }
+    .layout { display:grid; grid-template-columns:180px minmax(0,1fr); min-height:calc(100vh - 44px); }
 
     /* ── SIDEBAR ── */
     .sidebar {
@@ -100,7 +112,7 @@
     .sidebar-back:hover { color:var(--blue); text-decoration:none; }
 
     /* ── MAIN ── */
-    .main { padding:2rem 2.25rem 4rem; max-width:860px; margin:0 auto; }
+    .main { padding:2rem 2.25rem 4rem; max-width:1100px; margin:0 auto; }
 
     /* ── HERO ── */
     .workbook-hero {
@@ -180,8 +192,21 @@
     .class-status.complete { background:rgba(63,185,80,.14); color:var(--green); }
     .class-status.partial { background:rgba(227,179,65,.12); color:var(--yellow); }
     .class-status.pending { background:rgba(139,148,158,.1); color:var(--muted); }
-    .acc-icon { font-size:.82rem; color:var(--muted); flex-shrink:0; transition:transform .2s; }
-    .class-card[open] .acc-icon { transform:rotate(180deg); }
+    .acc-icon {
+      font-size: .82rem;
+      color: var(--muted);
+      flex-shrink: 0;
+      transition: transform .2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+    }
+    .class-card[open] .acc-icon { transform: rotate(180deg); }
     .class-body { padding:.25rem 1.1rem 1.1rem; border-top:1px solid var(--border); }
 
     /* ── SECTION HEADERS inside class ── */
@@ -376,15 +401,10 @@
     <!-- WELCOME -->
     <details class="class-card" id="welcome" open>
       <summary>
-        <div class="class-header">
-          <div class="class-meta">
-            <span class="class-num" style="background:rgba(63,185,80,.12);color:var(--green);border-color:rgba(63,185,80,.22);">👋</span>
-            <div>
-              <h3>Welcome to the Inner Circle Bootcamp</h3>
-              <p class="class-sub">Program Overview &nbsp;·&nbsp; 4 Weeks &nbsp;·&nbsp; 12 Classes</p>
-            </div>
-          </div>
-        </div>
+        <span class="class-badge" style="background:rgba(63,185,80,.12);color:var(--green);">Welcome</span>
+        <span class="class-title-text">Inevitrade Inner Circle — Program Overview · 4 Weeks · 12 Classes</span>
+        <span class="class-status complete">✓ Read</span>
+        <span class="acc-icon">▾</span>
       </summary>
 
       <div class="class-body">
