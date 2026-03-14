@@ -207,9 +207,9 @@
     .hero-copy h1 {
       margin: 0;
       max-width: 10ch;
-      font-size: clamp(3.05rem, 5.55vw, 4.7rem);
+      font-size: clamp(3.33rem, 5.55vw, 8.88rem);
       line-height: 1.02;
-      letter-spacing: 0.015em;
+      letter-spacing: 0.15em;
       text-wrap: balance;
       padding-bottom: 0.12em;
       background: linear-gradient(135deg, var(--green) 0%, #82d59a 18%, var(--blue) 54%, var(--purple) 100%);
@@ -217,7 +217,7 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       transform-origin: left center;
-      animation: hero-title-breathe 7.2s ease-in-out infinite;
+      animation: hero-title-breathe 8.88s ease-in-out infinite;
     }
 
     .hero-lead {
@@ -599,7 +599,7 @@
 </head>
 <body>
   <a class="skip-link" href="#start-here">Skip to homepage navigation</a>
-  <button type="button" class="theme-toggle" onclick="toggleTheme()" id="themeBtn">☀️ Light mode</button>
+  <button type="button" class="theme-toggle" onclick="toggleTheme()" id="themeBtn">☀️</button>
 
   <main class="page">
     <header class="hero-shell panel" aria-labelledby="page-title">
@@ -778,7 +778,7 @@
           </div>
           <p class="action-desc">System overview and public infrastructure documentation</p>
           <div style="display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.7rem;">
-            <a href="setup/augmentArchitecture.html" style="display:inline-flex;align-items:center;gap:.3rem;padding:.22rem .55rem;border-radius:999px;background:rgba(124,194,255,.1);border:1px solid rgba(124,194,255,.24);color:var(--blue);font-size:.76rem;font-weight:700;text-decoration:none;">⚙️ Augment Architecture</a>
+            <a href="setup/AugmentArchitecture.html" style="display:inline-flex;align-items:center;gap:.3rem;padding:.22rem .55rem;border-radius:999px;background:rgba(124,194,255,.1);border:1px solid rgba(124,194,255,.24);color:var(--blue);font-size:.76rem;font-weight:700;text-decoration:none;">🤖 Augment Architecture</a>
             <a href="setup/auto-levels.pine_indicator-guide.html" style="display:inline-flex;align-items:center;gap:.3rem;padding:.22rem .55rem;border-radius:999px;background:rgba(188,140,255,.1);border:1px solid rgba(188,140,255,.24);color:var(--purple);font-size:.76rem;font-weight:700;text-decoration:none;">📐 Auto-Levels Indicator</a>
           </div>
         </div>
@@ -843,7 +843,7 @@
 
         <div class="aside-stack">
           <a class="aside-card" href="https://drasticstatic.github.io/trading-assistant-public-preview/404.html" style="flex:1.5;">
-            <p class="card-label">Bookmark recovery</p>
+            <p class="card-label">📌 Bookmark recovery</p>
             <img src="data/screenshots/404-preview.png" alt="404 recovery page preview" class="aside-card-preview" onerror="this.style.display='none'">
             <h3>Older bookmark not working?</h3>
             <p>Use the dedicated recovery page — built for broken links after the directory restructure</p>
@@ -870,7 +870,7 @@
     try {
       if (localStorage.getItem('theme') === 'light') {
         html.classList.add('light');
-        btn.textContent = '🌙 Dark mode';
+        btn.textContent = '🌙';
       }
     } catch (error) {
       console.warn('Theme preference unavailable.', error);
@@ -878,7 +878,7 @@
 
     function toggleTheme() {
       const isLight = html.classList.toggle('light');
-      btn.textContent = isLight ? '🌙 Dark mode' : '☀️ Light mode';
+      btn.textContent = isLight ? '🌙' : '☀️';
       try {
         localStorage.setItem('theme', isLight ? 'light' : 'dark');
       } catch (error) {
