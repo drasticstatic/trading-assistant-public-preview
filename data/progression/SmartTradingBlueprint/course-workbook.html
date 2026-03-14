@@ -1032,7 +1032,7 @@
   const themeBtn = document.getElementById('themeBtn');
   (function() {
     const saved = localStorage.getItem('stb-theme');
-    if (saved === 'light') { html.classList.add('light'); themeBtn.textContent = '🌙 Dark'; }
+    if (saved === 'light') { html.classList.add('light'); themeBtn.textContent = '🌙'; }
   })();
   function toggleTheme() {
     const isLight = html.classList.toggle('light');
