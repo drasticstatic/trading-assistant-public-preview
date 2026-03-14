@@ -149,60 +149,108 @@
       transform: translateY(-1px);
     }
 
-    /* ── SNAKE GRADIENT BORDER ── */
-    @property --border-angle {
-      syntax: '<angle>';
-      initial-value: 0deg;
-      inherits: false;
-    }
-
-    @keyframes spin-border {
-      to { --border-angle: 360deg; }
-    }
-
+    /* ── SNAKE BORDER: traveling light ── */
     .snake-card {
+      position: relative;
       isolation: isolate;
+      animation: cta-pulse 4.4s ease-in-out infinite;
+    }
+
+    .snake-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 1.1px;
+      border-radius: 18px;
+      background: linear-gradient(140deg,
+        rgba(255,255,255,0.12) 0%,
+        rgba(255,255,255,0.02) 34%,
+        rgba(124,194,255,0.2) 66%,
+        rgba(255,255,255,0.04) 100%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask-composite: exclude;
+      opacity: 0.68;
+      pointer-events: none;
     }
 
     .snake-card::after {
-      content: '';
+      content: "";
       position: absolute;
-      inset: -1px;
-      border-radius: 19px;
-      background: conic-gradient(
-        from var(--border-angle),
-        transparent 60%,
-        var(--blue) 73%,
-        var(--green) 84%,
-        var(--purple) 94%,
-        transparent 100%
-      );
-      z-index: -1;
-      animation: spin-border 5s linear infinite;
+      top: 0; left: 0;
+      width: clamp(5rem, 22%, 9rem);
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(124,194,255,0.26) 16%,
+        rgba(255,255,255,0.9) 50%,
+        rgba(182,147,255,0.56) 82%,
+        transparent 100%);
+      box-shadow: 0 0 14px rgba(124,194,255,0.22), 0 0 28px rgba(182,147,255,0.14);
+      offset-path: inset(1px round 18px);
+      offset-distance: 0%;
+      offset-rotate: auto;
+      animation: card-border-travel 7s linear infinite;
       pointer-events: none;
     }
 
     .snake-pill {
       position: relative;
       isolation: isolate;
+      animation: pill-glow-pulse 3.5s ease-in-out infinite;
     }
 
     .snake-pill::after {
-      content: '';
+      content: "";
       position: absolute;
-      inset: -1px;
+      top: 0; left: 0;
+      width: clamp(1.6rem, 28%, 2.8rem);
+      height: 2px;
       border-radius: 999px;
-      background: conic-gradient(
-        from var(--border-angle),
-        transparent 55%,
-        var(--blue) 68%,
-        var(--green) 80%,
-        var(--purple) 92%,
-        transparent 100%
-      );
-      z-index: -1;
-      animation: spin-border 3s linear infinite;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(124,194,255,0.4) 20%,
+        rgba(255,255,255,0.95) 50%,
+        rgba(182,147,255,0.6) 80%,
+        transparent 100%);
+      box-shadow: 0 0 8px rgba(124,194,255,0.3), 0 0 16px rgba(182,147,255,0.18);
+      offset-path: inset(1px round 999px);
+      offset-distance: 0%;
+      offset-rotate: auto;
+      animation: card-border-travel 3.5s linear infinite;
       pointer-events: none;
+    }
+
+    @keyframes card-border-travel {
+      from { offset-distance: 0%; }
+      to { offset-distance: 100%; }
+    }
+
+    @keyframes cta-pulse {
+      0%, 100% {
+        box-shadow: 0 16px 34px rgba(7,14,26,0.28),
+          0 0 0 1px rgba(124,194,255,0.16),
+          0 0 0 0.18rem rgba(110,231,249,0.08);
+      }
+      38% {
+        box-shadow: 0 20px 42px rgba(7,14,26,0.34),
+          0 0 0 1px rgba(124,194,255,0.24),
+          0 0 0 0.28rem rgba(110,231,249,0.12),
+          0 0 1.4rem rgba(124,194,255,0.18);
+      }
+      62% {
+        box-shadow: 0 22px 46px rgba(7,14,26,0.36),
+          0 0 0 1px rgba(124,194,255,0.28),
+          0 0 0 0.34rem rgba(182,147,255,0.1),
+          0 0 1.7rem rgba(110,231,249,0.16);
+      }
+    }
+
+    @keyframes pill-glow-pulse {
+      0%, 100% { box-shadow: 0 0 0 1px rgba(124,194,255,0.1); }
+      50% { box-shadow: 0 0 0 2px rgba(124,194,255,0.22), 0 0 10px rgba(124,194,255,0.14); }
     }
 
     .page {
@@ -451,6 +499,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
+      text-align: center;
     }
 
     .agent-chip {
@@ -549,6 +598,18 @@
       background:
         linear-gradient(180deg, rgba(124, 194, 255, 0.07) 0%, rgba(124, 194, 255, 0.02) 100%),
         var(--surface-soft);
+    }
+
+    .action-card.no-cta {
+      cursor: default;
+      animation: none;
+    }
+
+    .action-card.no-cta:hover {
+      border-color: var(--border);
+      transform: none;
+      box-shadow: none;
+      background: var(--surface-soft);
     }
 
     .tree {
@@ -822,7 +883,7 @@
           <span class="path-chip">smarttrader-ai/reviews/pattern_tracker.md</span>
         </a>
 
-        <div class="action-card">
+        <div class="action-card no-cta">
           <div class="action-topline"><span>Coaching path</span><span>🎓</span></div>
           <div style="display: flex; align-items: center;">
             <span class="action-icon" aria-hidden="true">📚</span>
@@ -835,7 +896,7 @@
           </div>
         </div>
 
-        <div class="action-card">
+        <div class="action-card no-cta">
           <div class="action-topline"><span>Architecture</span><span>⚙️</span></div>
           <div style="display: flex; align-items: center;">
             <span class="action-icon" aria-hidden="true">🛠️</span>
@@ -912,13 +973,13 @@
         </div>
 
         <div class="aside-stack">
-          <a class="aside-card" href="https://drasticstatic.github.io/trading-assistant-public-preview/404.html" style="flex:1.5;">
+          <a class="aside-card snake-card" href="https://drasticstatic.github.io/trading-assistant-public-preview/404.html" style="flex:1.5;">
             <p class="card-label">📌 Bookmark Recovery</p>
             <img src="404-preview.svg" alt="404 recovery page preview" class="aside-card-preview" onerror="this.src='404-preview.png'">
             <h3>Older bookmark not working?</h3>
             <p>Use the dedicated recovery page — built for broken links after the directory restructure</p>
           </a>
-          <a class="aside-card" href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer" style="flex:1;">
+          <a class="aside-card snake-card" href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer" style="flex:1;">
             <p class="card-label">🐱 GitHub Root</p>
             <img src="https://opengraph.githubassets.com/1/drasticstatic/trading-assistant-public-preview" alt="GitHub repository preview" class="aside-card-preview" onerror="this.style.display='none'">
             <h3>GitHub Root ↗</h3>
