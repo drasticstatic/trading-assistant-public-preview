@@ -1194,7 +1194,7 @@
 <script>
   const html = document.documentElement;
   const btn = document.getElementById('themeBtn');
-  try { if (localStorage.getItem('theme') === 'light') { html.classList.add('light'); btn.textContent = '🌙 Dark'; } } catch(e) {}
+  try { if (localStorage.getItem('theme') === 'light') { html.classList.add('light'); btn.textContent = '🌙'; } } catch(e) {}
   function toggleTheme() {
     const light = html.classList.toggle('light');
     btn.textContent = light ? '🌙' : '☀️';
