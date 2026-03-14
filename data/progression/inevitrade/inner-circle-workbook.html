@@ -84,7 +84,7 @@
     .pill-btn:hover { border-color:var(--blue); color:var(--text); transform:translateY(-1px); }
 
     /* ── LAYOUT ── */
-    .layout { display:grid; grid-template-columns:180px minmax(0,1fr); min-height:calc(100vh - 44px); }
+    .layout { display:grid; grid-template-columns:240px minmax(0,1fr); min-height:calc(100vh - 44px); }
 
     /* ── SIDEBAR ── */
     .sidebar {
@@ -1220,6 +1220,9 @@
   function collapseAll() {
     document.querySelectorAll('details').forEach(d => d.open = false);
   }
+
+  // Start all class-cards collapsed on load
+  document.querySelectorAll('details.class-card').forEach(d => d.removeAttribute('open'));
 
   // Progress counter
   function calcProgress() {
