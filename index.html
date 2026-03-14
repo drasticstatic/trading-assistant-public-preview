@@ -156,6 +156,10 @@
       animation: cta-pulse 4.4s ease-in-out infinite;
     }
 
+    .snake-card:hover {
+      animation-play-state: paused;
+    }
+
     .snake-card::before {
       content: "";
       position: absolute;
@@ -179,16 +183,16 @@
       content: "";
       position: absolute;
       top: 0; left: 0;
-      width: clamp(5rem, 22%, 9rem);
+      width: clamp(1.2rem, 4%, 1.8rem);
       height: 2px;
       border-radius: 999px;
       background: linear-gradient(90deg,
         transparent 0%,
-        rgba(124,194,255,0.26) 16%,
-        rgba(255,255,255,0.9) 50%,
-        rgba(182,147,255,0.56) 82%,
+        rgba(124,194,255,0.3) 18%,
+        rgba(255,255,255,0.92) 50%,
+        rgba(182,147,255,0.5) 82%,
         transparent 100%);
-      box-shadow: 0 0 14px rgba(124,194,255,0.22), 0 0 28px rgba(182,147,255,0.14);
+      box-shadow: 0 0 10px rgba(124,194,255,0.28), 0 0 20px rgba(182,147,255,0.16);
       offset-path: inset(1px round 18px);
       offset-distance: 0%;
       offset-rotate: auto;
@@ -202,20 +206,27 @@
       animation: pill-glow-pulse 3.5s ease-in-out infinite;
     }
 
+    .snake-pill:hover {
+      transform: translateY(-1px) scale(1.04);
+      box-shadow: 0 4px 16px rgba(124,194,255,0.32) !important;
+      border-color: rgba(124,194,255,0.55) !important;
+      animation-play-state: paused;
+    }
+
     .snake-pill::after {
       content: "";
       position: absolute;
       top: 0; left: 0;
-      width: clamp(1.6rem, 28%, 2.8rem);
+      width: clamp(0.6rem, 10%, 1rem);
       height: 2px;
       border-radius: 999px;
       background: linear-gradient(90deg,
         transparent 0%,
-        rgba(124,194,255,0.4) 20%,
+        rgba(124,194,255,0.45) 20%,
         rgba(255,255,255,0.95) 50%,
-        rgba(182,147,255,0.6) 80%,
+        rgba(182,147,255,0.55) 80%,
         transparent 100%);
-      box-shadow: 0 0 8px rgba(124,194,255,0.3), 0 0 16px rgba(182,147,255,0.18);
+      box-shadow: 0 0 6px rgba(124,194,255,0.35), 0 0 12px rgba(182,147,255,0.2);
       offset-path: inset(1px round 999px);
       offset-distance: 0%;
       offset-rotate: auto;
@@ -230,27 +241,22 @@
 
     @keyframes cta-pulse {
       0%, 100% {
-        box-shadow: 0 16px 34px rgba(7,14,26,0.28),
-          0 0 0 1px rgba(124,194,255,0.16),
-          0 0 0 0.18rem rgba(110,231,249,0.08);
+        border-color: rgba(139,148,158,0.2);
+        box-shadow: 0 6px 18px rgba(7,14,26,0.14);
       }
-      38% {
-        box-shadow: 0 20px 42px rgba(7,14,26,0.34),
-          0 0 0 1px rgba(124,194,255,0.24),
-          0 0 0 0.28rem rgba(110,231,249,0.12),
-          0 0 1.4rem rgba(124,194,255,0.18);
-      }
-      62% {
-        box-shadow: 0 22px 46px rgba(7,14,26,0.36),
-          0 0 0 1px rgba(124,194,255,0.28),
-          0 0 0 0.34rem rgba(182,147,255,0.1),
-          0 0 1.7rem rgba(110,231,249,0.16);
+      50% {
+        border-color: rgba(124,194,255,0.3);
+        box-shadow: 0 8px 22px rgba(7,14,26,0.18),
+          inset 0 0 14px rgba(124,194,255,0.05);
       }
     }
 
     @keyframes pill-glow-pulse {
-      0%, 100% { box-shadow: 0 0 0 1px rgba(124,194,255,0.1); }
-      50% { box-shadow: 0 0 0 2px rgba(124,194,255,0.22), 0 0 10px rgba(124,194,255,0.14); }
+      0%, 100% { box-shadow: none; }
+      50% {
+        box-shadow: 0 0 0 2px rgba(124,194,255,0.2),
+          0 0 12px rgba(124,194,255,0.14);
+      }
     }
 
     .page {
