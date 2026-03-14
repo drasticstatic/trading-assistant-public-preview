@@ -117,10 +117,10 @@
 
     .skip-link:focus { top: 1rem; }
 
-    .theme-toggle {
+    .theme-toggle,
+    .nav-pill {
       position: fixed;
       top: 1rem;
-      right: 1rem;
       z-index: 100;
       border: 1px solid var(--border);
       border-radius: 999px;
@@ -131,14 +131,78 @@
       cursor: pointer;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
     }
 
-    html.light .theme-toggle { background: rgba(255, 255, 255, 0.9); }
+    .theme-toggle { right: 1rem; }
+    .nav-pill { left: 1rem; }
 
-    .theme-toggle:hover {
+    html.light .theme-toggle,
+    html.light .nav-pill { background: rgba(255, 255, 255, 0.9); }
+
+    .theme-toggle:hover,
+    .nav-pill:hover {
       border-color: var(--blue);
       color: var(--text);
       transform: translateY(-1px);
+    }
+
+    /* ── SNAKE GRADIENT BORDER ── */
+    @property --border-angle {
+      syntax: '<angle>';
+      initial-value: 0deg;
+      inherits: false;
+    }
+
+    @keyframes spin-border {
+      to { --border-angle: 360deg; }
+    }
+
+    .snake-card {
+      isolation: isolate;
+    }
+
+    .snake-card::after {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 19px;
+      background: conic-gradient(
+        from var(--border-angle),
+        transparent 60%,
+        var(--blue) 73%,
+        var(--green) 84%,
+        var(--purple) 94%,
+        transparent 100%
+      );
+      z-index: -1;
+      animation: spin-border 5s linear infinite;
+      pointer-events: none;
+    }
+
+    .snake-pill {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .snake-pill::after {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 999px;
+      background: conic-gradient(
+        from var(--border-angle),
+        transparent 55%,
+        var(--blue) 68%,
+        var(--green) 80%,
+        var(--purple) 92%,
+        transparent 100%
+      );
+      z-index: -1;
+      animation: spin-border 3s linear infinite;
+      pointer-events: none;
     }
 
     .page {
@@ -599,6 +663,7 @@
 </head>
 <body>
   <a class="skip-link" href="#start-here">Skip to homepage navigation</a>
+  <a class="nav-pill" href="404.html" aria-label="Recovery page">?</a>
   <button type="button" class="theme-toggle" onclick="toggleTheme()" id="themeBtn">☀️</button>
 
   <main class="page">
@@ -717,7 +782,7 @@
       </div>
 
       <div class="quick-grid">
-        <a class="action-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket" target="_blank" rel="noreferrer">
+        <a class="action-card snake-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/analysis/premarket" target="_blank" rel="noreferrer">
           <div class="action-topline"><span>Daily setup</span><span>🌤️</span></div>
           <div style="display: flex; align-items: center;">
             <span class="action-icon" aria-hidden="true">🧭</span>
@@ -727,7 +792,7 @@
           <span class="path-chip">smarttrader-ai/analysis/premarket/</span>
         </a>
 
-        <a class="action-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews" target="_blank" rel="noreferrer">
+        <a class="action-card snake-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews" target="_blank" rel="noreferrer">
           <div class="action-topline"><span>Trade Reviews</span><span>🔍</span></div>
           <div style="display: flex; align-items: center;">
             <span class="action-icon" aria-hidden="true">📈</span>
@@ -737,7 +802,7 @@
           <span class="path-chip">smarttrader-ai/reviews/</span>
         </a>
 
-        <a class="action-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports" target="_blank" rel="noreferrer">
+        <a class="action-card snake-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/exports" target="_blank" rel="noreferrer">
           <div class="action-topline"><span>Daily & Weekly Review Lane</span><span>📋</span></div>
           <div style="display: flex; align-items: center;">
             <span class="action-icon" aria-hidden="true">🗂️</span>
@@ -747,7 +812,7 @@
           <span class="path-chip">smarttrader-ai/exports/</span>
         </a>
 
-        <a class="action-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/pattern_tracker.md" target="_blank" rel="noreferrer">
+        <a class="action-card snake-card" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/pattern_tracker.md" target="_blank" rel="noreferrer">
           <div class="action-topline"><span>Behavioral log</span><span>📊</span></div>
           <div style="display: flex; align-items: center;">
             <span class="action-icon" aria-hidden="true">🧠</span>
@@ -765,8 +830,8 @@
         </div>
           <p class="action-desc">Interactive coaching workbooks — bring to 1-on-1 audits and reviews</p>
           <div style="display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.7rem;">
-            <a href="data/progression/inevitrade/inner-circle-workbook.html" style="display:inline-flex;align-items:center;gap:.3rem;padding:.22rem .55rem;border-radius:999px;background:rgba(63,185,80,.1);border:1px solid rgba(63,185,80,.24);color:var(--green);font-size:.76rem;font-weight:700;text-decoration:none;">📗 Inevitrade Inner Circle</a>
-            <a href="data/progression/SmartTradingBlueprint/course-workbook.html" style="display:inline-flex;align-items:center;gap:.3rem;padding:.22rem .55rem;border-radius:999px;background:rgba(124,194,255,.1);border:1px solid rgba(124,194,255,.24);color:var(--blue);font-size:.76rem;font-weight:700;text-decoration:none;">📘 SmartTradingBlueprint</a>
+            <a href="data/progression/inevitrade/inner-circle-workbook.html" class="snake-pill" style="display:inline-flex;align-items:center;gap:.3rem;padding:.22rem .55rem;border-radius:999px;background:rgba(63,185,80,.1);border:1px solid rgba(63,185,80,.24);color:var(--green);font-size:.76rem;font-weight:700;text-decoration:none;">📗 Inevitrade Inner Circle</a>
+            <a href="data/progression/SmartTradingBlueprint/course-workbook.html" class="snake-pill" style="display:inline-flex;align-items:center;gap:.3rem;padding:.22rem .55rem;border-radius:999px;background:rgba(124,194,255,.1);border:1px solid rgba(124,194,255,.24);color:var(--blue);font-size:.76rem;font-weight:700;text-decoration:none;">📘 SmartTradingBlueprint</a>
           </div>
         </div>
 
@@ -778,8 +843,8 @@
           </div>
           <p class="action-desc">System overview and public infrastructure documentation</p>
           <div style="display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.7rem;">
-            <a href="setup/AugmentArchitecture.html" style="display:inline-flex;align-items:center;gap:.3rem;padding:.22rem .55rem;border-radius:999px;background:rgba(124,194,255,.1);border:1px solid rgba(124,194,255,.24);color:var(--blue);font-size:.76rem;font-weight:700;text-decoration:none;">🤖 Augment Architecture</a>
-            <a href="setup/auto-levels.pine_indicator-guide.html" style="display:inline-flex;align-items:center;gap:.3rem;padding:.22rem .55rem;border-radius:999px;background:rgba(188,140,255,.1);border:1px solid rgba(188,140,255,.24);color:var(--purple);font-size:.76rem;font-weight:700;text-decoration:none;">📐 Auto-Levels Indicator</a>
+            <a href="setup/AugmentArchitecture.html" class="snake-pill" style="display:inline-flex;align-items:center;gap:.3rem;padding:.22rem .55rem;border-radius:999px;background:rgba(124,194,255,.1);border:1px solid rgba(124,194,255,.24);color:var(--blue);font-size:.76rem;font-weight:700;text-decoration:none;">🤖 Augment Architecture</a>
+            <a href="setup/auto-levels.pine_indicator-guide.html" class="snake-pill" style="display:inline-flex;align-items:center;gap:.3rem;padding:.22rem .55rem;border-radius:999px;background:rgba(188,140,255,.1);border:1px solid rgba(188,140,255,.24);color:var(--purple);font-size:.76rem;font-weight:700;text-decoration:none;">📐 Auto-Levels Indicator</a>
           </div>
         </div>
       </div>
@@ -844,14 +909,15 @@
         <div class="aside-stack">
           <a class="aside-card" href="https://drasticstatic.github.io/trading-assistant-public-preview/404.html" style="flex:1.5;">
             <p class="card-label">📌 Bookmark recovery</p>
-            <img src="data/screenshots/404-preview.png" alt="404 recovery page preview" class="aside-card-preview" onerror="this.style.display='none'">
+            <img src="404-preview.svg" alt="404 recovery page preview" class="aside-card-preview" onerror="this.src='404-preview.png'">
             <h3>Older bookmark not working?</h3>
             <p>Use the dedicated recovery page — built for broken links after the directory restructure</p>
           </a>
           <a class="aside-card" href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer" style="flex:1;">
             <p class="card-label">🐱 GitHub Root</p>
+            <img src="https://opengraph.githubassets.com/1/drasticstatic/trading-assistant-public-preview" alt="GitHub repository preview" class="aside-card-preview" onerror="this.style.display='none'">
             <h3>GitHub Root ↗</h3>
-            <p>Browse the full public-preview repository surface on GitHub</p>
+            <p>Browse the full public-preview repository on GitHub</p>
           </a>
         </div>
       </div>
