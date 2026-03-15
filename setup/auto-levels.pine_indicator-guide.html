@@ -210,6 +210,7 @@
       align-items: center;
       gap: 0.55rem;
       margin: 0 0 0.95rem;
+      padding-left: 0.3rem;
       color: var(--muted);
       font-size: 0.82rem;
       font-weight: 800;
@@ -372,10 +373,10 @@
     .stat-action-card {
       margin-top: auto;
       padding: 0.72rem;
-      border: 1px solid color-mix(in srgb, var(--tone) 24%, var(--border));
+      border: 0px solid color-mix(in srgb, var(--tone) 24%, var(--border));
       border-radius: calc(var(--radius-md) - 2px);
-      background: linear-gradient(180deg, color-mix(in srgb, var(--tone-soft) 92%, rgba(255,255,255,0.05)), rgba(255,255,255,0.02));
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.07);
+      background: linear-gradient(180deg, color-mix(in srgb, var(--tone-soft) 1%, rgba(255,255,255,0.01)), rgba(255,255,255,0.01));
+      box-shadow: inset 0 2px 0 rgba(255,255,255,0.02);
     }
 
     .stat-action-card .button {
@@ -401,7 +402,7 @@
     }
 
     .tone-bar {
-      width: 100%;
+      width: 33%;
       height: 4px;
       margin: -1.5rem 0 1rem;
       border-radius: 999px;
@@ -491,8 +492,11 @@
     }
 
     .mini-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       min-width: 0;
-      padding: 0;
+      padding: 0 0 0.22rem;
       border: none;
       border-radius: 0;
       background: none;
@@ -500,8 +504,22 @@
       font-size: 0.84rem;
       font-weight: 700;
       letter-spacing: 0.03em;
+      line-height: 1.3;
+      text-align: center;
       text-transform: uppercase;
     }
+
+    .mini-card:nth-child(1) { color: #63d2ff; }
+    .mini-card:nth-child(2) { color: #62e2d0; }
+    .mini-card:nth-child(3) { color: #b8aaff; }
+    .mini-card:nth-child(4) { color: #f3cf7a; }
+
+    .accent-structure { color: #7fe7ff; }
+    .accent-session { color: #62e2d0; }
+    .accent-fade { color: #f0d58e; }
+    .accent-ghost { color: #bba9ff; }
+    .accent-fcr { color: #ff9b7a; }
+    .accent-context { color: #8de8c0; }
 
     .button {
       --pointer-x: 50%;
@@ -777,35 +795,37 @@
     <header class="hero tone-guide">
       <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>TradingView · Indicator Guide · Instruction Manual</p>
       <h1>Auto-Levels Pine Guide</h1>
-      <p class="hero-lead">This page is the manual-first surface for the current <code>Auto Levels</code> overlay. Use it when you want the settings map, level legend, and practical chart-reading workflow. If you want revision history, bug trails, or known-issue context, jump to the paired changelog instead.</p>
+      <p class="hero-lead">This page is the manual-first surface for the current <code>Auto Levels</code> pine script overlay<br/>
+      Use it when you want the settings map, level legend, and practical chart-reading workflow<br/>
+      If you want revision history, bug trails, or known-issue context, jump to the paired changelog instead</p>
+      <div class="mini-card-row" aria-label="Guide focus areas">
+        <span class="mini-card">📈 Structural map</span>
+        <span class="mini-card">🕘 Session rails</span>
+        <span class="mini-card">👻 Fade & ghost cues</span>
+        <span class="mini-card">⚙️ Display hygiene</span>
+      </div>
       <div class="stat-grid" aria-label="Guide at a glance">
         <article class="stat">
           <strong>Unified overlay</strong>
           <span>Auto levels, 4/5 session opens, FCR, EMA stack, FVG, patterns, and prior-day context live in one main script.</span>
           <div class="stat-action-card">
-            <a class="button" href="#quick-start">Jump to quick start</a>
+            <a class="button" href="#quick-start">Jump to Quick Start</a>
           </div>
         </article>
         <article class="stat">
           <strong>Manual-first</strong>
           <span>This guide stays focused on usage, interpretation, and settings instead of private workflow narration.</span>
           <div class="stat-action-card">
-            <a class="button secondary" href="#settings">Open settings map</a>
+            <a class="button secondary" href="#settings">Jump to Settings Map</a>
           </div>
         </article>
         <article class="stat">
           <strong>Paired surface</strong>
           <span>The companion changelog keeps version detail, bug boundaries, and deeper revision notes separate.</span>
           <div class="stat-action-card">
-            <a class="button tertiary" href="./auto-levels.pine_changelog.html">Open changelog ↗</a>
+            <a class="button tertiary" href="./auto-levels.pine_changelog.html">Open Changelog ↗</a>
           </div>
         </article>
-      </div>
-      <div class="mini-card-row" aria-label="Guide focus areas">
-        <span class="mini-card">🧭 Level legend</span>
-        <span class="mini-card">⚙️ Settings map</span>
-        <span class="mini-card">🕘 Session rails</span>
-        <span class="mini-card">👣 Workflow cues</span>
       </div>
     </header>
 
@@ -818,8 +838,8 @@
           <h3>Use this guide when you need</h3>
           <ul class="list-tight">
             <li>a clean feature map for the overlay</li>
-            <li>the meaning of KEY, 5/5, 4/5, 3/5, Ghost, and FCR</li>
-            <li>the display toggles and how they change what you see</li>
+            <li>the difference between <span class="accent-structure">KEY / 5/5</span>, <span class="accent-session">4/5</span>, <span class="accent-ghost">Ghost</span>, and <span class="accent-fcr">FCR</span></li>
+            <li>the display toggles, ETH/RTH session context, and chart-hygiene defaults</li>
             <li>a practical starting workflow for live charts</li>
           </ul>
         </article>
@@ -842,10 +862,10 @@
       <h2 id="quick-start-title">Start with the core structure, then layer optional signals</h2>
       <p class="section-lead">The easiest onboarding path is to begin with the core level structure, session context, and trend context. Once that feels stable, turn on the noisier overlays only when you want extra confirmation.</p>
       <div class="steps">
-        <article class="step-card"><h3>1. Leave the defaults mostly intact</h3><p>Keep levels, 4/5 session opens, FCR, EMA stack, and prior-day context visible. Save FVG and pattern labels for later.</p></article>
-        <article class="step-card"><h3>2. Read the main map first</h3><p>Use KEY and 5/5 levels for structure, then add 4/5 and FCR for the session-specific rails around the current trading day.</p></article>
-        <article class="step-card"><h3>3. Treat FCR as an event rail</h3><p>The <code>▲ LONG</code> line tracks the 9:30 candle high and the <code>▼ SHORT</code> line tracks the low. That gives you a session-specific reference before optional overlays come online.</p></article>
-        <article class="step-card"><h3>4. Use the ETH/RTH toggle intentionally</h3><p>On whitelisted RTH-primary index symbols, ETH-born ZTH levels are hidden by default for a cleaner chart. Turn them back on only when you explicitly want overnight context.</p></article>
+        <article class="step-card"><h3>1. Leave the defaults mostly intact</h3><p>Keep levels, 4/5 session opens, EMA stack, and prior-day context visible. Save FVG and pattern labels for later, and leave <code>Labels on price scale</code> plus <code>Inputs in status line</code> off for a cleaner read.</p></article>
+        <article class="step-card"><h3>2. Read the main map first</h3><p>Use <span class="accent-structure">KEY</span> and <span class="accent-structure">5/5</span> levels for structure, then add <span class="accent-session">4/5</span> rails for session context around the current trading day.</p></article>
+        <article class="step-card"><h3>3. Treat FCR as an event rail</h3><p>The <span class="accent-fcr"><code>▲ LONG</code></span> rail tracks the 9:30 candle high and the <span class="accent-fcr"><code>▼ SHORT</code></span> rail tracks the low. FCR is an opening-session trigger, not a level that ages into 3/5 or Ghost.</p></article>
+        <article class="step-card"><h3>4. Use the ETH/RTH toggle intentionally</h3><p>On whitelisted US index futures, <code>RTH is Primary for US Indices: Show ETH-Derived Levels for whitelisted instruments</code> brings overnight-born levels back only when you explicitly want them. Whitelist: <code>ES</code>, <code>MES</code>, <code>NQ</code>, <code>MNQ</code>, <code>YM</code>, <code>MYM</code>, <code>RTY</code>, <code>M2K</code>.</p></article>
       </div>
     </section>
 
@@ -856,19 +876,19 @@
       <div class="grid six-card-grid">
         <article class="card">
           <h3>Auto Levels</h3>
-          <p>1-hour color flips create levels at the flip candle open. Structural flips can become KEY levels, then auto-manage through the 5/5 → 3/5 → Ghost lifecycle.</p>
+          <p>1-hour color flips create levels at the flip candle open. Structural flips can become <span class="accent-structure">KEY</span> levels, then auto-manage through the <span class="accent-structure">5/5</span> → <span class="accent-session">3/5</span> → <span class="accent-ghost">Ghost</span> lifecycle.</p>
         </article>
         <article class="card">
           <h3>4/5 session opens</h3>
-          <p>The 9:30 AM ET session open is shown as a dashed teal rail. Current day stays strongest; prior days remain visible with increasing fade.</p>
+          <p>The 9:30 AM ET session open is shown as a dashed <span class="accent-session">teal rail</span>. Today’s 4/5 stays strongest; older 4/5 rails intentionally fade so prior sessions stay visible without overpowering the live one.</p>
         </article>
         <article class="card">
           <h3>FCR</h3>
-          <p>The first-candle-rule rails mark the exact 9:30 15-minute candle high and low as <code>▲ LONG</code> and <code>▼ SHORT</code>.</p>
+          <p>The first-candle-rule rails mark the exact 9:30 15-minute candle high and low as <span class="accent-fcr"><code>▲ LONG</code></span> and <span class="accent-fcr"><code>▼ SHORT</code></span>. Think of FCR as an opening-event map, not as part of the fading ZTH lifecycle.</p>
         </article>
         <article class="card">
           <h3>Trend and context</h3>
-          <p>EMA stack, prior-day high/low/close, and the optional top-right info table help frame bias around the main levels.</p>
+          <p>EMA stack, prior-day high/low/close, and the optional top-right info table help frame bias around the main levels. Prior-day H/L/C should read as <span class="accent-context">quiet context</span>, not with the same weight as KEY, 4/5, or FCR.</p>
         </article>
         <article class="card">
           <h3>Optional signal overlays</h3>
@@ -876,7 +896,7 @@
         </article>
         <article class="card">
           <h3>Companion split that still matters</h3>
-          <p><code>auto-levels.pine</code> is the main visual overlay. The webhook alert companion stays separate, and the changelog page stays separate so the guide can remain usage-oriented.</p>
+          <p><code>auto-levels.pine</code> is the main visual overlay. <code>fcr-standalone.pine</code> remains the shareable FCR-only companion, and the changelog page stays separate so this guide can remain usage-oriented.</p>
         </article>
       </div>
     </section>
@@ -896,19 +916,19 @@
         </article>
         <article class="legend-card">
           <div class="line-sample"><span class="line-swatch four" aria-hidden="true"></span>4/5</div>
-          <p>The 9:30 session-open rail. Think of it as session context, not a replacement for the ZTH lifecycle.</p>
+          <p>The <span class="accent-session">9:30 session-open rail</span>. Think of it as session context, not a replacement for the ZTH lifecycle. Older 4/5 rails are supposed to fade so they stay readable as memory rails instead of competing with the current session.</p>
         </article>
         <article class="legend-card">
           <div class="line-sample"><span class="line-swatch three" aria-hidden="true"></span>3/5</div>
-          <p>A 5/5 that has already been mitigated once. It still matters, but the script visually downshifts its weight.</p>
+          <p>A <span class="accent-structure">5/5</span> that has already been mitigated once. It still matters, but the script visually downshifts its weight so you can tell it is no longer at full structural strength.</p>
         </article>
         <article class="legend-card">
           <div class="line-sample"><span class="line-swatch ghost" aria-hidden="true"></span>Ghost</div>
-          <p>The late-stage fading remainder of an older level. Ghosts are intentionally weaker and eventually remove themselves.</p>
+          <p>The <span class="accent-ghost">late-stage fading remainder</span> of an older level. Once a 3/5 is mitigated again it becomes a Ghost, and each later mitigation fades it another step until it is removed entirely.</p>
         </article>
         <article class="legend-card">
           <div class="line-sample fcr-sample"><span class="fcr-flank fcr-flank-left" aria-hidden="true"></span><span class="line-label">FCR</span><span class="fcr-flank fcr-flank-right" aria-hidden="true"></span></div>
-          <p>A STB session event rail rather than a ZTH lifecycle state. Use it with the current session’s directional context.</p>
+          <p>A <span class="accent-fcr">session-event rail</span> rather than a ZTH lifecycle state. Use it to frame the opening push: <code>▲ LONG</code> = 9:30 high, <code>▼ SHORT</code> = 9:30 low, and neither rail ages into 3/5 or Ghost.</p>
         </article>
       </div>
     </section>
@@ -923,7 +943,7 @@
             <tr><th>Group</th><th>What to watch first</th><th>Why it matters</th></tr>
           </thead>
           <tbody>
-            <tr><td><strong>Display</strong></td><td><code>Show Session Opens (4/5)</code>, <code>Show FCR</code>, <code>Show EMA Stack</code>, and the <code>RTH-Primary</code> ETH toggle</td><td>This is where the chart gets simpler or denser. Most day-to-day usability comes from these switches.</td></tr>
+            <tr><td><strong>Display</strong></td><td><code>Show Session Opens (4/5)</code>, <code>Show FCR</code>, <code>Show EMA Stack</code>, and <code>RTH is Primary for US Indices: Show ETH-Derived Levels for whitelisted instruments</code></td><td>This is where the chart gets simpler or denser. Most day-to-day usability comes from these switches.</td></tr>
             <tr><td><strong>Level Management</strong></td><td><code>Max Active Levels</code></td><td>Controls how many visible ZTH levels remain on chart at once.</td></tr>
             <tr><td><strong>Level Colors</strong></td><td>KEY, 5/5, 4/5, 3/5, Ghost</td><td>Lets you reinforce the visual hierarchy without changing the lifecycle logic.</td></tr>
             <tr><td><strong>FCR</strong></td><td>Long/short colors and prior-day visibility</td><td>Useful when you want the first-candle-rule rails to stay prominent but visually distinct from ZTH levels.</td></tr>
@@ -932,6 +952,7 @@
           </tbody>
         </table>
       </div>
+      <p class="section-lead" style="margin-top:1rem;">Whitelist shown under that setting label: <span class="accent-session"><code>ES</code>, <code>MES</code>, <code>NQ</code>, <code>MNQ</code>, <code>YM</code>, <code>MYM</code>, <code>RTY</code>, <code>M2K</code></span>.</p>
     </section>
 
     <section class="panel tone-sprout" aria-labelledby="workflow-title">
@@ -945,11 +966,11 @@
         </article>
         <article class="card">
           <h3>Session rails second</h3>
-          <p>Add the current 4/5 rail and FCR rails to understand the day’s opening map. Those levels tell you where the session began and where the first-candle high/low live.</p>
+          <p>Add the current <span class="accent-session">4/5</span> rail and <span class="accent-fcr">FCR</span> rails to understand the day’s opening map. Those levels tell you where the session began, where the opening high/low live, and which older session rails are intentionally faded into the background.</p>
         </article>
         <article class="card">
           <h3>Trend context third</h3>
-          <p>Check the EMA stack and prior-day levels to decide whether the current move is aligned with the broader intraday picture.</p>
+          <p>Check the EMA stack and prior-day levels to decide whether the current move is aligned with the broader intraday picture. Keep prior-day H/L/C visually quieter than the structural and session rails.</p>
         </article>
         <article class="card">
           <h3>Optional confirmations last</h3>
@@ -961,16 +982,15 @@
     <section class="panel tone-violet" aria-labelledby="notes-title">
       <div class="tone-bar" aria-hidden="true"></div>
       <p class="kicker">Important notes</p>
-      <h2 id="notes-title">Two public-safe caveats worth keeping visible</h2>
+      <h2 id="notes-title">Two high-value notes worth keeping visible</h2>
       <div class="grid">
         <article class="card">
-          <h3>Name history, kept minimal</h3>
-          <p>Older notes or screenshots may still refer to the indicator as <code>zth_auto_levels.pine</code>. The current active visual overlay is the <code>Auto Levels</code> family, and the older manual-input <code>fcr_levels.pine</code> path is historical only.</p>
+          <h3>🌗 ETH pane vs. RTH pane can legitimately differ</h3>
+          <p>A 5-minute <span class="accent-session">ETH</span> pane can show many more overnight-born levels than an <span class="accent-context">RTH-focused 1-hour</span> pane. That mismatch is a session-policy difference to interpret intentionally, not automatically a bad read.</p>
         </article>
         <article class="card">
-          <h3>Guide boundary</h3>
-          <p>This page reflects the current user-facing intent of the overlay. For version-by-version bug detail, known issues, and which fixes are source-landed versus still awaiting fresh chart confirmation, use the changelog.</p>
-          <p style="margin-top:0.85rem;"><a href="./auto-levels.pine_changelog.html">Open the changelog ↗</a></p>
+          <h3>🎛️ Display hierarchy Christopher wants preserved</h3>
+          <p>Keep prior-day H/L/C more <span class="accent-context">subtle</span> than KEY, 4/5, and FCR — dotted/faded treatment is preferred. There is also room for a translucent <span class="accent-fcr">red shadow band</span> under previous high and a translucent <span class="accent-session">green shadow band</span> above previous low, while <code>Labels on price scale</code> and <code>Inputs in status line</code> stay off by default.</p>
         </article>
       </div>
     </section>

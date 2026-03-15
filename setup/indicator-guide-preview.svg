@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
   <title id="title">Auto Levels Pine guide share preview</title>
-  <desc id="desc">Share preview for the Auto Levels Pine guide showing a centered pine-themed title, borderless guide focus labels, and distinct section cards for legend, settings, and workflow.</desc>
+  <desc id="desc">Share preview for the Auto Levels Pine guide showing a centered pine-themed title, borderless guide focus labels, and three stable cards for the level legend, settings map, and workflow cues.</desc>
   <defs>
     <linearGradient id="bg" x1="72" y1="24" x2="1136" y2="608" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#11291e"/>
@@ -33,41 +33,65 @@
   <circle cx="258" cy="520" r="170" fill="#8df1b8" opacity="0.08" filter="url(#glow)"/>
   <circle cx="618" cy="90" r="118" fill="#f3cf7a" opacity="0.08" filter="url(#glow)"/>
 
-  <text x="600" y="94" fill="#b7c9c1" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="3" text-anchor="middle">TRADINGVIEW SCRIPT · AUTO LEVELS · MANUAL GUIDE</text>
-  <text x="600" y="184" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="66" font-weight="800" text-anchor="middle">Auto Levels Pine Guide</text>
-  <text x="600" y="245" fill="#8df1b8" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle">manual-first setup, chart-reading cues, and settings context</text>
-  <text x="600" y="300" fill="#d9e8df" font-family="Inter, Arial, sans-serif" font-size="24" text-anchor="middle">A public surface for using the unified overlay without opening Pine source or muddying it with release history.</text>
+  <text x="600" y="92" fill="#b7c9c1" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="3" text-anchor="middle">TRADINGVIEW · AUTO LEVELS · PINE SCRIPT GUIDE</text>
+  <text x="600" y="174" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="62" font-weight="800" text-anchor="middle">Auto Levels Indicator</text>
+  <text x="600" y="226" fill="#8df1b8" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" text-anchor="middle">Instruction Manual + Chart-Reading Workflow Guide</text>
+  <text x="600" y="296" fill="#d9e8df" font-family="Inter, Arial, sans-serif" font-size="22" text-anchor="middle">A public surface for the unified overlay's features and settings without opening the pine source</text>
 
-  <g font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" text-anchor="middle">
-    <text x="326" y="358" fill="#9af3bd">LEVEL LEGEND</text>
-    <text x="509" y="358" fill="#52d6c7">SETTINGS MAP</text>
-    <text x="694" y="358" fill="#b5e587">SESSION RAILS</text>
-    <text x="876" y="358" fill="#f3cf7a">WORKFLOW CUES</text>
+  <line x1="160" y1="360" x2="1040" y2="360" stroke="#315242" stroke-width="1.5" opacity="0.9"/>
+  <g font-family="Inter, Arial, sans-serif" font-size="15" font-weight="800" text-anchor="middle" letter-spacing="2">
+    <text x="280" y="348" fill="#9af3bd">LEVEL LEGEND</text>
+    <text x="486" y="348" fill="#52d6c7">SETTINGS MAP</text>
+    <text x="690" y="348" fill="#b5e587">SESSION RAILS</text>
+    <text x="910" y="348" fill="#f3cf7a">WORKFLOW CUES</text>
   </g>
 
-  <rect x="104" y="394" width="296" height="154" rx="28" fill="url(#cardLegend)" stroke="#4f8a67"/>
-  <rect x="452" y="394" width="296" height="154" rx="28" fill="url(#cardSettings)" stroke="#3f8b80"/>
-  <rect x="800" y="394" width="296" height="154" rx="28" fill="url(#cardWorkflow)" stroke="#9a8445"/>
-  <rect x="134" y="398" width="92" height="4" rx="2" fill="#9af3bd"/>
-  <rect x="482" y="398" width="92" height="4" rx="2" fill="#52d6c7"/>
-  <rect x="830" y="398" width="92" height="4" rx="2" fill="#f3cf7a"/>
+  <rect x="84" y="388" width="300" height="172" rx="28" fill="url(#cardLegend)" stroke="#4f8a67"/>
+  <rect x="450" y="388" width="300" height="172" rx="28" fill="url(#cardSettings)" stroke="#3f8b80"/>
+  <rect x="816" y="388" width="300" height="172" rx="28" fill="url(#cardWorkflow)" stroke="#9a8445"/>
+  <rect x="175" y="392" width="111" height="4" rx="2" fill="#9af3bd"/>
+  <rect x="542" y="392" width="111" height="4" rx="2" fill="#52d6c7"/>
+  <rect x="910" y="392" width="111" height="4" rx="2" fill="#f3cf7a"/>
 
-  <text x="252" y="430" fill="#9af3bd" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" text-anchor="middle">LEGEND + FCR TREATMENT</text>
-  <text x="252" y="474" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle">KEY → 5/5 → 3/5</text>
-  <line x1="184" y1="511" x2="224" y2="511" stroke="#ff8f69" stroke-width="4" stroke-linecap="round"/>
-  <text x="252" y="517" fill="#dceee5" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" letter-spacing="2" text-anchor="middle">FCR</text>
-  <line x1="280" y1="511" x2="320" y2="511" stroke="#41c985" stroke-width="4" stroke-linecap="round"/>
+  <text x="234" y="426" fill="#9af3bd" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" text-anchor="middle">LEGEND + FCR TREATMENT</text>
+  <text x="234" y="464" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" text-anchor="middle">KEY · 5/5 → 3/5</text>
+  <text x="234" y="495" fill="#cfe0d8" font-family="Inter, Arial, sans-serif" font-size="18" text-anchor="middle">· 4/5 Open/Close Levels</text>
+  <text x="234" y="519" fill="#cfe0d8" font-family="Inter, Arial, sans-serif" font-size="18" text-anchor="middle">· Mitigated Ghost Levels</text>
+  <line x1="130" y1="540" x2="202" y2="540" stroke="#ff8f69" stroke-width="4" stroke-linecap="round"/>
+  <text x="234" y="544" fill="#dceee5" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" letter-spacing="2" text-anchor="middle">FCR</text>
+  <line x1="266" y1="540" x2="338" y2="540" stroke="#41c985" stroke-width="4" stroke-linecap="round"/>
 
-  <text x="600" y="430" fill="#52d6c7" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" text-anchor="middle">SETTINGS + OPTIONAL MODULES</text>
-  <text x="600" y="474" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle">Display Toggles</text>
-  <text x="600" y="513" fill="#bcd3c7" font-family="Inter, Arial, sans-serif" font-size="20" text-anchor="middle">RTH / ETH / FVG / EMA stack / pattern signals</text>
+  <text x="600" y="426" fill="#52d6c7" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" text-anchor="middle">TOGGLES + OPTIONAL MODULES</text>
+  <text x="600" y="464" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" text-anchor="middle">Display Hygiene</text>
+  <text x="600" y="495" fill="#cfe0d8" font-family="Inter, Arial, sans-serif" font-size="18" text-anchor="middle">· Level Types + Thresholds</text>
+  <text x="600" y="519" fill="#cfe0d8" font-family="Inter, Arial, sans-serif" font-size="18" text-anchor="middle">· Style and Visibility Control</text>
+  <text x="600" y="543" fill="#cfe0d8" font-family="Inter, Arial, sans-serif" font-size="18" text-anchor="middle">· RTH Whitelist vs ETH Derived</text>
 
-  <text x="948" y="430" fill="#f3cf7a" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" text-anchor="middle">PRACTICAL FLOW</text>
-  <text x="948" y="474" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle">Read It Fast</text>
-  <text x="948" y="513" fill="#bcd3c7" font-family="Inter, Arial, sans-serif" font-size="20" text-anchor="middle">Quick-start cues, session rails, and guide-only workflow context</text>
+  <text x="966" y="426" fill="#f3cf7a" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" text-anchor="middle">PRACTICAL FLOW</text>
+  <text x="966" y="464" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" text-anchor="middle">Layered Architecture</text>
+  <text x="966" y="495" fill="#cfe0d8" font-family="Inter, Arial, sans-serif" font-size="18" text-anchor="middle">· Bias + Session Rails</text>
+  <text x="966" y="519" fill="#cfe0d8" font-family="Inter, Arial, sans-serif" font-size="18" text-anchor="middle">· EMA Trend Context</text>
+  <text x="966" y="543" fill="#cfe0d8" font-family="Inter, Arial, sans-serif" font-size="18" text-anchor="middle">· FVGs + Pattern Recognition</text>
 
-  <path d="M1010 134 1035 172H1020L1042 201H1024L1045 230H973L994 201H976L998 172H983Z" fill="#8df1b8" opacity="0.92" stroke="#effff6" stroke-width="2" stroke-linejoin="round"/>
-  <rect x="1003" y="224" width="10" height="15" rx="3" fill="#7a5132"/>
-  <path d="M969 235C982 228 992 226 1008 226c15 0 25 2 36 9" fill="none" stroke="#f3cf7a" stroke-linecap="round" stroke-width="4" opacity="0.9"/>
-  <rect x="96" y="566" width="1008" height="4" rx="2" fill="url(#frame)" opacity="0.98"/>
+  <path transform="translate(80, -50)" d="M1010 132 1035 170H1020L1042 199H1024L1045 228H973L994 199H976L998 170H983Z" fill="#8df1b8" opacity="0.92" stroke="#effff6" stroke-width="2" stroke-linejoin="round"/>
+  <rect transform="translate(80, -50)" x="1003" y="222" width="10" height="15" rx="3" fill="#7a5132"/>
+  <path transform="translate(60, -37)" d="M944 230 L1064 230" fill="none" stroke="#00FFFF" stroke-linecap="round" stroke-width="4" opacity="0.7"/>
+  <path transform="translate(60, -155)" d="M944 230 L1064 230" fill="none" stroke="#00FFFF" stroke-linecap="round" stroke-width="4" opacity="0.7"/>
+  <path transform="translate(60, -111)" d="M944 230 L1064 230" fill="none" stroke="#00FFFF" stroke-linecap="round" stroke-width="4" opacity="0.3"/>
+  <path transform="translate(60, -77)" d="M944 230 L1064 230" fill="none" stroke="#00FFFF" stroke-linecap="round" stroke-width="4" opacity="0.3"/>
+  <path transform="translate(60, -133)" d="M944 230 L1064 230" fill="none" stroke="#800080" stroke-linecap="round" stroke-width="4" opacity="0.4" stroke-dasharray="8, 5"/>
+  <path transform="translate(60, -94)" d="M944 230 L1064 230" fill="none" stroke="#800080" stroke-linecap="round" stroke-width="4" opacity="0.4" stroke-dasharray="8, 5"/>
+  <path transform="translate(60, -58)" d="M944 230 L1064 230" fill="none" stroke="#800080" stroke-linecap="round" stroke-width="4" opacity="0.4" stroke-dasharray="8, 5"/>
+
+  <path transform="translate(-905, -50)" d="M1010 132 1035 170H1020L1042 199H1024L1045 228H973L994 199H976L998 170H983Z" fill="#8df1b8" opacity="0.92" stroke="#effff6" stroke-width="2" stroke-linejoin="round"/>
+  <rect transform="translate(-905, -50)" x="1003" y="222" width="10" height="15" rx="3" fill="#7a5132"/>
+  <path transform="translate(-875, -37)" d="M944 230 L1064 230" fill="none" stroke="#00FFFF" stroke-linecap="round" stroke-width="4" opacity="0.7"/>
+  <path transform="translate(-875, -155)" d="M944 230 L1064 230" fill="none" stroke="#00FFFF" stroke-linecap="round" stroke-width="4" opacity="0.7"/>
+  <path transform="translate(-875, -111)" d="M944 230 L1064 230" fill="none" stroke="#00FFFF" stroke-linecap="round" stroke-width="4" opacity="0.3"/>
+  <path transform="translate(-875, -77)" d="M944 230 L1064 230" fill="none" stroke="#00FFFF" stroke-linecap="round" stroke-width="4" opacity="0.3"/>
+  <path transform="translate(-875, -133)" d="M944 230 L1064 230" fill="none" stroke="#800080" stroke-linecap="round" stroke-width="4" opacity="0.4" stroke-dasharray="8, 5"/>
+  <path transform="translate(-875, -94)" d="M944 230 L1064 230" fill="none" stroke="#800080" stroke-linecap="round" stroke-width="4" opacity="0.4" stroke-dasharray="8, 5"/>
+  <path transform="translate(-875, -58)" d="M944 230 L1064 230" fill="none" stroke="#800080" stroke-linecap="round" stroke-width="4" opacity="0.4" stroke-dasharray="8, 5"/>
+
+  <rect x="226" y="245" width="748" height="4" rx="2" fill="url(#frame)" opacity="0.98"/>
 </svg>

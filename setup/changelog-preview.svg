@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
   <title id="title">Auto Levels Pine changelog share preview</title>
-  <desc id="desc">Share preview for the Auto Levels Pine changelog showing a centered release-history title, distinct current/archive/known-issues panels, and a conservative version-trail summary.</desc>
+  <desc id="desc">Share preview for the Auto Levels Pine changelog showing a centered release-history title, three stable summary cards, and a separate known-issues panel with wrapped text.</desc>
   <defs>
     <linearGradient id="bg" x1="72" y1="24" x2="1136" y2="608" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#14291f"/>
@@ -37,38 +37,67 @@
   <circle cx="968" cy="500" r="164" fill="#52d6c7" opacity="0.08" filter="url(#glow)"/>
   <circle cx="924" cy="122" r="132" fill="#ff8f69" opacity="0.08" filter="url(#glow)"/>
 
-  <text x="600" y="94" fill="#b7c9c1" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="3" text-anchor="middle">TRADINGVIEW SCRIPT · AUTO LEVELS · RELEASE HISTORY</text>
-  <text x="600" y="184" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="66" font-weight="800" text-anchor="middle">Auto Levels Changelog</text>
-  <text x="600" y="245" fill="#52d6c7" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle">version detail, validation trail, and known-issue boundaries</text>
-  <text x="600" y="300" fill="#d9e8df" font-family="Inter, Arial, sans-serif" font-size="24" text-anchor="middle">A conservative public revision surface that keeps what shipped, what changed, and what still needs confirmation clearly separate.</text>
+  <text x="600" y="92" fill="#b7c9c1" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="3" text-anchor="middle">TRADINGVIEW SCRIPT · AUTO LEVELS · RELEASE HISTORY</text>
+  <text x="600" y="174" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="62" font-weight="800" text-anchor="middle">Auto Levels  ·  Changelog</text>
+  <text x="600" y="226" fill="#52d6c7" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" text-anchor="middle">Version Detail · Boundaries · Live-Validation · Feedback</text>
+  <text x="600" y="291" fill="#d9e8df" font-family="Inter, Arial, sans-serif" font-size="22" text-anchor="middle">A conservative public revision surface serving changes, source-landed updates,</text>
+  <text x="600" y="326" fill="#d9e8df" font-family="Inter, Arial, sans-serif" font-size="22" text-anchor="middle">and pending validations - ensuring the main guide remains accurate and uncluttered</text>
 
-  <rect x="100" y="390" width="234" height="156" rx="28" fill="url(#cardCurrent)" stroke="#4d8c69"/>
-  <rect x="366" y="390" width="234" height="156" rx="28" fill="url(#cardArchive)" stroke="#3e887e"/>
-  <rect x="632" y="390" width="234" height="156" rx="28" fill="url(#cardHistory)" stroke="#6a9e66"/>
-  <rect x="892" y="328" width="230" height="218" rx="30" fill="url(#cardIssues)" stroke="#9a8445"/>
-  <rect x="130" y="394" width="88" height="4" rx="2" fill="#9af3bd"/>
-  <rect x="396" y="394" width="88" height="4" rx="2" fill="#52d6c7"/>
-  <rect x="662" y="394" width="88" height="4" rx="2" fill="#b5e587"/>
-  <rect x="922" y="332" width="88" height="4" rx="2" fill="#f3cf7a"/>
+  <line x1="248" y1="348" x2="952" y2="348" stroke="#325244" stroke-width="1.5" opacity="0.9"/>
 
-  <text x="217" y="428" fill="#9af3bd" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" text-anchor="middle">CURRENT BASELINE</text>
-  <text x="217" y="474" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="800" text-anchor="middle">Status</text>
-  <text x="217" y="514" fill="#bcd3c7" font-family="Inter, Arial, sans-serif" font-size="20" text-anchor="middle">public-ready tweaks + active bugs</text>
+  <rect x="84" y="378" width="250" height="178" rx="28" fill="url(#cardCurrent)" stroke="#4d8c69"/>
+  <rect x="364" y="378" width="250" height="178" rx="28" fill="url(#cardArchive)" stroke="#3e887e"/>
+  <rect x="644" y="378" width="250" height="178" rx="28" fill="url(#cardHistory)" stroke="#6a9e66"/>
+  <rect x="914" y="378" width="202" height="178" rx="30" fill="url(#cardIssues)" stroke="#9a8445"/>
+  <rect x="155" y="382" width="111" height="4" rx="2" fill="#9af3bd"/>
+  <rect x="434" y="382" width="111" height="4" rx="2" fill="#52d6c7"/>
+  <rect x="714" y="382" width="111" height="4" rx="2" fill="#b5e587"/>
+  <rect x="973" y="382" width="88" height="4" rx="2" fill="#f3cf7a"/>
 
-  <text x="483" y="428" fill="#52d6c7" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" text-anchor="middle">REVISION TRAIL</text>
-  <text x="483" y="474" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="800" text-anchor="middle">Version Trail</text>
-  <text x="483" y="514" fill="#bcd3c7" font-family="Inter, Arial, sans-serif" font-size="20" text-anchor="middle">name changes, validation notes, ship boundaries</text>
+  <text x="211" y="418" fill="#9af3bd" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" text-anchor="middle">CURRENT BASELINE</text>
+  <text x="211" y="458" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="800" text-anchor="middle">Recent Release</text>
+  <text x="211" y="488" fill="#cfe0d8" font-family="Inter, Arial, sans-serif" font-size="18" text-anchor="middle">Active Source Snapshot</text>
+  <text x="211" y="516" fill="#cfe0d8" font-family="Inter, Arial, sans-serif" font-size="18" text-anchor="middle">Improvements Publicly Visible</text>
+  <text x="211" y="544" fill="#cfe0d8" font-family="Inter, Arial, sans-serif" font-size="18" text-anchor="middle">See Guide 4 Setup/Workflow</text>
 
-  <text x="749" y="428" fill="#c8e88f" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" text-anchor="middle">FOUNDATION</text>
-  <text x="749" y="474" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="800" text-anchor="middle">Detection Roots</text>
-  <text x="749" y="514" fill="#bcd3c7" font-family="Inter, Arial, sans-serif" font-size="20" text-anchor="middle">how the current branch was assembled</text>
+  <text x="491" y="418" fill="#52d6c7" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" text-anchor="middle">REVISION TRAIL</text>
+  <text x="491" y="458" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800" text-anchor="middle">Version #.#</text>
+  <text x="491" y="488" fill="#cfe0d8" font-family="Inter, Arial, sans-serif" font-size="18" text-anchor="middle">Source Change Milestones</text>
+  <text x="491" y="516" fill="#cfe0d8" font-family="Inter, Arial, sans-serif" font-size="18" text-anchor="middle">Bug-trail + Tweaks Context</text>
+  <text x="491" y="544" fill="#cfe0d8" font-family="Inter, Arial, sans-serif" font-size="18" text-anchor="middle">History Stays Trader-Facing</text>
 
-  <text x="1007" y="368" fill="#f3cf7a" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" text-anchor="middle">KNOWN ISSUES</text>
-  <text x="1007" y="414" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" text-anchor="middle">Case ≠ Closed</text>
-  <text x="1007" y="455" fill="#d7d4ca" font-family="Inter, Arial, sans-serif" font-size="19" text-anchor="middle">• source placement still needs live confirmation</text>
-  <text x="1007" y="490" fill="#d7d4ca" font-family="Inter, Arial, sans-serif" font-size="19" text-anchor="middle">• changelog keeps ship notes separate from guide use</text>
+  <text x="771" y="418" fill="#c8e88f" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" text-anchor="middle">FOUNDATION</text>
+  <text x="771" y="458" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800" text-anchor="middle">Indicator Family</text>
+  <text x="771" y="488" fill="#cfe0d8" font-family="Inter, Arial, sans-serif" font-size="18" text-anchor="middle">DetectionRoots + Methodology</text>
+  <text x="771" y="516" fill="#cfe0d8" font-family="Inter, Arial, sans-serif" font-size="18" text-anchor="middle">User Customization</text>
+  <text x="771" y="544" fill="#cfe0d8" font-family="Inter, Arial, sans-serif" font-size="18" text-anchor="middle">Companions + Recognition</text>
 
-  <path d="M1010 120 1032 154H1018L1037 181H1022L1040 208H978L996 181H981L1000 154H987Z" fill="#8df1b8" opacity="0.9" stroke="#effff6" stroke-width="2" stroke-linejoin="round"/>
-  <rect x="1004" y="203" width="10" height="15" rx="3" fill="#7a5132"/>
-  <rect x="96" y="566" width="1008" height="4" rx="2" fill="url(#frame)" opacity="0.98"/>
+  <text x="1017" y="418" fill="#f3cf7a" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="800" letter-spacing="2" text-anchor="middle">KNOWN ISSUES</text>
+  <text x="1017" y="458" fill="#f5fbf7" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" text-anchor="middle">Case Status</text>
+  <text x="1017" y="485" fill="#d7d4ca" font-family="Inter, Arial, sans-serif" font-size="16" text-anchor="middle">Open Live Review w/</text>
+  <text x="1017" y="503" fill="#d7d4ca" font-family="Inter, Arial, sans-serif" font-size="16" text-anchor="middle">On-Chart Confirmation</text>
+  <text x="1017" y="528" fill="#d7d4ca" font-family="Inter, Arial, sans-serif" font-size="16" text-anchor="middle">Implemented in Source</text>
+  <text x="1017" y="546" fill="#d7d4ca" font-family="Inter, Arial, sans-serif" font-size="16" text-anchor="middle">≠ Closed Case</text>
+
+  <path transform="translate(80, -50)" d="M1010 132 1035 170H1020L1042 199H1024L1045 228H973L994 199H976L998 170H983Z" fill="#8df1b8" opacity="0.92" stroke="#effff6" stroke-width="2" stroke-linejoin="round"/>
+  <rect transform="translate(80, -50)" x="1003" y="222" width="10" height="15" rx="3" fill="#7a5132"/>
+  <path transform="translate(60, -37)" d="M944 230 L1064 230" fill="none" stroke="#00FFFF" stroke-linecap="round" stroke-width="4" opacity="0.7"/>
+  <path transform="translate(60, -155)" d="M944 230 L1064 230" fill="none" stroke="#00FFFF" stroke-linecap="round" stroke-width="4" opacity="0.7"/>
+  <path transform="translate(60, -111)" d="M944 230 L1064 230" fill="none" stroke="#00FFFF" stroke-linecap="round" stroke-width="4" opacity="0.3"/>
+  <path transform="translate(60, -77)" d="M944 230 L1064 230" fill="none" stroke="#00FFFF" stroke-linecap="round" stroke-width="4" opacity="0.3"/>
+  <path transform="translate(60, -133)" d="M944 230 L1064 230" fill="none" stroke="#800080" stroke-linecap="round" stroke-width="4" opacity="0.4" stroke-dasharray="8, 5"/>
+  <path transform="translate(60, -94)" d="M944 230 L1064 230" fill="none" stroke="#800080" stroke-linecap="round" stroke-width="4" opacity="0.4" stroke-dasharray="8, 5"/>
+  <path transform="translate(60, -58)" d="M944 230 L1064 230" fill="none" stroke="#800080" stroke-linecap="round" stroke-width="4" opacity="0.4" stroke-dasharray="8, 5"/>
+
+  <path transform="translate(-905, -50)" d="M1010 132 1035 170H1020L1042 199H1024L1045 228H973L994 199H976L998 170H983Z" fill="#8df1b8" opacity="0.92" stroke="#effff6" stroke-width="2" stroke-linejoin="round"/>
+  <rect transform="translate(-905, -50)" x="1003" y="222" width="10" height="15" rx="3" fill="#7a5132"/>
+  <path transform="translate(-875, -37)" d="M944 230 L1064 230" fill="none" stroke="#00FFFF" stroke-linecap="round" stroke-width="4" opacity="0.7"/>
+  <path transform="translate(-875, -155)" d="M944 230 L1064 230" fill="none" stroke="#00FFFF" stroke-linecap="round" stroke-width="4" opacity="0.7"/>
+  <path transform="translate(-875, -111)" d="M944 230 L1064 230" fill="none" stroke="#00FFFF" stroke-linecap="round" stroke-width="4" opacity="0.3"/>
+  <path transform="translate(-875, -77)" d="M944 230 L1064 230" fill="none" stroke="#00FFFF" stroke-linecap="round" stroke-width="4" opacity="0.3"/>
+  <path transform="translate(-875, -133)" d="M944 230 L1064 230" fill="none" stroke="#800080" stroke-linecap="round" stroke-width="4" opacity="0.4" stroke-dasharray="8, 5"/>
+  <path transform="translate(-875, -94)" d="M944 230 L1064 230" fill="none" stroke="#800080" stroke-linecap="round" stroke-width="4" opacity="0.4" stroke-dasharray="8, 5"/>
+  <path transform="translate(-875, -58)" d="M944 230 L1064 230" fill="none" stroke="#800080" stroke-linecap="round" stroke-width="4" opacity="0.4" stroke-dasharray="8, 5"/>
+
+  <rect x="196" y="245" width="808" height="4" rx="2" fill="url(#frame)" opacity="0.98"/>
 </svg>

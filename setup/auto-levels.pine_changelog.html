@@ -208,7 +208,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.55rem;
-      margin: 0 0 0.95rem;
+      margin-left: 0.3rem !important;
       color: var(--muted);
       font-size: 0.82rem;
       font-weight: 800;
@@ -364,10 +364,10 @@
     .stat-action-card {
       margin-top: auto;
       padding: 0.72rem;
-      border: 1px solid color-mix(in srgb, var(--tone) 24%, var(--border));
+      border: 0px solid color-mix(in srgb, var(--tone) 24%, var(--border));
       border-radius: calc(var(--radius-md) - 2px);
-      background: linear-gradient(180deg, color-mix(in srgb, var(--tone-soft) 92%, rgba(255,255,255,0.05)), rgba(255,255,255,0.02));
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.07);
+      background: linear-gradient(180deg, color-mix(in srgb, var(--tone-soft) 1%, rgba(255,255,255,0.01)), rgba(255,255,255,0.01));
+      box-shadow: inset 0 2px 0 rgba(255,255,255,0.07);
     }
 
     .stat-action-card .button {
@@ -376,7 +376,7 @@
     }
 
     .tone-bar {
-      width: 100%;
+      width: 33%;
       height: 4px;
       margin: -1.5rem 0 1rem;
       border-radius: 999px;
@@ -399,6 +399,45 @@
     .footer {
       --tone-secondary: var(--tone-secondary, var(--teal));
     }
+
+    .mini-card-row {
+      display: grid;
+      grid-template-columns: repeat(4, max-content);
+      justify-content: center;
+      gap: 0.75rem 1rem;
+      width: min(100%, 46rem);
+      margin: 1rem auto 0;
+      text-align: center;
+    }
+
+    .mini-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+      padding: 0 0 0.22rem;
+      border: none;
+      border-radius: 0;
+      background: none;
+      color: color-mix(in srgb, var(--text) 84%, var(--tone) 16%);
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      line-height: 1.3;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .mini-card:nth-child(1) { color: #8de8c0; }
+    .mini-card:nth-child(2) { color: #ffb08d; }
+    .mini-card:nth-child(3) { color: #f3cf7a; }
+    .mini-card:nth-child(4) { color: #b8aaff; }
+
+    .accent-code { color: #8de8c0; }
+    .accent-live { color: #ffb08d; }
+    .accent-session { color: #62e2d0; }
+    .accent-warning { color: #f3cf7a; }
+    .accent-ghost { color: #bba9ff; }
 
     .button-row,
     .footer-links {
@@ -698,6 +737,11 @@
       td { min-width: 180px; }
       .button-row,
       .footer-links { grid-template-columns: 1fr; }
+      .mini-card-row { grid-template-columns: repeat(2, max-content); }
+    }
+
+    @media (max-width: 520px) {
+      .mini-card-row { grid-template-columns: 1fr; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -714,27 +758,35 @@
     <header class="hero tone-guide">
       <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>TradingView Script · Pine Revision History</p>
       <h1>Auto-Levels Pine Changelog</h1>
-      <p class="hero-lead">This page is the revision-history surface for the current <code>Auto Levels</code> family. It tracks what shipped, what changed in each version, and which items are source-landed versus still awaiting fresh TradingView confirmation. If you need settings, a level legend, or usage guidance, open the paired guide instead.</p>
+      <p class="hero-lead">This page is the revision-history surface for the current <code>Auto Levels</code> pine script family<br/>
+      It tracks what shipped, what changed in each version, and which features are source-landed versus those still awaiting user feedback and confirmation<br/>
+      If you need settings, a level legend, or usage guidance, open the paired guide instead</p>
+      <div class="mini-card-row" aria-label="Guide focus areas">
+        <span class="mini-card">🛠️ Source changes</span>
+        <span class="mini-card">🔎 Live findings</span>
+        <span class="mini-card">📝 Release notes</span>
+        <span class="mini-card">⚠️ Follow-up</span>
+      </div>
       <div class="stat-grid" aria-label="Changelog at a glance">
         <article class="stat">
           <strong>Current public baseline</strong>
           <span><code>v2.5</code> is the active source snapshot represented here.</span>
           <div class="stat-action-card">
-            <a class="button tertiary" href="./auto-levels.pine_indicator-guide.html">Open guide ↗</a>
+            <a class="button tertiary" href="./auto-levels.pine_indicator-guide.html">Open Guide ↗</a>
           </div>
         </article>
         <article class="stat">
           <strong>Expandable revision notes</strong>
           <span>Each milestone below can be opened for the deeper why/what detail.</span>
           <div class="stat-action-card">
-            <a class="button" href="#timeline">Jump to version history</a>
+            <a class="button" href="#timeline">Jump to Version History</a>
           </div>
         </article>
         <article class="stat">
           <strong>Validation boundary stays visible</strong>
           <span>Source-landed fixes are not automatically treated as fully chart-verified fixes.</span>
           <div class="stat-action-card">
-            <a class="button secondary" href="#known-issues">Open known issues</a>
+            <a class="button secondary" href="#known-issues">Jump to Known Issues</a>
           </div>
         </article>
       </div>
@@ -776,10 +828,9 @@
             <tr><th>Surface</th><th>Role</th><th>Status</th></tr>
           </thead>
           <tbody>
-            <tr><td><code>tradingview/pine_scripts/auto-levels/auto-levels.pine</code></td><td>Main unified overlay for auto levels, session opens, FCR, EMAs, FVG, patterns, and prior-day context.</td><td>✅ Active <code>v2.5</code> source.</td></tr>
-            <tr><td><code>tradingview/pine_scripts/auto-levels/auto-levels_fcr-standalone.pine</code></td><td>Shareable FCR-only companion.</td><td>✅ Active companion.</td></tr>
-            <tr><td><code>tradingview/pine_scripts/webhook-alerts.pine</code></td><td>Alert-only companion kept intentionally separate from the visual overlay family.</td><td>✅ Active top-level companion.</td></tr>
-            <tr><td><code>fcr_levels.pine</code></td><td>Older manual-input lineage reference.</td><td>Historical only.</td></tr>
+            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v2.5</code> Source</td></tr>
+            <tr><td><code>fcr-standalone.pine</code></td><td>Shareable FCR-only companion</td><td>✅ Active companion</td></tr>
+            <tr><td><code>webhook-alerts.pine</code></td><td>Alert-only companion kept intentionally separate from the visual overlay family</td><td>✅ Active top-level companion</td></tr>
           </tbody>
         </table>
       </div>
@@ -807,6 +858,7 @@
               <li>Moves FCR capture/drawing to exact 15-minute 9:30 high, low, and time anchors.</li>
               <li>Updates the ETH/RTH display behavior so already-stored ETH-derived ZTH levels respond to the current toggle state.</li>
               <li>Lets existing 4/5 session drawings rebuild or disappear from the current display toggle instead of affecting only future prints.</li>
+              <li>Latest live review is still treated as open follow-up: current reports say <code>v2.5</code> is not yet printing FCR rays and that 4/5 table values can still read <code>0</code>.</li>
             </ul>
           </div>
         </details>
@@ -980,26 +1032,28 @@
     <section class="panel tone-issues" id="known-issues" aria-labelledby="known-issues-title">
       <div class="tone-bar" aria-hidden="true"></div>
       <p class="kicker">Known issues and validation boundary</p>
-      <h2 id="known-issues-title">Source landed does not always mean fresh-chart closed</h2>
+      <h2 id="known-issues-title">Implemented in source does not automatically mean re-checked on a current TradingView chart</h2>
       <div class="grid">
         <article class="card">
-          <h3>Still-open visual questions</h3>
+          <h3>🔎 Latest live findings still open</h3>
           <ul class="list-tight">
-            <li><strong>Bug 8 — ray geometry:</strong> fresh screenshot review is still needed to confirm the intended rightward behavior end to end.</li>
-            <li><strong>Bug 9 — under-detection:</strong> the detection path has been revised more than once, but visible level count still needs fresh manual comparison.</li>
-            <li><strong><code>v2.5</code> FCR anchors:</strong> wick-aligned prices still need confirmation on the chart timeframes Christopher actually uses.</li>
+            <li><strong>4/5 table values:</strong> <span class="accent-live"><code>v2.4</code> / <code>v2.5</code></span> can still show <code>0</code> in the table. Christopher reports <code>v2.3</code> reportedly draws correctly on the <span class="accent-session">9:30 open</span>, and the same logic should also work on the <span class="accent-session">16:00 close</span>.</li>
+            <li><strong><code>v2.5</code> FCR rays:</strong> the latest live report says the <span class="accent-live">FCR rails are not printing</span> yet.</li>
+            <li><strong>Above 1h timeframes:</strong> some levels still appear as <span class="accent-warning">heavy vertical downward rays</span> instead of cleaner rightward context rails.</li>
+            <li><strong>ETH vs. RTH panes:</strong> a 5-minute ETH pane can still show many extra levels compared with an RTH 1-hour pane, so that mismatch needs to stay explicit in the docs and future validation.</li>
           </ul>
         </article>
         <article class="card">
-          <h3>Open behavior checks after <code>v2.5</code></h3>
+          <h3>📝 Docs/front-end follow-up captured here</h3>
           <ul class="list-tight">
-            <li>Already-stored ETH-derived ZTH levels should respond correctly when the ETH/RTH display toggle changes.</li>
-            <li>Existing 4/5 session drawings should rebuild or disappear from the current toggle state instead of waiting for future sessions.</li>
-            <li>Earlier source-side fixes should still be treated conservatively until they are re-checked against fresh chart evidence.</li>
+            <li>Rename the setting text to <code>RTH is Primary for US Indices: Show ETH-Derived Levels for whitelisted instruments</code> and show the whitelist directly underneath: <code>ES</code>, <code>MES</code>, <code>NQ</code>, <code>MNQ</code>, <code>YM</code>, <code>MYM</code>, <code>RTY</code>, <code>M2K</code>.</li>
+            <li>Leave <code>Labels on price scale</code> and <code>Inputs in status line</code> off by default.</li>
+            <li>Prior-day <code>H/L/C</code> should read more subtly — dotted/faded rather than dominant.</li>
+            <li>Previous high could use a translucent <span class="accent-live">red shadow band underneath</span>, and previous low a translucent <span class="accent-code">green band above</span>.</li>
           </ul>
         </article>
       </div>
-      <p class="section-lead">That caution is intentional. This changelog documents real source history, but it avoids overstating live-chart closure where the screenshot evidence is not freshly in hand.</p>
+      <p class="section-lead">That caution is intentional. This changelog documents real source history, but it keeps <span class="accent-code">implemented in repo</span> separate from <span class="accent-live">observed live on Christopher’s chart</span> so unresolved behavior does not get mislabeled as fixed.</p>
     </section>
 
     <section class="panel tone-archive" aria-labelledby="history-title">
@@ -1009,7 +1063,7 @@
       <div class="grid">
         <article class="card">
           <h3>Earlier names you may still see</h3>
-          <p>Older notes or screenshots may still refer to the main indicator as <code>zth_auto_levels.pine</code>. The older manual-input <code>fcr_levels.pine</code> path is historical only.</p>
+          <p>Older notes or screenshots may still refer to the indicator as <code>zth_auto_levels.pine</code> or <code>fcr_levels.pine</code> - path is historical only.</p>
         </article>
         <article class="card">
           <h3>Need the manual instead?</h3>
@@ -1020,7 +1074,7 @@
     </section>
 
     <footer class="footer tone-guide">
-      <p>This changelog is intentionally conservative: it shows the real version trail, preserves user-relevant name history, and keeps the source-vs-chart validation boundary visible.</p>
+      <p>This changelog is intentionally conservative: it shows the real version trail, preserves the implemented-vs-live-verified boundary, and records follow-up findings without overstating closure.</p>
       <div class="footer-links">
         <a class="button" href="./auto-levels.pine_indicator-guide.html">Open the guide ↗</a>
         <a class="button secondary" href="../index.html">Back to public preview home ↩</a>
