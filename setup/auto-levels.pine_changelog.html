@@ -770,7 +770,7 @@
       <div class="stat-grid" aria-label="Changelog at a glance">
         <article class="stat">
           <strong>Current public baseline</strong>
-          <span><code>v2.5</code> is the active source snapshot represented here.</span>
+          <span><code>v2.6</code> is the active source snapshot represented here.</span>
           <div class="stat-action-card">
             <a class="button tertiary" href="./auto-levels.pine_indicator-guide.html">Open Guide ↗</a>
           </div>
@@ -828,7 +828,7 @@
             <tr><th>Surface</th><th>Role</th><th>Status</th></tr>
           </thead>
           <tbody>
-            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v2.5</code> Source</td></tr>
+            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v2.6</code> Source</td></tr>
             <tr><td><code>fcr-standalone.pine</code></td><td>Shareable FCR-only companion</td><td>✅ Active companion</td></tr>
             <tr><td><code>webhook-alerts.pine</code></td><td>Alert-only companion kept intentionally separate from the visual overlay family</td><td>✅ Active top-level companion</td></tr>
           </tbody>
@@ -845,11 +845,34 @@
         <details class="release" open>
           <summary>
             <div>
-              <p class="release-meta">Mar 11, 2026 · current baseline</p>
+              <p class="release-meta">Mar 16, 2026 · surgical repair session</p>
+              <h3>v2.6</h3>
+              <p class="release-summary">4/5 dual-slot model, FCR sentinel fix, higher-TF ray geometry, close anchor fix, and FCR standalone v2.0.</p>
+            </div>
+            <span class="status-pill status-current">Current</span>
+            <span class="chevron" aria-hidden="true">▾</span>
+          </summary>
+          <div class="release-body">
+            <ul class="list-tight">
+              <li><strong>4/5 root cause fixed:</strong> replaced single rolling queue with two independent chains — one for 9:30 RTH open events, one for 16:00 RTH close events. The prior <code>sess_use_open</code> condition was always <code>true</code>, so 16:00 closes were never stored and the table showed <code>0</code>. Both chains now print correctly.</li>
+              <li><strong>FCR &amp; 4/5 sentinel fix:</strong> three sentinel variables were initialized to <code>na</code>. In Pine v5, <code>x != na</code> returns <code>na</code>, not <code>true</code>, making the event guards permanently false. Changed all three to <code>= 0</code>. FCR and 4/5 now fire and print correctly.</li>
+              <li><strong>Higher-TF horizontal rays:</strong> extended the ray x2 endpoint to 48 hours ahead. On 4-hour+ charts a 1-hour lookahead mapped to the same pixel as x1, producing vertical spikes instead of rightward rails.</li>
+              <li><strong>4/5 close anchor:</strong> the 16:00 close ray now anchors to the 15:45 bar open time rather than the <code>time_close</code> value. On RTH-only chart views the 16:00 timestamp has no visible bar and the ray was floating against the last visible candle.</li>
+              <li><strong>Runtime crash fix:</strong> <code>array.size(na)</code> on 1-min through 10-min charts. Pine v5 does not short-circuit <code>and</code>, so the <code>security_lower_tf</code> null guard now nests instead of inlining.</li>
+              <li><strong>Toggle added:</strong> "Show ZTH Levels on Timeframes Above 1hr" (default OFF) — contextual workaround for the cross-TF detection limitation on 4hr/Daily/Weekly charts.</li>
+              <li><strong>FCR standalone v2.0:</strong> replaced the bar-index-based v1.0 with the same multi-TF scan + fallback model used by the main overlay. Works correctly on any chart timeframe.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release">
+          <summary>
+            <div>
+              <p class="release-meta">Mar 11, 2026 · behavior pass</p>
               <h3>v2.5</h3>
               <p class="release-summary">Scoped behavior pass for exact FCR anchors, ETH/RTH sync, and 4/5 rebuild behavior.</p>
             </div>
-            <span class="status-pill status-current">Current</span>
+            <span class="status-pill status-history">History</span>
             <span class="chevron" aria-hidden="true">▾</span>
           </summary>
           <div class="release-body">
@@ -858,7 +881,7 @@
               <li>Moves FCR capture/drawing to exact 15-minute 9:30 high, low, and time anchors.</li>
               <li>Updates the ETH/RTH display behavior so already-stored ETH-derived ZTH levels respond to the current toggle state.</li>
               <li>Lets existing 4/5 session drawings rebuild or disappear from the current display toggle instead of affecting only future prints.</li>
-              <li>Latest live review is still treated as open follow-up: current reports say <code>v2.5</code> is not yet printing FCR rays and that 4/5 table values can still read <code>0</code>.</li>
+              <li>FCR rays were not printing and 4/5 table values could still read <code>0</code> — root causes identified and fixed in <code>v2.6</code>.</li>
             </ul>
           </div>
         </details>
@@ -1035,25 +1058,61 @@
       <h2 id="known-issues-title">Implemented in source does not automatically mean re-checked on a current TradingView chart</h2>
       <div class="grid">
         <article class="card">
-          <h3>🔎 Latest live findings still open</h3>
+          <h3>✅ Closed in v2.6</h3>
           <ul class="list-tight">
-            <li><strong>4/5 table values:</strong> <span class="accent-live"><code>v2.4</code> / <code>v2.5</code></span> can still show <code>0</code> in the table. Christopher reports <code>v2.3</code> reportedly draws correctly on the <span class="accent-session">9:30 open</span>, and the same logic should also work on the <span class="accent-session">16:00 close</span>.</li>
-            <li><strong><code>v2.5</code> FCR rays:</strong> the latest live report says the <span class="accent-live">FCR rails are not printing</span> yet.</li>
-            <li><strong>Above 1h timeframes:</strong> some levels still appear as <span class="accent-warning">heavy vertical downward rays</span> instead of cleaner rightward context rails.</li>
-            <li><strong>ETH vs. RTH panes:</strong> a 5-minute ETH pane can still show many extra levels compared with an RTH 1-hour pane, so that mismatch needs to stay explicit in the docs and future validation.</li>
+            <li><strong>4/5 table showing <code>0</code>:</strong> root cause confirmed — <code>sess_use_open</code> was always <code>true</code>, collapsing both events into a single chain. Fixed with dual independent open/close chains.</li>
+            <li><strong>FCR rays not printing:</strong> sentinel variables initialized to <code>na</code> instead of <code>0</code>. Pine v5 <code>x != na</code> returns <code>na</code>, not <code>true</code>. Fixed.</li>
+            <li><strong>Vertical spikes on 4hr+ charts:</strong> ray x2 was only 1 hour ahead of x1 — same pixel on 4hr charts. Fixed with 48-hour lookahead.</li>
+            <li><strong>Runtime crash on 1–10 min charts:</strong> <code>array.size(na)</code> when <code>security_lower_tf</code> returns <code>na</code>. Fixed with nested guard.</li>
           </ul>
         </article>
         <article class="card">
-          <h3>📝 Docs/front-end follow-up captured here</h3>
+          <h3>🔎 Still open after v2.6</h3>
           <ul class="list-tight">
-            <li>Rename the setting text to <code>RTH is Primary for US Indices: Show ETH-Derived Levels for whitelisted instruments</code> and show the whitelist directly underneath: <code>ES</code>, <code>MES</code>, <code>NQ</code>, <code>MNQ</code>, <code>YM</code>, <code>MYM</code>, <code>RTY</code>, <code>M2K</code>.</li>
-            <li>Leave <code>Labels on price scale</code> and <code>Inputs in status line</code> off by default.</li>
+            <li><strong>4/5 wrong price on 1hr chart:</strong> close and/or open ray price levels are incorrect on 1hr chart views. Root cause not yet isolated from static analysis — needs targeted runtime diagnostic.</li>
+            <li><strong>Some 4/5 vertical on 1hr chart:</strong> isolated to 1hr specifically. Possibly related to wrong-price issue above.</li>
+            <li><strong>ZTH missing levels on 1hr ETH chart:</strong> architectural cross-TF limitation — <code>request.security</code> with same-TF + different session boundaries causes some 1hr RTH bar events to be skipped. Same class of issue as the 4hr+ detection gap. Lower TF charts are correct.</li>
+            <li><strong>ETH-derived 4/5 events (17:00 close, 18:00 open):</strong> toggle tooltip promises these but they are not yet implemented. Deferred to next Pine wave.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>📝 Style and docs follow-up</h3>
+          <ul class="list-tight">
             <li>Prior-day <code>H/L/C</code> should read more subtly — dotted/faded rather than dominant.</li>
             <li>Previous high could use a translucent <span class="accent-live">red shadow band underneath</span>, and previous low a translucent <span class="accent-code">green band above</span>.</li>
+            <li>Leave <code>Labels on price scale</code> and <code>Inputs in status line</code> off by default.</li>
           </ul>
         </article>
       </div>
       <p class="section-lead">That caution is intentional. This changelog documents real source history, but it keeps <span class="accent-code">implemented in repo</span> separate from <span class="accent-live">observed live on Christopher’s chart</span> so unresolved behavior does not get mislabeled as fixed.</p>
+    </section>
+
+    <section class="panel tone-archive" aria-labelledby="roadmap-title">
+      <div class="tone-bar" aria-hidden="true"></div>
+      <p class="kicker">Upcoming work</p>
+      <h2 id="roadmap-title">What the next Pine wave is expected to address</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>🔧 Bug fixes queued</h3>
+          <ul class="list-tight">
+            <li><strong>4/5 wrong price on 1hr:</strong> once root cause is confirmed via runtime diagnostic, surgical fix to ensure the correct open/close price is stored on all chart timeframes.</li>
+            <li><strong>4/5 vertical on 1hr:</strong> likely resolves alongside the wrong-price fix above.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>🏗️ Architectural — <code>security_lower_tf("60")</code> scan</h3>
+          <ul class="list-tight">
+            <li>Replace the <code>request.security</code> 1hr flip-detection path with a <code>security_lower_tf("60")</code> scan loop — the same pattern 4/5 uses for 15-min events. This is the single fix that unblocks <strong>both</strong> the 1hr ETH missing-levels issue and the 4hr+ sparse-detection gap. Requires a Kavanah-coordinated Pine wave.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>✨ New features deferred</h3>
+          <ul class="list-tight">
+            <li><strong>ETH-derived 4/5 events:</strong> 17:00 ET close and 18:00 ET open chains when "Show ETH-Derived Levels for Whitelisted" toggle is ON. Requires ETH session scan using <code>eth_source_ticker</code>.</li>
+            <li><strong>Prior-day visual polish:</strong> dotted/faded H/L/C, translucent red/green shadow bands on previous high/low.</li>
+          </ul>
+        </article>
+      </div>
     </section>
 
     <section class="panel tone-archive" aria-labelledby="history-title">

@@ -847,7 +847,7 @@
           <h3>Open the changelog when you need</h3>
           <ul class="list-tight">
             <li>revision-by-revision version history</li>
-            <li>what changed in <code>v2.5</code> versus earlier passes</li>
+            <li>what changed in <code>v2.6</code> versus earlier passes</li>
             <li>known/open issues and validation boundaries</li>
             <li>the minimal name-history context that still matters publicly</li>
           </ul>
@@ -863,7 +863,8 @@
       <p class="section-lead">The easiest onboarding path is to begin with the core level structure, session context, and trend context. Once that feels stable, turn on the noisier overlays only when you want extra confirmation.</p>
       <div class="steps">
         <article class="step-card"><h3>1. Leave the defaults mostly intact</h3><p>Keep levels, 4/5 session opens, EMA stack, and prior-day context visible. Save FVG and pattern labels for later, and leave <code>Labels on price scale</code> plus <code>Inputs in status line</code> off for a cleaner read.</p></article>
-        <article class="step-card"><h3>2. Read the main map first</h3><p>Use <span class="accent-structure">KEY</span> and <span class="accent-structure">5/5</span> levels for structure, then add <span class="accent-session">4/5</span> rails for session context around the current trading day.</p></article>
+        <article class="step-card"><h3>2. Read the main map first</h3><p>Use <span class="accent-structure">KEY</span> and <span class="accent-structure">5/5</span> levels for structure, then add <span class="accent-session">4/5</span> rails for session context — the 9:30 open and 4:00 PM close pair brackets the current trading day.</p></article>
+
         <article class="step-card"><h3>3. Treat FCR as an event rail</h3><p>The <span class="accent-fcr"><code>▲ LONG</code></span> rail tracks the 9:30 candle high and the <span class="accent-fcr"><code>▼ SHORT</code></span> rail tracks the low. FCR is an opening-session trigger, not a level that ages into 3/5 or Ghost.</p></article>
         <article class="step-card"><h3>4. Use the ETH/RTH toggle intentionally</h3><p>On whitelisted US index futures, <code>RTH is Primary for US Indices: Show ETH-Derived Levels for whitelisted instruments</code> brings overnight-born levels back only when you explicitly want them. Whitelist: <code>ES</code>, <code>MES</code>, <code>NQ</code>, <code>MNQ</code>, <code>YM</code>, <code>MYM</code>, <code>RTY</code>, <code>M2K</code>.</p></article>
       </div>
@@ -879,8 +880,8 @@
           <p>1-hour color flips create levels at the flip candle open. Structural flips can become <span class="accent-structure">KEY</span> levels, then auto-manage through the <span class="accent-structure">5/5</span> → <span class="accent-session">3/5</span> → <span class="accent-ghost">Ghost</span> lifecycle.</p>
         </article>
         <article class="card">
-          <h3>4/5 session opens</h3>
-          <p>The 9:30 AM ET session open is shown as a dashed <span class="accent-session">teal rail</span>. Today’s 4/5 stays strongest; older 4/5 rails intentionally fade so prior sessions stay visible without overpowering the live one.</p>
+          <h3>4/5 session rails</h3>
+          <p>Two dashed <span class="accent-session">teal rails</span> per session: the 9:30 AM ET open and the 4:00 PM ET close. Today’s pair stays strongest; older rails intentionally fade so prior sessions stay readable without overpowering the live day.</p>
         </article>
         <article class="card">
           <h3>FCR</h3>
@@ -916,7 +917,7 @@
         </article>
         <article class="legend-card">
           <div class="line-sample"><span class="line-swatch four" aria-hidden="true"></span>4/5</div>
-          <p>The <span class="accent-session">9:30 session-open rail</span>. Think of it as session context, not a replacement for the ZTH lifecycle. Older 4/5 rails are supposed to fade so they stay readable as memory rails instead of competing with the current session.</p>
+          <p>The <span class="accent-session">session-open and session-close rails</span> — 9:30 AM ET open and 4:00 PM ET close, drawn as a pair. Think of them as session context, not part of the ZTH lifecycle. Older 4/5 pairs intentionally fade so prior sessions stay readable without competing with the live day.</p>
         </article>
         <article class="legend-card">
           <div class="line-sample"><span class="line-swatch three" aria-hidden="true"></span>3/5</div>
@@ -943,7 +944,7 @@
             <tr><th>Group</th><th>What to watch first</th><th>Why it matters</th></tr>
           </thead>
           <tbody>
-            <tr><td><strong>Display</strong></td><td><code>Show Session Opens (4/5)</code>, <code>Show FCR</code>, <code>Show EMA Stack</code>, and <code>RTH is Primary for US Indices: Show ETH-Derived Levels for whitelisted instruments</code></td><td>This is where the chart gets simpler or denser. Most day-to-day usability comes from these switches.</td></tr>
+            <tr><td><strong>Display</strong></td><td><code>Show 4/5 Levels</code>, <code>Show FCR</code>, <code>Show EMA Stack</code>, <code>Show ZTH Levels on Timeframes Above 1hr</code>, and <code>RTH is Primary for US Indices: Show ETH-Derived Levels for whitelisted instruments</code></td><td>This is where the chart gets simpler or denser. Most day-to-day usability comes from these switches. The above-1hr toggle is off by default — on 4hr/Daily/Weekly charts only a subset of 1hr flips are captured per bar, so enable it for top-down reference only.</td></tr>
             <tr><td><strong>Level Management</strong></td><td><code>Max Active Levels</code></td><td>Controls how many visible ZTH levels remain on chart at once.</td></tr>
             <tr><td><strong>Level Colors</strong></td><td>KEY, 5/5, 4/5, 3/5, Ghost</td><td>Lets you reinforce the visual hierarchy without changing the lifecycle logic.</td></tr>
             <tr><td><strong>FCR</strong></td><td>Long/short colors and prior-day visibility</td><td>Useful when you want the first-candle-rule rails to stay prominent but visually distinct from ZTH levels.</td></tr>
@@ -966,7 +967,7 @@
         </article>
         <article class="card">
           <h3>Session rails second</h3>
-          <p>Add the current <span class="accent-session">4/5</span> rail and <span class="accent-fcr">FCR</span> rails to understand the day’s opening map. Those levels tell you where the session began, where the opening high/low live, and which older session rails are intentionally faded into the background.</p>
+          <p>Add the current <span class="accent-session">4/5</span> pair (9:30 open + 4:00 PM close) and <span class="accent-fcr">FCR</span> rails to understand the day’s opening map. Those rails tell you where the session opened, where the opening 15-min candle high/low live, and which older session rails are intentionally faded into the background.</p>
         </article>
         <article class="card">
           <h3>Trend context third</h3>
