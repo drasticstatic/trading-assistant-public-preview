@@ -113,8 +113,81 @@ Christopher recognized that his mental state coming out of the Monday news and T
 
 The auto-levels indicator is now ready. The UI infrastructure is in a strong state. Next week, the chart prep time that was previously spent manually marking levels and cleaning charts is largely automated — creating more focus time for the five-layer entry filter, pre-market analysis, and trade management.
 
-**Pine Script v2.6 milestone (Kavanah + Auggie):**
-> *(Kavanah's full update to be added here once she merges and commits — placeholder for her commit summary including auto-levels public page, v2.6 changes, and any pending-tasks updates)*
+**Pine Script v2.6 development arc — where it stands as of Mar 16 (Kavanah):**
+
+Wave 62 (post-v2.5 release): Public-surface corrections applied — FCR label treatment, six-card row/wrapping cleanup, label-border removal, CTA placement refinements on the auto-levels HTML family. Docs/assets package shipped and pushed at `da6bc25`.
+
+Waves 63-66 (v2.6 Pine repair): Kavanah led a staged repair effort for the core Pine behavior issues surfaced by Christopher's live testing. Six rounds of feedback were documented and processed. Progress made:
+- ✅ Mixed ETH/RTH pane behavior is now broadly coherent
+- ✅ ETH-derived levels now appear on RTH charts when the toggle is enabled
+- ✅ Plausible true-15m FCR path built into working tree
+- ✅ Better higher-timeframe ray anchoring in working tree
+
+Still not resolved in live TradingView as of Mar 16:
+- ❌ FCR still not printing on any timeframe
+- ❌ 4/5 levels still not printing — table shows 0
+- ❌ Higher timeframes still showing vertical posts instead of horizontal source rays
+- ⚠️ Current `auto-levels.pine` contains Christopher's preserved manual edits + an unapproved batch-3 patch attempt — **not verified, not release-ready**
+
+Wave 66 is now **paused**. Kavanah has handed the current Pine state to Fortuna for a second-eyes review before more credits are spent on implementor retries. Christopher shared the full feedback arc, Kavanah's Wave 66 continuity note, and the current script for Fortuna's review.
+
+---
+
+## Mar 15-16 — "Behind the scenes. Setting up for next week."
+
+**Session type:** Development / coordination — Kavanah Pine handoff + Fortuna review
+
+No trades. Not the right call to be live while the auto-levels indicator is in an unverified state and the week's mental recovery was still underway. The right work for these days was exactly what happened.
+
+**Kavanah Pine handoff (Mar 16):**
+
+Kavanah appended the Mar 12 Fortuna prompt with a full Wave 66 continuity note. This documents the paused Pine state precisely: what's been accomplished (ETH/RTH coherence, ETH-derived on RTH, plausible FCR path), what's still broken (FCR not printing, 4/5 not printing, vertical higher-TF rays), and what the current working-tree file actually contains (Christopher's manual edits + an unapproved batch-3 patch).
+
+The core decision behind the pause: repeated implementor retries have not produced a verified result. Spending more credits blindly is not the move. The cheapest next step is a Fortuna review of the current script first — then come back to Kavanah with notes and a targeted repair scope.
+
+**Fortuna's Pine review — code-level analysis:**
+
+Fortuna read the full `auto-levels.pine` script (803 lines) on Mar 16. Here is what the code actually shows:
+
+**4/5 bug — confirmed and root cause found (lines 477-580):**
+
+The script captures both the 9:30 open event and the 16:00 close event separately. But then at lines 514-516 it does this:
+```
+sess_use_open = not na(sess_15_open_t) and (na(sess_15_close_t) or sess_15_open_t >= sess_15_close_t)
+sess_15_o = sess_use_open ? sess_15_open_o : sess_15_close_c
+sess_15_t = sess_use_open ? sess_15_open_t : sess_15_close_t
+```
+This collapses both events into ONE selected value. Since today's 9:30 time is always greater than yesterday's 16:00 time, `sess_use_open` is always true — the 16:00 close event is effectively never used. The rolling queue (lines 538-557) then only ever sees 9:30 events: today's 9:30 → yesterday's 9:30 → day before's 9:30. The table shows 0 or 1 because the 16:00 close level never gets stored.
+
+This is a structural problem, not a minor bug. The fix requires separating the two event slots entirely — independent `var` variables for 9:30 events and 16:00 events, each with their own rotation logic. Something like:
+- `var float sess_open_today / sess_open_yest / sess_open_2d` (tracks 9:30 chain)
+- `var float sess_close_today / sess_close_yest / sess_close_2d` (tracks 16:00 chain)
+- Two separate event triggers with their own `last_seen` guards
+- Both draw as "today's 4/5" for the current day, fade together for previous days
+
+The ETH 17:00 close and 18:00 open events would be a third and fourth slot, gated by the ETH toggle. Add those after the core RTH pair is verified.
+
+**FCR — code path looks structurally sound:**
+
+The FCR capture (lines 609-636) and drawing (lines 720-760) follow the same pattern as the ZTH level system. The dual strategy (intrabar scan for higher-TF charts + `ta.valuewhen` fallback for lower-TF charts) is architecturally correct. On a 5min chart: `security_lower_tf` returns empty, falls back to the `ta.valuewhen` approach. On a 1hr chart: `security_lower_tf` returns 15m intrabars, the scan loop finds the 9:30 bar. Both paths should populate `fcr_15_h`, `fcr_15_l`, `fcr_15_t`.
+
+The drawing redraw logic (`fcr_needs_redraw` on line 725) triggers on `barstate.isfirst`, on new 9:30 events, and on toggle changes. Lines are drawn with `extend=extend.right`. This should work.
+
+Fortuna cannot reproduce the FCR failure from static code review alone — the logic reads as plausible. This means the failure is likely either (a) a Pine runtime issue that only surfaces on specific symbol/session combos, (b) an interaction with the batch-3 patch that isn't visible from reading the code sequentially, or (c) something about Christopher's specific chart state (custom session, symbol config, toggle order).
+
+**Recommendation to Kavanah for cheapest next step:**
+
+1. Fix 4/5 first — the bug is definitively identified and the fix is surgical (separate the two event slots). This doesn't touch FCR or ZTH logic at all.
+2. After 4/5 is fixed and verified live, test FCR in the same chart session. If FCR is still not printing, it's much easier to debug one thing at a time.
+3. Preserve all ETH/RTH handling — that code is working and should not be touched.
+4. Do not use a batch implementor for the 4/5 fix — it's small enough to spec precisely. The risk of collateral damage from another broad implementor pass outweighs the benefit.
+
+**For this week's trading — indicator status:**
+- ⚠️ Do not rely on `auto-levels.pine` for FCR or 4/5 this week — both are broken in the current TradingView version
+- ✅ ZTH levels (ETH/RTH coherence) are improved — useful for reference but treat as informational, not verified
+- Manual level marking for FCR: draw from 9:30 15min candle HIGH and LOW at session open
+- Manual 4/5: reference prior session's close levels and 9:30 open
+- The exit rules drafted in this review remain the priority behavioral work for the first trade back
 
 ---
 
