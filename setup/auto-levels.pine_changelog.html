@@ -845,9 +845,9 @@
         <details class="release" open>
           <summary>
             <div>
-              <p class="release-meta">Mar 16, 2026 · surgical repair session</p>
+              <p class="release-meta">Mar 16, 2026 · surgical repair + feature completion</p>
               <h3>v2.6</h3>
-              <p class="release-summary">4/5 dual-slot model, FCR sentinel fix, higher-TF ray geometry, close anchor fix, and FCR standalone v2.0.</p>
+              <p class="release-summary">4/5 dual-slot model, FCR sentinel fix, higher-TF ray geometry, close anchor fix, FCR standalone v2.0, ETH maintenance 4/5 chains, and prior-day H/L/C polish.</p>
             </div>
             <span class="status-pill status-current">Current</span>
             <span class="chevron" aria-hidden="true">▾</span>
@@ -861,6 +861,8 @@
               <li><strong>Runtime crash fix:</strong> <code>array.size(na)</code> on 1-min through 10-min charts. Pine v5 does not short-circuit <code>and</code>, so the <code>security_lower_tf</code> null guard now nests instead of inlining.</li>
               <li><strong>Toggle added:</strong> "Show ZTH Levels on Timeframes Above 1hr" (default OFF) — contextual workaround for the cross-TF detection limitation on 4hr/Daily/Weekly charts.</li>
               <li><strong>FCR standalone v2.0:</strong> replaced the bar-index-based v1.0 with the same multi-TF scan + fallback model used by the main overlay. Works correctly on any chart timeframe.</li>
+              <li><strong>ETH 4/5 events — 17:00 close + 18:00 open:</strong> new independent chains for the CME daily maintenance window pause (16:45–17:00 bar close) and reopen (18:00 bar open). Gated by the "Show ETH-Derived Levels for Whitelisted" toggle on index futures; always active for non-whitelisted instruments. Each chain carries today / yesterday / 2 days' ago slots with the same fade pattern as the RTH chains. <code>security_lower_tf</code> scan + <code>request.security</code> fallback — same multi-TF architecture as 9:30 and 16:00.</li>
+              <li><strong>Prior-day H/L/C polish:</strong> transparency increased from 30% to 50% so H/L/C reads as quiet context, not a competing structural rail. A subtle range fill (95% gray) now frames the prior-day high-to-low zone without adding visual noise.</li>
             </ul>
           </div>
         </details>
@@ -1064,23 +1066,23 @@
             <li><strong>FCR rays not printing:</strong> sentinel variables initialized to <code>na</code> instead of <code>0</code>. Pine v5 <code>x != na</code> returns <code>na</code>, not <code>true</code>. Fixed.</li>
             <li><strong>Vertical spikes on 4hr+ charts:</strong> ray x2 was only 1 hour ahead of x1 — same pixel on 4hr charts. Fixed with 48-hour lookahead.</li>
             <li><strong>Runtime crash on 1–10 min charts:</strong> <code>array.size(na)</code> when <code>security_lower_tf</code> returns <code>na</code>. Fixed with nested guard.</li>
+            <li><strong>ETH 4/5 events (17:00/18:00) not implemented:</strong> tooltip promised these but only RTH chains existed. Both chains now live, gated by the ETH-derived toggle for whitelisted instruments.</li>
+            <li><strong>Prior-day H/L/C too prominent:</strong> transparency increased to 50%, prior-day range fill added at 95% opacity so levels read as context, not structure.</li>
           </ul>
         </article>
         <article class="card">
           <h3>🔎 Still open after v2.6</h3>
           <ul class="list-tight">
-            <li><strong>4/5 wrong price on 1hr chart:</strong> close and/or open ray price levels are incorrect on 1hr chart views. Root cause not yet isolated from static analysis — needs targeted runtime diagnostic.</li>
-            <li><strong>Some 4/5 vertical on 1hr chart:</strong> isolated to 1hr specifically. Possibly related to wrong-price issue above.</li>
-            <li><strong>ZTH missing levels on 1hr ETH chart:</strong> architectural cross-TF limitation — <code>request.security</code> with same-TF + different session boundaries causes some 1hr RTH bar events to be skipped. Same class of issue as the 4hr+ detection gap. Lower TF charts are correct.</li>
-            <li><strong>ETH-derived 4/5 events (17:00 close, 18:00 open):</strong> toggle tooltip promises these but they are not yet implemented. Deferred to next Pine wave.</li>
+            <li><strong>4/5 wrong price on 1hr chart:</strong> close and/or open ray price levels are incorrect on 1hr chart views. Root cause not yet isolated from static analysis — needs targeted runtime diagnostic label on <code>barstate.islast</code>.</li>
+            <li><strong>Previous-day 16:00 close ray vertical on RTH chart:</strong> yesterday's close 4/5 ray renders as a vertical post on some RTH 1hr chart configurations. Likely related to the wrong-price issue above — same 1hr timing boundary.</li>
+            <li><strong>ZTH missing levels on 1hr ETH chart (GC, CL):</strong> architectural cross-TF limitation — <code>request.security</code> with same-TF + different session boundaries causes some 1hr events to be skipped at session seams. Affects non-whitelisted instruments (GC, CL) on 1hr ETH charts. Lower TF charts are correct.</li>
+            <li><strong>Extra ZTH levels on whitelisted ETH chart with toggle OFF:</strong> a few levels appear on whitelisted instruments (NQ, ES, etc.) when viewing an ETH lower-TF chart with Show-ETH-Derived toggled OFF. Root cause under investigation — may be RTH-sourced levels rendering at ETH bar positions.</li>
           </ul>
         </article>
         <article class="card">
-          <h3>📝 Style and docs follow-up</h3>
+          <h3>📝 Style follow-up</h3>
           <ul class="list-tight">
-            <li>Prior-day <code>H/L/C</code> should read more subtly — dotted/faded rather than dominant.</li>
-            <li>Previous high could use a translucent <span class="accent-live">red shadow band underneath</span>, and previous low a translucent <span class="accent-code">green band above</span>.</li>
-            <li>Leave <code>Labels on price scale</code> and <code>Inputs in status line</code> off by default.</li>
+            <li>Translucent <span class="accent-live">red shadow band</span> directly under previous high and translucent <span class="accent-code">green band</span> directly above previous low — per-instrument ATR-based thickness. Deferred.</li>
           </ul>
         </article>
       </div>
@@ -1108,8 +1110,7 @@
         <article class="card">
           <h3>✨ New features deferred</h3>
           <ul class="list-tight">
-            <li><strong>ETH-derived 4/5 events:</strong> 17:00 ET close and 18:00 ET open chains when "Show ETH-Derived Levels for Whitelisted" toggle is ON. Requires ETH session scan using <code>eth_source_ticker</code>.</li>
-            <li><strong>Prior-day visual polish:</strong> dotted/faded H/L/C, translucent red/green shadow bands on previous high/low.</li>
+            <li><strong>Prior-day H/L shadow bands:</strong> translucent per-instrument ATR-based band directly under previous high and above previous low. The broad range fill shipped in v2.6; the targeted per-level bands are deferred.</li>
           </ul>
         </article>
       </div>
