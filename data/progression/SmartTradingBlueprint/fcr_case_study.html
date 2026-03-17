@@ -137,21 +137,21 @@
     .hero-lead { color: var(--muted); max-width: 58rem; margin: 0 auto 1.5rem; font-size: 1.05rem; }
     .stat-row {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 0.75rem;
       margin-top: 1.75rem;
-      max-width: 480px;
+      max-width: 640px;
       margin-left: auto; margin-right: auto;
     }
     .stat-item {
       text-align: center;
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      padding: 0.85rem 1rem;
+      padding: 0.85rem 0.5rem;
       background: rgba(255,255,255,0.03);
     }
     .stat-item strong { display: block; font-size: 1.75rem; line-height: 1.1; color: var(--blue); }
-    .stat-item span { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; }
+    .stat-item span { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; }
 
     /* ── Rule box ── */
     .rule-box {
@@ -174,7 +174,7 @@
 
     /* ── Grid ── */
     .grid { display: grid; gap: 0.85rem; }
-    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
     .grid-4 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 
     /* ── Cards ── */
@@ -184,16 +184,16 @@
       background: rgba(255,255,255,0.03);
       padding: 1rem 1.1rem;
     }
-    .card h3 { font-size: 0.95rem; margin-bottom: 0.4rem; }
-    .card p, .card ul { font-size: 0.9rem; color: var(--muted); margin-bottom: 0; }
+    .card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+    .card p, .card ul { font-size: 0.91rem; color: var(--muted); margin-bottom: 0; }
     .card ul { padding-left: 1.2rem; }
-    .card li { margin-bottom: 0.25rem; }
+    .card li { margin-bottom: 0.3rem; }
 
     /* ── Pattern cards ── */
     .pattern-card {
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 1.1rem 1.25rem;
+      padding: 1.3rem 1.4rem;
       background: rgba(255,255,255,0.025);
     }
     .pattern-card .ptag {
@@ -681,7 +681,7 @@
       localStorage.setItem('theme', isLight ? 'light' : 'dark');
     });
 
-    // Active nav highlighting via IntersectionObserver
+    // Active nav highlighting — tracks current section, handles bottom-page edge case
     const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
     const sectionMap = new Map();
     navLinks.forEach(link => {
@@ -689,19 +689,36 @@
       const el = document.getElementById(id);
       if (el) sectionMap.set(el, link);
     });
+    const sectionEls = Array.from(sectionMap.keys());
+    const navLinkArr = Array.from(navLinks);
 
-    let activeSection = null;
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          if (activeSection) activeSection.classList.remove('active');
-          activeSection = sectionMap.get(entry.target);
-          if (activeSection) activeSection.classList.add('active');
+    function setActive(el) {
+      navLinkArr.forEach(l => l.classList.remove('active'));
+      const link = sectionMap.get(el);
+      if (link) link.classList.add('active');
+    }
+
+    function updateActive() {
+      // If near the bottom of the page, force last section active
+      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 60) {
+        setActive(sectionEls[sectionEls.length - 1]);
+        return;
+      }
+      // Otherwise pick the section whose top is closest to 20% down the viewport
+      const target = window.innerHeight * 0.25;
+      let best = null, bestDist = Infinity;
+      sectionEls.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top <= target) {
+          const dist = target - top;
+          if (dist < bestDist) { bestDist = dist; best = el; }
         }
       });
-    }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+      if (best) setActive(best);
+    }
 
-    sectionMap.forEach((link, el) => observer.observe(el));
+    window.addEventListener('scroll', updateActive, { passive: true });
+    updateActive();
   </script>
 
 </body>
