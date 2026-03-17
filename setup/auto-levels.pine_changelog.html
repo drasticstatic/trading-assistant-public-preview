@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Auto Levels Pine Changelog | Trading Assistant</title>
-  <meta name="description" content="Public-facing changelog for the Auto Levels Pine family: revision history, version detail, bug trail context, known/open issues, and the source-vs-chart validation boundary through v2.7.">
+  <meta name="description" content="Public-facing changelog for the Auto Levels Pine family: revision history, version detail, bug trail context, known/open issues, and the source-vs-chart validation boundary through v2.8.">
   <meta name="color-scheme" content="dark light">
   <meta name="theme-color" content="#0b1d16">
   <link rel="canonical" href="https://drasticstatic.github.io/trading-assistant-public-preview/setup/auto-levels.pine_changelog.html">
@@ -770,7 +770,7 @@
       <div class="stat-grid" aria-label="Changelog at a glance">
         <article class="stat">
           <strong>Current public baseline</strong>
-          <span><code>v2.7</code> is the active source snapshot represented here.</span>
+          <span><code>v2.8</code> is the active source snapshot represented here.</span>
           <div class="stat-action-card">
             <a class="button tertiary" href="./auto-levels.pine_indicator-guide.html">Open Guide ↗</a>
           </div>
@@ -828,7 +828,7 @@
             <tr><th>Surface</th><th>Role</th><th>Status</th></tr>
           </thead>
           <tbody>
-            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v2.7</code> Source</td></tr>
+            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v2.8</code> Source</td></tr>
             <tr><td><code>fcr-standalone.pine</code></td><td>Shareable FCR-only companion</td><td>✅ Active companion</td></tr>
             <tr><td><code>webhook-alerts.pine</code></td><td>Alert-only companion kept intentionally separate from the visual overlay family</td><td>✅ Active top-level companion</td></tr>
           </tbody>
@@ -845,11 +845,32 @@
         <details class="release" open>
           <summary>
             <div>
+              <p class="release-meta">Mar 17, 2026 · pattern intelligence + higher-TF geometry fix</p>
+              <h3>v2.8</h3>
+              <p class="release-summary">Pattern proximity gate, per-pattern toggles, label stacking, Daily/Weekly vertical level fix, and weekly open toggle.</p>
+            </div>
+            <span class="status-pill status-current">Current</span>
+            <span class="chevron" aria-hidden="true">▾</span>
+          </summary>
+          <div class="release-body">
+            <ul class="list-tight">
+              <li><strong>Pattern proximity gate:</strong> R, B, P, and 1-2-3 now only fire when the relevant candle high or low is within a configurable distance (in ticks, default 20) of an active ZTH level. SFP and BR already fire at levels by definition — their detection logic is unchanged. Patterns no longer appear all over the chart, only at points of structural confluence.</li>
+              <li><strong>Per-pattern toggles:</strong> six new boolean toggles in the ZTH Strategy Pattern Thresholds group — <code>show_sfp</code>, <code>show_r</code>, <code>show_b</code>, <code>show_p</code>, <code>show_br</code>, <code>show_123</code>. All default ON. Toggle any pattern type off individually without affecting others.</li>
+              <li><strong>Pattern label stacking:</strong> when multiple patterns fire on the same candle and the same side (high or low), each subsequent label is offset vertically by ATR × 0.15 per slot, preventing overlap. HIGH side order from wick tip outward: R → SFP → BR → 1-2-3. LOW side order: B → SFP → BR → 1-2-3. P always draws on bar[1] so it cannot collide with current-bar patterns.</li>
+              <li><strong>Daily/Weekly vertical level fix:</strong> ZTH level rays were rendering as vertical 90° lines on Daily and Weekly charts. Root cause: the ray x2 endpoint was only 48 hours ahead of x1 — less than one weekly bar (168 hours), so both endpoints mapped to the same chart pixel. Fixed by routing ray end time through the existing <code>f_visible_ray_end()</code> helper, which guarantees the x2 endpoint is at least one full chart bar ahead of x1 on all timeframes.</li>
+              <li><strong>Weekly open vertical toggle:</strong> new <code>show_weekly_open</code> toggle in the Display More group. When off, the Sunday 18:00 ET golden vertical is hidden without affecting the underlying event tracking. Toggle includes a tooltip explaining what the line marks and when it draws.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release">
+          <summary>
+            <div>
               <p class="release-meta">Mar 17, 2026 · Pine v6 migration + visual and behavioral overhaul</p>
               <h3>v2.7</h3>
               <p class="release-summary">Pine v6 migration, 4/5 on 30min TF, 1-bar confirmation delay, pattern color system, FVG polish, H/L/C directional shadows, weekly open golden vertical line, and ETH gate overhaul.</p>
             </div>
-            <span class="status-pill status-current">Current</span>
+            <span class="status-pill status-history">History</span>
             <span class="chevron" aria-hidden="true">▾</span>
           </summary>
           <div class="release-body">
@@ -1087,6 +1108,14 @@
       <h2 id="known-issues-title">Implemented in source does not automatically mean re-checked on a current TradingView chart</h2>
       <div class="grid">
         <article class="card">
+          <h3>✅ Closed in v2.8</h3>
+          <ul class="list-tight">
+            <li><strong>ZTH levels rendering as vertical 90° lines on Daily/Weekly:</strong> ray x2 was 48 hours ahead of x1 — less than one weekly bar (168 hours). Both endpoints mapped to the same chart pixel, producing vertical renders despite <code>extend.right</code>. Fixed by routing ray end time through <code>f_visible_ray_end()</code> which guarantees at least one full chart-bar width.</li>
+            <li><strong>Patterns firing anywhere on chart (not near levels):</strong> R, B, P, and 1-2-3 would print on any candle meeting the wick/body threshold regardless of proximity to ZTH structure. Now gated by a configurable tick-distance proximity check to any active ZTH level.</li>
+            <li><strong>Pattern labels overlapping when multiple patterns fire on same candle side:</strong> multiple labels were placed at the same y coordinate, stacking on top of each other. Now stacked vertically at ATR × 0.15 per slot.</li>
+          </ul>
+        </article>
+        <article class="card">
           <h3>✅ Closed in v2.7</h3>
           <ul class="list-tight">
             <li><strong>ETH 4/5 showing on non-whitelisted assets regardless of toggle:</strong> the ETH gate logic always showed ETH 4/5 for non-whitelisted instruments (GC, CL, etc.) no matter what the toggle said. Gate now requires the Show-ETH-Derived toggle to be ON for all instruments.</li>
@@ -1107,7 +1136,7 @@
           </ul>
         </article>
         <article class="card">
-          <h3>🔎 Still open after v2.7</h3>
+          <h3>🔎 Still open after v2.8</h3>
           <ul class="list-tight">
             <li><strong>4/5 wrong price on 1hr chart:</strong> close and/or open ray price levels are incorrect on 1hr chart views in some configurations. Root cause not yet isolated from static analysis — needs targeted runtime diagnostic label on <code>barstate.islast</code>.</li>
             <li><strong>Previous-day 16:00 close ray vertical on RTH chart:</strong> yesterday's close 4/5 ray renders as a vertical post on some RTH 1hr chart configurations. Likely related to the wrong-price issue above — same 1hr timing boundary.</li>
@@ -1148,6 +1177,7 @@
           <h3>✨ New features deferred</h3>
           <ul class="list-tight">
             <li><strong>ATR-based per-level H/L shadow bands:</strong> translucent per-instrument ATR-based band directly under previous high and above previous low. Broad directional fills shipped in v2.7; the targeted per-level ATR bands remain deferred.</li>
+            <li><strong>Per-pattern proximity thresholds:</strong> v2.8 ships a single global proximity setting for all applicable patterns. Individual per-pattern proximity inputs (each pattern type gets its own tick distance) remain in the roadmap.</li>
           </ul>
         </article>
       </div>
