@@ -847,7 +847,7 @@
           <h3>Open the changelog when you need</h3>
           <ul class="list-tight">
             <li>revision-by-revision version history</li>
-            <li>what changed in <code>v2.7</code> versus earlier passes</li>
+            <li>what changed in <code>v2.8</code> versus earlier passes</li>
             <li>known/open issues and validation boundaries</li>
             <li>the minimal name-history context that still matters publicly</li>
           </ul>
@@ -995,7 +995,11 @@
         </article>
         <article class="card">
           <h3>🗓️ Golden vertical = weekly open</h3>
-          <p>A translucent golden vertical line marks the Sunday 18:00 ET CME weekly reopen. It stretches the full chart height so you can immediately see where the new trading week began without hunting for the candle.</p>
+          <p>A translucent golden vertical line marks the Sunday 18:00 ET CME weekly reopen. It stretches the full chart height so you can immediately see where the new trading week began without hunting for the candle. Use the <strong>Show Weekly Open Vertical</strong> toggle in Display More to hide it if preferred — the event is still tracked internally when hidden.</p>
+        </article>
+        <article class="card">
+          <h3>🎯 Patterns fire near ZTH levels only</h3>
+          <p>R, B, P, and 1-2-3 pattern labels only appear when the relevant candle high or low is within a configurable tick distance of an active ZTH level (<strong>Proximity to ZTH Level</strong> input, default 20 ticks). Patterns no longer print anywhere a wick threshold is met — they only fire at points of structural confluence. Toggle any pattern type on/off individually in the ZTH Strategy Pattern Thresholds group. When multiple patterns fire on the same candle side, they stack vertically at ATR × 0.15 per slot so labels never overlap.</p>
         </article>
         <article class="card">
           <h3>⏱️ 1-bar confirmation delay on levels</h3>
