@@ -1105,8 +1105,8 @@
     <section class="panel tone-issues" id="known-issues" aria-labelledby="known-issues-title">
       <div class="tone-bar" aria-hidden="true"></div>
       <p class="kicker">Known issues and validation boundary</p>
-      <h2 id="known-issues-title">Recent Implementations & Auditing </h2>
-      <div class="grid">
+      <h2 id="known-issues-title">Recent Implementations &amp; Auditing</h2>
+      <div class="grid" style="grid-template-columns: 1fr;">
         <article class="card">
           <h3>✅ Closed in v2.8</h3>
           <ul class="list-tight">
@@ -1138,8 +1138,7 @@
         <article class="card">
           <h3>🔎 Still open after v2.8</h3>
           <ul class="list-tight">
-            <li><strong>4/5 wrong price on 1hr chart:</strong> close and/or open ray price levels are incorrect on 1hr chart views in some configurations. Root cause not yet isolated from static analysis — needs targeted runtime diagnostic label on <code>barstate.islast</code>.</li>
-            <li><strong>Previous-day 16:00 close ray vertical on RTH chart:</strong> yesterday's close 4/5 ray renders as a vertical post on some RTH 1hr chart configurations. Likely related to the wrong-price issue above — same 1hr timing boundary.</li>
+            <li><strong>Previous-day 16:00 close ray vertical on RTH chart:</strong> yesterday's close 4/5 ray renders as a vertical post on some RTH 1hr chart configurations. Under continued observation.</li>
             <li><strong>ZTH missing levels on 1hr ETH chart (GC, CL):</strong> architectural cross-TF limitation — <code>request.security</code> with same-TF + different session boundaries causes some 1hr events to be skipped at session seams. Affects non-whitelisted instruments on 1hr ETH charts. Fix requires <code>security_lower_tf("60")</code> scan loop.</li>
             <li><strong>QI 3rd candle mitigation:</strong> bar[2] mitigation code is in place; needs runtime confirmation that the QI instrument mitigates correctly on the third candle in live chart testing.</li>
           </ul>
@@ -1147,7 +1146,8 @@
         <article class="card">
           <h3>📝 Deferred features</h3>
           <ul class="list-tight">
-            <li><strong>ATR-based per-level H/L shadow bands:</strong> translucent per-instrument ATR-based band directly under previous high and above previous low. Broad directional shadow fills shipped in v2.7; the targeted per-level ATR bands remain deferred.</li>
+            <li><strong>ATR-based per-level shadow bands on individual ZTH levels:</strong> a per-level translucent fill centered on each KEY/5/5/3/5 level, with band width proportional to the instrument's current ATR (so NQ bands are wider than ES, CL wider still). This is distinct from the directional PDH/PDL fills shipped in v2.7 — those are broad fills from the daily high and low. This deferred item would put a targeted "area of influence" on each individual structural level. Not yet scoped for implementation.</li>
+            <li><strong>Per-pattern proximity thresholds:</strong> v2.8 ships a single global <code>prox_ticks</code> setting. Individual per-pattern proximity inputs (each of SFP, R, B, P, BR, 1-2-3 gets its own tick distance) remain in the roadmap.</li>
           </ul>
         </article>
       </div>
@@ -1162,8 +1162,7 @@
         <article class="card">
           <h3>🔧 Bug fixes queued</h3>
           <ul class="list-tight">
-            <li><strong>4/5 wrong price on 1hr:</strong> once root cause is confirmed via runtime diagnostic, surgical fix to ensure the correct open/close price is stored on all chart timeframes.</li>
-            <li><strong>4/5 vertical on 1hr:</strong> likely resolves alongside the wrong-price fix above.</li>
+            <li><strong>Previous-day 16:00 close ray vertical:</strong> under continued observation — may resolve naturally as session timing boundary behavior is better understood.</li>
             <li><strong>QI 3rd candle mitigation:</strong> runtime verification that bar[2] mitigation works correctly on QI and other instruments in live chart testing.</li>
           </ul>
         </article>
