@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FCR Case Study Tracker — SmartTradingBlueprint</title>
+  <meta name="description" content="Live case study tracker for the First Candle Rule (FCR) strategy. Session logs, pattern observations, ZTH integration notes, and annotated chart evidence across real trading sessions.">
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../../favicon.png" type="image/png" sizes="64x64">
+  <style>
+    :root {
+      --bg: #0c1218; --bg-alt: #101821;
+      --surface: rgba(16,24,33,0.86); --surface-soft: rgba(14,21,29,0.56); --surface-strong: #121b24;
+      --border: rgba(139,148,158,0.18); --border-strong: rgba(139,148,158,0.3);
+      --text: #d8dee4; --muted: #99a4af; --subtle: #6b7580;
+      --green: #3fb950; --red: #f85149; --blue: #7cc2ff;
+      --yellow: #e3b341; --purple: #bc8cff; --cyan: #39d9d9;
+      --shadow: 0 18px 48px rgba(2,6,23,0.28);
+      --radius-xl: 24px; --radius-lg: 18px; --radius-md: 12px;
+      --max: 1100px;
+    }
+    html.light {
+      --bg: #eef3fb; --bg-alt: #f7faff;
+      --surface: rgba(255,255,255,0.92); --surface-soft: rgba(238,243,251,0.86); --surface-strong: #fff;
+      --border: rgba(87,96,106,0.18); --border-strong: rgba(87,96,106,0.32);
+      --text: #1f2328; --muted: #57606a; --subtle: #6e7781;
+      --green: #1a7f37; --red: #cf222e; --blue: #0969da;
+      --yellow: #9a6700; --purple: #8250df; --cyan: #0e7490;
+    }
+    html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      font-size: 15px; line-height: 1.68; color: var(--text);
+      background:
+        radial-gradient(ellipse at 20% 10%, rgba(124,194,255,0.1) 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 15%, rgba(57,217,217,0.08) 0%, transparent 36%),
+        radial-gradient(ellipse at 50% 85%, rgba(63,185,80,0.06) 0%, transparent 40%),
+        linear-gradient(160deg, var(--bg-alt) 0%, var(--bg) 100%);
+      background-attachment: fixed;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code {
+      padding: 0.1rem 0.38rem; border-radius: 6px;
+      background: rgba(124,194,255,0.1); color: var(--blue);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.88em;
+    }
+    h1, h2, h3 { margin-top: 0; line-height: 1.15; }
+    p, ul, ol { margin-top: 0; }
+
+    /* ── Layout ── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.7rem 1.5rem;
+      background: rgba(12,18,24,0.88);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+    }
+    html.light .nav { background: rgba(238,243,251,0.9); }
+    .nav-brand { font-weight: 700; font-size: 0.9rem; color: var(--blue); letter-spacing: 0.01em; }
+    .nav-links { display: flex; gap: 1.5rem; font-size: 0.83rem; color: var(--muted); }
+    .nav-links a { color: var(--muted); }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .theme-btn {
+      background: none; border: 1px solid var(--border); border-radius: 8px;
+      color: var(--muted); cursor: pointer; font-size: 0.82rem;
+      padding: 0.3rem 0.7rem;
+    }
+    .theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
+
+    .page { width: min(var(--max), calc(100% - 2rem)); margin: 0 auto; padding: 2rem 0 4rem; }
+
+    /* ── Panels ── */
+    .panel {
+      position: relative; overflow: hidden;
+      margin-bottom: 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01)), var(--surface);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      padding: 1.75rem;
+    }
+    .panel::before {
+      content: "";
+      position: absolute; inset: 0 auto auto 0;
+      width: 100%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+      pointer-events: none;
+    }
+    .hero {
+      text-align: center;
+      padding: clamp(2rem, 5vw, 3.2rem);
+      background:
+        radial-gradient(circle at top center, rgba(57,217,217,0.12), transparent 38%),
+        radial-gradient(circle at 30% 60%, rgba(124,194,255,0.1), transparent 42%),
+        linear-gradient(145deg, rgba(124,194,255,0.12), rgba(57,217,217,0.1) 44%, rgba(248,81,73,0.06) 78%, rgba(12,18,24,0.16) 100%),
+        var(--surface);
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.78rem; font-weight: 800; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem;
+    }
+    .eyebrow-dot {
+      width: 0.7rem; height: 0.7rem; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--cyan), var(--green));
+    }
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      letter-spacing: -0.04em; margin-bottom: 0.9rem;
+    }
+    .hero-lead { color: var(--muted); max-width: 58rem; margin: 0 auto 1.5rem; font-size: 1.05rem; }
+    .stat-row { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; margin-top: 1.5rem; }
+    .stat-item { text-align: center; }
+    .stat-item strong { display: block; font-size: 2rem; line-height: 1.1; color: var(--blue); }
+    .stat-item span { font-size: 0.82rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; }
+
+    /* ── Rule box ── */
+    .rule-box {
+      border: 1px solid rgba(57,217,217,0.3);
+      border-radius: var(--radius-lg);
+      background: rgba(57,217,217,0.06);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .rule-box h3 { color: var(--cyan); margin-bottom: 0.5rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    .rule-box p { margin: 0; }
+
+    /* ── Kicker ── */
+    .kicker {
+      font-size: 0.78rem; font-weight: 800; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--blue); margin-bottom: 0.4rem;
+    }
+    .panel-title { font-size: clamp(1.4rem, 2.5vw, 2rem); letter-spacing: -0.025em; margin-bottom: 0.5rem; }
+    .panel-lead { color: var(--muted); margin-bottom: 1.25rem; }
+
+    /* ── Grid ── */
+    .grid { display: grid; gap: 0.85rem; }
+    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+
+    /* ── Cards ── */
+    .card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.03);
+      padding: 1rem 1.1rem;
+    }
+    .card h3 { font-size: 0.95rem; margin-bottom: 0.4rem; }
+    .card p, .card ul { font-size: 0.9rem; color: var(--muted); margin-bottom: 0; }
+    .card ul { padding-left: 1.2rem; }
+    .card li { margin-bottom: 0.25rem; }
+
+    /* ── Pattern cards ── */
+    .pattern-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.1rem 1.25rem;
+      background: rgba(255,255,255,0.025);
+    }
+    .pattern-card .ptag {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 0.18rem 0.65rem;
+      border-radius: 999px; margin-bottom: 0.65rem;
+    }
+    .ptag-range { background: rgba(57,217,217,0.15); color: var(--cyan); border: 1px solid rgba(57,217,217,0.25); }
+    .ptag-fail  { background: rgba(248,81,73,0.12); color: var(--red);  border: 1px solid rgba(248,81,73,0.22); }
+    .ptag-clean { background: rgba(63,185,80,0.12); color: var(--green); border: 1px solid rgba(63,185,80,0.22); }
+    .ptag-watch { background: rgba(227,179,65,0.12); color: var(--yellow); border: 1px solid rgba(227,179,65,0.22); }
+    .pattern-card h3 { font-size: 1rem; margin-bottom: 0.35rem; }
+    .pattern-card p { font-size: 0.88rem; color: var(--muted); margin: 0; }
+
+    /* ── Session log ── */
+    .session-log { display: flex; flex-direction: column; gap: 0.75rem; }
+    .session-entry {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .session-entry summary {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 1rem; padding: 0.9rem 1.1rem;
+      cursor: pointer; list-style: none; user-select: none;
+    }
+    .session-entry summary::-webkit-details-marker { display: none; }
+    .session-entry[open] summary { border-bottom: 1px solid var(--border); }
+    .session-meta { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.15rem; }
+    .session-title { font-weight: 600; font-size: 0.97rem; }
+    .session-desc { font-size: 0.83rem; color: var(--muted); margin-top: 0.2rem; }
+    .session-pills { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .pill {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; padding: 0.15rem 0.55rem;
+      border-radius: 999px; white-space: nowrap;
+    }
+    .pill-green  { background: rgba(63,185,80,0.15); color: var(--green); border: 1px solid rgba(63,185,80,0.25); }
+    .pill-red    { background: rgba(248,81,73,0.12); color: var(--red);  border: 1px solid rgba(248,81,73,0.22); }
+    .pill-yellow { background: rgba(227,179,65,0.12); color: var(--yellow); border: 1px solid rgba(227,179,65,0.22); }
+    .pill-cyan   { background: rgba(57,217,217,0.12); color: var(--cyan); border: 1px solid rgba(57,217,217,0.22); }
+    .pill-muted  { background: rgba(139,148,158,0.1); color: var(--muted); border: 1px solid var(--border); }
+    .chevron { font-size: 0.8rem; color: var(--muted); margin-top: 0.15rem; transition: transform 0.2s; flex-shrink: 0; }
+    details[open] .chevron { transform: rotate(180deg); }
+    .session-body { padding: 1rem 1.1rem; font-size: 0.9rem; }
+    .session-body h4 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 0.4rem; }
+    .session-body ul { padding-left: 1.2rem; color: var(--muted); }
+    .session-body li { margin-bottom: 0.3rem; }
+    .session-body strong { color: var(--text); }
+
+    /* ── Charts ── */
+    .chart-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(460px, 1fr)); gap: 0.85rem; }
+    .chart-item img { width: 100%; border-radius: var(--radius-md); border: 1px solid var(--border); display: block; }
+    .chart-cap { font-size: 0.78rem; color: var(--muted); margin-top: 0.4rem; padding: 0 0.25rem; }
+
+    /* ── Checklist ── */
+    .checklist { list-style: none; padding: 0; margin: 0; }
+    .checklist li {
+      display: flex; gap: 0.75rem; align-items: flex-start;
+      padding: 0.55rem 0; border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-num {
+      flex-shrink: 0; width: 1.6rem; height: 1.6rem;
+      border-radius: 50%; background: rgba(124,194,255,0.12);
+      border: 1px solid rgba(124,194,255,0.25);
+      color: var(--blue); font-size: 0.72rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ── Scenario cards ── */
+    .scenario-card {
+      border-radius: var(--radius-lg); padding: 1rem 1.1rem;
+      border: 1px solid var(--border);
+    }
+    .scenario-a { background: rgba(63,185,80,0.06); border-color: rgba(63,185,80,0.2); }
+    .scenario-b { background: rgba(124,194,255,0.06); border-color: rgba(124,194,255,0.2); }
+    .scenario-c { background: rgba(248,81,73,0.05); border-color: rgba(248,81,73,0.18); }
+    .scenario-label {
+      font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 0.4rem;
+    }
+    .scenario-a .scenario-label { color: var(--green); }
+    .scenario-b .scenario-label { color: var(--blue); }
+    .scenario-c .scenario-label { color: var(--red); }
+    .scenario-card h3 { font-size: 0.97rem; margin-bottom: 0.35rem; }
+    .scenario-card p { font-size: 0.88rem; color: var(--muted); margin: 0; }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center; padding: 1.5rem;
+      border: 1px solid var(--border); border-radius: var(--radius-xl);
+      color: var(--muted); font-size: 0.85rem;
+      background: var(--surface);
+    }
+
+    @media (max-width: 640px) {
+      .chart-grid { grid-template-columns: 1fr; }
+      .stat-row { gap: 1.5rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <span class="nav-brand">STB — FCR Case Study Tracker</span>
+    <div class="nav-links">
+      <a href="#rule">The Rule</a>
+      <a href="#pattern">Range Pattern</a>
+      <a href="#charts">Charts</a>
+      <a href="#log">Case Log</a>
+      <a href="#scenarios">SMT Scenarios</a>
+      <a href="#checklist">Checklist</a>
+    </div>
+    <button class="theme-btn" onclick="document.documentElement.classList.toggle('light')">☀ / ☾</button>
+  </nav>
+
+  <main class="page">
+
+    <!-- ── Hero ── -->
+    <section class="panel hero" style="margin-bottom:1rem;">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>SmartTradingBlueprint · Live Analysis</div>
+      <h1>FCR Case Study Tracker</h1>
+      <p class="hero-lead">Real session-by-session documentation of the First Candle Rule — outcomes, patterns, and ZTH integration notes. Built from live coaching sessions and personal trading data, updated as new evidence emerges.</p>
+      <div class="stat-row">
+        <div class="stat-item"><strong>5</strong><span>Sessions Logged</span></div>
+        <div class="stat-item"><strong>2</strong><span>Patterns Identified</span></div>
+        <div class="stat-item"><strong>3</strong><span>Consecutive Range-Hold Days</span></div>
+        <div class="stat-item"><strong>Mar 2026</strong><span>Active Tracking Period</span></div>
+      </div>
+    </section>
+
+    <!-- ── The Rule ── -->
+    <section class="panel" id="rule">
+      <p class="kicker">The Strategy</p>
+      <h2 class="panel-title">First Candle Rule — Core Definition</h2>
+      <div class="rule-box">
+        <h3>📐 FCR Rule</h3>
+        <p>The 9:30 AM ET first 15-minute candle closes and establishes two rays: the <strong>HIGH</strong> ("long from here") and the <strong>LOW</strong> ("short from here"). The FCR signal is valid <strong>only once price displaces outside one of those rays</strong> after the first candle closes. Displacement <strong>ABOVE the HIGH</strong> = LONG signal. Displacement <strong>BELOW the LOW</strong> = SHORT signal. <strong>The first candle's color is irrelevant — displacement direction is the only signal.</strong></p>
+      </div>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>🟢 LONG Signal</h3>
+          <ul>
+            <li>Price closes a 5-min candle <strong>above</strong> the FCR HIGH ray</li>
+            <li>Look for a 5-min FVG created by the displacement move</li>
+            <li>Enter limit at the middle of the FVG, not market order</li>
+            <li>Confirm: IT Foundation EMAs green dominant</li>
+            <li>Confirm: SMT — are other indices also displacing higher?</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>🔴 SHORT Signal</h3>
+          <ul>
+            <li>Price closes a 5-min candle <strong>below</strong> the FCR LOW ray</li>
+            <li>Look for a 5-min FVG created by the displacement move</li>
+            <li>Enter limit at the middle of the FVG, not market order</li>
+            <li>Confirm: IT Foundation EMAs red dominant</li>
+            <li>Confirm: SMT — are other indices also displacing lower?</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>⏱ Midline Context</h3>
+          <ul>
+            <li>The midpoint of the FCR range (high + low ÷ 2) is a key decision zone within the box</li>
+            <li>Price pivoting at the midline during the range-hold phase is a leading indicator of which side will break</li>
+            <li>ZTH watches the midline for B&amp;R and rejection setups while the market is ranging</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>🔗 ZTH Integration</h3>
+          <ul>
+            <li>When FCR doesn't produce a clean displacement, ZTH treats the FCR box as a decision zone</li>
+            <li>The HIGH ray and LOW ray both become potential rejection/entry levels</li>
+            <li>False breakouts above HIGH or below LOW are ZTH SFP and B&amp;R setups</li>
+            <li>The FCR range also often contains a ZTH KEY or 5/5 level — those levels inside the box add confluence</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Range Pattern ── -->
+    <section class="panel" id="pattern">
+      <p class="kicker">Key Discovery</p>
+      <h2 class="panel-title">The Range-Hold Pattern</h2>
+      <p class="panel-lead">Observed across three consecutive sessions (Mar 13, 16, 17): when FCR displacement fails to hold cleanly, the market tends to range inside the FCR box and produce false breakouts on both sides before committing to direction.</p>
+      <div class="grid grid-2">
+        <div class="pattern-card">
+          <span class="ptag ptag-range">Range-Hold</span>
+          <h3>FCR Range-Hold + False Breakouts</h3>
+          <p>When the opening displacement fails to hold — price reverses back inside the FCR range shortly after the first candle closes — the market enters a decision phase. Both the HIGH and LOW rays become active rejection levels. Price probes one side, fails, reverses, probes the other side, fails again. This can repeat multiple times before a directional commitment forms. ZTH watches this phase for B&amp;R and SFP setups at both rails. The coach who was going to be stopped out on the CL long had already moved to break even — a textbook response to a range-hold session.</p>
+        </div>
+        <div class="pattern-card">
+          <span class="ptag ptag-fail">Failed Displacement</span>
+          <h3>Failed Long → Short Bias Inherited</h3>
+          <p>When price displaces above the FCR HIGH and immediately reverses back inside the range — stopping out the long — the short-side bias inherits for the session. This does not mean a short entry is automatic. It means the burden of proof shifts: bulls had their chance, failed to hold it, and the market needs to prove it can reclaim the level before the long setup is valid again. The "short from here" LOW ray becomes the key level to watch for the remainder of the session.</p>
+        </div>
+        <div class="pattern-card">
+          <span class="ptag ptag-clean">Clean Displacement</span>
+          <h3>News-Driven Fakeout → Real Displacement (Mar 4)</h3>
+          <p>On volatile news mornings, all three first candles can close bearish — making a SHORT read feel obvious. But FCR only triggers on displacement, not candle color. Mar 4 produced bearish first candles across NQ/ES/YM, then reversed hard and displaced ABOVE the HIGH rays on all three. Anyone who read the candle color (not the displacement) was positioned the wrong way. The lesson: no matter how obvious the candle looks, wait for the body close above or below the ray.</p>
+        </div>
+        <div class="pattern-card">
+          <span class="ptag ptag-watch">Watch Level</span>
+          <h3>FOMC Eve Behavior</h3>
+          <p>Sessions the day before FOMC announcements show elevated false-breakout probability. Market participants are hedging and positioning rather than committing to clean directional moves. On Mar 17 (day before FOMC), the FCR failed long at open, all four indices produced lower highs and lower lows, but the session stayed messy with range probes and no clean A+ entry. Most coaches sat out until after the announcement. This is the right read: FOMC-eve is not a forced-entry session.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Annotated Charts ── -->
+    <section class="panel" id="charts">
+      <p class="kicker">Visual Evidence</p>
+      <h2 class="panel-title">3-Day FCR Range Study — Mar 13, 16, 17</h2>
+      <p class="panel-lead">Christopher drew blue/grey FCR range boxes with midlines across three consecutive sessions on all four major equity index futures. Each box marks the 9:30 first-candle high-to-low range. The midline bisects each box at the 50% level. Notice how all four instruments show the same ranging behavior across all three sessions — this is a structural pattern, not instrument-specific noise.</p>
+      <div class="chart-grid">
+        <div class="chart-item">
+          <img src="../../screenshots/NQ1!_2026-03-17_13-31-17_c3749.png" alt="NQ — 3-day FCR range study Mar 13/16/17" loading="lazy">
+          <p class="chart-cap"><strong>NQ (Nasdaq)</strong> — Three FCR range boxes with midlines. Note how price respected the range boundaries across all three sessions with probe-and-reject behavior at both the HIGH and LOW rails.</p>
+        </div>
+        <div class="chart-item">
+          <img src="../../screenshots/ES1!_2026-03-17_13-31-43_caac7.png" alt="ES — 3-day FCR range study Mar 13/16/17" loading="lazy">
+          <p class="chart-cap"><strong>ES (S&amp;P 500)</strong> — Same three-day FCR range overlay. ES never reclaimed the Mar 17 FCR range after the morning rejection — strongest confirmation of short bias across the four indices.</p>
+        </div>
+        <div class="chart-item">
+          <img src="../../screenshots/YM1!_2026-03-17_13-31-51_2e76c.png" alt="YM — 3-day FCR range study Mar 13/16/17" loading="lazy">
+          <p class="chart-cap"><strong>YM (Dow Jones)</strong> — Three FCR box periods shown. YM broke below the Mar 17 FCR LOW ray earliest (10:55 ET), making it the first index to confirm short bias on that session.</p>
+        </div>
+        <div class="chart-item">
+          <img src="../../screenshots/RTY1!_2026-03-17_13-31-01_a803f.png" alt="RTY — 3-day FCR range study Mar 13/16/17" loading="lazy">
+          <p class="chart-cap"><strong>RTY (Russell 2000)</strong> — The weakest instrument across all three FCR ranges. RTY's inability to sustain bounces back into the FCR box on Mar 17 was the clearest divergence signal of the session.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Session Log ── -->
+    <section class="panel" id="log">
+      <p class="kicker">Session-by-Session</p>
+      <h2 class="panel-title">Case Study Log</h2>
+      <p class="panel-lead">Every session where FCR produced a meaningful read — clean signal, failed displacement, or range-hold. Expanded notes show the ZTH and IT context, coach decisions, and behavioral takeaways.</p>
+      <div class="session-log">
+
+        <details class="session-entry" open>
+          <summary>
+            <div>
+              <p class="session-meta">Mar 17, 2026 · FOMC Eve · All Four Indices</p>
+              <p class="session-title">Failed Long → Short Developing (Scenario A Building)</p>
+              <p class="session-desc">FCR long from here failed at open. Lower highs + lower lows all session across all four indices. No entry — FOMC tomorrow.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem;">
+              <div class="session-pills">
+                <span class="pill pill-red">Failed Long</span>
+                <span class="pill pill-cyan">Range-Hold</span>
+                <span class="pill pill-muted">No Entry</span>
+              </div>
+              <span class="chevron">▾</span>
+            </div>
+          </summary>
+          <div class="session-body">
+            <h4>What happened</h4>
+            <ul>
+              <li><strong>9:30 open:</strong> STB coach took FCR long on displacement above HIGH ray. Stopped out — displacement failed to hold.</li>
+              <li><strong>ES:</strong> Below FCR "short from here" all session. Never reclaimed the range. Strongest short confirmation.</li>
+              <li><strong>YM:</strong> Below FCR since 10:55 ET — first index to confirm short side.</li>
+              <li><strong>RTY:</strong> Below FCR, briefly touched back at 11:50 ET then immediately rejected. Most bearish on bounces.</li>
+              <li><strong>NQ:</strong> Wicking below FCR "short from here" but not yet a clean body-close confirmation by 12:10 ET — the last piece needed for full Scenario A SHORT.</li>
+              <li><strong>All four:</strong> Lower highs and lower lows from session high — structural short bias confirmed in price action.</li>
+            </ul>
+            <h4>ZTH + IT reads</h4>
+            <ul>
+              <li>ZTH coach: CL long B&amp;R had already moved to break even — protected capital correctly. Showed second B&amp;R setup on CL for later.</li>
+              <li>IT coach: TCL (trend continuation) short on CL — aligned with CL's broader downtrend.</li>
+              <li>Most coaches sitting out ahead of FOMC announcement tomorrow.</li>
+            </ul>
+            <h4>Behavioral note</h4>
+            <ul>
+              <li>Christopher felt "unrest" wanting to take a trade. Correctly identified it and exercised patience. No forced entry on an FOMC-eve range session = disciplined.</li>
+            </ul>
+            <h4>Pattern confirmed</h4>
+            <ul>
+              <li>Range-Hold + False Breakout pattern: second consecutive session (Mar 16 was the first). Same structure — failed displacement, range probe and reject, then eventual directional commitment below.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="session-entry">
+          <summary>
+            <div>
+              <p class="session-meta">Mar 16, 2026 · All Four Indices</p>
+              <p class="session-title">FCR Range-Hold — False Breakouts Both Sides</p>
+              <p class="session-desc">Displacement failed to hold cleanly. Market ranged all session with probe-and-reject at both rails. No clean directional commitment.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem;">
+              <div class="session-pills">
+                <span class="pill pill-yellow">Range-Hold</span>
+                <span class="pill pill-muted">No Entry</span>
+              </div>
+              <span class="chevron">▾</span>
+            </div>
+          </summary>
+          <div class="session-body">
+            <h4>What happened</h4>
+            <ul>
+              <li>FCR displacement at open failed to hold — price reversed back inside the 9:30 range shortly after candle close.</li>
+              <li>Market spent the session probing both the HIGH and LOW rays without sustaining a clean body-close outside either.</li>
+              <li>Multiple false breakouts on both sides — classic decision-zone behavior when FCR doesn't commit.</li>
+            </ul>
+            <h4>Pattern note</h4>
+            <ul>
+              <li>First of two consecutive range-hold sessions (Mar 16 + Mar 17). ZTH watches the FCR box as a live decision zone during these phases — B&amp;R and SFP setups at both rails become the active plays.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="session-entry">
+          <summary>
+            <div>
+              <p class="session-meta">Mar 13, 2026 · All Four Indices</p>
+              <p class="session-title">FCR Range Contained — Session Ranged Within Box</p>
+              <p class="session-desc">Price remained largely within the FCR range all session. First of three consecutive range-hold sessions. Annotated in the 3-day chart study above.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem;">
+              <div class="session-pills">
+                <span class="pill pill-yellow">Range-Hold</span>
+                <span class="pill pill-muted">Observation Only</span>
+              </div>
+              <span class="chevron">▾</span>
+            </div>
+          </summary>
+          <div class="session-body">
+            <h4>What happened</h4>
+            <ul>
+              <li>Price stayed largely within the FCR high-to-low range all session — visible in the annotated 3-day chart screenshots above.</li>
+              <li>FCR box and midline are clearly drawn. Price activity centered around the midline of the range during the session.</li>
+              <li>Contributes to the three-day consecutive range-hold observation.</li>
+            </ul>
+            <h4>Note</h4>
+            <ul>
+              <li>Full detailed notes pending further review. Included in the 3-day range study for visual pattern documentation.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="session-entry">
+          <summary>
+            <div>
+              <p class="session-meta">Mar 10, 2026 · NQ / ES / YM</p>
+              <p class="session-title">Weak Short Displacement → FCR Long Reversal (Choppy SFP Open)</p>
+              <p class="session-desc">Initial short displacement was weak and reversed. FCR LONG confirmed from 15-min chart. Also: FCR ray bug discovered and resolved in v2.5.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem;">
+              <div class="session-pills">
+                <span class="pill pill-green">FCR Long</span>
+                <span class="pill pill-muted">No Entry</span>
+              </div>
+              <span class="chevron">▾</span>
+            </div>
+          </summary>
+          <div class="session-body">
+            <h4>What happened</h4>
+            <ul>
+              <li>Mixed open with SFP forming at the 9:30 candle. Coaches checked quick longs before shorting, got stopped out in both directions.</li>
+              <li>Initial read: displacement below "short from here" ray — but weak. Near-immediate retrace back into FCR range.</li>
+              <li>Reversal: consistent bullish candles closed above "long from here" ray, forming a ChoCH with bullish FVGs.</li>
+              <li>FCR LONG signal confirmed from 15-min chart. STB snapshot: all three indices neutral-bullish.</li>
+              <li>Coaches pivoting from session lows to session highs.</li>
+            </ul>
+            <h4>⚠️ Bug context</h4>
+            <ul>
+              <li>FCR ray bug discovered same session — rays showing correct values on 15-min but changing values on other timeframes. Initial "displacement below" read may have been influenced by incorrect ray values on the viewed timeframe.</li>
+              <li>Bug resolved in v2.5 / v2.6. <strong>Always verify FCR HIGH/LOW from the 15-min chart if in doubt.</strong></li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="session-entry">
+          <summary>
+            <div>
+              <p class="session-meta">Mar 4, 2026 · NQ / ES / YM</p>
+              <p class="session-title">News-Driven Bearish Fakeout → Clean FCR Long</p>
+              <p class="session-desc">Geopolitical + tariff news created a volatile open. Bearish first candles on all three were a fakeout — real displacement went above the HIGH ray.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem;">
+              <div class="session-pills">
+                <span class="pill pill-green">FCR Long</span>
+                <span class="pill pill-yellow">News Day</span>
+              </div>
+              <span class="chevron">▾</span>
+            </div>
+          </summary>
+          <div class="session-body">
+            <h4>What happened</h4>
+            <ul>
+              <li>Middle East geopolitical risk repricing + tariff news created a volatile hard-sell at open, then a V-recovery.</li>
+              <li>All three first candles (NQ, ES, YM) closed <strong>bearish</strong> — looked like an obvious SHORT setup.</li>
+              <li>Price then displaced <strong>ABOVE</strong> the HIGH rays on all three = FCR LONG signal.</li>
+              <li>STB coaches were long. ZTH took a rejection short at the highs and wrapped. Both reads were valid for their respective strategies.</li>
+            </ul>
+            <h4>Core lesson</h4>
+            <ul>
+              <li><strong>High-volatility news mornings often produce bearish first candles that are fakeouts.</strong> The candle color does not matter — only the displacement direction after the candle closes.</li>
+              <li>SMT note: NQ strongly bullish, ES/YM transitioning. Scenario B (not Scenario A). NQ was the leading instrument.</li>
+            </ul>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- ── SMT Scenarios ── -->
+    <section class="panel" id="scenarios">
+      <p class="kicker">Multi-Instrument Confirmation</p>
+      <h2 class="panel-title">SMT Scenarios at FCR</h2>
+      <p class="panel-lead">The SMT (Smart Money Technique) framework reads across NQ, ES, YM, and RTY simultaneously. Each scenario type has different entry conviction and different behavioral requirements.</p>
+      <div class="grid grid-2" style="gap:0.75rem;">
+        <div class="scenario-card scenario-a">
+          <p class="scenario-label">Scenario A — Strongest</p>
+          <h3>Full Quad Confirmation</h3>
+          <p>All four index futures (NQ, ES, YM, RTY) displace in the same direction with confirmed body closes outside the FCR ray. All five entry filter layers can be checked. This is the highest-conviction setup — the signal is structural, not one instrument leading while others lag. When all four confirm the same FCR displacement, hold the entry through normal retracements to FVG fill before managing the stop. On Mar 17, this was developing across all four indices with NQ as the last to confirm.</p>
+        </div>
+        <div class="scenario-card scenario-b">
+          <p class="scenario-label">Scenario B — Valid with Confluence</p>
+          <h3>NQ Leading + EMA Gate</h3>
+          <p>NQ is the lead instrument. When NQ shows clear displacement and the IT Foundation EMA stack confirms dominant color (red for short, green for long), Scenario B is active even if ES, YM, or RTY are lagging slightly. Counter-trend setups without confirmed EMA dominance = no trade. Mar 4 was a Scenario B LONG: NQ strongly bullish, ES/YM transitioning. The EMA gate was open. Scenario B has a narrower stop tolerance than Scenario A because one instrument is doing more work.</p>
+        </div>
+        <div class="scenario-card scenario-c">
+          <p class="scenario-label">Scenario C — No Trade</p>
+          <h3>Mixed Signals</h3>
+          <p>One or more instruments diverging from the others — going a different direction, or failing to confirm the lead. No trade. The early session on Mar 17 (when NQ was still inside the FCR range while ES and YM had already broken below) was a Scenario C read — ambiguity is the signal. RTY diverging significantly from NQ/ES/YM bounce strength is also a Scenario C indicator for longs: small caps not confirming = risk that the large-cap move is not distributional. When in Scenario C: wait, watch, and do not force.</p>
+        </div>
+        <div class="scenario-card" style="background:rgba(188,140,255,0.06);border-color:rgba(188,140,255,0.2);">
+          <p class="scenario-label" style="color:var(--purple);">RTY Divergence — Key Tell</p>
+          <h3>Small Cap Signal</h3>
+          <p>RTY (Russell 2000) is the most sensitive risk-off indicator among the four major index futures. When large caps (NQ, ES, YM) bounce or rally but RTY lags or makes new lows, the read is: the bounce is corrective, not a trend reversal. This divergence was the clearest signal on Mar 17 — RTY couldn't hold any bounce above the FCR "short from here" level while NQ was still inside the range. Whenever RTY fails to confirm what NQ is doing, treat it as a warning flag before committing to a directional entry.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Checklist ── -->
+    <section class="panel" id="checklist">
+      <p class="kicker">Setup Protocol</p>
+      <h2 class="panel-title">FCR Entry Checklist</h2>
+      <p class="panel-lead">Run through these in order before any FCR entry. If any step fails, hold — do not override the process.</p>
+      <div class="grid grid-2">
+        <div>
+          <ul class="checklist">
+            <li><span class="check-num">1</span><div><strong>Wait for the 9:30–9:45 candle to fully close</strong> — no anticipation. The 15-minute candle must be complete before any level is valid.</div></li>
+            <li><span class="check-num">2</span><div><strong>Note the HIGH and LOW rays from the Auto Levels indicator</strong> — read them from the 15-min chart. These are "long from here" (HIGH) and "short from here" (LOW).</div></li>
+            <li><span class="check-num">3</span><div><strong>Watch for price to displace outside one ray on the 5-min chart</strong> — a body close above HIGH = LONG signal. Body close below LOW = SHORT signal. Wicks alone do not count.</div></li>
+            <li><span class="check-num">4</span><div><strong>Locate the 5-min FVG created by the displacement move</strong> — the gap must have formed from the displacement candle, not before. This is your entry zone.</div></li>
+          </ul>
+        </div>
+        <div>
+          <ul class="checklist">
+            <li><span class="check-num">5</span><div><strong>Limit entry at the middle of the FVG</strong> — not a market order. If price blows through the FVG without offering a fill, the setup is gone. Do not chase.</div></li>
+            <li><span class="check-num">6</span><div><strong>IT Foundation EMA gate</strong> — check the EMA stack dominant color. Green dominant = LONG valid. Red dominant = SHORT valid. Counter-trend without EMA confirmation = pass.</div></li>
+            <li><span class="check-num">7</span><div><strong>SMT check</strong> — are at least two other indices confirming the displacement direction? Scenario A (all four) = strongest. Scenario B (NQ leading with EMA) = valid. Mixed = no trade.</div></li>
+            <li><span class="check-num">8</span><div><strong>If FCR displacement fails to hold</strong> — do not revenge trade. The range-hold pattern begins. Watch both rails as ZTH decision-zone levels. Wait for the next clean setup.</div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Footer ── -->
+    <div class="footer">
+      <p>FCR Case Study Tracker — SmartTradingBlueprint Community · Updated March 17, 2026<br>
+      Live data from Christopher's personal trading sessions and STB/ZTH/IT live coaching calls.<br>
+      This is a working document — entries are added after each meaningful session.</p>
+    </div>
+
+  </main>
+
+  <script>
+    // Persist theme across page loads
+    if (localStorage.getItem('theme') === 'light') {
+      document.documentElement.classList.add('light');
+    }
+    document.querySelector('.theme-btn').addEventListener('click', () => {
+      const isLight = document.documentElement.classList.contains('light');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+  </script>
+
+</body>
+</html>

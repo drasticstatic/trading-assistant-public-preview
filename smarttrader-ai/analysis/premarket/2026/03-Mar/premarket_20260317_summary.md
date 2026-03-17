@@ -215,6 +215,16 @@ No major scheduled events today (March 17). The FOMC backdrop is the dominant se
 
 **~11:50 ET** — RTY briefly touched back inside FCR range, immediately rejected. ES and YM holding below. NQ still wicking at the boundary.
 
+**~13:31 ET** — Annotated 3-day FCR range study captured across all four indices. Blue/grey boxes with midlines mark the FCR ranges for March 13, 16, and 17 on NQ, ES, YM, RTY — see FCR Case Study Tracker for full analysis.
+
+![NQ — 3-day FCR range study (Mar 13/16/17)](../../../../../data/screenshots/NQ1!_2026-03-17_13-31-17_c3749.png)
+
+![ES — 3-day FCR range study (Mar 13/16/17)](../../../../../data/screenshots/ES1!_2026-03-17_13-31-43_caac7.png)
+
+![YM — 3-day FCR range study (Mar 13/16/17)](../../../../../data/screenshots/YM1!_2026-03-17_13-31-51_2e76c.png)
+
+![RTY — 3-day FCR range study (Mar 13/16/17)](../../../../../data/screenshots/RTY1!_2026-03-17_13-31-01_a803f.png)
+
 **~12:10 ET** — Zoomed-in charts captured. All four indices producing lower highs and lower lows since session high. ES: below FCR entire session, never reclaimed. YM: below since 10:55. RTY: retesting "short from here" from below after 11:50 touch. NQ: wicking below but still at the boundary. Metals: GC pulled back sharply from highs (FOMC positioning?), SI and HG accelerating lower. CL bouncing from support — ZTH B&R in play, IT TCL short watching overhead resistance. Full Scenario A SHORT developing — waiting for NQ body-close below FCR short from here to complete confirmation. FOMC tomorrow, most coaches sitting out.
 
 ---
