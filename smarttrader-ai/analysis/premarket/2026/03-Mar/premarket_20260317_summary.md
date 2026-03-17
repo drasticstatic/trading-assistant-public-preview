@@ -1,193 +1,259 @@
 # Mid-Session Market Review — March 17, 2026
-### ~11:30 ET · No formal pre-market today
+### ~11:30–12:10 ET · No formal pre-market today
 
-*No official pre-market session today — Christopher spent the morning on live coaching calls with STB, ZTH, and IT. This document covers the session-open context, live coach reads, and mid-session picture based on chart screenshots taken around 11:25–11:31 ET.*
+*No official pre-market session today — Christopher spent the morning on live coaching calls with STB, ZTH, and IT. This document is written from chart screenshots taken at 11:24–11:31 ET (first set) and 12:09–12:11 ET (second, zoomed-in set), updated with live session context through ~12:10 ET.*
 
 <a id="smarttraderai-copy-paste"></a>
 [Jump to SmartTraderAI ↓](#smarttraderai)
 
 ---
 
-## 📋 Dashboard
+## 📋 Session Dashboard
 
 | Account | Status | Gap | Deadline |
 |---------|--------|-----|----------|
 | APEX-484839-06 | ✅ Active | ~$5,441 | Mar 24 (7 days) |
 | TPT 50K | ✅ Active | ~$3,000 | End of March |
 
-**Instruments in focus today:** YM, RTY (primary watching), CL, NQ, ES + GC, SI, HG (TPT scope)
+**Primary instruments:** YM, RTY (watching), NQ, ES · **CL** (ZTH + IT setups) · **GC, SI, HG** (TPT scope)
+**Metals on Apex:** ❌ Halted (GC, SI, HG, MGC) — TPT only for metals
 
 ---
 
-## ⚠️ Risk Alert
+## ⚠️ Session Risk Alert
 
-- **FCR failed at the open today** — STB coach took the long displacement above "long from here," stopped out. ZTH coach also nearly stopped on CL long B&R, had already moved to BE. When FCR fails, the short side becomes the intraday directional bias for the session.
-- **Coaching calls running 9:30–11:30** — no entries taken so far, session still live.
-- **APEX-06 deadline is 7 days out** — conservative approach remains appropriate. Waiting for clean setups.
-
----
-
-## 🌙 Overnight / ETH Context
-
-**NQ/ES/YM/RTY — ETH Picture:**
-All four indices show a multi-day downtrend from significant highs visible in the ETH charts. The structure is consistent: a distribution phase off the top, then a sharp flush lower into this week's lows. From those lows the market has staged a strong recovery bounce — today's intraday rally is the continuation of that bounce.
-
-The auto-levels v2.7 is rendering cleanly on the ETH charts — cyan 4/5 today rails visible, teal fade on prior sessions, weekly open golden vertical marking the Monday context.
-
-**GC — Inverse character:**
-Gold is in an outright strong uptrend — completely divergent from equity behavior. Near significant highs. The ETH/auto-levels chart shows Gold holding above multiple ZTH levels that are now acting as support. This is a safe-haven or dollar-weakness bid running independently.
+- **FCR failed at open** — STB coach took long displacement above "long from here," stopped out. When the opening displacement fails to hold, the session short-side bias is inherited.
+- **FOMC announcement tomorrow** — most coaches are sitting out until after the announcement. Low-conviction environment for new multi-day positions. Intraday-only, defined risk, tight scope.
+- **APEX-06: 7 days to deadline** — no reason to force entries. One A+ trade this week changes the picture; a blown day does the opposite.
+- **Metals (Apex):** GC, SI, HG, MGC remain halted. TPT is the access point for metals trades.
 
 ---
 
-## 🌤️ At the Open (9:30 Context)
+## 🌙 Overnight Updates / ETH Context
 
-**FCR outcome:** Long from here displacement failed. Price briefly pushed above the 9:30 high then reversed — STB coach stopped out on the long. This is significant: failed FCR displacement above = the bulls could not hold the opening break. Short bias inherits for the session.
+All four equity index futures (NQ, ES, YM, RTY) show the same macro structure in the ETH charts: a multi-day distribution from a significant high, a sharp flush lower into last week's lows, and then a recovery bounce that extends into this week. Today's intraday rally is the continuation of that bounce. The auto-levels v2.7 ETH view shows that multiple ZTH levels were broken on the way down and are now sitting overhead as resistance for any recovery attempt.
 
-**STB SmartTraderAI dashboard:** ES, NQ, YM all reading "strongly bullish" — this reflects the multi-day bounce off lows, not necessarily today's intraday character. The failed FCR is the more current signal.
-
-**What the coaches are watching:**
-- **ZTH coach:** was nearly stopped on CL long B&R (had moved to BE); showed a second B&R setup on CL for later in the session
-- **IT coach:** TCL (trend continuation) short on CL — aligned with CL's broader downtrend
-- **STB:** short bias following failed FCR
+**Metals overnight:** Gold was near significant highs going into this session. The ETH chart showed a strong uptrend diverging sharply from equities. That divergence began to unwind mid-session today (see Live Updates below).
 
 ---
 
-## 🔗 SMT Scenarios
+## 🌤️ At the Open
 
-**Current state (~11:30 ET):**
+**9:30 FCR outcome:** Displacement above "long from here" failed — STB coach stopped out. ZTH coach's CL long B&R moved to break even (level held), showed a second B&R on CL for later in session. IT coach eyeing a trend-continuation short on CL.
 
-| Index | Character | Note |
-|-------|-----------|------|
-| NQ | Bounced hard, now pulling back | Led the bounce off lows; now fading |
-| ES | Same — pulling back from morning high | Closely correlated with NQ |
-| YM | Similar bounce, slightly diverging | Watching whether YM holds |
-| RTY | Lagging — **bearish divergence** | Not matching NQ/ES/YM bounce strength |
-
-**RTY divergence is the key tell.** When small caps can't confirm the large-cap bounce, the read is: the bounce is corrective, not a true trend reversal. A Scenario C (mixed/divergent) reading supports staying patient rather than chasing longs.
+**FCR case study note:** When FCR does not produce a clean directional break through either side, ZTH watches the range between "long from here" and "short from here" as a decision zone. The market tends to chop and produce false breakouts on both sides before committing. This pattern appeared yesterday and repeated today — the range held most of the morning with repeated probes at both rails before directional commitment began. Logging this observation for the FCR case study tracker.
 
 ---
 
-## 📅 Calendar / Session Notes
+## 🔗 SMT Divergence Scenarios
 
-- **Monday March 17** — no major economic data noted
-- **Pi Day week** — last week's action tested multiple ZTH KEY levels across instruments (RTY pivoted off KEY level exactly post-TP on Friday)
-- **APEX deadline pressure: 7 days remaining** — no reason to rush into B-grade entries
+The three SMT scenario types and how today reads against each:
+
+**Scenario A — Full Triple (or Quad) Confirmation:** All three major indices (NQ, ES, YM) — or all four including RTY — are moving in the same direction with confirmed displacement and trend alignment. This is the highest-conviction setup. All five entry filter layers can be checked. Today's developing read: **lower highs and lower lows across all four indices since the session high** qualifies as a Scenario A SHORT in development — but requires a clean break of the last swing low across all four, not just a drift lower within the range.
+
+**Scenario B — NQ Leading + EMA Gate:** NQ is the lead instrument. When NQ shows clear directional displacement and the IT Foundation EMA stack confirms (red dominant = short valid, green dominant = long valid), Scenario B is active even if ES/YM/RTY are lagging slightly. Counter-trend setups without confirmed EMA dominance = no trade. Today: NQ has been wicking below the FCR "short from here" ray and making lower highs — Scenario B SHORT is live if NQ breaks cleanly below and the EMA stack is red dominant.
+
+**Scenario C — Mixed / No Confirmation:** One or more instruments diverging from the others — going a different direction, or failing to confirm the lead. No trade. Today's early session (when NQ was still ranging inside FCR while ES/YM were already below) was a Scenario C read — that ambiguity is why no entry was made during the coaching call window.
+
+**Current state as of ~12:10 ET:**
+- **ES:** Firmly below FCR "short from here" — never reclaimed it after the initial rejection
+- **YM:** Below FCR since 10:55 ET — the earliest and most consistent bear in the group
+- **RTY:** Below FCR, briefly touched back at 11:50, now retesting from below — the weakest on any bounce attempt
+- **NQ:** Wicking below FCR "short from here" but still ranging at the boundary — the last to confirm
+
+Lower highs and lower lows across all four since the session high. **This is developing into a Scenario A SHORT.** NQ needs to break cleanly and hold below to complete the confirmation. RTY leading to the downside on any break = full confirmation.
 
 ---
 
-## 🎯 Priority Instruments
+## 📅 Economic Calendar
 
-### NQ / ES / YM — Index Futures
+| Time ET | Event | Notes |
+|---------|-------|-------|
+| Tomorrow | **FOMC Announcement** | Most coaches sitting out until after. High-impact — expect volatility. Low-conviction environment for new directional positions today. |
 
-**Macro:** Multi-day bounce off lows. Today's intraday action: strong open rally → FCR failure → now pulling back.
+No major scheduled events today (March 17). The FOMC backdrop is the dominant session context — market behavior today may be positioning/hedging ahead of tomorrow rather than clean technical trade.
 
-![NQ 5-min (ETH) — 11:24 ET](../../../../../data/screenshots/NQ1!_2026-03-17_11-24-27_bdbaa.png)
+---
 
-![ES 5-min (ETH) — 11:24 ET](../../../../../data/screenshots/ES1!_2026-03-17_11-24-35_4e1c3.png)
+## 🎯 Today's Priority Instruments
 
-![NQ 5-min — 11:31 ET](../../../../../data/screenshots/NQ1!_2026-03-17_11-30-56_be3a1.png)
+### NQ / MNQ — Nasdaq (Lead Instrument)
 
-![ES 5-min — 11:31 ET](../../../../../data/screenshots/ES1!_2026-03-17_11-30-40_7484c.png)
+**Role in read:** NQ is the Scenario B lead. When NQ confirms, the read tightens for all other instruments. When NQ is still ranging while others have broken, wait.
 
+**11:24 ET — NQ (ETH/multi-day context):**
+![NQ — 11:24 ET](../../../../../data/screenshots/NQ1!_2026-03-17_11-24-27_bdbaa.png)
+
+**11:31 ET — NQ (intraday):**
+![NQ — 11:31 ET](../../../../../data/screenshots/NQ1!_2026-03-17_11-30-56_be3a1.png)
+
+**12:10 ET — NQ (zoomed, current action):**
+![NQ — 12:10 ET](../../../../../data/screenshots/NQ1!_2026-03-17_12-10-59_33397.png)
+
+**Read:** NQ has been wicking below the FCR "short from here" ray and producing lower highs since the session peak. The auto-levels show multiple ZTH levels stacked overhead acting as resistance. Not yet a clean confirmed break below — the last probe is the one to watch. If NQ closes a body below and holds, the Scenario A SHORT is triggered.
+
+---
+
+### ES / MES — S&P 500
+
+**11:24 ET:**
+![ES — 11:24 ET](../../../../../data/screenshots/ES1!_2026-03-17_11-24-35_4e1c3.png)
+
+**11:31 ET:**
+![ES — 11:31 ET](../../../../../data/screenshots/ES1!_2026-03-17_11-30-40_7484c.png)
+
+**12:10 ET — ES (zoomed):**
+![ES — 12:10 ET](../../../../../data/screenshots/ES1!_2026-03-17_12-10-50_12bf4.png)
+
+**Read:** ES is the clearest — it has been below FCR "short from here" since the open rejection and has never touched back inside the range. Every bounce has been a lower high. The auto-levels overhead are acting as clean resistance. ES is confirming short.
+
+---
+
+### YM / MYM — Dow Jones
+
+**11:24 ET:**
 ![YM — 11:24 ET](../../../../../data/screenshots/YM1!_2026-03-17_11-24-44_849bb.png)
 
+**11:31 ET:**
 ![YM — 11:31 ET](../../../../../data/screenshots/YM1!_2026-03-17_11-30-29_03698.png)
 
-**Read:** The auto-levels are stacking ZTH structure above current price — levels that were previously support now acting as potential resistance overhead. The pullback from morning highs is testing that structure now. The failed FCR means the short-side bias holds until proven otherwise. Look for price to reject off ZTH resistance and potentially retest lower ZTH/KEY levels on all three.
+**12:10 ET — YM (zoomed):**
+![YM — 12:10 ET](../../../../../data/screenshots/YM1!_2026-03-17_12-10-39_d10a2.png)
 
-**Conservative framework:** No chasing longs after a failed FCR. If indices push back up and offer a clean rejection off a ZTH KEY/5/5 with RTY still diverging — that's the short scenario. If RTY starts to confirm and all four align on a move up through ZTH resistance — reassess for long side.
+**Read:** YM has been below FCR since 10:55 ET — the earliest confirmed break of the four. Producing clean lower highs. YM being the first to break and sustain below FCR is the earliest Scenario B signal of the session. Confirming short.
 
 ---
 
-### RTY — Russell 2000 (Key Divergence Instrument)
+### RTY / M2K — Russell 2000 (Key Divergence Instrument + Weakest Link)
 
+**11:24 ET:**
 ![RTY — 11:24 ET](../../../../../data/screenshots/RTY1!_2026-03-17_11-24-15_3de09.png)
 
+**11:31 ET:**
 ![RTY — 11:31 ET](../../../../../data/screenshots/RTY1!_2026-03-17_11-31-10_b068d.png)
 
-**Read:** RTY is the weakest of the four. The ETH chart shows it has not bounced with the same strength as NQ/ES/YM. The auto-levels overlay shows multiple ZTH levels overhead — any rally into those from below is a potential rejection zone. RTY confirming vs. diverging is the session's directional tell. Currently diverging = not your friend on the long side.
+**12:11 ET — RTY (zoomed):**
+![RTY — 12:11 ET](../../../../../data/screenshots/RTY1!_2026-03-17_12-11-10_8bf74.png)
+
+**Read:** RTY is the most bearish of the four — the weakest on every bounce attempt and the first to make new session lows on any break. It touched briefly back into the FCR range at 11:50 but immediately rejected and is now retesting the "short from here" level from below. When the weakest index cannot reclaim FCR on a bounce, the read is clear: small caps are leading to the downside. RTY breaking and holding below the current retest = full Scenario A short confirmation.
 
 ---
 
-### CL — Crude Oil
+### CL — Crude Oil (ZTH + IT Setup)
 
+**11:25 ET:**
 ![CL — 11:25 ET](../../../../../data/screenshots/CL1!_2026-03-17_11-25-09_56e6b.png)
 
+**11:26 ET:**
 ![CL — 11:26 ET](../../../../../data/screenshots/CL1!_2026-03-17_11-26-50_5bbc5.png)
 
-**Read:** CL is in a clear downtrend from significant highs. The auto-levels chart shows the price has declined into a cluster of ZTH support levels — multiple stacked levels below current price where buyers have attempted to hold. The ZTH coach had a B&R long that moved to BE (protecting capital appropriately), then identified a second B&R opportunity for later in the session. IT's TCL short makes sense — the dominant trend is down, and any bounce into ZTH resistance overhead is a shorting opportunity.
+**12:10 ET — CL (zoomed):**
+![CL — 12:10 ET](../../../../../data/screenshots/CL1!_2026-03-17_12-10-19_48ef8.png)
 
-**Setup to watch:** If CL bounces off current support cluster and rallies into the ZTH overhead levels — that's the TCL short IT is eyeing. For the ZTH B&R long, wait for a clean retest of the support zone with body close confirmation before entry. The auto-levels are showing exactly where those zones are.
-
-**Note:** IT trades micro contracts — MCL is the micro contract for crude. With auto-levels now accurate on CL, this instrument is becoming viable on both Apex (full CL) and potentially TPT (CL or MCL).
+**Read:** CL is acting differently from equities — it has been bouncing from its support cluster while indices sell off. The ZTH B&R setup is playing out (coach moved to BE on the first one, watching the second). IT's TCL short is watching the overhead ZTH resistance for the rejection entry. The ZTH auto-levels on CL are showing exactly where both zones are. This is a two-sided setup on a single instrument — ZTH long from support, IT short from resistance. Wait for the price to commit to one level and show confirmation before entering.
 
 ---
 
-### GC — Gold
+### GC — Gold (TPT Scope)
 
+**11:24 ET:**
 ![GC — 11:24 ET](../../../../../data/screenshots/GC1!_2026-03-17_11-24-58_2ad27.png)
 
+**11:29 ET:**
 ![GC — 11:29 ET](../../../../../data/screenshots/GC1!_2026-03-17_11-29-21_7b5fa.png)
 
-**Read:** Gold is in a completely different character from equities — strong, sustained uptrend. The auto-levels chart shows a bullish EMA stack and ZTH levels being respected as support on pullbacks. Gold is near significant highs. This is a safe-haven or dollar-weakness driven move. **TPT scope:** pullbacks into ZTH support levels on GC are long opportunities with trend. The challenge is that Gold on Apex is currently halted — TPT is the access point here.
+**12:09 ET — GC (zoomed):**
+![GC — 12:09 ET](../../../../../data/screenshots/GC1!_2026-03-17_12-09-21_a7d05.png)
 
-**Caution:** Near highs means limited upside runway before the next resistance cluster. Entries should be on pullbacks to key ZTH levels, not chasing at current extended prices.
+**Read:** Gold was near significant highs earlier in the session and has now pulled back sharply. The 12:09 chart shows a meaningful drop from the session peak — the safe-haven or dollar-weakness bid is coming off. With FOMC tomorrow, this could be gold reducing exposure ahead of the announcement (dollar could strengthen on a hawkish surprise). The auto-levels show key ZTH support below current price — those levels are the watch zones for any long entry on a pullback. **Not chasing at extended levels.** TPT access only.
 
 ---
 
-### SI — Silver
+### SI — Silver (TPT Scope)
 
+**11:29 ET:**
 ![SI — 11:29 ET](../../../../../data/screenshots/SI1!_2026-03-17_11-29-54_5ac69.png)
 
+**11:31 ET:**
 ![SI — 11:31 ET](../../../../../data/screenshots/SI1!_2026-03-17_11-31-37_88e98.png)
 
-**Read:** Silver is significantly weaker than Gold — a notable divergence. While GC holds near highs, SI has sold off hard. This precious metals divergence (GC strong / SI weak) is a pattern worth noting — Silver often leads in risk-on metals rallies and lags or diverges in macro-driven safe-haven moves. The auto-levels show SI has broken through multiple ZTH levels on the way down. Currently attempting a bounce from lows but EMA stack is bearish. **Caution:** not a clean long setup until SI reclaims structure. Watch for a potential mean reversion to GC performance — that gap has to close eventually.
+**12:09 ET — SI (zoomed):**
+![SI — 12:09 ET](../../../../../data/screenshots/SI1!_2026-03-17_12-09-37_df35f.png)
+
+**Read:** Silver has been the weakest precious metal all session — declining while Gold held highs, and now accelerating lower as Gold pulls back. The 12:09 chart shows SI at or near new session lows with heavy selling volume visible in the profile. No long setup here until SI finds a defined ZTH support and shows body-close confirmation. SI is a watch only for now.
 
 ---
 
-### HG — Copper (High Grade)
+### HG — Copper (TPT Scope)
 
+**11:25 ET:**
 ![HG — 11:25 ET](../../../../../data/screenshots/HG1!_2026-03-17_11-25-21_a6390.png)
 
+**11:26 ET:**
 ![HG — 11:26 ET](../../../../../data/screenshots/HG1!_2026-03-17_11-26-00_cb015.png)
 
-**Read:** Copper is in a clear decline from highs — aligns with global growth concerns reflected in weak equities and commodity demand. The auto-levels show multiple ZTH levels broken on the way down with the current price now in a support cluster zone. IT's micro contract focus (MHG) would be applicable here on TPT if a clean ZTH setup forms. Trend is still bearish so long entries need to be at defined support with tight risk.
+**12:09 ET — HG (zoomed):**
+![HG — 12:09 ET](../../../../../data/screenshots/HG1!_2026-03-17_12-09-53_73777.png)
+
+**Read:** Copper is declining sharply and accelerating into the afternoon. The 12:09 chart shows a strong bearish move with significant selling. HG is consistent with the broader risk-off tone — weak equities, weak copper, weak silver all confirming. The micro contract (MHG) is worth watching on TPT once a defined ZTH support forms and price confirms a hold. Not yet.
 
 ---
 
-## 🧠 Mental State / Session Context
+## 🧠 Pre-Session Mental State / Behavioral Reminder
 
-- No forced entries this morning — coaching calls provided passive market education without execution pressure
-- FCR failure observed live → correct response is patience, not revenge trading
-- Christopher's read: "more of a reversal coming to retest" — this is the right conservative framework. Bounces from significant lows often retest lower before establishing. Not a day to be a hero on the long side.
-- **New awareness:** CL, GC, SI, HG are now more accessible as trading opportunities now that auto-levels removes the chart-management burden. The mental bandwidth freed up from not managing object trees and manual ZTH drawings is real alpha.
+- Coaching calls this morning provided directional context without execution pressure — that's a good starting point.
+- FCR failed cleanly and was observed in real time. The correct response was noted, no revenge trade was made.
+- FOMC tomorrow is the dominant risk — coaches sitting out confirms the right stance is patient and selective.
+- The auto-levels are showing the structure clearly. Trust the levels, wait for the body-close confirmation at them. The chart-management burden that used to eat session time is gone — the mental bandwidth gained is real and should be directed toward read quality, not searching for a trade.
+- Conservative framework: one A+ short entry if Scenario A fully confirms (all four indices body-close below FCR short from here and RTY holds below), or no entry if the market stays rangebound through FOMC positioning.
 
 ---
 
 ## ⏱️ Live Session Updates
 
-*~11:30 ET — Charts reviewed. No entries yet. Watching YM, RTY, CL. Indices pulling back from morning highs after failed FCR. RTY divergence is the bearish tell. Metals: GC strong/SI weak divergence notable. Waiting for defined ZTH-level setups.*
+**~11:30 ET** — Screenshots captured. Indices pulling back from session highs. RTY lagging bounce. Metals: GC strong, SI/HG weak. No entries taken during coaching call window.
+
+**~11:50 ET** — RTY briefly touched back inside FCR range, immediately rejected. ES and YM holding below. NQ still wicking at the boundary.
+
+**~12:10 ET** — Zoomed-in charts captured. All four indices producing lower highs and lower lows since session high. ES: below FCR entire session, never reclaimed. YM: below since 10:55. RTY: retesting "short from here" from below after 11:50 touch. NQ: wicking below but still at the boundary. Metals: GC pulled back sharply from highs (FOMC positioning?), SI and HG accelerating lower. CL bouncing from support — ZTH B&R in play, IT TCL short watching overhead resistance. Full Scenario A SHORT developing — waiting for NQ body-close below FCR short from here to complete confirmation. FOMC tomorrow, most coaches sitting out.
 
 ---
 
 <a id="smarttraderai"></a>
-## 🤖 SmartTraderAI Copy-Paste
+## 🤖 SmartTraderAI Pre-Market Copy-Paste Fields
 
 ---
 
-**Q1 — What was today's date and primary instruments watched?**
+**Q1 — What news releases today?**
 
-March 17, 2026. Primary: YM, RTY, CL. Secondary/context: NQ, ES. TPT scope: GC, SI, HG.
-
----
-
-**Q2 — What was the key news or macro context driving the session?**
-
-No major scheduled news today. The dominant macro theme is the multi-day bounce off last week's index lows — markets are recovering but the recovery character is mixed. Gold running independently near highs (safe-haven / dollar weakness). Copper and Silver declining (global growth concern / risk-off in commodities). The divergence between precious metals (GC strong, SI weak) and between indices (NQ/ES/YM bouncing, RTY lagging) is the key intraday read.
+No major scheduled economic releases today (March 17, 2026). However, **FOMC meeting announcement is tomorrow** — this is the dominant session backdrop. Most coaches are sitting out and waiting for the FOMC result before taking new directional positions. The session is being treated as pre-FOMC positioning, not a normal trade day.
 
 ---
 
-**Q3 — What were the key levels and intraday bias going into and through the session?**
+**Q2 — What are the expected figures? What effect has this event had on the markets before?**
 
-FCR long from here failed at the 9:30 open — STB coach stopped out on the long displacement. ZTH coach's CL long B&R moved to break even. IT coach eyeing TCL short on CL. STB's dashboard reads "strongly bullish" on ES/NQ/YM reflecting the multi-day bounce, but the failed FCR shifts intraday bias to short side. RTY diverging from the NQ/ES/YM bounce is the clearest bearish signal. Conservative framework: no long chasing after failed FCR; watching for rejection off ZTH overhead levels and potential retest of lower support. No entries taken.
+FOMC announcements historically produce significant volatility across equities, bonds, and dollar-correlated instruments (gold, crude, metals). A hawkish surprise (higher-for-longer language or rate hold with hawkish tone) typically strengthens the dollar, pressures equities, and can trigger sharp gold selloffs. A dovish surprise (rate cut signaling or softened language) typically rallies equities and weakens the dollar. Gold can move either direction depending on whether the dollar or risk-on reaction dominates. Today's price action in GC (pulling back from highs) and the general selling across metals (SI, HG sharply lower) may reflect positioning ahead of the announcement — reducing exposure before a potential dollar-strengthening event.
 
+---
+
+**Q3 — List both your HTF bias and key levels.**
+
+**HTF Bias:** Bearish on all four major equity index futures. The multi-day ETH chart shows a clear distribution from highs, sharp flush lower, and a corrective bounce that has not yet reclaimed the prior structure. The bounce is running into ZTH overhead levels as resistance. Gold near highs (bullish) but pulling back mid-session — watch for a pullback to ZTH support levels before any long. CL in a downtrend (bearish) with a current support cluster creating a two-sided near-term setup.
+
+**Key HTF levels (from auto-levels v2.7 ZTH structure):** ZTH KEY and 5/5 levels overhead on all four indices from the prior decline — those were support on the way down and are now potential resistance on the recovery. The auto-levels chart is providing the exact price coordinates at each of these levels in real time.
+
+---
+
+**Q4 — List your Intraday bias and levels.**
+
+**Intraday Bias:** SHORT. FCR long from here failed at open. All four indices are producing lower highs and lower lows since the session high. ES has been below FCR "short from here" all session without reclaiming it. YM broke below at 10:55. RTY is retesting "short from here" from below after a brief 11:50 touch. NQ is wicking below the level — the final piece needed for Scenario A SHORT confirmation.
+
+**Scenario A SHORT** is developing — waiting for NQ body-close below FCR "short from here" and RTY to hold below the retest. If NQ confirms, entry parameters would be: displacement below the FCR short from here level on NQ/MNQ, EMA stack red dominant, RTY confirming, ZTH level as target.
+
+**CL:** Watching ZTH B&R support (long) vs. TCL resistance overhead (short) — two setups, one instrument. Wait for commitment and body-close confirmation at whichever level price chooses.
+
+---
+
+**Q5 — Expectations for the day?**
+
+Primarily a patience day ahead of FOMC tomorrow. If Scenario A SHORT fully confirms on the indices, one conservative entry on MNQ or M2K with defined risk — no heroes, stop above the FCR "short from here" level, conservative target at the next ZTH support below. If the market chops inside the FCR range through the afternoon (false breakout behavior common when FCR doesn't break cleanly), no trade is the correct trade. FOMC positioning will likely keep price action erratic into the close. Metals watch-only for now — GC pulling back from highs but no clean entry until ZTH support is tested and confirmed. CL is the most active setup space given the ZTH + IT reads stacking on the same instrument.
