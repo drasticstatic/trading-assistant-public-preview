@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Auto Levels Pine Changelog | Trading Assistant</title>
-  <meta name="description" content="Public-facing changelog for the Auto Levels Pine family: revision history, version detail, bug trail context, known/open issues, and the source-vs-chart validation boundary through v2.5.">
+  <meta name="description" content="Public-facing changelog for the Auto Levels Pine family: revision history, version detail, bug trail context, known/open issues, and the source-vs-chart validation boundary through v2.7.">
   <meta name="color-scheme" content="dark light">
   <meta name="theme-color" content="#0b1d16">
   <link rel="canonical" href="https://drasticstatic.github.io/trading-assistant-public-preview/setup/auto-levels.pine_changelog.html">
@@ -770,7 +770,7 @@
       <div class="stat-grid" aria-label="Changelog at a glance">
         <article class="stat">
           <strong>Current public baseline</strong>
-          <span><code>v2.6</code> is the active source snapshot represented here.</span>
+          <span><code>v2.7</code> is the active source snapshot represented here.</span>
           <div class="stat-action-card">
             <a class="button tertiary" href="./auto-levels.pine_indicator-guide.html">Open Guide ↗</a>
           </div>
@@ -828,7 +828,7 @@
             <tr><th>Surface</th><th>Role</th><th>Status</th></tr>
           </thead>
           <tbody>
-            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v2.6</code> Source</td></tr>
+            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v2.7</code> Source</td></tr>
             <tr><td><code>fcr-standalone.pine</code></td><td>Shareable FCR-only companion</td><td>✅ Active companion</td></tr>
             <tr><td><code>webhook-alerts.pine</code></td><td>Alert-only companion kept intentionally separate from the visual overlay family</td><td>✅ Active top-level companion</td></tr>
           </tbody>
@@ -845,11 +845,38 @@
         <details class="release" open>
           <summary>
             <div>
+              <p class="release-meta">Mar 17, 2026 · Pine v6 migration + visual and behavioral overhaul</p>
+              <h3>v2.7</h3>
+              <p class="release-summary">Pine v6 migration, 4/5 on 30min TF, 1-bar confirmation delay, pattern color system, FVG polish, H/L/C directional shadows, weekly open golden vertical line, and ETH gate overhaul.</p>
+            </div>
+            <span class="status-pill status-current">Current</span>
+            <span class="chevron" aria-hidden="true">▾</span>
+          </summary>
+          <div class="release-body">
+            <ul class="list-tight">
+              <li><strong>Pine v6 migration:</strong> script migrated from Pine v5 to Pine v6 using TradingView's conversion tool. Original v5 source preserved as <code>auto-levels_pine-v5.pine</code>. Syntax differences include single-quoted strings, explicit <code>array&lt;float&gt;</code> type declarations, and native <code>break</code> support in <code>for</code> loops.</li>
+              <li><strong>4/5 detection on 30min TF:</strong> 4/5 session event detection moved from 15-min to 30-min scan arrays. FCR still uses the 15-min scan. Output variable names preserved for downstream compatibility. 4/5 levels on the chart are established from 30-minute bars — note this in your chart read accordingly.</li>
+              <li><strong>1-bar confirmation delay:</strong> ZTH flip detection now confirms on bar[2] (the bar that just closed before the one before current), not bar[1]. Mitigation body also uses bar[2] data. This prevents the candle that just closed from immediately creating or mitigating a level — a one-candle buffer before any level influence. The third candle and beyond mitigate normally.</li>
+              <li><strong>4/5 colors:</strong> today's RTH 4/5 pair is cyan (<code>#00bcd4</code>), prior-day RTH pairs fade to teal. ETH maintenance (17:00) and reopen (18:00) chains render in faded teal at higher transparency to visually distinguish them from RTH pairs without adding a separate line style.</li>
+              <li><strong>ETH 4/5 gate overhauled:</strong> the Show-ETH-Derived toggle now gates ETH 4/5 events for all instruments — including non-whitelisted instruments (GC, CL, etc.). Previously these always showed regardless of toggle state. ETH 4/5 is now always intentional.</li>
+              <li><strong>4/5 in ZTH toggle:</strong> 4/5 session rails are now gated by the "Show ZTH Levels on Timeframes Above 1hr" toggle, keeping the chart clean on higher timeframe views.</li>
+              <li><strong>17:00 maintenance close anchor fix:</strong> reverted to bar open (16:30 ET bar) rather than <code>time_close</code> (17:00 ET). No visible bar exists at 17:00 during the CME maintenance gap — anchoring to <code>time_close</code> caused the ray to appear on the 18:00 candle instead of at the actual price.</li>
+              <li><strong>Weekly open golden vertical line:</strong> a golden (<code>#f39c12</code>) vertical line now marks the Sunday 18:00 ET CME weekly reopen. Drawn full-height, 60% opacity. Lets you immediately see where the new trading week began on your chart.</li>
+              <li><strong>Pattern label color system:</strong> each pattern type now has a distinct color — Reversal (red <code>#e74c3c</code>), Bounce (green <code>#2ecc71</code>), Pivot high (orange <code>#f39c12</code>), Pivot low (lime <code>#a8e063</code>), SFP bearish (pink <code>#ff6b6b</code>), SFP bullish (teal <code>#00b894</code>), Break &amp; Retest (purple <code>#9b59b6</code>), 1-2-3 (cyan <code>#00bcd4</code>). Continuation label removed.</li>
+              <li><strong>Prior-day H/L/C directional shadows:</strong> the prior-day high line now casts a translucent red shadow band downward; the prior-day low casts a translucent green shadow band upward. Both use an 88% transparency fill so they read as context without competing with structural levels.</li>
+              <li><strong>FVG polish:</strong> FVG boxes no longer have visible borders. Each zone extends 5 bars to the right of where it starts, and a dashed midpoint line bisects the gap at the 50% level.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release">
+          <summary>
+            <div>
               <p class="release-meta">Mar 16, 2026 · surgical repair + feature completion</p>
               <h3>v2.6</h3>
               <p class="release-summary">4/5 dual-slot model, FCR sentinel fix, higher-TF ray geometry, close anchor fix, FCR standalone v2.0, ETH maintenance 4/5 chains, and prior-day H/L/C polish.</p>
             </div>
-            <span class="status-pill status-current">Current</span>
+            <span class="status-pill status-history">History</span>
             <span class="chevron" aria-hidden="true">▾</span>
           </summary>
           <div class="release-body">
@@ -1060,29 +1087,38 @@
       <h2 id="known-issues-title">Implemented in source does not automatically mean re-checked on a current TradingView chart</h2>
       <div class="grid">
         <article class="card">
+          <h3>✅ Closed in v2.7</h3>
+          <ul class="list-tight">
+            <li><strong>ETH 4/5 showing on non-whitelisted assets regardless of toggle:</strong> the ETH gate logic always showed ETH 4/5 for non-whitelisted instruments (GC, CL, etc.) no matter what the toggle said. Gate now requires the Show-ETH-Derived toggle to be ON for all instruments.</li>
+            <li><strong>17:00 maintenance close printing on 18:00 candle:</strong> anchoring the 17:00 event to <code>time_close</code> (17:00 ET) mapped to the next visible bar during the CME gap. Reverted to bar open (16:30 ET) so the ray anchors at the correct pre-gap price.</li>
+            <li><strong>Bar[1] levels and mitigation (confirmation delay):</strong> the candle that just closed before the current one was creating and mitigating ZTH levels in real time — too early to be meaningful. Detection and mitigation both shifted to bar[2] to require one full bar of confirmation.</li>
+            <li><strong>Sunday 18:00 vertical line (unintentional):</strong> the weekly CME reopen was producing a stray vertical marking. Converted into an intentional golden vertical line feature marking the weekly open.</li>
+          </ul>
+        </article>
+        <article class="card">
           <h3>✅ Closed in v2.6</h3>
           <ul class="list-tight">
             <li><strong>4/5 table showing <code>0</code>:</strong> root cause confirmed — <code>sess_use_open</code> was always <code>true</code>, collapsing both events into a single chain. Fixed with dual independent open/close chains.</li>
             <li><strong>FCR rays not printing:</strong> sentinel variables initialized to <code>na</code> instead of <code>0</code>. Pine v5 <code>x != na</code> returns <code>na</code>, not <code>true</code>. Fixed.</li>
             <li><strong>Vertical spikes on 4hr+ charts:</strong> ray x2 was only 1 hour ahead of x1 — same pixel on 4hr charts. Fixed with 48-hour lookahead.</li>
             <li><strong>Runtime crash on 1–10 min charts:</strong> <code>array.size(na)</code> when <code>security_lower_tf</code> returns <code>na</code>. Fixed with nested guard.</li>
-            <li><strong>ETH 4/5 events (17:00/18:00) not implemented:</strong> tooltip promised these but only RTH chains existed. Both chains now live, gated by the ETH-derived toggle for whitelisted instruments.</li>
-            <li><strong>Prior-day H/L/C too prominent:</strong> transparency increased to 50%, prior-day range fill added at 95% opacity so levels read as context, not structure.</li>
+            <li><strong>ETH 4/5 events (17:00/18:00) not implemented:</strong> tooltip promised these but only RTH chains existed. Both chains now live.</li>
+            <li><strong>Prior-day H/L/C too prominent:</strong> transparency increased to 50%, prior-day range fill added so levels read as context, not structure.</li>
           </ul>
         </article>
         <article class="card">
-          <h3>🔎 Still open after v2.6</h3>
+          <h3>🔎 Still open after v2.7</h3>
           <ul class="list-tight">
-            <li><strong>4/5 wrong price on 1hr chart:</strong> close and/or open ray price levels are incorrect on 1hr chart views. Root cause not yet isolated from static analysis — needs targeted runtime diagnostic label on <code>barstate.islast</code>.</li>
+            <li><strong>4/5 wrong price on 1hr chart:</strong> close and/or open ray price levels are incorrect on 1hr chart views in some configurations. Root cause not yet isolated from static analysis — needs targeted runtime diagnostic label on <code>barstate.islast</code>.</li>
             <li><strong>Previous-day 16:00 close ray vertical on RTH chart:</strong> yesterday's close 4/5 ray renders as a vertical post on some RTH 1hr chart configurations. Likely related to the wrong-price issue above — same 1hr timing boundary.</li>
-            <li><strong>ZTH missing levels on 1hr ETH chart (GC, CL):</strong> architectural cross-TF limitation — <code>request.security</code> with same-TF + different session boundaries causes some 1hr events to be skipped at session seams. Affects non-whitelisted instruments (GC, CL) on 1hr ETH charts. Lower TF charts are correct.</li>
-            <li><strong>Extra ZTH levels on whitelisted ETH chart with toggle OFF:</strong> a few levels appear on whitelisted instruments (NQ, ES, etc.) when viewing an ETH lower-TF chart with Show-ETH-Derived toggled OFF. Root cause under investigation — may be RTH-sourced levels rendering at ETH bar positions.</li>
+            <li><strong>ZTH missing levels on 1hr ETH chart (GC, CL):</strong> architectural cross-TF limitation — <code>request.security</code> with same-TF + different session boundaries causes some 1hr events to be skipped at session seams. Affects non-whitelisted instruments on 1hr ETH charts. Fix requires <code>security_lower_tf("60")</code> scan loop.</li>
+            <li><strong>QI 3rd candle mitigation:</strong> bar[2] mitigation code is in place; needs runtime confirmation that the QI instrument mitigates correctly on the third candle in live chart testing.</li>
           </ul>
         </article>
         <article class="card">
-          <h3>📝 Style follow-up</h3>
+          <h3>📝 Deferred features</h3>
           <ul class="list-tight">
-            <li>Translucent <span class="accent-live">red shadow band</span> directly under previous high and translucent <span class="accent-code">green band</span> directly above previous low — per-instrument ATR-based thickness. Deferred.</li>
+            <li><strong>ATR-based per-level H/L shadow bands:</strong> translucent per-instrument ATR-based band directly under previous high and above previous low. Broad directional shadow fills shipped in v2.7; the targeted per-level ATR bands remain deferred.</li>
           </ul>
         </article>
       </div>
@@ -1099,18 +1135,19 @@
           <ul class="list-tight">
             <li><strong>4/5 wrong price on 1hr:</strong> once root cause is confirmed via runtime diagnostic, surgical fix to ensure the correct open/close price is stored on all chart timeframes.</li>
             <li><strong>4/5 vertical on 1hr:</strong> likely resolves alongside the wrong-price fix above.</li>
+            <li><strong>QI 3rd candle mitigation:</strong> runtime verification that bar[2] mitigation works correctly on QI and other instruments in live chart testing.</li>
           </ul>
         </article>
         <article class="card">
           <h3>🏗️ Architectural — <code>security_lower_tf("60")</code> scan</h3>
           <ul class="list-tight">
-            <li>Replace the <code>request.security</code> 1hr flip-detection path with a <code>security_lower_tf("60")</code> scan loop — the same pattern 4/5 uses for 15-min events. This is the single fix that unblocks <strong>both</strong> the 1hr ETH missing-levels issue and the 4hr+ sparse-detection gap. Requires a Kavanah-coordinated Pine wave.</li>
+            <li>Replace the <code>request.security</code> 1hr flip-detection path with a <code>security_lower_tf("60")</code> scan loop. This is the single fix that unblocks <strong>both</strong> the 1hr ETH missing-levels issue on GC/CL and the 4hr+ sparse-detection gap. Significant scope — requires dedicated Pine wave.</li>
           </ul>
         </article>
         <article class="card">
           <h3>✨ New features deferred</h3>
           <ul class="list-tight">
-            <li><strong>Prior-day H/L shadow bands:</strong> translucent per-instrument ATR-based band directly under previous high and above previous low. The broad range fill shipped in v2.6; the targeted per-level bands are deferred.</li>
+            <li><strong>ATR-based per-level H/L shadow bands:</strong> translucent per-instrument ATR-based band directly under previous high and above previous low. Broad directional fills shipped in v2.7; the targeted per-level ATR bands remain deferred.</li>
           </ul>
         </article>
       </div>
