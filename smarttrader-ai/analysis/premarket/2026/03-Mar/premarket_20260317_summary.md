@@ -225,6 +225,10 @@ No major scheduled events today (March 17). The FOMC backdrop is the dominant se
 
 ![RTY — 3-day FCR range study (Mar 13/16/17)](../../../../../data/screenshots/RTY1!_2026-03-17_13-31-01_a803f.png)
 
+**~15:11 ET** — MNQ potential trade setup identified. Higher low forming after SFP manipulation push up. Conservative entry zone: just below FCR "long from here," above 5/5, aligned with FVG + OB + volumetric cluster + VRVP shelf. RTY and NQ attempting to reclaim range/liquidity before anticipated further downside into the evening ahead of FOMC. ES/YM remain below FCR "short from here." Watching for confirmation before entry — no FOMO, letting price come to the level.
+
+![MNQ setup — YM context / MNQ 5-min — 15:11 ET](../../../../../data/screenshots/Screenshot%202026-03-17%20at%2015.11.17.png)
+
 **~12:10 ET** — Zoomed-in charts captured. All four indices producing lower highs and lower lows since session high. ES: below FCR entire session, never reclaimed. YM: below since 10:55. RTY: retesting "short from here" from below after 11:50 touch. NQ: wicking below but still at the boundary. Metals: GC pulled back sharply from highs (FOMC positioning?), SI and HG accelerating lower. CL bouncing from support — ZTH B&R in play, IT TCL short watching overhead resistance. Full Scenario A SHORT developing — waiting for NQ body-close below FCR short from here to complete confirmation. FOMC tomorrow, most coaches sitting out.
 
 ---
