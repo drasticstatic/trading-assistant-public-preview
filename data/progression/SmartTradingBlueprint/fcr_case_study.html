@@ -56,20 +56,37 @@
     .nav {
       position: sticky; top: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0.7rem 1.5rem;
+      gap: 1rem;
+      padding: 0 1.5rem;
+      height: 52px;
       background: rgba(12,18,24,0.88);
       border-bottom: 1px solid var(--border);
       backdrop-filter: blur(16px);
     }
     html.light .nav { background: rgba(238,243,251,0.9); }
-    .nav-brand { font-weight: 700; font-size: 0.9rem; color: var(--blue); letter-spacing: 0.01em; }
-    .nav-links { display: flex; gap: 1.5rem; font-size: 0.83rem; color: var(--muted); }
-    .nav-links a { color: var(--muted); }
+    .nav-brand {
+      font-weight: 700; font-size: 0.9rem; color: var(--blue);
+      letter-spacing: 0.01em; line-height: 1;
+      display: flex; align-items: center;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 1.4rem;
+      font-size: 0.83rem;
+    }
+    .nav-links a {
+      color: var(--muted); transition: color 0.15s;
+      display: flex; align-items: center; height: 52px;
+      border-bottom: 2px solid transparent;
+    }
     .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-links a.active { color: var(--blue); border-bottom-color: var(--blue); }
+    html.light .nav-links a.active { color: var(--blue); border-bottom-color: var(--blue); }
     .theme-btn {
       background: none; border: 1px solid var(--border); border-radius: 8px;
       color: var(--muted); cursor: pointer; font-size: 0.82rem;
-      padding: 0.3rem 0.7rem;
+      padding: 0.3rem 0.7rem; flex-shrink: 0;
+      display: flex; align-items: center;
     }
     .theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
 
@@ -116,10 +133,23 @@
       letter-spacing: -0.04em; margin-bottom: 0.9rem;
     }
     .hero-lead { color: var(--muted); max-width: 58rem; margin: 0 auto 1.5rem; font-size: 1.05rem; }
-    .stat-row { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; margin-top: 1.5rem; }
-    .stat-item { text-align: center; }
-    .stat-item strong { display: block; font-size: 2rem; line-height: 1.1; color: var(--blue); }
-    .stat-item span { font-size: 0.82rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; }
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 1.75rem;
+      max-width: 680px;
+      margin-left: auto; margin-right: auto;
+    }
+    .stat-item {
+      text-align: center;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 0.5rem;
+      background: rgba(255,255,255,0.03);
+    }
+    .stat-item strong { display: block; font-size: 1.75rem; line-height: 1.1; color: var(--blue); }
+    .stat-item span { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; }
 
     /* ── Rule box ── */
     .rule-box {
@@ -194,7 +224,7 @@
     .session-meta { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.15rem; }
     .session-title { font-weight: 600; font-size: 0.97rem; }
     .session-desc { font-size: 0.83rem; color: var(--muted); margin-top: 0.2rem; }
-    .session-pills { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .session-pills { display: flex; gap: 0.4rem; flex-wrap: nowrap; }
     .pill {
       font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
       text-transform: uppercase; padding: 0.15rem 0.55rem;
@@ -260,10 +290,13 @@
       background: var(--surface);
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 700px) {
       .chart-grid { grid-template-columns: 1fr; }
-      .stat-row { gap: 1.5rem; }
+      .stat-row { grid-template-columns: repeat(2, 1fr); }
       .nav-links { display: none; }
+    }
+    @media (max-width: 400px) {
+      .stat-row { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -638,7 +671,7 @@
   </main>
 
   <script>
-    // Persist theme across page loads
+    // Theme persistence
     if (localStorage.getItem('theme') === 'light') {
       document.documentElement.classList.add('light');
     }
@@ -646,6 +679,28 @@
       const isLight = document.documentElement.classList.contains('light');
       localStorage.setItem('theme', isLight ? 'light' : 'dark');
     });
+
+    // Active nav highlighting via IntersectionObserver
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    const sectionMap = new Map();
+    navLinks.forEach(link => {
+      const id = link.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) sectionMap.set(el, link);
+    });
+
+    let activeSection = null;
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (activeSection) activeSection.classList.remove('active');
+          activeSection = sectionMap.get(entry.target);
+          if (activeSection) activeSection.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+
+    sectionMap.forEach((link, el) => observer.observe(el));
   </script>
 
 </body>
