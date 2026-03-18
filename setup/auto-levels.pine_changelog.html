@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Auto Levels Pine Changelog | Trading Assistant</title>
-  <meta name="description" content="Public-facing changelog for the Auto Levels Pine family: revision history, version detail, bug trail context, known/open issues, and the source-vs-chart validation boundary through v2.8.">
+  <meta name="description" content="Public-facing changelog for the Auto Levels Pine family: revision history, version detail, bug trail context, known/open issues, and the source-vs-chart validation boundary through v2.14.">
   <meta name="color-scheme" content="dark light">
   <meta name="theme-color" content="#0b1d16">
   <link rel="canonical" href="https://drasticstatic.github.io/trading-assistant-public-preview/setup/auto-levels.pine_changelog.html">
@@ -770,7 +770,7 @@
       <div class="stat-grid" aria-label="Changelog at a glance">
         <article class="stat">
           <strong>Current public baseline</strong>
-          <span><code>v2.8</code> is the active source snapshot represented here.</span>
+          <span><code>v2.14</code> is the active source snapshot represented here.</span>
           <div class="stat-action-card">
             <a class="button tertiary" href="./auto-levels.pine_indicator-guide.html">Open Guide ↗</a>
           </div>
@@ -828,7 +828,7 @@
             <tr><th>Surface</th><th>Role</th><th>Status</th></tr>
           </thead>
           <tbody>
-            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v2.8</code> Source</td></tr>
+            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v2.14</code> Source</td></tr>
             <tr><td><code>fcr-standalone.pine</code></td><td>Shareable FCR-only companion</td><td>✅ Active companion</td></tr>
             <tr><td><code>webhook-alerts.pine</code></td><td>Alert-only companion kept intentionally separate from the visual overlay family</td><td>✅ Active top-level companion</td></tr>
           </tbody>
@@ -845,11 +845,131 @@
         <details class="release" open>
           <summary>
             <div>
+              <p class="release-meta">Mar 18, 2026 · BRK quality thresholds</p>
+              <h3>v2.14</h3>
+              <p class="release-summary">BRK confirmation gates: minimum pierce distance (ticks) and minimum candle body percentage, replacing the old upper-bound tolerance check.</p>
+            </div>
+            <span class="status-pill status-current">Current</span>
+            <span class="chevron" aria-hidden="true">▾</span>
+          </summary>
+          <div class="release-body">
+            <ul class="list-tight">
+              <li><strong>BRK minimum pierce distance:</strong> new <code>brk_ticks</code> input (default 5 ticks) sets the minimum distance the close must clear the level on a BRK candle. Replaces the old upper-bound tolerance check. Too-short breaks no longer qualify.</li>
+              <li><strong>BRK minimum body percentage:</strong> new <code>brk_body_pct</code> input (default 30%) requires the BRK candle body to be at least that percentage of the full candle range. Doji-like candles with large wicks but tiny bodies are excluded — commitment required.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release">
+          <summary>
+            <div>
+              <p class="release-meta">Mar 18, 2026 · weekly open decoupling + auto-scale note</p>
+              <h3>v2.13</h3>
+              <p class="release-summary">Weekly open creation gate decoupled from session rails toggle; auto-scale lockout note added to Max Active Levels tooltip.</p>
+            </div>
+            <span class="status-pill status-history">History</span>
+            <span class="chevron" aria-hidden="true">▾</span>
+          </summary>
+          <div class="release-body">
+            <ul class="list-tight">
+              <li><strong>Weekly open show_session gate removed:</strong> the golden Sunday 18:00 ET vertical was gated on the "Show 4/5 Session Rails" toggle at creation — which defaults OFF since v2.7. The line never appeared unless 4/5 rails were also visible. Creation now requires only <code>show_weekly_open</code> and <code>zth_allowed</code>. The line draws independently of the session rails toggle.</li>
+              <li><strong>Price-axis auto-scale note:</strong> the Max Active ZTH Levels tooltip now explains why TradingView's "Fit chart to data" button includes all level lines in the price range. Workaround documented: right-click the price axis and select "Lock Price Axis Scale" to prevent auto-scale from jumping to level extremes.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release">
+          <summary>
+            <div>
+              <p class="release-meta">Mar 18, 2026 · RT/BRK mutual exclusion + weekly open y-fix</p>
+              <h3>v2.12</h3>
+              <p class="release-summary">RT suppresses BRK on the same candle side, weekly open y-values use close ± ATR instead of ta.highest/lowest, and BR tooltip added.</p>
+            </div>
+            <span class="status-pill status-history">History</span>
+            <span class="chevron" aria-hidden="true">▾</span>
+          </summary>
+          <div class="release-body">
+            <ul class="list-tight">
+              <li><strong>RT suppresses BRK on same side:</strong> when RT fires on the same candle side as a BRK, the BRK label is suppressed in the stack. RT takes visual priority since the retest is the actionable signal once a break has been established. BRK and RT always appear on separate candles — the suppression only applies when an existing BRK state triggers RT on the same bar side as a new BRK would also fire.</li>
+              <li><strong>Weekly open y-values:</strong> replaced <code>ta.highest(500)</code> and <code>ta.lowest(500)</code> with <code>close + atr14 * 10</code> and <code>close - atr14 * 10</code>. The historical-range lookback was expanding the price scale and triggering "should be called on each calculation" scope warnings. ATR-based extents update each bar and scale with instrument volatility.</li>
+              <li><strong>BR tooltip added:</strong> Break &amp; Retest toggle now has a descriptive tooltip explaining the BRK candle definition and RT fire conditions.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release">
+          <summary>
+            <div>
+              <p class="release-meta">Mar 18, 2026 · f_visible_ray_end wrapping + SFP at all levels</p>
+              <h3>v2.11</h3>
+              <p class="release-summary">SFP gates expanded to all visible ZTH levels, ATR bands defaulted lower, all 4/5 rails and FCR rays wrapped in f_visible_ray_end, and typed na fix.</p>
+            </div>
+            <span class="status-pill status-history">History</span>
+            <span class="chevron" aria-hidden="true">▾</span>
+          </summary>
+          <div class="release-body">
+            <ul class="list-tight">
+              <li><strong>SFP at all visible levels:</strong> SFP detection expanded from KEY and 5/5 only to all visible ZTH levels (any level that passes <code>f_should_display_level</code>). SFP default pierce threshold raised from 5 to 30 ticks to compensate for the broader gate.</li>
+              <li><strong>ATR proximity bands default lowered:</strong> <code>atr_band_mult</code> default changed from 0.5 to 0.11. Values above ~1.0 produce visually excessive boxes on most instruments.</li>
+              <li><strong>1-2-3 "3" folded into bar[0] stack:</strong> the third bar of a 1-2-3 pattern now draws its label in the current-bar vertical stack alongside R/B/SFP/BRK/RT.</li>
+              <li><strong>BRK/RT label color unified:</strong> both BRK and RT labels use the same purple (<code>#9b59b6</code>) since they are part of the same pattern sequence.</li>
+              <li><strong>All 4/5 rails and FCR rays wrapped in f_visible_ray_end():</strong> every session rail and FCR line creation call now routes its x2 endpoint through <code>f_visible_ray_end(t, int(na), 48 * one_hour_ms)</code>, guaranteeing a minimum of one full chart bar's width. Fixes vertical rendering on Daily, Weekly, and Monthly charts for all session level lines.</li>
+              <li><strong>int(na) typing fix:</strong> all <code>f_visible_ray_end(t, na, ...)</code> calls changed to <code>f_visible_ray_end(t, int(na), ...)</code>. Pine requires typed na for non-typified function arguments.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release">
+          <summary>
+            <div>
+              <p class="release-meta">Mar 18, 2026 · BRK+RT split, 3-bar 1-2-3, ATR bands</p>
+              <h3>v2.10</h3>
+              <p class="release-summary">Break &amp; Retest replaced with separate BRK+RT state machine, 1-2-3 across 3 bars, P pivot in current-bar stack, SFP pierce input, bounce body %, ATR band crash fixes.</p>
+            </div>
+            <span class="status-pill status-history">History</span>
+            <span class="chevron" aria-hidden="true">▾</span>
+          </summary>
+          <div class="release-body">
+            <ul class="list-tight">
+              <li><strong>BRK+RT split:</strong> the old single BR label replaced by a two-stage state machine. BRK fires when a candle opens on one side and closes through the level by the minimum distance with sufficient body. RT fires on the next qualifying candle that returns to the broken level from the committed side. State tracked in <code>var array&lt;float/int/bool&gt;</code> arrays (brk_lvl, brk_dir, brk_age, brk_rt). Each BRK state expires after 50 bars. Each RT fires once per BRK and is consumed.</li>
+              <li><strong>1-2-3 across 3 bars:</strong> pattern detection spread across bar[2] ("1" label), bar[1] ("2" label), and bar[0] ("3" in current-bar stack). All three labels must be within proximity of a ZTH level.</li>
+              <li><strong>P pivot folded into current-bar stack:</strong> Pivot high/low now draw in the same-bar vertical label stack as R/B/SFP/BRK/RT.</li>
+              <li><strong>SFP pierce threshold input:</strong> <code>prox_ticks_sfp</code> added — minimum wick pierce beyond the level required to qualify as an SFP. Default 5 ticks (changed to 30 in v2.11).</li>
+              <li><strong>Bounce body percentage:</strong> <code>bounce_body_pct</code> input added. Requires the B candle body to be a minimum percentage of the range — same gate structure as Rejection.</li>
+              <li><strong>ATR band crash fix:</strong> <code>array.size(na)</code> crash when size was 0 before the deletion loop. Added <code>if array.size(lvl_band_boxes) &gt; 0</code> guard. Also fixed the reverse iteration crash: Pine v6 requires step &gt; 0 — forward iteration with reverse-index access (<code>rm_n - 1 - k</code> pattern) used instead.</li>
+              <li><strong>ATR band controls moved:</strong> <code>show_level_bands</code> and <code>atr_band_mult</code> moved to Level Management group, <code>minval = 0.01</code>.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release">
+          <summary>
+            <div>
+              <p class="release-meta">Mar 18, 2026 · per-pattern proximity + ATR proximity bands</p>
+              <h3>v2.9</h3>
+              <p class="release-summary">Individual proximity inputs per pattern type, ATR proximity bands around ZTH levels, single stacked label with \n per candle side, atr14 extracted to script scope.</p>
+            </div>
+            <span class="status-pill status-history">History</span>
+            <span class="chevron" aria-hidden="true">▾</span>
+          </summary>
+          <div class="release-body">
+            <ul class="list-tight">
+              <li><strong>Per-pattern proximity inputs:</strong> <code>prox_ticks</code> (global v2.8) split into individual inputs — <code>prox_ticks_r</code>, <code>prox_ticks_b</code>, <code>prox_ticks_p</code>, <code>prox_ticks_123</code> — each configurable independently. SFP and BRK gate differently (SFP by pierce, BRK by level cross) so they use separate thresholds.</li>
+              <li><strong>ATR proximity bands:</strong> <code>show_level_bands</code> toggle and <code>atr_band_mult</code> input. When enabled, a translucent box is drawn around each active ZTH level with half-width of <code>atr14 × atr_band_mult</code> — showing the "zone of influence" around each structural level. Default OFF.</li>
+              <li><strong>Single stacked label per candle side:</strong> all patterns firing on the same candle side are combined into a single Pine label with newline-separated text (<code>\n</code>). Eliminates pixel overlap at any zoom level without relying on y-offset logic.</li>
+              <li><strong>atr14 extracted to script scope:</strong> <code>atr14 = ta.atr(14)</code> computed once at script scope and reused by ATR bands, weekly open y-values, and label stacking offset calculations.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release">
+          <summary>
+            <div>
               <p class="release-meta">Mar 17, 2026 · pattern intelligence + higher-TF geometry fix</p>
               <h3>v2.8</h3>
               <p class="release-summary">Pattern proximity gate, per-pattern toggles, label stacking, Daily/Weekly vertical level fix, and weekly open toggle.</p>
             </div>
-            <span class="status-pill status-current">Current</span>
+            <span class="status-pill status-history">History</span>
             <span class="chevron" aria-hidden="true">▾</span>
           </summary>
           <div class="release-body">
@@ -1108,6 +1228,16 @@
       <h2 id="known-issues-title">Recent Implementations &amp; Auditing</h2>
       <div class="grid" style="grid-template-columns: 1fr;">
         <article class="card">
+          <h3>✅ Closed in v2.9–v2.14</h3>
+          <ul class="list-tight">
+            <li><strong>Global proximity tick applied to all patterns equally:</strong> v2.8 shipped one <code>prox_ticks</code> for all applicable patterns. v2.9 split into per-pattern inputs (<code>prox_ticks_r</code>, <code>prox_ticks_b</code>, <code>prox_ticks_p</code>, <code>prox_ticks_123</code>).</li>
+            <li><strong>All session rails and FCR rays still rendering as verticals on Daily/Weekly:</strong> the v2.8 fix applied only to ZTH KEY/5/5 rays. v2.11 applied <code>f_visible_ray_end(t, int(na), 48 * one_hour_ms)</code> to all 4/5 session rail and FCR ray creation calls.</li>
+            <li><strong>Weekly open golden vertical not showing when 4/5 session rails are OFF:</strong> the creation guard included <code>show_session</code> (4/5 toggle), which defaults OFF since v2.7. The line never appeared in default config. v2.13 removed <code>show_session</code> from the creation condition — weekly open now draws independently.</li>
+            <li><strong>ta.highest/ta.lowest scope warnings in v2.11:</strong> weekly open y-extent calls inside conditional blocks triggered "should be called on each calculation" warnings. Replaced with <code>close ± atr14 * 10</code> in v2.12 — always-computed, no scope dependency.</li>
+            <li><strong>BRK firing on low-commitment candles:</strong> any candle crossing a level counted as BRK regardless of how far it moved through or how large its body was. v2.14 adds <code>brk_ticks</code> (minimum pierce) and <code>brk_body_pct</code> (minimum body %) gates.</li>
+          </ul>
+        </article>
+        <article class="card">
           <h3>✅ Closed in v2.8</h3>
           <ul class="list-tight">
             <li><strong>ZTH levels rendering as vertical 90° lines on Daily/Weekly:</strong> ray x2 was 48 hours ahead of x1 — less than one weekly bar (168 hours). Both endpoints mapped to the same chart pixel, producing vertical renders despite <code>extend.right</code>. Fixed by routing ray end time through <code>f_visible_ray_end()</code> which guarantees at least one full chart-bar width.</li>
@@ -1136,18 +1266,20 @@
           </ul>
         </article>
         <article class="card">
-          <h3>🔎 Still open after v2.8</h3>
+          <h3>🔎 Still open after v2.14</h3>
           <ul class="list-tight">
             <li><strong>Previous-day 16:00 close ray vertical on RTH chart:</strong> yesterday's close 4/5 ray renders as a vertical post on some RTH 1hr chart configurations. Under continued observation.</li>
             <li><strong>ZTH missing levels on 1hr ETH chart (GC, CL):</strong> architectural cross-TF limitation — <code>request.security</code> with same-TF + different session boundaries causes some 1hr events to be skipped at session seams. Affects non-whitelisted instruments on 1hr ETH charts. Fix requires <code>security_lower_tf("60")</code> scan loop.</li>
             <li><strong>QI 3rd candle mitigation:</strong> bar[2] mitigation code is in place; needs runtime confirmation that the QI instrument mitigates correctly on the third candle in live chart testing.</li>
+            <li><strong>1-2-3 "1" and "2" label y-overlap on congested charts:</strong> bar[2] and bar[1] labels draw on historical bars outside the current-bar stack, so vertical stacking via \n is not available. A small ATR-based y-offset approach is under consideration.</li>
+            <li><strong>BRK/RT mutual exclusion nuance:</strong> current v2.12 suppresses BRK when RT fires on the same candle side — but if a BRK is the first candle in a new succession (not a continuation of an existing BRK state), it should not be suppressed by an unrelated prior RT. Per-level rather than per-side logic needed.</li>
           </ul>
         </article>
         <article class="card">
           <h3>📝 Deferred features</h3>
           <ul class="list-tight">
             <li><strong>ATR-based per-level shadow bands on individual ZTH levels:</strong> a per-level translucent fill centered on each KEY/5/5/3/5 level, with band width proportional to the instrument's current ATR (so NQ bands are wider than ES, CL wider still). This is distinct from the directional PDH/PDL fills shipped in v2.7 — those are broad fills from the daily high and low. This deferred item would put a targeted "area of influence" on each individual structural level. Not yet scoped for implementation.</li>
-            <li><strong>Per-pattern proximity thresholds:</strong> v2.8 ships a single global <code>prox_ticks</code> setting. Individual per-pattern proximity inputs (each of SFP, R, B, P, BR, 1-2-3 gets its own tick distance) remain in the roadmap.</li>
+            <li><strong>security_lower_tf("60") architectural scan:</strong> replacing the <code>request.security</code> 1hr flip-detection path with a full 60-minute intrabar scan loop. This is the single fix that unblocks both the 1hr ETH missing-levels issue and 4hr+ sparse-detection edge cases. Significant scope — requires a dedicated Pine wave.</li>
           </ul>
         </article>
       </div>
@@ -1176,7 +1308,8 @@
           <h3>✨ New features deferred</h3>
           <ul class="list-tight">
             <li><strong>ATR-based per-level H/L shadow bands:</strong> translucent per-instrument ATR-based band directly under previous high and above previous low. Broad directional fills shipped in v2.7; the targeted per-level ATR bands remain deferred.</li>
-            <li><strong>Per-pattern proximity thresholds:</strong> v2.8 ships a single global proximity setting for all applicable patterns. Individual per-pattern proximity inputs (each pattern type gets its own tick distance) remain in the roadmap.</li>
+            <li><strong>BRK/RT succession nuance:</strong> per-level mutual exclusion logic so that a BRK on a new level is not suppressed by RT from an unrelated prior BRK state on the same candle side.</li>
+            <li><strong>1-2-3 bar[2]/bar[1] label y-offset:</strong> small ATR-based vertical offset for the historical "1" and "2" labels to prevent overlap on congested charts.</li>
           </ul>
         </article>
       </div>
