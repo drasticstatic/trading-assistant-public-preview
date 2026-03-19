@@ -753,6 +753,114 @@
     }
 
     .title-accent { color: var(--pine); }
+
+    @keyframes tip-attention {
+      0%, 55%, 100% { box-shadow: 0 0 0 0 rgba(82, 214, 199, 0.5); }
+      28% { box-shadow: 0 0 0 7px rgba(82, 214, 199, 0); }
+    }
+    .tip-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.25em;
+      height: 1.25em;
+      margin-left: 0.3em;
+      padding: 0;
+      font-size: 0.73em;
+      font-weight: 700;
+      color: var(--teal);
+      background: none;
+      border: 1.5px solid var(--teal);
+      border-radius: 50%;
+      cursor: pointer;
+      opacity: 0.7;
+      vertical-align: middle;
+      line-height: 1;
+      transition: opacity 0.15s, transform 0.15s, box-shadow 0.15s;
+      animation: tip-attention 3.5s ease-out 2s infinite;
+    }
+    .tip-btn:hover, .tip-btn:focus-visible { opacity: 1; transform: scale(1.12); outline: none; animation: none; }
+    .tip-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25em;
+      padding: 0.32em 0.7em;
+      font-size: 0.82em;
+      font-weight: 600;
+      color: var(--teal);
+      background: rgba(82, 214, 199, 0.07);
+      border: 1px solid rgba(82, 214, 199, 0.28);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .tip-cta:hover { background: rgba(82, 214, 199, 0.14); border-color: rgba(82, 214, 199, 0.5); }
+    .tip-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 9, 6, 0.74);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 1.2rem;
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.18s, visibility 0.18s;
+    }
+    .tip-overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .tip-card {
+      background: var(--surface-strong);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      padding: 1.8rem 2rem 1.6rem;
+      max-width: 520px;
+      width: 100%;
+      position: relative;
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.55);
+      transform: translateY(14px) scale(0.96);
+      opacity: 0;
+      transition: transform 0.22s cubic-bezier(0.34, 1.2, 0.64, 1), opacity 0.18s;
+    }
+    .tip-overlay.is-open .tip-card {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    .tip-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--teal);
+      margin: 0 2.4rem 1rem 0;
+      letter-spacing: 0.01em;
+    }
+    .tip-card-body {
+      font-size: 0.9em;
+      line-height: 1.75;
+      color: var(--text);
+    }
+    .tip-card-body ul { margin: 0; padding-left: 1.3em; }
+    .tip-card-body li + li { margin-top: 0.55em; }
+    .tip-card-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(167, 255, 205, 0.07);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      cursor: pointer;
+      padding: 0.28rem 0.55rem;
+      line-height: 1;
+      transition: background 0.15s, color 0.15s;
+    }
+    .tip-card-close:hover { background: rgba(167, 255, 205, 0.14); color: var(--text); }
   </style>
 </head>
 <body>
@@ -1367,50 +1475,28 @@
       <div class="grid" style="grid-template-columns: 1fr;">
         <article class="card">
           <h3>✅ Closed in v2.9–v2.14</h3>
-          <ul class="list-tight">
-            <li><strong>Global proximity tick applied to all patterns equally:</strong> v2.8 shipped one <code>prox_ticks</code> for all applicable patterns. v2.9 split into per-pattern inputs (<code>prox_ticks_r</code>, <code>prox_ticks_b</code>, <code>prox_ticks_p</code>, <code>prox_ticks_123</code>).</li>
-            <li><strong>All session rails and FCR rays still rendering as verticals on Daily/Weekly:</strong> the v2.8 fix applied only to ZTH KEY/5/5 rays. v2.11 applied <code>f_visible_ray_end(t, int(na), 48 * one_hour_ms)</code> to all 4/5 session rail and FCR ray creation calls.</li>
-            <li><strong>Weekly open golden vertical not showing when 4/5 session rails are OFF:</strong> the creation guard included <code>show_session</code> (4/5 toggle), which defaults OFF since v2.7. The line never appeared in default config. v2.13 removed <code>show_session</code> from the creation condition — weekly open now draws independently.</li>
-            <li><strong>ta.highest/ta.lowest scope warnings in v2.11:</strong> weekly open y-extent calls inside conditional blocks triggered "should be called on each calculation" warnings. Replaced with <code>close ± atr14 * 10</code> in v2.12 — always-computed, no scope dependency.</li>
-            <li><strong>BRK firing on low-commitment candles:</strong> any candle crossing a level counted as BRK regardless of how far it moved through or how large its body was. v2.14 adds <code>brk_ticks</code> (minimum pierce) and <code>brk_body_pct</code> (minimum body %) gates.</li>
-          </ul>
+          <p>4 issues resolved — per-pattern proximity split, session rail verticals on Daily/Weekly, weekly open toggle regression, and BRK commitment gate.</p>
+          <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v9-14" data-title="✅ Closed in v2.9–v2.14">View 4 closed issues →</button></p>
         </article>
         <article class="card">
           <h3>✅ Closed in v2.8</h3>
-          <ul class="list-tight">
-            <li><strong>ZTH levels rendering as vertical 90° lines on Daily/Weekly:</strong> ray x2 was 48 hours ahead of x1 — less than one weekly bar (168 hours). Both endpoints mapped to the same chart pixel, producing vertical renders despite <code>extend.right</code>. Fixed by routing ray end time through <code>f_visible_ray_end()</code> which guarantees at least one full chart-bar width.</li>
-            <li><strong>Patterns firing anywhere on chart (not near levels):</strong> R, B, P, and 1-2-3 would print on any candle meeting the wick/body threshold regardless of proximity to ZTH structure. Now gated by a configurable tick-distance proximity check to any active ZTH level.</li>
-            <li><strong>Pattern labels overlapping when multiple patterns fire on same candle side:</strong> multiple labels were placed at the same y coordinate, stacking on top of each other. Now stacked vertically at ATR × 0.15 per slot.</li>
-          </ul>
+          <p>3 issues resolved — ZTH vertical lines on Daily/Weekly, patterns firing anywhere on chart, and pattern label overlap.</p>
+          <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v8" data-title="✅ Closed in v2.8">View 3 closed issues →</button></p>
         </article>
         <article class="card">
           <h3>✅ Closed in v2.7</h3>
-          <ul class="list-tight">
-            <li><strong>ETH 4/5 showing on non-whitelisted assets regardless of toggle:</strong> the ETH gate logic always showed ETH 4/5 for non-whitelisted instruments (GC, CL, etc.) no matter what the toggle said. Gate now requires the Show-ETH-Derived toggle to be ON for all instruments.</li>
-            <li><strong>17:00 maintenance close printing on 18:00 candle:</strong> anchoring the 17:00 event to <code>time_close</code> (17:00 ET) mapped to the next visible bar during the CME gap. Reverted to bar open (16:30 ET) so the ray anchors at the correct pre-gap price.</li>
-            <li><strong>Bar[1] levels and mitigation (confirmation delay):</strong> the candle that just closed before the current one was creating and mitigating ZTH levels in real time — too early to be meaningful. Detection and mitigation both shifted to bar[2] to require one full bar of confirmation.</li>
-            <li><strong>Sunday 18:00 vertical line (unintentional):</strong> the weekly CME reopen was producing a stray vertical marking. Converted into an intentional golden vertical line feature marking the weekly open.</li>
-          </ul>
+          <p>4 issues resolved — ETH toggle bypass on non-whitelisted instruments, 17:00 maintenance close anchor, bar[1] confirmation delay, and weekly open stray vertical.</p>
+          <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v7" data-title="✅ Closed in v2.7">View 4 closed issues →</button></p>
         </article>
         <article class="card">
           <h3>✅ Closed in v2.6</h3>
-          <ul class="list-tight">
-            <li><strong>4/5 table showing <code>0</code>:</strong> root cause confirmed — <code>sess_use_open</code> was always <code>true</code>, collapsing both events into a single chain. Fixed with dual independent open/close chains.</li>
-            <li><strong>FCR rays not printing:</strong> sentinel variables initialized to <code>na</code> instead of <code>0</code>. Pine v5 <code>x != na</code> returns <code>na</code>, not <code>true</code>. Fixed.</li>
-            <li><strong>Vertical spikes on 4hr+ charts:</strong> ray x2 was only 1 hour ahead of x1 — same pixel on 4hr charts. Fixed with 48-hour lookahead.</li>
-            <li><strong>Runtime crash on 1–10 min charts:</strong> <code>array.size(na)</code> when <code>security_lower_tf</code> returns <code>na</code>. Fixed with nested guard.</li>
-            <li><strong>ETH 4/5 events (17:00/18:00) not implemented:</strong> tooltip promised these but only RTH chains existed. Both chains now live.</li>
-            <li><strong>Prior-day H/L/C too prominent:</strong> transparency increased to 50%, prior-day range fill added so levels read as context, not structure.</li>
-          </ul>
+          <p>6 issues resolved — 4/5 showing zero, FCR rays not printing, vertical spikes on 4hr+, runtime crash on 1–10min charts, ETH 4/5 chains not implemented, and prior-day H/L/C too prominent.</p>
+          <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v6" data-title="✅ Closed in v2.6">View 6 closed issues →</button></p>
         </article>
         <article class="card">
           <h3>✅ Closed in v2.15–v2.19</h3>
-          <ul class="list-tight">
-            <li><strong>ZTH missing levels on higher-TF charts (4hr, Daily, Weekly, Monthly):</strong> <code>request.security</code> only saw one 1hr bar per chart bar on charts above 1hr, causing sparse level detection. v2.19 adds a <code>security_lower_tf("60")</code> scan loop with a 4-slot ring buffer — every 1hr bar is now processed on all chart timeframes. ZTH levels match the 1hr chart exactly on 4hr, Daily, Weekly, and Monthly.</li>
-            <li><strong>FCR prior-day slots incorrect on Weekly/Monthly:</strong> the rotation array rotated once per chart bar — on weekly charts (5 trading days per bar) this meant yesterday's FCR was actually 5 days ago. Fixed across v2.15–v2.19 by progressively switching to <code>ta.valuewhen</code> direct lookback and finally the per-bar scan-loop rotation.</li>
-            <li><strong>ZTH vertical post on 4hr/Daily RTH charts:</strong> ray x2 = born_time + 48h fell in weekend gaps; TradingView snapped it to x1's bar, causing vertical rendering. v2.15 fixed by updating all line x2 to <code>time + chart_bar_ms</code> at <code>barstate.islast</code>.</li>
-            <li><strong>BRK/RT color inconsistency:</strong> when BRK or RT co-occurred with R/P/SFP on the same candle, the label used the R/P/SFP color instead of BRK/RT purple. v2.19 forces purple (#9b59b6) when BRK or RT is present.</li>
-          </ul>
+          <p>4 issues resolved — ZTH sparse detection on 4hr/Daily/Weekly/Monthly, FCR prior-day slots incorrect on Weekly/Monthly, ZTH vertical post on RTH charts, and BRK/RT color inconsistency.</p>
+          <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v15-19" data-title="✅ Closed in v2.15–v2.19">View 4 closed issues →</button></p>
         </article>
         <article class="card">
           <h3>🔎 Still open after v2.23</h3>
@@ -1487,6 +1573,62 @@
       </div>
     </footer>
   </main>
+  <!-- Closed-issue modal content templates -->
+  <template id="tpl-closed-v9-14">
+    <ul class="list-tight">
+      <li><strong>Global proximity tick applied to all patterns equally:</strong> v2.8 shipped one <code>prox_ticks</code> for all applicable patterns. v2.9 split into per-pattern inputs (<code>prox_ticks_r</code>, <code>prox_ticks_b</code>, <code>prox_ticks_p</code>, <code>prox_ticks_123</code>).</li>
+      <li><strong>All session rails and FCR rays still rendering as verticals on Daily/Weekly:</strong> the v2.8 fix applied only to ZTH KEY/5/5 rays. v2.11 applied <code>f_visible_ray_end()</code> to all 4/5 session rail and FCR ray creation calls.</li>
+      <li><strong>Weekly open golden vertical not showing when 4/5 session rails are OFF:</strong> the creation guard included <code>show_session</code> (4/5 toggle), which defaults OFF since v2.7. v2.13 removed <code>show_session</code> from the creation condition — weekly open now draws independently.</li>
+      <li><strong>BRK firing on low-commitment candles:</strong> any candle crossing a level counted as BRK regardless of body size or pierce distance. v2.14 adds <code>brk_ticks</code> (minimum pierce) and <code>brk_body_pct</code> (minimum body %) gates.</li>
+    </ul>
+  </template>
+
+  <template id="tpl-closed-v8">
+    <ul class="list-tight">
+      <li><strong>ZTH levels rendering as vertical 90° lines on Daily/Weekly:</strong> ray x2 was 48 hours ahead of x1 — less than one weekly bar (168 hours). Both endpoints mapped to the same chart pixel, producing vertical renders despite <code>extend.right</code>. Fixed by routing ray end time through <code>f_visible_ray_end()</code> which guarantees at least one full chart-bar width.</li>
+      <li><strong>Patterns firing anywhere on chart (not near levels):</strong> R, B, P, and 1-2-3 would print on any candle meeting the wick/body threshold regardless of proximity to ZTH structure. Now gated by a configurable tick-distance proximity check to any active ZTH level.</li>
+      <li><strong>Pattern labels overlapping when multiple patterns fire on same candle side:</strong> multiple labels were placed at the same y coordinate, stacking on top of each other. Now stacked vertically at ATR × 0.15 per slot.</li>
+    </ul>
+  </template>
+
+  <template id="tpl-closed-v7">
+    <ul class="list-tight">
+      <li><strong>ETH 4/5 showing on non-whitelisted assets regardless of toggle:</strong> the ETH gate logic always showed ETH 4/5 for non-whitelisted instruments (GC, CL, etc.) no matter what the toggle said. Gate now requires the Show-ETH-Derived toggle to be ON for all instruments.</li>
+      <li><strong>17:00 maintenance close printing on 18:00 candle:</strong> anchoring the 17:00 event to <code>time_close</code> (17:00 ET) mapped to the next visible bar during the CME gap. Reverted to bar open (16:30 ET) so the ray anchors at the correct pre-gap price.</li>
+      <li><strong>Bar[1] levels and mitigation (confirmation delay):</strong> the candle that just closed before the current one was creating and mitigating ZTH levels in real time — too early to be meaningful. Detection and mitigation both shifted to bar[2] to require one full bar of confirmation.</li>
+      <li><strong>Sunday 18:00 vertical line (unintentional):</strong> the weekly CME reopen was producing a stray vertical marking. Converted into an intentional golden vertical line feature marking the weekly open.</li>
+    </ul>
+  </template>
+
+  <template id="tpl-closed-v6">
+    <ul class="list-tight">
+      <li><strong>4/5 table showing <code>0</code>:</strong> root cause confirmed — <code>sess_use_open</code> was always <code>true</code>, collapsing both events into a single chain. Fixed with dual independent open/close chains.</li>
+      <li><strong>FCR rays not printing:</strong> sentinel variables initialized to <code>na</code> instead of <code>0</code>. Pine v5 <code>x != na</code> returns <code>na</code>, not <code>true</code>. Fixed.</li>
+      <li><strong>Vertical spikes on 4hr+ charts:</strong> ray x2 was only 1 hour ahead of x1 — same pixel on 4hr charts. Fixed with 48-hour lookahead.</li>
+      <li><strong>Runtime crash on 1–10 min charts:</strong> <code>array.size(na)</code> when <code>security_lower_tf</code> returns <code>na</code>. Fixed with nested guard.</li>
+      <li><strong>ETH 4/5 events (17:00/18:00) not implemented:</strong> tooltip promised these but only RTH chains existed. Both chains now live.</li>
+      <li><strong>Prior-day H/L/C too prominent:</strong> transparency increased to 50%, prior-day range fill added so levels read as context, not structure.</li>
+    </ul>
+  </template>
+
+  <template id="tpl-closed-v15-19">
+    <ul class="list-tight">
+      <li><strong>ZTH missing levels on higher-TF charts (4hr, Daily, Weekly, Monthly):</strong> <code>request.security</code> only saw one 1hr bar per chart bar on charts above 1hr, causing sparse level detection. v2.19 adds a <code>security_lower_tf("60")</code> scan loop with a 4-slot ring buffer — every 1hr bar is now processed on all chart timeframes. ZTH levels match the 1hr chart exactly on 4hr, Daily, Weekly, and Monthly.</li>
+      <li><strong>FCR prior-day slots incorrect on Weekly/Monthly:</strong> the rotation array rotated once per chart bar — on weekly charts (5 trading days per bar) this meant yesterday's FCR was actually 5 days ago. Fixed across v2.15–v2.19 by progressively switching to <code>ta.valuewhen</code> direct lookback and finally the per-bar scan-loop rotation.</li>
+      <li><strong>ZTH vertical post on 4hr/Daily RTH charts:</strong> ray x2 = born_time + 48h fell in weekend gaps; TradingView snapped it to x1's bar, causing vertical rendering. v2.15 fixed by updating all line x2 to <code>time + chart_bar_ms</code> at <code>barstate.islast</code>.</li>
+      <li><strong>BRK/RT color inconsistency:</strong> when BRK or RT co-occurred with R/P/SFP on the same candle, the label used the R/P/SFP color instead of BRK/RT purple. v2.19 forces purple (#9b59b6) when BRK or RT is present.</li>
+    </ul>
+  </template>
+
+  <!-- Tip modal -->
+  <div id="tip-overlay" class="tip-overlay" role="dialog" aria-modal="true" aria-labelledby="tip-title">
+    <div class="tip-card">
+      <button id="tip-close" class="tip-card-close" aria-label="Close">✕</button>
+      <div id="tip-title" class="tip-card-title"></div>
+      <div id="tip-card-body" class="tip-card-body"></div>
+    </div>
+  </div>
+
   <script>
     (() => {
       const finePointer = window.matchMedia('(pointer: fine)');
@@ -1542,6 +1684,33 @@
         card.addEventListener('pointermove', sync);
         card.addEventListener('pointerleave', reset);
       });
+    })();
+
+    // ── Tip modal ──────────────────────────────────────────────────────────
+    (() => {
+      const overlay = document.getElementById('tip-overlay');
+      const titleEl = document.getElementById('tip-title');
+      const bodyEl  = document.getElementById('tip-card-body');
+      const closeBtn = document.getElementById('tip-close');
+
+      const open = (btn) => {
+        const tpl = document.getElementById(btn.dataset.modal);
+        if (!tpl) return;
+        titleEl.textContent = btn.dataset.title || '';
+        bodyEl.innerHTML = '';
+        bodyEl.appendChild(tpl.content.cloneNode(true));
+        requestAnimationFrame(() => overlay.classList.add('is-open'));
+        closeBtn.focus();
+      };
+
+      const close = () => overlay.classList.remove('is-open');
+
+      document.querySelectorAll('.tip-btn, .tip-cta').forEach(btn =>
+        btn.addEventListener('click', (e) => { e.stopPropagation(); open(btn); })
+      );
+      closeBtn.addEventListener('click', close);
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
     })();
   </script>
 </body>

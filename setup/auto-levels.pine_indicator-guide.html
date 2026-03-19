@@ -791,6 +791,10 @@
 
     .title-accent { color: var(--pine); }
 
+    @keyframes tip-attention {
+      0%, 55%, 100% { box-shadow: 0 0 0 0 rgba(82, 214, 199, 0.5); }
+      28% { box-shadow: 0 0 0 7px rgba(82, 214, 199, 0); }
+    }
     .tip-btn {
       display: inline-flex;
       align-items: center;
@@ -809,9 +813,25 @@
       opacity: 0.7;
       vertical-align: middle;
       line-height: 1;
-      transition: opacity 0.15s, transform 0.15s;
+      transition: opacity 0.15s, transform 0.15s, box-shadow 0.15s;
+      animation: tip-attention 3.5s ease-out 2s infinite;
     }
-    .tip-btn:hover, .tip-btn:focus-visible { opacity: 1; transform: scale(1.12); outline: none; }
+    .tip-btn:hover, .tip-btn:focus-visible { opacity: 1; transform: scale(1.12); outline: none; animation: none; }
+    .tip-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25em;
+      padding: 0.32em 0.7em;
+      font-size: 0.82em;
+      font-weight: 600;
+      color: var(--teal);
+      background: rgba(82, 214, 199, 0.07);
+      border: 1px solid rgba(82, 214, 199, 0.28);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .tip-cta:hover { background: rgba(82, 214, 199, 0.14); border-color: rgba(82, 214, 199, 0.5); }
 
     .tip-overlay {
       position: fixed;
@@ -938,7 +958,7 @@
           <h3>Open the changelog when you need</h3>
           <ul class="list-tight">
             <li>revision-by-revision version history</li>
-            <li>what changed in <code>v2.8</code> versus earlier passes</li>
+            <li>what changed in <code>v2.23</code> versus earlier passes</li>
             <li>known/open issues and validation boundaries</li>
             <li>the minimal name-history context that still matters publicly</li>
           </ul>
@@ -967,7 +987,7 @@
       <h2 id="features-title">What the main overlay is responsible for</h2>
       <div class="grid six-card-grid">
         <article class="card">
-          <h3>Auto Levels</h3>
+          <h3>Auto Levels <button class="tip-btn" data-modal="tpl-auto-levels" data-title="How Auto Levels work" aria-label="How Auto Levels work — click for details">ⓘ</button></h3>
           <p>1-hour color flips create levels at the flip candle open. Structural flips can become <span class="accent-structure">KEY</span> levels, then auto-manage through the <span class="accent-structure">5/5</span> → <span class="accent-session">3/5</span> → <span class="accent-ghost">Ghost</span> lifecycle.</p>
         </article>
         <article class="card">
@@ -975,7 +995,7 @@
           <p>Dashed session rails for the 9:30 AM ET open and 4:00 PM ET close, plus ETH 17:00 maintenance close and 18:00 reopen. Detected from 30-minute bars. Today’s RTH pair is <strong>cyan</strong>; prior-day RTH pairs fade to teal. ETH pairs render in faded teal. Enable the <code>Show ETH-Derived Levels</code> toggle to see ETH 4/5 on any instrument.</p>
         </article>
         <article class="card">
-          <h3>FCR</h3>
+          <h3>FCR <button class="tip-btn" data-modal="tpl-fcr" data-title="First Candle Rule — signal rules" aria-label="FCR signal rules — click for details">ⓘ</button></h3>
           <p>The first-candle-rule rails mark the exact 9:30 15-minute candle high and low as <span class="accent-fcr"><code>▲ LONG</code></span> and <span class="accent-fcr"><code>▼ SHORT</code></span>. Think of FCR as an opening-event map, not as part of the fading ZTH lifecycle.</p>
         </article>
         <article class="card">
@@ -983,7 +1003,7 @@
           <p>EMA stack, prior-day high/low/close, and the optional top-right info table help frame bias around the main levels. Prior-day H/L/C should read as <span class="accent-context">quiet context</span>, not with the same weight as KEY, 4/5, or FCR.</p>
         </article>
         <article class="card">
-          <h3>Optional signal overlays</h3>
+          <h3>Optional signal overlays <button class="tip-btn" data-modal="tpl-patterns" data-title="Pattern types and colors" aria-label="Pattern types and colors — click for details">ⓘ</button></h3>
           <p>FVG zones extend 5 bars to the right with a dashed midpoint line and no visible borders. Pattern labels use distinct colors per type — red for reversals, green for bounces, purple for Break &amp; Retest, cyan for 1-2-3, and dedicated colors for SFP and pivots. Turn these on when you want confirmation, not as the default baseline.</p>
         </article>
         <article class="card">
@@ -999,11 +1019,11 @@
       <h2 id="legend-title">What the main level types mean on the chart</h2>
       <div class="legend-grid six-card-grid">
         <article class="legend-card">
-          <div class="line-sample"><span class="line-swatch key" aria-hidden="true"></span>KEY</div>
+          <div class="line-sample"><span class="line-swatch key" aria-hidden="true"></span>KEY <button class="tip-btn" data-modal="tpl-key" data-title="KEY level — what qualifies" aria-label="KEY level details — click for details">ⓘ</button></div>
           <p>The strongest structural read in the system. A flip open near confirmed swing structure can be promoted to KEY and drawn with the heaviest emphasis.</p>
         </article>
         <article class="legend-card">
-          <div class="line-sample"><span class="line-swatch five" aria-hidden="true"></span>5/5</div>
+          <div class="line-sample"><span class="line-swatch five" aria-hidden="true"></span>5/5 <button class="tip-btn" data-modal="tpl-five5" data-title="5/5 — standard flip level" aria-label="5/5 level details — click for details">ⓘ</button></div>
           <p>The standard active color-flip level. This is the main baseline structure if the flip does not qualify as KEY.</p>
         </article>
         <article class="legend-card">
@@ -1011,15 +1031,15 @@
           <p>The <span class="accent-session">session-open and session-close rails</span> — 9:30 AM ET open and 4:00 PM ET close, plus ETH 17:00 maintenance close and 18:00 reopen. Detected on 30-minute bars. Today's RTH pair is <strong>cyan</strong>; prior-day RTH pairs fade to teal; ETH pairs render in faded teal. Think of them as session context, not part of the ZTH lifecycle.</p>
         </article>
         <article class="legend-card">
-          <div class="line-sample"><span class="line-swatch three" aria-hidden="true"></span>3/5</div>
+          <div class="line-sample"><span class="line-swatch three" aria-hidden="true"></span>3/5 <button class="tip-btn" data-modal="tpl-three5" data-title="3/5 — mitigated level" aria-label="3/5 level details — click for details">ⓘ</button></div>
           <p>A <span class="accent-structure">5/5</span> that has already been mitigated once. It still matters, but the script visually downshifts its weight so you can tell it is no longer at full structural strength.</p>
         </article>
         <article class="legend-card">
-          <div class="line-sample"><span class="line-swatch ghost" aria-hidden="true"></span>Ghost</div>
+          <div class="line-sample"><span class="line-swatch ghost" aria-hidden="true"></span>Ghost <button class="tip-btn" data-modal="tpl-ghost" data-title="Ghost — late-stage fading level" aria-label="Ghost level details — click for details">ⓘ</button></div>
           <p>The <span class="accent-ghost">late-stage fading remainder</span> of an older level. Once a 3/5 is mitigated again it becomes a Ghost, and each later mitigation fades it another step until it is removed entirely.</p>
         </article>
         <article class="legend-card">
-          <div class="line-sample fcr-sample"><span class="fcr-flank fcr-flank-left" aria-hidden="true"></span><span class="line-label">FCR</span><span class="fcr-flank fcr-flank-right" aria-hidden="true"></span></div>
+          <div class="line-sample fcr-sample"><span class="fcr-flank fcr-flank-left" aria-hidden="true"></span><span class="line-label">FCR</span><span class="fcr-flank fcr-flank-right" aria-hidden="true"></span> <button class="tip-btn" data-modal="tpl-fcr" data-title="First Candle Rule — signal rules" aria-label="FCR signal rules — click for details">ⓘ</button></div>
           <p>A <span class="accent-fcr">session-event rail</span> rather than a ZTH lifecycle state. Use it to frame the opening push: <code>▲ LONG</code> = 9:30 high, <code>▼ SHORT</code> = 9:30 low, and neither rail ages into 3/5 or Ghost.</p>
         </article>
       </div>
@@ -1112,6 +1132,78 @@
       </div>
     </footer>
   </main>
+  <!-- Auto Levels lifecycle modal -->
+  <template id="tpl-auto-levels">
+    <ul>
+      <li><strong>How levels are created:</strong> The script scans 1-hour candles for color flips. When a bar closes a different color from the previous one, the <em>open price</em> of that flip candle becomes a new level — that open is the price you watch.</li>
+      <li><strong>KEY promotion:</strong> A flip open that coincides with confirmed swing structure (swing high or swing low proximity) is automatically promoted to KEY — the heaviest level type. Not every flip qualifies; only those near structural swing points.</li>
+      <li><strong>The lifecycle:</strong> KEY or 5/5 (active) → 3/5 (after first mitigation) → Ghost (after second mitigation, fades progressively) → removed. A <em>mitigation</em> = a candle closing on the opposite side of the level.</li>
+      <li><strong>1-bar confirmation delay:</strong> The most recently closed candle does not immediately create or mitigate a level. The indicator waits for bar[2] — one full bar of confirmation — before any level is recorded or changed.</li>
+    </ul>
+  </template>
+
+  <!-- FCR signal rules modal (shared: feature card + FCR legend card) -->
+  <template id="tpl-fcr">
+    <ul>
+      <li><strong>The signal:</strong> Displacement <em>above</em> the 9:30 candle HIGH → bullish bias → look for LONG entries. Displacement <em>below</em> the 9:30 candle LOW → bearish bias → look for SHORT entries.</li>
+      <li><strong>What counts as displacement:</strong> A <em>close</em> outside the FCR level — not just a wick. A wick alone is not a signal. Committed body displacement is what counts.</li>
+      <li><strong>First candle color is irrelevant:</strong> The direction of the 9:30 candle does not determine bias. Only where price displaces relative to the HIGH and LOW rails matters.</li>
+      <li><strong>Rail persistence:</strong> Today's FCR rails are solid. Yesterday's and the day before are dashed and faded — but prior-day FCR levels often act as support/resistance on subsequent sessions.</li>
+    </ul>
+  </template>
+
+  <!-- Pattern types and colors modal -->
+  <template id="tpl-patterns">
+    <ul>
+      <li><strong>R — Reversal</strong>: Bearish rejection wick at a level — wick in the direction of the level exceeds body size. Color: red.</li>
+      <li><strong>B — Bounce</strong>: Bullish bounce candle at a level — body closes away from the level with sufficient size. Color: green.</li>
+      <li><strong>P — Pivot</strong>: Pivot high or low near a level. Color: orange (high) / lime (low).</li>
+      <li><strong>SFP — Swing Failure Pattern</strong>: Wick pierces the level by minimum threshold, then closes back inside. A trap move — price fails to sustain the break.</li>
+      <li><strong>BRK — Break</strong>: Candle opens on one side, closes through the level with sufficient body. A committed break, not just a wick cross. Color: purple.</li>
+      <li><strong>RT — Retest</strong>: After a BRK, price returns to the broken level from the committed side. Each BRK state expires after 50 bars. Color: purple.</li>
+      <li><strong>1-2-3</strong>: Three-bar continuation — "1" breaks through the level, "2" retraces, "3" confirms direction. Color: cyan.</li>
+    </ul>
+    <p style="margin-top:0.7em;font-size:0.88em;opacity:0.8">All patterns fire only within configurable tick proximity of an active ZTH level. Multiple patterns on the same candle side merge into one stacked label.</p>
+  </template>
+
+  <!-- KEY level criteria modal -->
+  <template id="tpl-key">
+    <ul>
+      <li><strong>What qualifies a flip as KEY:</strong> A 1hr color flip whose open price sits near a confirmed swing high or swing low. Proximity is evaluated automatically — the indicator compares the flip open to recent detected swing structure.</li>
+      <li><strong>Visual weight:</strong> KEY draws with the heaviest line width and highest opacity in the hierarchy — visually distinct from 5/5 at a glance, especially at higher zoom levels.</li>
+      <li><strong>Shared budget with 5/5:</strong> KEY and 5/5 share one "Max Active KEY / 5/5 Levels" display cap. When full, the level farthest from current price is removed first — levels nearest to price are always kept.</li>
+      <li><strong>Lifecycle:</strong> KEY → 3/5 after first mitigation → Ghost after second mitigation → eventually removed.</li>
+    </ul>
+  </template>
+
+  <!-- 5/5 standard flip level modal -->
+  <template id="tpl-five5">
+    <ul>
+      <li><strong>Created from:</strong> A 1-hour color flip whose open price does not qualify for KEY promotion (not near confirmed swing structure). This is the default level type — the most common on the chart.</li>
+      <li><strong>Mitigation:</strong> A candle closing on the opposite side of a 5/5 level demotes it to 3/5. The level is not removed — it is downgraded and visually downshifted.</li>
+      <li><strong>Shared budget with KEY:</strong> KEY and 5/5 share one display cap. Levels farthest from current price are removed first when the budget is full, so the levels nearest to where price is trading are always visible.</li>
+    </ul>
+  </template>
+
+  <!-- 3/5 mitigated level modal -->
+  <template id="tpl-three5">
+    <ul>
+      <li><strong>What it is:</strong> A standard 5/5 level that has been mitigated once — a candle closed on the opposite side. The price is still tracked but downshifted visually to signal reduced structural confidence.</li>
+      <li><strong>When it matters:</strong> A 3/5 near a KEY or 5/5 can act as confluence. Price returning to a 3/5 after previously mitigating it may signal a second-test setup.</li>
+      <li><strong>Separate budget:</strong> 3/5 levels have their own display cap, independent from KEY/5/5 and Ghost. Farthest-from-price trimmed first when full.</li>
+      <li><strong>Next step:</strong> A second mitigation (candle close on the opposite side again) demotes 3/5 → Ghost.</li>
+    </ul>
+  </template>
+
+  <!-- Ghost fading level modal -->
+  <template id="tpl-ghost">
+    <ul>
+      <li><strong>What it is:</strong> A level that has been mitigated twice or more. Each additional mitigation fades the Ghost further — opacity steps down progressively until it is removed entirely from the chart and arrays.</li>
+      <li><strong>Why it stays visible:</strong> Even heavily-mitigated levels can still influence price if structural inception was strong. Ghosts are a "heads up" background layer — not a primary signal, but worth noting when price revisits old structure.</li>
+      <li><strong>Separate budget:</strong> Ghost levels have their own display cap, independent from KEY/5/5 and 3/5. Farthest-from-price trimmed first when full.</li>
+    </ul>
+  </template>
+
   <!-- 4/5 Notes modal content -->
   <template id="tpl-45-notes">
     <ul>
@@ -1206,7 +1298,7 @@
 
       const close = () => overlay.classList.remove('is-open');
 
-      document.querySelectorAll('.tip-btn').forEach(btn =>
+      document.querySelectorAll('.tip-btn, .tip-cta').forEach(btn =>
         btn.addEventListener('click', (e) => { e.stopPropagation(); open(btn); })
       );
       closeBtn.addEventListener('click', close);
