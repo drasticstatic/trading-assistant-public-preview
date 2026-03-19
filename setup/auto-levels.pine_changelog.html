@@ -770,7 +770,7 @@
       <div class="stat-grid" aria-label="Changelog at a glance">
         <article class="stat">
           <strong>Current public baseline</strong>
-          <span><code>v2.20</code> is the active source snapshot represented here.</span>
+          <span><code>v2.23</code> is the active source snapshot represented here.</span>
           <div class="stat-action-card">
             <a class="button tertiary" href="./auto-levels.pine_indicator-guide.html">Open Guide ↗</a>
           </div>
@@ -828,7 +828,7 @@
             <tr><th>Surface</th><th>Role</th><th>Status</th></tr>
           </thead>
           <tbody>
-            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v2.20</code> Source</td></tr>
+            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v2.23</code> Source</td></tr>
             <tr><td><code>fcr-standalone.pine</code></td><td>Shareable FCR-only companion</td><td>✅ Active <code>v2.2</code> companion</td></tr>
             <tr><td><code>webhook-alerts.pine</code></td><td>Alert-only companion kept intentionally separate from the visual overlay family</td><td>✅ Active top-level companion</td></tr>
           </tbody>
@@ -845,16 +845,36 @@
         <details class="release" open>
           <summary>
             <div>
-              <p class="release-meta">Mar 18, 2026 · split level caps + 4/5 patterns + FCR standalone v2.2</p>
-              <h3>v2.20</h3>
-              <p class="release-summary">Max Active ZTH Levels split into three independent thresholds (KEY/5/5, 3/5, Ghost). 4/5 pattern toggle activated. FCR standalone updated to v2.2 with Pine v6 and multi-9:30 rotation fix.</p>
+              <p class="release-meta">Mar 19, 2026 · farthest-from-price trim + 4/5 accuracy docs + Pine v6 f() placement fix</p>
+              <h3>v2.23</h3>
+              <p class="release-summary">Trim strategy switched to farthest-from-current-price-first across all three level budgets. 4/5 accuracy documentation added to tooltip and guide. f_near_45_level placement fix resolves levels-not-attached visual regression from v2.20.</p>
             </div>
             <span class="status-pill status-current">Current</span>
             <span class="chevron" aria-hidden="true">▾</span>
           </summary>
           <div class="release-body">
             <ul class="list-tight">
-              <li><strong>Split Max Active ZTH Levels:</strong> the single <code>Max Active ZTH Levels</code> input (was 40) replaced by three independent thresholds — <code>Max Active KEY / 5/5 Levels</code> (default 20), <code>Max Active 3/5 Levels</code> (default 15), <code>Max Active Ghost Levels</code> (default 10). Each type is trimmed independently so you can control density per level class when comparing across timeframes. KEY and 5/5 share one budget; the oldest is trimmed first within each type.</li>
+              <li><strong>Farthest-from-price trim (all three budgets):</strong> when KEY/5/5, 3/5, or Ghost level counts exceed their respective maximums, the level farthest from current price is removed first — not the oldest. On extended directional moves where many historical levels accumulate far from current price, the indicator now always keeps the N levels closest to where price actually is. Applies independently to each of the three type budgets.</li>
+              <li><strong>Raised default budgets:</strong> <code>Max Active KEY / 5/5 Levels</code> raised from 20 → 40; <code>Max Active 3/5 Levels</code> raised from 15 → 20. <code>maxval</code> for all three inputs raised from 100 → 200 to accommodate wider range reviews.</li>
+              <li><strong>4/5 accuracy tooltip and guide note (v2.22):</strong> the <code>show 4/5 Levels</code> input tooltip now includes a verification note (30min chart is authoritative — 4/5 OPEN = 9:30 bar open, 4/5 CLOSE = 15:30 bar close), a pre-session note (before 9:30 ET, "Today's" open rail shows the prior session's open — expected), and a contract rollover note (historical rails may appear 1–5 ticks off after roll — stabilizes on current contract). Guide cards updated identically via hover tooltip.</li>
+              <li><strong>f_near_45_level placement fix (v2.21):</strong> function moved to after ALL <code>var</code> sess drawing variable declarations — out of the middle of the var-declaration chain where it was placed in v2.20. Resolves the "levels not attached to candles" visual regression on first load. Pine v6 edge case with function definitions inside var-declaration chains.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release">
+          <summary>
+            <div>
+              <p class="release-meta">Mar 18, 2026 · split level caps + 4/5 patterns + FCR standalone v2.2</p>
+              <h3>v2.20</h3>
+              <p class="release-summary">Max Active ZTH Levels split into three independent thresholds (KEY/5/5, 3/5, Ghost). 4/5 pattern toggle activated. FCR standalone updated to v2.2 with Pine v6 and multi-9:30 rotation fix.</p>
+            </div>
+            <span class="status-pill status-history">History</span>
+            <span class="chevron" aria-hidden="true">▾</span>
+          </summary>
+          <div class="release-body">
+            <ul class="list-tight">
+              <li><strong>Split Max Active ZTH Levels:</strong> the single <code>Max Active ZTH Levels</code> input (was 40) replaced by three independent thresholds — <code>Max Active KEY / 5/5 Levels</code> (default 20), <code>Max Active 3/5 Levels</code> (default 15), <code>Max Active Ghost Levels</code> (default 10). Each type is trimmed independently so you can control density per level class when comparing across timeframes. KEY and 5/5 share one budget; <em>trim strategy: oldest-first within each type (superseded by v2.23 — now farthest-from-price-first)</em>.</li>
               <li><strong>4/5 pattern level toggle:</strong> <code>Include 4/5 Levels in Pattern Recognition</code> toggle activated (was reserved). When ON, patterns (R, B, P, SFP, 1-2-3) can fire at RTH 9:30 open and 16:00 close session prices for today, yesterday, and the day before. Uses the existing <code>Proximity: 4/5 session levels</code> threshold (default 20 ticks). Off by default — mirrors the 3/5 toggle design. Works regardless of whether 4/5 rail lines are visually visible.</li>
               <li><strong>FCR standalone v2.2:</strong> migrated from Pine v5 to Pine v6. Ported the v2.19 rotation array fix — scan loop now rotates for every 9:30 found per chart bar (not just the last one). On weekly/monthly charts where multiple trading days exist per bar, all three rotation slots (today/yesterday/day-before) are correctly populated. Drawing moved to <code>barstate.islast</code> exclusively, matching the main script pattern.</li>
             </ul>
@@ -1391,7 +1411,7 @@
           </ul>
         </article>
         <article class="card">
-          <h3>🔎 Still open after v2.20</h3>
+          <h3>🔎 Still open after v2.23</h3>
           <ul class="list-tight">
             <li><strong>Previous-day 16:00 close ray vertical on RTH chart:</strong> yesterday's close 4/5 ray renders as a vertical post on some RTH 1hr chart configurations. Under continued observation.</li>
             <li><strong>KEY level vertical post on Weekly chart (current week):</strong> a KEY level near the current week boundary can render as a vertical post at the start of the upcoming week bar. Likely a ray-end time snapping issue on Weekly — the x2 endpoint lands at the bar start rather than mid-bar. Under investigation.</li>
