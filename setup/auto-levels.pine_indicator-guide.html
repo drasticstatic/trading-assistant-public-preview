@@ -882,6 +882,11 @@
         <article class="card">
           <h3>4/5 session rails</h3>
           <p>Dashed session rails for the 9:30 AM ET open and 4:00 PM ET close, plus ETH 17:00 maintenance close and 18:00 reopen. Detected from 30-minute bars. Today’s RTH pair is <strong>cyan</strong>; prior-day RTH pairs fade to teal. ETH pairs render in faded teal. Enable the <code>Show ETH-Derived Levels</code> toggle to see ETH 4/5 on any instrument.</p>
+          <ul style="margin-top:0.6em;padding-left:1.2em;font-size:0.9em;line-height:1.7">
+            <li><strong>Verification TF — 30min chart:</strong> 4/5 OPEN = the 9:30 bar’s open · 4/5 CLOSE = the 15:30 bar’s close (ends 16:00). If a rail looks off, pull up the 30min chart and compare those two bar prices to confirm.</li>
+            <li><strong>Before 9:30 ET:</strong> "Today’s" open rail shows the <em>previous</em> session’s open until today’s 9:30 fires. This is expected — the level auto-updates at open.</li>
+            <li><strong>After a futures contract rollover:</strong> Historical 4/5 levels may appear 1–5 ticks off the chart’s bars. Normal during the adjustment period — sessions captured on the current contract will be accurate.</li>
+          </ul>
         </article>
         <article class="card">
           <h3>FCR</h3>
@@ -918,6 +923,7 @@
         <article class="legend-card">
           <div class="line-sample"><span class="line-swatch four" aria-hidden="true"></span>4/5</div>
           <p>The <span class="accent-session">session-open and session-close rails</span> — 9:30 AM ET open and 4:00 PM ET close, plus ETH 17:00 maintenance close and 18:00 reopen. Detected on 30-minute bars. Today's RTH pair is <strong>cyan</strong>; prior-day RTH pairs fade to teal; ETH pairs render in faded teal. Think of them as session context, not part of the ZTH lifecycle.</p>
+          <p style="margin-top:0.5em;font-size:0.88em;opacity:0.85"><strong>Verify on 30min:</strong> 4/5 OPEN = 9:30 bar open · 4/5 CLOSE = 15:30 bar close (ends 16:00). Before 9:30 ET, "Today's" open rail shows the prior session's open until 9:30 fires — expected. After a futures contract rollover, historical rails may appear 1–5 ticks off; stabilizes once the current contract's sessions are captured.</p>
         </article>
         <article class="legend-card">
           <div class="line-sample"><span class="line-swatch three" aria-hidden="true"></span>3/5</div>
