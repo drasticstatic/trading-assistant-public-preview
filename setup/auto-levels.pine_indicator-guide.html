@@ -789,25 +789,103 @@
       }
     }
 
-    .tip-icon {
-      display: inline-block;
-      margin-left: 0.35em;
-      font-size: 0.78em;
-      font-style: normal;
+    .title-accent { color: var(--pine); }
+
+    .tip-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.25em;
+      height: 1.25em;
+      margin-left: 0.3em;
+      padding: 0;
+      font-size: 0.73em;
+      font-weight: 700;
       color: var(--teal);
-      opacity: 0.72;
-      cursor: help;
+      background: none;
+      border: 1.5px solid var(--teal);
+      border-radius: 50%;
+      cursor: pointer;
+      opacity: 0.7;
       vertical-align: middle;
       line-height: 1;
+      transition: opacity 0.15s, transform 0.15s;
     }
-    .tip-icon:hover { opacity: 1; }
+    .tip-btn:hover, .tip-btn:focus-visible { opacity: 1; transform: scale(1.12); outline: none; }
+
+    .tip-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 9, 6, 0.74);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 1.2rem;
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.18s, visibility 0.18s;
+    }
+    .tip-overlay.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .tip-card {
+      background: var(--surface-strong);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      padding: 1.8rem 2rem 1.6rem;
+      max-width: 500px;
+      width: 100%;
+      position: relative;
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.55);
+      transform: translateY(14px) scale(0.96);
+      opacity: 0;
+      transition: transform 0.22s cubic-bezier(0.34, 1.2, 0.64, 1), opacity 0.18s;
+    }
+    .tip-overlay.is-open .tip-card {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    .tip-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--teal);
+      margin: 0 2.4rem 1rem 0;
+      letter-spacing: 0.01em;
+    }
+    .tip-card-body {
+      font-size: 0.9em;
+      line-height: 1.75;
+      color: var(--text);
+    }
+    .tip-card-body ul { margin: 0; padding-left: 1.3em; }
+    .tip-card-body li + li { margin-top: 0.55em; }
+    .tip-card-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(167, 255, 205, 0.07);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      cursor: pointer;
+      padding: 0.28rem 0.55rem;
+      line-height: 1;
+      transition: background 0.15s, color 0.15s;
+    }
+    .tip-card-close:hover { background: rgba(167, 255, 205, 0.14); color: var(--text); }
   </style>
 </head>
 <body>
   <main class="page">
     <header class="hero tone-guide">
       <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>TradingView · Indicator Guide · Instruction Manual</p>
-      <h1>Auto-Levels Pine Guide</h1>
+      <h1>Auto-Levels Pine <span class="title-accent">Guide</span></h1>
       <p class="hero-lead">This page is the manual-first surface for the current <code>Auto Levels</code> pine script overlay<br/>
       Use it when you want the settings map, level legend, and practical chart-reading workflow<br/>
       If you want revision history, bug trails, or known-issue context, jump to the paired changelog instead</p>
@@ -893,7 +971,7 @@
           <p>1-hour color flips create levels at the flip candle open. Structural flips can become <span class="accent-structure">KEY</span> levels, then auto-manage through the <span class="accent-structure">5/5</span> → <span class="accent-session">3/5</span> → <span class="accent-ghost">Ghost</span> lifecycle.</p>
         </article>
         <article class="card">
-          <h3>4/5 session rails <abbr class="tip-icon" title="Verification TF — 30min chart: 4/5 OPEN = the 9:30 bar’s open · 4/5 CLOSE = the 15:30 bar’s close (ends 16:00). If a rail looks off, pull up the 30min chart and compare.&#10;&#10;Before 9:30 ET: &quot;Today’s&quot; open rail shows the previous session’s open until today’s 9:30 fires — expected, auto-updates at open.&#10;&#10;After a futures contract rollover: historical 4/5 levels may appear 1–5 ticks off. Normal during the adjustment period — stabilizes once the current contract’s sessions are captured.">ⓘ</abbr></h3>
+          <h3>4/5 session rails <button class="tip-btn" data-modal="tpl-45-notes" data-title="4/5 Session Rail Notes" aria-label="4/5 session rail notes — click for details">ⓘ</button></h3>
           <p>Dashed session rails for the 9:30 AM ET open and 4:00 PM ET close, plus ETH 17:00 maintenance close and 18:00 reopen. Detected from 30-minute bars. Today’s RTH pair is <strong>cyan</strong>; prior-day RTH pairs fade to teal. ETH pairs render in faded teal. Enable the <code>Show ETH-Derived Levels</code> toggle to see ETH 4/5 on any instrument.</p>
         </article>
         <article class="card">
@@ -929,7 +1007,7 @@
           <p>The standard active color-flip level. This is the main baseline structure if the flip does not qualify as KEY.</p>
         </article>
         <article class="legend-card">
-          <div class="line-sample"><span class="line-swatch four" aria-hidden="true"></span>4/5 <abbr class="tip-icon" title="Verification TF — 30min chart: 4/5 OPEN = the 9:30 bar's open · 4/5 CLOSE = the 15:30 bar's close (ends 16:00). If a rail looks off, pull up the 30min chart and compare.&#10;&#10;Before 9:30 ET: &quot;Today's&quot; open rail shows the previous session's open until today's 9:30 fires — expected, auto-updates at open.&#10;&#10;After a futures contract rollover: historical 4/5 levels may appear 1–5 ticks off. Normal during the adjustment period — stabilizes once the current contract's sessions are captured.">ⓘ</abbr></div>
+          <div class="line-sample"><span class="line-swatch four" aria-hidden="true"></span>4/5 <button class="tip-btn" data-modal="tpl-45-notes" data-title="4/5 Session Rail Notes" aria-label="4/5 session rail notes — click for details">ⓘ</button></div>
           <p>The <span class="accent-session">session-open and session-close rails</span> — 9:30 AM ET open and 4:00 PM ET close, plus ETH 17:00 maintenance close and 18:00 reopen. Detected on 30-minute bars. Today's RTH pair is <strong>cyan</strong>; prior-day RTH pairs fade to teal; ETH pairs render in faded teal. Think of them as session context, not part of the ZTH lifecycle.</p>
         </article>
         <article class="legend-card">
@@ -1034,6 +1112,24 @@
       </div>
     </footer>
   </main>
+  <!-- 4/5 Notes modal content -->
+  <template id="tpl-45-notes">
+    <ul>
+      <li><strong>Verification TF — 30min chart:</strong> 4/5 OPEN = the 9:30 bar's open · 4/5 CLOSE = the 15:30 bar's close (ends 16:00). If a rail looks off, pull up the 30min chart and compare those two bar prices to confirm.</li>
+      <li><strong>Before 9:30 ET:</strong> "Today's" open rail shows the <em>previous</em> session's open until today's 9:30 fires. Expected — the level auto-updates at open.</li>
+      <li><strong>After a futures contract rollover:</strong> Historical 4/5 levels may appear 1–5 ticks off the chart's bars. Normal during the adjustment period — stabilizes once the current contract's sessions are captured.</li>
+    </ul>
+  </template>
+
+  <!-- Tip modal -->
+  <div id="tip-overlay" class="tip-overlay" role="dialog" aria-modal="true" aria-labelledby="tip-title">
+    <div class="tip-card">
+      <button id="tip-close" class="tip-card-close" aria-label="Close">✕</button>
+      <div id="tip-title" class="tip-card-title"></div>
+      <div id="tip-card-body" class="tip-card-body"></div>
+    </div>
+  </div>
+
   <script>
     (() => {
       const finePointer = window.matchMedia('(pointer: fine)');
@@ -1089,6 +1185,33 @@
         card.addEventListener('pointermove', sync);
         card.addEventListener('pointerleave', reset);
       });
+    })();
+
+    // ── Tip modal ──────────────────────────────────────────────────────────
+    (() => {
+      const overlay = document.getElementById('tip-overlay');
+      const titleEl = document.getElementById('tip-title');
+      const bodyEl  = document.getElementById('tip-card-body');
+      const closeBtn = document.getElementById('tip-close');
+
+      const open = (btn) => {
+        const tpl = document.getElementById(btn.dataset.modal);
+        if (!tpl) return;
+        titleEl.textContent = btn.dataset.title || '';
+        bodyEl.innerHTML = '';
+        bodyEl.appendChild(tpl.content.cloneNode(true));
+        requestAnimationFrame(() => overlay.classList.add('is-open'));
+        closeBtn.focus();
+      };
+
+      const close = () => overlay.classList.remove('is-open');
+
+      document.querySelectorAll('.tip-btn').forEach(btn =>
+        btn.addEventListener('click', (e) => { e.stopPropagation(); open(btn); })
+      );
+      closeBtn.addEventListener('click', close);
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
     })();
   </script>
 </body>
