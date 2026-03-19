@@ -770,7 +770,7 @@
       <div class="stat-grid" aria-label="Changelog at a glance">
         <article class="stat">
           <strong>Current public baseline</strong>
-          <span><code>v2.14</code> is the active source snapshot represented here.</span>
+          <span><code>v2.20</code> is the active source snapshot represented here.</span>
           <div class="stat-action-card">
             <a class="button tertiary" href="./auto-levels.pine_indicator-guide.html">Open Guide ↗</a>
           </div>
@@ -828,8 +828,8 @@
             <tr><th>Surface</th><th>Role</th><th>Status</th></tr>
           </thead>
           <tbody>
-            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v2.14</code> Source</td></tr>
-            <tr><td><code>fcr-standalone.pine</code></td><td>Shareable FCR-only companion</td><td>✅ Active companion</td></tr>
+            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v2.20</code> Source</td></tr>
+            <tr><td><code>fcr-standalone.pine</code></td><td>Shareable FCR-only companion</td><td>✅ Active <code>v2.2</code> companion</td></tr>
             <tr><td><code>webhook-alerts.pine</code></td><td>Alert-only companion kept intentionally separate from the visual overlay family</td><td>✅ Active top-level companion</td></tr>
           </tbody>
         </table>
@@ -845,11 +845,127 @@
         <details class="release" open>
           <summary>
             <div>
+              <p class="release-meta">Mar 18, 2026 · split level caps + 4/5 patterns + FCR standalone v2.2</p>
+              <h3>v2.20</h3>
+              <p class="release-summary">Max Active ZTH Levels split into three independent thresholds (KEY/5/5, 3/5, Ghost). 4/5 pattern toggle activated. FCR standalone updated to v2.2 with Pine v6 and multi-9:30 rotation fix.</p>
+            </div>
+            <span class="status-pill status-current">Current</span>
+            <span class="chevron" aria-hidden="true">▾</span>
+          </summary>
+          <div class="release-body">
+            <ul class="list-tight">
+              <li><strong>Split Max Active ZTH Levels:</strong> the single <code>Max Active ZTH Levels</code> input (was 40) replaced by three independent thresholds — <code>Max Active KEY / 5/5 Levels</code> (default 20), <code>Max Active 3/5 Levels</code> (default 15), <code>Max Active Ghost Levels</code> (default 10). Each type is trimmed independently so you can control density per level class when comparing across timeframes. KEY and 5/5 share one budget; the oldest is trimmed first within each type.</li>
+              <li><strong>4/5 pattern level toggle:</strong> <code>Include 4/5 Levels in Pattern Recognition</code> toggle activated (was reserved). When ON, patterns (R, B, P, SFP, 1-2-3) can fire at RTH 9:30 open and 16:00 close session prices for today, yesterday, and the day before. Uses the existing <code>Proximity: 4/5 session levels</code> threshold (default 20 ticks). Off by default — mirrors the 3/5 toggle design. Works regardless of whether 4/5 rail lines are visually visible.</li>
+              <li><strong>FCR standalone v2.2:</strong> migrated from Pine v5 to Pine v6. Ported the v2.19 rotation array fix — scan loop now rotates for every 9:30 found per chart bar (not just the last one). On weekly/monthly charts where multiple trading days exist per bar, all three rotation slots (today/yesterday/day-before) are correctly populated. Drawing moved to <code>barstate.islast</code> exclusively, matching the main script pattern.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release">
+          <summary>
+            <div>
+              <p class="release-meta">Mar 18, 2026 · ZTH on higher TFs + FCR all-TF fix + BRK/RT color</p>
+              <h3>v2.19</h3>
+              <p class="release-summary">ZTH levels now match the 1hr chart exactly on 4hr, Daily, Weekly, and Monthly. FCR rotation populates all three slots correctly on weekly/monthly. BRK/RT label color unified.</p>
+            </div>
+            <span class="status-pill status-history">History</span>
+            <span class="chevron" aria-hidden="true">▾</span>
+          </summary>
+          <div class="release-body">
+            <ul class="list-tight">
+              <li><strong>ZTH LTF scan for chart TF &gt; 1hr:</strong> <code>security_lower_tf("60")</code> scan added for level creation and mitigation on 4hr, Daily, Weekly, and Monthly charts. A 4-slot ring buffer carries 1hr OHLC+time across chart bar boundaries so every 1hr bar is processed — levels now match the 1hr chart exactly on all timeframes.</li>
+              <li><strong>FCR all-TF rotation fix:</strong> the scan loop now rotates the rotation array for each 9:30 found per chart bar. On weekly/monthly charts with 5 trading days per bar, all 5 9:30 events are captured in order — slots 0/1/2 always hold today/yesterday/day-before correctly. Drawing moved to <code>barstate.islast</code> exclusively.</li>
+              <li><strong>BRK/RT color fix:</strong> <code>h_col</code>/<code>l_col</code> now force purple (#9b59b6) when BRK or RT is present on a candle side, regardless of co-occurring R/P/SFP labels.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release">
+          <summary>
+            <div>
+              <p class="release-meta">Mar 18, 2026 · FCR all-slot fix + per-type proximity + 1-2-3 wick filter</p>
+              <h3>v2.18</h3>
+              <p class="release-summary">FCR drawing simplified to direct ta.valuewhen for all three slots. Pattern proximity consolidated to per-level-type thresholds. 1-2-3 "1" candle wick filter added.</p>
+            </div>
+            <span class="status-pill status-history">History</span>
+            <span class="chevron" aria-hidden="true">▾</span>
+          </summary>
+          <div class="release-body">
+            <ul class="list-tight">
+              <li><strong>FCR all-slot simplification:</strong> all three FCR slots now use the direct scan+fallback approach — rotation array no longer used for drawing at any timeframe. Eliminates the extra 4th FCR artifact that was appearing on 4hr charts.</li>
+              <li><strong>Per-level-type proximity thresholds:</strong> replaced per-pattern proximity inputs (<code>prox_ticks_r/b/p/123</code>) with per-level-type inputs — <code>prox_ticks_key55</code> (KEY/5/5, default 20), <code>prox_ticks_45</code> (4/5, reserved), <code>prox_ticks_35</code> (3/5 when enabled, default 15). Tune each level class independently instead of each pattern independently.</li>
+              <li><strong>1-2-3 "1" candle wick filter:</strong> new <code>one_wick_pct_123</code> input (default 30%) — the wick in the trade direction on the "1" candle must be ≤ this % of the candle range. Ensures the break candle is a committed move, not a rejection wick.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release">
+          <summary>
+            <div>
+              <p class="release-meta">Mar 18, 2026 · FCR multi-TF slot fix + 1-2-3 direction rule</p>
+              <h3>v2.17</h3>
+              <p class="release-summary">FCR prior-day slots use ta.valuewhen direct lookback on all timeframes. 1-2-3 requires the "1" candle to close in the continuation direction. "1"/"2" label visual improved.</p>
+            </div>
+            <span class="status-pill status-history">History</span>
+            <span class="chevron" aria-hidden="true">▾</span>
+          </summary>
+          <div class="release-body">
+            <ul class="list-tight">
+              <li><strong>FCR prior-day universal fix:</strong> slots 1/2 now always use direct 15min <code>ta.valuewhen</code> lookback on all chart timeframes. Slot 0 (today) uses the rotation array. Eliminates the Daily-and-lower regression from v2.15/v2.16 and the weekly/monthly multi-day rotation problem.</li>
+              <li><strong>1-2-3 direction requirement:</strong> the "1" candle (bar[2]) must close in the continuation direction — bearish close for a bearish 1-2-3, bullish close for a bullish one. Prevents a rejection wick that touches a level from being misread as a break candle.</li>
+              <li><strong>1-2-3 "1"/"2" label visual:</strong> changed from boxed arrow style to floating text (<code>label.style_none</code> + <code>yloc.abovebar/belowbar</code>). Added a min-gap guard (≥3 bars between patterns) to prevent consecutive patterns from sharing bar text.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release">
+          <summary>
+            <div>
+              <p class="release-meta">Mar 18, 2026 · FCR 1hr regression fix + 3/5 pattern toggle + 1-2-3 refinements</p>
+              <h3>v2.16</h3>
+              <p class="release-summary">Fixed v2.15 FCR regression on 1hr charts. 3/5 pattern toggle added. 1-2-3 "3" folded into bar[0] stack; proximity anchored to "1" candle.</p>
+            </div>
+            <span class="status-pill status-history">History</span>
+            <span class="chevron" aria-hidden="true">▾</span>
+          </summary>
+          <div class="release-body">
+            <ul class="list-tight">
+              <li><strong>FCR 1hr regression fix:</strong> v2.15's direct <code>ta.valuewhen</code> approach for prior-day FCR slots was correct for Weekly/Monthly but broke 1hr charts (rotation array fires once per day there, which is reliable). v2.16 gates the direct approach to Weekly/Monthly only; Daily and lower revert to rotation array slots 1/2.</li>
+              <li><strong>3/5 pattern toggle:</strong> new <code>Include 3/5 Levels in Pattern Recognition</code> toggle (off by default). Patterns (R, B, P, SFP, 1-2-3) only fire at KEY/5/5 by default; enable to extend to 3/5. Ghost levels excluded regardless.</li>
+              <li><strong>1-2-3 "3" folded into bar[0] stack:</strong> the confirming candle "3" label is now part of the <code>\n</code>-stacked label at bar[0] alongside R/B/SFP/BRK/RT. "1"/"2" remain as standalone historical labels.</li>
+              <li><strong>1-2-3 proximity anchored to "1" candle:</strong> the proximity check now runs on bar[2] (the break candle) rather than bar[0]. Added <code>paus_body_pct_123</code> input (default 50%) — "2" candle body must be ≤ this % of its range.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release">
+          <summary>
+            <div>
+              <p class="release-meta">Mar 18, 2026 · 1-2-3 labels + FCR prior-day fix + ATR band normalization + vertical post fix</p>
+              <h3>v2.15</h3>
+              <p class="release-summary">1-2-3 redrawn as three separate bar labels. FCR prior-day slots use direct ta.valuewhen lookback. ATR bands normalized to 15min ATR. ZTH vertical fix on 4hr/Daily.</p>
+            </div>
+            <span class="status-pill status-history">History</span>
+            <span class="chevron" aria-hidden="true">▾</span>
+          </summary>
+          <div class="release-body">
+            <ul class="list-tight">
+              <li><strong>1-2-3 individual bar labels:</strong> "1", "2", and "3" now draw as three separate <code>label.new</code> calls on bar[2], bar[1], and bar[0] respectively — removed from the <code>\n</code>-stacked main label.</li>
+              <li><strong>FCR prior-day fix:</strong> slots 1/2 now use <code>ta.valuewhen(index=1/2)</code> direct 15min lookbacks instead of the rotation array, which was only accurate on Daily and lower (one rotation per chart bar = one trading day only). Weekly/monthly charts with multiple days per bar now show correct yesterday/day-before FCR levels.</li>
+              <li><strong>ATR band width normalized:</strong> band width now uses 15min ATR (<code>atr_15min</code> via <code>request.security</code>) rather than the chart-TF ATR — consistent visual width across 5min, 4hr, daily, and weekly charts.</li>
+              <li><strong>ZTH vertical post fix (4hr/Daily):</strong> <code>barstate.islast</code> loop updates all ZTH level line x2 to <code>time + chart_bar_ms</code>. Root cause: x2 = born_time + 48h falls in weekend gaps on RTH daily/4hr charts; TradingView snapped it back to x1, causing a vertical spike.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release">
+          <summary>
+            <div>
               <p class="release-meta">Mar 18, 2026 · BRK quality thresholds</p>
               <h3>v2.14</h3>
               <p class="release-summary">BRK confirmation gates: minimum pierce distance (ticks) and minimum candle body percentage, replacing the old upper-bound tolerance check.</p>
             </div>
-            <span class="status-pill status-current">Current</span>
+            <span class="status-pill status-history">History</span>
             <span class="chevron" aria-hidden="true">▾</span>
           </summary>
           <div class="release-body">
@@ -1266,20 +1382,29 @@
           </ul>
         </article>
         <article class="card">
-          <h3>🔎 Still open after v2.14</h3>
+          <h3>✅ Closed in v2.15–v2.19</h3>
+          <ul class="list-tight">
+            <li><strong>ZTH missing levels on higher-TF charts (4hr, Daily, Weekly, Monthly):</strong> <code>request.security</code> only saw one 1hr bar per chart bar on charts above 1hr, causing sparse level detection. v2.19 adds a <code>security_lower_tf("60")</code> scan loop with a 4-slot ring buffer — every 1hr bar is now processed on all chart timeframes. ZTH levels match the 1hr chart exactly on 4hr, Daily, Weekly, and Monthly.</li>
+            <li><strong>FCR prior-day slots incorrect on Weekly/Monthly:</strong> the rotation array rotated once per chart bar — on weekly charts (5 trading days per bar) this meant yesterday's FCR was actually 5 days ago. Fixed across v2.15–v2.19 by progressively switching to <code>ta.valuewhen</code> direct lookback and finally the per-bar scan-loop rotation.</li>
+            <li><strong>ZTH vertical post on 4hr/Daily RTH charts:</strong> ray x2 = born_time + 48h fell in weekend gaps; TradingView snapped it to x1's bar, causing vertical rendering. v2.15 fixed by updating all line x2 to <code>time + chart_bar_ms</code> at <code>barstate.islast</code>.</li>
+            <li><strong>BRK/RT color inconsistency:</strong> when BRK or RT co-occurred with R/P/SFP on the same candle, the label used the R/P/SFP color instead of BRK/RT purple. v2.19 forces purple (#9b59b6) when BRK or RT is present.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>🔎 Still open after v2.20</h3>
           <ul class="list-tight">
             <li><strong>Previous-day 16:00 close ray vertical on RTH chart:</strong> yesterday's close 4/5 ray renders as a vertical post on some RTH 1hr chart configurations. Under continued observation.</li>
-            <li><strong>ZTH missing levels on 1hr ETH chart (GC, CL):</strong> architectural cross-TF limitation — <code>request.security</code> with same-TF + different session boundaries causes some 1hr events to be skipped at session seams. Affects non-whitelisted instruments on 1hr ETH charts. Fix requires <code>security_lower_tf("60")</code> scan loop.</li>
+            <li><strong>KEY level vertical post on Weekly chart (current week):</strong> a KEY level near the current week boundary can render as a vertical post at the start of the upcoming week bar. Likely a ray-end time snapping issue on Weekly — the x2 endpoint lands at the bar start rather than mid-bar. Under investigation.</li>
             <li><strong>QI 3rd candle mitigation:</strong> bar[2] mitigation code is in place; needs runtime confirmation that the QI instrument mitigates correctly on the third candle in live chart testing.</li>
-            <li><strong>1-2-3 "1" and "2" label y-overlap on congested charts:</strong> bar[2] and bar[1] labels draw on historical bars outside the current-bar stack, so vertical stacking via \n is not available. A small ATR-based y-offset approach is under consideration.</li>
-            <li><strong>BRK/RT mutual exclusion nuance:</strong> current v2.12 suppresses BRK when RT fires on the same candle side — but if a BRK is the first candle in a new succession (not a continuation of an existing BRK state), it should not be suppressed by an unrelated prior RT. Per-level rather than per-side logic needed.</li>
+            <li><strong>1-2-3 "1" and "2" label overlap on congested charts:</strong> bar[2] and bar[1] labels draw on historical bars outside the current-bar stack, so vertical stacking via \n is not available. The <code>yloc.abovebar/belowbar</code> approach (v2.17) helps but does not eliminate all overlap.</li>
+            <li><strong>BRK/RT mutual exclusion nuance:</strong> RT suppresses the BRK label when both fire on the same candle side — but a new BRK in an unrelated succession should not be suppressed by a prior RT. Per-level rather than per-side logic needed.</li>
           </ul>
         </article>
         <article class="card">
           <h3>📝 Deferred features</h3>
           <ul class="list-tight">
-            <li><strong>ATR-based per-level shadow bands on individual ZTH levels:</strong> a per-level translucent fill centered on each KEY/5/5/3/5 level, with band width proportional to the instrument's current ATR (so NQ bands are wider than ES, CL wider still). This is distinct from the directional PDH/PDL fills shipped in v2.7 — those are broad fills from the daily high and low. This deferred item would put a targeted "area of influence" on each individual structural level. Not yet scoped for implementation.</li>
-            <li><strong>security_lower_tf("60") architectural scan:</strong> replacing the <code>request.security</code> 1hr flip-detection path with a full 60-minute intrabar scan loop. This is the single fix that unblocks both the 1hr ETH missing-levels issue and 4hr+ sparse-detection edge cases. Significant scope — requires a dedicated Pine wave.</li>
+            <li><strong>ATR-based per-level shadow bands on individual ZTH levels:</strong> a per-level translucent fill centered on each KEY/5/5/3/5 level, with band width proportional to the instrument's current ATR. This is distinct from the directional PDH/PDL fills shipped in v2.7. Not yet scoped for implementation.</li>
+            <li><strong>ETH 4/5 pattern level support:</strong> the 4/5 pattern toggle (v2.20) covers RTH session prices only (9:30 open and 16:00 close). ETH maintenance window (17:00 close, 18:00 reopen) prices are not yet included in pattern proximity. Deferred until ETH 4/5 today/yesterday/day-before tracking vars are added.</li>
           </ul>
         </article>
       </div>
