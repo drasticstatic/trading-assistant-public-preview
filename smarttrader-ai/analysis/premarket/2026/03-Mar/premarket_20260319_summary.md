@@ -1,7 +1,7 @@
 # Afternoon Session Review — March 19, 2026
 ### ~15:00 ET · Post-FOMC · Afternoon/ETH Scope
 
-*No formal pre-market this morning — Christopher prioritized rest and cleared personal/legal space (unemployment filing, domestic relations, attorney). ZTH 1-on-1 cancelled (coach under the weather). Inevitrade live call active via phone during a walk. This document is written at ~15:00 ET as Christopher prepares for a late-RTH or ETH entry. Screenshots incoming — will be embedded on return.*
+*No formal pre-market this morning — Christopher prioritized rest and cleared personal/legal space (unemployment filing, domestic relations, attorney). ZTH 1-on-1 cancelled (coach under the weather). Inevitrade live call active via phone during a walk. This document was started at ~15:00 ET; screenshots added at 16:16–16:19 ET (RTH close snapshot — NQ, ES, YM, RTY, GC, CL).*
 
 [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 
@@ -98,39 +98,83 @@ Reading the indices from Christopher's ~15:00 ET description:
 
 ---
 
-## 📊 MNQ — Afternoon / ETH Read
+## 📊 Chart Analysis — RTH Close Snapshot (16:16–16:19 ET)
 
-**Framework:** FCR levels (from auto-levels v2.23 on chart) + ZTH levels + IT Foundation EMAs
-
-**Current read (~15:00 ET):**
-- NQ pumping bullish candles → buyers stepping in
-- Respecting/rejecting off a range → supply sitting overhead
-- Key question: does price break and hold above the range, or does this become a rejection?
-
-**Entry conditions for LONG (late RTH or ETH):**
-- [ ] Price holds above FCR "long from here" ray on 15min
-- [ ] IT Foundation EMAs green dominant
-- [ ] ZTH level alignment (level below as support, not above as resistance)
-- [ ] SMT: ES + YM confirming NQ direction
-- [ ] FVG displacement confirmed on 15min chart
-
-**Risk context:**
-- SL: structural — below the ZTH level or FCR low, not arbitrary ticks
-- Pattern 8 forward fix: define partial TP level + scratch condition + 16:00 ET hard close BEFORE entry
-- If entering in ETH: set SL and let it breathe; Apex daily drawdown resets at 17:00 CT
+Six charts captured at RTH close. All screenshots use auto-levels v2.23 — first live session with the published version.
 
 ---
 
-## 📊 CL — Range Support Reclaim
+### NQ — Post-FOMC Afternoon Bull Run
 
-**Current read:** CL aggressively reclaiming the support of a range — not a tentative touch but a committed push from below.
+**16:16 ET — NQ full session view**
+![NQ1! March 19 RTH close](../../../../../data/screenshots/NQ1!_2026-03-19_16-16-53_49b0c.png)
 
-**ZTH + IT setup territory if:**
-- The reclaim candle is a clean body close above the support level
-- ZTH "5/5" or "KEY" level aligns with the range support
-- IT Foundation EMA gate is green dominant on the relevant TF
+**HTF read (left panel):** NQ remains in a macro downtrend from its highs — EMAs showing bearish structure, lower highs in place. The broader context is a bounce/recovery within a larger bearish environment.
 
-**EIA reminder:** Today is Thursday — no EIA restriction (Wednesdays only, 10:15–10:45 ET).
+**Intraday read (right panel):** A significant afternoon bull surge — strong green candle column pushing up through the session. Price made a large directional move and is consolidating near ZTH levels at the close. The auto-levels v2.23 ZTH horizontal lines are visible and price is interacting with them at the top of the move.
+
+**ETH setup watch:** If price holds above the ZTH support level that capped today's move, continuation long is in scope. If it fails back below, watch for consolidation before next directional read.
+
+---
+
+### ES — Aligned Bullish Afternoon
+
+**16:17 ET — ES full session view**
+![ES1! March 19 RTH close](../../../../../data/screenshots/ES1!_2026-03-19_16-17-48_07999.png)
+
+**HTF read (left panel):** Same macro downtrend structure. Large FVG labeled in the lower portion — a longer-term reference zone. EMAs bearish.
+
+**Intraday read (right panel):** ES mirrors NQ — strong afternoon bull push, same timing, same structure. ES confirming NQ direction = Scenario A alignment active. Price closed strong on RTH.
+
+---
+
+### YM — Bull Push with Caution Signal
+
+**16:18 ET — YM full session view**
+![YM1! March 19 RTH close](../../../../../data/screenshots/YM1!_2026-03-19_16-18-04_2ce58.png)
+
+**HTF read (left panel):** Bearish macro structure — same downtrend pattern as NQ/ES.
+
+**Intraday read (right panel):** YM joined the afternoon bull push. Notably, a red dot signal is visible on a candle near the session high — this is an SFP or rejection pattern firing at the upper ZTH/FCR level. YM is confirming the move but also showing a hesitation/rejection signal at resistance. Watch this in ETH — if YM can reclaim and hold above that level, bull continuation. If it fades from there, the divergence matters.
+
+---
+
+### RTY — Quad Confirmation
+
+**16:17 ET — RTY full session view**
+![RTY1! March 19 RTH close](../../../../../data/screenshots/RTY1!_2026-03-19_16-17-21_0ddac.png)
+
+**HTF read (left panel):** Downtrend from highs — bearish macro.
+
+**Intraday read (right panel):** RTY joined the afternoon move. All four indices (NQ, ES, YM, RTY) moved together in the afternoon — this is **Scenario A confirmed**. Quad alignment. The move was real and broad-based, not just NQ leading while others lagged.
+
+**SMT summary:** No divergence in the afternoon push. All four confirmed. ETH continuation watch requires all four to hold their gains — if any one index starts making lower lows into ETH, that divergence changes the read.
+
+---
+
+### GC — Post-FOMC Knife Catch
+
+**16:18 ET — GC full session view (TPT scope — Apex halted)**
+![GC1! March 19 RTH close](../../../../../data/screenshots/GC1!_2026-03-19_16-18-43_c5bf7.png)
+
+**HTF read (left panel):** GC is in a sustained and aggressive downtrend — the most directional chart of the day. The long declining move from highs is clearly visible. This is post-FOMC: risk-on environment means gold selling off.
+
+**Intraday read (right panel):** The "falling knife" Christopher described is confirmed. GC dropped hard intraday, then found support and began a bounce recovery. The STB coaches were watching this level — it held and provided the knife-catch bounce. However, GC is still in heavy downtrend context. The bounce is a technical level hold, not a reversal signal.
+
+**Note:** Apex access halted for GC. TPT scope only. This chart is observational — informs the macro risk-on/risk-off read (equities bullish = gold selling = risk-on confirmation).
+
+---
+
+### CL — Range Chop with Support Defense
+
+**16:19 ET — CL full session view**
+![CL1! March 19 RTH close](../../../../../data/screenshots/CL1!_2026-03-19_16-19-36_5fb69.png)
+
+**HTF read (left panel):** CL in a longer-term range/channel. The big picture is more neutral than the equity indices — oil has been rangebound rather than in a clean trend.
+
+**Intraday read (right panel):** CL showed a range reclaim attempt — buyers defending the support level. However, by RTH close price had pulled back from the reclaim attempt and is in a chop zone. The "aggressive reclaim" from the walk description became more muted by close. CL is watching the same support — it hasn't broken down, but it hasn't convincingly cleared either.
+
+**EIA reminder:** Today is Thursday — no EIA restriction (Wednesdays only, 10:15–10:45 ET). CL remains tradeable if a ZTH + IT setup emerges in ETH.
 
 ---
 
@@ -149,13 +193,19 @@ Reading the indices from Christopher's ~15:00 ET description:
 
 ## ⏱️ Live Session Updates
 
-*Christopher is on an Inevitrade call + dog walk as of ~15:00 ET. Will return with screenshots. Updates and screenshot embeds below as session develops.*
-
-**~15:00 ET snapshot (from Christopher):**
+**~15:00 ET (Christopher, pre-walk):**
 - NQ: bullish candle push, respecting/rejecting range
-- GC: post-knife-catch retrace
+- GC: post-knife-catch retrace (STB coaches watching the level — mirrors the knife that took MNQ to TP prior morning)
 - CL: aggressively reclaiming range support
-- Inevitrade call: live market analysis in progress — will incorporate insights on return
+- Inevitrade call live on phone during walk
+
+**~16:16–16:19 ET (RTH close — screenshots captured):**
+- **Scenario A confirmed** — NQ, ES, YM, RTY all made a large coordinated afternoon bull push
+- NQ holding near ZTH resistance at RTH close
+- YM showing a red dot rejection signal at the session high — watch in ETH
+- GC knife-catch bounce holding, still in macro downtrend — risk-on confirmed
+- CL support defended but reclaim faded into RTH close — range chop, not directional conviction
+- **ETH watch:** Continuation long if indices hold above ZTH support. YM divergence = early warning sign.
 
 ---
 
@@ -179,21 +229,30 @@ FOMC: Rate decision is now known. The key follow-on effects — equity positioni
 
 **3. List both your HTF bias and key levels**
 
-*To be completed on Christopher's return with screenshots from TradingView. Key HTF levels will be the FCR ray HIGH/LOW from this morning's 9:30 candle + the ZTH KEY/5-5 levels visible on the 1hr chart.*
+**HTF bias: BEARISH macro structure, BULLISH bounce in progress.**
 
-HTF bias: Tentatively BULLISH based on post-FOMC read and NQ afternoon push. Confirmation needed from chart.
+All four equity indices (NQ, ES, YM, RTY) remain in macro downtrend on the daily/HTF view — lower highs, EMAs bearish. This afternoon's move is a recovery bounce within that larger bearish context, not a confirmed reversal. GC's post-FOMC selloff confirms risk-on positioning.
 
-Key HTF levels: *(screenshot pending — embed here on return)*
+Key HTF reference levels (from auto-levels v2.23 on chart):
+- **NQ:** ZTH levels acting as overhead resistance at the top of today's afternoon push — the KEY/5-5 cluster visible in the intraday chart. The FCR HIGH ray from the 9:30 candle is a key structural reference for the full session.
+- **ES:** FVG labeled on the HTF chart is a longer-term zone to watch on any continuation or pullback.
+- **GC:** Hard support level at the knife-catch low — coaches watching whether it holds.
 
 ---
 
 **4. List your Intraday bias and levels**
 
-*To be completed on return with screenshots.*
+**Intraday bias: LONG — Scenario A confirmed (quad index alignment).**
 
-Intraday context: Late-session bias is LONG if NQ sustains above range. CL reclaiming range = constructive. GC retracing = confirm it's not a metals-led risk-off move. SMT read from ES/YM needed to confirm Scenario A vs. B.
+All four indices — NQ, ES, YM, RTY — moved together in the afternoon. This is textbook Scenario A. No SMT divergence in the directional push. The move was real and broad-based.
 
-Intraday levels: *(screenshot pending — embed here on return)*
+Key nuances for ETH:
+- **NQ** is holding near ZTH overhead resistance at RTH close — needs to absorb or break above cleanly for ETH continuation.
+- **YM** showed a rejection signal (red dot) at the top of the move — watch for YM weakness as early divergence warning in ETH.
+- **CL** support held but the reclaim attempt faded into RTH close — range-bound for now, not a clean directional conviction.
+- **GC** knife-catch bounce is a data point: risk-on continues as long as equities hold.
+
+ETH levels to watch: the ZTH support level immediately below current NQ price (visible on the intraday chart) is the key line. Hold above = ETH continuation long setup. Fail back below = wait for re-entry at the next lower ZTH level.
 
 ---
 
