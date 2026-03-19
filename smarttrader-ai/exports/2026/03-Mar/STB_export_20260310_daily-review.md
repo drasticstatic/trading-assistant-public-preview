@@ -2,7 +2,7 @@
 #### Fortuna — Wealth Warden | Claude Code CLI
 #### Session type: RTH — Active
 
-[Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
+[Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 
 ---
 

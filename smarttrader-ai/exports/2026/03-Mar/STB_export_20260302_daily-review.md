@@ -2,7 +2,7 @@
 #### Christopher Wilson | Fortuna — Wealth Warden
 #### Account: APEX-484839-05 | Instruments: YM (T1), ES (T2, T3)
 
-[Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
+[Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 
 ---
 

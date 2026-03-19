@@ -2,7 +2,7 @@
 ### STB SmartTraderAI Export | Fortuna | For Coaches
 *Session summary + SmartTraderAI copy-paste fields*
 
-[Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
+[Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 
 ---
 
