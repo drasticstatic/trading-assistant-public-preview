@@ -999,7 +999,12 @@
         </article>
         <article class="card">
           <h3>🎯 Patterns fire near ZTH levels only</h3>
-          <p>R, B, P, and 1-2-3 pattern labels only appear when the relevant candle high or low is within a configurable tick distance of an active ZTH level (<strong>Proximity to ZTH Level</strong> input, default 20 ticks). Patterns no longer print anywhere a wick threshold is met — they only fire at points of structural confluence. Toggle any pattern type on/off individually in the ZTH Strategy Pattern Thresholds group. When multiple patterns fire on the same candle side, they stack vertically at ATR × 0.15 per slot so labels never overlap.</p>
+          <p>R, B, P, SFP, and 1-2-3 pattern labels only appear when the relevant candle high or low is within a configurable tick distance of an active ZTH level. By default, patterns anchor to <strong>KEY and 5/5</strong> levels only. Two optional toggles extend this to lower-tier levels:</p>
+          <ul>
+            <li><strong>Include 4/5 Levels in Pattern Recognition</strong> — enables patterns to fire at RTH 9:30 open and 16:00 close session prices (today, yesterday, and the day before). Uses the <em>Proximity: 4/5</em> threshold (default 20 ticks). Works regardless of whether 4/5 rail lines are visually visible.</li>
+            <li><strong>Include 3/5 Levels in Pattern Recognition</strong> — enables patterns at mitigated 5/5 levels. Uses the <em>Proximity: 3/5</em> threshold (default 15 ticks).</li>
+          </ul>
+          <p>Ghost levels are never included regardless of either toggle. Toggle any pattern type on/off individually in the ZTH Strategy Pattern Thresholds group. When multiple patterns fire on the same candle side they stack in a single <code>\n</code>-separated label so no labels overlap.</p>
         </article>
         <article class="card">
           <h3>⏱️ 1-bar confirmation delay on levels</h3>
