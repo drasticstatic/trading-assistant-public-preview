@@ -2,7 +2,7 @@
 ### Volatile Open — Middle East Risk + Tariff Repricing | Fortuna
 *Written retroactively — Christopher was on coaching calls during the live session. Session updates filled in from live observation.*
 
-[Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
+[Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 
 ---
 

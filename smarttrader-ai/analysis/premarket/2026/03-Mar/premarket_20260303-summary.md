@@ -2,7 +2,7 @@
 #### Fortuna — Wealth Warden | Claude Code CLI
 #### Instruments: MNQ (primary) | ES, YM (confirming) | CL (secondary)
 
-[Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
+[Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 
 ---
 

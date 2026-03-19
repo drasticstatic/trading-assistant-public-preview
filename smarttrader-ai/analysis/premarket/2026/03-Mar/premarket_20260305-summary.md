@@ -2,7 +2,7 @@
 #### Fortuna — Wealth Warden | Claude Code CLI
 #### Instrument: MNQ (primary) | Session: Architecture + Education Day
 
-[Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
+[Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 
 ---
 

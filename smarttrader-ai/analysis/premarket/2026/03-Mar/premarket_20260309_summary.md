@@ -2,7 +2,7 @@
 ### Fortuna | Wealth Warden Trading Assistant
 *ETH/evening session — morning occupied by STB live coaching + commute. Desk arrival afternoon/evening.*
 
-[Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
+[Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 
 ---
 

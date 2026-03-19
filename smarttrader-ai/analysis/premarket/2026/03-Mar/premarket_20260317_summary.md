@@ -4,7 +4,7 @@
 *No official pre-market session today — Christopher spent the morning on live coaching calls with STB, ZTH, and IT. This document is written from chart screenshots taken at 11:24–11:31 ET (first set) and 12:09–12:11 ET (second, zoomed-in set), updated with live session context through ~12:10 ET.*
 
 <a id="smarttraderai-copy-paste"></a>
-[Jump to SmartTraderAI ↓](#smarttraderai)
+[Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 
 ---
 
@@ -233,7 +233,7 @@ No major scheduled events today (March 17). The FOMC backdrop is the dominant se
 
 ---
 
-<a id="smarttraderai"></a>
+<a id="smarttraderai-copy-paste"></a>
 ## 🤖 SmartTraderAI Pre-Market Copy-Paste Fields
 
 ---

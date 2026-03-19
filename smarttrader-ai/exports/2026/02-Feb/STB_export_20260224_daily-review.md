@@ -1,7 +1,7 @@
 # Daily Review — Feb 24, 2026 (Tuesday)
 ### STB SmartTraderAI Export | Fortuna
 
-[Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
+[Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 
 ---
 
