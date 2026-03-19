@@ -165,16 +165,31 @@ Six charts captured at RTH close. All screenshots use auto-levels v2.23 — firs
 
 ---
 
-### CL — Range Chop with Support Defense
+### CL + XBR — Oil SMT Pair (New Addition)
 
-**16:19 ET — CL full session view**
-![CL1! March 19 RTH close](../../../../../data/screenshots/CL1!_2026-03-19_16-19-36_5fb69.png)
+*Christopher added XBR (Brent Crude) as a CL SMT companion instrument — screenshots captured at 17:25–17:27 ET. Three charts: CL1! (WTI futures), XBRUSD (Brent), and XBRUSDT.P (Brent perpetual on Gate.io).*
 
-**HTF read (left panel):** CL in a longer-term range/channel. The big picture is more neutral than the equity indices — oil has been rangebound rather than in a clean trend.
+**17:25 ET — CL (WTI) ETH view**
+![CL1! March 19 ETH](../../../../../data/screenshots/CL1!_2026-03-19_17-25-52_a4c64.png)
 
-**Intraday read (right panel):** CL showed a range reclaim attempt — buyers defending the support level. However, by RTH close price had pulled back from the reclaim attempt and is in a chop zone. The "aggressive reclaim" from the walk description became more muted by close. CL is watching the same support — it hasn't broken down, but it hasn't convincingly cleared either.
+**17:27 ET — XBR (Brent Crude)**
+![XBRUSD March 19 ETH](../../../../../data/screenshots/XBRUSD_2026-03-19_17-27-11_3d66b.png)
 
-**EIA reminder:** Today is Thursday — no EIA restriction (Wednesdays only, 10:15–10:45 ET). CL remains tradeable if a ZTH + IT setup emerges in ETH.
+**17:26 ET — XBRUSDT.P (Brent perpetual — Gate.io)**
+![XBRUSDT.P March 19 ETH](../../../../../data/screenshots/XBRUSDT.P_2026-03-19_17-26-37_d38f7.png)
+
+**CL read (17:25 ET):** Big spike earlier in the day, then a hard selldown. Now in a gradual recovery channel — EMAs flattening, price holding above support. Range chop confirmed. The "aggressive reclaim" from the walk description faded by RTH close. CL is holding support but not breaking out above resistance.
+
+**XBR / Brent read (17:27 ET):** Near-identical structure to WTI — same spike, same selldown, same recovery channel. Both instruments tracking in lockstep. **No SMT divergence currently** — oil market is unified in direction. The range read on energy is confirmed by both contracts agreeing.
+
+**XBRUSDT.P note (Gate.io perpetual):** Broader historical view showing the full macro recovery structure. Christopher noted the cleaner chart appearance — correct. Perpetual contracts have no rollover gaps, making ZTH level marking cleaner and more consistent. Good reference for level confirmation on crude when the futures chart has rollover artifacts.
+
+**CL/XBR SMT framework (how to use going forward):**
+When CL makes a new high but XBR does not (or vice versa) → divergence signal. The two contracts reflect different supply pressures (US domestic production vs. global Brent benchmark), dollar effects, and geopolitical premiums. When they diverge, the leading contract is signaling directional intent; the lagging one is the confirmation needed — or the warning that the move is false.
+
+**Current read:** Both CL and XBR in range — no trade setup from either. ETH watch: if CL bounces cleanly off support with ZTH + IT EMA gate green, and XBR confirms (no divergence), that's a clean oil long setup.
+
+**EIA reminder:** Today is Thursday — no EIA restriction (Wednesdays only, 10:15–10:45 ET).
 
 ---
 
@@ -206,6 +221,17 @@ Six charts captured at RTH close. All screenshots use auto-levels v2.23 — firs
 - GC knife-catch bounce holding, still in macro downtrend — risk-on confirmed
 - CL support defended but reclaim faded into RTH close — range chop, not directional conviction
 - **ETH watch:** Continuation long if indices hold above ZTH support. YM divergence = early warning sign.
+
+**~16:XX ET — Market stalled at RTH close. Christopher decided to eat dinner and watch STB course material rather than force an ETH entry. Clean decision.**
+
+**Inevitrade call key takeaway:**
+The call reinforced a core perspective: prop firm capital allows you to absorb the learning cost of analysis mistakes and risk management errors without the emotional and financial weight of rebuilding real capital. A TCL setup that goes wrong costs drawdown percentage — painful but recoverable. The same mistake in real capital is wealth destruction. Risk management isn't just a rule — it's the nature of the business itself. This reframe matters for how to approach eval pressure: the eval is not a crisis, it's the business model working as designed.
+
+**~17:25–17:27 ET — XBR added as CL SMT companion (first use):**
+- CL: range chop, holding support, no directional conviction in ETH
+- XBR (Brent): same structure — confirming CL, no divergence
+- XBRUSDT.P (Gate.io perpetual): cleaner chart for level reference due to no rollover gaps
+- No oil trade setup tonight — both in range, waiting for setup
 
 ---
 
