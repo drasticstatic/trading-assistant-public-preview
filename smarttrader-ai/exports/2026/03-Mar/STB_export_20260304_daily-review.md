@@ -2,7 +2,7 @@
 ### No Trades Taken — Observation + Infrastructure Day | Fortuna
 *0 trades · 0 fills · $0 P&L · SL discipline: N/A · Pattern flags: none*
 
-[Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
+[Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 
 ---
 

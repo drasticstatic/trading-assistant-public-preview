@@ -2,7 +2,7 @@
 ### STB SmartTraderAI | Fortuna | Session Prep
 *Built from live session analysis — Fortuna + Christopher working simultaneously*
 
-[Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
+[Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 
 ---
 

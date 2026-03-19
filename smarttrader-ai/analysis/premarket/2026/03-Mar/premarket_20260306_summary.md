@@ -2,7 +2,7 @@
 ### Fortuna | Wealth Warden Trading Assistant
 *No formal pre-market session — STB coaching session + vet appointment delayed desk arrival to ~13:45 ET*
 
-[Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
+[Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 
 ---
 

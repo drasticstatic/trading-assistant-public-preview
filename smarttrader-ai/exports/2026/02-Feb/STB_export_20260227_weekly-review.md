@@ -3,7 +3,7 @@
 #### **Prepared by:** Fortuna (Claude Code CLI — Wealth Warden Trading Assistant)
 #### **For:** STB SmartTraderAI · ZTH · Inevitrade coaches
 
-[Jump to 🤖 SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
+[Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 
 ---
 
