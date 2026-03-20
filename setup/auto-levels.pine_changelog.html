@@ -880,7 +880,7 @@
       <div class="stat-grid" aria-label="Changelog at a glance">
         <article class="stat">
           <strong>Current public baseline</strong>
-          <span><code>v2.25</code> is the active source snapshot represented here.</span>
+          <span><code>v2.26</code> is the active source snapshot represented here.</span>
           <div class="stat-action-card">
             <a class="button tertiary" href="./auto-levels.pine_indicator-guide.html">Open Guide ↗</a>
           </div>
@@ -938,7 +938,7 @@
             <tr><th>Surface</th><th>Role</th><th>Status</th></tr>
           </thead>
           <tbody>
-            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v2.25</code> Source</td></tr>
+            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v2.26</code> Source</td></tr>
             <tr><td><code>fcr-standalone.pine</code></td><td>Shareable FCR-only companion</td><td>✅ Active <code>v2.2</code> companion</td></tr>
             <tr><td><code>webhook-alerts.pine</code></td><td>Alert-only companion kept intentionally separate from the visual overlay family</td><td>✅ Active top-level companion</td></tr>
           </tbody>
@@ -955,19 +955,35 @@
         <details class="release" open>
           <summary>
             <div>
-              <p class="release-meta">Mar 20, 2026 · barstate.isconfirmed — root-cause fix for 4/5 close-event early-fire</p>
-              <h3>v2.25</h3>
-              <p class="release-summary">Adds barstate.isconfirmed to is_new_close_45 and is_new_maint. time_close is a fixed property of the bar — it equals 16:00 (or 17:00) from the moment the bar opens, so the v2.24 time_close guard still fired at bar open. barstate.isconfirmed ensures both events only fire when the bar has actually closed.</p>
+              <p class="release-meta">Mar 20, 2026 · 4/5 close timing fix + spurious prev4/5 eliminated + trim cadence fix</p>
+              <h3>v2.26</h3>
+              <p class="release-summary">Four fixes addressing v2.25 regressions and a systematic level-count discrepancy between 1hr and lower-TF charts. Close fallbacks switched to lookahead_off; barstate.isconfirmed made conditional by TF; f_sess_label adds time proximity guard; trim gated on is_new_h1 to match creation/mitigation cadence.</p>
             </div>
             <span class="status-pill status-current">Current</span>
           </summary>
           <div class="release-body">
             <ul class="list-tight">
+              <li><strong>Close fallbacks switched to lookahead_off:</strong> <code>sess_30_close_c_fallback</code> and <code>sess_30_close_t_fallback</code> now use <code>barmerge.lookahead_off</code>. With <code>lookahead_on</code> the 15:30 bar's <code>time_close = 16:00</code> was visible at bar open — the confirmed close price was not yet available so a live (unconfirmed) price was stored. With <code>lookahead_off</code> the data only arrives after the 15:30 bar closes, fixing both the timing and the price in one change.</li>
+              <li><strong>is_new_close_45 guard made TF-conditional:</strong> <code>barstate.isconfirmed</code> is now required only on charts &gt; 30min, where <code>security_lower_tf</code> scan includes forming intrabars that need the confirmation check. On charts ≤ 30min the <code>lookahead_off</code> fallback already handles timing correctly without <code>barstate.isconfirmed</code>. This eliminates the v2.25 regressions: missing current 9:30 open 4/5 rail and missing ZTH levels on 5min/10min/15min charts.</li>
+              <li><strong>f_sess_label — time proximity guard added:</strong> ZTH level label annotations (<code>| 4/5</code> / <code>| prev 4/5</code>) now require the level's birth timestamp to be within 90 minutes of the session event time, not just within price tolerance. Without this, levels born at 17:00, 21:00, or 6:00 whose prices accidentally matched old session rail values (e.g., yesterday's 16:00 close) received spurious <code>prev 4/5</code> annotations. The 4 valid annotation windows (9:30 open, 16:00 close, 16:30 maint close, 18:00 reopen) remain fully annotated.</li>
+              <li><strong>Trim cadence gated on is_new_h1:</strong> the three trim while loops (KEY+5/5, 3/5, Ghost) previously ran on every chart bar. On a 5min chart that is 12× per hour vs 1× per hour on a 1hr chart. Each run re-evaluated "farthest from close" against the current intrabar price, progressively removing levels that the 1hr chart retained. Over a session this caused systematically fewer 5/5 and 3/5 levels on 5min/10min/15min charts. Fix: <code>trim_gate = chart_above_1h or is_new_h1 or is_new_h1_eth</code> — trim fires at the same cadence as level creation and mitigation, producing consistent level sets across all TFs ≤ 1hr.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release">
+          <summary>
+            <div>
+              <p class="release-meta">Mar 20, 2026 · barstate.isconfirmed — root-cause fix for 4/5 close-event early-fire</p>
+              <h3>v2.25</h3>
+              <p class="release-summary">Adds barstate.isconfirmed to is_new_close_45 and is_new_maint. time_close is a fixed property of the bar — it equals 16:00 (or 17:00) from the moment the bar opens, so the v2.24 time_close guard still fired at bar open. barstate.isconfirmed ensures both events only fire when the bar has actually closed. Introduced regressions on ≤30min charts — resolved in v2.26.</p>
+            </div>
+            <span class="status-pill status-history">History</span>
+          </summary>
+          <div class="release-body">
+            <ul class="list-tight">
               <li><strong>Root-cause fix — barstate.isconfirmed on close events:</strong> <code>time_close</code> is a fixed property of a chart bar — on a 5min chart, the bar that opens at 15:55 and closes at 16:00 has <code>time_close = 16:00</code> from the moment it opens. The v2.24 guard <code>time_close &gt;= sess_15_close_t</code> was already TRUE at bar open, so the event still fired early. <code>barstate.isconfirmed</code> is <code>false</code> during all intrabar ticks and only <code>true</code> on the final confirmed close. Added to <code>is_new_close_45</code> and <code>is_new_maint</code>.</li>
-              <li><strong>is_new_close_45:</strong> now fires at the confirmed close of the bar whose <code>time_close == 16:00</code> — i.e., exactly when the 15:30–16:00 bar (or 15:55–16:00 5min bar, etc.) closes at 16:00 ET. The 16:00 close rail no longer draws before the bar closes.</li>
-              <li><strong>is_new_maint:</strong> same guard — fires at the confirmed close of the 16:30–17:00 bar (time_close == 17:00 ET). The maintenance chain (<code>maint_t_today</code>) is populated with today's date at 17:00, so ZTH levels formed after 17:00 ET correctly show <code>' | 4/5'</code> rather than <code>' | prev 4/5'</code>.</li>
-              <li><strong>is_new_eopen unchanged:</strong> the 18:00 reopen fires at bar OPEN (18:00 ET) by design — the open price is the event. Christopher confirmed this works correctly; no change.</li>
-              <li><strong>Historical bars unaffected:</strong> <code>barstate.isconfirmed</code> is <code>true</code> for all confirmed historical bars, so the event still fires at the correct bar during historical replay. No regression on daily, weekly, or monthly charts.</li>
+              <li><strong>Regression introduced on ≤30min charts:</strong> applying <code>barstate.isconfirmed</code> unconditionally caused missing 9:30 open 4/5 rail and missing ZTH levels on 5min/10min/15min charts. Fixed in v2.26 by making the guard conditional on chart TF.</li>
             </ul>
           </div>
         </details>
@@ -1543,7 +1559,12 @@
           <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v24" data-title="✅ Closed in v2.24">View 3 closed issues →</button></p>
         </article>
         <article class="card">
-          <h3>🔎 Still open after v2.25</h3>
+          <h3>✅ Closed in v2.26</h3>
+          <p>4 issues resolved — 16:00 close rail printing at bar open (lookahead root cause), spurious "prev 4/5" annotations at wrong ETH session times, missing 9:30 open 4/5 + ZTH levels on ≤15min charts (v2.25 regression), and missing 5/5 / 3/5 levels on ≤15min charts due to trim cadence mismatch.</p>
+          <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v26" data-title="✅ Closed in v2.26">View 4 closed issues →</button></p>
+        </article>
+        <article class="card">
+          <h3>🔎 Still open after v2.26</h3>
           <ul class="list-tight">
             <li><strong>Previous-day 16:00 close ray vertical on RTH chart:</strong> yesterday's close 4/5 ray renders as a vertical post on some RTH 1hr chart configurations. Under continued observation.</li>
             <li><strong>KEY level vertical post on Weekly chart (current week):</strong> a KEY level near the current week boundary can render as a vertical post at the start of the upcoming week bar. Likely a ray-end time snapping issue on Weekly — the x2 endpoint lands at the bar start rather than mid-bar. Under investigation.</li>
@@ -1632,6 +1653,15 @@
       <li><strong>16:00 close rail printing 30 minutes early:</strong> the <code>request.security</code> fallback for the RTH close used <code>barmerge.lookahead_on</code> with <code>ta.valuewhen</code>. Lookahead made the 16:00 close timestamp visible at the START of the 15:30 bar, so <code>is_new_close_45</code> fired at 15:30 instead of 16:00 — drawing the rail and storing the price a full 30min before the bar closed. Fixed by adding the guard <code>time_close &gt;= sess_15_close_t</code>: the event now only fires when the current bar's close time has actually reached the 16:00 anchor.</li>
       <li><strong>ETH maintenance (17:00) rail firing 30 minutes early:</strong> same lookahead-on root cause. <code>eth_maint_t</code> stores the 16:30 bar open (intentional — used as the x-position anchor since no bar exists inside the 17:00 CME maintenance gap). Adding 30 min (1 800 000 ms) to get the actual 17:00 close time: guard <code>time_close &gt;= eth_maint_t + 1800000</code> ensures the event fires at the correct 17:00 bar close.</li>
       <li><strong>ETH ZTH levels mislabelled "prev 4/5" during live session:</strong> premature <code>is_new_maint</code>/<code>is_new_close_45</code> fires caused <code>maint_t_today</code> and <code>sess_close_t_today</code> to hold timestamps from the PREVIOUS session. <code>f_trade_day_id</code> date comparison then returned a mismatch → <code>' | prev 4/5'</code> on any ZTH level formed during ETH hours at prices near the session rail. With correct event timing, today's chain slots carry today's timestamps and the dual-label is accurate: <code>' | 4/5'</code> after the session event fires, <code>' | prev 4/5'</code> before it (correct — it is yesterday's level until today's fires).</li>
+    </ul>
+  </template>
+
+  <template id="tpl-closed-v26">
+    <ul class="list-tight">
+      <li><strong>16:00 close rail printing at bar OPEN (lookahead root cause):</strong> the <code>request.security</code> fallback used <code>barmerge.lookahead_on</code> with <code>ta.valuewhen</code>. Because <code>time_close</code> is a <em>fixed bar property</em> (set at bar open to the bar's scheduled close time), lookahead made the 16:00 timestamp visible the moment the 15:30 bar opened — making <code>is_new_close_45</code> fire immediately at 15:30 bar open with an unconfirmed live price. The v2.24 <code>time_close &gt;= 16:00</code> guard and the v2.25 <code>barstate.isconfirmed</code> guard were both insufficient because <code>time_close</code> was already 16:00 at bar open. Fix: switched fallback to <code>barmerge.lookahead_off</code> so the confirmed close price is only available after the 15:30 bar closes.</li>
+      <li><strong>Spurious "prev 4/5" annotations at wrong ETH session times:</strong> <code>f_sess_label</code> matched ZTH level labels by price proximity alone. ZTH levels born at 21:00, 23:00, or 06:00 ET whose prices accidentally fell near a prior session rail value received false "prev 4/5" annotations. Fixed by adding a <code>born_t</code> parameter — the level's birth timestamp — with a 90-minute time proximity tolerance. Levels born more than 90 minutes from any session rail event time no longer annotate, eliminating false matches at CME Globex boundary hours.</li>
+      <li><strong>Missing 9:30 open 4/5 rail and ZTH levels on ≤15min charts (v2.25 regression):</strong> v2.25 added unconditional <code>barstate.isconfirmed</code> to <code>is_new_close_45</code>. On charts ≤30min the <code>lookahead_off</code> fallback naturally delays the event until the 15:30 bar closes — <code>barstate.isconfirmed</code> was redundant there and introduced side-effects that blocked <code>is_new_close_45</code>, causing downstream chain resets that removed the 9:30 open 4/5 ray and ZTH level storage. Fix: <code>barstate.isconfirmed</code> is now conditional on <code>timeframe.in_seconds(timeframe.period) &gt; 1800</code> — only applied on chart TFs &gt;30min where the scan path includes forming intrabars.</li>
+      <li><strong>Missing 5/5 and 3/5 levels on ≤15min charts (trim cadence mismatch):</strong> the three trim <code>while</code> loops ran on every chart bar. On a 5min chart this meant 12 trim evaluations per hour; on a 1hr chart, 1 evaluation per hour. Each run re-evaluated "farthest from close" using the current live price, progressively stripping 5/5 and 3/5 levels that a 1hr chart retained. Over a session this created a systematic level-count discrepancy across timeframes. Fix: <code>trim_gate = chart_above_1h or is_new_h1 or is_new_h1_eth</code> ensures the trim loops fire only at the same cadence as level creation and mitigation — once per new 1hr bar — on all chart TFs ≤1hr.</li>
     </ul>
   </template>
 
