@@ -880,7 +880,7 @@
       <div class="stat-grid" aria-label="Changelog at a glance">
         <article class="stat">
           <strong>Current public baseline</strong>
-          <span><code>v2.23</code> is the active source snapshot represented here.</span>
+          <span><code>v2.24</code> is the active source snapshot represented here.</span>
           <div class="stat-action-card">
             <a class="button tertiary" href="./auto-levels.pine_indicator-guide.html">Open Guide ↗</a>
           </div>
@@ -938,7 +938,7 @@
             <tr><th>Surface</th><th>Role</th><th>Status</th></tr>
           </thead>
           <tbody>
-            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v2.23</code> Source</td></tr>
+            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v2.24</code> Source</td></tr>
             <tr><td><code>fcr-standalone.pine</code></td><td>Shareable FCR-only companion</td><td>✅ Active <code>v2.2</code> companion</td></tr>
             <tr><td><code>webhook-alerts.pine</code></td><td>Alert-only companion kept intentionally separate from the visual overlay family</td><td>✅ Active top-level companion</td></tr>
           </tbody>
@@ -955,11 +955,30 @@
         <details class="release" open>
           <summary>
             <div>
+              <p class="release-meta">Mar 20, 2026 · 4/5 session rail event guards — fixes 16:00 early-fire + ETH prev4/5 labelling</p>
+              <h3>v2.24</h3>
+              <p class="release-summary">Three event guards added to prevent lookahead_on fallback paths from firing 4/5 session events before the bar actually closes. Fixes: 16:00 close rail drawing 30min early; ETH maintenance and reopen events mislabelling ZTH levels as "prev 4/5"; ETH 4/5 levels appearing at wrong session boundary times.</p>
+            </div>
+            <span class="status-pill status-current">Current</span>
+          </summary>
+          <div class="release-body">
+            <ul class="list-tight">
+              <li><strong>is_new_close_45 guard (<code>time_close &gt;= sess_15_close_t</code>):</strong> the <code>request.security</code> fallback for the 16:00 close used <code>barmerge.lookahead_on</code>, which made the 16:00 close value available at the open of the 15:30 bar — 30 minutes early. The event now only fires when the current bar's <code>time_close</code> has actually reached the 16:00 anchor timestamp. On a 1min chart the level fires at 15:59's close (16:00 ET); on a 30min chart it fires at the 15:30 bar close (16:00 ET). Historical replay is unaffected.</li>
+              <li><strong>is_new_maint guard (<code>time_close &gt;= eth_maint_t + 1800000</code>):</strong> <code>eth_maint_t</code> stores the 16:30 bar open (the x-position anchor for the line — intentional, as no bar exists at 17:00 in the CME maintenance gap). Adding 30 min (1 800 000 ms) targets the actual 17:00 close time. The maintenance event previously fired at the 16:30 bar open; it now fires when the bar actually closes at 17:00.</li>
+              <li><strong>is_new_eopen guard (<code>time &gt;= eth_reopen_t</code>):</strong> safety guard ensuring the 18:00 reopen event fires no earlier than the 18:00 bar open. Prevents any lookahead edge-case where the fallback value becomes available before the 18:00 bar actually starts.</li>
+              <li><strong>Root cause of "prev 4/5" mislabelling fixed:</strong> premature maint/close events caused <code>maint_t_today</code> and <code>sess_close_t_today</code> to hold timestamps from the previous session. <code>f_trade_day_id</code> comparisons then returned a date-mismatch → <code>' | prev 4/5'</code> on ZTH levels formed during ETH hours. With correct event timing, today's session timestamps populate correctly and the "4/5" vs "prev 4/5" dual-label is accurate.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release">
+          <summary>
+            <div>
               <p class="release-meta">Mar 19, 2026 · farthest-from-price trim + 4/5 accuracy docs + Pine v6 f() placement fix</p>
               <h3>v2.23</h3>
               <p class="release-summary">Trim strategy switched to farthest-from-current-price-first across all three level budgets. 4/5 accuracy documentation added to tooltip and guide. f_near_45_level placement fix resolves levels-not-attached visual regression from v2.20.</p>
             </div>
-            <span class="status-pill status-current">Current</span>
+            <span class="status-pill status-history">History</span>
             <span class="chevron" aria-hidden="true">▾</span>
           </summary>
           <div class="release-body">
@@ -1499,7 +1518,12 @@
           <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v15-19" data-title="✅ Closed in v2.15–v2.19">View 4 closed issues →</button></p>
         </article>
         <article class="card">
-          <h3>🔎 Still open after v2.23</h3>
+          <h3>✅ Closed in v2.24</h3>
+          <p>3 issues resolved — 16:00 close rail firing 30 min early, ETH maintenance rail firing 30 min early, and ETH ZTH levels mislabelled "prev 4/5" due to wrong chain timestamps.</p>
+          <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v24" data-title="✅ Closed in v2.24">View 3 closed issues →</button></p>
+        </article>
+        <article class="card">
+          <h3>🔎 Still open after v2.24</h3>
           <ul class="list-tight">
             <li><strong>Previous-day 16:00 close ray vertical on RTH chart:</strong> yesterday's close 4/5 ray renders as a vertical post on some RTH 1hr chart configurations. Under continued observation.</li>
             <li><strong>KEY level vertical post on Weekly chart (current week):</strong> a KEY level near the current week boundary can render as a vertical post at the start of the upcoming week bar. Likely a ray-end time snapping issue on Weekly — the x2 endpoint lands at the bar start rather than mid-bar. Under investigation.</li>
@@ -1580,6 +1604,14 @@
       <li><strong>All session rails and FCR rays still rendering as verticals on Daily/Weekly:</strong> the v2.8 fix applied only to ZTH KEY/5/5 rays. v2.11 applied <code>f_visible_ray_end()</code> to all 4/5 session rail and FCR ray creation calls.</li>
       <li><strong>Weekly open golden vertical not showing when 4/5 session rails are OFF:</strong> the creation guard included <code>show_session</code> (4/5 toggle), which defaults OFF since v2.7. v2.13 removed <code>show_session</code> from the creation condition — weekly open now draws independently.</li>
       <li><strong>BRK firing on low-commitment candles:</strong> any candle crossing a level counted as BRK regardless of body size or pierce distance. v2.14 adds <code>brk_ticks</code> (minimum pierce) and <code>brk_body_pct</code> (minimum body %) gates.</li>
+    </ul>
+  </template>
+
+  <template id="tpl-closed-v24">
+    <ul class="list-tight">
+      <li><strong>16:00 close rail printing 30 minutes early:</strong> the <code>request.security</code> fallback for the RTH close used <code>barmerge.lookahead_on</code> with <code>ta.valuewhen</code>. Lookahead made the 16:00 close timestamp visible at the START of the 15:30 bar, so <code>is_new_close_45</code> fired at 15:30 instead of 16:00 — drawing the rail and storing the price a full 30min before the bar closed. Fixed by adding the guard <code>time_close &gt;= sess_15_close_t</code>: the event now only fires when the current bar's close time has actually reached the 16:00 anchor.</li>
+      <li><strong>ETH maintenance (17:00) rail firing 30 minutes early:</strong> same lookahead-on root cause. <code>eth_maint_t</code> stores the 16:30 bar open (intentional — used as the x-position anchor since no bar exists inside the 17:00 CME maintenance gap). Adding 30 min (1 800 000 ms) to get the actual 17:00 close time: guard <code>time_close &gt;= eth_maint_t + 1800000</code> ensures the event fires at the correct 17:00 bar close.</li>
+      <li><strong>ETH ZTH levels mislabelled "prev 4/5" during live session:</strong> premature <code>is_new_maint</code>/<code>is_new_close_45</code> fires caused <code>maint_t_today</code> and <code>sess_close_t_today</code> to hold timestamps from the PREVIOUS session. <code>f_trade_day_id</code> date comparison then returned a mismatch → <code>' | prev 4/5'</code> on any ZTH level formed during ETH hours at prices near the session rail. With correct event timing, today's chain slots carry today's timestamps and the dual-label is accurate: <code>' | 4/5'</code> after the session event fires, <code>' | prev 4/5'</code> before it (correct — it is yesterday's level until today's fires).</li>
     </ul>
   </template>
 
