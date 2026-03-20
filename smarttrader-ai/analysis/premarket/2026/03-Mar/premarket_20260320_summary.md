@@ -168,6 +168,18 @@ Today's 9:30 FCR candle will be critical context. Given the pre-market structure
 - CL: Defending ZTH support, potential long setup in play
 - STB snapshot: Strong bearish NQ/ES · Neutral YM
 
+**ZTH mastermind call (pre-open):**
+- Coach: **Bearish off many levels** on all indices — confirms pre-market analysis
+- CL: Coach not trading it — ranging too much. Removing CL from today's active watch.
+- **Scenario alignment:** STB strong bearish NQ/ES + ZTH bearish off levels = both coaching groups pointing same direction. No conflict.
+- **Session key takeaway:** Emotional discipline matters more than strategy backtesting. Proven strategies fail without the discipline to execute them cleanly. The edge is in the trader, not the system.
+
+**Auto-levels v2.23 — 4/5 session rail bug identified:**
+- 9:30 open 4/5: correct ✅
+- 16:00 close 4/5: printing at bar open (should appear at 16:00 close)
+- ETH 4/5 levels: frequently labelling as "prev4/5" — detection logic picking wrong session boundaries (21:00, 23:00, 6:00 opens instead of designed 17:00 close, 18:00 open)
+- Logged and routed to Auggie — see `AGENT-SYNC/created-by-fortuna/prompts/2026/03-Mar/AUGGIE_PROMPT_20260320.md`
+
 ---
 
 <a id="smarttraderai-copy-paste"></a>
