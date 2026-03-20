@@ -880,7 +880,7 @@
       <div class="stat-grid" aria-label="Changelog at a glance">
         <article class="stat">
           <strong>Current public baseline</strong>
-          <span><code>v2.24</code> is the active source snapshot represented here.</span>
+          <span><code>v2.25</code> is the active source snapshot represented here.</span>
           <div class="stat-action-card">
             <a class="button tertiary" href="./auto-levels.pine_indicator-guide.html">Open Guide ↗</a>
           </div>
@@ -938,7 +938,7 @@
             <tr><th>Surface</th><th>Role</th><th>Status</th></tr>
           </thead>
           <tbody>
-            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v2.24</code> Source</td></tr>
+            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v2.25</code> Source</td></tr>
             <tr><td><code>fcr-standalone.pine</code></td><td>Shareable FCR-only companion</td><td>✅ Active <code>v2.2</code> companion</td></tr>
             <tr><td><code>webhook-alerts.pine</code></td><td>Alert-only companion kept intentionally separate from the visual overlay family</td><td>✅ Active top-level companion</td></tr>
           </tbody>
@@ -955,11 +955,31 @@
         <details class="release" open>
           <summary>
             <div>
+              <p class="release-meta">Mar 20, 2026 · barstate.isconfirmed — root-cause fix for 4/5 close-event early-fire</p>
+              <h3>v2.25</h3>
+              <p class="release-summary">Adds barstate.isconfirmed to is_new_close_45 and is_new_maint. time_close is a fixed property of the bar — it equals 16:00 (or 17:00) from the moment the bar opens, so the v2.24 time_close guard still fired at bar open. barstate.isconfirmed ensures both events only fire when the bar has actually closed.</p>
+            </div>
+            <span class="status-pill status-current">Current</span>
+          </summary>
+          <div class="release-body">
+            <ul class="list-tight">
+              <li><strong>Root-cause fix — barstate.isconfirmed on close events:</strong> <code>time_close</code> is a fixed property of a chart bar — on a 5min chart, the bar that opens at 15:55 and closes at 16:00 has <code>time_close = 16:00</code> from the moment it opens. The v2.24 guard <code>time_close &gt;= sess_15_close_t</code> was already TRUE at bar open, so the event still fired early. <code>barstate.isconfirmed</code> is <code>false</code> during all intrabar ticks and only <code>true</code> on the final confirmed close. Added to <code>is_new_close_45</code> and <code>is_new_maint</code>.</li>
+              <li><strong>is_new_close_45:</strong> now fires at the confirmed close of the bar whose <code>time_close == 16:00</code> — i.e., exactly when the 15:30–16:00 bar (or 15:55–16:00 5min bar, etc.) closes at 16:00 ET. The 16:00 close rail no longer draws before the bar closes.</li>
+              <li><strong>is_new_maint:</strong> same guard — fires at the confirmed close of the 16:30–17:00 bar (time_close == 17:00 ET). The maintenance chain (<code>maint_t_today</code>) is populated with today's date at 17:00, so ZTH levels formed after 17:00 ET correctly show <code>' | 4/5'</code> rather than <code>' | prev 4/5'</code>.</li>
+              <li><strong>is_new_eopen unchanged:</strong> the 18:00 reopen fires at bar OPEN (18:00 ET) by design — the open price is the event. Christopher confirmed this works correctly; no change.</li>
+              <li><strong>Historical bars unaffected:</strong> <code>barstate.isconfirmed</code> is <code>true</code> for all confirmed historical bars, so the event still fires at the correct bar during historical replay. No regression on daily, weekly, or monthly charts.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release">
+          <summary>
+            <div>
               <p class="release-meta">Mar 20, 2026 · 4/5 session rail event guards — fixes 16:00 early-fire + ETH prev4/5 labelling</p>
               <h3>v2.24</h3>
               <p class="release-summary">Three event guards added to prevent lookahead_on fallback paths from firing 4/5 session events before the bar actually closes. Fixes: 16:00 close rail drawing 30min early; ETH maintenance and reopen events mislabelling ZTH levels as "prev 4/5"; ETH 4/5 levels appearing at wrong session boundary times.</p>
             </div>
-            <span class="status-pill status-current">Current</span>
+            <span class="status-pill status-history">History</span>
           </summary>
           <div class="release-body">
             <ul class="list-tight">
@@ -1523,7 +1543,7 @@
           <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v24" data-title="✅ Closed in v2.24">View 3 closed issues →</button></p>
         </article>
         <article class="card">
-          <h3>🔎 Still open after v2.24</h3>
+          <h3>🔎 Still open after v2.25</h3>
           <ul class="list-tight">
             <li><strong>Previous-day 16:00 close ray vertical on RTH chart:</strong> yesterday's close 4/5 ray renders as a vertical post on some RTH 1hr chart configurations. Under continued observation.</li>
             <li><strong>KEY level vertical post on Weekly chart (current week):</strong> a KEY level near the current week boundary can render as a vertical post at the start of the upcoming week bar. Likely a ray-end time snapping issue on Weekly — the x2 endpoint lands at the bar start rather than mid-bar. Under investigation.</li>
