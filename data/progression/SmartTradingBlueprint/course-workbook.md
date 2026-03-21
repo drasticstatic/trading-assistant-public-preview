@@ -9,7 +9,7 @@
 | Module | Status |
 |--------|--------|
 | Week 1 — Market Structure Foundations | 🟡 In Progress |
-| Week 2 — (Content coming) | ⬜ Not started |
+| Week 2 — Market Building Blocks | 🟡 In Progress |
 | Week 3 — (Content coming) | ⬜ Not started |
 | Week 4 — (Content coming) | ⬜ Not started |
 
@@ -487,9 +487,379 @@ With all of our tools and resources under one roof, success in trading is within
 
 ---
 
-# 🗓️ WEEK 2
+# 🗓️ WEEK 2 — Market Building Blocks
 
-> 📝 *Add course content here as you progress through Week 2 lessons. Use the same Q&A format as Week 1.*
+---
+
+## 📖 Lesson 2.1 — Areas of Interest / Footprints
+
+---
+
+### ❓ Q1: What are areas of interest AKA footprints and why are they important?
+
+> ✅ **Answer:** Areas of interest (footprints) are **price zones where significant institutional activity has previously occurred** — visible as consolidation areas, gaps, or notable price reactions on the chart. They are important because institutions move too much size to fill orders in one go: they return to these zones to complete their positioning. Mapping footprints tells you *where the big players have been* and therefore *where they are likely to return*.
+
+---
+
+### ❓ Q2: Are areas of interest bullish or bearish?
+
+> ✅ **Answer:** Areas of interest are **directionally neutral** — they can be bullish or bearish depending on context. A footprint left by a bullish impulse (upward displacement from a zone) signals institutional buying interest. A footprint left by a bearish impulse signals selling. The direction is determined by the structure that created the footprint, not by the zone itself.
+
+---
+
+### ❓ Q3: Do you think it should be necessary to trade using footprints?
+
+> 📝 *Your personal reflection here. Consider: Do you find footprint/volume analysis useful in confirming your entries? Have you found setups cleaner with or without it?*
+
+---
+
+### ❓ Q4: What are you visualizing by mapping out footprints on the chart?
+
+> ✅ **Answer:** You are visualizing **where institutional order flow is concentrated** — the areas where banks, funds, and large operators entered or exited positions. Mapping these zones shows you the *supply and demand landscape* beneath the price action: where buying programs absorbed selling (support footprints) and where selling programs absorbed buying (resistance footprints). This gives you a map of likely future price behavior — institutions will defend, revisit, and respond to their own footprints.
+
+---
+
+### ❓ Q5: Write down 3 key takeaways from this lesson.
+
+> ✅ **Answer:**
+> 1. **Footprints are institutional breadcrumbs.** Every significant price zone was created by someone with enough size to move the market. Mapping them is mapping where the real money has been.
+> 2. **Price returns to footprints to fill orders.** Institutions can’t complete their full position in one pass — they leave intentional "re-entry" footprints. These become your high-probability trade zones.
+> 3. **Context converts a footprint into a signal.** A zone alone is neutral. When price returns to a footprint aligned with your higher-timeframe bias and displaces away from it, that’s the confirmation — not just the presence of the zone.
+
+---
+
+### ❓ Q6: Write down a time in your trading career relating to the teachings in this lesson.
+
+> 📝 *Your personal reflection here. Consider: a trade where you didn’t recognize a footprint and entered into institutional supply/demand instead of with it — or a session where mapping these zones changed how you read the day.*
+
+---
+
+## 📖 Lesson 2.2 — Manipulation Blocks
+
+---
+
+### ❓ Q1: What is a manipulation block and what does it signify?
+
+> ✅ **Answer:** A manipulation block is a **specific candle or group of candles that represents a deliberate move designed to trigger stop losses or induce retail traders into the wrong direction** — before price reverses toward the true institutional intent. It signifies the moment where smart money is actively engineering liquidity: sweeping highs/lows, triggering retail stops, and then reversing to collect positions at better prices.
+
+---
+
+### ❓ Q2: What occurs when manipulation blocks occur?
+
+> ✅ **Answer:** When a manipulation block occurs: (1) price **sweeps beyond a key level** (previous high/low, EQ, support/resistance) — this triggers retail stop losses and activates breakout entries from traders expecting continuation; (2) price **rapidly reverses** back through the manipulation candle — the "block" itself; (3) institutions have now **collected liquidity** (bought the retail sells, sold the retail buys) and price moves in the institutional direction. The manipulation block is both the mechanism and the footprint of the trap.
+
+---
+
+### ❓ Q3: Provide 3 picture examples of a manipulation block.
+
+> 📝 *Add 3 chart screenshots here showing manipulation blocks — these can be from your TradingView sessions, coaching recordings, or course materials.*
+
+---
+
+### ❓ Q4: Write down 3 key takeaways from this lesson.
+
+> ✅ **Answer:**
+> 1. **Manipulation is a feature, not a bug.** These moves are engineered and repeatable — learning to recognize them converts a source of losses into a source of entries.
+> 2. **The candle that "breaks" the key level and reverses is the signal.** Price closing back through the manipulation wick or body — especially with displacement — confirms the trap has been set and sprung.
+> 3. **Stop placement determines whether you’re the prey or the predator.** Retail stops placed just below/above key levels are the target. Placing your stop beyond the manipulation sweep (below the wick rather than below the level) keeps you in the trade through the engineered move.
+
+---
+
+### ❓ Q5: Write down a time in your trading career relating to the teachings in this lesson.
+
+> 📝 *Your personal reflection here. Consider: a trade where you got swept out of a position by what turned out to be a manipulation block — or a time where recognizing the pattern would have saved a stop-out.*
+
+---
+
+## 📖 Lesson 2.3 — Order Blocks
+
+---
+
+### ❓ Q1: What is an order block and what does it signify?
+
+> ✅ **Answer:** An order block is **the last opposing candle(s) before a significant displacement move** — the candle (or cluster) where institutional orders were placed that then drove price impulsively in one direction. A bullish order block is typically the last bearish candle before a strong bullish displacement. A bearish order block is the last bullish candle before a strong bearish displacement. It signifies the price zone where a large institutional decision was made — and where unfilled orders likely still remain.
+
+---
+
+### ❓ Q2: Describe the difference between manipulation blocks and order blocks.
+
+> ✅ **Answer:**
+> - **Order blocks** are where institutional **entry orders** live — the last opposing candle before displacement. Price returns to them because institutions didn’t fill their entire position in the initial move. They are *entry zones*.
+> - **Manipulation blocks** are where institutions *engineer* a move to collect liquidity — sweeping a level to trigger stops and fill orders. They are *the mechanism of the trap* rather than a standing order zone.
+> - Both may look similar on chart, but the key difference: order blocks are about **unfilled institutional orders waiting to be revisited**; manipulation blocks are about **a deliberate stop-hunt move** designed to fuel the real directional move.
+> - In practice: a manipulation block often *leads to* an order block — the sweep (manipulation) fills institutional orders, and the resulting order block is the zone they defend on return.
+
+---
+
+### ❓ Q3: Provide 3 picture examples of an order block.
+
+> 📝 *Add 3 chart screenshots here showing order blocks — ideally including both bullish and bearish examples, with the subsequent displacement visible.*
+
+---
+
+### ❓ Q4: Write down 3 key takeaways from this lesson.
+
+> ✅ **Answer:**
+> 1. **The last opposing candle before the move is the zone.** Not the first candle of the impulse — the one *before* it. That’s where the institutional decision was made and where unfilled orders remain.
+> 2. **Mitigation defines the order block’s life.** Once price returns to and trades through the full order block (mitigates it), the zone is spent. Respect the order block until it’s mitigated; after that, it no longer holds predictive value.
+> 3. **Higher timeframe order blocks carry more weight.** A weekly OB > daily OB > 4hr OB in terms of institutional significance. Always check what timeframe the displacement came from before deciding how much to trust the return to the zone.
+
+---
+
+### ❓ Q5: Write down a time in your trading career relating to the teachings in this lesson.
+
+> 📝 *Your personal reflection here. Consider: a trade where price returned to an order block zone and you either caught or missed the reaction — or a session where you can now look back and identify the OB that drove the move.*
+
+---
+
+## 📖 Lesson 2.4 — Fair Value Gaps & Liquidity Voids
+
+---
+
+### ❓ Q1: What is a fair value gap and why is it important?
+
+> ✅ **Answer:** A fair value gap (FVG) is a **three-candle imbalance** where the middle candle moves so aggressively that there is no price overlap between the first candle’s high/low and the third candle’s high/low — leaving a gap of untested price. It represents an area where price moved too fast for all participants to transact, creating an imbalance between buyers and sellers. FVGs are important because: (1) markets are *efficient* — price is drawn back to fill inefficiencies; (2) FVGs act as **re-entry zones** after displacement; and (3) they often align with institutional order flow and mark the acceleration point of a move.
+
+---
+
+### ❓ Q2: What is a liquidity void and why is it important?
+
+> ✅ **Answer:** A liquidity void is a **larger area of thin or absent price action** — often visible as a near-vertical move with very few candles trading within a price range. Unlike an FVG (a three-candle technical imbalance), a liquidity void reflects a **broad zone where market participants couldn’t transact** because price moved through it too quickly. It’s important because price gravitates toward liquidity — areas of thin transacting will eventually be revisited as price seeks to fill the void and create a two-sided auction at those levels.
+
+---
+
+### ❓ Q3: Describe the differences and similarities between the two.
+
+> ✅ **Answer:**
+>
+> | | Fair Value Gap (FVG) | Liquidity Void |
+> |--|---------------------|----------------|
+> | **Definition** | 3-candle technical imbalance | Large zone of absent price action / thin volume |
+> | **Scale** | Typically smaller, precise | Typically larger, broader |
+> | **Identification** | Gap between C1 high/low and C3 high/low | Near-vertical move with little price discovery in between |
+> | **Use case** | Re-entry zone after displacement | Broader draw-on-liquidity target; price will seek to fill |
+> | **Similarity** | Both represent price inefficiencies that markets tend to revisit ||
+> | **Similarity** | Both are created by institutional order flow moving price rapidly ||
+
+---
+
+### ❓ Q4: Provide 3 picture examples of fair value gaps.
+
+> 📝 *Add 3 chart screenshots showing fair value gaps — include both bullish (upward) and bearish (downward) FVGs. Show the three-candle structure clearly.*
+
+---
+
+### ❓ Q5: Provide 3 picture examples of liquidity voids.
+
+> 📝 *Add 3 chart screenshots showing liquidity voids — look for near-vertical moves on your primary instruments (MNQ, RTY) where price moved through a range with minimal candles.*
+
+---
+
+### ❓ Q6: Write down 3 key takeaways from this lesson.
+
+> ✅ **Answer:**
+> 1. **FVGs are the entry sniper’s tool.** After a displacement, price retracing to fill an FVG gives you a precise, structured entry — you’re entering where institutional orders were placed, not chasing the move.
+> 2. **Not all FVGs fill, but all influence.** Price may only partially fill an FVG before continuing. Watch for reactions within the gap — the 50% level of the FVG is often where price stalls or reverses.
+> 3. **Liquidity voids give you the "draw."** On higher timeframes, identifying a liquidity void tells you where price is magnetically drawn toward — useful for setting realistic targets rather than placing TPs at arbitrary levels.
+
+---
+
+### ❓ Q7: Write down a time in your trading career relating to the teachings in this lesson.
+
+> 📝 *Your personal reflection here. Consider: the Mar 20 RTY trade where the HVN shelf aligned with an FVG zone below — or any session where an FVG acted as resistance/support on a return. What would you have done differently knowing this concept fully?*
+
+---
+
+## 📖 Lesson 2.5 — Breaker Blocks
+
+---
+
+### ❓ Q1: What is a breaker block and why is it important?
+
+> ✅ **Answer:** A breaker block is a **failed order block** — a zone where price previously acted as support/resistance (an order block), but was then broken through with displacement. When an order block fails to hold price and is decisively violated, it **flips polarity**: what was previously a demand zone (bullish OB) becomes a supply zone (breaker block), and vice versa. It is important because it represents a **shift in institutional control** — the previous buyers/sellers at that zone have been overcome, and the zone now attracts the opposing side.
+
+---
+
+### ❓ Q2: What is the difference between breaker blocks, order blocks, and manipulation blocks?
+
+> ✅ **Answer:**
+> - **Order block:** The *last opposing candle before displacement* — a zone where institutional orders were placed and price is expected to return to for unfilled order completion. It’s a live demand/supply zone.
+> - **Breaker block:** A *failed order block* — an order block that was violated by subsequent price action, causing it to flip its polarity. Former support becomes resistance; former resistance becomes support.
+> - **Manipulation block:** The *engineered sweep* of a key level to collect liquidity (stop hunts, false breakouts). It’s the mechanism of the trap, not a standing order zone.
+> - Summary: OBs are created → broken OBs become Breakers → Manipulation is the process used to collect orders at both.
+
+---
+
+### ❓ Q3: What occurs when a breaker block is formed?
+
+> ✅ **Answer:** When a breaker block forms: (1) price breaks through an existing order block with **displacement** — closing beyond the order block zone with conviction; (2) the original order block zone **flips polarity** — buyers who were previously in control are now trapped and must exit at a loss; (3) when price **returns to the breaker block zone**, the former order block now acts as resistance (if bullish OB broke = bearish breaker) or support (if bearish OB broke = bullish breaker); (4) institutional sellers/buyers use the return to the breaker zone as a second entry opportunity in the direction of the break.
+
+---
+
+### ❓ Q4: Is a bullish breaker block a bullish or bearish candle?
+
+> ✅ **Answer:** A **bullish breaker block is a bearish candle** (close lower than open). Here’s the logic: a bullish breaker is a *former bearish order block* (where sellers entered, creating a demand zone) that was then *broken by bullish displacement*. The candle that represents the zone is bearish — but the breaker itself is now bullish in character because the break converted it to a support zone. The **body of the bearish candle** defines the breaker zone, and price returning to it should find buyers.
+
+---
+
+### ❓ Q5: Provide 3 picture examples of a breaker block.
+
+> 📝 *Add 3 chart screenshots showing breaker blocks — ideally showing the original order block, the break/displacement through it, and then the return to the breaker zone as a new support/resistance.*
+
+---
+
+### ❓ Q6: Write down 3 key takeaways from this lesson.
+
+> ✅ **Answer:**
+> 1. **Broken support becomes resistance — and it’s precise.** When an order block fails, the zone flips polarity. This gives you a precise level for entries *in the direction of the break*, not against it.
+> 2. **Breaker blocks confirm trend change.** When a significant order block is broken and becomes a breaker, it signals institutional intent has shifted. This is one of the cleanest structural signals for trend continuation after a pullback.
+> 3. **Patience pays at breaker zones.** The value of a breaker block is the *return* to that zone — not the initial break. Wait for price to retrace into the breaker, then look for confirmation of rejection before entering.
+
+---
+
+### ❓ Q7: Write down a time in your trading career relating to the teachings in this lesson.
+
+> 📝 *Your personal reflection here. Consider: a trade where a level that used to act as support held price down after being broken — or a session where you entered a breakout only to have it reverse at the old support level (the breaker working against you).*
+
+---
+
+## 📖 Lesson 2.6 — Balanced Price Ranges
+
+---
+
+### ❓ Q1: What is a balanced price range and why is it important?
+
+> ✅ **Answer:** A balanced price range (BPR) is **two overlapping fair value gaps on opposite sides** — one bullish FVG and one bearish FVG that overlap in the same price area, creating a zone of balanced transacting. It represents an area where both buying and selling have occurred efficiently. It is important because: (1) the *overlap zone* is the true equilibrium — price is magnetically drawn to it; (2) BPRs often act as powerful support/resistance because both buyers and sellers have unfinished business in that price range; (3) they identify high-probability consolidation and reaction zones.
+
+---
+
+### ❓ Q2: What is the difference between a balanced price range and a fair value gap?
+
+> ✅ **Answer:**
+> - A **fair value gap** is a one-directional imbalance — price moved so fast in *one direction* that a gap of untested price was left behind. Only one side transacted heavily.
+> - A **balanced price range** is a *two-directional* structure — it requires *both* a bullish FVG and a bearish FVG that overlap. Both buyers and sellers have left imbalances in the same zone, creating a contested, balanced area.
+> - Key distinction: an FVG has one side of the market dominant; a BPR has *both* sides leaving footprints. The overlap zone is where price finds equilibrium — hence "balanced."
+
+---
+
+### ❓ Q3: Are balanced price ranges bullish or bearish?
+
+> ✅ **Answer:** Balanced price ranges are **directionally neutral** — they are zones of contested price, not a signal in themselves. However, context determines how they are used: if price approaches a BPR from *below* with a bullish bias, the zone acts as a target/resistance. If approached from *above* with a bearish bias, it acts as support. The BPR tells you *where* price will react — your bias determines *which direction* to trade that reaction.
+
+---
+
+### ❓ Q4: Provide 3 picture examples of a balanced price range.
+
+> 📝 *Add 3 chart screenshots showing balanced price ranges — look for overlapping bullish and bearish FVGs on your primary instruments. The overlap zone should be clearly identifiable.*
+
+---
+
+### ❓ Q5: Write down 3 key takeaways from this lesson.
+
+> ✅ **Answer:**
+> 1. **BPRs are high-confluence reaction zones.** Because both bulls and bears have unfinished business in a BPR, these zones attract strong reactions — they concentrate the magnet-pull quality of an FVG with contested, balanced order flow.
+> 2. **The overlap is the target.** When mapping a BPR, the overlapping portion of the two FVGs is where price gravitates most consistently — use the overlap mid-point as your precise target or entry zone.
+> 3. **BPRs explain "choppy" price action.** What looks like random back-and-forth is often price oscillating within a balanced price range as both sides attempt to assert control. Recognizing the BPR structure helps you avoid trading the noise and wait for the breakout.
+
+---
+
+### ❓ Q6: Write down a time in your trading career relating to the teachings in this lesson.
+
+> 📝 *Your personal reflection here. Consider: a session where price kept reversing around the same zone and you couldn’t figure out why — that may have been a BPR. Or a time where you identified an FVG that "didn’t work" because it was actually part of a BPR overlap.*
+
+---
+
+## 📖 Lesson 2.7 — Wick Blocks (Rejection Blocks)
+
+---
+
+### ❓ Q1: What is a wick block (rejection block) and why is it important?
+
+> ✅ **Answer:** A wick block (rejection block) is defined by the **wick of a significant candle** — specifically the zone covered by the wick where price was rejected. When a candle produces a large wick, it signals that price was aggressively pushed to that level but rejected just as aggressively — meaning institutional players stepped in hard at that price. The wick body defines the block zone. It is important because strong wick rejections mark levels where institutional absorption of orders occurred — and those levels tend to hold or react on revisit.
+
+---
+
+### ❓ Q2: What occurs during the process of a wick block being formed?
+
+> ✅ **Answer:** During wick block formation: (1) price **extends into a zone** — pushing aggressively through a level, often sweeping liquidity (stop hunts, highs/lows above/below structure); (2) institutions **absorb the orders** at that level — sellers absorb buy-side liquidity (or buyers absorb sell-side), preventing continuation; (3) price **snaps back** within the same bar, creating the large wick; (4) the **zone of the wick** (from the candle body edge to the wick tip) becomes the rejection block — a zone where significant institutional response is recorded. On revisit, price tends to react at the same zone.
+
+---
+
+### ❓ Q3: What is the difference between wick blocks and the other types of blocks we’ve discussed?
+
+> ✅ **Answer:**
+> - **Order block:** Defined by the *body* of the last opposing candle before displacement — where institutional entry orders were placed.
+> - **Manipulation block:** The *entire candle* representing an engineered sweep to collect liquidity — the mechanism of a stop hunt.
+> - **Breaker block:** A *failed order block* that has flipped polarity — defined by a zone that was once support/resistance but was broken.
+> - **Wick block:** Defined specifically by the *wick* of a rejection candle — the zone between the candle body and the wick tip, where price was pushed to but aggressively rejected.
+> - Key distinction: wick blocks are about **rejection** — where price was stopped in its tracks. Other blocks are about **entry zones** or **structural shifts**. A wick block is the most visible institutional "no" on the chart.
+
+---
+
+### ❓ Q4: Provide 3 picture examples of wick blocks.
+
+> 📝 *Add 3 chart screenshots showing significant wick blocks — look for long wicks on high-impact candles (e.g., manipulation wicks, session open candles, news events). Show both the formation and an example of price reacting to the zone on return.*
+
+---
+
+### ❓ Q5: Write down 3 key takeaways from this lesson.
+
+> ✅ **Answer:**
+> 1. **Large wicks are institutional rejection statements.** When price produces a dramatic wick, that’s not random noise — it’s the market’s record of where large players drew a line. Treat the wick zone as a meaningful level, not a failed move.
+> 2. **The wick body defines the zone, not just the tip.** The entire range from the candle body edge to the wick tip is the block. Price may react anywhere within this zone — don’t draw a single line, draw the full zone.
+> 3. **Wick blocks layer with other concepts.** A wick block sitting at an FVG, order block, or breaker adds confluence. When multiple block types align at the same price zone, the reaction probability increases significantly.
+
+---
+
+### ❓ Q6: Write down a time in your trading career relating to the teachings in this lesson.
+
+> 📝 *Your personal reflection here. Consider: the Mar 20 RTY trade where price wicked aggressively into 2436.60 and reversed — that wick formed a rejection block at the HVN. Or any session where a large wick "against" your position turned into the reversal point.*
+
+---
+
+## 📖 Week 2 Review
+
+---
+
+### ❓ Q1: Write 3 key takeaways from this week’s teachings.
+
+> 📝 *Your personal reflection here. Synthesize the most important things you take away from footprints, blocks (manipulation/order/breaker/wick), FVGs, liquidity voids, and balanced price ranges.*
+>
+> *Suggested starting point:*
+> 1. **All of these concepts describe the same underlying reality** — institutional order flow leaves footprints. Every block type, gap, and void is a different angle on the same question: where did the big money act, and will they defend that zone?
+> 2. *(Add your own)*
+> 3. *(Add your own)*
+
+---
+
+### ❓ Q2: Write about a time in your trading career that you’ve struggled with these concepts.
+
+> 📝 *Your personal reflection here.*
+
+---
+
+### ❓ Q3: Write about a time in your trading career that you’ve benefited from understanding these concepts, if any.
+
+> 📝 *Your personal reflection here. Consider: the Mar 20 RTY trade — recognizing the HVN + FVG confluence at the wick low, and the SMT divergence (RTY holding while NQ/ES/YM broke), reflects real application of these concepts even if the entry was unintentional.*
+
+---
+
+### ❓ Q4: Do you feel as if you understand these concepts better than you did before starting this module?
+
+> 📝 *Your personal reflection here.*
+
+---
+
+### ❓ Q5: Which concepts do you understand the most, and which are you feeling unsure about?
+
+> 📝 *Your personal reflection here. Note: FVGs and order blocks tend to be the most immediately applicable. Balanced price ranges and breaker blocks often click later with more chart time.*
+
+---
+
+### ❓ Q6: Have you updated your trader scorecard this week?
+
+- [ ] Yes — scorecard updated
+
 
 ---
 
