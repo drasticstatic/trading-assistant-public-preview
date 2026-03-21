@@ -780,6 +780,95 @@
       animation: tip-attention 3.5s ease-out 2s infinite;
     }
     .tip-btn:hover, .tip-btn:focus-visible { opacity: 1; transform: scale(1.12); outline: none; animation: none; }
+    /* ── Sticky page nav ───────────────────────────────────────────── */
+    .page-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 19, 15, 0.93);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .page-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3em;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.7rem 1rem;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+      letter-spacing: 0.01em;
+    }
+    .page-nav a:hover,
+    .page-nav a.nav-active { color: var(--teal); border-bottom-color: var(--teal); }
+    @media (prefers-color-scheme: light) {
+      .page-nav { background: rgba(238, 248, 241, 0.95); }
+    }
+
+    /* ── View toggle (compact / full history) ────────────────────── */
+    .view-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3em;
+      padding: 0.35em 0.8em;
+      font-size: 0.8em;
+      font-weight: 600;
+      color: var(--pine);
+      background: rgba(84, 214, 141, 0.07);
+      border: 1px solid rgba(84, 214, 141, 0.25);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      vertical-align: middle;
+      margin-left: 0.8rem;
+    }
+    .view-toggle:hover { background: rgba(84, 214, 141, 0.14); border-color: rgba(84, 214, 141, 0.45); }
+    .release-list.is-compact { display: none; }
+    .compact-history { display: none; }
+    .compact-history.is-visible { display: block; }
+    .compact-history .ch-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.87em;
+    }
+    .compact-history .ch-table thead th {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.5rem 0.7rem;
+      border-bottom: 1px solid var(--border-strong);
+      text-align: left;
+    }
+    .compact-history .ch-table tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.12s;
+    }
+    .compact-history .ch-table tbody tr:hover { background: var(--surface-soft); }
+    .compact-history .ch-table td {
+      padding: 0.55rem 0.7rem;
+      vertical-align: middle;
+    }
+    .ch-version { font-family: ui-monospace, monospace; color: var(--pine); font-weight: 700; white-space: nowrap; }
+    .ch-status { }
+    .ch-date { color: var(--subtle); white-space: nowrap; font-size: 0.82em; }
+    .ch-summary { color: var(--muted); line-height: 1.45; }
+    .compact-history .ch-table .status-pill { font-size: 0.72em; }
+
+    /* ── Tip modal — wider for release detail ─────────────────────── */
+    .tip-card.tip-card-wide { max-width: 680px; }
+
     .tip-cta {
       display: inline-flex;
       align-items: center;
@@ -902,6 +991,13 @@
       </div>
     </header>
 
+    <nav class="page-nav" aria-label="Page sections">
+      <a href="#timeline">📋 v2 History</a>
+      <a href="#known-issues">🔎 Known Issues</a>
+      <a href="#roadmap">🚀 v3.0 Roadmap</a>
+      <a href="./auto-levels.pine_indicator-guide.html">📖 Guide ↗</a>
+    </nav>
+
     <section class="panel tone-layout" aria-labelledby="scope-title">
       <div class="tone-bar" aria-hidden="true"></div>
       <p class="kicker">How to use this page</p>
@@ -950,8 +1046,9 @@
       <div class="tone-bar" aria-hidden="true"></div>
       <p class="kicker">Version history</p>
       <h2 id="timeline-title">Open any revision for the deeper notes</h2>
-      <p class="section-lead">The summaries below stay public-facing and trader-relevant: what changed, why it mattered, and where the remaining caution still lives.</p>
-      <div class="release-list">
+      <p class="section-lead">The summaries below stay public-facing and trader-relevant: what changed, why it mattered, and where the remaining caution still lives. <button id="view-toggle-btn" class="view-toggle" aria-pressed="false">📋 Compact view</button></p>
+      <div class="compact-history" id="compact-history" aria-live="polite"></div>
+      <div class="release-list" id="release-list">
         <details class="release" open>
           <summary>
             <div>
@@ -1663,7 +1760,7 @@
       <p class="section-lead">This changelog documents source history, keeping what's<span class="accent-code">implemented in repo</span> separate from what's <span class="accent-live">observed live on chart</span> so unresolved behavior does not get mislabeled as fixed.</p>
     </section>
 
-    <section class="panel tone-archive" aria-labelledby="roadmap-title">
+    <section id="roadmap" class="panel tone-archive" aria-labelledby="roadmap-title">
       <div class="tone-bar" aria-hidden="true"></div>
       <p class="kicker">v3.0.0 roadmap</p>
       <h2 id="roadmap-title">Why v3 is a new major version — not just another wave</h2>
@@ -1806,9 +1903,10 @@
 
   <!-- Tip modal -->
   <div id="tip-overlay" class="tip-overlay" role="dialog" aria-modal="true" aria-labelledby="tip-title">
-    <div class="tip-card">
+    <div id="tip-card" class="tip-card">
       <button id="tip-close" class="tip-card-close" aria-label="Close">✕</button>
       <div id="tip-title" class="tip-card-title"></div>
+      <div id="tip-subtitle" class="tip-card-body" style="color:var(--subtle);font-size:0.82em;margin:-0.5rem 0 0.75rem;"></div>
       <div id="tip-card-body" class="tip-card-body"></div>
     </div>
   </div>
@@ -1872,14 +1970,18 @@
 
     // ── Tip modal ──────────────────────────────────────────────────────────
     (() => {
-      const overlay = document.getElementById('tip-overlay');
-      const titleEl = document.getElementById('tip-title');
-      const bodyEl  = document.getElementById('tip-card-body');
-      const closeBtn = document.getElementById('tip-close');
+      const overlay   = document.getElementById('tip-overlay');
+      const tipCard   = document.getElementById('tip-card');
+      const titleEl   = document.getElementById('tip-title');
+      const subtitleEl= document.getElementById('tip-subtitle');
+      const bodyEl    = document.getElementById('tip-card-body');
+      const closeBtn  = document.getElementById('tip-close');
 
-      const open = (btn) => {
+      const openFromTemplate = (btn) => {
         const tpl = document.getElementById(btn.dataset.modal);
         if (!tpl) return;
+        tipCard.classList.remove('tip-card-wide');
+        subtitleEl.textContent = '';
         titleEl.textContent = btn.dataset.title || '';
         bodyEl.innerHTML = '';
         bodyEl.appendChild(tpl.content.cloneNode(true));
@@ -1887,14 +1989,107 @@
         closeBtn.focus();
       };
 
-      const close = () => overlay.classList.remove('is-open');
+      const openFromRelease = (details) => {
+        const version  = details.querySelector('h3')?.textContent || '';
+        const meta     = details.querySelector('.release-meta')?.textContent || '';
+        const bodyNode = details.querySelector('.release-body');
+        tipCard.classList.add('tip-card-wide');
+        titleEl.textContent = version;
+        subtitleEl.textContent = meta;
+        bodyEl.innerHTML = '';
+        if (bodyNode) bodyEl.appendChild(bodyNode.cloneNode(true));
+        requestAnimationFrame(() => overlay.classList.add('is-open'));
+        closeBtn.focus();
+      };
 
+      const close = () => {
+        overlay.classList.remove('is-open');
+        tipCard.classList.remove('tip-card-wide');
+      };
+
+      // Bind template-based buttons (existing pattern)
       document.querySelectorAll('.tip-btn, .tip-cta').forEach(btn =>
-        btn.addEventListener('click', (e) => { e.stopPropagation(); open(btn); })
+        btn.addEventListener('click', (e) => { e.stopPropagation(); openFromTemplate(btn); })
       );
+      // Bind release-detail buttons (added by compact view JS below)
+      document.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-release-details]');
+        if (!btn) return;
+        e.stopPropagation();
+        const id = btn.dataset.releaseDetails;
+        const details = document.getElementById(id);
+        if (details) openFromRelease(details);
+      });
+
       closeBtn.addEventListener('click', close);
       overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    })();
+
+    // ── Compact history view ───────────────────────────────────────────────
+    (() => {
+      const toggleBtn     = document.getElementById('view-toggle-btn');
+      const releaseList   = document.getElementById('release-list');
+      const compactHistory= document.getElementById('compact-history');
+      if (!toggleBtn || !releaseList || !compactHistory) return;
+
+      // Assign stable IDs to every history <details> element
+      const allDetails = Array.from(releaseList.querySelectorAll('details.release'));
+      allDetails.forEach((d, i) => { if (!d.id) d.id = 'rel-' + i; });
+
+      const buildTable = () => {
+        const rows = allDetails.map(d => {
+          const version = d.querySelector('h3')?.textContent || '';
+          const meta    = d.querySelector('.release-meta')?.textContent || '';
+          const summary = d.querySelector('.release-summary')?.textContent || '';
+          const pill    = d.querySelector('.status-pill');
+          const pillHtml= pill ? pill.outerHTML : '';
+          const datePart= meta.split('·')[0].trim();
+          const summaryTrimmed = summary.length > 110 ? summary.slice(0, 108) + '…' : summary;
+          return `<tr>
+            <td class="ch-version">${version}</td>
+            <td class="ch-status">${pillHtml}</td>
+            <td class="ch-date">${datePart}</td>
+            <td class="ch-summary">${summaryTrimmed}</td>
+            <td><button class="tip-cta" data-release-details="${d.id}" aria-label="View details for ${version}">Details →</button></td>
+          </tr>`;
+        }).join('');
+        compactHistory.innerHTML = `<div class="table-wrap"><table class="ch-table" aria-label="Version history index">
+          <thead><tr><th>Version</th><th>Status</th><th>Date</th><th>Summary</th><th></th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table></div>`;
+      };
+
+      let compact = false;
+      toggleBtn.addEventListener('click', () => {
+        compact = !compact;
+        toggleBtn.setAttribute('aria-pressed', compact);
+        toggleBtn.textContent = compact ? '📄 Full view' : '📋 Compact view';
+        if (compact) {
+          if (!compactHistory.innerHTML) buildTable();
+          compactHistory.classList.add('is-visible');
+          releaseList.classList.add('is-compact');
+        } else {
+          compactHistory.classList.remove('is-visible');
+          releaseList.classList.remove('is-compact');
+        }
+      });
+    })();
+
+    // ── Sticky nav active section highlight ────────────────────────────────
+    (() => {
+      const navLinks = document.querySelectorAll('.page-nav a[href^="#"]');
+      if (!navLinks.length) return;
+      const sections = Array.from(navLinks)
+        .map(a => document.querySelector(a.getAttribute('href')))
+        .filter(Boolean);
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const link = document.querySelector(`.page-nav a[href="#${entry.target.id}"]`);
+          if (link) link.classList.toggle('nav-active', entry.isIntersecting);
+        });
+      }, { rootMargin: '-10% 0px -80% 0px', threshold: 0 });
+      sections.forEach(s => observer.observe(s));
     })();
   </script>
 </body>
