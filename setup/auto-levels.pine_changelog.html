@@ -880,7 +880,7 @@
       <div class="stat-grid" aria-label="Changelog at a glance">
         <article class="stat">
           <strong>Current public baseline</strong>
-          <span><code>v2.26</code> is the active source snapshot represented here.</span>
+          <span><code>v2.27</code> is the active source snapshot represented here.</span>
           <div class="stat-action-card">
             <a class="button tertiary" href="./auto-levels.pine_indicator-guide.html">Open Guide ↗</a>
           </div>
@@ -938,7 +938,7 @@
             <tr><th>Surface</th><th>Role</th><th>Status</th></tr>
           </thead>
           <tbody>
-            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v2.26</code> Source</td></tr>
+            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v2.27</code> Source</td></tr>
             <tr><td><code>fcr-standalone.pine</code></td><td>Shareable FCR-only companion</td><td>✅ Active <code>v2.2</code> companion</td></tr>
             <tr><td><code>webhook-alerts.pine</code></td><td>Alert-only companion kept intentionally separate from the visual overlay family</td><td>✅ Active top-level companion</td></tr>
           </tbody>
@@ -955,11 +955,31 @@
         <details class="release" open>
           <summary>
             <div>
+              <p class="release-meta">Mar 20, 2026 · 4/5 session rail — independent per-event toggles</p>
+              <h3>v2.27</h3>
+              <p class="release-summary">Single 'Show 4/5 Session Rails' toggle replaced with four independent inputs — one per event (9:30 open, 15:30/16:00 close, 16:30/17:00 maint, 18:00 reopen). Maint rail no longer gated by ETH toggle. Draw section restructured into four independent chain-specific if/else blocks.</p>
+            </div>
+            <span class="status-pill status-current">Current</span>
+          </summary>
+          <div class="release-body">
+            <ul class="list-tight">
+              <li><strong>Four independent 4/5 toggles:</strong> <code>show_45_open</code>, <code>show_45_close</code>, <code>show_45_maint</code>, <code>show_45_eopen</code> replace the single <code>show_session</code> input. Each can be enabled or disabled independently without affecting the other three rails.</li>
+              <li><strong>Maint rail decoupled from ETH gate:</strong> <code>show_45_maint</code> only requires <code>zth_allowed</code> — no longer blocked by the "Show ETH-Derived Levels" toggle. The 17:00 CME maintenance close rail is a session boundary level visible on RTH charts and should not require ETH display to be active.</li>
+              <li><strong>ETH reopen rail still ETH-gated:</strong> <code>show_45_eopen</code> continues to require <code>show_eth_on_rth_primary</code> in addition to <code>zth_allowed</code>, as the 18:00 CME reopen is an ETH-derived level.</li>
+              <li><strong>Backward-compatible <code>show_session</code> derived var:</strong> <code>show_session = show_45_open or show_45_close or show_45_maint or show_45_eopen</code> — all existing references to <code>show_session</code> in the script remain valid without change.</li>
+              <li><strong>Draw section restructured:</strong> one unified <code>if not show_session or not zth_allowed</code> block covering open+close chains and one <code>if not show_eth_4_5</code> block covering maint+eopen chains replaced with four fully independent if/else blocks — one per chain. Enables per-toggle delete/lazy-create without cross-chain interference.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release">
+          <summary>
+            <div>
               <p class="release-meta">Mar 20, 2026 · 4/5 close timing fix + spurious prev4/5 eliminated + trim cadence fix</p>
               <h3>v2.26</h3>
               <p class="release-summary">Four fixes addressing v2.25 regressions and a systematic level-count discrepancy between 1hr and lower-TF charts. Close fallbacks switched to lookahead_off; barstate.isconfirmed made conditional by TF; f_sess_label adds time proximity guard; trim gated on is_new_h1 to match creation/mitigation cadence.</p>
             </div>
-            <span class="status-pill status-current">Current</span>
+            <span class="status-pill status-history">History</span>
           </summary>
           <div class="release-body">
             <ul class="list-tight">
@@ -1564,7 +1584,7 @@
           <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v26" data-title="✅ Closed in v2.26">View 4 closed issues →</button></p>
         </article>
         <article class="card">
-          <h3>🔎 Still open after v2.26</h3>
+          <h3>🔎 Still open after v2.27</h3>
           <ul class="list-tight">
             <li><strong>Previous-day 16:00 close ray vertical on RTH chart:</strong> yesterday's close 4/5 ray renders as a vertical post on some RTH 1hr chart configurations. Under continued observation.</li>
             <li><strong>KEY level vertical post on Weekly chart (current week):</strong> a KEY level near the current week boundary can render as a vertical post at the start of the upcoming week bar. Likely a ray-end time snapping issue on Weekly — the x2 endpoint lands at the bar start rather than mid-bar. Under investigation.</li>
