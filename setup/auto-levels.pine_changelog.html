@@ -1665,28 +1665,51 @@
 
     <section class="panel tone-archive" aria-labelledby="roadmap-title">
       <div class="tone-bar" aria-hidden="true"></div>
-      <p class="kicker">Upcoming work</p>
-      <h2 id="roadmap-title">What the next Pine wave is expected to address</h2>
+      <p class="kicker">v3.0.0 roadmap</p>
+      <h2 id="roadmap-title">Why v3 is a new major version — not just another wave</h2>
+      <p class="section-lead">v2 is locked as a stable public release. Every bug found through live testing has been addressed — the 4/5 session rail system is solid. v3.0.0 begins a new chapter: architectural changes that were deliberately deferred from v2 because they touch the foundational level lifecycle itself, plus a new class of level derived from Heikin Ashi candle color-flips, and a unified color language that makes context visible at a glance regardless of session mode.</p>
       <div class="grid">
         <article class="card">
-          <h3>🔧 Bug fixes queued</h3>
+          <h3>🏗️ Level retention — dormant buffer</h3>
+          <p>The most impactful architectural change. Currently when the trim loop removes a mitigated level, it is permanently deleted. If price later reclaims that zone, the structural context is gone. In live trading this creates a real edge-case: levels that were briefly mitigated and then reclaimed re-emerge as untagged 5/5 levels with no memory of their mitigation history.</p>
+          <p style="margin-top:0.75rem;">v3.0.0 introduces a <strong>dormant buffer</strong>: trimmed levels move to <code>dormant_price[]</code>, <code>dormant_type[]</code>, and <code>dormant_tags[]</code> arrays rather than being deleted. When price returns to a dormant zone, the level is restored with its mitigation state preserved — showing correctly as 3/5 or Ghost instead of appearing fresh. Levels only fully expire after a configurable time window.</p>
+        </article>
+        <article class="card">
+          <h3>🎨 Unified color language — RTH / ETH / HA</h3>
+          <p>v2.29–v2.30 introduced the split between cyan (RTH open + close today) and teal (maint + eopen today). v3.0.0 completes this vision across the full level stack:</p>
+          <ul class="list-tight" style="margin-top:0.6rem;">
+            <li><strong>Cyan — all RTH-derived levels:</strong> every ZTH 5/5, 3/5, KEY, and Ghost level born from an RTH 1hr candle color-flip. Currently all levels are cyan regardless of session origin.</li>
+            <li><strong>Teal — all ETH-derived levels:</strong> <code>f_lvl_color</code> updated to accept an <code>is_eth</code> flag. ETH-born levels render teal on both RTH and ETH charts, making session origin visible at a glance without switching chart modes.</li>
+            <li><strong>Soft yellow / golden — Heikin Ashi levels:</strong> the new third level class (see below). RTH HA origin = warm yellow. ETH HA origin = deeper gold.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>✨ Heikin Ashi levels — 3rd level class</h3>
+          <p>ZTH levels are born from standard 1hr candle color-flips. HA levels are born from <strong>Heikin Ashi</strong> 1hr candle color-flips — the open price of the first bar after a HA color change. Because HA candles smooth short-term noise, HA-derived levels represent a different structural weight than standard ZTH: they tend to cluster near the center of range rather than at extremes.</p>
+          <p style="margin-top:0.75rem;">A dedicated toggle enables HA levels as an independent overlay layer. RTH HA levels draw in soft yellow; ETH HA levels draw in golden. They participate in the same proximity, mitigation, and annotation system as ZTH levels — but are visually distinct so traders can weight them differently in their process.</p>
+        </article>
+        <article class="card">
+          <h3>🔧 Carried-forward bug fixes</h3>
           <ul class="list-tight">
-            <li><strong>Previous-day 16:00 close ray vertical:</strong> under continued observation — may resolve naturally as session timing boundary behavior is better understood.</li>
-            <li><strong>QI 3rd candle mitigation:</strong> runtime verification that bar[2] mitigation works correctly on QI and other instruments in live chart testing.</li>
+            <li><strong>5/5 not downgrading to 3/5 after body mitigation:</strong> levels observed body-closed-through on live charts that remain as 5/5. Root cause under investigation — likely the body-based mitigation check not firing on certain bar sequences, or edge cases in the level-retention architecture that will be addressed during the dormant buffer rewrite.</li>
+            <li><strong>17:00 4/5 vertical position intermittent:</strong> maint-chain 4/5 ray occasionally renders at the wrong y-position (correct x-position, wrong price). Suspected cause: maint price captured before bar confirmation on lower timeframes. TF-conditional <code>barstate.isconfirmed</code> for maint event — same pattern applied successfully to the close chain in v2.26.</li>
+            <li><strong>Previous-day 16:00 close ray vertical on RTH chart:</strong> under continued observation — may be a ray-end time boundary artifact resolvable during the dormant buffer rewrite.</li>
+            <li><strong>QI 3rd candle mitigation:</strong> <code>bar[2]</code> mitigation in place; needs runtime confirmation.</li>
           </ul>
         </article>
         <article class="card">
           <h3>🏗️ Architectural — <code>security_lower_tf("60")</code> scan</h3>
           <ul class="list-tight">
-            <li>Replace the <code>request.security</code> 1hr flip-detection path with a <code>security_lower_tf("60")</code> scan loop. This is the single fix that unblocks <strong>both</strong> the 1hr ETH missing-levels issue on GC/CL and the 4hr+ sparse-detection gap. Significant scope — requires dedicated Pine wave.</li>
+            <li>Replace the <code>request.security</code> 1hr flip-detection path with a <code>security_lower_tf("60")</code> scan loop. This is the single fix that unblocks the 1hr ETH missing-levels issue on GC/CL and the 4hr+ sparse-detection gap. Bundled into v3.0.0 scope as it touches the same level-creation pipeline as the dormant buffer work.</li>
           </ul>
         </article>
         <article class="card">
-          <h3>✨ New features deferred</h3>
+          <h3>✨ Additional features deferred to v3</h3>
           <ul class="list-tight">
-            <li><strong>ATR-based per-level H/L shadow bands:</strong> translucent per-instrument ATR-based band directly under previous high and above previous low. Broad directional fills shipped in v2.7; the targeted per-level ATR bands remain deferred.</li>
-            <li><strong>BRK/RT succession nuance:</strong> per-level mutual exclusion logic so that a BRK on a new level is not suppressed by RT from an unrelated prior BRK state on the same candle side.</li>
-            <li><strong>1-2-3 bar[2]/bar[1] label y-offset:</strong> small ATR-based vertical offset for the historical "1" and "2" labels to prevent overlap on congested charts.</li>
+            <li><strong>ETH 4/5 pattern level support:</strong> extend the 4/5 annotation system (17:00 maint + 18:00 reopen) to the pattern proximity detection, not just the draw chain.</li>
+            <li><strong>ATR-based per-level shadow bands:</strong> translucent fill ±ATR around each KEY/5/5 level. Broad directional fills shipped in v2.7; targeted per-level bands deferred to v3.</li>
+            <li><strong>BRK/RT succession nuance:</strong> per-level mutual exclusion so a BRK on a new level is not suppressed by RT from a prior state on the same candle side.</li>
+            <li><strong>1-2-3 label y-offset:</strong> small ATR-based vertical offset for historical "1" and "2" labels to reduce overlap on congested charts.</li>
           </ul>
         </article>
       </div>
