@@ -23,6 +23,7 @@
 | 011 | Mar 3 | ES | Short | 6,757.25 | 6,786.25 (AutoLiq) | **-$1,450.00** | -84.06 | 2/5 | D | ⚠️ FCR midpoint entry (rays at open/close vs High/Low) | ❌ Cancelled → AutoLiq | No |
 | 012 | Mar 3 | CL | Long | 76.38 | 75.92 (AutoLiq) | **-$460.00** | -45.10 | 3/5 | B | ✅ Green dominant, pullback — SL in place | ✅ AutoLiq (8 ticks better than SL) | Yes |
 | 013 | Mar 10 | MNQ | Long | 25,023.75 | 25,005.75 (Apex hard close) | **-$108.00** | — | *pending* | B− | ✅ FCR LONG (15min) + 5/5 ZTH level + 1hr/5min FVG + HVN VRVP + OB below SL | ✅ Held (1-tick approach — Pattern 7 fix confirmed ✅) | Partial |
+| 014 | Mar 20 | RTY | Long | 2,455.10 | 2,465.60 (AutoLiq 16:59) | **+$525.00** | N/A (SL canceled) | 78.94 | 2.5/5 | ⚠️ Unintentional fill — ZTH HVN Bounce + SFP (old projected limit) | ❌ SL canceled 17min post-fill | No |
 
 ---
 
@@ -39,8 +40,10 @@ Mar 3  -$2,285.00   ██████████████░  loss — acco
 
 Mar 4–9   $0.00 ────────────────  no fills — correct process under pressure (3 observation sessions)
 Mar 10    -$108.00  ███░░░░░░░░░░░░  minimal loss — strong entry, exit passivity (Pattern 8)
+Mar 11–19   $0.00  ────────────────  observation sessions / no qualifying fills
+Mar 20   +$525.00  ████████████████ WIN ✅ (unintentional fill — AutoLiq exit)
 
-Cumulative (Feb 23–Mar 10): -$2,061.50 (USD futures) + $20.63 USDT crypto
+Cumulative (Feb 23–Mar 20): -$1,536.50 (USD futures) + $20.63 USDT crypto
 Note: Mar 3 includes account breach. APEX-484839-05 trailing drawdown floor $98,130.50 — breached by $60.
 ```
 
@@ -64,6 +67,7 @@ Note: Mar 3 includes account breach. APEX-484839-05 trailing drawdown floor $98,
 | Mar 3 ES (T2) | Stable→unstable in-trade | No | ⚠️ FCR midpoint (rays at open/close vs High/Low) | ❌ Cancelled → AutoLiq | Pattern 7 introduced |
 | Mar 3 CL (T3) | Ambivalent, stressed | Yes | ✅ Green dominant, pullback — process correct | ✅ AutoLiq (TradingView frozen = accidental protection) | Setup was correct; account ran out of buffer |
 | Mar 10 MNQ (T1) | Calm at entry; nervous at 16:09/16:45 | Partial | ✅ FCR LONG + 5/5 ZTH + 1hr/5min FVG + HVN VRVP + OB below SL | ✅ Held — 1 tick from SL, stepped away (Pattern 7 fix ✅) | No active exit made — prop firm closed position (Pattern 8) |
+| Mar 20 RTY (T1) | Ambivalent, anxious, fearful, frustrated, happy, stressed, excited | No | ⚠️ Unintentional — old projected limit filled while resting | ❌ Canceled 17min post-fill — MAE within 0.4pts of original SL | Unintentional fill → correct structural hold (HVN + Mar 8 low SMT) → AutoLiq |
 
 **Trend:**
 ```
@@ -147,6 +151,7 @@ Entry filter discipline:
 | Mar 3 | ES (T1) | 86 sec | SL hit — moved on | Quick exit = one correct behavior in an incorrect trade |
 | Mar 3 | ES (T2) | 39 min | AutoLiq — SL cancelled at 11:25 | Held without protection through 34.5 pt adverse move |
 | Mar 3 | CL (T1) | 12 min 37 sec | AutoLiq — TradingView frozen (accidental SL protection) | Setup correct; account equity forced exit |
+| Mar 20 | RTY | 2hr 36min 42sec | AutoLiq at 16:59 — no SL active, no TP defined | Held on structural read (HVN + SMT Mar 8 low); AutoLiq = exit mechanism |
 
 ---
 
@@ -256,6 +261,25 @@ Fix:        Define exit rules before entry:
 Status:     ⏳ Pattern identified Mar 10. Fix to implement next session.
 ```
 
+### Pattern 9 — Unintentional Fill from Old Projected Order (Mar 20)
+```
+Trigger:    Exhaustion → resting while projected bracket limit orders remain active
+            → market sweeps to the projected level → fills without intent
+Symptom:    RTY long at 2455.10 filled at 14:22:19 EDT while Christopher was not
+            actively watching. Old bracket from ~13:12 ET setup.
+            SL was placed (2436.20) then canceled at 14:39 EDT — position ran
+            unprotected through MAE of -$925 (low 2436.60 = 0.40pts above SL).
+            No TP active at time of AutoLiq. Exit was entirely platform-driven.
+Result:     +$525. Win by structural luck (HVN shelf + Mar 8 SMT divergence hold).
+            Process: dangerous. Outcome: favorable.
+Fix:        Pre-rest protocol:
+            (1) Cancel ALL open limit orders before stepping away or closing eyes
+            (2) If an unintentional fill occurs, DO NOT cancel the SL — tighten it
+                if anything. The SL is the only protection when entry was not chosen.
+            (3) Never leave a live position without both a SL AND a TP defined.
+Status:     🔴 New pattern identified Mar 20. Must add pre-rest checklist.
+```
+
 ### Pattern 5 — Level Abandonment Under Pressure (Feb 26)
 ```
 Trigger:    Time pressure (needed to get to work) + FOMO of missing fill
@@ -320,31 +344,41 @@ Mar 10  ████████████████░░░░  ⚠️ B�
                                Two exits recognized, neither taken. Apex closed at 16:59.
                                -$108. Minimal loss. Pattern 8 identified.
 
-Arc status: SL discipline: 9/10 filled trades — Pattern 7 fix confirmed live under maximum pressure.
-Entry discipline: Process-correct entries established (Mar 2 T2, Mar 10). Next frontier: exit process.
-Pattern 8 identified: exit passivity. Fix = pre-defined exit rules before every entry.
+Mar 11–19 ───────────────────  ⚪ Observation weeks. No qualifying fills documented.
+
+Mar 20  ████████████░░░░░░░░  ⚠️ Win — wrong process, right outcome
+                               Unintentional fill (old projected limit @ 2455.10 while resting)
+                               SL placed then CANCELED — position ran -$925 MAE unprotected
+                               Low 2436.60 = 0.40pts above where original SL (2436.20) would have hit
+                               Held on structural read: HVN shelf + March 8 SMT divergence (RTY held)
+                               AutoLiq at 16:59 → +$525. Quadruple witching day.
+                               Pattern 9 identified: unintentional fill, pre-rest order management.
+
+Arc status: SL discipline: 9/11 filled trades — Mar 20 SL cancellation is a recurrence of Pattern 7.
+            Win rate improving but two recent wins driven by AutoLiq, not disciplined exits.
+            Next frontier: pre-rest order hygiene + exit rules defined before every entry.
 ```
 
 ---
 
-## Statistical Summary (Feb 23 – Feb 27)
+## Statistical Summary (Feb 23 – Mar 20)
 
 | Metric | Value |
 |--------|-------|
-| Total trade entries | 11 (10 futures, 1 crypto) |
-| Monitoring sessions (no fill) | 1 (Feb 27) |
-| Winners | 3 (Feb 25 MNQ, Mar 2 YM, Mar 2 ES T2) |
+| Total trade entries | 12 (11 futures, 1 crypto) |
+| Monitoring sessions (no fill) | 1+ (Feb 27, Mar 11–19) |
+| Winners | 4 (Feb 25 MNQ, Mar 2 YM, Mar 2 ES T2, Mar 20 RTY) |
 | Losers | 8 |
-| No fills (neutral) | 1 |
-| Win rate (filled trades) | 27% (3/11) |
-| Avg winner | +$429.17 USD (Feb 25 MNQ +$565, Mar 2 YM +$185, Mar 2 ES +$1,037.50) |
-| Avg loser | -$554.25 USD (8 losses) |
-| Total P&L (USD futures) | -$1,953.50 |
+| No fills (neutral) | 1+ |
+| Win rate (filled futures trades) | 33% (4/12) |
+| Avg winner | +$578.13 USD (+$565, +$185, +$1,037.50, +$525) |
+| Avg loser | -$554.25 USD (8 losses — unchanged) |
+| Total P&L (USD futures) | -$1,428.50 |
 | Total P&L (crypto) | +$20.63 USDT |
-| SL respected | 8/9 filled futures trades (Mar 3 T2 exception) |
-| Stops moved | 2 (Mar 2 T3: 6,905→6,915.75 | Mar 3 T2: cancelled) |
-| A+ entry filters honored | 2/11 filled trades (Feb 25 MNQ, Mar 2 ES T2) |
-| Emotionally stable sessions | 2/11 trades (Feb 25 MNQ, Mar 3 CL) |
+| SL respected | 8/10 filled futures trades (Mar 3 T2 + Mar 20 cancellations) |
+| Stops moved/canceled | 3 (Mar 2 T3: moved | Mar 3 T2: canceled | Mar 20: canceled) |
+| A+ entry filters honored | 2/12 filled trades (Feb 25 MNQ, Mar 2 ES T2) |
+| Emotionally stable sessions | 2/12 trades (Feb 25 MNQ, Mar 3 CL) |
 | Zella Score range | -93.75 → 94.05 |
 | Best trade | Mar 2 ES T2 (94.05 Zella, 5/5 layers, +$1,037.50, 9 min, A+) |
 | Worst trade | Mar 3 ES T1 (-93.75 Zella, counter-trend, red dominant, 86 sec) |
