@@ -880,7 +880,7 @@
       <div class="stat-grid" aria-label="Changelog at a glance">
         <article class="stat">
           <strong>Current public baseline</strong>
-          <span><code>v2.28</code> is the active source snapshot represented here.</span>
+          <span><code>v2.29</code> is the active source snapshot represented here.</span>
           <div class="stat-action-card">
             <a class="button tertiary" href="./auto-levels.pine_indicator-guide.html">Open Guide ↗</a>
           </div>
@@ -938,7 +938,7 @@
             <tr><th>Surface</th><th>Role</th><th>Status</th></tr>
           </thead>
           <tbody>
-            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v2.28</code> Source</td></tr>
+            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v2.29</code> Source</td></tr>
             <tr><td><code>fcr-standalone.pine</code></td><td>Shareable FCR-only companion</td><td>✅ Active <code>v2.2</code> companion</td></tr>
             <tr><td><code>webhook-alerts.pine</code></td><td>Alert-only companion kept intentionally separate from the visual overlay family</td><td>✅ Active top-level companion</td></tr>
           </tbody>
@@ -955,16 +955,35 @@
         <details class="release" open>
           <summary>
             <div>
-              <p class="release-meta">Mar 21, 2026 · f_sess_label cross-chain bug fix + 18:00 eopen ETH gate removed</p>
-              <h3>v2.28</h3>
-              <p class="release-summary">Two targeted fixes for the independent 4/5 toggle system. f_sess_label was annotating ZTH levels from all 12 session rails regardless of which toggle was active, causing "prev 4/5" labels with any toggle on. 18:00 eopen chain decoupled from ETH gate — now independently accessible on RTH charts.</p>
+              <p class="release-meta">Mar 21, 2026 · "prev 4/5" label removed + 4/5 color scheme overhaul</p>
+              <h3>v2.29</h3>
+              <p class="release-summary">Two user-facing changes. "prev 4/5" label string dropped — all 4/5 annotations now read simply "4/5" regardless of which trading day the level was born on. Color scheme restructured: RTH open + close today = full cyan, maint + eopen today = full teal, all previous days across all 4 chains = faded cyan. Input labels updated to reflect the new color meaning.</p>
             </div>
             <span class="status-pill status-current">Current</span>
           </summary>
           <div class="release-body">
             <ul class="list-tight">
+              <li><strong>"prev 4/5" label removed:</strong> <code>f_sess_dual_text</code> simplified from a day-comparison branch to always return <code>' | 4/5'</code>. The "prev" distinction caused confusion and was the last trigger for spurious annotations on the maint chain after the v2.28 toggle gating fix. All 4/5 labels now read identically regardless of which trading day the event was born.</li>
+              <li><strong>4/5 color scheme — RTH vs ETH-derived:</strong> open + close today render in full cyan (<code>color_4_5_today</code>). Maint (17:00) + eopen (18:00) today render in full teal (<code>color_4_5_yest</code>) — visually separating the ETH-boundary sessions. All previous-day levels across all 4 chains now fade as transparent cyan, removing the prior mixed teal/cyan fade scheme for previous days.</li>
+              <li><strong>Input labels updated:</strong> <code>color_4_5_today</code> now labelled "4/5 Open + Close Today (cyan)"; <code>color_4_5_yest</code> now labelled "4/5 Maint + Reopen Today (teal) · All Prev Days Fade Cyan" with updated tooltips.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release">
+          <summary>
+            <div>
+              <p class="release-meta">Mar 21, 2026 · f_sess_label cross-chain bug fix + 18:00 eopen ETH gate removed</p>
+              <h3>v2.28</h3>
+              <p class="release-summary">Two targeted fixes for the independent 4/5 toggle system. f_sess_label was annotating ZTH levels from all 12 session rails regardless of which toggle was active, causing "prev 4/5" labels with any toggle on. 18:00 eopen chain decoupled from ETH gate — now independently accessible on RTH charts.</p>
+            </div>
+            <span class="status-pill status-history">History</span>
+          </summary>
+          <div class="release-body">
+            <ul class="list-tight">
               <li><strong>f_sess_label cross-chain annotation bug fixed:</strong> each of the 12 branches in <code>f_sess_label</code> is now gated by its corresponding input toggle. Previously, when ANY 4/5 toggle was ON, session data for all chains was populated — causing ZTH levels near any session rail price to receive spurious "prev 4/5" annotations from unrelated chains (e.g. <code>show_45_open</code> triggering a close-chain "prev 4/5" on the 4th day back). Now annotations only fire when the relevant chain's toggle is actively enabled.</li>
               <li><strong>18:00 Open (eopen) chain decoupled from ETH gate:</strong> <code>show_eopen_4_5</code> (renamed from <code>show_eth_4_5</code>) no longer requires <code>show_eth_on_rth_primary</code>. The 18:00 CME daily reopen rail is now independently accessible on RTH charts without enabling "Show ETH-Derived Levels" — matching the behaviour of the 17:00 maint chain. Tooltip updated. <code>cnt_45</code> counter updated: each chain now gated by its own toggle for accurate level count.</li>
+              <li><strong>Regression introduced:</strong> maint-chain "prev 4/5" annotation still fired for previous-day events even with correct toggle gating — root cause was <code>f_sess_dual_text</code> day-comparison logic. Fixed in v2.29.</li>
             </ul>
           </div>
         </details>
@@ -1601,7 +1620,11 @@
           <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v26" data-title="✅ Closed in v2.26">View 4 closed issues →</button></p>
         </article>
         <article class="card">
-          <h3>🔎 Still open after v2.28</h3>
+          <h3>✅ Closed in v2.27–v2.29</h3>
+          <p>5 issues resolved — single 4/5 toggle replaced with 4 independent per-chain toggles, maint rail decoupled from ETH gate, 18:00 eopen rail decoupled from ETH gate, "prev 4/5" annotations appearing with any toggle on (f_sess_label cross-chain bug), and "prev 4/5" text persisting on maint chain after toggle gating (f_sess_dual_text simplified).</p>
+        </article>
+        <article class="card">
+          <h3>🔎 Still open after v2.29</h3>
           <ul class="list-tight">
             <li><strong>Previous-day 16:00 close ray vertical on RTH chart:</strong> yesterday's close 4/5 ray renders as a vertical post on some RTH 1hr chart configurations. Under continued observation.</li>
             <li><strong>KEY level vertical post on Weekly chart (current week):</strong> a KEY level near the current week boundary can render as a vertical post at the start of the upcoming week bar. Likely a ray-end time snapping issue on Weekly — the x2 endpoint lands at the bar start rather than mid-bar. Under investigation.</li>
