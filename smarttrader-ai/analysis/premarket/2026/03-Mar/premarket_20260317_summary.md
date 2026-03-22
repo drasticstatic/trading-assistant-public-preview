@@ -271,3 +271,9 @@ FOMC announcements historically produce significant volatility across equities, 
 **Q5 — Expectations for the day?**
 
 Primarily a patience day ahead of FOMC tomorrow. If Scenario A SHORT fully confirms on the indices, one conservative entry on MNQ or M2K with defined risk — no heroes, stop above the FCR "short from here" level, conservative target at the next ZTH support below. If the market chops inside the FCR range through the afternoon (false breakout behavior common when FCR doesn't break cleanly), no trade is the correct trade. FOMC positioning will likely keep price action erratic into the close. Metals watch-only for now — GC pulling back from highs but no clean entry until ZTH support is tested and confirmed. CL is the most active setup space given the ZTH + IT reads stacking on the same instrument.
+
+---
+
+> Full pre-market summary: https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260317_summary.md
+
+*Fortuna — Wealth Warden | Claude Code CLI* / *Anthropic claude-sonnet-4-6 | March 17, 2026*

@@ -288,4 +288,6 @@ Returning from a dog walk/Inevitrade call with a clear head into a post-FOMC mar
 
 ---
 
-*Fortuna — Wealth Warden · March 19, 2026*
+> Full pre-market summary: https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260319_summary.md
+
+*Fortuna — Wealth Warden | Claude Code CLI* / *Anthropic claude-sonnet-4-6 | March 19, 2026*
