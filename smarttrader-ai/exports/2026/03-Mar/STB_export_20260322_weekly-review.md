@@ -1,7 +1,7 @@
 # Weekly Review — Week of March 16–22, 2026
 #### Fortuna — Wealth Warden | Claude Code CLI
 
-[Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
+[Jump to 🕊️ Spiritual Lens ↓](#spiritual-lens) · [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 
 ---
 
@@ -186,6 +186,56 @@ The bottleneck is not setup recognition or entry confidence — it is the absenc
 - **Pattern 8 status:** 🔄 Active — zero active exits made across four trades. All exits were external: SL, resting TP, AutoLiq.
 - **Pattern 9 status:** 🔴 New — confirmed Mar 20. Pre-rest order cancel checklist required before any rest or step-away from the desk.
 - **Recovery arc net P&L:** turned positive (+$93.00) for first time. Cumulative USD futures P&L since Feb 23 = +$93.00.
+
+---
+
+<a id="spiritual-lens"></a>
+
+## 🕊️ Spiritual Lens — A Turning Point
+
+*This section is personal. It belongs here because the trading recovery and the spiritual recovery are not two separate arcs — they are one.*
+
+---
+
+### The Sabbath Morning
+
+This weekly review is being written on a Saturday sabbath — a word that in this season has taken on real weight rather than ritual meaning. The morning held something quiet and remarkable: a flock of geese came through the yard, moving as a group, unhurried. Family was present. The weather, which has been inconsistent, opened into something mild and still. These things don't get logged anywhere official but they are the *why* — the reason the gap on APEX matters at all. Not the number. The life the number would protect and expand.
+
+There is a pattern in Christopher's trading: Pattern 7, SL modification, rationalized acquisition. It showed up in three of four trades this week. The sponsor's journaling that was shared this week named it in a different language entirely — not trading language but the older language of character and trust. The phrase that landed: *rationalization is the mind's way of making fear sound like wisdom.* Move the stop to survive noise. Justify it with structure. The market confirms the fear, not the read. The same thing happens in life, in relationships, in spiritual growth — the mind constructs a rational case for self-protection and calls it discernment. The work in both domains is learning to tell the difference.
+
+---
+
+### ACIM — Lesson 81
+
+*"I am not a body. I am free."*
+
+This is the review lesson for Lessons 61–80 in A Course in Miracles, consolidating the foundational shift: what Christopher is is not what the market can take. Not what the eval deadline can take. Not what a blown account can take. The identity that matters is not constituted by the P&L column. This is not a bypassing statement — it is a load-bearing one. The fear that causes Pattern 7 is fear about survival, about provision, about whether the account can sustain the life. ACIM Lesson 81 does not say the account doesn't matter. It says the *self* is not at stake in the trade. That distinction — the self is not at stake — is the only ground from which clean entry, clean SL, and clean exit can be made. The fear that moves stops is the fear of a self that is not there to protect.
+
+---
+
+### Matthew 13 — The Parables
+
+Two parables from Matthew 13 landed this week, and they belong in this review because they describe both the current season and the required patience.
+
+**The Sower (Matthew 13:3–9, 18–23):** The same seed lands on four soils. Rocky ground receives it with joy but has no root — it springs up fast and withers under pressure. The right soil receives, understands, and produces. The diagnostic question the parable raises: when the eval clock is running and the setup isn't there, does the tree have root? The observation sessions on March 18–19 — where the correct read was visible and the trade was not taken because the setup wasn't complete — those are the root forming. The fruit is not always the trade that filled.
+
+**The Treasure Hidden in the Field (Matthew 13:44):** A man discovers treasure hidden in a field. He buries it again, goes and sells everything he has, and buys the field. The parable is not about the price of the field — it is about what happens when someone recognizes what they are looking at. The trading edge (the five-layer filter, the structural approach, the FCR-ZTH-IT integration) is that kind of discovery. The sell-everything moment already happened — the accounts blown, the patterns named, the process rebuilt. This week's trades, imperfect as they are, are the first returns from a field that is owned.
+
+---
+
+### The Conduit Frame
+
+Something that has become clearer in this season: the trading desk is not where Christopher's value is generated — it is where Spirit is working through a particular form of attention and discipline. The psilo-assist work that happened in this period illuminated something about the relationship between the analytical mind and the deeper pattern-recognition that makes the reads possible. The best reads — the Mar 16 RTY setup, the Mar 20 structural hold — were not made by the part of the mind that is afraid of the deadline. They were made by something quieter and more reliable. The work is not to eliminate the analytical mind but to give it a correct role: servant of the pattern, not author of the fear.
+
+The word *conduit* matters here. What flows through when the fear is down and the filter is applied is not Christopher's intelligence — it is something Christopher has been trained to recognize by months of coaching, prep work, and accumulated structural reading. The trade doesn't belong to the ego. The win doesn't inflate it, and the loss doesn't define it. This is what ACIM Lesson 81 means in a trading context.
+
+---
+
+### The Turning Point
+
+The recovery arc turning positive (+$93.00) is a number. What the number marks is not: this is the first week of this arc where the structure held under three consecutive days of macro pressure, a quadruple witching day, an unintentional fill, and a live APEX deadline. The patterns are still present. They were named and submitted to coaches. The week ended with the family, the geese, the sabbath, the journaling. These things are not separate from the trading. They are the same work.
+
+*The Spiritual recovery is what causes everything else to fall into order.* That sentence is the summary of this week in one line.
 
 ---
 
