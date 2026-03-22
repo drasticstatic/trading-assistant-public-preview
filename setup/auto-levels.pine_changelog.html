@@ -969,7 +969,7 @@
       <div class="stat-grid" aria-label="Changelog at a glance">
         <article class="stat">
           <strong>Current public baseline</strong>
-          <span><code>v3.0.1</code> is the active source snapshot represented here.</span>
+          <span><code>v3.0.2</code> is the active source snapshot represented here.</span>
           <div class="stat-action-card">
             <a class="button tertiary" href="./auto-levels.pine_indicator-guide.html">Open Guide ↗</a>
           </div>
@@ -1034,7 +1034,7 @@
             <tr><th>Surface</th><th>Role</th><th>Status</th></tr>
           </thead>
           <tbody>
-            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v3.0.1</code> Source</td></tr>
+            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v3.0.2</code> Source</td></tr>
             <tr><td><code>fcr-standalone.pine</code></td><td>Shareable FCR-only companion</td><td>✅ Active <code>v2.2</code> companion</td></tr>
             <tr><td><code>webhook-alerts.pine</code></td><td>Alert-only companion kept intentionally separate from the visual overlay family</td><td>✅ Active top-level companion</td></tr>
           </tbody>
@@ -1052,11 +1052,30 @@
         <details class="release" open>
           <summary>
             <div>
+              <p class="release-meta">Mar 22, 2026 · Dormant buffer — level retention architecture</p>
+              <h3>v3.0.2</h3>
+              <p class="release-summary">First architectural release of v3. Trimmed levels now move to a dormant buffer instead of being hard-deleted. Six dorm_* parallel arrays hold price, type, tags, born, end, and is_eth for each dormant level. When price returns within swing tolerance of a dormant level at any 1hr boundary, the level is restored to active with its mitigation state preserved — no more phantom re-entries as fresh 5/5. Dormant levels expire after 48 hours.</p>
+            </div>
+            <span class="status-pill status-current">Current</span>
+          </summary>
+          <div class="release-body">
+            <ul class="list-tight">
+              <li><strong>Dormant buffer arrays added:</strong> <code>dorm_price[]</code>, <code>dorm_type[]</code>, <code>dorm_tags[]</code>, <code>dorm_born[]</code>, <code>dorm_end[]</code>, <code>dorm_is_eth[]</code> declared as persistent <code>var</code> arrays alongside the active <code>lvl_*</code> arrays. <code>DORM_EXPIRY_MS</code> constant set to 48 × 3,600,000ms (configurable).</li>
+              <li><strong>Trim loops modified — push before delete:</strong> all 3 trim loops (KEY/5/5, 3/5, Ghost) now push level metadata to the dormant buffer before deleting the line/label objects and removing the active array slots. Drawings are still released to stay within Pine's object limits; only metadata is retained.</li>
+              <li><strong>Expiry pass:</strong> on each <code>trim_gate</code> boundary, dormant entries born more than 48 hrs ago are permanently removed (backwards iteration for index safety). Prevents unbounded array growth on long active sessions.</li>
+              <li><strong>Restore pass:</strong> on each <code>trim_gate</code> boundary, any dormant level within <code>restore_tol</code> (0.1% of price or 20 ticks, whichever is larger — same tolerance as KEY/swing detection) of the current close price is restored if no active level already occupies that price zone (<code>f_near_existing</code> guard). Restored levels recreate their line + label from the original <code>dborn</code> anchor with a fresh 48-hr ray end, and carry their original <code>lvl_tags</code> count — a level that had been mitigated to 3/5 will restore as 3/5, not as a fresh 5/5.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release">
+          <summary>
+            <div>
               <p class="release-meta">Mar 22, 2026 · CL/GC teal bug fix + trim ETH-priority removal</p>
               <h3>v3.0.1</h3>
               <p class="release-summary">Two targeted fixes following v3.0.0. CL, GC, and all non-RTH-primary instruments were incorrectly receiving teal coloring for levels born outside RTH hours — level_is_eth was set via session-time check rather than the RTH-primary whitelist. Trim loops now prefer ETH levels for removal before touching RTH levels, preserving RTH context when "Show ETH-Derived" toggle adds extra budget pressure.</p>
             </div>
-            <span class="status-pill status-current">Current</span>
+            <span class="status-pill status-history">History</span>
           </summary>
           <div class="release-body">
             <ul class="list-tight">
@@ -1774,11 +1793,11 @@
           <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v26" data-title="✅ Closed in v2.26">View 4 closed issues →</button></p>
         </article>
         <article class="card">
-          <h3>✅ Closed in v2.27–v3.0.1</h3>
+          <h3>✅ Closed in v2.27–v3.0.2</h3>
           <p>9 issues resolved — single 4/5 toggle replaced with 4 independent per-chain toggles, maint rail decoupled from ETH gate, 18:00 eopen rail decoupled from ETH gate, "prev 4/5" annotations appearing with any toggle on (f_sess_label cross-chain bug), "prev 4/5" text persisting on maint chain (f_sess_dual_text simplified), erroneous 4/5 annotation on RTH 15:30 bar with maint toggle (f_near_t tolerance tightened), all ZTH levels rendering same cyan color regardless of session origin (ETH-derived levels now teal via f_lvl_color is_eth parameter), CL/GC teal bug (level_is_eth incorrectly set via session-time check for non-RTH-primary instruments), and trim loops removing RTH levels before ETH when ETH toggle adds budget pressure.</p>
         </article>
         <article class="card">
-          <h3>🔎 Still open after v3.0.1</h3>
+          <h3>🔎 Still open after v3.0.2</h3>
           <ul class="list-tight">
             <li><strong>Previous-day 16:00 close ray vertical on RTH chart:</strong> yesterday's close 4/5 ray renders as a vertical post on some RTH 1hr chart configurations. Under continued observation.</li>
             <li><strong>KEY level vertical post on Weekly chart (current week):</strong> a KEY level near the current week boundary can render as a vertical post at the start of the upcoming week bar. Likely a ray-end time snapping issue on Weekly — the x2 endpoint lands at the bar start rather than mid-bar. Under investigation.</li>
