@@ -969,7 +969,7 @@
       <div class="stat-grid" aria-label="Changelog at a glance">
         <article class="stat">
           <strong>Current public baseline</strong>
-          <span><code>v3.0.0</code> is the active source snapshot represented here.</span>
+          <span><code>v3.0.1</code> is the active source snapshot represented here.</span>
           <div class="stat-action-card">
             <a class="button tertiary" href="./auto-levels.pine_indicator-guide.html">Open Guide ↗</a>
           </div>
@@ -1034,7 +1034,7 @@
             <tr><th>Surface</th><th>Role</th><th>Status</th></tr>
           </thead>
           <tbody>
-            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v3.0.0</code> Source</td></tr>
+            <tr><td><code>auto-levels.pine</code></td><td>Main unified overlay for auto 1hr levels, session O/C, FCR, EMAs, FVG, patterns, and prior-day context</td><td>✅ Active <code>v3.0.1</code> Source</td></tr>
             <tr><td><code>fcr-standalone.pine</code></td><td>Shareable FCR-only companion</td><td>✅ Active <code>v2.2</code> companion</td></tr>
             <tr><td><code>webhook-alerts.pine</code></td><td>Alert-only companion kept intentionally separate from the visual overlay family</td><td>✅ Active top-level companion</td></tr>
           </tbody>
@@ -1052,11 +1052,29 @@
         <details class="release" open>
           <summary>
             <div>
+              <p class="release-meta">Mar 22, 2026 · CL/GC teal bug fix + trim ETH-priority removal</p>
+              <h3>v3.0.1</h3>
+              <p class="release-summary">Two targeted fixes following v3.0.0. CL, GC, and all non-RTH-primary instruments were incorrectly receiving teal coloring for levels born outside RTH hours — level_is_eth was set via session-time check rather than the RTH-primary whitelist. Trim loops now prefer ETH levels for removal before touching RTH levels, preserving RTH context when "Show ETH-Derived" toggle adds extra budget pressure.</p>
+            </div>
+            <span class="status-pill status-current">Current</span>
+          </summary>
+          <div class="release-body">
+            <ul class="list-tight">
+              <li><strong>CL/GC teal bug fixed (RTH scan):</strong> <code>level_is_eth</code> in the <code>is_new_h1</code> block was evaluated as <code>not f_is_rth_session_time(h1_flip_time)</code> for non-RTH-primary symbols — any CL/GC level born overnight received <code>is_eth=true</code> → teal. Fix: <code>level_is_eth = false</code> unconditionally in the RTH scan block. All levels born on the <code>is_new_h1</code> path are RTH-born by definition; ETH levels for RTH-primary symbols come exclusively from the <code>is_new_h1_eth</code> block.</li>
+              <li><strong>LTF scan fix:</strong> same logic error in the <code>chart_above_1h</code> path. <code>ltf_is_eth_lvl</code> was <code>is_rth_primary_symbol ? false : not f_is_rth_session_time(ltf_t2)</code> — backward: RTH-primary symbols got <code>false</code> for ALL times (missing ETH teal on NQ/MNQ/ES/YM above 1hr), non-RTH-primary got <code>true</code> overnight (CL/GC teal). Fixed to <code>is_rth_primary_symbol and not f_is_rth_session_time(ltf_t2)</code>: RTH-primary = teal if ETH session, non-RTH-primary = always false.</li>
+              <li><strong>Trim ETH-priority removal:</strong> all 3 trim loops (KEY/5/5, 3/5, Ghost) now prefer the farthest ETH level for removal before falling back to the farthest RTH level. Previously, enabling "Show ETH-Derived" added ETH levels to the same fixed budget, causing RTH levels to be trimmed away as the farthest-from-close candidates. ETH levels are now treated as the expendable tier — RTH context is protected.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="release">
+          <summary>
+            <div>
               <p class="release-meta">Mar 21, 2026 · ETH-derived levels rendered in teal — unified color language</p>
               <h3>v3.0.0</h3>
               <p class="release-summary">First release of the v3 major version. All ZTH levels (KEY, 5/5, 3/5) born during ETH session hours now render in teal instead of cyan. RTH levels remain cyan. Ghost stays violet for all levels. New "ETH-Derived Levels (teal)" color input added. f_lvl_color updated with is_eth parameter — the flag was already stored per-level in lvl_is_eth[]. CL/GC and other non-RTH-primary instruments unaffected. RTH levels remain fully visible on ETH charts.</p>
             </div>
-            <span class="status-pill status-current">Current</span>
+            <span class="status-pill status-history">History</span>
           </summary>
           <div class="release-body">
             <ul class="list-tight">
@@ -1756,11 +1774,11 @@
           <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v26" data-title="✅ Closed in v2.26">View 4 closed issues →</button></p>
         </article>
         <article class="card">
-          <h3>✅ Closed in v2.27–v3.0.0</h3>
-          <p>7 issues resolved — single 4/5 toggle replaced with 4 independent per-chain toggles, maint rail decoupled from ETH gate, 18:00 eopen rail decoupled from ETH gate, "prev 4/5" annotations appearing with any toggle on (f_sess_label cross-chain bug), "prev 4/5" text persisting on maint chain (f_sess_dual_text simplified), erroneous 4/5 annotation on RTH 15:30 bar with maint toggle (f_near_t tolerance tightened), and all ZTH levels rendering same cyan color regardless of session origin (ETH-derived levels now teal via f_lvl_color is_eth parameter).</p>
+          <h3>✅ Closed in v2.27–v3.0.1</h3>
+          <p>9 issues resolved — single 4/5 toggle replaced with 4 independent per-chain toggles, maint rail decoupled from ETH gate, 18:00 eopen rail decoupled from ETH gate, "prev 4/5" annotations appearing with any toggle on (f_sess_label cross-chain bug), "prev 4/5" text persisting on maint chain (f_sess_dual_text simplified), erroneous 4/5 annotation on RTH 15:30 bar with maint toggle (f_near_t tolerance tightened), all ZTH levels rendering same cyan color regardless of session origin (ETH-derived levels now teal via f_lvl_color is_eth parameter), CL/GC teal bug (level_is_eth incorrectly set via session-time check for non-RTH-primary instruments), and trim loops removing RTH levels before ETH when ETH toggle adds budget pressure.</p>
         </article>
         <article class="card">
-          <h3>🔎 Still open after v3.0.0</h3>
+          <h3>🔎 Still open after v3.0.1</h3>
           <ul class="list-tight">
             <li><strong>Previous-day 16:00 close ray vertical on RTH chart:</strong> yesterday's close 4/5 ray renders as a vertical post on some RTH 1hr chart configurations. Under continued observation.</li>
             <li><strong>KEY level vertical post on Weekly chart (current week):</strong> a KEY level near the current week boundary can render as a vertical post at the start of the upcoming week bar. Likely a ray-end time snapping issue on Weekly — the x2 endpoint lands at the bar start rather than mid-bar. Under investigation.</li>
