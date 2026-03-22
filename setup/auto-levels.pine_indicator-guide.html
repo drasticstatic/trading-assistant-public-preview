@@ -899,10 +899,51 @@
       transition: background 0.15s, color 0.15s;
     }
     .tip-card-close:hover { background: rgba(167, 255, 205, 0.14); color: var(--text); }
+
+    /* ── Page nav ─────────────────────────────────────────────────── */
+    .page-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 19, 15, 0.93);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .page-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3em;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.7rem 1rem;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+      letter-spacing: 0.01em;
+    }
+    .page-nav a:hover,
+    .page-nav a.nav-active { color: var(--teal); border-bottom-color: var(--teal); }
+    @media (prefers-color-scheme: light) {
+      .page-nav { background: rgba(238, 248, 241, 0.95); }
+    }
+    section[id] { scroll-margin-top: 2.5rem; }
   </style>
 </head>
 <body>
   <main class="page">
+    <nav class="page-nav" aria-label="Page sections">
+      <a href="#quick-start">⚡ Quick Start</a>
+      <a href="#settings">⚙️ Settings</a>
+      <a href="./auto-levels.pine_changelog.html">📋 Changelog ↗</a>
+    </nav>
     <header class="hero tone-guide">
       <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>TradingView · Indicator Guide · Instruction Manual</p>
       <h1>Auto-Levels Pine <span class="title-accent">Guide</span></h1>
@@ -1304,6 +1345,22 @@
       closeBtn.addEventListener('click', close);
       overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    })();
+
+    // ── Sticky nav active section highlight ────────────────────────────────
+    (() => {
+      const navLinks = document.querySelectorAll('.page-nav a[href^="#"]');
+      if (!navLinks.length) return;
+      const sections = Array.from(navLinks)
+        .map(a => document.querySelector(a.getAttribute('href')))
+        .filter(Boolean);
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const link = document.querySelector(`.page-nav a[href="#${entry.target.id}"]`);
+          if (link) link.classList.toggle('nav-active', entry.isIntersecting);
+        });
+      }, { rootMargin: '-10% 0px -80% 0px', threshold: 0 });
+      sections.forEach(s => observer.observe(s));
     })();
   </script>
 </body>
