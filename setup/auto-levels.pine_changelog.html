@@ -950,10 +950,46 @@
       transition: background 0.15s, color 0.15s;
     }
     .tip-card-close:hover { background: rgba(167, 255, 205, 0.14); color: var(--text); }
+
+    /* ── Scroll offset for sticky nav ────────────────────────────── */
+    section[id] { scroll-margin-top: 2.5rem; }
+
+    /* ── Scrollable modal body ────────────────────────────────────── */
+    .tip-card {
+      max-height: 85vh;
+      overflow-y: auto;
+      /* Scroll shadow — CSS-only top/bottom fade */
+      background:
+        linear-gradient(var(--surface-strong) 30%, transparent) top / 100% 20px no-repeat local,
+        linear-gradient(transparent, var(--surface-strong) 70%) bottom / 100% 20px no-repeat local,
+        linear-gradient(rgba(0,0,0,0.12), rgba(0,0,0,0.12)) top / 100% 1px no-repeat scroll,
+        linear-gradient(rgba(0,0,0,0.12), rgba(0,0,0,0.12)) bottom / 100% 1px no-repeat scroll,
+        var(--surface-strong);
+    }
+
+    /* ── Compact table: clickable rows ───────────────────────────── */
+    .compact-history .ch-table tbody tr[data-row-click] { cursor: pointer; }
+    .compact-history .ch-table tbody tr[data-row-click]:hover { background: var(--surface-soft); }
+
+    /* ── Nav compact toggle button ───────────────────────────────── */
+    .page-nav .view-toggle {
+      margin-left: 0.5rem;
+      font-size: 0.75rem;
+      padding: 0.28em 0.7em;
+      vertical-align: middle;
+      border-radius: 6px;
+    }
   </style>
 </head>
 <body>
   <main class="page">
+    <nav class="page-nav" aria-label="Page sections">
+      <a href="#timeline">📋 v2 History</a>
+      <a href="#known-issues">🔎 Known Issues</a>
+      <a href="#roadmap">🚀 Roadmap</a>
+      <a href="./auto-levels.pine_indicator-guide.html">📖 Guide ↗</a>
+      <button id="view-toggle-btn" class="view-toggle" aria-pressed="true">📄 Full view</button>
+    </nav>
     <header class="hero tone-guide">
       <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>TradingView Script · Pine Revision History</p>
       <h1>Auto-Levels Pine <span class="title-accent">Changelog</span></h1>
@@ -990,13 +1026,6 @@
         </article>
       </div>
     </header>
-
-    <nav class="page-nav" aria-label="Page sections">
-      <a href="#timeline">📋 v2 History</a>
-      <a href="#known-issues">🔎 Known Issues</a>
-      <a href="#roadmap">🚀 v3.0 Roadmap</a>
-      <a href="./auto-levels.pine_indicator-guide.html">📖 Guide ↗</a>
-    </nav>
 
     <section class="panel tone-layout" aria-labelledby="scope-title">
       <div class="tone-bar" aria-hidden="true"></div>
@@ -1046,7 +1075,7 @@
       <div class="tone-bar" aria-hidden="true"></div>
       <p class="kicker">Version history</p>
       <h2 id="timeline-title">Open any revision for the deeper notes</h2>
-      <p class="section-lead">The summaries below stay public-facing and trader-relevant: what changed, why it mattered, and where the remaining caution still lives. <button id="view-toggle-btn" class="view-toggle" aria-pressed="false">📋 Compact view</button></p>
+      <p class="section-lead">The summaries below stay public-facing and trader-relevant: what changed, why it mattered, and where the remaining caution still lives.</p>
       <div class="compact-history" id="compact-history" aria-live="polite"></div>
       <div class="release-list" id="release-list">
         <details class="release" open>
@@ -1819,10 +1848,10 @@
 
     <section id="roadmap" class="panel tone-archive" aria-labelledby="roadmap-title">
       <div class="tone-bar" aria-hidden="true"></div>
-      <p class="kicker">v3.0.0 roadmap</p>
-      <h2 id="roadmap-title">Why v3 is a new major version — not just another wave</h2>
+      <p class="kicker">Roadmap</p>
+      <h2 id="roadmap-title">Planned and deferred features</h2>
       <p class="section-lead">v2 is locked as a stable public release. Every bug found through live testing has been addressed — the 4/5 session rail system is solid. v3.0.0 begins a new chapter: architectural changes that were deliberately deferred from v2 because they touch the foundational level lifecycle itself, plus a new class of level derived from Heikin Ashi candle color-flips, and a unified color language that makes context visible at a glance regardless of session mode.</p>
-      <div class="grid">
+      <div class="grid" style="grid-template-columns: 1fr;">
         <article class="card">
           <h3>🏗️ Level retention — dormant buffer</h3>
           <p>The most impactful architectural change. Currently when the trim loop removes a mitigated level, it is permanently deleted. If price later reclaims that zone, the structural context is gone. In live trading this creates a real edge-case: levels that were briefly mitigated and then reclaimed re-emerge as untagged 5/5 levels with no memory of their mitigation history.</p>
@@ -2099,27 +2128,23 @@
           const version = d.querySelector('h3')?.textContent || '';
           const meta    = d.querySelector('.release-meta')?.textContent || '';
           const summary = d.querySelector('.release-summary')?.textContent || '';
-          const pill    = d.querySelector('.status-pill');
-          const pillHtml= pill ? pill.outerHTML : '';
           const datePart= meta.split('·')[0].trim();
-          const summaryTrimmed = summary.length > 110 ? summary.slice(0, 108) + '…' : summary;
-          return `<tr>
+          const summaryTrimmed = summary.length > 130 ? summary.slice(0, 128) + '…' : summary;
+          return `<tr data-row-click="${d.id}" onclick="document.querySelector('[data-release-details=\\'${d.id}\\']').click()" style="cursor:pointer">
             <td class="ch-version">${version}</td>
-            <td class="ch-status">${pillHtml}</td>
             <td class="ch-date">${datePart}</td>
             <td class="ch-summary">${summaryTrimmed}</td>
-            <td><button class="tip-cta" data-release-details="${d.id}" aria-label="View details for ${version}">Details →</button></td>
+            <td><button class="tip-cta" data-release-details="${d.id}" aria-label="View details for ${version}" onclick="event.stopPropagation()">Details →</button></td>
           </tr>`;
         }).join('');
         compactHistory.innerHTML = `<div class="table-wrap"><table class="ch-table" aria-label="Version history index">
-          <thead><tr><th>Version</th><th>Status</th><th>Date</th><th>Summary</th><th></th></tr></thead>
+          <thead><tr><th>Version</th><th>Date</th><th>Summary</th><th></th></tr></thead>
           <tbody>${rows}</tbody>
         </table></div>`;
       };
 
-      let compact = false;
-      toggleBtn.addEventListener('click', () => {
-        compact = !compact;
+      let compact = true;
+      const applyCompact = () => {
         toggleBtn.setAttribute('aria-pressed', compact);
         toggleBtn.textContent = compact ? '📄 Full view' : '📋 Compact view';
         if (compact) {
@@ -2130,7 +2155,9 @@
           compactHistory.classList.remove('is-visible');
           releaseList.classList.remove('is-compact');
         }
-      });
+      };
+      toggleBtn.addEventListener('click', () => { compact = !compact; applyCompact(); });
+      applyCompact();
     })();
 
     // ── Sticky nav active section highlight ────────────────────────────────
