@@ -23,7 +23,10 @@
 | 011 | Mar 3 | ES | Short | 6,757.25 | 6,786.25 (AutoLiq) | **-$1,450.00** | -84.06 | 2/5 | D | ⚠️ FCR midpoint entry (rays at open/close vs High/Low) | ❌ Cancelled → AutoLiq | No |
 | 012 | Mar 3 | CL | Long | 76.38 | 75.92 (AutoLiq) | **-$460.00** | -45.10 | 3/5 | B | ✅ Green dominant, pullback — SL in place | ✅ AutoLiq (8 ticks better than SL) | Yes |
 | 013 | Mar 10 | MNQ | Long | 25,023.75 | 25,005.75 (Apex hard close) | **-$108.00** | — | *pending* | B− | ✅ FCR LONG (15min) + 5/5 ZTH level + 1hr/5min FVG + HVN VRVP + OB below SL | ✅ Held (1-tick approach — Pattern 7 fix confirmed ✅) | Partial |
-| 014 | Mar 20 | RTY | Long | 2,455.10 | 2,465.60 (AutoLiq 16:59) | **+$525.00** | N/A (SL canceled) | 78.94 | 2.5/5 | ⚠️ Unintentional fill — ZTH HVN Bounce + SFP (old projected limit) | ❌ SL canceled 17min post-fill | No |
+| 014 | Mar 16 | MNQ | Short | 24,672.25 | 24,717.00 (SL hit) | **-$268.50** | — | — | 2/5 | ⚠️ B&R SHORT — FCR structural reference — SL adjusted in-trade to FCR ray | ❌ Adjusted in-trade | No |
+| 015 | Mar 16 | RTY | Short | 2,522.90 | 2,504.20 (TP hit) | **+$935.00** | 2.79 | 4/5 | A | ✅ SFP + ZTH KEY rejection + bearish FVG + OB confluence at TP | ✅ Placed pre-entry, never touched | **Yes** |
+| 016 | Mar 17–18 | MNQ | Short | 25,095.50 | 24,935.00 (TP hit) | **+$963.00** | — | 70.94 | 2.5/5 | ⚠️ Structural SHORT — SMT divergence — rushed bracket rebuild post-class | ❌ Moved wide (25,144→25,416, Asia session) | Partial |
+| 017 | Mar 20 | RTY | Long | 2,455.10 | 2,465.60 (AutoLiq 16:59) | **+$525.00** | N/A (SL canceled) | 78.94 | 2.5/5 | ⚠️ Unintentional fill — ZTH HVN Bounce + SFP (old projected limit) | ❌ SL canceled 17min post-fill | No |
 
 ---
 
@@ -40,10 +43,15 @@ Mar 3  -$2,285.00   ██████████████░  loss — acco
 
 Mar 4–9   $0.00 ────────────────  no fills — correct process under pressure (3 observation sessions)
 Mar 10    -$108.00  ███░░░░░░░░░░░░  minimal loss — strong entry, exit passivity (Pattern 8)
-Mar 11–19   $0.00  ────────────────  observation sessions / no qualifying fills
+Mar 11–15   $0.00  ────────────────  observation sessions / no qualifying fills
+Mar 16   +$666.50  ████████████████ NET WIN ✅ (+$935 RTY T2 A-grade · -$268.50 MNQ T1 SL adjusted)
+Mar 17   +$963.00  ████████████████ WIN ✅ (overnight MNQ SHORT — SMT divergence — SL moved wide, TP hit while resting)
+Mar 18–19   $0.00  ────────────────  no qualifying fills
 Mar 20   +$525.00  ████████████████ WIN ✅ (unintentional fill — AutoLiq exit)
 
-Cumulative (Feb 23–Mar 20): -$1,536.50 (USD futures) + $20.63 USDT crypto
+Cumulative (Feb 23–Mar 20): +$93.00 (USD futures) + $20.63 USDT crypto
+  Correction: prior tracker showed -$1,536.50 (Mar 16/17 missing, treated as $0 in "observation")
+              + $666.50 (Mar 16 net) + $963.00 (Mar 17) = +$93.00 corrected total
 Note: Mar 3 includes account breach. APEX-484839-05 trailing drawdown floor $98,130.50 — breached by $60.
 ```
 
@@ -67,6 +75,9 @@ Note: Mar 3 includes account breach. APEX-484839-05 trailing drawdown floor $98,
 | Mar 3 ES (T2) | Stable→unstable in-trade | No | ⚠️ FCR midpoint (rays at open/close vs High/Low) | ❌ Cancelled → AutoLiq | Pattern 7 introduced |
 | Mar 3 CL (T3) | Ambivalent, stressed | Yes | ✅ Green dominant, pullback — process correct | ✅ AutoLiq (TradingView frozen = accidental protection) | Setup was correct; account ran out of buffer |
 | Mar 10 MNQ (T1) | Calm at entry; nervous at 16:09/16:45 | Partial | ✅ FCR LONG + 5/5 ZTH + 1hr/5min FVG + HVN VRVP + OB below SL | ✅ Held — 1 tick from SL, stepped away (Pattern 7 fix ✅) | No active exit made — prop firm closed position (Pattern 8) |
+| Mar 16 MNQ (T1) | Ambivalent | Partial | ⚠️ Break & Retest SHORT — FCR structural reference used for first time live | ❌ Adjusted in-trade (moved to FCR long-from-here ray) — rationalized as structural | SL adjustment preceded stop-out at adjusted level — Pattern 7 echo even within a positive-net session |
+| Mar 16 RTY (T2) | Calm, confident | **Yes** | ✅ SFP + ZTH KEY + bearish FVG + OB at TP — clean execution stack | ✅ Placed pre-entry, held throughout, hit exactly | Conservative TP near RTH close = correct read; first green day; Feb 25 execution standard matched |
+| Mar 17 MNQ (T1) | Anxious, rushed | Partial | ⚠️ Valid SMT divergence read — bracket rebuilt under time pressure post-class | ❌ Moved wide (25,144→25,416) during Asia session — rationalized as noise survival | Win via overnight TP fill while resting; SL movement was a Pattern 7 echo — win does not validate the behavior |
 | Mar 20 RTY (T1) | Ambivalent, anxious, fearful, frustrated, happy, stressed, excited | No | ⚠️ Unintentional — old projected limit filled while resting | ❌ Canceled 17min post-fill — MAE within 0.4pts of original SL | Unintentional fill → correct structural hold (HVN + Mar 8 low SMT) → AutoLiq |
 
 **Trend:**
@@ -344,7 +355,21 @@ Mar 10  ████████████████░░░░  ⚠️ B�
                                Two exits recognized, neither taken. Apex closed at 16:59.
                                -$108. Minimal loss. Pattern 8 identified.
 
-Mar 11–19 ───────────────────  ⚪ Observation weeks. No qualifying fills documented.
+Mar 11–15 ───────────────────  ⚪ Observation sessions. No qualifying fills.
+
+Mar 16  ████████████████████  NET +$666.50 — T1 MNQ -$268.50 · T2 RTY +$935 (A-grade ✅)
+                               First green day. RTY = Feb 25 execution standard: SFP + ZTH KEY +
+                               FVG + OB TP — SL never touched, TP hit exactly. (+2.79R)
+                               MNQ: SL adjusted in-trade (rationalized as structural FCR alignment)
+                               → stop-out at adjusted level. Pattern 7 echo within a winning session.
+
+Mar 17  ████████████████████  +$963 overnight MNQ SHORT — structural read correct
+                               SMT divergence thesis valid. Entry rushed post-class (bracket rebuilt
+                               under time pressure). SL moved wide (25,144→25,416) during Asia —
+                               rationalized as noise survival. TP filled overnight while resting.
+                               Win does not validate the SL move — Pattern 7 behavior persists.
+
+Mar 18–19 ──────────────────  ⚪ No qualifying fills.
 
 Mar 20  ████████████░░░░░░░░  ⚠️ Win — wrong process, right outcome
                                Unintentional fill (old projected limit @ 2455.10 while resting)
@@ -354,9 +379,10 @@ Mar 20  ████████████░░░░░░░░  ⚠️ Win
                                AutoLiq at 16:59 → +$525. Quadruple witching day.
                                Pattern 9 identified: unintentional fill, pre-rest order management.
 
-Arc status: SL discipline: 9/11 filled trades — Mar 20 SL cancellation is a recurrence of Pattern 7.
-            Win rate improving but two recent wins driven by AutoLiq, not disciplined exits.
-            Next frontier: pre-rest order hygiene + exit rules defined before every entry.
+Arc status: SL discipline: 10/15 filled trades — Pattern 7 echo in Mar 16 MNQ (adjusted), Mar 17 MNQ (moved wide), Mar 20 (canceled).
+            Win rate improving: 6/15 = 40% vs 4/12 = 33% prior. Three wins in final stretch.
+            Account P&L turned positive (+$93) but process incomplete — wins via AutoLiq or resting TP, not active exits.
+            Next frontier: write exit rules before every trade · pre-rest order cancel checklist · define personal hard exit time (16:00 ET).
 ```
 
 ---
@@ -365,28 +391,30 @@ Arc status: SL discipline: 9/11 filled trades — Mar 20 SL cancellation is a re
 
 | Metric | Value |
 |--------|-------|
-| Total trade entries | 12 (11 futures, 1 crypto) |
-| Monitoring sessions (no fill) | 1+ (Feb 27, Mar 11–19) |
-| Winners | 4 (Feb 25 MNQ, Mar 2 YM, Mar 2 ES T2, Mar 20 RTY) |
-| Losers | 8 |
+| Total trade entries | 15 (14 futures, 1 crypto) |
+| Monitoring sessions (no fill) | 1+ (Feb 27, Mar 11–15, Mar 18–19) |
+| Winners | 6 (Feb 25 MNQ, Mar 2 YM, Mar 2 ES T2, Mar 16 RTY, Mar 17 MNQ, Mar 20 RTY) |
+| Losers | 9 (adds Mar 16 MNQ -$268.50) |
 | No fills (neutral) | 1+ |
-| Win rate (filled futures trades) | 33% (4/12) |
-| Avg winner | +$578.13 USD (+$565, +$185, +$1,037.50, +$525) |
-| Avg loser | -$554.25 USD (8 losses — unchanged) |
-| Total P&L (USD futures) | -$1,428.50 |
+| Win rate (filled futures trades) | 40% (6/15) |
+| Avg winner | +$701.75 USD (+$565, +$185, +$1,037.50, +$935, +$963, +$525) |
+| Avg loser | -$457.50 USD (9 losses total) |
+| Total P&L (USD futures) | +$93.00 |
 | Total P&L (crypto) | +$20.63 USDT |
-| SL respected | 8/10 filled futures trades (Mar 3 T2 + Mar 20 cancellations) |
-| Stops moved/canceled | 3 (Mar 2 T3: moved | Mar 3 T2: canceled | Mar 20: canceled) |
-| A+ entry filters honored | 2/12 filled trades (Feb 25 MNQ, Mar 2 ES T2) |
-| Emotionally stable sessions | 2/12 trades (Feb 25 MNQ, Mar 3 CL) |
+| SL respected | 10/15 filled futures trades (Mar 2 T3 moved · Mar 3 T2 canceled · Mar 16 MNQ adjusted · Mar 17 moved wide · Mar 20 canceled) |
+| Stops moved/canceled | 5 (Mar 2 T3 moved · Mar 3 T2 canceled · Mar 16 MNQ adjusted · Mar 17 moved wide · Mar 20 canceled) |
+| A+ entry filters honored | 2/15 filled trades (Feb 25 MNQ, Mar 2 ES T2) |
+| Emotionally stable sessions | 3/15 trades (Feb 25 MNQ, Mar 3 CL, Mar 16 RTY) |
 | Zella Score range | -93.75 → 94.05 |
 | Best trade | Mar 2 ES T2 (94.05 Zella, 5/5 layers, +$1,037.50, 9 min, A+) |
 | Worst trade | Mar 3 ES T1 (-93.75 Zella, counter-trend, red dominant, 86 sec) |
-| Directionally correct reads | 9/12 trades (Feb 24, Mar 2 T3, Mar 3 ES T2 structurally wrong) |
+| Directionally correct reads | 11/15 trades |
 | Eval accounts | 1 blown (APEX-484839-05, Mar 3) |
 | Pattern 5 fix | ✅ Applied Feb 27 — within 24 hours |
 | Pattern 6 identified | Mar 2 — re-entry in risky direction |
-| Pattern 7 identified | Mar 3 — SL cancellation under eval pressure |
+| Pattern 7 identified | Mar 3 — SL cancellation under eval pressure · recurring Mar 16/17/20 |
+| Pattern 8 identified | Mar 10 — exit passivity / prop firm reliance |
+| Pattern 9 identified | Mar 20 — unintentional fill from resting bracket order |
 
 ---
 
@@ -408,6 +436,10 @@ Links to individual reviews:
 - [Mar 3 — ES Short T2 (AutoLiq)](review_20260303_ES_002.md)
 - [Mar 3 — CL Long T3 (AutoLiq)](review_20260303_CL_003.md)
 - [Mar 10 — MNQ Long T1 (-$108)](2026/03-Mar/review_20260310_MNQ_001.md)
+- [Mar 16 — MNQ Short T1 (-$268.50)](2026/03-Mar/review_20260316_MNQ_001.md)
+- [Mar 16 — RTY Short T2 (+$935)](2026/03-Mar/review_20260316_RTY_002.md)
+- [Mar 17–18 — MNQ Short overnight (+$963)](2026/03-Mar/review_20260317_MNQ_001.md)
+- [Mar 20 — RTY Long (+$525 · unintentional fill)](2026/03-Mar/review_20260320_RTY_001.md)
 
 ---
 
