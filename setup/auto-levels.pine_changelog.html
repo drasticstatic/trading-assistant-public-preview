@@ -785,8 +785,11 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: transparent;
-      padding: 0.6rem 1.5rem;
+      background: rgba(7, 19, 15, 0.28);
+      backdrop-filter: blur(14px) saturate(1.4);
+      -webkit-backdrop-filter: blur(14px) saturate(1.4);
+      border-bottom: 1px solid rgba(84, 214, 141, 0.08);
+      padding: 0.5rem 1.5rem;
       display: flex;
       align-items: center;
       gap: 0.45rem;
@@ -973,8 +976,10 @@
     }
 
     /* ── Compact table: clickable rows ───────────────────────────── */
-    .compact-history .ch-table tbody tr[data-row-click] { cursor: pointer; }
-    .compact-history .ch-table tbody tr[data-row-click]:hover { background: var(--surface-soft); }
+    .compact-history .ch-table tbody tr[data-release-details] { cursor: pointer; }
+    .compact-history .ch-table tbody tr[data-release-details]:hover { background: var(--surface-soft); }
+    .ch-action { color: var(--teal); font-size: 0.8em; text-align: center; white-space: nowrap; opacity: 0.7; }
+    .compact-history .ch-table tbody tr[data-release-details]:hover .ch-action { opacity: 1; }
 
   </style>
 </head>
@@ -2127,15 +2132,16 @@
           const summary = d.querySelector('.release-summary')?.textContent || '';
           const datePart= meta.split('·')[0].trim();
           const summaryTrimmed = summary.length > 130 ? summary.slice(0, 128) + '…' : summary;
-          return `<tr data-row-click="${d.id}" onclick="this.querySelector('[data-release-details]').click()" style="cursor:pointer">
+          return `<tr data-release-details="${d.id}">
             <td class="ch-version">${version}</td>
             <td class="ch-date">${datePart}</td>
             <td class="ch-summary">${summaryTrimmed}</td>
-            <td><button class="tip-cta" data-release-details="${d.id}" aria-label="View details for ${version}" onclick="event.stopPropagation()">Details →</button></td>
+            <td class="ch-action">↗</td>
           </tr>`;
         }).join('');
         compactHistory.innerHTML = `<div class="table-wrap"><table class="ch-table" aria-label="Version history index">
           <thead><tr><th>Version</th><th>Date</th><th>Summary</th><th></th></tr></thead>
+          <!-- rows have data-release-details → delegated document click handler opens modal -->
           <tbody>${rows}</tbody>
         </table></div>`;
       };
