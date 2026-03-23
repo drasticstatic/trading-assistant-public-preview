@@ -326,7 +326,7 @@ Pattern 7 circuit-breaker (confirmed working): when urge to move SL arises, swit
 1. Write and commit exit rules (partial profit level, scratch condition, personal hard close 16:00) before placing any trade this week
 2. Read FCR levels from 15min only — confirm bug fix status with Kavanah/Auggie before relying on other timeframes
 3. Use auto-levels indicator for pre-market chart prep — reclaim time for five-layer filter focus
-4. Attend STB 1-on-1 with success manager — bring this review's hurdles section
+4. 1-on-1 with success managers/coaches — bring this review's hurdles section
 5. Pre-market analysis with Fortuna each morning — do not trade without it
 
 ---
@@ -339,6 +339,6 @@ Active exit decision-making — the same process discipline that now exists on e
 
 **How I plan to study the market this week:**
 
-Pre-market analysis each morning with Fortuna covering HTF bias, key levels, and scenario planning. Attend all STB and ZTH live sessions. Use the auto-levels indicator to streamline chart setup so more cognitive energy goes toward setup identification and trade management rather than manual chart prep. Review FCR displacement examples from prior sessions to sharpen pattern recognition on genuine vs. fake displacement.
+Pre-market analysis each morning with Fortuna covering HTF bias, key levels, and scenario planning. Attend all STB, ZTH and Inevitrade live sessions. Use the auto-levels indicator to streamline chart setup so more cognitive energy goes toward setup identification and trade management rather than manual chart prep. Review FCR displacement examples from prior sessions to sharpen pattern recognition on genuine vs. fake displacement.
 
 > Full weekly review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260314_weekly-review.md
