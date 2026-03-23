@@ -785,34 +785,39 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(7, 19, 15, 0.93);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 1.5rem;
+      background: transparent;
+      padding: 0.6rem 1.5rem;
       display: flex;
       align-items: center;
-      gap: 0;
+      gap: 0.45rem;
       justify-content: center;
       flex-wrap: wrap;
+      width: 100%;
+      box-sizing: border-box;
     }
-    .page-nav a {
+    .page-nav a,
+    .page-nav .view-toggle {
       display: inline-flex;
       align-items: center;
       gap: 0.3em;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 600;
-      color: var(--muted);
+      color: var(--pine);
       text-decoration: none;
-      padding: 0.7rem 1rem;
-      border-bottom: 2px solid transparent;
-      transition: color 0.15s, border-color 0.15s;
+      padding: 0.35em 0.9em;
+      border: 1px solid rgba(84, 214, 141, 0.3);
+      border-radius: 999px;
+      background: rgba(84, 214, 141, 0.06);
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
       letter-spacing: 0.01em;
+      cursor: pointer;
     }
     .page-nav a:hover,
-    .page-nav a.nav-active { color: var(--teal); border-bottom-color: var(--teal); }
-    @media (prefers-color-scheme: light) {
-      .page-nav { background: rgba(238, 248, 241, 0.95); }
+    .page-nav .view-toggle:hover,
+    .page-nav a.nav-active {
+      background: rgba(84, 214, 141, 0.14);
+      border-color: rgba(84, 214, 141, 0.6);
+      color: var(--teal);
     }
 
     /* ── View toggle (compact / full history) ────────────────────── */
@@ -971,25 +976,17 @@
     .compact-history .ch-table tbody tr[data-row-click] { cursor: pointer; }
     .compact-history .ch-table tbody tr[data-row-click]:hover { background: var(--surface-soft); }
 
-    /* ── Nav compact toggle button ───────────────────────────────── */
-    .page-nav .view-toggle {
-      margin-left: 0.5rem;
-      font-size: 0.75rem;
-      padding: 0.28em 0.7em;
-      vertical-align: middle;
-      border-radius: 6px;
-    }
   </style>
 </head>
 <body>
+  <nav class="page-nav" aria-label="Page sections">
+    <a href="#timeline">📋 v2 History</a>
+    <a href="#known-issues">🔎 Known Issues</a>
+    <a href="#roadmap">🚀 Roadmap</a>
+    <a href="./auto-levels.pine_indicator-guide.html">📖 Guide ↗</a>
+    <button id="view-toggle-btn" class="view-toggle" aria-pressed="true">📄 Full view</button>
+  </nav>
   <main class="page">
-    <nav class="page-nav" aria-label="Page sections">
-      <a href="#timeline">📋 v2 History</a>
-      <a href="#known-issues">🔎 Known Issues</a>
-      <a href="#roadmap">🚀 Roadmap</a>
-      <a href="./auto-levels.pine_indicator-guide.html">📖 Guide ↗</a>
-      <button id="view-toggle-btn" class="view-toggle" aria-pressed="true">📄 Full view</button>
-    </nav>
     <header class="hero tone-guide">
       <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>TradingView Script · Pine Revision History</p>
       <h1>Auto-Levels Pine <span class="title-accent">Changelog</span></h1>
@@ -2130,7 +2127,7 @@
           const summary = d.querySelector('.release-summary')?.textContent || '';
           const datePart= meta.split('·')[0].trim();
           const summaryTrimmed = summary.length > 130 ? summary.slice(0, 128) + '…' : summary;
-          return `<tr data-row-click="${d.id}" onclick="document.querySelector('[data-release-details=\\'${d.id}\\']').click()" style="cursor:pointer">
+          return `<tr data-row-click="${d.id}" onclick="this.querySelector('[data-release-details]').click()" style="cursor:pointer">
             <td class="ch-version">${version}</td>
             <td class="ch-date">${datePart}</td>
             <td class="ch-summary">${summaryTrimmed}</td>
