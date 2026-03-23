@@ -171,17 +171,40 @@ CL's EMA structure is green-dominant (bullish positioning) which diverges from t
 
 ## ⏱️ Live Session Updates
 
-*Pre-market as of 08:26 ET. Updates to be added during session.*
-
 **08:24–08:26 ET pre-market state:**
 - NQ + ES: Strong bearish — all EMAs red, lower lows, pump visible at overnight lows
 - YM: Bearish — stacked ZTH support in current zone, the holdout piece
 - RTY: Most aggressive seller — at stacked support, leading group lower
 - CL: Bullish EMA structure, diverging from equities
-- GC: Bearish — EMAs red, selling with equities (broad liquidation, not rotation). Metals halted on Apex, information only
+- GC: Bearish — EMAs red, selling with equities (broad forced liquidation, not rotation). Metals halted on Apex, information only
 - Crypto pump occurring simultaneously — risk-on short-cover bounce within downtrend
+- **STB market snapshot:** Neutral (pre-pump) → structural read bearish on all four
 
-**STB market snapshot:** Neutral (pre-pump) → structural read bearish on all four
+---
+
+**08:57–08:58 ET — 5-min chart update**
+
+![RTY1! 5-min 08:57 ET](../../../../../data/screenshots/RTY1!_2026-03-23_08-57-36_8eb20.png)
+
+![NQ1! 5-min 08:57 ET](../../../../../data/screenshots/NQ1!_2026-03-23_08-57-47_dd067.png)
+
+![ES1! 5-min 08:57 ET](../../../../../data/screenshots/ES1!_2026-03-23_08-57-58_2db7e.png)
+
+![YM1! 5-min 08:58 ET](../../../../../data/screenshots/YM1!_2026-03-23_08-58-11_bb645.png)
+
+![GC1! 5-min 08:58 ET](../../../../../data/screenshots/GC1!_2026-03-23_08-58-32_7992f.png)
+
+![CL1! 5-min 08:58 ET](../../../../../data/screenshots/CL1!_2026-03-23_08-58-44_734ed.png)
+
+The 5-min charts clarify what the pump was and where price is now sitting:
+
+**Price displaced below Friday's FCR "long from here" level on all four indices.** The pump from overnight lows carried price back up — but it came up into the underside of that Friday FCR LOW ray, not through it. All four are now in a **break-and-retest (BRT)** structure: price broke below, bounced back to the level, and is now being tested as resistance. The volume profile on NQ and ES shows a high-volume node sitting directly at/above the retest zone = additional resistance confirming the level.
+
+**The read on "reversal or more liquidation?"** This is not reversal price action. A reversal would require reclaiming Friday's FCR LOW with conviction and forming a higher high. What the charts show is: the pump found resistance exactly at the broken support level and is now stalling. This is the textbook BRT rejection setup. If the retest fails and price rolls over here, the next leg lower begins from a technically cleaner position (BRT shorts have defined risk against the retest high).
+
+**CL divergence note:** CL is not following the equity bear — holding its levels with bullish EMA structure intact. Not tradeable on the current entry criteria but worth watching for a ZTH/IT setup if the level stack aligns.
+
+**Key watch into 9:30:** Does the FCR candle form above or below Friday's "long from here" level? If the open is at or below it (the retest failed), the short setup into the FCR LOW displacement is already in motion before the candle even closes.
 
 ---
 
