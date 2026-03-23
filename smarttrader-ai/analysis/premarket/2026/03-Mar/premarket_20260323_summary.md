@@ -88,7 +88,7 @@ The pump is occurring simultaneously in crypto markets. This is the kind of corr
 | **YM** | ⚠️ Confirmation piece | — | Support stack holding. Loss = Scenario A upgrade. |
 | **ES/MES** | 📊 SMT confirm | — | Confirming NQ direction. No divergence. |
 | **CL** | 👁️ Watch only | Apex | Bullish EMA structure vs equity bear — diverging. ZTH/IT setup if levels align. |
-| **GC** | 📊 Context only | — | Bullish (safe haven bid). Metals halted on Apex — info only. |
+| **GC** | 📊 Context only | — | Bearish (EMAs red, selling with equities). Metals halted on Apex — info only. |
 
 ---
 
@@ -130,12 +130,14 @@ RTY has led the group lower throughout this entire move — small caps are the m
 
 ---
 
-### GC — Bullish Divergence · Safe Haven Bid
+### GC — Bearish · Selling With Equities · Broad Liquidation Signal
 
 **08:25 ET — GC pre-market**
 ![GC1! March 23 pre-market](../../../../../data/screenshots/GC1!_2026-03-23_08-25-40_5812d.png)
 
-Gold is in a completely different world from equities. All EMAs green, higher highs, bullish structure intact. The safe-haven bid is active — money is rotating from equities into gold. This confirms the risk-off macro read: the equity selloff is not indiscriminate (GC going up while NQ/ES/RTY go down = classic risk-off rotation). Metals halted on Apex — this chart is information only, not a tradeable signal.
+⚠️ *Correction: initial read of this chart as bullish was wrong — EMAs are red and downward-sloping, price is making lower lows. GC is bearish.*
+
+Gold is selling alongside equities, not acting as a safe haven. This is a more significant signal than a clean equity-only selloff: when gold cannot catch a bid during an equity decline, it typically points to **forced deleveraging** — margin calls and broad asset liquidation across classes rather than a rotation out of risk assets. The "flight to safety" trade is not activating. This reinforces the bear read on equities and adds a macro dimension (potential credit stress, forced selling). Metals halted on Apex — this chart is information only, not a tradeable signal.
 
 ---
 
@@ -176,7 +178,7 @@ CL's EMA structure is green-dominant (bullish positioning) which diverges from t
 - YM: Bearish — stacked ZTH support in current zone, the holdout piece
 - RTY: Most aggressive seller — at stacked support, leading group lower
 - CL: Bullish EMA structure, diverging from equities
-- GC: Bullish (safe haven) — metals halted on Apex, information only
+- GC: Bearish — EMAs red, selling with equities (broad liquidation, not rotation). Metals halted on Apex, information only
 - Crypto pump occurring simultaneously — risk-on short-cover bounce within downtrend
 
 **STB market snapshot:** Neutral (pre-pump) → structural read bearish on all four
