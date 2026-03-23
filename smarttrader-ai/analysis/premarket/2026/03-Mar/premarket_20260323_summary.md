@@ -237,6 +237,44 @@ The 5-min charts clarify what the pump was and where price is now sitting:
 
 ---
 
+**17:09–17:11 ET — RTH close**
+
+![NQ1! close 17:09 ET](../../../../../data/screenshots/NQ1!_2026-03-23_17-09-51_c0c6b.png)
+
+![ES1! close 17:10 ET](../../../../../data/screenshots/ES1!_2026-03-23_17-10-08_069e6.png)
+
+![RTY1! close 17:09 ET](../../../../../data/screenshots/RTY1!_2026-03-23_17-09-34_04324.png)
+
+![YM1! close 17:10 ET](../../../../../data/screenshots/YM1!_2026-03-23_17-10-38_b6f65.png)
+
+![GC1! close 17:11 ET](../../../../../data/screenshots/GC1!_2026-03-23_17-10-59_d9fa7.png)
+
+![CL1! close 17:11 ET](../../../../../data/screenshots/CL1!_2026-03-23_17-11-15_32c62.png)
+
+**Session result: $0. No trade taken. Correct call.**
+
+The RTH session was genuinely difficult. After the 9:30 spike, all four indices churned in a choppy range — lower than the morning highs, higher than the overnight lows. No clean displacement setup materialized. The market went where the coaches saw it going (lower bias confirmed structurally) but never gave a clean entry signal with defined risk.
+
+**What the coaches experienced:**
+- **STB:** Initial short stopped. Two additional shorts attempted, both stopped at break even. Three stopped positions on a day where the directional read was correct — this is what "waiting for the vicious sell" that never came looks like. The absorption signal was real but the timing didn't resolve cleanly during RTH.
+- **ZTH:** GC long thesis was correct — GC had a significant recovery day. The coach exited at -$50 on one attempt, then watched it come back into the entry zone and run. Right thesis, difficult execution. The NQ long watch did not produce a clean entry either.
+- **Christopher:** Watched both coaching groups navigate real-time stops and missed entries. Stayed out. Identified "some ideas that would have played out and some that wouldn't" — this is an honest and accurate read. On a day where two experienced coaches got stopped multiple times, preservation is not failure.
+
+**The "too nervous to execute" note:**
+This deserves reflection in the evening calls. There are two distinct things it could be:
+1. *Correct calibration* — the market was genuinely choppy, the setups were not meeting the five-layer filter, and the body knew it even if the mind wanted to act. This would be healthy.
+2. *Deadline paralysis* — the APEX gap (~$4,000 due tomorrow) making every potential entry feel like it carries existential weight, raising the effective entry threshold so high that valid setups get passed over.
+
+The distinction matters. If it's (1), today was a success. If it's (2), the pressure is affecting decision-making in a different way than forced entries — instead of forcing bad trades, it's blocking valid ones.
+
+**GC close note:** GC ended the day significantly above its lows — the ZTH long call was directionally right. Metals halted on Apex = this was not tradeable today, but it's worth noting for the broader market read. Gold recovering while equities churn = the safe-haven bid eventually activated during the session.
+
+**CL close note:** CL sold off hard from its morning highs and closed in a lower range. The ZTH/IT long watch did not produce a clean setup — the entry criteria weren't met and price confirmed why.
+
+**Evening:** Three mentoring calls lined up — ZTH mastermind, STB mentoring, Inevitrade mentoring. These calls will provide real-time debrief from coaches who just navigated the same session. No evening trading planned — correct given the day's complexity and the importance of the APEX deadline tomorrow morning.
+
+---
+
 <a id="smarttraderai-copy-paste"></a>
 
 ## 🤖 SmartTraderAI Pre-Market Copy-Paste Fields
