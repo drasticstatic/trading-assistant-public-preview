@@ -208,6 +208,35 @@ The 5-min charts clarify what the pump was and where price is now sitting:
 
 ---
 
+**10:08–10:10 ET — Live session update**
+
+![NQ1! 5-min 10:08 ET](../../../../../data/screenshots/NQ1!_2026-03-23_10-08-15_46724.png)
+
+![ES1! 5-min 10:09 ET](../../../../../data/screenshots/ES1!_2026-03-23_10-09-01_58174.png)
+
+![RTY1! 5-min 10:08 ET](../../../../../data/screenshots/RTY1!_2026-03-23_10-08-42_85ff7.png)
+
+![YM1! 5-min 10:09 ET](../../../../../data/screenshots/YM1!_2026-03-23_10-09-21_3ca07.png)
+
+![GC1! 5-min 10:10 ET](../../../../../data/screenshots/GC1!_2026-03-23_10-10-00_4710b.png)
+
+![CL1! 5-min 10:10 ET](../../../../../data/screenshots/CL1!_2026-03-23_10-10-21_c8bb2.png)
+
+**9:30 FCR candle:** A massive spike upward across all four equity indices at the open. The FCR "long from here" HIGH ray was set at a very elevated level by this spike. Price briefly pierced ABOVE the FCR HIGH (Christopher noted "we are above the long from here") then pulled back below it — now trading inside the FCR box, falling back toward the FCR LOW ray. The volume profile shows heavy concentration at the top of the spike zone = that candle filled a significant amount of orders up there.
+
+**The absorption read (STB Bookmap):** Aggressive buying is visible but NOT being reflected in price. This is the critical signal. When large buy orders are getting filled but price doesn't move up correspondingly, it means sellers are absorbing every bid — supply is overwhelming demand at current levels. The buyers are not being rewarded. When that buying exhausts, there is no floor under the market and the sellers take full control. This is the setup STB is calling a "vicious sell" — and it is structurally consistent with the macro bear context.
+
+**The FCR spike as a liquidity sweep:** The 9:30 spike above the "long from here" level likely served a structural purpose — sweeping stops and grabbing late longs above resistance before the actual move. Institutional short entries fill most efficiently at spike highs where there is aggressive buying (retail chasing the breakout). The pullback below the FCR HIGH immediately after the spike is consistent with this.
+
+**Coaching divergence — ZTH long vs STB short:**
+- **ZTH:** watching continuation long — primary focus is GC (V-recovery bounce off ZTH support, sharp and clean). Secondary: NQ long.
+- **STB:** watching Bookmap absorption, leaning into the pre-market bearish analysis, about to enter short.
+- **Christopher's platform (Apex/MNQ):** GC is halted on Apex — ZTH's primary thesis is not tradeable here. The NQ secondary long is counter-trend against the macro bear structure. STB's short thesis aligns with the macro context and the FCR HIGH rejection.
+
+**Current watch (10:10 ET):** Price is inside the FCR box, moving toward the FCR LOW ray. The setup that matters: if all four indices displace BELOW the FCR "short from here" LOW ray with EMA confirmation, that is the short entry signal. The absorption not reflecting in price + STB commitment + macro downtrend all point the same direction. Wait for the displacement — do not anticipate it.
+
+---
+
 <a id="smarttraderai-copy-paste"></a>
 
 ## 🤖 SmartTraderAI Pre-Market Copy-Paste Fields
