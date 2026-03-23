@@ -225,7 +225,7 @@ Two parables from Matthew 13 landed this week, and they belong in this review be
 
 ### The Conduit Frame
 
-Something that has become clearer in this season: the trading desk is not where Christopher's value is generated — it is where Spirit is working through a particular form of attention and discipline. The psilo-assist work that happened in this period illuminated something about the relationship between the analytical mind and the deeper pattern-recognition that makes the reads possible. The best reads — the Mar 16 RTY setup, the Mar 20 structural hold — were not made by the part of the mind that is afraid of the deadline. They were made by something quieter and more reliable. The work is not to eliminate the analytical mind but to give it a correct role: servant of the pattern, not author of the fear.
+Something that has become clearer in this season: the trading desk is not where Christopher's value is generated — it is where Spirit is working through a particular form of attention and discipline. A deepened intimacy with Spirit in meditation during this period illuminated something about the relationship between the analytical mind and the deeper pattern-recognition that makes the reads possible. The best reads — the Mar 16 RTY setup, the Mar 20 structural hold — were not made by the part of the mind that is afraid of the deadline. They were made by something quieter and more reliable. The work is not to eliminate the analytical mind but to give it a correct role: servant of the pattern, not author of the fear.
 
 The word *conduit* matters here. What flows through when the fear is down and the filter is applied is not Christopher's intelligence — it is something Christopher has been trained to recognize by months of coaching, prep work, and accumulated structural reading. The trade doesn't belong to the ego. The win doesn't inflate it, and the loss doesn't define it. This is what ACIM Lesson 81 means in a trading context.
 
@@ -313,6 +313,24 @@ Required pre-trade checklist (to be used before placing any bracket from this we
 5. **Attend STB and Inevitrade this week** — bring this review. Focus coaches on exit execution and rationalized SL movement.
 
 ---
+
+**What I want to work on / improve / get better at:**
+
+Exit execution. The five-layer filter is functioning — direction accuracy was 4/4 this week and setup recognition is improving. The gap is entirely in what happens after entry: no partial profit level is ever written, no scratch condition is ever defined, and no active exit decision has been made across any trade in the recovery arc. The specific skill to build is pre-entry exit planning — treating the exit decision with the same deliberateness as the entry decision. Until that is a required step, Pattern 8 will persist regardless of how well the entry reads are made.
+
+---
+
+**How I plan to study the market this week:**
+
+1. **Pre-market summaries every active session** — full five-instrument read (NQ, ES, YM, RTY, CL) before the 9:30 open. Identify FCR scenario (A/B/C) and write it down before the candle forms.
+2. **ZTH + STB + Inevitrade calls** — attend all three groups. Bring this review to the first call of the week. Ask each group specifically about exit execution frameworks and pre-entry exit planning.
+3. **Live session journaling** — for any trade that qualifies under the five-layer filter, write the exit rule (partial TP level + scratch condition) on the chart AND in the session log before the bracket is placed. No bracket without a written exit.
+4. **Pattern 7 daily check** — at the end of each session, note whether any SL modification occurred and what the rationalization was. Name it explicitly.
+5. **Replay sessions** — if a clean setup was visible during the session but not taken, review it in TradingView after close to confirm whether the setup would have met A+ criteria. Build the library of pattern recognition.
+
+---
+
+> Full weekly review: https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260322_weekly-review.md
 
 *🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
 *Anthropic claude-sonnet-4-6 | March 22, 2026*
