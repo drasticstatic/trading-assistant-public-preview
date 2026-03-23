@@ -324,8 +324,8 @@ Pattern 7 circuit-breaker (confirmed working): when urge to move SL arises, swit
 **This week my action steps are:**
 
 1. Write and commit exit rules (partial profit level, scratch condition, personal hard close 16:00) before placing any trade this week
-2. Read FCR levels from 15min only — confirm bug fix status with Kavanah/Auggie before relying on other timeframes
-3. Use auto-levels indicator for pre-market chart prep — reclaim time for five-layer filter focus
+2. Use auto-levels v2 indicator for pre-market chart prep — reclaim time for five-layer filter focus
+3. Continue testing auto-levels v3 — confirm bug fix status and edge cases
 4. 1-on-1 with success managers/coaches — bring this review's hurdles section
 5. Pre-market analysis with Fortuna each morning — do not trade without it
 
