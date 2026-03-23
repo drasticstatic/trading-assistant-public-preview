@@ -905,45 +905,47 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(7, 19, 15, 0.93);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 1.5rem;
+      background: transparent;
+      padding: 0.6rem 1.5rem;
       display: flex;
       align-items: center;
-      gap: 0;
+      gap: 0.45rem;
       justify-content: center;
       flex-wrap: wrap;
+      width: 100%;
+      box-sizing: border-box;
     }
     .page-nav a {
       display: inline-flex;
       align-items: center;
       gap: 0.3em;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 600;
-      color: var(--muted);
+      color: var(--pine);
       text-decoration: none;
-      padding: 0.7rem 1rem;
-      border-bottom: 2px solid transparent;
-      transition: color 0.15s, border-color 0.15s;
+      padding: 0.35em 0.9em;
+      border: 1px solid rgba(84, 214, 141, 0.3);
+      border-radius: 999px;
+      background: rgba(84, 214, 141, 0.06);
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
       letter-spacing: 0.01em;
     }
     .page-nav a:hover,
-    .page-nav a.nav-active { color: var(--teal); border-bottom-color: var(--teal); }
-    @media (prefers-color-scheme: light) {
-      .page-nav { background: rgba(238, 248, 241, 0.95); }
+    .page-nav a.nav-active {
+      background: rgba(84, 214, 141, 0.14);
+      border-color: rgba(84, 214, 141, 0.6);
+      color: var(--teal);
     }
     section[id] { scroll-margin-top: 2.5rem; }
   </style>
 </head>
 <body>
+  <nav class="page-nav" aria-label="Page sections">
+    <a href="#quick-start">⚡ Quick Start</a>
+    <a href="#settings">⚙️ Settings</a>
+    <a href="./auto-levels.pine_changelog.html">📋 Changelog ↗</a>
+  </nav>
   <main class="page">
-    <nav class="page-nav" aria-label="Page sections">
-      <a href="#quick-start">⚡ Quick Start</a>
-      <a href="#settings">⚙️ Settings</a>
-      <a href="./auto-levels.pine_changelog.html">📋 Changelog ↗</a>
-    </nav>
     <header class="hero tone-guide">
       <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>TradingView · Indicator Guide · Instruction Manual</p>
       <h1>Auto-Levels Pine <span class="title-accent">Guide</span></h1>
