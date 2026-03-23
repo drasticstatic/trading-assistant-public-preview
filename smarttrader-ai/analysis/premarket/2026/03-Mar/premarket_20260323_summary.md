@@ -1,0 +1,238 @@
+# Pre-Market Summary — March 23, 2026
+### Monday · Post-Witching · APEX Deadline Eve
+
+[Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
+
+---
+
+## 📋 Session Dashboard
+
+| Account | Status | Gap | Deadline |
+|---------|--------|-----|----------|
+| APEX-484839-06 | ✅ Active | ~$4,000 | **Mar 24 — TOMORROW** |
+| TPT 50K | ✅ Active | ~$3,000 | End of March |
+
+**Primary instruments:** MNQ · ES/MES · YM · RTY (triple-index SMT) · CL (ZTH + IT)
+**Metals on Apex:** ❌ Halted (GC, SI, HG, MGC)
+**Session type:** Monday — post-quadruple-witching continuation · macro downtrend in force
+
+---
+
+## ⚠️ Session Risk Alert
+
+- **⏰ APEX-06 deadline is tomorrow, March 24.** ~$4,000 gap. This is the highest single-session pressure point of the recovery arc. The urgency is real and is being named clearly. One A+ trade at appropriate size is the only path — forcing entries under deadline pressure closes the account faster than doing nothing. $0 is a valid result if conditions don't align.
+- **Morning pump noted:** Pre-market lows were bought. A corresponding pump is occurring in crypto simultaneously. This is a risk-on short-cover/liquidity sweep within the macro downtrend — not a trend reversal. The macro structure is firmly bearish on all four indices.
+- **STB snapshot = neutral:** This was taken before the pump. The chart structure is bearish. The pump may have temporarily elevated the STB read toward neutral but the HTF bias has not changed.
+- **Christopher chose rest over Sunday trading:** Correct call. Fatigue compromises the entry filter. Trading rested on deadline day is worth more than trading tired the day before.
+
+---
+
+## 🌙 Overnight / Pre-Market Context
+
+The macro downtrend that was in force through the FOMC week (Mar 17–20) has continued without interruption. All four equity indices made new lows in the overnight/early pre-market period. The session opened with aggressive selling — a continuation of the post-witching Friday close — before a sharp bounce (the pump) recovered some of the overnight loss.
+
+The pump is occurring simultaneously in crypto markets. This is the kind of correlated liquidity event that can look like a reversal but is structurally a short-term bounce against the dominant trend. The evidence: EMAs remain firmly red and downward-sloping on all four equity indices; no higher high has been made; and the macro lower-high, lower-low pattern is intact.
+
+**Key takeaway for the open:** price is elevated vs overnight lows because of the pump. The FCR candle at 9:30 will form from this pumped pre-market price. Watch whether the pump continues into the open (widening FCR box) or exhausts (clean displacement setup developing).
+
+---
+
+## 🌤️ At the Open
+
+- FCR HIGH ("long from here") and LOW ("short from here") rays form on the 9:30 first 15-min candle
+- If the pump carried into the open: FCR box may be elevated vs overnight lows — the SHORT setup requires displacement BELOW the FCR LOW, not the overnight low
+- If the pump exhausts before 9:30: price may open closer to the actual level structure, creating a cleaner setup
+- **Watch:** does the pump reverse before the open? If it does, that itself confirms short bias — the bounce found no buyers
+
+---
+
+## 🔗 SMT Divergence Scenarios
+
+**Pre-market read (08:24–08:26 ET, post-pump):**
+- **NQ:** Strong bearish — all EMAs red, aggressive sell, lower lows. Pump visible at right edge.
+- **ES:** Strong bearish — matching NQ. Both confirming. EMAs red, downward slope.
+- **YM:** Bearish — multiple stacked green ZTH support levels in current zone. May lag the other three again as large-cap value is defended last.
+- **RTY:** Most aggressive seller — at stacked green support levels, leading the group lower. Risk-off fully in force.
+- **Pre-pump STB snapshot:** neutral. Post-pump structural read: all four bearish at different degrees.
+
+**Scenario read:**
+
+**Scenario A SHORT watch** — if the pump exhausts and all four indices displace below their FCR LOW rays at or after the 9:30 open, this is the highest-conviction short setup of the week. YM's support zones are the key confirmation piece.
+
+**Scenario B SHORT** — if NQ/ES/RTY break the FCR LOW while YM remains at its support stack, Scenario B SHORT is valid with IT Foundation EMA gate red dominant on MNQ.
+
+**Scenario C (no trade)** — if the pump continues aggressively through the open and FCR forms with a bullish displacement above the HIGH ray, do not counter-trend short on deadline day. Wait for the next 1hr boundary.
+
+**Pump caution note:** if the pump has not fully exhausted by 9:30, be careful of an aggressive opening move. Let the FCR candle form in full before acting.
+
+---
+
+## 📅 Economic Calendar
+
+| Time (ET) | Event | Notes |
+|-----------|-------|-------|
+| All week | End of March approaching | Quarter-end rebalancing possible — elevated volatility later this week |
+| 9:30 AM | Regular open | FCR candle forms — elevated pre-market range from pump means wider FCR possible |
+| 10:00 AM | CB Consumer Confidence (possible) | Check for any scheduled 10 AM data — can move ES/NQ within 10 min of the open |
+
+*No EIA this session (Wednesdays only). No FOMC. No major scheduled early-week data expected.*
+
+---
+
+## 🎯 Today's Priority Instruments
+
+| Instrument | Read | Platform | Notes |
+|------------|------|----------|-------|
+| **MNQ** | ⭐ Short bias | Apex | All EMAs red. Deadline day — one A+ setup. Do not force. |
+| **RTY** | 📊 Lead instrument | — | Most aggressive seller. Stacked ZTH support below. |
+| **YM** | ⚠️ Confirmation piece | — | Support stack holding. Loss = Scenario A upgrade. |
+| **ES/MES** | 📊 SMT confirm | — | Confirming NQ direction. No divergence. |
+| **CL** | 👁️ Watch only | Apex | Bullish EMA structure vs equity bear — diverging. ZTH/IT setup if levels align. |
+| **GC** | 📊 Context only | — | Bullish (safe haven bid). Metals halted on Apex — info only. |
+
+---
+
+## 📊 Chart Analysis — Pre-Market Snapshot (08:24–08:26 ET)
+
+### NQ — Macro Downtrend Continuing · Pump at Lows
+
+**08:24 ET — NQ pre-market**
+![NQ1! March 23 pre-market](../../../../../data/screenshots/NQ1!_2026-03-23_08-24-38_589c5.png)
+
+All EMAs red and downward-sloping. The pattern is clear: the post-FOMC bear continuation that started the week of March 16 has not broken. Price made new lows overnight before the pump. The pump is visible at the far right edge — price bouncing from the overnight low. Multiple cyan auto-levels visible above current price = overhead resistance stack. Short bias structurally intact.
+
+---
+
+### ES — Matching NQ · Strong Bearish Confirmed
+
+**08:25 ET — ES pre-market**
+![ES1! March 23 pre-market](../../../../../data/screenshots/ES1!_2026-03-23_08-25-00_fd990.png)
+
+ES mirrors NQ exactly — no divergence between the two. Same EMA structure, same pump at right edge. ES and NQ are confirming each other's bearish read without any SMT ambiguity. The STB "neutral" snapshot likely reflects the pump lifting price off lows momentarily rather than any structural change in direction.
+
+---
+
+### YM — Bearish · ZTH Support Stack in Current Zone
+
+**08:25 ET — YM pre-market**
+![YM1! March 23 pre-market](../../../../../data/screenshots/YM1!_2026-03-23_08-25-09_e849b.png)
+
+YM is bearish but sitting at a stack of green auto-levels (ZTH support). This is consistent with its pattern from last week — YM lags the other three by defending its support zones before eventually confirming lower. The EMAs are red. The pump has put YM at a key decision zone. If YM's support stack breaks at or after 9:30 and NQ/ES/RTY displace below their FCR LOWs, this is a Scenario A SHORT.
+
+---
+
+### RTY — Leading Lower · Risk-Off Confirmed · At Stacked Support
+
+**08:25 ET — RTY pre-market**
+![RTY1! March 23 pre-market](../../../../../data/screenshots/RTY1!_2026-03-23_08-25-17_b4feb.png)
+
+RTY has led the group lower throughout this entire move — small caps are the most risk-sensitive and the most aggressively sold. At 08:25 ET, RTY is sitting at a cluster of green ZTH support boxes. The structure says: RTY has come far, fast, and is at a natural support cluster. If this cluster breaks (or breaks on the open), RTY likely leads the next leg lower. The pump lifted RTY back to the top of this support cluster.
+
+---
+
+### GC — Bullish Divergence · Safe Haven Bid
+
+**08:25 ET — GC pre-market**
+![GC1! March 23 pre-market](../../../../../data/screenshots/GC1!_2026-03-23_08-25-40_5812d.png)
+
+Gold is in a completely different world from equities. All EMAs green, higher highs, bullish structure intact. The safe-haven bid is active — money is rotating from equities into gold. This confirms the risk-off macro read: the equity selloff is not indiscriminate (GC going up while NQ/ES/RTY go down = classic risk-off rotation). Metals halted on Apex — this chart is information only, not a tradeable signal.
+
+---
+
+### CL — Bullish EMA Structure · Diverging from Equities
+
+**08:26 ET — CL pre-market**
+![CL1! March 23 pre-market](../../../../../data/screenshots/CL1!_2026-03-23_08-26-26_ad6a3.png)
+
+CL's EMA structure is green-dominant (bullish positioning) which diverges from the equity bear. This is the same CL structure noted in the Mar 20 pre-market summary. CL is either being supported by supply concerns independent of equity direction, or reflecting the energy component of the broader inflation/macro picture. A ZTH + IT setup on CL requires the IT Foundation EMA gate to confirm and a defined level to trade off — do not chase into the range. Keep on watch.
+
+---
+
+## 🧠 Pre-Session Mental State / Behavioral Reminder
+
+**On the deadline:** Tomorrow is March 24. The account has a ~$4,000 gap. This is real and it is acknowledged — no point pretending the pressure isn't there. The correct frame: the pressure does not change what a valid setup looks like. The five-layer filter doesn't have a "deadline override" — it exists precisely for moments when the mind wants to take a lower-quality trade. One properly-sized A+ setup in a strong bearish environment with all four layers aligned covers a large portion of the gap. One forced entry in a pumping pre-market covers zero of it and costs drawdown.
+
+**On the pump:** The pump is noise within the downtrend until proven otherwise. It has not broken the EMA structure on any of the four indices. It has not made a higher high. It has not changed the macro direction call. Let the 9:30 candle form. Read the FCR. Trade what appears, not what the deadline wants to appear.
+
+**On the rest decision:** Choosing not to trade Sunday when tired was the correct call. Pattern 9 awareness. Being rested on the highest-pressure day of the arc is worth more than a half-asleep Sunday session. This is the right sequence.
+
+**Protocol today:**
+1. Watch the 9:30 FCR candle form — note HIGH and LOW rays
+2. Read YM at the open — does the support stack hold or break?
+3. Wait for pump to show its hand — does it continue or reverse?
+4. If Scenario A/B SHORT confirms (FCR displacement below LOW + EMA gate red + FVG) → that is the trade
+5. Write exit rules on the chart BEFORE placing the bracket — partial TP level + scratch condition
+6. Cancel ALL orders before any step away from the desk (Pattern 9)
+7. If conditions don't align: **$0 is a valid result today**
+
+---
+
+## ⏱️ Live Session Updates
+
+*Pre-market as of 08:26 ET. Updates to be added during session.*
+
+**08:24–08:26 ET pre-market state:**
+- NQ + ES: Strong bearish — all EMAs red, lower lows, pump visible at overnight lows
+- YM: Bearish — stacked ZTH support in current zone, the holdout piece
+- RTY: Most aggressive seller — at stacked support, leading group lower
+- CL: Bullish EMA structure, diverging from equities
+- GC: Bullish (safe haven) — metals halted on Apex, information only
+- Crypto pump occurring simultaneously — risk-on short-cover bounce within downtrend
+
+**STB market snapshot:** Neutral (pre-pump) → structural read bearish on all four
+
+---
+
+<a id="smarttraderai-copy-paste"></a>
+
+## 🤖 SmartTraderAI Pre-Market Copy-Paste Fields
+
+---
+
+**1. What news releases today?**
+
+Monday, March 23. No major scheduled economic data in the early session. CB Consumer Confidence possible at 10:00 AM ET — check before the open. No EIA (Wednesdays only). No FOMC. End-of-month / end-of-quarter positioning begins to build this week — may contribute to elevated volatility as we approach March 31, but no specific catalyst today.
+
+---
+
+**2. What are the expected figures? What effect has this event had on the markets before?**
+
+If CB Consumer Confidence prints at 10:00 AM: a miss (lower than expected) would reinforce the current bearish macro thesis — consumer sentiment deteriorating in a downtrending equity environment. A beat would be contradictory to the macro bear read and could produce a sharp but likely short-lived bounce. The risk is a 10 AM data pop immediately after a 9:30 FCR setup — be aware of the timing overlap if the setup forms early.
+
+---
+
+**3. List both your HTF bias and key levels**
+
+**HTF bias: BEARISH** — all four equity indices continue the macro downtrend that has been in force since early March. The post-FOMC rally (documented Mar 19 RTH) was fully reversed within 24 hours. New lows were made overnight into this session. The structure is bearish at every timeframe.
+
+Key HTF reference levels (from auto-levels v3.0.2):
+- NQ: Multiple cyan levels stacked above current price = overhead resistance. Overnight lows = watch for break-and-hold below
+- ES: Same structure as NQ. HTF bearish anchored below FOMC bounce highs
+- YM: Stacked green ZTH support in current zone — the key level cluster for Scenario A upgrade
+- RTY: At stacked ZTH support cluster — break = next leg confirmed
+- CL: Green EMA structure — independent bullish positioning. Key ZTH/IT levels define tradeable range
+
+---
+
+**4. List your Intraday bias and levels**
+
+**Intraday bias: SHORT** — pump is a bounce within the downtrend, not a reversal. Scenario B SHORT live pre-market (NQ/ES/RTY bearish, YM at support). Scenario A SHORT if YM loses support stack at open.
+
+Key intraday levels:
+- FCR HIGH and LOW from today's 9:30 first 15-min candle (to be set at open)
+- YM stacked ZTH support zone — holds = Scenario B; breaks = Scenario A
+- RTY stacked support cluster — break and hold below = confirming next leg
+- Overnight lows on NQ/ES — break below = continuation confirmed beyond the pump
+- CL ZTH levels — define any ZTH/IT setup entry/SL if CL watch activates
+
+---
+
+**5. Expectations for the day?**
+
+Macro downtrend continues. The pre-market pump is a short-cover / liquidity sweep bounce within the trend — expect it to either exhaust before 9:30 or produce an elevated FCR box that ultimately resolves to the downside. The highest-probability setup today is a Scenario A SHORT if YM confirms: all four indices with FCR displacement below LOWs, EMA gate red, FVG confirmation. One A+ short in this environment — properly sized — is the objective. APEX deadline is tomorrow (~$4,000 gap). The protocol does not change because of the deadline. If conditions align, execute. If they don't, $0 and protect the account for tomorrow's open.
+
+---
+
+> Full pre-market summary: https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260323_summary.md
+
+*Fortuna — Wealth Warden | Claude Code CLI* / *Anthropic claude-sonnet-4-6 | March 23, 2026*
