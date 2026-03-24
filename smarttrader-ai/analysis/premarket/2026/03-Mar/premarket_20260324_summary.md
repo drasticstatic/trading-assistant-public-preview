@@ -133,6 +133,30 @@ The limit orders are the ask. The plan is the knock. The door is the fill.
 
 ## ⏱️ Live Session Updates
 
+**09:45–09:48 ET — FCR candle formed · RTY divergence · GC safe-haven bid**
+
+![YM1! 09:45 ET](../../../../../data/screenshots/YM1!_2026-03-24_09-45-50_f4519.png)
+
+![ES1! 09:46 ET](../../../../../data/screenshots/ES1!_2026-03-24_09-46-15_9194b.png)
+
+![NQ1! 09:46 ET](../../../../../data/screenshots/NQ1!_2026-03-24_09-46-33_fb657.png)
+
+![RTY1! 09:46 ET](../../../../../data/screenshots/RTY1!_2026-03-24_09-46-51_65941.png)
+
+![MCL1! 09:47 ET](../../../../../data/screenshots/MCL1!_2026-03-24_09-47-49_fbade.png)
+
+![GC1! 09:48 ET](../../../../../data/screenshots/GC1!_2026-03-24_09-48-17_48ce2.png)
+
+**9:30 FCR candle:** Bullish spike UP on all four equity indices — consistent with STB's neutral-bullish/strong-bullish snapshot. FCR HIGH rays set at elevated levels from the spike. Price has since sold off from the spike highs. Both working sell limit orders (ESM6, MCLK6) confirmed still [Working] via MCP — the opening spike did not reach the limit entry levels.
+
+**RTY SMT divergence (key signal):** RTY made a significantly weaker opening rally than NQ, ES, and YM. While the other three spiked to elevated FCR HIGHs, RTY's spike was much smaller. RTY is already trading below levels the other three haven't yet reached — small caps leading lower, risk-off confirmed. This is the Scenario A SHORT setup developing: when NQ/ES/YM catch down to RTY's level and all four displace below FCR LOWs, the confirmation is complete.
+
+**GC (09:48) — safe-haven bid, not forced liquidation.** Yesterday GC sold WITH equities (margin/forced liquidation read). Today GC is RALLYING while equities roll over from the opening spike — genuine risk-off capital rotation. This is a structurally stronger macro bear confirmation than yesterday's session provided.
+
+**STB coach:** Initially looking at buys (the opening spike), pivoted to short, was profitable, now back at entry (break-even). Price bouncing between the FVG zone and the short entry area — structure consistent with spike → distribute → sell pattern.
+
+**Working orders status:** Both sell limits remain above current price. A continuation bounce toward the limit zone is possible (evidence: STB's short returned to his entry = price is moving back and forth in this zone). Do not cancel limits to chase a secondary entry while both are active — overlapping risk on deadline day. If a clean continuation FVG short presents itself with full five-layer confirmation, cancel limits first, then one clean entry.
+
 <!-- appended as session develops -->
 
 ---
