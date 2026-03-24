@@ -980,6 +980,32 @@
     .compact-history .ch-table tbody tr[data-release-details]:hover { background: var(--surface-soft); }
     .ch-action { color: var(--teal); font-size: 0.8em; text-align: center; white-space: nowrap; opacity: 0.7; }
     .compact-history .ch-table tbody tr[data-release-details]:hover .ch-action { opacity: 1; }
+    @media (hover: none) { .ch-action { opacity: 1; color: var(--pine-bright); } }
+
+    /* ── Glitter button ───────────────────────────────────────────── */
+    @keyframes glitter-sweep {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes glitter-shine {
+      0%, 42%, 100% { opacity: 0; transform: translateX(-28%) rotate(18deg) scaleY(1.1); }
+      22%           { opacity: 0.9; transform: translateX(300%) rotate(18deg) scaleY(1.1); }
+    }
+    .button.glitter {
+      --btn-tone: var(--gold);
+      --btn-tone-secondary: var(--pine-bright);
+      --btn-ring: rgba(243, 207, 122, 0.22);
+      background: linear-gradient(135deg, #f3cf7a, #8df1b8, #c084fc, #fb923c, #52d6c7, #f3cf7a);
+      background-size: 320% 320%;
+      animation: glitter-sweep 3.6s ease infinite, cta-pulse 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      border-color: rgba(243, 207, 122, 0.45);
+      color: #09121f;
+      font-weight: 800;
+    }
+    .button.glitter::before { animation: glitter-shine 2.2s ease-in-out infinite; }
+    .button.glitter:hover,
+    .button.glitter:focus-visible { color: #09121f; filter: saturate(1.15) brightness(1.06); }
 
   </style>
 </head>
@@ -1009,7 +1035,7 @@
           <strong>Current public baseline</strong>
           <span><code>v3.0.2</code> is the active source snapshot represented here.</span>
           <div class="stat-action-card">
-            <a class="button tertiary" href="./auto-levels.pine_indicator-guide.html">Open Guide ↗</a>
+            <a class="button glitter" href="./auto-levels.pine_indicator-guide.html">Open Guide ✨</a>
           </div>
         </article>
         <article class="stat">
