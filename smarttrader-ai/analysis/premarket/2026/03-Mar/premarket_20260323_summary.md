@@ -271,7 +271,41 @@ The distinction matters. If it's (1), today was a success. If it's (2), the pres
 
 **CL close note:** CL sold off hard from its morning highs and closed in a lower range. The ZTH/IT long watch did not produce a clean setup — the entry criteria weren't met and price confirmed why.
 
-**Evening:** Three mentoring calls lined up — ZTH mastermind, STB mentoring, Inevitrade mentoring. These calls will provide real-time debrief from coaches who just navigated the same session. No evening trading planned — correct given the day's complexity and the importance of the APEX deadline tomorrow morning.
+**Evening:** Three mentoring calls completed — ZTH mastermind, STB mentoring, Inevitrade mentoring. Main Inevitrade coach did not trade RTH. Other IT coaches caught wins in the session. Multiple coaches across all three groups classified today's RTH as untradeable. Christopher did not trade RTH — consistent with coaches' own experience.
+
+---
+
+**20:46–20:48 ET — ETH displacement beginning**
+
+![NQ1! ETH 20:46 ET](../../../../../data/screenshots/NQ1!_2026-03-23_20-46-24_cd7d1.png)
+
+![ES1! ETH 20:46 ET](../../../../../data/screenshots/ES1!_2026-03-23_20-46-54_903e1.png)
+
+![RTY1! ETH 20:46 ET](../../../../../data/screenshots/RTY1!_2026-03-23_20-46-02_02306.png)
+
+![YM1! ETH 20:47 ET](../../../../../data/screenshots/YM1!_2026-03-23_20-47-20_5604e.png)
+
+![GC1! ETH 20:48 ET](../../../../../data/screenshots/GC1!_2026-03-23_20-48-05_1c8d9.png)
+
+![CL1! ETH 20:47 ET](../../../../../data/screenshots/CL1!_2026-03-23_20-47-41_15cf6.png)
+
+The RTH consolidation has broken to the downside in ETH. All four equity indices displacing lower simultaneously. IT Foundation EMAs curling red-dominant. Volume profile on all four shows price entering low-volume air below the RTH range — thin area, less resistance, faster movement. RTY leading. GC rolled over again. CL ranging separately.
+
+**This is Inevitrade's session.** ETH/overnight is the IT window. The IT Foundation EMA gate is their tool. The displacement is structurally real.
+
+**The five-layer check for any potential entry:**
+1. FCR scenario — ETH has no FCR. ZTH/IT structure applies. Is there a ZTH level or IT EMA gate confirming direction? ✅ IT EMAs red-dominant, all four displacing
+2. IT Foundation EMAs gate — red dominant on MNQ? Needs chart confirmation at entry timeframe
+3. FVG displacement confirmed — visible on the downward move
+4. SMT divergence — all four confirming, no divergence
+5. Fibonacci golden pocket — needs specific level identification
+
+**Pre-entry requirements if a trade is taken:**
+- Write partial TP level + scratch condition on chart BEFORE bracket placed — no exceptions
+- SL at structural invalidation, placed pre-entry, not moved
+- Pattern 9: if stepping away at any point — cancel ALL orders first
+
+**APEX deadline note:** The gap is ~$4,000 due tomorrow. The nervousness is real and is named. One properly-sized A+ trade in a confirmed ETH displacement covers meaningful ground. One rushed entry without defined exit rules in a volatile ETH session at 20:46 with a deadline tomorrow covers none of it. The checklist exists for exactly this moment.
 
 ---
 
