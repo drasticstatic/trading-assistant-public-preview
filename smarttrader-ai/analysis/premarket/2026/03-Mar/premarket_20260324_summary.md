@@ -157,6 +157,32 @@ The limit orders are the ask. The plan is the knock. The door is the fill.
 
 **Working orders status:** Both sell limits remain above current price. A continuation bounce toward the limit zone is possible (evidence: STB's short returned to his entry = price is moving back and forth in this zone). Do not cancel limits to chase a secondary entry while both are active — overlapping risk on deadline day. If a clean continuation FVG short presents itself with full five-layer confirmation, cancel limits first, then one clean entry.
 
+**10:46–10:48 ET — Scenario C developing · YM/RTY strength vs NQ/ES weakness · CL retest**
+
+![RTY1! 10:46 ET](../../../../../data/screenshots/RTY1!_2026-03-24_10-46-23_4459e.png)
+
+![NQ1! 10:46 ET](../../../../../data/screenshots/NQ1!_2026-03-24_10-46-55_63514.png)
+
+![YM1! 10:47 ET](../../../../../data/screenshots/YM1!_2026-03-24_10-47-28_994ac.png)
+
+![ES1! 10:47 ET](../../../../../data/screenshots/ES1!_2026-03-24_10-47-50_ab1e1.png)
+
+![CL1! 10:48 ET](../../../../../data/screenshots/CL1!_2026-03-24_10-48-28_e556c.png)
+
+![GC1! 10:48 ET](../../../../../data/screenshots/GC1!_2026-03-24_10-48-55_866f4.png)
+
+**Correction on 9:30 RTY read:** The large bottom wick on RTY's 9:30 candle was bullish (buyers defended the low hard). The key bear signal was the 9:35 candle engulfing the 9:30 body on NQ/ES/YM — the aggressive sellers stepped in one candle later on those three, not simultaneously with RTY.
+
+**Scenario C — divergence unresolved.** YM/RTY are holding above key support levels with relative strength. NQ/ES are making lower lows and showing more definitive red EMA structure. Four-index alignment required for Scenario A SHORT is NOT present. Per the framework: Scenario C = no trade.
+
+**STB session outcome:** Coach looked at buys, pivoted to short, took partial profits, stopped out on the wick back up into the 9:30 FCR FVG. Now watching for buy off inverted FVG — consistent with YM/RTY showing relative bullishness. Session over for coaches.
+
+**ZTH — CL retest long watch:** CL reversed hard from the session's early highs, returning to the ZTH support level it launched from. Green auto-level visible at current zone. ZTH watching for retest long entry — clean structural setup at that level.
+
+**GC:** Still elevated vs session open. Safe-haven bid intact, pulling back from intraday highs — consolidating, not reversing.
+
+**Working orders:** Both sell limits still [Working] (MCP confirmed). Price needs a rally to reach the entry levels. With Scenario C in force and coaches done for the day, this is an observation session. Limits remain structurally valid — if YM/RTY drag NQ/ES back up and all four align toward the short entry zone, the setup is intact. No chase, no secondary entries while both limits are live.
+
 <!-- appended as session develops -->
 
 ---
