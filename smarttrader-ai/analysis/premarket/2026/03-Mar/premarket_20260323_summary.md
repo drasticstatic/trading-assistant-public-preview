@@ -309,6 +309,48 @@ The RTH consolidation has broken to the downside in ETH. All four equity indices
 
 ---
 
+**03:12–03:17 ET — Overnight recovery · London STB call · Working orders live**
+
+![Screenshot 2026-03-24 at 03.12 — ES bracket order (Tradovate)](../../../../../data/screenshots/Screenshot%202026-03-24%20at%2003.12.12.png)
+
+![Screenshot 2026-03-24 at 03.14 — MCL bracket order (Tradovate)](../../../../../data/screenshots/Screenshot%202026-03-24%20at%2003.14.11.png)
+
+![RTY1! 03:14 ET](../../../../../data/screenshots/RTY1!_2026-03-24_03-14-45_1bd66.png)
+
+![YM1! 03:15 ET](../../../../../data/screenshots/YM1!_2026-03-24_03-15-46_1ac49.png)
+
+![NQ1! 03:16 ET](../../../../../data/screenshots/NQ1!_2026-03-24_03-16-12_4c963.png)
+
+![GC1! 03:16 ET](../../../../../data/screenshots/GC1!_2026-03-24_03-16-46_e6956.png)
+
+![CL1! 03:17 ET](../../../../../data/screenshots/CL1!_2026-03-24_03-17-08_c50ab.png)
+
+![ES1! 03:17 ET](../../../../../data/screenshots/ES1!_2026-03-24_03-17-28_d0935.png)
+
+**Context:** After the 20:46 ET ETH displacement lower, all four equity indices reversed and made a strong overnight recovery. The ETH downward move did not sustain — price reversed and rallied significantly through the early morning hours. At 03:12 ET, Christopher is on the London STB coaching call (using heatmap + ATAA volume footprint for confluence). Two working bracket orders are live on APEX: Sell ESM6 (sell limit above current price) and Sell MCLK6 (Micro Crude Light short).
+
+**Overnight recovery structure — equities:**
+- All four indices (NQ, ES, YM, RTY) have made a significant bounce from the Mar 23/overnight ETH lows
+- The recovery structure matches the pre-market pump from Mar 23 exactly: short-cover bounce within a macro downtrend, not a structural reversal
+- HTF EMAs remain red at the dominant timeframe — the macro bear is intact
+- Volume profile on all four indices shows heavy concentration at the current recovery zone = price is at resistance, not breaking through it
+- RTY and NQ led the recovery (same instruments that led the downside), now at or approaching overhead ZTH/IT resistance levels
+
+**ESM6 short analysis (working order):**
+- Bias-aligned: macro downtrend, overhead resistance, volume node = supply absorption at current level
+- Entry level arrived via patience — price came to the plan, not the plan chasing price
+- Risk alert: APEX-06 deadline is today (Mar 24) — this is the highest Pattern 7 risk moment of the recovery arc. SL stays at structural placement, no modifications regardless of outcome.
+- Pre-fill requirement: exit rules written (partial TP + scratch condition) before the bracket activates
+
+**MCLK6 short analysis (working order):**
+- Lower conviction: CL has been in a bullish divergence from equities throughout Mar 23 — EMAs green, independent bullish structure
+- Counter-trend short on a bullish-diverging instrument requires a very specific KEY resistance level with footprint/heatmap confirmation of supply absorption
+- Valid if London coaches confirm selling absorbed at the MCL entry level on ATAA footprint; lower priority than the ESM6 short
+
+**Pattern 9 — non-negotiable:** If stepping away from desk at any point during or after this session, cancel ALL working orders first. This rule was documented Mar 20 after the unintentional RTY fill.
+
+---
+
 <a id="smarttraderai-copy-paste"></a>
 
 ## 🤖 SmartTraderAI Pre-Market Copy-Paste Fields
