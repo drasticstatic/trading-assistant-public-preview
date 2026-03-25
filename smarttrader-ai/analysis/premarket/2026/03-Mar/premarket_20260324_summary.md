@@ -183,27 +183,7 @@ The limit orders are the ask. The plan is the knock. The door is the fill.
 
 **Working orders:** Both sell limits still [Working] (MCP confirmed). Price needs a rally to reach the entry levels. With Scenario C in force and coaches done for the day, this is an observation session. Limits remain structurally valid — if YM/RTY drag NQ/ES back up and all four align toward the short entry zone, the setup is intact. No chase, no secondary entries while both limits are live.
 
-**19:29–19:37 ET — ETH open · V-recovery with macro bear wedge**
-
-![YM1! 19:29 ET](../../../../../data/screenshots/YM1!_2026-03-24_19-29-44_e6f7d.png)
-
-![NQ1! 19:30 ET](../../../../../data/screenshots/NQ1!_2026-03-24_19-30-35_4f9c3.png)
-
-![RTY1! 19:30 ET](../../../../../data/screenshots/RTY1!_2026-03-24_19-30-58_5fd5e.png)
-
-![ES1! 19:31 ET](../../../../../data/screenshots/ES1!_2026-03-24_19-31-32_91c80.png)
-
-![CL1! 19:36 ET](../../../../../data/screenshots/CL1!_2026-03-24_19-36-54_ab61a.png)
-
-![GC1! 19:37 ET](../../../../../data/screenshots/GC1!_2026-03-24_19-37-25_ffd7a.png)
-
-All four indices opened the ETH session with a V-recovery from the RTH close lows. Orange descending resistance lines drawn across the lower highs on NQ/ES/YM — macro bear wedge structure intact. Each bounce is making lower highs on the daily/HTF structure. CL divergence noted. GC still elevated. The daytime ES short captured the early leg of this structure; the overnight/ETH session continues to develop within the same macro downtrend.
-
-**21:46–21:47 ET — ES + CL evening update**
-
-![ES1! 21:46 ET](../../../../../data/screenshots/ES1!_2026-03-24_21-46-35_ed439.png)
-
-![CL1! 21:47 ET](../../../../../data/screenshots/CL1!_2026-03-24_21-47-07_ea173.png)
+<!-- ETH evening session continues in: premarket_20260325_0324-evening-session.md -->
 
 <!-- appended as session develops -->
 
