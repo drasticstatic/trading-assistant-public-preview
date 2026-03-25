@@ -550,6 +550,7 @@
       transform: translate3d(var(--mag-x), calc(var(--mag-y) + var(--cta-lift)), 0) scale(var(--cta-scale));
       transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease, filter 0.18s ease;
       animation: cta-pulse 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      will-change: transform;
     }
 
     .button::before {
@@ -561,10 +562,10 @@
       background: linear-gradient(120deg, transparent, rgba(255,255,255,0.28), transparent);
       opacity: 0;
       transform: translateX(-16%) rotate(18deg);
-      transition: transform 0.42s ease, opacity 0.28s ease;
       pointer-events: none;
       mix-blend-mode: screen;
       z-index: 0;
+      animation: btn-sparkle 7s ease-in-out infinite;
     }
 
     .button::after {
@@ -610,8 +611,7 @@
 
     .button:hover::before,
     .button:focus-visible::before {
-      opacity: 0.95;
-      transform: translateX(240%) rotate(18deg);
+      animation: btn-sparkle-hover 0.45s ease-out forwards;
     }
 
     .button:hover::after,
@@ -738,6 +738,28 @@
       to { offset-distance: 100%; }
     }
 
+    @keyframes btn-sparkle {
+      0%, 82%, 100% { opacity: 0; transform: translateX(-16%) rotate(18deg); }
+      87%           { opacity: 0.35; transform: translateX(130%) rotate(18deg); }
+      92%           { opacity: 0; transform: translateX(260%) rotate(18deg); }
+    }
+    @keyframes btn-sparkle-hover {
+      from { opacity: 0; transform: translateX(-16%) rotate(18deg); }
+      45%  { opacity: 0.95; }
+      to   { opacity: 0; transform: translateX(260%) rotate(18deg); }
+    }
+    @keyframes nav-sparkle {
+      0%, 65%, 100% { border-color: rgba(84, 214, 141, 0.3); color: var(--pine); }
+      74%           { border-color: rgba(82, 214, 199, 0.58); color: var(--teal); }
+    }
+    @keyframes tip-btn-color {
+      0%, 60%, 100% { color: var(--teal); }
+      70%           { color: var(--pine-bright); }
+    }
+    @keyframes tip-cta-sparkle {
+      0%, 70%, 100% { border-color: rgba(82, 214, 199, 0.28); color: var(--teal); }
+      80%           { border-color: rgba(82, 214, 199, 0.52); color: var(--pine-bright); }
+    }
     @keyframes cta-pulse {
       0%, 100% {
         background-position: 48% 52%;
@@ -814,7 +836,7 @@
       vertical-align: middle;
       line-height: 1;
       transition: opacity 0.15s, transform 0.15s, box-shadow 0.15s;
-      animation: tip-attention 3.5s ease-out 2s infinite;
+      animation: tip-attention 3.5s ease-out 2s infinite, tip-btn-color 3.5s ease-in-out 2s infinite;
     }
     .tip-btn:hover, .tip-btn:focus-visible { opacity: 1; transform: scale(1.12); outline: none; animation: none; }
     .tip-cta {
@@ -829,9 +851,10 @@
       border: 1px solid rgba(82, 214, 199, 0.28);
       border-radius: 8px;
       cursor: pointer;
-      transition: background 0.15s, border-color 0.15s;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      animation: tip-cta-sparkle 4.5s ease-in-out infinite;
     }
-    .tip-cta:hover { background: rgba(82, 214, 199, 0.14); border-color: rgba(82, 214, 199, 0.5); }
+    .tip-cta:hover { background: rgba(82, 214, 199, 0.14); border-color: rgba(82, 214, 199, 0.5); animation: none; }
 
     .tip-overlay {
       position: fixed;
@@ -932,7 +955,10 @@
       background: rgba(84, 214, 141, 0.06);
       transition: background 0.15s, border-color 0.15s, color 0.15s;
       letter-spacing: 0.01em;
+      animation: nav-sparkle 5s ease-in-out infinite;
     }
+    .page-nav a:nth-child(2) { animation-delay: -1.67s; }
+    .page-nav a:nth-child(3) { animation-delay: -3.33s; }
     .page-nav a:hover,
     .page-nav a.nav-active {
       background: rgba(84, 214, 141, 0.14);
@@ -943,6 +969,7 @@
 
     /* ── Mobile tap = hover: buttons + nav ───────────────────────── */
     @media (hover: none) {
+      .button::before { animation: none; transition: opacity 0.15s, transform 0.35s ease; }
       .button:active {
         --cta-lift: -2px;
         --cta-scale: 1.015;
@@ -953,7 +980,7 @@
       }
       .button:active::before { opacity: 0.95; transform: translateX(240%) rotate(18deg); }
       .button:active::after  { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-      .page-nav a:active { background: rgba(84, 214, 141, 0.14); border-color: rgba(84, 214, 141, 0.6); color: var(--teal); }
+      .page-nav a:active { background: rgba(84, 214, 141, 0.14); border-color: rgba(84, 214, 141, 0.6); color: var(--teal); animation: none; }
     }
 
   </style>

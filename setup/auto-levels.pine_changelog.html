@@ -476,6 +476,7 @@
       transform: translate3d(var(--mag-x), calc(var(--mag-y) + var(--cta-lift)), 0) scale(var(--cta-scale));
       transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease, filter 0.18s ease;
       animation: cta-pulse 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      will-change: transform;
     }
 
     .button::before {
@@ -487,10 +488,10 @@
       background: linear-gradient(120deg, transparent, rgba(255,255,255,0.28), transparent);
       opacity: 0;
       transform: translateX(-16%) rotate(18deg);
-      transition: transform 0.42s ease, opacity 0.28s ease;
       pointer-events: none;
       mix-blend-mode: screen;
       z-index: 0;
+      animation: btn-sparkle 7s ease-in-out infinite;
     }
 
     .button::after {
@@ -536,8 +537,7 @@
 
     .button:hover::before,
     .button:focus-visible::before {
-      opacity: 0.95;
-      transform: translateX(240%) rotate(18deg);
+      animation: btn-sparkle-hover 0.45s ease-out forwards;
     }
 
     .button:hover::after,
@@ -703,6 +703,20 @@
       to { offset-distance: 100%; }
     }
 
+    @keyframes btn-sparkle {
+      0%, 82%, 100% { opacity: 0; transform: translateX(-16%) rotate(18deg); }
+      87%           { opacity: 0.35; transform: translateX(130%) rotate(18deg); }
+      92%           { opacity: 0; transform: translateX(260%) rotate(18deg); }
+    }
+    @keyframes btn-sparkle-hover {
+      from { opacity: 0; transform: translateX(-16%) rotate(18deg); }
+      45%  { opacity: 0.95; }
+      to   { opacity: 0; transform: translateX(260%) rotate(18deg); }
+    }
+    @keyframes nav-sparkle {
+      0%, 65%, 100% { border-color: rgba(84, 214, 141, 0.3); color: var(--pine); }
+      74%           { border-color: rgba(82, 214, 199, 0.58); color: var(--teal); }
+    }
     @keyframes cta-pulse {
       0%, 100% {
         background-position: 48% 52%;
@@ -814,7 +828,12 @@
       transition: background 0.15s, border-color 0.15s, color 0.15s;
       letter-spacing: 0.01em;
       cursor: pointer;
+      animation: nav-sparkle 5s ease-in-out infinite;
     }
+    .page-nav a:nth-child(2), .page-nav .view-toggle:nth-child(2) { animation-delay: -1.25s; }
+    .page-nav a:nth-child(3), .page-nav .view-toggle:nth-child(3) { animation-delay: -2.5s; }
+    .page-nav a:nth-child(4), .page-nav .view-toggle:nth-child(4) { animation-delay: -3.75s; }
+    .page-nav a:nth-child(5), .page-nav .view-toggle:nth-child(5) { animation-delay: -5s; }
     .page-nav a:hover,
     .page-nav .view-toggle:hover,
     .page-nav a.nav-active {
@@ -980,23 +999,19 @@
     .compact-history .ch-table tbody tr[data-release-details]:hover { background: var(--surface-soft); }
     /* ── Version history row action indicator ────────────────────── */
     @keyframes ch-action-glitter {
-      0%   { background-position: 0% 50%; }
-      50%  { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0%, 100% { color: var(--teal); text-shadow: 0 0 5px rgba(82, 214, 199, 0.35); }
+      50%       { color: var(--gold); text-shadow: 0 0 8px rgba(243, 207, 122, 0.45); }
     }
     .ch-action {
+      color: var(--teal);
       font-size: 0.95em;
       font-weight: 700;
       text-align: center;
       white-space: nowrap;
-      background: linear-gradient(90deg, var(--teal), var(--pine-bright), var(--gold), var(--teal));
-      background-size: 300% 100%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: ch-action-glitter 2.4s ease infinite;
+      will-change: color;
+      animation: ch-action-glitter 2.4s ease-in-out infinite;
     }
-    .compact-history .ch-table tbody tr[data-release-details]:hover .ch-action { animation-duration: 1s; }
+    .compact-history .ch-table tbody tr[data-release-details]:hover .ch-action { animation-duration: 0.8s; }
     @media (max-width: 600px) {
       .compact-history .ch-table .ch-summary,
       .compact-history .ch-table thead th:nth-child(3) { display: none; }
@@ -1004,6 +1019,7 @@
 
     /* ── Mobile tap = hover: buttons + nav ───────────────────────── */
     @media (hover: none) {
+      .button::before { animation: none; transition: opacity 0.15s, transform 0.35s ease; }
       .button:active {
         --cta-lift: -2px;
         --cta-scale: 1.015;
@@ -1015,7 +1031,7 @@
       .button:active::before { opacity: 0.95; transform: translateX(240%) rotate(18deg); }
       .button:active::after  { opacity: 1; transform: translate(-50%, -50%) scale(1); }
       .page-nav a:active,
-      .page-nav .view-toggle:active { background: rgba(84, 214, 141, 0.14); border-color: rgba(84, 214, 141, 0.6); color: var(--teal); }
+      .page-nav .view-toggle:active { background: rgba(84, 214, 141, 0.14); border-color: rgba(84, 214, 141, 0.6); color: var(--teal); animation: none; }
     }
 
   </style>
