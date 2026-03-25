@@ -978,34 +978,45 @@
     /* ── Compact table: clickable rows ───────────────────────────── */
     .compact-history .ch-table tbody tr[data-release-details] { cursor: pointer; }
     .compact-history .ch-table tbody tr[data-release-details]:hover { background: var(--surface-soft); }
-    .ch-action { color: var(--teal); font-size: 0.8em; text-align: center; white-space: nowrap; opacity: 0.7; }
-    .compact-history .ch-table tbody tr[data-release-details]:hover .ch-action { opacity: 1; }
-    @media (hover: none) { .ch-action { opacity: 1; color: var(--pine-bright); } }
-
-    /* ── Glitter button ───────────────────────────────────────────── */
-    @keyframes glitter-sweep {
+    /* ── Version history row action indicator ────────────────────── */
+    @keyframes ch-action-glitter {
       0%   { background-position: 0% 50%; }
       50%  { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-    @keyframes glitter-shine {
-      0%, 42%, 100% { opacity: 0; transform: translateX(-28%) rotate(18deg) scaleY(1.1); }
-      22%           { opacity: 0.9; transform: translateX(300%) rotate(18deg) scaleY(1.1); }
+    .ch-action {
+      font-size: 0.95em;
+      font-weight: 700;
+      text-align: center;
+      white-space: nowrap;
+      background: linear-gradient(90deg, var(--teal), var(--pine-bright), var(--gold), var(--teal));
+      background-size: 300% 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: ch-action-glitter 2.4s ease infinite;
     }
-    .button.glitter {
-      --btn-tone: var(--gold);
-      --btn-tone-secondary: var(--pine-bright);
-      --btn-ring: rgba(243, 207, 122, 0.22);
-      background: linear-gradient(135deg, #f3cf7a, #8df1b8, #c084fc, #fb923c, #52d6c7, #f3cf7a);
-      background-size: 320% 320%;
-      animation: glitter-sweep 3.6s ease infinite, cta-pulse 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-      border-color: rgba(243, 207, 122, 0.45);
-      color: #09121f;
-      font-weight: 800;
+    .compact-history .ch-table tbody tr[data-release-details]:hover .ch-action { animation-duration: 1s; }
+    @media (max-width: 600px) {
+      .compact-history .ch-table .ch-summary,
+      .compact-history .ch-table thead th:nth-child(3) { display: none; }
     }
-    .button.glitter::before { animation: glitter-shine 2.2s ease-in-out infinite; }
-    .button.glitter:hover,
-    .button.glitter:focus-visible { color: #09121f; filter: saturate(1.15) brightness(1.06); }
+
+    /* ── Mobile tap = hover: buttons + nav ───────────────────────── */
+    @media (hover: none) {
+      .button:active {
+        --cta-lift: -2px;
+        --cta-scale: 1.015;
+        border-color: var(--btn-tone);
+        box-shadow: 0 18px 38px rgba(12, 22, 38, 0.3), inset 0 1px 0 rgba(255,255,255,0.16), 0 0 0 1px color-mix(in srgb, var(--btn-tone) 28%, rgba(255,255,255,0.08));
+        color: var(--btn-tone);
+        filter: saturate(1.08);
+      }
+      .button:active::before { opacity: 0.95; transform: translateX(240%) rotate(18deg); }
+      .button:active::after  { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      .page-nav a:active,
+      .page-nav .view-toggle:active { background: rgba(84, 214, 141, 0.14); border-color: rgba(84, 214, 141, 0.6); color: var(--teal); }
+    }
 
   </style>
 </head>
@@ -1035,7 +1046,7 @@
           <strong>Current public baseline</strong>
           <span><code>v3.0.2</code> is the active source snapshot represented here.</span>
           <div class="stat-action-card">
-            <a class="button glitter" href="./auto-levels.pine_indicator-guide.html">Open Guide ✨</a>
+            <a class="button tertiary" href="./auto-levels.pine_indicator-guide.html">Open Guide ↗</a>
           </div>
         </article>
         <article class="stat">

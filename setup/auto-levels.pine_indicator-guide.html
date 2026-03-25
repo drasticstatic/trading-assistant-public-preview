@@ -940,6 +940,22 @@
       color: var(--teal);
     }
     section[id] { scroll-margin-top: 2.5rem; }
+
+    /* ── Mobile tap = hover: buttons + nav ───────────────────────── */
+    @media (hover: none) {
+      .button:active {
+        --cta-lift: -2px;
+        --cta-scale: 1.015;
+        border-color: var(--btn-tone);
+        box-shadow: 0 18px 38px rgba(12, 22, 38, 0.3), inset 0 1px 0 rgba(255,255,255,0.16), 0 0 0 1px color-mix(in srgb, var(--btn-tone) 28%, rgba(255,255,255,0.08));
+        color: var(--btn-tone);
+        filter: saturate(1.08);
+      }
+      .button:active::before { opacity: 0.95; transform: translateX(240%) rotate(18deg); }
+      .button:active::after  { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      .page-nav a:active { background: rgba(84, 214, 141, 0.14); border-color: rgba(84, 214, 141, 0.6); color: var(--teal); }
+    }
+
   </style>
 </head>
 <body>
