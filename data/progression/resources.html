@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trading Resources — Christopher Wilson</title>
+  <meta name="description" content="Trading glossary, prop firm mechanics, session reference, and psychology lessons — Christopher Wilson's living reference.">
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../favicon.png" type="image/png" sizes="64x64">
+  <style>
+    :root {
+      --bg: #07120e; --bg-alt: #0b1812;
+      --surface: rgba(10,24,18,0.86); --surface-soft: rgba(8,20,14,0.56); --surface-strong: #0f1f18;
+      --border: rgba(139,148,158,0.18); --border-strong: rgba(139,148,158,0.30);
+      --text: #d4ddd8; --muted: #8fa898; --subtle: #5d7369;
+      --teal: #52d6c7; --green: #3fb950; --gold: #f3cf7a; --blue: #7cc2ff;
+      --purple: #bc8cff; --red: #f85149; --pine: #54d68d;
+      --shadow: 0 18px 36px rgba(0,8,4,0.3);
+      /* category colors */
+      --cat-price: #7cc2ff;
+      --cat-footprint: #bc8cff;
+      --cat-strategy: #52d6c7;
+      --cat-session: #3fb950;
+      --cat-account: #f3cf7a;
+      --cat-behavior: #f78166;
+    }
+    html.light {
+      --bg: #eef8f1; --bg-alt: #f5fbf7;
+      --surface: rgba(255,255,255,0.9); --surface-soft: rgba(238,248,241,0.8); --surface-strong: #fff;
+      --border: rgba(60,100,75,0.15); --border-strong: rgba(60,100,75,0.26);
+      --text: #1a2e23; --muted: #4a6b55; --subtle: #6b8a74;
+      --teal: #0d9488; --green: #1a7f37; --gold: #9a6700; --blue: #0969da;
+      --purple: #8250df; --red: #cf222e; --pine: #1a7f37;
+      --cat-price: #0969da; --cat-footprint: #8250df;
+      --cat-strategy: #0d9488; --cat-session: #1a7f37;
+      --cat-account: #9a6700; --cat-behavior: #bc4c00;
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 68px; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      font-size: 15px; line-height: 1.65; color: var(--text);
+      background:
+        radial-gradient(ellipse at 15% 10%, rgba(82,214,199,0.10) 0%, transparent 40%),
+        radial-gradient(ellipse at 85% 15%, rgba(63,185,80,0.08) 0%, transparent 35%),
+        radial-gradient(ellipse at 50% 85%, rgba(188,140,255,0.06) 0%, transparent 40%),
+        linear-gradient(160deg, var(--bg-alt) 0%, var(--bg) 100%);
+      background-attachment: fixed;
+      transition: background 0.2s, color 0.2s;
+    }
+    html.light body {
+      background:
+        radial-gradient(ellipse at 15% 10%, rgba(13,148,136,0.07) 0%, transparent 40%),
+        radial-gradient(ellipse at 85% 15%, rgba(26,127,55,0.06) 0%, transparent 35%),
+        radial-gradient(ellipse at 50% 85%, rgba(130,80,223,0.04) 0%, transparent 40%),
+        linear-gradient(160deg, var(--bg-alt) 0%, var(--bg) 100%);
+      background-attachment: fixed;
+    }
+    a { color: var(--teal); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+    /* ── SKIP LINK ── */
+    .skip { position:absolute; left:1rem; top:-3rem; z-index:300; padding:.6rem 1rem;
+      border:1px solid var(--border-strong); border-radius:999px; background:var(--surface-strong);
+      color:var(--text); font-size:.82rem; }
+    .skip:focus { top:.75rem; }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      position:sticky; top:0; z-index:150;
+      display:flex; align-items:center; gap:.65rem; flex-wrap:wrap;
+      padding:.6rem 1.25rem; border-bottom:1px solid var(--border);
+      background:rgba(7,18,14,.90); backdrop-filter:blur(14px);
+    }
+    html.light .topbar { background:rgba(238,248,241,.93); }
+    .breadcrumb { display:flex; align-items:center; gap:.4rem; font-size:.78rem; color:var(--muted); flex:1; min-width:0; overflow:hidden; }
+    .breadcrumb a { color:var(--muted); white-space:nowrap; }
+    .breadcrumb a:hover { color:var(--teal); text-decoration:none; }
+    .breadcrumb span { opacity:.5; }
+    .topbar-actions { display:flex; gap:.45rem; align-items:center; margin-left:auto; flex-wrap:wrap; }
+    .pill-btn {
+      display:inline-flex; align-items:center; gap:.3rem;
+      padding:.3rem .7rem; border:1px solid var(--border); border-radius:999px;
+      background:transparent; color:var(--muted); font-size:.8rem; cursor:pointer;
+      transition:border-color .18s, color .18s, transform .15s;
+      white-space:nowrap; text-decoration:none;
+    }
+    .pill-btn:hover { border-color:var(--teal); color:var(--text); transform:translateY(-1px); text-decoration:none; }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 2rem;
+      text-align: center;
+    }
+    .hero-eyebrow { font-size:.78rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--teal); margin-bottom:.75rem; }
+    .hero-title { font-size:clamp(1.6rem,4vw,2.4rem); font-weight:800; margin:0 0 .75rem; line-height:1.2; }
+    .hero-sub { color:var(--muted); font-size:1rem; max-width:580px; margin:0 auto 1.75rem; }
+    .hero-nav {
+      display:flex; flex-wrap:wrap; gap:.5rem; justify-content:center; margin-bottom:.5rem;
+    }
+    .hero-nav a {
+      display:inline-flex; align-items:center; gap:.4rem;
+      padding:.45rem 1rem; border:1px solid var(--border); border-radius:999px;
+      font-size:.85rem; color:var(--muted); transition:all .18s; text-decoration:none;
+    }
+    .hero-nav a:hover { text-decoration:none; transform:translateY(-1px); }
+    .hero-nav a.price { border-color:rgba(124,194,255,.3); color:var(--cat-price); }
+    .hero-nav a.price:hover { border-color:var(--cat-price); background:rgba(124,194,255,.07); }
+    .hero-nav a.footprint { border-color:rgba(188,140,255,.3); color:var(--cat-footprint); }
+    .hero-nav a.footprint:hover { border-color:var(--cat-footprint); background:rgba(188,140,255,.07); }
+    .hero-nav a.strategy { border-color:rgba(82,214,199,.3); color:var(--cat-strategy); }
+    .hero-nav a.strategy:hover { border-color:var(--cat-strategy); background:rgba(82,214,199,.07); }
+    .hero-nav a.session { border-color:rgba(63,185,80,.3); color:var(--cat-session); }
+    .hero-nav a.session:hover { border-color:var(--cat-session); background:rgba(63,185,80,.07); }
+    .hero-nav a.account { border-color:rgba(243,207,122,.3); color:var(--cat-account); }
+    .hero-nav a.account:hover { border-color:var(--cat-account); background:rgba(243,207,122,.07); }
+    .hero-nav a.behavior { border-color:rgba(247,129,102,.3); color:var(--cat-behavior); }
+    .hero-nav a.behavior:hover { border-color:var(--cat-behavior); background:rgba(247,129,102,.07); }
+
+    /* ── MAIN LAYOUT ── */
+    .main { max-width: 900px; margin: 0 auto; padding: 0 1.25rem 4rem; }
+
+    /* ── SECTION HEADERS ── */
+    .section-header {
+      display:flex; align-items:center; gap:.75rem;
+      margin: 2.5rem 0 1.25rem; padding-bottom:.6rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-icon { font-size:1.4rem; line-height:1; }
+    .section-title { font-size:1.15rem; font-weight:700; margin:0; }
+    .section-count { font-size:.78rem; color:var(--muted); margin-left:auto; }
+
+    /* ── SEARCH & FILTER ── */
+    .glossary-controls {
+      display:flex; flex-wrap:wrap; gap:.65rem; align-items:center;
+      margin-bottom:1.25rem;
+    }
+    .search-wrap { position:relative; flex:1; min-width:180px; }
+    .search-wrap input {
+      width:100%; padding:.45rem .75rem .45rem 2rem;
+      border:1px solid var(--border); border-radius:999px;
+      background:var(--surface-soft); color:var(--text); font-size:.88rem;
+      transition:border-color .18s;
+    }
+    .search-wrap input:focus { outline:none; border-color:var(--teal); }
+    .search-wrap input::placeholder { color:var(--subtle); }
+    .search-wrap::before { content:"🔍"; position:absolute; left:.7rem; top:50%; transform:translateY(-50%); font-size:.8rem; pointer-events:none; }
+    .filter-btns { display:flex; flex-wrap:wrap; gap:.4rem; }
+    .filter-btn {
+      padding:.3rem .7rem; border:1px solid var(--border); border-radius:999px;
+      background:transparent; color:var(--muted); font-size:.78rem; cursor:pointer;
+      transition:all .15s;
+    }
+    .filter-btn.active, .filter-btn:hover { color:var(--text); }
+    .filter-btn[data-cat="all"].active { border-color:var(--teal); background:rgba(82,214,199,.1); color:var(--teal); }
+    .filter-btn[data-cat="price"].active { border-color:var(--cat-price); background:rgba(124,194,255,.1); color:var(--cat-price); }
+    .filter-btn[data-cat="footprint"].active { border-color:var(--cat-footprint); background:rgba(188,140,255,.1); color:var(--cat-footprint); }
+    .filter-btn[data-cat="strategy"].active { border-color:var(--cat-strategy); background:rgba(82,214,199,.1); color:var(--cat-strategy); }
+    .filter-btn[data-cat="session"].active { border-color:var(--cat-session); background:rgba(63,185,80,.1); color:var(--cat-session); }
+    .filter-btn[data-cat="account"].active { border-color:var(--cat-account); background:rgba(243,207,122,.1); color:var(--cat-account); }
+    .filter-btn[data-cat="behavior"].active { border-color:var(--cat-behavior); background:rgba(247,129,102,.1); color:var(--cat-behavior); }
+    #glossaryCount { font-size:.78rem; color:var(--muted); margin-left:.25rem; }
+
+    /* ── GLOSSARY CARDS ── */
+    .glossary-grid { display:flex; flex-direction:column; gap:.65rem; }
+    .g-card {
+      border:1px solid var(--border); border-radius:10px;
+      background:var(--surface); overflow:hidden;
+      transition:border-color .18s;
+    }
+    .g-card:hover { border-color:var(--border-strong); }
+    .g-card[data-cat="price"]:hover { border-color:rgba(124,194,255,.4); }
+    .g-card[data-cat="footprint"]:hover { border-color:rgba(188,140,255,.4); }
+    .g-card[data-cat="strategy"]:hover { border-color:rgba(82,214,199,.4); }
+    .g-card[data-cat="session"]:hover { border-color:rgba(63,185,80,.4); }
+    .g-card[data-cat="account"]:hover { border-color:rgba(243,207,122,.4); }
+    .g-card[data-cat="behavior"]:hover { border-color:rgba(247,129,102,.4); }
+    .g-card.hidden { display:none; }
+    .g-summary {
+      display:flex; align-items:flex-start; gap:.75rem;
+      padding:.85rem 1rem; cursor:pointer; list-style:none; user-select:none;
+    }
+    .g-summary::-webkit-details-marker { display:none; }
+    .g-badge {
+      flex-shrink:0; font-size:.68rem; font-weight:700; letter-spacing:.06em;
+      text-transform:uppercase; padding:.2rem .5rem; border-radius:4px;
+      margin-top:.15rem;
+    }
+    .g-badge.price { background:rgba(124,194,255,.13); color:var(--cat-price); }
+    .g-badge.footprint { background:rgba(188,140,255,.13); color:var(--cat-footprint); }
+    .g-badge.strategy { background:rgba(82,214,199,.13); color:var(--cat-strategy); }
+    .g-badge.session { background:rgba(63,185,80,.13); color:var(--cat-session); }
+    .g-badge.account { background:rgba(243,207,122,.13); color:var(--cat-account); }
+    .g-badge.behavior { background:rgba(247,129,102,.13); color:var(--cat-behavior); }
+    .g-term-wrap { flex:1; min-width:0; }
+    .g-term { font-weight:700; font-size:.97rem; }
+    .g-short { font-size:.88rem; color:var(--muted); margin-top:.15rem; line-height:1.45; }
+    .g-arrow { flex-shrink:0; color:var(--subtle); font-size:.8rem; margin-top:.2rem; transition:transform .2s; }
+    details.g-card[open] .g-arrow { transform: rotate(90deg); }
+    .g-body {
+      padding:.1rem 1rem 1rem 1rem;
+      border-top:1px solid var(--border);
+      font-size:.88rem; line-height:1.65; color:var(--text);
+    }
+    .g-body p { margin:.65rem 0; }
+    .g-body p:first-child { margin-top:.75rem; }
+    .g-body strong { color:var(--text); }
+    .g-related { display:flex; flex-wrap:wrap; gap:.35rem; margin-top:.85rem; }
+    .g-related-label { font-size:.75rem; color:var(--subtle); width:100%; margin-bottom:.2rem; }
+    .g-tag {
+      font-size:.72rem; padding:.18rem .5rem; border-radius:4px;
+      border:1px solid var(--border); color:var(--muted);
+      cursor:pointer; transition:border-color .15s, color .15s;
+    }
+    .g-tag:hover { border-color:var(--teal); color:var(--teal); }
+
+    /* ── SESSION REFERENCE ── */
+    .session-grid {
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:.85rem;
+    }
+    .session-card {
+      border:1px solid var(--border); border-radius:10px;
+      background:var(--surface); padding:1rem 1.1rem;
+    }
+    .session-card .s-name { font-weight:700; font-size:.95rem; margin-bottom:.3rem; }
+    .session-card .s-time { font-size:.88rem; color:var(--muted); margin-bottom:.5rem; font-family:"SF Mono","Fira Code",monospace; }
+    .session-card .s-note { font-size:.82rem; color:var(--muted); line-height:1.5; }
+    .session-card.asian { border-left:3px solid var(--purple); }
+    .session-card.london { border-left:3px solid var(--blue); }
+    .session-card.ny-am { border-left:3px solid var(--teal); }
+    .session-card.lunch { border-left:3px solid var(--subtle); }
+    .session-card.ny-pm { border-left:3px solid var(--green); }
+    .session-card.eia { border-left:3px solid var(--gold); }
+
+    /* ── INSTRUMENT TABLE ── */
+    .instrument-table { width:100%; border-collapse:collapse; font-size:.88rem; }
+    .instrument-table th { text-align:left; font-size:.75rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); padding:.5rem .75rem; border-bottom:1px solid var(--border); }
+    .instrument-table td { padding:.55rem .75rem; border-bottom:1px solid var(--border); vertical-align:top; }
+    .instrument-table tr:last-child td { border-bottom:none; }
+    .instrument-table tr:hover td { background:var(--surface-soft); }
+    .inst-name { font-weight:700; font-size:.92rem; }
+    .inst-badge { display:inline-block; font-size:.68rem; font-weight:700; padding:.15rem .4rem; border-radius:4px; margin-right:.35rem; }
+    .inst-badge.primary { background:rgba(82,214,199,.15); color:var(--teal); }
+    .inst-badge.confirm { background:rgba(124,194,255,.13); color:var(--blue); }
+    .inst-badge.crypto { background:rgba(243,207,122,.13); color:var(--gold); }
+    .inst-badge.energy { background:rgba(247,129,102,.13); color:var(--cat-behavior); }
+    .inst-badge.ref { background:rgba(139,148,158,.12); color:var(--muted); }
+    .inst-badge.halted { background:rgba(248,81,73,.12); color:var(--red); }
+
+    /* ── PROP FIRM CARDS ── */
+    .prop-grid { display:flex; flex-direction:column; gap:.85rem; }
+    .prop-card {
+      border:1px solid var(--border); border-radius:10px;
+      background:var(--surface); padding:1.1rem 1.2rem;
+    }
+    .prop-card h3 { margin:0 0 .4rem; font-size:.97rem; display:flex; align-items:center; gap:.5rem; }
+    .prop-card p { margin:.4rem 0; font-size:.88rem; color:var(--muted); line-height:1.6; }
+    .prop-card p strong { color:var(--text); }
+    .prop-card .lesson-tag {
+      display:inline-flex; align-items:center; gap:.35rem;
+      font-size:.75rem; font-weight:600; color:var(--gold);
+      background:rgba(243,207,122,.1); border:1px solid rgba(243,207,122,.25);
+      border-radius:4px; padding:.15rem .5rem; margin-top:.35rem;
+    }
+
+    /* ── PSYCHOLOGY CARDS ── */
+    .psych-grid { display:flex; flex-direction:column; gap:.85rem; }
+    .psych-card {
+      border:1px solid var(--border); border-radius:10px;
+      background:var(--surface); padding:1.1rem 1.2rem;
+    }
+    .psych-card h3 { margin:0 0 .4rem; font-size:.97rem; display:flex; align-items:center; gap:.5rem; }
+    .psych-card p { margin:.4rem 0; font-size:.88rem; color:var(--muted); line-height:1.6; }
+    .psych-card p strong { color:var(--text); }
+    blockquote {
+      margin:1rem 0 .5rem; padding:.65rem 1rem;
+      border-left:3px solid var(--teal);
+      background:rgba(82,214,199,.06); border-radius:0 6px 6px 0;
+      font-style:italic; color:var(--muted); font-size:.88rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align:center; padding:2rem 1rem; font-size:.8rem; color:var(--subtle);
+      border-top:1px solid var(--border); margin-top:3rem;
+    }
+    footer a { color:var(--subtle); }
+    footer a:hover { color:var(--teal); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width:600px) {
+      .hero { padding:2rem 1rem 1.5rem; }
+      .main { padding:0 1rem 3rem; }
+      .topbar { padding:.5rem 1rem; gap:.4rem; }
+      .session-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip" href="#main-content">Skip to content</a>
+
+<header class="topbar" role="banner">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../../index.html">🏠 Hub</a>
+    <span>›</span>
+    <strong>📚 Resources</strong>
+  </nav>
+  <div class="topbar-actions">
+    <a class="pill-btn" href="./SmartTradingBlueprint/course-workbook.html">📘 STB Workbook</a>
+    <a class="pill-btn" href="./inevitrade/inner-circle-workbook.html">📗 IT Inner Circle</a>
+    <button class="pill-btn" onclick="toggleTheme()" id="themeBtn">☀️</button>
+  </div>
+</header>
+
+<div class="hero">
+  <p class="hero-eyebrow">📚 Living Reference · Updated as the journey evolves</p>
+  <h1 class="hero-title">Trading Resources</h1>
+  <p class="hero-sub">Glossary, prop firm mechanics, session reference, and psychology lessons — captured so others can learn without the same tuition.</p>
+  <nav class="hero-nav" aria-label="Jump to section">
+    <a href="#glossary" class="strategy">📖 Glossary</a>
+    <a href="#sessions" class="session">🕐 Session Reference</a>
+    <a href="#instruments" class="price">📊 Instruments</a>
+    <a href="#prop-firms" class="account">🏢 Prop Firms</a>
+    <a href="#psychology" class="behavior">🧠 Psychology</a>
+  </nav>
+</div>
+
+<main class="main" id="main-content">
+
+  <!-- ═══════════════════════════════════════ GLOSSARY ═══════════════════════════════════════ -->
+  <div class="section-header" id="glossary">
+    <span class="section-icon">📖</span>
+    <h2 class="section-title">Trading Glossary</h2>
+    <span class="section-count" id="glossaryCount"></span>
+  </div>
+
+  <div class="glossary-controls">
+    <div class="search-wrap">
+      <input type="search" id="glossarySearch" placeholder="Search terms…" aria-label="Search glossary">
+    </div>
+    <div class="filter-btns" role="group" aria-label="Filter by category">
+      <button class="filter-btn active" data-cat="all">All</button>
+      <button class="filter-btn" data-cat="price">Price Action</button>
+      <button class="filter-btn" data-cat="footprint">Footprints</button>
+      <button class="filter-btn" data-cat="strategy">Strategy</button>
+      <button class="filter-btn" data-cat="session">Sessions</button>
+      <button class="filter-btn" data-cat="account">Accounts</button>
+      <button class="filter-btn" data-cat="behavior">Behavior</button>
+    </div>
+  </div>
+
+  <div class="glossary-grid" id="glossaryGrid">
+
+    <!-- PRICE ACTION -->
+    <details class="g-card" data-cat="price">
+      <summary class="g-summary">
+        <span class="g-badge price">Price Action</span>
+        <div class="g-term-wrap">
+          <div class="g-term">AMD — Accumulation, Manipulation, Distribution</div>
+          <div class="g-short">The three-phase institutional market cycle that drives all price movement.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p><strong>Accumulation</strong> — Institutions quietly build positions during low-volatility periods. Price ranges without conviction. Typically the Asian session or overnight ETH consolidation.</p>
+        <p><strong>Manipulation</strong> — Price moves against the intended direction to trigger retail stop losses and collect orders from the liquidity pool. The "stop hunt" before the real move. This is the London sweep of the Asian range, or the opening drive in the "wrong" direction at 9:30 AM ET.</p>
+        <p><strong>Distribution</strong> — Price moves in the true institutional direction, delivering to the draw on liquidity target. The NY AM session directional move. This is where the edge is captured.</p>
+        <p>AMD is <strong>fractal</strong> — it operates on every timeframe simultaneously. Monthly → Weekly → Daily → Session. Alignment across all four = highest-conviction entries.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">Po3</span><span class="g-tag">DOL</span><span class="g-tag">Sweep</span><span class="g-tag">MMM</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="price">
+      <summary class="g-summary">
+        <span class="g-badge price">Price Action</span>
+        <div class="g-term-wrap">
+          <div class="g-term">Displacement</div>
+          <div class="g-short">A strong, impulse-driven move that validates structure and confirms institutional participation.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>Displacement is <strong>required to have valid market structure</strong>. It is the cornerstone signal that separates a real institutional move from retail noise or manipulation traps.</p>
+        <p>What displacement does: (1) validates market structure — without it, a swing high/low is not structurally significant; (2) signals where price is reaching (the DOL); (3) distinguishes continuation from reversal; (4) creates Fair Value Gaps as evidence of the institutional order.</p>
+        <p>When to look for it: after a liquidity sweep (manipulation phase). The displacement away from the swept level confirms the manipulation is complete and distribution has begun.</p>
+        <p>When displacement fails (price returns into the FVG without continuing), the move may be incomplete — price could return to sweep further before the real move begins.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">FVG</span><span class="g-tag">AMD</span><span class="g-tag">Sweep</span><span class="g-tag">DOL</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="price">
+      <summary class="g-summary">
+        <span class="g-badge price">Price Action</span>
+        <div class="g-term-wrap">
+          <div class="g-term">DOL — Draw on Liquidity</div>
+          <div class="g-short">The current price objective — where price is drawn toward for a given timeframe.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>The DOL is <strong>the nearest untapped liquidity pool</strong> in the direction of the bias. It is the "destination" price is traveling toward before it can reverse.</p>
+        <p>Why it matters: price can be in a bearish trend (bias: short) but still need to reach a buy-side pool above before resuming lower. A liquidity-based bias prevents shorting into the draw — it respects that price must take the pool before reversing. The Mar 23–25 patience arc with the ES sell limit was a direct DOL application: the buy-side pool above (Monday highs) was the current DOL; the limit was set to catch the reversal from that pool.</p>
+        <p>Timeframe DOLs compound: when the daily DOL and weekly DOL point in the same direction, the move is stronger and more predictable.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">Liquidity</span><span class="g-tag">AMD</span><span class="g-tag">Sweep</span><span class="g-tag">Intraday Liquidity</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="price">
+      <summary class="g-summary">
+        <span class="g-badge price">Price Action</span>
+        <div class="g-term-wrap">
+          <div class="g-term">Equilibrium / Premium &amp; Discount</div>
+          <div class="g-short">The 50% midpoint of a range — buy at discount, sell at premium.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p><strong>Equilibrium</strong> is the 50% level of any price range. Price above equilibrium is in <strong>Premium</strong> (expensive relative to the range — favor selling). Price below equilibrium is in <strong>Discount</strong> (cheap relative to the range — favor buying).</p>
+        <p>Opening prices (daily open, weekly open, monthly open) frequently serve as equilibrium anchors — price returns to these levels before committing to the next directional move.</p>
+        <p>Entries: for longs, favor entering at discount (below 50%). For shorts, favor entering at premium (above 50%). Combined with FVG alignment and DOL confirmation = A+ entry zone.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">Golden Pocket</span><span class="g-tag">OTE</span><span class="g-tag">FVG</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="price">
+      <summary class="g-summary">
+        <span class="g-badge price">Price Action</span>
+        <div class="g-term-wrap">
+          <div class="g-term">Intraday Liquidity</div>
+          <div class="g-short">Session-specific resting order pools — equal highs/lows, FCR rays, overnight levels.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>Intraday liquidity pools are the session-level version of DOL. They form during the overnight and pre-market sessions as price creates equal highs and lows, overnight swing points, and the FCR HIGH/LOW from 9:30 AM.</p>
+        <p>What they do for your trading: (1) give precise TP targets — set TP at the nearest intraday pool; (2) reveal stop-hunt zones — if equal lows sit just below your entry, expect a sweep before continuation; (3) tell you where NOT to enter — don't take a long entry just below an intraday sell-side pool; (4) help time entries — after a morning liquidity sweep, the next directional leg often follows.</p>
+        <p>The FCR HIGH and LOW are intraday liquidity pools by definition. Map them before 9:30 AM.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">FCR</span><span class="g-tag">DOL</span><span class="g-tag">Liquidity</span><span class="g-tag">Sweep</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="price">
+      <summary class="g-summary">
+        <span class="g-badge price">Price Action</span>
+        <div class="g-term-wrap">
+          <div class="g-term">Liquidity</div>
+          <div class="g-short">Resting buy/sell orders where stop losses cluster. Price is drawn toward these pools.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>Liquidity exists wherever retail stop losses cluster: <strong>equal highs</strong> (buy-side liquidity — short sellers' stops), <strong>equal lows</strong> (sell-side liquidity — long traders' stops), previous swing highs/lows, psychological round numbers, and obvious support/resistance levels.</p>
+        <p>Institutions need liquidity to fill large orders. They engineer price to move toward these pools, trigger the stops (generating the volume they need), fill their own positions against the retail flow, and then move price in the true direction.</p>
+        <p>The most powerful insight: what looks like a breakout to retail traders is often a liquidity raid — price moving to collect orders before reversing. The "fake-out" is not random; it is institutional order-filling mechanics.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">DOL</span><span class="g-tag">Sweep</span><span class="g-tag">AMD</span><span class="g-tag">Intraday Liquidity</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="price">
+      <summary class="g-summary">
+        <span class="g-badge price">Price Action</span>
+        <div class="g-term-wrap">
+          <div class="g-term">Range Structure vs. Impulse Structure</div>
+          <div class="g-short">Two distinct price behaviors — knowing which one you're in changes everything.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p><strong>Impulse Structure</strong> — Explosive, directional, conviction-driven movement. Strong candles with minimal wicks. Represents smart money distribution in full force. Displacement creates impulse structure.</p>
+        <p><strong>Range Structure</strong> — Horizontal consolidation between established support and resistance. Price oscillates between levels without strong directional commitment. Represents accumulation or equilibrium. Operates in the context of corrective phases, not impulse continuation.</p>
+        <p>Why it matters: footprints (order blocks, FVGs, manipulation blocks) work best when aligned with range structure. Entering in the middle of an impulse move without a retracement into a footprint zone is low-probability. Displacement is required to exit a range — without it, price is still accumulating, not distributing.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">Displacement</span><span class="g-tag">AMD</span><span class="g-tag">FVG</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="price">
+      <summary class="g-summary">
+        <span class="g-badge price">Price Action</span>
+        <div class="g-term-wrap">
+          <div class="g-term">Sweep</div>
+          <div class="g-short">Price taking a liquidity pool — the manipulation phase signature. Often followed by reversal displacement.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>A sweep is when price moves through a known liquidity level (equal highs, equal lows, prior swing) to trigger the resting orders there, then reverses. It is the mechanical definition of the manipulation phase in AMD.</p>
+        <p>After a sweep: look for displacement in the opposite direction. The sweep + displacement combination is the entry trigger for the distribution leg. The sweep confirms the pool has been tapped; the displacement confirms institutional commitment to the new direction.</p>
+        <p>Common sweep patterns: equal highs swept before a sell-off, equal lows swept before a rally, FCR HIGH swept then reversed below (short signal), FCR LOW swept then reversed above (long signal).</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">Liquidity</span><span class="g-tag">AMD</span><span class="g-tag">Displacement</span><span class="g-tag">FCR</span>
+        </div>
+      </div>
+    </details>
+
+    <!-- FOOTPRINTS -->
+    <details class="g-card" data-cat="footprint">
+      <summary class="g-summary">
+        <span class="g-badge footprint">Footprint</span>
+        <div class="g-term-wrap">
+          <div class="g-term">BPR — Balanced Price Range</div>
+          <div class="g-short">Two overlapping Fair Value Gaps — a high-institutional-interest zone where both sides left imbalances.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>A BPR forms when two FVGs — one bullish and one bearish — overlap on the same chart area. It represents a zone where both buyers and sellers created inefficiencies (price moved too fast to fill orders from both directions), making it a "hotspot" where institutional players showed conflicting interest and may return to complete their business.</p>
+        <p>BPRs are particularly strong as entry zones because they have two layers of institutional interest. When price returns to a BPR and shows displacement from it, the entry quality is elevated vs. a single FVG.</p>
+        <p>Best used with other confluences: breaker blocks, manipulation blocks, and liquidity alignment.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">FVG</span><span class="g-tag">Order Block</span><span class="g-tag">Confluence</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="footprint">
+      <summary class="g-summary">
+        <span class="g-badge footprint">Footprint</span>
+        <div class="g-term-wrap">
+          <div class="g-term">Breaker Block</div>
+          <div class="g-short">A violated order block that flips to become opposing support/resistance. Involved in runs on liquidity.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>A breaker block forms when a previous order block (support or resistance) is taken out. Once violated, it flips — the former support becomes resistance, the former resistance becomes support. This flip signals that the market structure has shifted and institutional positioning has changed.</p>
+        <p>Breaker blocks are most reliable when they form during runs on liquidity (a sweep of a significant pool). The run through the old order block is the liquidity collection; the breaker forms at that violated zone; price returns to test the breaker, confirms the flip, and then continues in the new direction.</p>
+        <p>Bullish breakers: a prior bearish order block that is taken, then retested from below as support. Bearish breakers: a prior bullish order block that is taken, then retested from above as resistance.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">Order Block</span><span class="g-tag">Liquidity</span><span class="g-tag">Sweep</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="footprint">
+      <summary class="g-summary">
+        <span class="g-badge footprint">Footprint</span>
+        <div class="g-term-wrap">
+          <div class="g-term">Confluence</div>
+          <div class="g-short">Multiple signals agreeing on the same chart — the foundation of A+ trade quality.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>A confluence is something you see on the chart that agrees with what you see elsewhere on the chart. Relying on a single signal is low probability — combining multiple aligned factors builds confidence and an edge.</p>
+        <p>The Five-Layer Entry Filter (A+ Grade): (1) FCR scenario confirmed; (2) IT Foundation EMAs gate; (3) FVG displacement confirmed; (4) SMT divergence read; (5) Fibonacci golden pocket alignment. All five = A+. Partial = B grade or skip.</p>
+        <p>Footprints work best when aligned with range structure. A manipulation block inside a bearish range with a coincident liquidity sweep and FVG is three-layer confluence — each layer adds probability.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">FVG</span><span class="g-tag">Order Block</span><span class="g-tag">FCR</span><span class="g-tag">SMT Divergence</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="footprint">
+      <summary class="g-summary">
+        <span class="g-badge footprint">Footprint</span>
+        <div class="g-term-wrap">
+          <div class="g-term">FVG — Fair Value Gap</div>
+          <div class="g-short">A three-candle pattern where price moved too fast, leaving an unfilled zone. Price often returns to fill it.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>An FVG forms when a large middle candle moves so aggressively that a gap is created between the wicks of the first and third candles — the middle candle's body doesn't overlap with either adjacent candle's wick. This zone represents where price moved too quickly for orders to be filled.</p>
+        <p><strong>FVG vs. Liquidity Void:</strong> An FVG is a specific, precise three-candle pattern — a smaller, short-term inefficiency. A liquidity void is a broader displacement spanning multiple candles — essentially a larger-scale, more violent version of an FVG. Both tend to be "filled" by future price action, but they differ in scale and magnitude.</p>
+        <p>Entry technique: after price displaces away from an FVG, wait for a retracement into the FVG zone. Enter from the FVG in the direction of the original displacement, with stop below the FVG (for longs) or above (for shorts).</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">BPR</span><span class="g-tag">Displacement</span><span class="g-tag">Order Block</span><span class="g-tag">OTE</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="footprint">
+      <summary class="g-summary">
+        <span class="g-badge footprint">Footprint</span>
+        <div class="g-term-wrap">
+          <div class="g-term">Manipulation Block</div>
+          <div class="g-short">A false zone engineered by market makers — the manipulation candle must be engulfed by an opposing candle.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>Manipulation blocks show how market makers create false zones of support and resistance to engineer liquidity and trap retail traders into providing the orders required for institutional fills.</p>
+        <p>Identification rules: (1) the manipulation candle must be engulfed by an opposing candle; (2) the pattern must align with the overall range bias (a manipulation block in a bearish range should be a bearish setup). A manipulation block against the overall range bias is lower probability.</p>
+        <p>The engulfing candle is the institutional move against the retail trap. The manipulation candle lured retail traders in; the engulfing candle collected their stops and filled the institutional position.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">Order Block</span><span class="g-tag">Sweep</span><span class="g-tag">Liquidity</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="footprint">
+      <summary class="g-summary">
+        <span class="g-badge footprint">Footprint</span>
+        <div class="g-term-wrap">
+          <div class="g-term">Order Block</div>
+          <div class="g-short">The last opposing candle before a strong directional move — where institutions entered against the retail trend.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>An order block is a range or candle where institutions buy or sell against the retail trend. It is the last bearish candle before a bullish impulse (bullish OB) or the last bullish candle before a bearish impulse (bearish OB).</p>
+        <p>The logic: institutions needed to accumulate/distribute a large position at a specific price. They did so by absorbing the retail flow (selling while retail was buying, or buying while retail was selling). The candle where this happened is the order block — and price often returns to that zone to fill remaining institutional orders.</p>
+        <p>Key: an order block is only valid if it is followed by a strong impulse move (displacement). Without displacement, the candle is just a candle — not evidence of institutional participation.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">FVG</span><span class="g-tag">Breaker Block</span><span class="g-tag">Displacement</span><span class="g-tag">Footprint</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="footprint">
+      <summary class="g-summary">
+        <span class="g-badge footprint">Footprint</span>
+        <div class="g-term-wrap">
+          <div class="g-term">Wick Block</div>
+          <div class="g-short">A candle that takes liquidity and has a big wick — powerful but requires confluence and liquidity awareness.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>A wick block is formed by a candle that sweeps a liquidity level (equal highs/lows, prior swing) and closes back within the range, leaving a large wick. The wick represents institutional orders being filled at the extreme — the sweep collected the liquidity, the close back inside shows the reversal.</p>
+        <p>The wick is evidence of a rejected price level — institutions pushed price to that level, filled their orders against the pool, then allowed price to reverse. The wick block zone (the range of the wick) becomes a reference for future entries and stop placement.</p>
+        <p>Mastering wick blocks takes time. Must be combined with other strategies and a strong understanding of liquidity. A wick block without a clear liquidity pool being swept is just a volatile candle, not a footprint.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">Sweep</span><span class="g-tag">Liquidity</span><span class="g-tag">Manipulation Block</span>
+        </div>
+      </div>
+    </details>
+
+    <!-- STRATEGY -->
+    <details class="g-card" data-cat="strategy">
+      <summary class="g-summary">
+        <span class="g-badge strategy">Strategy</span>
+        <div class="g-term-wrap">
+          <div class="g-term">FCR — First Candle Rule</div>
+          <div class="g-short">STB's primary entry framework — the 9:30 AM first 15-minute candle creates HIGH and LOW signal rays.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>The FCR uses the first 15-minute candle of the regular NY session (9:30–9:45 AM ET) to define the session's key reference levels. The HIGH of this candle becomes the "long from here" ray. The LOW becomes the "short from here" ray.</p>
+        <p><strong>Signal rules:</strong> Entry signal ONLY on displacement OUTSIDE those rays. Displacement ABOVE the HIGH = LONG signal. Displacement BELOW the LOW = SHORT signal. The first candle's color is completely irrelevant — only the rays matter.</p>
+        <p><strong>Scenario A:</strong> All three indices (NQ/ES/YM or RTY) displace in the same direction — highest conviction. <strong>Scenario B:</strong> NQ leads + IT Foundation EMA gate confirmation. <strong>Scenario C:</strong> Mixed signals — no trade.</p>
+        <p>The FCR is a time-and-price tool — the 9:30 open candle has meaning because of WHEN it forms, not just WHAT price it reaches. It is an application of the "Opening Your Eyes to Precision" concept from Week 4.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">SMT Divergence</span><span class="g-tag">Displacement</span><span class="g-tag">Intraday Liquidity</span><span class="g-tag">Scenario A/B/C</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="strategy">
+      <summary class="g-summary">
+        <span class="g-badge strategy">Strategy</span>
+        <div class="g-term-wrap">
+          <div class="g-term">Golden Pocket</div>
+          <div class="g-short">The 0.5–0.618 Fibonacci retracement zone — highest-probability entry area with FVG alignment.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>The golden pocket is the Fibonacci retracement zone between 0.5 (equilibrium) and 0.618. After a strong displacement, price often retraces into this zone before continuing in the original direction. It represents the optimal balance between "not chasing" and "not waiting too long."</p>
+        <p>Highest-probability when: (1) the golden pocket aligns with an FVG from the displacement; (2) a manipulation block or order block is also present in that zone; (3) the DOL in the continuation direction is clear and unobstructed. Three-layer confluence = A+ entry.</p>
+        <p>The OTE (Optimal Trade Entry) methodology is built on the golden pocket concept — use the 0.5–0.618 after displacement as the standard entry zone for day and swing trades.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">OTE</span><span class="g-tag">FVG</span><span class="g-tag">Equilibrium</span><span class="g-tag">Confluence</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="strategy">
+      <summary class="g-summary">
+        <span class="g-badge strategy">Strategy</span>
+        <div class="g-term-wrap">
+          <div class="g-term">MMM — Market Maker Model</div>
+          <div class="g-short">STB's primary trade pattern — the institutional sequence from accumulation through delivery.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>The Market Maker Model is the named pattern that encapsulates the full AMD cycle as a trade setup: Accumulation (price ranges) → Manipulation (liquidity sweep, stop hunt) → Displacement (strong move away from the swept level, creating FVG) → Retracement (price returns to fill the FVG, the entry zone) → Distribution (price continues to the DOL target).</p>
+        <p>Entry options: (1) aggressive — enter at the FVG during the retracement; (2) conservative — wait for a confirmation candle from the FVG zone before entering; (3) limit — pre-set limit order at the FVG midpoint.</p>
+        <p>Stop loss: below the low of the displacement (for longs) or above the high (for shorts). Target: the DOL — the next significant liquidity pool in the direction of the trade.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">AMD</span><span class="g-tag">FVG</span><span class="g-tag">DOL</span><span class="g-tag">Sweep</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="strategy">
+      <summary class="g-summary">
+        <span class="g-badge strategy">Strategy</span>
+        <div class="g-term-wrap">
+          <div class="g-term">OTE — Optimal Trade Entry</div>
+          <div class="g-short">Fibonacci-based entry at the 0.5–0.618 retracement after displacement — the institutionally logical entry zone.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>OTE is a Fibonacci-based entry methodology. After price makes a displacement (impulse move), draw the Fibonacci retracement from the swing low to swing high (for a bullish trade). The OTE entry zone is between 0.5 (equilibrium) and 0.618 (golden pocket).</p>
+        <p>This zone is "optimal" because: (1) it offers the best risk-to-reward — entry near equilibrium means the stop to the swing low is close while the target (the next DOL) is far; (2) it aligns with where institutions re-enter after distributing to retail at the highs; (3) it is where FVGs commonly form during the displacement, adding confluence to the entry zone.</p>
+        <p>OTE applies to both day trading (1-5 minute timeframes after a session open displacement) and swing trading (4H-Daily timeframes after a significant weekly swing).</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">Golden Pocket</span><span class="g-tag">FVG</span><span class="g-tag">Displacement</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="strategy">
+      <summary class="g-summary">
+        <span class="g-badge strategy">Strategy</span>
+        <div class="g-term-wrap">
+          <div class="g-term">Po3 — Power of Three</div>
+          <div class="g-short">The time-dimension version of AMD — maps Accumulation, Manipulation, Distribution to specific time windows.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>Po3 applies the AMD cycle to time — not just price. Every timeframe has a Po3 structure: the monthly candle opens → accumulates near the open → manipulates in one direction (often taking equal highs or lows) → distributes in the opposite direction to the true target. The weekly, daily, and session candles each do the same.</p>
+        <p>The key insight Po3 adds over price-only AMD: it tells you WHEN to be active, not just WHERE price will go. Knowing that distribution happens in the NY AM session (the session's "distribution phase") tells you to be on the desk at 9:30 AM, not at noon.</p>
+        <p>Po3 vs. AMD: AMD is the price-phase view (what the candle is doing). Po3 is the time-phase view (when in the session/week/month the phases occur). They describe the same cycle from different angles.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">AMD</span><span class="g-tag">Smart Trading Life Cycle</span><span class="g-tag">Session Times</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="strategy">
+      <summary class="g-summary">
+        <span class="g-badge strategy">Strategy</span>
+        <div class="g-term-wrap">
+          <div class="g-term">SMT Divergence — Smart Money Technique Divergence</div>
+          <div class="g-short">One correlated instrument failing to confirm another's move — a directional signal.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>SMT divergence occurs when two correlated instruments (NQ and ES, CL and XBR, RTY and YM) fail to confirm each other's move. If NQ makes a new high while ES fails to make a new high, that divergence suggests the move is not broadly supported — a reversal may be coming.</p>
+        <p>Application in the FCR framework: Scenario A (all three indices confirm) is highest conviction. Scenario B (NQ leads, others lag but EMA gate confirms) is valid with the gate. Scenario C (mixed signals, one index diverging) = no trade until alignment resolves.</p>
+        <p>Energy SMT pair: CL (WTI) and XBR (Brent Crude) divergence = directional signal for crude. When CL and XBR move inversely to each other and to indices, the inverse correlation itself provides a directional read on index direction.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">FCR</span><span class="g-tag">Scenario A/B/C</span><span class="g-tag">Confluence</span>
+        </div>
+      </div>
+    </details>
+
+    <!-- SESSION -->
+    <details class="g-card" data-cat="session">
+      <summary class="g-summary">
+        <span class="g-badge session">Session</span>
+        <div class="g-term-wrap">
+          <div class="g-term">Asian Session &amp; CBDR</div>
+          <div class="g-short">7:00 PM – 12:00 AM ET · Accumulation phase · CBDR forms here.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>The Asian session runs approximately 7:00 PM – 12:00 AM ET. It is the accumulation phase — institutions quietly build positions during low-volatility consolidation. The Central Bank Dealing Range (CBDR) forms during this window.</p>
+        <p>The Asian range's high and low define where buy-side and sell-side liquidity sits going into London. One side will typically be swept by London before the NY directional move begins. Mapping the Asian range pre-market gives a directional edge before 9:30 AM ET without trading overnight.</p>
+        <p>Standard deviations of the CBDR range project where price is likely to expand to after Asian consolidation — these become TP targets and limit entry zones for the day.</p>
+        <p>Instruments: JPY pairs (USD/JPY, EUR/JPY, AUD/JPY), AUD/NZD pairs. Crypto (SOL/BTC) active 24/7 with stronger Asian participation.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">AMD</span><span class="g-tag">London Session</span><span class="g-tag">DOL</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="session">
+      <summary class="g-summary">
+        <span class="g-badge session">Session</span>
+        <div class="g-term-wrap">
+          <div class="g-term">London Session &amp; Kill Zone</div>
+          <div class="g-short">3:00 AM – 12:00 PM ET · Kill zone: 3–5 AM · Sets the day's high or low.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>The London session runs approximately 3:00 AM – 12:00 PM ET. The London kill zone (highest probability window) is 3:00–5:00 AM ET at the London open. London is the highest-volume FX session globally.</p>
+        <p>London typically begins with a manipulation move — sweeping the Asian range's high or low — followed by a strong directional displacement in the opposite direction (the "London run"). This is the AMD manipulation phase in action. London often sets the day's high or low that NY will target or reverse from.</p>
+        <p>Watching what London did during pre-market tells you what NY is likely to do. If London made a strong bearish displacement with FVG formation, the NY AM session is likely to continue that direction after a morning liquidity grab.</p>
+        <p>Primary instruments: EUR/USD, GBP/USD, EUR/GBP, GBP/JPY, NQ/ES/YM via ETH.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">Asian Session</span><span class="g-tag">AMD</span><span class="g-tag">NY Session</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="session">
+      <summary class="g-summary">
+        <span class="g-badge session">Session</span>
+        <div class="g-term-wrap">
+          <div class="g-term">NY AM Session</div>
+          <div class="g-short">9:30 AM – 11:30 AM ET · FCR applies · Highest volume window for US index futures.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>The NY AM session (9:30–11:30 AM ET) is the highest-volume window for US index futures (NQ/ES/YM/RTY). The FCR (First Candle Rule) applies exclusively here — the 9:30 open candle is the institutional reference for the session.</p>
+        <p>Characteristics: sharp opening displacement (often testing FCR HIGH or LOW within the first 15 minutes), liquidity raids of the London run's highs/lows, FVG formation on 1–5 minute timeframes, rapid trend establishment.</p>
+        <p>EIA blackout (Wednesdays): 10:15–10:45 AM ET — no new CL/MCL entries during EIA Crude Oil Inventories release window. The ES sell limit is unaffected unless CL cascades into equity index volatility.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">FCR</span><span class="g-tag">London Session</span><span class="g-tag">EIA Window</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="session">
+      <summary class="g-summary">
+        <span class="g-badge session">Session</span>
+        <div class="g-term-wrap">
+          <div class="g-term">NY PM Session &amp; Lunch Zone</div>
+          <div class="g-short">Lunch no-trade: 12:00–1:30 PM · PM session: 1:30–4:00 PM ET · ZTH &amp; Inevitrade active.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p><strong>Lunch zone (12:00–1:30 PM ET):</strong> No-trade zone. Institutional lunch hour. Low probability, choppy price action. No entries. This is the single highest-ROI rule for new traders to follow — eliminating the lunch zone removes an entire class of low-probability losses.</p>
+        <p><strong>NY PM session (1:30–4:00 PM ET):</strong> The secondary trading window. Look for continuation of the AM directional move or the Power of Three distribution phase completing the day's AMD cycle. ZTH (ZeroToHero) strategies are valid all day — ZTH setups apply in the PM session. Inevitrade IT Foundation EMA strategies are specifically noted as applicable "outside NY AM session" — making them the primary PM session tool.</p>
+        <p>4:00 PM hard stop: exit all positions. Heikin Ashi trailing exit rule uses 4:00 PM as the session cutoff regardless of open profit.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">NY AM Session</span><span class="g-tag">Po3</span><span class="g-tag">ZTH</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="session">
+      <summary class="g-summary">
+        <span class="g-badge session">Session</span>
+        <div class="g-term-wrap">
+          <div class="g-term">EIA Window (Wednesdays)</div>
+          <div class="g-short">10:15–10:45 AM ET · No new CL/MCL entries · EIA Crude Oil Inventories release.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>Every Wednesday, the EIA (Energy Information Administration) releases the Crude Oil Inventories report at approximately 10:30 AM ET. This can cause sharp CL moves of 1–2% in minutes.</p>
+        <p>A draw (less inventory than expected) = bullish CL spike. A build (more inventory) = CL sell-off. Given the current CL/index inverse correlation in Christopher's framework, an EIA surprise can temporarily amplify or counter equity index direction.</p>
+        <p>Rule: no new CL or MCL entries from 10:15–10:45 AM ET on Wednesdays. The ES sell limit and other index positions are unaffected unless the CL move cascades into equity index volatility directly.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">NY AM Session</span><span class="g-tag">CL</span><span class="g-tag">SMT Divergence</span>
+        </div>
+      </div>
+    </details>
+
+    <!-- ACCOUNTS -->
+    <details class="g-card" data-cat="account">
+      <summary class="g-summary">
+        <span class="g-badge account">Account</span>
+        <div class="g-term-wrap">
+          <div class="g-term">Prop Firm Evaluation — Key Mechanics</div>
+          <div class="g-short">Subscription renewal does NOT reset the account. Gains, losses, and drawdown carry over.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p><strong>Subscription renewal does not reset a passing account.</strong> If the account is in good standing (not failed), gains, losses, and drawdown levels carry over into the next 30-day billing cycle. This is standard industry practice across most prop firms. The belief that you must "pass within 30 days or lose your progress" is one of the most common and costly misconceptions — it causes unnecessary pressure that leads to overtrading and blown accounts.</p>
+        <p>The actual requirements to advance: (1) meet the minimum profit target; (2) complete the minimum number of trading days; (3) stay within the maximum drawdown. These requirements persist across billing cycles until met.</p>
+        <p>Verify with your specific firm — terms vary. But the default industry practice is carry-forward, not reset.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">Trailing Drawdown</span><span class="g-tag">Minimum Trading Days</span><span class="g-tag">Static Account</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="account">
+      <summary class="g-summary">
+        <span class="g-badge account">Account</span>
+        <div class="g-term-wrap">
+          <div class="g-term">Trailing Drawdown vs. Static Drawdown</div>
+          <div class="g-short">Trailing follows your equity up. Static is a fixed floor. Knowing the difference changes your risk management entirely.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p><strong>Trailing drawdown:</strong> the drawdown threshold moves up as your equity grows. On Apex 100K accounts, the trailing drawdown follows the account's highest equity point. As you make profits, the threshold rises — protecting those profits but also tightening the floor below you. The trailing stops following equity once the profit reaches $2,500 on legacy 100K accounts — at that point it becomes a static floor.</p>
+        <p><strong>Static drawdown:</strong> a fixed maximum loss from the starting balance. Does not move. Simpler to manage — you always know exactly where the floor is. Standard 50K accounts often use static drawdown.</p>
+        <p>Strategic implication: on trailing drawdown accounts, be cautious about taking large risks after a winning streak — the trailing floor has risen with your equity, so a reversal can trigger the drawdown limit even if the account is nominally profitable. The trailing drawdown is your primary risk management tool during evaluation.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">Prop Firm Evaluation</span><span class="g-tag">Static Account</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="account">
+      <summary class="g-summary">
+        <span class="g-badge account">Account</span>
+        <div class="g-term-wrap">
+          <div class="g-term">Minimum Trading Days</div>
+          <div class="g-short">Most prop firms require a minimum number of active trading days before funding — regardless of P&amp;L.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>Minimum trading days is a requirement that you place at least one trade on a minimum number of distinct calendar days before you can request a funded account. It exists to prevent traders from "sniping" the evaluation with a single lucky trade.</p>
+        <p>Current requirements: <strong>Apex</strong> — 7 minimum trading days. <strong>TPT (TakeProfitTrader)</strong> — 5 minimum trading days. These days count regardless of P&amp;L on those days — a day with a $1 profit or a $1 loss both count equally toward the minimum.</p>
+        <p>These days do not need to be consecutive. They accumulate across the billing cycle and carry forward on renewal. A trader who has completed 3 of 7 minimum days before renewal continues from 3, not from 0.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">Prop Firm Evaluation</span><span class="g-tag">Trailing Drawdown</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="account">
+      <summary class="g-summary">
+        <span class="g-badge account">Account</span>
+        <div class="g-term-wrap">
+          <div class="g-term">Static vs. Standard Account (Apex)</div>
+          <div class="g-short">Static accounts use a fixed drawdown floor. Standard accounts use true trailing drawdown tick-for-tick.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p><strong>Static (Legacy) accounts:</strong> The drawdown is a fixed threshold from the starting balance — it does not trail tick-for-tick with equity. On Apex 100K legacy accounts, the trailing drawdown stops trailing after the account reaches a certain profit threshold, converting to a static floor. This gives more stability — you're not "chasing your floor" with every tick of profit.</p>
+        <p><strong>Standard accounts:</strong> True trailing drawdown that follows the highest equity point tick-for-tick. More aggressive risk management — a single profitable morning can raise the floor significantly, reducing the cushion available for the rest of the session.</p>
+        <p>Christopher's experience: started with 100K full and static vs. standard 50K accounts for Apex. Feels most comfortable with the 100K with $3K trailing drawdown. The legacy account structure (from 90% off sale) has favorable terms — renewal cost is low relative to the account benefits.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">Trailing Drawdown</span><span class="g-tag">Prop Firm Evaluation</span>
+        </div>
+      </div>
+    </details>
+
+    <!-- BEHAVIOR -->
+    <details class="g-card" data-cat="behavior">
+      <summary class="g-summary">
+        <span class="g-badge behavior">Behavior</span>
+        <div class="g-term-wrap">
+          <div class="g-term">A+ Grade — Five-Layer Entry Filter</div>
+          <div class="g-short">All five confluence layers confirmed. Partial confirmation = B grade or skip entirely.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>The A+ grade requires all five entry filter layers: (1) FCR scenario confirmed (A, B, or no scenario C); (2) IT Foundation EMA gate — dominant color matches trade direction; (3) FVG displacement confirmed on relevant timeframe; (4) SMT divergence read — correlated instruments confirming; (5) Fibonacci golden pocket alignment at entry zone.</p>
+        <p>Partial confirmation (3–4 layers) = B grade. A B-grade trade is not necessarily a bad trade, but it is lower probability and warrants reduced position size or a tighter stop.</p>
+        <p>The recovery arc shows that A+ trades (Feb 25, Mar 16 RTY) produce clean results. B-grade or lower trades introduce more variance. Pattern 7 (SL modification) most commonly occurs on B-grade trades that are rationalized as A+.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">FCR</span><span class="g-tag">Confluence</span><span class="g-tag">Pattern 7</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="behavior">
+      <summary class="g-summary">
+        <span class="g-badge behavior">Behavior</span>
+        <div class="g-term-wrap">
+          <div class="g-term">Pattern 7 — Stop Loss Modification</div>
+          <div class="g-short">Moving or widening the SL after entry. Rationalized as "structural alignment" — the most common account drawdown cause.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>Pattern 7 is the recurring behavior of modifying the stop loss after entry — moving it wider, removing it temporarily "to give it room," or replacing a hard stop with a mental stop. It is almost always rationalized in the moment as: "the structure says it needs more room," "that level is just noise," or "I'll re-add the stop after this candle closes."</p>
+        <p>Why it's destructive: the original stop was placed at the point where the trade thesis is invalid. Widening it means accepting a larger loss on a thesis that is already showing signs of weakness. The rationalization is backward — the market moving against you is evidence FOR tightening, not widening.</p>
+        <p>Documented instances (recovery arc): Mar 10 (SL held 1 tick away — Pattern 7 fix ✅), Mar 16 MNQ (-$268.50, SL adjusted), Mar 17 MNQ overnight (+$963 but SL moved wide). Pattern 7 is the most common cause of account drawdown.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">Pattern 8</span><span class="g-tag">Pattern 9</span><span class="g-tag">A+ Grade</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="behavior">
+      <summary class="g-summary">
+        <span class="g-badge behavior">Behavior</span>
+        <div class="g-term-wrap">
+          <div class="g-term">Pattern 8 — Exit Passivity</div>
+          <div class="g-short">Never making active exit decisions — all exits via SL, resting TP, or auto-liquidation only.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>Pattern 8 is the persistent absence of active exit decisions. Every trade exits via one of three passive mechanisms: stop loss hit, resting take-profit reached, or auto-liquidation. The trader never actively decides to close the trade based on developing price action.</p>
+        <p>Why it matters: passive exits limit profit optimization. Heikin Ashi trailing management and the Heikin Ashi trailing exit rule exist specifically to introduce systematic active exit decisions without requiring pure discretion. The first red HA close = exit rule is the designed countermeasure.</p>
+        <p>Pattern 8 is persistent across all recent trades in the recovery arc. It is less immediately destructive than Pattern 7 but prevents reaching the full potential of winning trades.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">Pattern 7</span><span class="g-tag">Pattern 9</span><span class="g-tag">Heikin Ashi Trailing</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="behavior">
+      <summary class="g-summary">
+        <span class="g-badge behavior">Behavior</span>
+        <div class="g-term-wrap">
+          <div class="g-term">Pattern 9 — Pre-Rest Order Hygiene</div>
+          <div class="g-short">Leaving active orders in the market when stepping away. Cancel ALL orders before walking away — or set a deliberate bracket.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>Pattern 9 is the failure to cancel active orders before stepping away from the desk. If price moves while unattended and fills a limit order without a stop loss and take-profit already in place, the account is exposed to unlimited risk with no active management.</p>
+        <p><strong>Rule:</strong> Cancel ALL orders before stepping away from the desk. The only exception is a deliberately set bracket (limit entry + stop + take-profit all in place simultaneously) made with full awareness and intention — this is the "controlled variant" and is valid.</p>
+        <p>First documented instance: Mar 20 — unintentional fill while away from desk, SL was canceled. The Mar 24/25 ES sell limit left active overnight is the controlled variant — a deliberate bracket in place, intention set, "prayer said." Controlled ≠ Pattern 9.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">Pattern 7</span><span class="g-tag">Pattern 8</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="g-card" data-cat="behavior">
+      <summary class="g-summary">
+        <span class="g-badge behavior">Behavior</span>
+        <div class="g-term-wrap">
+          <div class="g-term">Patience Arc</div>
+          <div class="g-short">Holding a working limit for 36+ hours while the market develops — patience as an active edge.</div>
+        </div>
+        <span class="g-arrow">›</span>
+      </summary>
+      <div class="g-body">
+        <p>A patience arc is an extended period of holding a working order — limit or stop — while the market develops toward the setup rather than chasing or adjusting. Most traders would have modified, chased, or abandoned the order long before the setup completes.</p>
+        <blockquote>"Patience and stillness seem to be my edge — most of my anxiety in trading comes from thinking the market is going to develop faster than it does." — Christopher Wilson</blockquote>
+        <p>Documented example: the Mar 23–25 ES sell limit — working for 36+ hours across overnight, London session, and NY pre-market. The structural thesis (buy-side pool above as DOL, macro bear expecting fill at the supply zone) remained intact throughout. The limit was the ask; the plan was the knock. Matthew 7:8.</p>
+        <div class="g-related">
+          <span class="g-related-label">Related:</span>
+          <span class="g-tag">DOL</span><span class="g-tag">Pattern 9</span><span class="g-tag">A+ Grade</span>
+        </div>
+      </div>
+    </details>
+
+  </div><!-- /glossary-grid -->
+
+  <!-- ═══════════════════════════════════════ SESSIONS ═══════════════════════════════════════ -->
+  <div class="section-header" id="sessions">
+    <span class="section-icon">🕐</span>
+    <h2 class="section-title">Session Quick Reference</h2>
+  </div>
+
+  <div class="session-grid">
+    <div class="session-card asian">
+      <div class="s-name" style="color:var(--purple)">🌏 Asian Session</div>
+      <div class="s-time">7:00 PM – 12:00 AM ET</div>
+      <div class="s-note">Accumulation phase. CBDR forms. Low volatility, range-building. Asian high/low = liquidity map for London. Use standard deviations for expansion projections.</div>
+    </div>
+    <div class="session-card london">
+      <div class="s-name" style="color:var(--blue)">🇬🇧 London Kill Zone</div>
+      <div class="s-time">3:00 AM – 5:00 AM ET</div>
+      <div class="s-note">Manipulation phase. Sweeps the Asian range. Often sets the day's high or low. High-probability displacement follows the sweep. London close: ~12:00 PM ET.</div>
+    </div>
+    <div class="session-card ny-am">
+      <div class="s-name" style="color:var(--teal)">🗽 NY AM Session</div>
+      <div class="s-time">9:30 AM – 11:30 AM ET</div>
+      <div class="s-note">FCR applies. Distribution phase. Highest volume for US index futures. FCR kill zone: 9:30–9:45 AM (first candle). Primary window for STB setups.</div>
+    </div>
+    <div class="session-card lunch">
+      <div class="s-name" style="color:var(--subtle)">🚫 Lunch / No-Trade Zone</div>
+      <div class="s-time">12:00 PM – 1:30 PM ET</div>
+      <div class="s-note">No entries. Institutional lunch hour. Choppy, low-probability price action. This rule alone eliminates a significant class of low-quality losses.</div>
+    </div>
+    <div class="session-card ny-pm">
+      <div class="s-name" style="color:var(--green)">🌆 NY PM Session</div>
+      <div class="s-time">1:30 PM – 4:00 PM ET</div>
+      <div class="s-note">ZTH &amp; Inevitrade IT EMA strategies active. AM continuation or Po3 distribution. Hard stop: 4:00 PM. Heikin Ashi trailing exits apply here.</div>
+    </div>
+    <div class="session-card eia">
+      <div class="s-name" style="color:var(--gold)">⚡ EIA Window (Wed)</div>
+      <div class="s-time">10:15 AM – 10:45 AM ET</div>
+      <div class="s-note">No new CL/MCL entries. EIA Crude Oil Inventories release. 1–2% CL spikes possible. Index positions unaffected unless CL cascades directly.</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ INSTRUMENTS ═══════════════════════════════════════ -->
+  <div class="section-header" id="instruments">
+    <span class="section-icon">📊</span>
+    <h2 class="section-title">Instrument Reference</h2>
+  </div>
+
+  <table class="instrument-table">
+    <thead>
+      <tr><th>Instrument</th><th>Role</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="inst-name">MNQ / NQ</div><div style="font-size:.8rem;color:var(--muted)">Micro/Mini NASDAQ</div></td>
+        <td><span class="inst-badge primary">Primary</span></td>
+        <td style="font-size:.85rem;color:var(--muted)">Primary Apex instrument. FCR kill zone 9:30 AM. SMT leader — NQ breaking LVN = acceleration signal for other indices.</td>
+      </tr>
+      <tr>
+        <td><div class="inst-name">ES / MES</div><div style="font-size:.8rem;color:var(--muted)">E-mini / Micro S&amp;P 500</div></td>
+        <td><span class="inst-badge confirm">Confirming</span></td>
+        <td style="font-size:.85rem;color:var(--muted)">Core SMT confirmation index. FCR rays always watched. ES sell limit active Mar 23–25 patience arc.</td>
+      </tr>
+      <tr>
+        <td><div class="inst-name">YM / MYM</div><div style="font-size:.8rem;color:var(--muted)">E-mini Dow / Micro Dow</div></td>
+        <td><span class="inst-badge confirm">Confirming</span></td>
+        <td style="font-size:.85rem;color:var(--muted)">SMT divergence partner. YM/RTY pair — often lead or lag NQ/ES divergence. ZTH levels actively watched.</td>
+      </tr>
+      <tr>
+        <td><div class="inst-name">RTY / M2K</div><div style="font-size:.8rem;color:var(--muted)">E-mini / Micro Russell 2000</div></td>
+        <td><span class="inst-badge confirm">Confirming</span></td>
+        <td style="font-size:.85rem;color:var(--muted)">SMT partner to YM. Often the "furthest behind" in divergence reads. Mar 20 RTY trade +$525 (A-grade).</td>
+      </tr>
+      <tr>
+        <td><div class="inst-name">CL / MCL</div><div style="font-size:.8rem;color:var(--muted)">WTI Crude Oil / Micro</div></td>
+        <td><span class="inst-badge energy">Energy</span></td>
+        <td style="font-size:.85rem;color:var(--muted)">Tradeable on Apex ✅. Inverse correlation to indices — CL up = indices down (and vice versa). EIA blackout Wed 10:15–10:45 ET. SMT pair with XBR.</td>
+      </tr>
+      <tr>
+        <td><div class="inst-name">XBR (Brent)</div><div style="font-size:.8rem;color:var(--muted)">XBRUSDT.P (Gate.io perp)</div></td>
+        <td><span class="inst-badge energy">Energy SMT</span></td>
+        <td style="font-size:.85rem;color:var(--muted)">Preferred for level marking (no rollover gaps). SMT pair with CL — divergence between the two = directional signal.</td>
+      </tr>
+      <tr>
+        <td><div class="inst-name">GC / MGC</div><div style="font-size:.8rem;color:var(--muted)">Gold Futures / Micro</div></td>
+        <td><span class="inst-badge ref">Reference</span><span class="inst-badge halted">Halted Apex</span></td>
+        <td style="font-size:.85rem;color:var(--muted)">Halted on Apex Feb 6, 2026. Used for safe-haven confluence reference only. GC elevated = macro risk-off signal.</td>
+      </tr>
+      <tr>
+        <td><div class="inst-name">SOL/USDT</div><div style="font-size:.8rem;color:var(--muted)">BTCC Perp · 20x voucher</div></td>
+        <td><span class="inst-badge crypto">Crypto</span></td>
+        <td style="font-size:.85rem;color:var(--muted)">BTCC exchange. Voucher trades allow learning leverage mechanics with reduced risk. Mar 25 entry: 92.4686 @ 06:04 ET, 20x.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ═══════════════════════════════════════ PROP FIRMS ═══════════════════════════════════════ -->
+  <div class="section-header" id="prop-firms">
+    <span class="section-icon">🏢</span>
+    <h2 class="section-title">Prop Firm Mechanics</h2>
+  </div>
+
+  <div class="prop-grid">
+
+    <div class="prop-card">
+      <h3>💡 Subscription Renewal — The Big Misconception</h3>
+      <p><strong>Myth:</strong> "If I don't pass the evaluation before my subscription renews, I lose my progress and start over."</p>
+      <p><strong>Reality:</strong> Prop firm evaluation accounts do <em>not</em> reset on subscription renewal if the account is in good standing (not failed). Gains, losses, and drawdown levels carry over into the next billing cycle. This is standard industry practice.</p>
+      <p>This misconception has caused countless traders to overtrade, take low-quality setups under time pressure, and blow accounts that were actually progressing well. There is no 30-day deadline to pass — only the requirements (profit target + minimum days + max drawdown) to satisfy.</p>
+      <div class="lesson-tag">💰 Tuition paid: believing this cost at least one blown eval — now you know.</div>
+    </div>
+
+    <div class="prop-card">
+      <h3>📊 Account Types Compared</h3>
+      <p><strong>Static drawdown:</strong> Fixed floor from the starting balance. Doesn't move. Simpler to manage — always know exactly where the floor is.</p>
+      <p><strong>Trailing drawdown:</strong> Follows your highest equity point. Rises as you profit — tightening the floor below you. Stops trailing after a certain profit threshold on legacy Apex accounts (converts to static floor at ~$2,500 profit on 100K).</p>
+      <p><strong>Standard vs. Legacy accounts:</strong> Legacy Apex accounts (from 90% off sale, etc.) preserve favorable terms across renewals. Starting with a 100K static/legacy account is more comfortable for managing the emotional weight of trailing drawdown — less "chasing the floor" anxiety during intraday swings.</p>
+      <div class="lesson-tag">💰 Learned via experience: 100K static feels more manageable than aggressive trailing.</div>
+    </div>
+
+    <div class="prop-card">
+      <h3>📅 Minimum Trading Days</h3>
+      <p><strong>Apex Trader Funding:</strong> 7 minimum trading days required before requesting a funded account.</p>
+      <p><strong>TakeProfitTrader (TPT):</strong> 5 minimum trading days required.</p>
+      <p>These days accumulate across billing cycles and carry forward on renewal. A day with any trade (profit or loss) counts. Days do not need to be consecutive. You cannot "speed-run" the evaluation by hitting the profit target in 2 days — the minimum days requirement gates the advance regardless of P&amp;L.</p>
+    </div>
+
+    <div class="prop-card">
+      <h3>⚠️ Auto-Close Risk Disclosure</h3>
+      <p>Apex (and most prop firms) have a disclosure that their auto-liquidation systems can fail. If price moves sharply at end of day or during news events, the auto-close may not execute at the expected price — or may not execute at all.</p>
+      <p><strong>Best practice:</strong> do not rely on auto-liquidation as your primary risk control. Close positions manually before 4:00 PM (hard stop rule). If holding overnight intentionally, ensure a deliberate bracket is in place with stop loss already set.</p>
+    </div>
+
+    <div class="prop-card">
+      <h3>💸 The Cost of Learning</h3>
+      <p>Perspective on early account blowouts: with the 90% off Apex sale, reset costs during the learning phase were approximately $50 per reset. The tuition paid to experience tilt, emotional restarts, and pattern recognition across several accounts was relatively low in dollar terms — high in emotional terms.</p>
+      <p>The real cost is not the dollar amount but the time and emotional capital. Every blown account teaches a pattern. The goal is to learn those patterns at the lowest-cost phase (evaluation, not live funded) and carry the lessons forward.</p>
+      <div class="lesson-tag">📖 Lesson: buy experience cheap, then scale when the patterns are understood.</div>
+    </div>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════ PSYCHOLOGY ═══════════════════════════════════════ -->
+  <div class="section-header" id="psychology">
+    <span class="section-icon">🧠</span>
+    <h2 class="section-title">Trading Psychology</h2>
+  </div>
+
+  <div class="psych-grid">
+
+    <div class="psych-card">
+      <h3>⏳ Patience as an Active Edge</h3>
+      <blockquote>"Patience and stillness seem to be my edge — most of my anxiety in trading comes from thinking the market is going to develop faster than it does."</blockquote>
+      <p>The market does not move on your timeline. Most setups take longer to develop than feels comfortable. Most traders adjust, chase, or abandon their plan long before the setup completes. Staying anchored to the structural thesis and letting price do the work is an active decision that requires discipline — it is not passivity.</p>
+      <p>The 36-hour patience arc (Mar 23–25 ES sell limit) is a documented example. The sell limit waited through two overnight sessions, London, and pre-market without being touched. The position remained valid throughout because the structural thesis (buy-side pool above as DOL) was unchanged.</p>
+      <p><strong>The plan is the knock. The limit is the ask. Matthew 7:8.</strong></p>
+    </div>
+
+    <div class="psych-card">
+      <h3>📐 The 30-Day Deadline Trap</h3>
+      <p>One of the most destructive psychological patterns in prop firm trading: the belief that you must pass the evaluation before the billing cycle resets. This creates artificial urgency — a self-imposed deadline that the prop firm never actually enforced.</p>
+      <p>The consequences: overtrading during low-probability windows, taking B-grade or C-grade setups because "time is running out," increasing position size to accelerate progress, and tilt trading after a loss because "I need to make it back before month end."</p>
+      <p>The fix: understand that renewal carries progress forward. Remove the artificial deadline. Trade only A+ setups. The evaluation completes when the requirements are met — not when the calendar says.</p>
+    </div>
+
+    <div class="psych-card">
+      <h3>🎓 Tuition vs. Profit</h3>
+      <p>Early losses and blown accounts are not failures — they are tuition. The question is: what did you learn, and what was the cost per lesson? At 90% off Apex sale prices, the tuition per lesson was relatively low.</p>
+      <p>The patterns learned through experience (Pattern 7 SL modification, Pattern 8 exit passivity, the 30-day deadline misconception, tilt trading after losses) are worth far more than the cost of the accounts lost while learning them. The goal is to graduate from expensive live-capital lessons to low-cost evaluation lessons to eventually no lessons needed at all.</p>
+      <p>Perspective: the initial eagerness to go with 100K full accounts vs. standard 50K — even that was valuable. The experience of managing the emotional weight of a larger account taught something that simulation cannot: what it feels like when the numbers matter.</p>
+    </div>
+
+    <div class="psych-card">
+      <h3>🎯 Quality Over Quantity</h3>
+      <p>A week with zero trades is better than a week with five C-grade trades. A session with one A+ entry is better than a session with six B-grade entries. This is not a philosophical preference — it is a mathematical truth about expectancy.</p>
+      <p>If your A+ trades have a positive expectancy and your B-grade trades have a near-zero or negative expectancy, then filtering out B-grade trades and C-grade trades mathematically improves your overall account performance even though your trade count drops significantly.</p>
+      <p>The hardest sessions to honor are the ones where you have context (the market is doing something interesting) but no valid signal. The discipline of sitting on your hands during Scenario C — no trade — is a skill that must be practiced as actively as any entry technique.</p>
+    </div>
+
+    <div class="psych-card">
+      <h3>🌿 Rest as Part of the Process</h3>
+      <p>Trading exhausted is one of the highest-probability ways to trigger behavioral patterns (7, 8, 9). When the mental clarity required for pattern recognition and rule adherence is diminished, the discipline that holds these patterns in check is also diminished.</p>
+      <p>A walk, a shower, and a reset are not lost trading time — they are part of the process. The market will be there after the walk. The setup that existed before the break will still be valid or will have resolved itself clearly, making the decision easier, not harder.</p>
+      <p>Like the Claude dreaming analogy: the brain needs consolidation time. Forcing continuation on depleted cognitive resources produces lower-quality output than stepping away and returning refreshed.</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>📚 Trading Resources · Christopher Wilson · <a href="./SmartTradingBlueprint/course-workbook.html">STB Workbook</a> · <a href="./inevitrade/inner-circle-workbook.html">IT Inner Circle</a></p>
+    <p><a href="https://github.com/drasticstatic/trading-assistant">↩ Trading-Assistant · Public Repo</a></p>
+  </footer>
+
+</main>
+
+<script>
+  // ── THEME ──
+  const html = document.documentElement;
+  const themeBtn = document.getElementById('themeBtn');
+  (function() {
+    const saved = localStorage.getItem('resources-theme');
+    if (saved === 'light') { html.classList.add('light'); themeBtn.textContent = '🌙'; }
+  })();
+  function toggleTheme() {
+    html.classList.toggle('light');
+    const isLight = html.classList.contains('light');
+    themeBtn.textContent = isLight ? '🌙' : '☀️';
+    localStorage.setItem('resources-theme', isLight ? 'light' : 'dark');
+  }
+
+  // ── GLOSSARY FILTER + SEARCH ──
+  const grid = document.getElementById('glossaryGrid');
+  const cards = Array.from(grid.querySelectorAll('.g-card'));
+  const searchInput = document.getElementById('glossarySearch');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const countEl = document.getElementById('glossaryCount');
+  let activeCat = 'all';
+
+  function updateGlossary() {
+    const q = searchInput.value.trim().toLowerCase();
+    let visible = 0;
+    cards.forEach(card => {
+      const cat = card.dataset.cat;
+      const text = card.textContent.toLowerCase();
+      const catMatch = activeCat === 'all' || cat === activeCat;
+      const searchMatch = !q || text.includes(q);
+      if (catMatch && searchMatch) {
+        card.classList.remove('hidden');
+        visible++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+    countEl.textContent = visible + ' term' + (visible !== 1 ? 's' : '');
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeCat = btn.dataset.cat;
+      updateGlossary();
+    });
+  });
+
+  searchInput.addEventListener('input', updateGlossary);
+
+  // ── RELATED TAG CLICK → search ──
+  grid.addEventListener('click', e => {
+    if (e.target.classList.contains('g-tag')) {
+      searchInput.value = e.target.textContent;
+      filterBtns.forEach(b => b.classList.remove('active'));
+      document.querySelector('[data-cat="all"]').classList.add('active');
+      activeCat = 'all';
+      updateGlossary();
+      searchInput.focus();
+    }
+  });
+
+  // Initial count
+  updateGlossary();
+</script>
+
+</body>
+</html>
