@@ -11,7 +11,7 @@
 | Week 1 — Market Structure Foundations | 🟡 In Progress |
 | Week 2 — Market Building Blocks | 🟡 In Progress |
 | Week 3 — Liquidity & Smart Patterns | 🟡 In Progress |
-| Week 4 — (Content coming) | ⬜ Not started |
+| Week 4 — Time & Sessions | 🟡 In Progress |
 
 ---
 
@@ -1218,3 +1218,528 @@ With all of our tools and resources under one roof, success in trading is within
 
 *📌 This is a living document maintained in the [trading-assistant public repo](https://github.com/drasticstatic/trading-assistant).*
 *Source: SmartTradingBlueprint Course | Feb 2026 Cohort*
+
+---
+
+## 📖 Week 4 — Time & Sessions
+
+### Overview
+
+*This phase brings together all previous concepts — market structure, liquidity, displacement, and bias — while introducing timing: how to synchronize trade setups with specific times of day, trading sessions, and weekly cycles. Covers session behaviors (Asian, London, New York, Afternoon), time and price relationships, and high-probability models including the Smart Trading Life Cycle, session opens, and the Move of the Day.*
+
+---
+
+## 📖 Lesson 4.1 — Time & Price Relationship
+
+*How understanding specific times of day, week, or month can help traders identify high-probability setups. Introduces the Power of Three concept (Accumulation, Manipulation, Distribution) and demonstrates how to integrate timeframes into bias formation and trade execution. Goal: think like a market maker and refine your edge using time strategically.*
+
+---
+
+### ❓ Q1: Describe the relationship between time & price.
+
+> 📝 *Your reflection here. Consider: price doesn’t move randomly — it moves according to when institutional participants are active. Time is the scheduling layer beneath price.*
+
+---
+
+### ❓ Q2: What was your previous understanding of time & price?
+
+> 📝 *Your reflection here.*
+
+---
+
+### ❓ Q3: Which is more important to you, time or price?
+
+> 📝 *Your reflection here. Note: the STB framework treats them as inseparable — the FCR (First Candle Rule) is a time-AND-price tool. The 9:30 candle has meaning because of when it forms, not just what price it reaches.*
+
+---
+
+### ❓ Q4: List 3 ways that time & price can improve your trading.
+
+> ✅ **Answer:**
+> 1. **Precision entries.** Knowing when sessions open allows you to anticipate displacement at specific kill zones rather than watching charts all day.
+> 2. **Bias confirmation.** When time and price align (e.g., London open displacing through a manipulation block), the confluence is significantly stronger than price alone.
+> 3. **Patience and filtering.** Understanding that major moves cluster at specific times (NY open, London open, EIA) helps you avoid overtrading during low-probability windows like lunch or deep overnight.
+
+---
+
+### ❓ Q5: Do you feel as if you understand these concepts better than you did before starting this module?
+
+> 📝 *Your reflection here.*
+
+---
+
+### ❓ Q6: Write down 3 key takeaways from this lesson.
+
+> ✅ **Answer:**
+> 1. **Time is the third dimension of price.** Price and direction are visible on any chart — but time reveals the institutional schedule behind the move. AMD each has characteristic time windows tied to sessions.
+> 2. **Power of Three (Po3) is a time framework.** AMD as price phases vs. Po3 as time phases — both describe the same cycle. Understanding Po3 lets you anticipate when manipulation ends and distribution begins.
+> 3. **Market makers operate on a schedule.** The London open, NY open, and key intraday opens (8:30 ET, 9:30 ET) are when institutional activity ignites price. Trading at random times vs. these windows is a significant edge differential.
+
+---
+
+### ❓ Q7: Write down a time in your trading career relating to the teachings in this lesson. (If none, write a time when it could have helped if you knew it then)
+
+> 📝 *Your reflection here. Consider: the FCR (First Candle Rule) is a direct application of time & price — the 9:30 open candle is your most reliable time-based price reference. Every FCR trade is a time & price trade.*
+
+---
+
+## 📖 Lesson 4.2 — Time Efficiency
+
+*How productive your time is on the charts with live funds — critical for long-term success. Contrasts gamblers vs. professionals, maps the Asian, London, and New York sessions with specific times, characteristics, and suitable instruments. Sessions “pass the torch.” Includes OTE (Optimal Trade Entry) application.*
+
+---
+
+### ❓ Q1: Define Time Efficiency.
+
+> ✅ **Answer:** Time efficiency in trading means maximizing the quality and precision of your time on charts with live funds. A time-efficient trader knows exactly which sessions to be active in, which to monitor but not trade, and which to skip entirely — aligning chart time with the highest-probability windows where institutional activity produces predictable setups.
+
+---
+
+### ❓ Q2: How important would you rate this lesson 1–5?
+
+> 📝 *Your rating here.*
+
+---
+
+### ❓ Q3: Do you feel as if you understood this before this lesson?
+
+> 📝 *Your reflection here.*
+
+---
+
+### ❓ Q4: List 3 ways that time efficiency can improve your trading.
+
+> ✅ **Answer:**
+> 1. **Reduces overtrading.** Knowing that the NY PM lunch zone (12:00–1:30 PM ET) is a no-trade zone eliminates an entire class of low-probability losses.
+> 2. **Improves entry precision.** Focusing on kill zones (London open, NY open) concentrates effort on the windows where institutional displacement actually occurs.
+> 3. **Aligns lifestyle with trading.** Time efficiency means you don’t need to watch charts 8 hours per day — you watch the right 2–3 hours and let the structure do the work.
+
+---
+
+### ❓ Q5: Write down 3 key takeaways from this lesson.
+
+> ✅ **Answer:**
+> 1. **Session awareness is a filter, not a restriction.** Knowing which session you’re in tells you what type of price action to expect — accumulation, manipulation, or distribution.
+> 2. **Gamblers trade all day; professionals trade their sessions.** Precision over volume — fewer, better-timed entries consistently outperform high-frequency randomness.
+> 3. **Sessions pass the torch.** Asian → London → NY: each session’s structure often becomes the liquidity target for the next. The Asian range’s high/low is frequently swept in London; the London run is often the manipulation for the NY directional move.
+
+---
+
+## 📖 Lesson 4.3 — Asian Session
+
+*Using the Asian session and the Central Bank Dealing Range (CBDR) to build daily bias and plan trades. Session time window, characteristic accumulation behavior, step-by-step entry/target approach. Project likely highs/lows using standard deviations of Asian/CBDR ranges. Combines time with price for precision.*
+
+---
+
+### ❓ Q1: What is the Asian Session and what time does it include?
+
+> ✅ **Answer:** The Asian session runs approximately 7:00 PM – 12:00 AM ET (midnight). It is characterized by lower volatility and consolidation — the market “accumulates” during this period, building the range that London and NY will then manipulate and distribute from. The Central Bank Dealing Range (CBDR) forms here.
+
+---
+
+### ❓ Q2: What are the main characteristics of the Asian Session?
+
+> ✅ **Answer:** Low volatility, consolidation, and range-building. Price oscillates without strong directional commitment. The Asian range high and low define where buy-side and sell-side liquidity sits going into London — one side will typically be swept before the NY directional move begins. The overnight ranging seen in the Mar 24–25 premarket summaries is Asian session behavior.
+
+---
+
+### ❓ Q3: Is the Asian Session valuable to a trader who doesn’t trade at these times? If so, why?
+
+> ✅ **Answer:** Yes — extremely valuable even without trading it. The Asian range (high and low) defines where liquidity sits going into London and NY. Mapping the Asian range pre-market tells you which side is more likely to be swept first, giving you a directional edge before 9:30 AM ET. The premarket analysis already maps this range implicitly through overnight equal highs/lows and manipulation wick zones.
+
+---
+
+### ❓ Q4: Do you trade the Asian Session?
+
+> 📝 *Your reflection here.*
+
+---
+
+### ❓ Q5: What pairs are to be traded during the Asian Session?
+
+> ✅ **Answer:** Primarily FX pairs with strong Asian session participation: JPY pairs (USD/JPY, EUR/JPY, AUD/JPY) and AUD/NZD pairs. For futures: index futures can be watched for overnight range formation but are generally lower volume during Asian hours. Crypto (SOL/USDT, BTC) can also exhibit stronger Asian-session moves given its 24/7 nature.
+
+---
+
+### ❓ Q6: Provide 3 picture examples of the price range formed during the Asian Session.
+
+> 📝 *Add 3 chart screenshots showing Asian session consolidation ranges (the CBDR/overnight range high and low). The overnight sections of the premarket summaries (ETH/London push analysis) document these ranges — the equal highs from overnight on Mar 24–25 are a direct Asian session range example.*
+
+---
+
+### ❓ Q7: Write down 3 key takeaways from this lesson.
+
+> ✅ **Answer:**
+> 1. **The Asian range is the liquidity map for London.** The high and low of the Asian session define where the next session’s manipulation will target — one side gets swept before the directional move begins.
+> 2. **CBDR standard deviations project likely expansion.** Using 1–2 standard deviations of the CBDR range projects where price is likely to expand to after Asian consolidation — these become TP targets and limit zones.
+> 3. **Accumulation is not noise.** The Asian session’s “random” price oscillation is institutional accumulation — smart money positioning before London and NY distribution phases.
+
+---
+
+### ❓ Q8: Write down a time in your trading career relating to the teachings in this lesson.
+
+> 📝 *Your reflection here. Consider: the Mar 24–25 overnight — during Asian hours price consolidated (RTY/YM making slight higher highs while NQ/ES ranged). This was Asian accumulation. The 4:00 AM ET London push swept the overnight range high — classic London taking the Asian range’s buy-side before NY set the directional move.*
+
+---
+
+## 📖 Lesson 4.4 — London Session
+
+*Trading the London session within a “time efficiency” framework. Why London often sets the high or low of the day. The Accumulation–Manipulation–Distribution sequence in London. Pairing time-of-day behavior with higher-timeframe analysis, key kill zones, and what to look for after midnight (NY time).*
+
+---
+
+### ❓ Q1: What is the London Session and what time does it include?
+
+> ✅ **Answer:** The London session runs approximately 3:00 AM – 12:00 PM ET. The London kill zone (highest probability window) is typically 3:00–5:00 AM ET at the open. London is the highest-volume FX session globally and often establishes the day’s high or low.
+
+---
+
+### ❓ Q2: What are the main characteristics of the London Session?
+
+> ✅ **Answer:** High volatility and directional displacement. London typically begins with a manipulation move (sweeping the Asian range’s high or low) followed by a strong directional displacement in the opposite direction — the “London run.” This becomes the AMD template for the day: Asian accumulates, London manipulates and begins distribution, NY confirms or extends distribution.
+
+---
+
+### ❓ Q3: Is the London Session valuable to a trader who doesn’t trade at these times? If so, why?
+
+> ✅ **Answer:** Yes — the London session often establishes the intraday bias that carries through NY. If London makes a strong bearish displacement with FVG formation below, the NY AM session is likely to continue that direction after a morning liquidity grab. Watching what London did during pre-market tells you what NY is likely to do — the bias is largely set before 9:30 AM ET.
+
+---
+
+### ❓ Q4: Do you trade the London Session?
+
+> 📝 *Your reflection here.*
+
+---
+
+### ❓ Q5: What pairs are to be traded during the London Session?
+
+> ✅ **Answer:** Primary FX pairs: EUR/USD, GBP/USD, EUR/GBP, GBP/JPY. Index futures: NQ, ES, YM via their ETH session (the overnight equivalent). The London open at 3:00 AM ET produces consistent kill zone setups on these instruments — the STB premarket analysis tracks London session structure for overnight continuation bias.
+
+---
+
+### ❓ Q6: Provide 3 picture examples of price action during the London Session.
+
+> 📝 *Add 3 chart screenshots showing London session setups. The 4:00 AM ET bullish push on Mar 24–25 premarket is a direct London session example. The CL/index inverse correlation active during that session is documented in the Mar 25 premarket and evening session files.*
+
+---
+
+### ❓ Q7: Write down 3 key takeaways from this lesson.
+
+> ✅ **Answer:**
+> 1. **London often sets the day’s high or low.** The London run creates the intraday DOL that NY will target or reverse from. Knowing which side London set gives you the NY directional framework before 9:30 AM ET.
+> 2. **The London manipulation sweep is an entry signal.** After London sweeps the Asian range high or low, the reversal displacement off that level is a prime entry — the manipulation is done, distribution begins.
+> 3. **Pre-market context is London context.** Everything in the premarket summaries labeled “overnight/ETH continuation” is functionally a London session read — the STB workflow already uses this without labeling it explicitly.
+
+---
+
+### ❓ Q8: Write down a time in your trading career relating to the teachings in this lesson.
+
+> 📝 *Your reflection here. Consider: on Mar 24–25 Christopher was awake for the 4:00 AM ET London push while monitoring the STB coach call. The London session produced the bullish push through LVN zones that the premarket anticipated as the final setup before the macro bear resumes — London in real time.*
+
+---
+
+## 📖 Lesson 4.5 — NY Session
+
+*The window from the New York Open (9:30 AM ET) through the London Close (10:00–12:00 PM ET). Emphasis on index futures (NQ/ES). Why volatility concentrates at the opening bell. Using London as a framework for NY. Execution via liquidity raids, displacement, and fair value gaps.*
+
+---
+
+### ❓ Q1: What are the characteristics of the NY Session?
+
+> ✅ **Answer:** The NY AM session (9:30–11:30 AM ET) is the highest-volume window for US index futures (NQ/ES/YM/RTY). Characteristics: sharp opening displacement (often testing FCR HIGH or LOW within the first 15 minutes), liquidity raids of the London run’s highs/lows, FVG formation on 1–5 minute timeframes, and rapid trend establishment. The FCR (First Candle Rule) framework is the STB application of NY session mechanics — the 9:30 candle is the institutional opening reference.
+
+---
+
+### ❓ Q2: What pairs do we trade during the NY Session?
+
+> ✅ **Answer:** Primary: NQ (MNQ), ES (MES), YM (MYM), RTY (M2K) — US index futures. Secondary: CL (crude oil, especially with EIA on Wednesdays), GC (gold), major FX pairs that overlap with London (EUR/USD, GBP/USD during the 9:30–11:00 AM overlap). The STB FCR framework is specifically designed for the NY session on index futures.
+
+---
+
+### ❓ Q3: What time is the NY Session?
+
+> ✅ **Answer:** NY AM session (primary): 9:30 AM – 11:30 AM ET. NY PM session (secondary): 1:30 PM – 4:00 PM ET. Lunch/no-trade zone: 12:00 PM – 1:30 PM ET. The FCR kill zone is 9:30–10:00 AM ET (the first 15-minute candle). EIA window (Wednesdays): 10:15–10:45 AM ET — no new CL entries during this window.
+
+---
+
+## 📖 Lesson 4.6 — NY PM Session
+
+*The New York PM session structure. Difference between AM and PM models. The lunch-hour “no-trade” zone. Mechanical trade management using the Power of Three concept. Practical rules for high-probability setups after 1:30 PM.*
+
+---
+
+### ❓ Q1: What time does the afternoon session begin and end?
+
+> ✅ **Answer:** NY PM session: 1:30 PM – 4:00 PM ET. The lunch/no-trade zone (12:00 PM – 1:30 PM ET) separates the AM and PM sessions. The 4:00 PM close is the hard stop for the regular session — the Heikin Ashi trailing exit rule uses 4:00 PM as the session cutoff.
+
+---
+
+### ❓ Q2: What price action do we look for during the afternoon session?
+
+> ✅ **Answer:** After 1:30 PM, look for continuation of the AM directional move OR a Power of Three distribution phase completing the day’s AMD cycle. If the AM session established the day’s high or low via manipulation, the PM session may offer a second entry in the same direction using the 1:30 PM open as reference. ZTH (ZeroToHero) strategies are active all session — ZTH setups are valid in the PM session while STB FCR is primarily an AM model.
+
+---
+
+### ❓ Q3: What assets are we focusing on during the afternoon session?
+
+> ✅ **Answer:** Same index futures (NQ/ES/YM/RTY) as the AM session. CL is less active after EIA data. GC can produce PM setups if it did not complete its AM move. Inevitrade IT Foundation EMA strategies are specifically noted as applicable “outside NY AM session” — making them the primary PM session tool in the current trading framework.
+
+---
+
+## 📖 Lesson 4.7 — Smart Trading Life Cycle
+
+*How markets cycle through Accumulation, Manipulation, and Distribution (AMD) — and applying the Power of Three (Po3) when time is the key dimension. Difference between Po3 (time-based) and AMD (price-only). Integrating bias, structure, and displacement. OTE (Optimal Trade Entry) for day and swing trading.*
+
+---
+
+### ❓ Q1: What are the steps to the Smart Trading Life Cycle?
+
+> ✅ **Answer:** The Smart Trading Life Cycle follows the AMD sequence:
+> 1. **Accumulation** — institutions quietly build positions during low-volatility consolidation (Asian session, overnight ranging).
+> 2. **Manipulation** — price moves against the intended direction to trigger retail stops and collect orders from the liquidity pool (London sweep of Asian range, opening drive in the “wrong” direction).
+> 3. **Distribution** — price moves in the true direction, delivering to the draw on liquidity target (NY AM directional move).
+>
+> Po3 applies this same cycle to monthly, weekly, daily, and session timeframes simultaneously.
+
+---
+
+### ❓ Q2: Do you think it’s important to be aware of what part of the cycle price is in for the current month, week, day, and session?
+
+> ✅ **Answer:** Yes — cycle awareness across timeframes is the difference between trading WITH institutional flow and trading against it. If the weekly candle is in the manipulation phase (making new lows to sweep weekly sell-side), shorting the daily open is low probability. Knowing the monthly, weekly, daily, and session cycle phases simultaneously allows you to align entries only when all four timeframes point toward the same distribution direction.
+
+---
+
+### ❓ Q3: What could understanding these cycles and maintaining awareness of them do for your trading?
+
+> ✅ **Answer:** Cycle awareness prevents two of the most common errors: (1) entering during manipulation — being the retail trader whose stop gets swept before the real move; (2) fading distribution mid-move — trying to counter-trend trade when institutions are still in delivery mode. With cycle awareness, you wait for manipulation to complete, confirm with displacement, and enter during early distribution — the highest R:R, lowest-risk entry window.
+
+---
+
+### ❓ Q4: Do you feel as if this concept was overcomplicated prior to this teaching?
+
+> 📝 *Your reflection here.*
+
+---
+
+### ❓ Q5: Provide a picture example of this cycle during a week of price action.
+
+> 📝 *Add a weekly chart screenshot showing AMD across a full trading week — Monday accumulation, Tuesday/Wednesday manipulation (Monday highs swept or lows taken), Thursday/Friday distribution to the weekly DOL.*
+
+---
+
+### ❓ Q6: Provide a picture example of this cycle during a day of price action.
+
+> 📝 *Add a daily chart screenshot showing AMD across a single trading day — pre-market accumulation, AM manipulation (FCR spike in the “wrong” direction), distribution into the close.*
+
+---
+
+### ❓ Q7: Provide a picture example of this cycle during a session of price action.
+
+> 📝 *Add a 5-minute or 15-minute chart screenshot showing AMD within a single session — the 9:30 FCR candle as the manipulation reference, the displacement afterward as distribution onset. The Mar 20 RTY trade (unintentional fill, ran to TP) is a session-level AMD example.*
+
+---
+
+### ❓ Q8: Write 3 key takeaways from this lesson.
+
+> ✅ **Answer:**
+> 1. **AMD is fractal — it operates on every timeframe simultaneously.** The monthly AMD cycle contains weekly cycles, which contain daily cycles, which contain session cycles. Alignment across all four = highest-conviction entries.
+> 2. **Manipulation is not a stop-out — it’s an entry signal.** When price sweeps a liquidity level, the reversal displacement is the entry trigger for the distribution leg. Getting swept is only costly if you don’t know to re-enter after manipulation completes.
+> 3. **Po3 gives you a time target, not just a price target.** Knowing that distribution typically happens in the NY AM session tells you when to be active — not just where price will go but when it will get there.
+
+---
+
+### ❓ Q9: Write down a time in your trading career relating to the teachings in this lesson.
+
+> 📝 *Your reflection here. Consider: the Mar 24 9:30 FCR spike that swept the overnight highs before selling off is a textbook session-level AMD cycle — accumulation overnight, manipulation at the open (sweep), distribution as price fell away from the FCR HIGH.*
+
+---
+
+## 📖 Lesson 4.8 — Opening Your Eyes to Precision
+
+*Combining time and price to trade with greater precision. Using opening prices (daily, weekly, monthly, quarterly, yearly, and key intraday opens) as anchors for bias, entries, and targets. How opening prices interact with manipulation → expansion (Power of Three). Treating the open as equilibrium.*
+
+---
+
+### ❓ Q1: What does it mean to open your eyes to precision?
+
+> ✅ **Answer:** To open your eyes to precision means using opening prices as institutional reference points — not arbitrary S/R lines. The daily open, weekly open, monthly open, and session opens (9:30 ET, 8:30 ET, 1:30 PM ET) are levels where institutions anchored their positions. Price gravitates back to these opens as equilibrium before making its next move. “Precision” means trading off these time-stamped levels rather than traditional static support/resistance.
+
+---
+
+### ❓ Q2: Summarize this lesson in 2 sentences or less.
+
+> ✅ **Answer:** Opening prices across all timeframes (monthly, weekly, daily, session, hourly) are institutional equilibrium anchors — price uses them as manipulation references before expanding. Precision trading means knowing these opens, watching for manipulation away from them, and entering on the return toward the next draw on liquidity.
+
+---
+
+### ❓ Q3: Write 3 key takeaways from this lesson.
+
+> ✅ **Answer:**
+> 1. **The open is equilibrium — manipulation moves away, distribution delivers from it.** If the daily open is at 5,200 and price spikes to 5,225 (manipulation), the institutional trade may be a short back through 5,200 toward the daily DOL below.
+> 2. **Multiple opens compound as confluence.** When the weekly open, daily open, and session open align within the same zone, that zone is a high-institutional-interest reference — a particularly strong potential entry or target area.
+> 3. **The auto-levels indicator already maps this.** Opening price rays (daily, weekly, monthly) plotted by the indicator are precision-level tools — they show the institutional anchors in real time without manual drawing.
+
+---
+
+### ❓ Q4: Write down a time in your trading career relating to the teachings in this lesson.
+
+> 📝 *Your reflection here. Consider: the FCR setup uses the 9:30 AM open (the first candle’s high and low) as the session open reference — this is an intraday precision application. The entire FCR framework is “opening your eyes to precision” at the session level.*
+
+---
+
+## 📖 Lesson 4.9 — Catching the Wick to Close (TGIF)
+
+*The TGIF (Thank God It’s Friday) trading setup — a simple, mechanical framework for identifying potential Friday retracements after a week’s main objective has been achieved. Weekly candles, Fibonacci retracements (20%–30%). Indices and Forex markets. Emphasizes proper context and framework-based decision-making.*
+
+---
+
+### ❓ Q1: What fib retracements are used to catch the wick?
+
+> ✅ **Answer:** The TGIF setup uses the 20%–30% Fibonacci retracement zone of the weekly candle’s range. After the week’s main objective (the draw on liquidity) has been achieved, price retraces 20%–30% of the week’s range to “wick” the weekly candle before closing. This is the area where the TGIF entry is taken — fading the retracement into the Friday close.
+
+---
+
+### ❓ Q2: What candle’s wick are we trying to catch? (timeframe)
+
+> ✅ **Answer:** The weekly candle’s wick. The TGIF setup is specifically designed to catch the Friday wick on the weekly timeframe — the retracement that occurs after the weekly objective is met. On an intraday chart (1H/4H), this appears as a Friday afternoon reversal from the 20%–30% fib level back toward the weekly open or prior weekly range.
+
+---
+
+### ❓ Q3: Is this to be used on flat or trending weeks?
+
+> ✅ **Answer:** TGIF is used on trending weeks — weeks where the market has achieved a clear directional objective (a draw on liquidity has been reached). On flat/ranging weeks, there is no clear weekly wick to fade. The setup requires that a meaningful weekly high or low has been established by Thursday/Friday morning before the TGIF retracement opportunity appears.
+
+---
+
+## 📖 Bonus — Weekly Opens
+
+*Using time-based market structure and weekly bias to identify high-probability trading setups. Aligning trades with higher-timeframe direction. Using the weekly open as a key reference point. Recognizing ideal zones for entries and exits. Connects with the NY Forex model and the Move of the Day concept.*
+
+> 📝 *Notes and reflections to be added as lesson is reviewed. The weekly open (Sunday 6:00 PM ET futures open) is a key reference level — how price interacts with it on Monday morning often sets the weekly directional bias.*
+
+---
+
+## 📖 Week 4 Review
+
+---
+
+### ❓ Q1: Write 3 key takeaways from this week’s teachings.
+
+> 📝 *Your reflection here. Synthesize the most important lessons from time & price, session mechanics (Asian/London/NY), Smart Trading Life Cycle, opening price precision, and the TGIF setup.*
+
+---
+
+### ❓ Q2: Write about a time in your trading career that you’ve struggled with these concepts.
+
+> 📝 *Your reflection here.*
+
+---
+
+### ❓ Q3: Write about a time in your trading career that you’ve benefited from understanding these concepts, if any.
+
+> 📝 *Your reflection here. Consider: the 9:30 AM FCR framework is the STB application of NY session time & price mechanics. Every successful FCR trade is a direct benefit of understanding NY session timing. The EIA Wednesday blackout rule is another direct time-efficiency benefit — it eliminates a class of low-probability CL entries.*
+
+---
+
+### ❓ Q4: Do you feel as if you understand these concepts better than you did before starting this module?
+
+> 📝 *Your reflection here.*
+
+---
+
+### ❓ Q5: Which concepts do you understand the most, and which are you feeling unsure about?
+
+> 📝 *Your reflection here. Note: the NY session and FCR framework will likely feel most natural given active daily practice. The Asian session CBDR standard deviation projections and the TGIF setup may need additional chart time to fully internalize.*
+
+---
+
+### ❓ Q6: Have you updated your trader scorecard this week?
+
+- [ ] Yes — scorecard updated
+
+---
+
+## 📖 Bachelor Degree Exam — Weeks 1–4
+
+*Summative assessment covering all concepts from Weeks 1–4: Structure, Blocks, Liquidity, and Time & Sessions.*
+
+---
+
+### ❓ Q1: Summarize Week 1 (Structure) into two paragraphs — understanding + implementation.
+
+> 📝 *Paragraph 1: your understanding of market structure, candles, premium/discount, range/impulse structure, top-down analysis, and displacement vs. manipulation. Paragraph 2: how you implement these concepts in your trading plan.*
+
+---
+
+### ❓ Q2: Summarize Week 2 (Blocks) into two paragraphs — understanding + implementation.
+
+> 📝 *Paragraph 1: your understanding of footprints, manipulation blocks, order blocks, FVGs/voids, breaker blocks, BPRs, and wick blocks. Paragraph 2: how you use these in your entry confluence stack.*
+
+---
+
+### ❓ Q3: Summarize Week 3 (Liquidity) into two paragraphs — understanding + implementation.
+
+> 📝 *Paragraph 1: your understanding of liquidity, draw on liquidity, displacement, intraday liquidity, liquidity-based bias, and the Market Maker Model. Paragraph 2: how you use DOL identification in pre-market preparation and intraday execution.*
+
+---
+
+### ❓ Q4: Summarize Week 4 (Time & Sessions) into two paragraphs — understanding + implementation.
+
+> 📝 *Paragraph 1: your understanding of time & price, session mechanics, AMD/Po3 Smart Trading Life Cycle, and opening price precision. Paragraph 2: how session awareness changes your trading schedule and entry filtering.*
+
+---
+
+### ❓ Q5: Do you feel as if you have seen a significant improvement in your understanding of price and the way the market works?
+
+> 📝 *Your reflection here.*
+
+---
+
+### ❓ Q6: Have you been trading during the time you’ve been studying?
+
+> 📝 *Your reflection here.*
+
+---
+
+### ❓ Q7: Has your perception or mindset about trading shifted since beginning this program?
+
+> 📝 *Your reflection here.*
+
+---
+
+### ❓ Q8: Rate yourself as a trader 1–5.
+
+> 📝 *Your rating here.*
+
+---
+
+### ❓ Q9: Do you feel confident in your basic understanding of these concepts?
+
+> 📝 *Your reflection here.*
+
+---
+
+### ❓ Q10: Give me any suggestions, feedback, or comments about your journey thus far as a Smart Trader.
+
+> 📝 *Your reflection here.*
+
+---
+
+## Previous weeks’ additional context (to be integrated):
+
+### Week 1 supplementary:
+Range structure operates in the context of consolidation, compression, and corrective phases — not impulse structure. Impulse structure represents explosive energy, conviction, and vertical movement; range structure represents equilibrium, balance, and horizontal consolidation where price oscillates between established support and resistance. Retracement vs. expansion, fair market value, and how price moves between internal and external levels. Displacement is required to have valid structure — it confirms smart money participation and forces you to wait for confirmation that real money is behind the move.
+
+### Week 2 supplementary:
+A confluence is something you see on the chart that agrees with what you see elsewhere on the chart. Footprints show smart money participation and work best when aligned with range structure. Manipulation blocks: the manipulation candle must be engulfed by an opposing candle, and must align with overall range bias. An order block is a range or candle where institutions will be buying or selling against the retail trend. FVGs vs. Liquidity Voids: a FVG is a specific three-candle pattern where the wicks of the first and third candles do not overlap — a precise, often short-term inefficiency. A liquidity void is a broader displacement spanning multiple candles — essentially a larger-scale version of a FVG. Breaker blocks are involved during runs on liquidity. BPRs: two overlapping FVGs — a “hotspot” where institutional players showed conflicting interest and may return. A wick block is usually made of a candle that takes liquidity and has a big wick.
+
+### Week 3 supplementary:
+Draw on liquidity — the current price objective for a given timeframe. Use range context, footprints, and especially displacement to identify where price is likely reaching next. Combine the Daily and 1-Hour timeframes, know when to stand aside, and manage exits at low-hanging fruit and higher-timeframe objectives. Displacement validates market structure, signals where price is reaching (the DOL), and distinguishes continuation from reversal. Smart Trading Pattern (MMM — Market Maker Model): the model the instructor uses — recognize the model, the precise conditions for use, and execute using structure, footprints, liquidity, and displacement.
+
+---
+
+*📌 This is a living document maintained in the [trading-assistant public repo](https://github.com/drasticstatic/trading-assistant).*
+*Source: SmartTradingBlueprint Course | Feb 2026 Cohort*
+
+# Weeks 5–8 and bonus modules to be appended as Christopher progresses
