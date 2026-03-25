@@ -1055,11 +1055,11 @@
 </head>
 <body>
   <nav class="page-nav" aria-label="Page sections">
-    <a href="#timeline">📋 v2 History</a>
+    <a href="#timeline">📋 Version History</a>
     <a href="#known-issues">🔎 Known Issues</a>
     <a href="#roadmap">🚀 Roadmap</a>
     <a href="./auto-levels.pine_indicator-guide.html">📖 Guide ↗</a>
-    <button id="view-toggle-btn" class="view-toggle" aria-pressed="true">📄 Full view</button>
+    <button id="view-toggle-btn" class="view-toggle" aria-pressed="true">📄 Expanded Version History View ⊞</button>
   </nav>
   <main class="page">
     <header class="hero tone-guide">
@@ -2219,7 +2219,7 @@
       let compact = true;
       const applyCompact = () => {
         toggleBtn.setAttribute('aria-pressed', compact);
-        toggleBtn.textContent = compact ? '📄 Full view' : '📋 Compact view';
+        toggleBtn.textContent = compact ? '📄 Expanded Version History View ⊞' : '📋 Compacted History ⊟ w Popout Modals ↗';
         if (compact) {
           if (!compactHistory.innerHTML) buildTable();
           compactHistory.classList.add('is-visible');
