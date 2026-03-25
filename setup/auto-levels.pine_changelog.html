@@ -1022,8 +1022,16 @@
       background: color-mix(in srgb, var(--surface-soft) 100%, var(--bg));
     }
     @media (max-width: 600px) {
-      .compact-history .ch-table .ch-summary,
-      .compact-history .ch-table thead th:nth-child(3) { display: none; }
+      /* Hide date on mobile — date is shown inside the modal */
+      .compact-history .ch-table .ch-date,
+      .compact-history .ch-table thead th:nth-child(2) { display: none; }
+      /* Constrain summary so it truncates gracefully */
+      .compact-history .ch-table .ch-summary {
+        max-width: 52vw;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
     }
 
     /* ── Mobile tap = hover: buttons + nav ───────────────────────── */
