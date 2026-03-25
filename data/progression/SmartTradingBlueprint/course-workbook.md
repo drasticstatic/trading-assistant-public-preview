@@ -10,16 +10,16 @@
 |--------|--------|
 | Week 1 — Market Structure Foundations | 🟡 In Progress |
 | Week 2 — Market Building Blocks | 🟡 In Progress |
-| Week 3 — (Content coming) | ⬜ Not started |
+| Week 3 — Liquidity & Smart Patterns | 🟡 In Progress |
 | Week 4 — (Content coming) | ⬜ Not started |
 
 ---
 
 ## 🎉 Welcome to SmartTradingBlueprint
 
-> *"I’m excited to welcome you into the Smart Trading Blueprint family! Let’s work together to help make your trading dreams a reality."*
+> *"I'm excited to welcome you into the Smart Trading Blueprint family! Let's work together to help make your trading dreams a reality."*
 
-With all of our tools and resources under one roof, success in trading is within reach — **this will be the last course that you need** — as long as you put in dedicated effort. One hour of focused dedication every day can propel you closer towards reaching those seemingly unattainable goals. It’s time for action — no excuses!
+With all of our tools and resources under one roof, success in trading is within reach — **this will be the last course that you need** — as long as you put in dedicated effort. One hour of focused dedication every day can propel you closer towards reaching those seemingly unattainable goals. It's time for action — no excuses!
 
 ---
 
@@ -30,7 +30,7 @@ With all of our tools and resources under one roof, success in trading is within
 - ⏱️ **One focused hour per day** — consistency compounds; short daily sessions beat irregular long ones
 - 🤝 **Reach out freely** — 1-on-1 sessions are available by request; coaching is part of the package
 
-> *"I care deeply about all aspects of your success. After all, we’re family!"*
+> *"I care deeply about all aspects of your success. After all, we're family!"*
 
 ---
 
@@ -523,14 +523,14 @@ With all of our tools and resources under one roof, success in trading is within
 
 > ✅ **Answer:**
 > 1. **Footprints are institutional breadcrumbs.** Every significant price zone was created by someone with enough size to move the market. Mapping them is mapping where the real money has been.
-> 2. **Price returns to footprints to fill orders.** Institutions can’t complete their full position in one pass — they leave intentional "re-entry" footprints. These become your high-probability trade zones.
-> 3. **Context converts a footprint into a signal.** A zone alone is neutral. When price returns to a footprint aligned with your higher-timeframe bias and displaces away from it, that’s the confirmation — not just the presence of the zone.
+> 2. **Price returns to footprints to fill orders.** Institutions can't complete their full position in one pass — they leave intentional "re-entry" footprints. These become your high-probability trade zones.
+> 3. **Context converts a footprint into a signal.** A zone alone is neutral. When price returns to a footprint aligned with your higher-timeframe bias and displaces away from it, that's the confirmation — not just the presence of the zone.
 
 ---
 
 ### ❓ Q6: Write down a time in your trading career relating to the teachings in this lesson.
 
-> 📝 *Your personal reflection here. Consider: a trade where you didn’t recognize a footprint and entered into institutional supply/demand instead of with it — or a session where mapping these zones changed how you read the day.*
+> 📝 *Your personal reflection here. Consider: a trade where you didn't recognize a footprint and entered into institutional supply/demand instead of with it — or a session where mapping these zones changed how you read the day.*
 
 ---
 
@@ -561,7 +561,7 @@ With all of our tools and resources under one roof, success in trading is within
 > ✅ **Answer:**
 > 1. **Manipulation is a feature, not a bug.** These moves are engineered and repeatable — learning to recognize them converts a source of losses into a source of entries.
 > 2. **The candle that "breaks" the key level and reverses is the signal.** Price closing back through the manipulation wick or body — especially with displacement — confirms the trap has been set and sprung.
-> 3. **Stop placement determines whether you’re the prey or the predator.** Retail stops placed just below/above key levels are the target. Placing your stop beyond the manipulation sweep (below the wick rather than below the level) keeps you in the trade through the engineered move.
+> 3. **Stop placement determines whether you're the prey or the predator.** Retail stops placed just below/above key levels are the target. Placing your stop beyond the manipulation sweep (below the wick rather than below the level) keeps you in the trade through the engineered move.
 
 ---
 
@@ -584,7 +584,7 @@ With all of our tools and resources under one roof, success in trading is within
 ### ❓ Q2: Describe the difference between manipulation blocks and order blocks.
 
 > ✅ **Answer:**
-> - **Order blocks** are where institutional **entry orders** live — the last opposing candle before displacement. Price returns to them because institutions didn’t fill their entire position in the initial move. They are *entry zones*.
+> - **Order blocks** are where institutional **entry orders** live — the last opposing candle before displacement. Price returns to them because institutions didn't fill their entire position in the initial move. They are *entry zones*.
 > - **Manipulation blocks** are where institutions *engineer* a move to collect liquidity — sweeping a level to trigger stops and fill orders. They are *the mechanism of the trap* rather than a standing order zone.
 > - Both may look similar on chart, but the key difference: order blocks are about **unfilled institutional orders waiting to be revisited**; manipulation blocks are about **a deliberate stop-hunt move** designed to fuel the real directional move.
 > - In practice: a manipulation block often *leads to* an order block — the sweep (manipulation) fills institutional orders, and the resulting order block is the zone they defend on return.
@@ -600,8 +600,8 @@ With all of our tools and resources under one roof, success in trading is within
 ### ❓ Q4: Write down 3 key takeaways from this lesson.
 
 > ✅ **Answer:**
-> 1. **The last opposing candle before the move is the zone.** Not the first candle of the impulse — the one *before* it. That’s where the institutional decision was made and where unfilled orders remain.
-> 2. **Mitigation defines the order block’s life.** Once price returns to and trades through the full order block (mitigates it), the zone is spent. Respect the order block until it’s mitigated; after that, it no longer holds predictive value.
+> 1. **The last opposing candle before the move is the zone.** Not the first candle of the impulse — the one *before* it. That's where the institutional decision was made and where unfilled orders remain.
+> 2. **Mitigation defines the order block's life.** Once price returns to and trades through the full order block (mitigates it), the zone is spent. Respect the order block until it's mitigated; after that, it no longer holds predictive value.
 > 3. **Higher timeframe order blocks carry more weight.** A weekly OB > daily OB > 4hr OB in terms of institutional significance. Always check what timeframe the displacement came from before deciding how much to trust the return to the zone.
 
 ---
@@ -618,13 +618,13 @@ With all of our tools and resources under one roof, success in trading is within
 
 ### ❓ Q1: What is a fair value gap and why is it important?
 
-> ✅ **Answer:** A fair value gap (FVG) is a **three-candle imbalance** where the middle candle moves so aggressively that there is no price overlap between the first candle’s high/low and the third candle’s high/low — leaving a gap of untested price. It represents an area where price moved too fast for all participants to transact, creating an imbalance between buyers and sellers. FVGs are important because: (1) markets are *efficient* — price is drawn back to fill inefficiencies; (2) FVGs act as **re-entry zones** after displacement; and (3) they often align with institutional order flow and mark the acceleration point of a move.
+> ✅ **Answer:** A fair value gap (FVG) is a **three-candle imbalance** where the middle candle moves so aggressively that there is no price overlap between the first candle's high/low and the third candle's high/low — leaving a gap of untested price. It represents an area where price moved too fast for all participants to transact, creating an imbalance between buyers and sellers. FVGs are important because: (1) markets are *efficient* — price is drawn back to fill inefficiencies; (2) FVGs act as **re-entry zones** after displacement; and (3) they often align with institutional order flow and mark the acceleration point of a move.
 
 ---
 
 ### ❓ Q2: What is a liquidity void and why is it important?
 
-> ✅ **Answer:** A liquidity void is a **larger area of thin or absent price action** — often visible as a near-vertical move with very few candles trading within a price range. Unlike an FVG (a three-candle technical imbalance), a liquidity void reflects a **broad zone where market participants couldn’t transact** because price moved through it too quickly. It’s important because price gravitates toward liquidity — areas of thin transacting will eventually be revisited as price seeks to fill the void and create a two-sided auction at those levels.
+> ✅ **Answer:** A liquidity void is a **larger area of thin or absent price action** — often visible as a near-vertical move with very few candles trading within a price range. Unlike an FVG (a three-candle technical imbalance), a liquidity void reflects a **broad zone where market participants couldn't transact** because price moved through it too quickly. It's important because price gravitates toward liquidity — areas of thin transacting will eventually be revisited as price seeks to fill the void and create a two-sided auction at those levels.
 
 ---
 
@@ -658,7 +658,7 @@ With all of our tools and resources under one roof, success in trading is within
 ### ❓ Q6: Write down 3 key takeaways from this lesson.
 
 > ✅ **Answer:**
-> 1. **FVGs are the entry sniper’s tool.** After a displacement, price retracing to fill an FVG gives you a precise, structured entry — you’re entering where institutional orders were placed, not chasing the move.
+> 1. **FVGs are the entry sniper's tool.** After a displacement, price retracing to fill an FVG gives you a precise, structured entry — you're entering where institutional orders were placed, not chasing the move.
 > 2. **Not all FVGs fill, but all influence.** Price may only partially fill an FVG before continuing. Watch for reactions within the gap — the 50% level of the FVG is often where price stalls or reverses.
 > 3. **Liquidity voids give you the "draw."** On higher timeframes, identifying a liquidity void tells you where price is magnetically drawn toward — useful for setting realistic targets rather than placing TPs at arbitrary levels.
 
@@ -683,9 +683,9 @@ With all of our tools and resources under one roof, success in trading is within
 ### ❓ Q2: What is the difference between breaker blocks, order blocks, and manipulation blocks?
 
 > ✅ **Answer:**
-> - **Order block:** The *last opposing candle before displacement* — a zone where institutional orders were placed and price is expected to return to for unfilled order completion. It’s a live demand/supply zone.
+> - **Order block:** The *last opposing candle before displacement* — a zone where institutional orders were placed and price is expected to return to for unfilled order completion. It's a live demand/supply zone.
 > - **Breaker block:** A *failed order block* — an order block that was violated by subsequent price action, causing it to flip its polarity. Former support becomes resistance; former resistance becomes support.
-> - **Manipulation block:** The *engineered sweep* of a key level to collect liquidity (stop hunts, false breakouts). It’s the mechanism of the trap, not a standing order zone.
+> - **Manipulation block:** The *engineered sweep* of a key level to collect liquidity (stop hunts, false breakouts). It's the mechanism of the trap, not a standing order zone.
 > - Summary: OBs are created → broken OBs become Breakers → Manipulation is the process used to collect orders at both.
 
 ---
@@ -698,7 +698,7 @@ With all of our tools and resources under one roof, success in trading is within
 
 ### ❓ Q4: Is a bullish breaker block a bullish or bearish candle?
 
-> ✅ **Answer:** A **bullish breaker block is a bearish candle** (close lower than open). Here’s the logic: a bullish breaker is a *former bearish order block* (where sellers entered, creating a demand zone) that was then *broken by bullish displacement*. The candle that represents the zone is bearish — but the breaker itself is now bullish in character because the break converted it to a support zone. The **body of the bearish candle** defines the breaker zone, and price returning to it should find buyers.
+> ✅ **Answer:** A **bullish breaker block is a bearish candle** (close lower than open). Here's the logic: a bullish breaker is a *former bearish order block* (where sellers entered, creating a demand zone) that was then *broken by bullish displacement*. The candle that represents the zone is bearish — but the breaker itself is now bullish in character because the break converted it to a support zone. The **body of the bearish candle** defines the breaker zone, and price returning to it should find buyers.
 
 ---
 
@@ -711,7 +711,7 @@ With all of our tools and resources under one roof, success in trading is within
 ### ❓ Q6: Write down 3 key takeaways from this lesson.
 
 > ✅ **Answer:**
-> 1. **Broken support becomes resistance — and it’s precise.** When an order block fails, the zone flips polarity. This gives you a precise level for entries *in the direction of the break*, not against it.
+> 1. **Broken support becomes resistance — and it's precise.** When an order block fails, the zone flips polarity. This gives you a precise level for entries *in the direction of the break*, not against it.
 > 2. **Breaker blocks confirm trend change.** When a significant order block is broken and becomes a breaker, it signals institutional intent has shifted. This is one of the cleanest structural signals for trend continuation after a pullback.
 > 3. **Patience pays at breaker zones.** The value of a breaker block is the *return* to that zone — not the initial break. Wait for price to retrace into the breaker, then look for confirmation of rejection before entering.
 
@@ -765,7 +765,7 @@ With all of our tools and resources under one roof, success in trading is within
 
 ### ❓ Q6: Write down a time in your trading career relating to the teachings in this lesson.
 
-> 📝 *Your personal reflection here. Consider: a session where price kept reversing around the same zone and you couldn’t figure out why — that may have been a BPR. Or a time where you identified an FVG that "didn’t work" because it was actually part of a BPR overlap.*
+> 📝 *Your personal reflection here. Consider: a session where price kept reversing around the same zone and you couldn't figure out why — that may have been a BPR. Or a time where you identified an FVG that "didn't work" because it was actually part of a BPR overlap.*
 
 ---
 
@@ -785,7 +785,7 @@ With all of our tools and resources under one roof, success in trading is within
 
 ---
 
-### ❓ Q3: What is the difference between wick blocks and the other types of blocks we’ve discussed?
+### ❓ Q3: What is the difference between wick blocks and the other types of blocks we've discussed?
 
 > ✅ **Answer:**
 > - **Order block:** Defined by the *body* of the last opposing candle before displacement — where institutional entry orders were placed.
@@ -805,8 +805,8 @@ With all of our tools and resources under one roof, success in trading is within
 ### ❓ Q5: Write down 3 key takeaways from this lesson.
 
 > ✅ **Answer:**
-> 1. **Large wicks are institutional rejection statements.** When price produces a dramatic wick, that’s not random noise — it’s the market’s record of where large players drew a line. Treat the wick zone as a meaningful level, not a failed move.
-> 2. **The wick body defines the zone, not just the tip.** The entire range from the candle body edge to the wick tip is the block. Price may react anywhere within this zone — don’t draw a single line, draw the full zone.
+> 1. **Large wicks are institutional rejection statements.** When price produces a dramatic wick, that's not random noise — it's the market's record of where large players drew a line. Treat the wick zone as a meaningful level, not a failed move.
+> 2. **The wick body defines the zone, not just the tip.** The entire range from the candle body edge to the wick tip is the block. Price may react anywhere within this zone — don't draw a single line, draw the full zone.
 > 3. **Wick blocks layer with other concepts.** A wick block sitting at an FVG, order block, or breaker adds confluence. When multiple block types align at the same price zone, the reaction probability increases significantly.
 
 ---
@@ -821,7 +821,7 @@ With all of our tools and resources under one roof, success in trading is within
 
 ---
 
-### ❓ Q1: Write 3 key takeaways from this week’s teachings.
+### ❓ Q1: Write 3 key takeaways from this week's teachings.
 
 > 📝 *Your personal reflection here. Synthesize the most important things you take away from footprints, blocks (manipulation/order/breaker/wick), FVGs, liquidity voids, and balanced price ranges.*
 >
@@ -832,13 +832,13 @@ With all of our tools and resources under one roof, success in trading is within
 
 ---
 
-### ❓ Q2: Write about a time in your trading career that you’ve struggled with these concepts.
+### ❓ Q2: Write about a time in your trading career that you've struggled with these concepts.
 
 > 📝 *Your personal reflection here.*
 
 ---
 
-### ❓ Q3: Write about a time in your trading career that you’ve benefited from understanding these concepts, if any.
+### ❓ Q3: Write about a time in your trading career that you've benefited from understanding these concepts, if any.
 
 > 📝 *Your personal reflection here. Consider: the Mar 20 RTY trade — recognizing the HVN + FVG confluence at the wick low, and the SMT divergence (RTY holding while NQ/ES/YM broke), reflects real application of these concepts even if the entry was unintentional.*
 
@@ -860,6 +860,359 @@ With all of our tools and resources under one roof, success in trading is within
 
 - [ ] Yes — scorecard updated
 
+
+---
+
+*📌 This is a living document maintained in the [trading-assistant public repo](https://github.com/drasticstatic/trading-assistant).*
+*Source: SmartTradingBlueprint Course | Feb 2026 Cohort*
+
+---
+
+# 🗓️ WEEK 3 — Liquidity & Smart Patterns
+
+---
+
+## 📖 Lesson 3.1 — What is Liquidity?
+
+---
+
+### ❓ Q1: What is liquidity and why is it important?
+
+> ✅ **Answer:** Liquidity is the pool of **resting orders** that the market needs to fill large institutional positions. These resting orders come in two forms: **buy-side liquidity** (stop losses above equal highs, buy stops, pending buy orders — sitting above price) and **sell-side liquidity** (stop losses below equal lows, sell stops, pending sell orders — sitting below price). Liquidity is important because institutions cannot fill large orders without a counterparty — they engineer price movement to *reach* these pools, triggering the resting orders which fill their positions. Understanding liquidity tells you **where price is going next** — toward the nearest untapped pool.
+
+---
+
+### ❓ Q2: Do you feel as if you understand the true way the markets work?
+
+> 📝 *Your personal reflection here. Consider: has studying liquidity changed how you see price action — from random movement to intentional pool-to-pool draws? Note any specific moments where you saw the market take a liquidity pool before reversing.*
+
+---
+
+### ❓ Q3: Provide 3 picture examples of where liquidity is on a chart before it's taken.
+
+> 📝 *Add 3 chart screenshots showing identifiable liquidity pools — equal highs/lows, stop-hunt zones above/below swing points, or clustered consolidation areas where resting orders have built up. Mark the zone before price reaches it.*
+
+---
+
+### ❓ Q4: Provide 3 picture examples of where liquidity is being taken on a chart.
+
+> 📝 *Add 3 chart screenshots showing active liquidity sweeps — price spiking beyond equal highs or lows with a wick, then reversing. The manipulation wick into the opposite wick block on the Mar 24 ES chart is a real example from your own trading.*
+
+---
+
+### ❓ Q5: Have you ever fallen victim to becoming liquidity?
+
+> 📝 *Your personal reflection here. Consider: Feb 13 — stops were moved (Pattern 7), and when the market swept the level, your stop became the liquidity the market needed. The trap was engineered at the exact level your modified stop sat. How does this reframing change how you view stop placement?*
+
+---
+
+### ❓ Q6: Write down 3 key takeaways from this lesson.
+
+> ✅ **Answer:**
+> 1. **Liquidity is the destination, not the obstacle.** Price doesn't randomly sweep highs and lows — it is *engineered* to reach those levels to fill institutional orders. Every equal high/low is a target, not a coincidence.
+> 2. **You are either hunting liquidity or being liquidity.** Every resting order you place (stop loss, limit entry) is part of the liquidity landscape. Placing stops at "obvious" levels puts them exactly where price is drawn. Placement at structural levels is more protective.
+> 3. **The sweep is the signal.** When price sweeps a liquidity pool and then displaces away, that is the institutional fill completing — and the market is now ready to move in the opposite direction. The sweep *is* the setup, not the reason to exit.
+
+---
+
+### ❓ Q7: Write down a time in your trading career relating to the teachings in this lesson.
+
+> 📝 *Your personal reflection here. Consider: the Feb 25 SOL trade — price swept below key support (collecting sell-side liquidity / stop-outs), then reversed strongly to the upside. Or any session where you were stopped out just before the move went in your direction — that stop was the liquidity the market needed.*
+
+---
+
+## 📖 Lesson 3.2 — Draw on Liquidity
+
+---
+
+### ❓ Q1: What does the term "draw on liquidity" mean?
+
+> ✅ **Answer:** The "draw on liquidity" (DOL) is the **nearest untapped liquidity pool** that price is currently being pulled toward — the magnetic destination before the next structural pivot. Price doesn't move randomly; it moves from one liquidity pool to the next. Identifying the DOL answers the question: *"Where is price going before it can reverse?"* The DOL is determined by looking at the highest-timeframe untapped pool in the current direction of the trend — equal highs above (buy-side), equal lows below (sell-side), or daily/weekly swing points that haven't been tapped.
+
+---
+
+### ❓ Q2: Why do we need to understand this concept and spot it on a chart?
+
+> ✅ **Answer:** Without understanding the draw on liquidity, you are placing entries without knowing **where price is going** — like booking a flight without knowing your destination. The DOL gives you: (1) a **target** — where to set take-profit, because that's where price is magnetically drawn; (2) a **filter** — trades in the direction of the DOL have a structural tailwind; trades against the DOL are fighting the current; (3) **patience** — understanding that price will often make a sweep or pullback before reaching the DOL prevents premature exits and false reversals from shaking you out.
+
+---
+
+### ❓ Q3: Based on the teachings so far, list your process of deciding where the current draw on liquidity is.
+
+> ✅ **Answer:**
+> 1. **Start on the daily/weekly chart** — identify the largest untapped swing point (equal highs above = buy-side DOL; equal lows below = sell-side DOL)
+> 2. **Confirm with HTF bias** — if the macro trend is bearish, the DOL is likely sell-side (below); if bullish, buy-side (above)
+> 3. **Drop to the session chart (1hr/4hr)** — identify the nearest intraday DOL within the HTF context
+> 4. **Look for equal highs/equal lows, stop-hunt zones, and consolidation areas** — these are where resting orders cluster
+> 5. **Note: after the DOL is taken, price seeks the NEXT DOL** — always know where the next pool sits before entering
+
+---
+
+### ❓ Q4: Do you feel as if you understand this concept more than you did before?
+
+> 📝 *Your personal reflection here. Consider: the Mar 25 session — RTY/YM making higher highs while NQ/ES range. The buy-side liquidity from Monday's highs is the current DOL for the session, and the sell limit order is positioned to catch the market after it sweeps that DOL.*
+
+---
+
+### ❓ Q5: Do you feel as if this concept was overcomplicated previous to this teaching?
+
+> 📝 *Your personal reflection here.*
+
+---
+
+### ❓ Q6: Write down 3 key takeaways from this lesson.
+
+> ✅ **Answer:**
+> 1. **Every trade needs a destination, not just a direction.** Knowing the DOL before entering means you know where price is going — not just that it's "going up" or "going down."
+> 2. **The DOL prevents premature exits.** When you know price is drawn to a level above, a pullback toward your entry isn't a reversal — it's price reloading before the next leg. The DOL gives you the conviction to hold.
+> 3. **Trade WITH the DOL, never against it.** Taking a short while the DOL is buy-side (above) is swimming upstream. The highest-probability entries align with the structural draw — you are riding the same current as institutional order flow.
+
+---
+
+### ❓ Q7: Write down a time in your trading career relating to the teachings in this lesson.
+
+> 📝 *Your personal reflection here. Consider: the Mar 24 ES sell limit — the overnight analysis identified Monday's highs as the buy-side DOL. The entire session wait was based on price needing to reach that level before the macro bear could continue. Patience held because the DOL gave a clear destination.*
+
+---
+
+## 📖 Lesson 3.3 — Understanding Displacement
+
+---
+
+### ❓ Q1: What is displacement and why is it important?
+
+> ✅ **Answer:** Displacement is a **strong, decisive, institutional-driven move** that breaks structure — a series of candles (or a single large candle) that moves so rapidly in one direction that it leaves a **fair value gap** (imbalance) behind. It is distinguished from manipulation by its close: displacement CLOSES beyond the structural level it breaks; a manipulation wick only wicks beyond it and closes back. Displacement is important because it confirms institutional intent — the move is real, not engineered to collect stop losses. It is the signal that the direction is committed and the FVG left behind is a valid entry zone.
+
+---
+
+### ❓ Q2: What does displacement in the market tell us?
+
+> ✅ **Answer:** Displacement tells us that **institutional order flow has committed to a direction**. When displacement occurs: (1) large orders were placed rapidly — so rapidly that no one was selling/buying on the other side fast enough, creating the FVG imbalance; (2) the structural level that was broken is now a CHoCH (Change of Character) — the previous trend assumption is invalidated; (3) **the next high-probability entry is on the pullback into the FVG left by the displacement** — that is where the institutions that missed the initial move will re-enter at the original order block zone.
+
+---
+
+### ❓ Q3: Do you think displacement is useful or useless?
+
+> 📝 *Your personal reflection here. Note: displacement is the core of the FCR (First Candle Rule) — the 9:30 candle high/low displacement above or below the FCR rays is what triggers the signal. Every A+ entry in the recovery arc has required displacement confirmation.*
+
+---
+
+### ❓ Q4: Provide 3 picture examples of displacement.
+
+> 📝 *Add 3 chart screenshots showing displacement — look for candles that close beyond a structural level, leaving a visible FVG or imbalance. Ideal examples: the 9:30 FCR displacement on a confirmed session, the Mar 24 ES move from the sell limit zone, or any ETH displacement you have documented.*
+
+---
+
+### ❓ Q5: Did you incorporate displacement in your trading strategy before this teaching?
+
+> 📝 *Your personal reflection here. Consider: the FCR strategy (STB) is entirely built on displacement — you have been using it operationally since Feb 2026. The lesson likely deepened the theoretical foundation behind why the FCR signal works.*
+
+---
+
+### ❓ Q6: Do you feel as if this concept was overcomplicated previous to this teaching?
+
+> 📝 *Your personal reflection here.*
+
+---
+
+### ❓ Q7: Write down 3 key takeaways from this lesson.
+
+> ✅ **Answer:**
+> 1. **Displacement vs. manipulation: it is all about the close.** A wick that doesn't close beyond the level is manipulation — engineered to collect orders. A close beyond the level is displacement — institutional commitment. The close is everything.
+> 2. **Displacement creates the FVG that creates the entry.** You don't enter on the displacement itself — you wait for the retracement into the imbalance it leaves. The displacement is the signal; the FVG retracement is the entry.
+> 3. **No displacement = no trade.** A breakout without displacement is a suspected manipulation. Waiting for the close beyond the level before taking action prevents entering on engineered moves designed to trap you.
+
+---
+
+### ❓ Q8: Write down a time in your trading career relating to the teachings in this lesson.
+
+> 📝 *Your personal reflection here. Consider: Mar 24 — the ES sell limit filled at 6673.0 as price displaced into the supply zone. The displacement gave the fill, and the subsequent pullback toward the target was the FVG being filled on the lower timeframe. Or: any session where a "breakout" failed because it was a wick (manipulation) rather than a close (displacement).*
+
+---
+
+## 📖 Lesson 3.4 — Intraday Liquidity
+
+---
+
+### ❓ Q1: What is intraday liquidity and why is it important?
+
+> ✅ **Answer:** Intraday liquidity is the **session-specific pools of resting orders** that form within a single trading day — as opposed to the multi-day or weekly draws on liquidity. These include: equal highs/lows formed during the overnight session, the FCR HIGH and LOW from the 9:30 open candle, prior candle highs/lows on the 5-minute and 15-minute charts, and consolidation zones within the day's range. Intraday liquidity is important because it provides **short-term targets** — price will sweep intraday pools before committing to the larger HTF draw. Understanding it prevents you from taking profit too early (before the intraday pool is swept) or from holding too long (into a pool that will cause a reversal).
+
+---
+
+### ❓ Q2: What can identifying intraday liquidity do for your trading?
+
+> ✅ **Answer:** Identifying intraday liquidity: (1) gives you **precise take-profit targets** — set TP at the nearest intraday pool rather than a random level; (2) reveals **stop-hunt zones** — if equal lows have formed just below your entry, expect a sweep before continuation (don't close early); (3) tells you **where NOT to enter** — taking a long entry just below an intraday sell-side liquidity pool above means price may sweep your stop before moving up; (4) helps you **time entries** more precisely — after a morning liquidity sweep, the next directional leg often follows.
+
+---
+
+### ❓ Q3: Rate your understanding of intraday liquidity from 1–5.
+
+> 📝 *Your self-assessment here. Consider rating yourself on: (a) identifying pools before they are taken, (b) using pools as TP targets, (c) recognizing sweeps in real-time, (d) filtering entries based on proximity to pools.*
+
+---
+
+### ❓ Q4: Provide 3 picture examples of intraday liquidity being taken.
+
+> 📝 *Add 3 chart screenshots showing intraday liquidity sweeps — equal highs swept then reversed, session lows swept then reversed, or equal lows formed during consolidation then taken. The Mar 24 9:30 FCR spike that swept the overnight highs before selling off is a strong example.*
+
+---
+
+### ❓ Q5: Do you feel that it is important to map out intraday liquidity before trading?
+
+> 📝 *Your personal reflection here. Note: mapping intraday liquidity is part of the pre-session routine. The premarket summaries built in this workflow already identify equal highs/lows and manipulation wick zones — this is intraday liquidity mapping in practice.*
+
+---
+
+### ❓ Q6: Write down 3 key takeaways from this lesson.
+
+> ✅ **Answer:**
+> 1. **Map it before the open, not during.** Intraday liquidity pools form during the overnight and pre-market sessions. Identifying them before 9:30 lets you anticipate sweeps rather than react to them.
+> 2. **Every sweep has a direction.** An intraday liquidity sweep is not random volatility — it's the market collecting orders to fuel the next move. After the sweep, price has the fuel it needs to commit to the next direction. The sweep completion is a valid entry trigger.
+> 3. **Intraday liquidity and HTF liquidity compound.** When the intraday draw aligns with the HTF draw on liquidity, the move is stronger. The Mar 24 setup was strong because the intraday manipulation wick zone aligned with the overnight equal highs (HTF DOL) — two layers of pool draw in the same zone.
+
+---
+
+### ❓ Q7: Write down a time in your trading career relating to the teachings in this lesson.
+
+> 📝 *Your personal reflection here. Consider: every session that had a "stop hunt before the move" was intraday liquidity being taken. The FCR HIGH/LOW from 9:30 are intraday liquidity pools by definition — the first 15 minutes of the session creates the intraday framework.*
+
+---
+
+## 📖 Lesson 3.5 — Forming a Bias Based on Liquidity
+
+---
+
+### ❓ Q1: What is different about a bias based on liquidity compared to a bias based on structure alone?
+
+> ✅ **Answer:** A bias based on **structure alone** asks: *"Is price making higher highs/lower lows — is the trend up or down?"* A bias based on **liquidity** asks: *"Where is price drawn to next — what pool is the nearest untapped destination?"* The difference: structure tells you the general trend, but liquidity tells you the **next specific target**. Price can be in a bearish trend (structural bias: short) but still need to reach a buy-side pool above before resuming lower (DOL: temporarily bullish). A liquidity-based bias prevents shorting INTO the draw — it respects that price must take the pool before reversing.
+
+---
+
+### ❓ Q2: How does displacement assist us in this process?
+
+> ✅ **Answer:** Displacement is the **confirmation signal** for liquidity-based bias. Once price sweeps a liquidity pool (manipulation), the displacement AWAY from that pool confirms that: (1) the pool has been fully tapped — institutional orders have been filled; (2) the market is now ready to move in the next direction (toward the next DOL); (3) the FVG left by the displacement is the precise entry zone for the new direction. Without displacement after the sweep, the move may be incomplete — price could return to sweep further. Displacement gives you certainty that the pool is done and the new direction has committed.
+
+---
+
+### ❓ Q3: Do you feel as if you would take higher quality trades if you were more vigilant of obvious liquidity?
+
+> 📝 *Your personal reflection here. Consider: the recovery arc trades — every A+ trade had a clear liquidity pool identified before entry. The Pattern 7 instances often occurred when the stop was placed at an obvious liquidity level (too tight, at an obvious cluster).*
+
+---
+
+### ❓ Q4: Are you ok with taking fewer trades due to not having a clear bias based on liquidity?
+
+> 📝 *Your personal reflection here. Note: "patience and stillness seem to be my edge." The Mar 24 sell limit waited 36+ hours. The liquidity-based framework supports taking fewer, higher-quality entries rather than forcing trades into ambiguous pool structures.*
+
+---
+
+### ❓ Q5: Write down 3 key takeaways from this lesson.
+
+> ✅ **Answer:**
+> 1. **Bias from liquidity > bias from structure.** Structure shows you the trend; liquidity shows you the next move. The highest-conviction trades have both aligned — structural bias AND a clear draw on liquidity in the same direction.
+> 2. **Never short INTO a buy-side pool (or long INTO a sell-side pool).** If buy-side liquidity sits above your short entry, price has unfinished business there first. Wait for the sweep and displacement before entering against the pool.
+> 3. **Fewer trades, better trades.** A liquidity-based bias naturally reduces entry frequency — you only enter when the pool has been swept AND displacement confirms the new direction. This is quality over quantity by design.
+
+---
+
+### ❓ Q6: Write down a time in your trading career relating to the teachings in this lesson.
+
+> 📝 *Your personal reflection here. Consider: the entire Mar 23–25 patience arc with the ES sell limit. The liquidity-based bias says: buy-side pool above (Monday's highs) is the current DOL — price must sweep it — THEN the macro bear resumes. The limit is positioned to catch the reversal FROM that pool — a perfect liquidity-bias aligned entry.*
+
+---
+
+## 📖 Lesson 3.6 — Smart Trading Patterns
+
+---
+
+### ❓ Q1: List the smart trading patterns discussed in this lesson.
+
+> 📝 *Fill in from course material — list the specific named patterns STB teaches in this lesson. Common examples may include: Sweep + Displace, Pivot Rejection, Break and Retest, ZTH pattern setups, or other STB-specific named patterns. Update this once you have reviewed the lesson content.*
+
+---
+
+### ❓ Q2: Why are these patterns important?
+
+> ✅ **Answer:** Smart trading patterns are important because they give you **repeatable, rule-based setups** that align with institutional order flow — instead of trading subjectively, you are trading a defined pattern with known characteristics. When a pattern appears, the setup, entry, stop, and target are all pre-defined. This removes discretion from the moment of decision and replaces it with a trained eye for specific structural sequences. Patterns are the operationalization of all the theory: liquidity, displacement, blocks, and FVGs compressed into identifiable sequences that appear across all instruments and timeframes.
+
+---
+
+### ❓ Q3: Do you feel as if these concepts were overcomplicated prior to watching this lesson?
+
+> 📝 *Your personal reflection here.*
+
+---
+
+### ❓ Q4: Do you feel as if it is important to train your eye to catch these patterns?
+
+> 📝 *Your personal reflection here. Note: pattern recognition is the gap between knowing the theory and executing in real time. The case study tracker (FCR case studies, pattern tracker in reviews) is exactly this practice — training the eye through documented repetition.*
+
+---
+
+### ❓ Q5: Do you feel as if you would take higher quality trades if you were more vigilant of obvious liquidity?
+
+> 📝 *Your personal reflection here.*
+
+---
+
+### ❓ Q6: Write down 3 key takeaways from this lesson.
+
+> ✅ **Answer:**
+> 1. **Patterns are the bridge from theory to execution.** All the concepts (liquidity, displacement, blocks) culminate in recognizable chart patterns. Learning to see these patterns in real time is the final step from understanding to doing.
+> 2. **A pattern removes the decision.** When the pattern is confirmed, the plan is already written — entry, stop, target. The battle against emotion is won before the trade opens because the setup is rule-based, not reactive.
+> 3. **Document every instance.** The FCR case study tracker, individual trade reviews, and pattern tracker in this trading assistant workflow are your pattern training log. Every session reviewed is another repetition of pattern recognition — the eye sharpens with each documented trade.
+
+---
+
+### ❓ Q7: Write down a time in your trading career relating to the teachings in this lesson.
+
+> 📝 *Your personal reflection here. Consider: the Mar 24 "Pivot Sell / Rejection off Resistance" — that was a named pattern entry in the TradeZella export. The pattern was confirmed: supply zone, manipulation wick, displacement, sell limit fill. Recognizing the pattern in advance allowed you to set the limit and step away — the pattern did the work.*
+
+---
+
+## 📖 Week 3 Review
+
+---
+
+### ❓ Q1: Write 3 key takeaways from this week's teachings.
+
+> 📝 *Your personal reflection here. Synthesize the most important things from liquidity, draw on liquidity, displacement, intraday liquidity, liquidity-based bias, and smart patterns.*
+>
+> *Suggested starting point:*
+> 1. **Liquidity is the map, displacement is the compass.** Liquidity tells you where price is going; displacement confirms it has committed to getting there.
+> 2. *(Add your own)*
+> 3. *(Add your own)*
+
+---
+
+### ❓ Q2: Write about a time in your trading career that you have struggled with these concepts.
+
+> 📝 *Your personal reflection here.*
+
+---
+
+### ❓ Q3: Write about a time in your trading career that you have benefited from understanding these concepts, if any.
+
+> 📝 *Your personal reflection here. Consider: the 36-hour patience arc with the ES sell limit (Mar 23–25) is a real-time application of draw on liquidity — the buy-side pool was identified, the entry was set at the reversal zone, and patience held because the destination was understood.*
+
+---
+
+### ❓ Q4: Do you feel as if you understand these concepts better than you did before starting this module?
+
+> 📝 *Your personal reflection here.*
+
+---
+
+### ❓ Q5: Which concepts do you understand the most, and which are you feeling unsure about?
+
+> 📝 *Your personal reflection here. Note: displacement and intraday liquidity tend to click early because they have direct operational application (FCR signal, session pool mapping). Smart trading patterns may need more chart time to fully internalize.*
+
+---
+
+### ❓ Q6: Have you updated your trader scorecard this week?
+
+- [ ] Yes — scorecard updated
 
 ---
 

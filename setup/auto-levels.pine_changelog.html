@@ -1002,6 +1002,12 @@
       0%, 100% { color: var(--teal); text-shadow: 0 0 5px rgba(82, 214, 199, 0.35); }
       50%       { color: var(--gold); text-shadow: 0 0 8px rgba(243, 207, 122, 0.45); }
     }
+    .compact-history .ch-table thead th:last-child,
+    .ch-action {
+      position: sticky;
+      right: 0;
+      background: var(--bg);
+    }
     .ch-action {
       color: var(--teal);
       font-size: 0.95em;
@@ -1011,7 +1017,10 @@
       will-change: color;
       animation: ch-action-glitter 2.4s ease-in-out infinite;
     }
-    .compact-history .ch-table tbody tr[data-release-details]:hover .ch-action { animation-duration: 0.8s; }
+    .compact-history .ch-table tbody tr[data-release-details]:hover .ch-action {
+      animation-duration: 0.8s;
+      background: color-mix(in srgb, var(--surface-soft) 100%, var(--bg));
+    }
     @media (max-width: 600px) {
       .compact-history .ch-table .ch-summary,
       .compact-history .ch-table thead th:nth-child(3) { display: none; }
