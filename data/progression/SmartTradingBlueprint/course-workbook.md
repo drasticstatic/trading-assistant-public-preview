@@ -1680,7 +1680,9 @@ With all of our tools and resources under one roof, success in trading is within
 
 ### ❓ Q3: Summarize Week 3 (Liquidity) into two paragraphs — understanding + implementation.
 
-> 📝 *Paragraph 1: your understanding of liquidity, draw on liquidity, displacement, intraday liquidity, liquidity-based bias, and the Market Maker Model. Paragraph 2: how you use DOL identification in pre-market preparation and intraday execution.*
+> ✅ **Paragraph 1:** Liquidity is one of the fundamental pillars of trading alongside market structure, footprints, and time — markets literally need liquidity to function, like fuel for a train or gas for a car. The draw on liquidity (DOL) is the current price objective for a given timeframe, acting like a magnet pulling price toward the nearest untapped pool. Displacement is the GPS that confirms which DOL is active: when a strong, impulsive move leaves a fair value gap behind, it is not just volatility — it is institutional order flow committing to a direction and repricing toward a specific liquidity target. Intraday liquidity pools (equal highs/lows, session opens, overnight ranges) provide the session-level targets, while forming a liquidity-based bias requires first understanding the HTF context, then identifying which side was recently swept — a sweep precedes a reversal. If the HTF is bullish but the 5-minute is in premium, price will retrace to discount (engineering sell-side liquidity) before continuing up. Market Maker Models are the repeating framework where all of this converges: institutions pair buy and sell orders by running stops, with full timeframe alignment providing the highest probability outcome.
+>
+> **Paragraph 2:** In practice, DOL identification happens pre-market: I identify the largest untapped swing points on the daily and 1-hour charts, confirm the HTF bias direction, and map intraday pools (equal highs/lows, FCR HIGH/LOW levels, ETH range) onto the pre-market summary. This gives me a session map — where price is going before it can reverse, and where I want to be positioned relative to the pool. During execution, I wait for the pool to be swept and for displacement away from it before considering an entry. The FVG left by the displacement is the entry zone. The next untapped pool is the target. Liquidity replaces guessing with destination-based conviction.
 
 ---
 
@@ -1723,19 +1725,6 @@ With all of our tools and resources under one roof, success in trading is within
 ### ❓ Q10: Give me any suggestions, feedback, or comments about your journey thus far as a Smart Trader.
 
 > 📝 *Your reflection here.*
-
----
-
-## Previous weeks’ additional context (to be integrated):
-
-### Week 1 supplementary:
-Range structure operates in the context of consolidation, compression, and corrective phases — not impulse structure. Impulse structure represents explosive energy, conviction, and vertical movement; range structure represents equilibrium, balance, and horizontal consolidation where price oscillates between established support and resistance. Retracement vs. expansion, fair market value, and how price moves between internal and external levels. Displacement is required to have valid structure — it confirms smart money participation and forces you to wait for confirmation that real money is behind the move.
-
-### Week 2 supplementary:
-A confluence is something you see on the chart that agrees with what you see elsewhere on the chart. Footprints show smart money participation and work best when aligned with range structure. Manipulation blocks: the manipulation candle must be engulfed by an opposing candle, and must align with overall range bias. An order block is a range or candle where institutions will be buying or selling against the retail trend. FVGs vs. Liquidity Voids: a FVG is a specific three-candle pattern where the wicks of the first and third candles do not overlap — a precise, often short-term inefficiency. A liquidity void is a broader displacement spanning multiple candles — essentially a larger-scale version of a FVG. Breaker blocks are involved during runs on liquidity. BPRs: two overlapping FVGs — a “hotspot” where institutional players showed conflicting interest and may return. A wick block is usually made of a candle that takes liquidity and has a big wick.
-
-### Week 3 supplementary:
-Draw on liquidity — the current price objective for a given timeframe. Use range context, footprints, and especially displacement to identify where price is likely reaching next. Combine the Daily and 1-Hour timeframes, know when to stand aside, and manage exits at low-hanging fruit and higher-timeframe objectives. Displacement validates market structure, signals where price is reaching (the DOL), and distinguishes continuation from reversal. Smart Trading Pattern (MMM — Market Maker Model): the model the instructor uses — recognize the model, the precise conditions for use, and execute using structure, footprints, liquidity, and displacement.
 
 ---
 
