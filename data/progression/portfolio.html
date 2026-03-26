@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trading Portfolio — Christopher Wilson</title>
+  <meta name="description" content="Unified P&amp;L ledger across all trading platforms — futures, crypto, and options. Christopher Wilson's living financial record.">
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../favicon.png" type="image/png" sizes="64x64">
+  <style>
+    :root {
+      --bg: #0b0914; --bg-alt: #100c1c;
+      --surface: rgba(14,10,26,0.88); --surface-soft: rgba(12,8,22,0.56); --surface-strong: #170f2a;
+      --border: rgba(188,140,255,0.18); --border-strong: rgba(188,140,255,0.30);
+      --text: #e2daf4; --muted: #a898c8; --subtle: #6a5a8a;
+      --teal: #52d6c7; --green: #3fb950; --gold: #f3cf7a; --blue: #7cc2ff;
+      --purple: #bc8cff; --red: #f85149; --pine: #bc8cff;
+      --accent: #bc8cff; --accent-soft: rgba(188,140,255,0.12); --accent-bright: #d4b0ff;
+      --shadow: 0 18px 36px rgba(0,0,8,0.35);
+    }
+    html.light {
+      --bg: #f5f0ff; --bg-alt: #faf7ff;
+      --surface: rgba(255,255,255,0.92); --surface-soft: rgba(245,240,255,0.85); --surface-strong: #fff;
+      --border: rgba(120,80,200,0.15); --border-strong: rgba(120,80,200,0.28);
+      --text: #1e1030; --muted: #5a3e8a; --subtle: #7a5aaa;
+      --teal: #0d9488; --green: #1a7f37; --gold: #9a6700; --blue: #0969da;
+      --purple: #7c3aed; --red: #cf222e;
+      --accent: #7c3aed; --accent-soft: rgba(124,58,237,0.10); --accent-bright: #6d28d9;
+      --shadow: 0 18px 36px rgba(60,20,100,0.09);
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      font-size: 15px; line-height: 1.65; color: var(--text);
+      background:
+        radial-gradient(ellipse at 20% 8%, rgba(188,140,255,0.10) 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 20%, rgba(82,214,199,0.07) 0%, transparent 35%),
+        radial-gradient(ellipse at 50% 90%, rgba(124,194,255,0.05) 0%, transparent 40%),
+        linear-gradient(160deg, var(--bg-alt) 0%, var(--bg) 100%);
+      background-attachment: fixed;
+      overflow-x: hidden; max-width: 100vw;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      position: sticky; top: 0; z-index: 150;
+      display: flex; align-items: center; gap: .6rem; flex-wrap: wrap;
+      padding: .55rem 1.2rem;
+      background: rgba(11,9,20,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    html.light .topbar { background: rgba(250,247,255,0.94); }
+    .topbar-brand { font-size: .82rem; font-weight: 600; color: var(--accent); margin-right: .4rem; white-space: nowrap; }
+    .pill-btn {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: .3rem .75rem; border-radius: 999px; font-size: .78rem; font-weight: 500;
+      border: 1px solid var(--border-strong); background: var(--surface);
+      color: var(--muted); text-decoration: none; transition: background .15s, color .15s;
+      white-space: nowrap;
+    }
+    .pill-btn:hover { background: var(--accent-soft); color: var(--accent-bright); text-decoration: none; }
+    .spacer { flex: 1; }
+    .theme-btn {
+      background: none; border: 1px solid var(--border); border-radius: 999px;
+      color: var(--muted); cursor: pointer; padding: .28rem .6rem; font-size: .78rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 3.5rem 2rem 2rem; text-align: center; position: relative;
+    }
+    .hero-tag {
+      display: inline-block; padding: .3rem .9rem; border-radius: 999px;
+      background: var(--accent-soft); border: 1px solid var(--border-strong);
+      color: var(--accent); font-size: .78rem; font-weight: 600; letter-spacing: .05em;
+      text-transform: uppercase; margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700;
+      color: var(--text); margin: 0 0 .6rem;
+      letter-spacing: -.02em;
+    }
+    .hero p {
+      font-size: 1rem; color: var(--muted); max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    .hero-meta {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: .75rem;
+      font-size: .8rem; color: var(--subtle);
+    }
+    .hero-meta span { padding: .25rem .7rem; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-soft); }
+
+    /* ── LAYOUT ── */
+    .content { max-width: 1100px; margin: 0 auto; padding: 0 1.2rem 4rem; }
+
+    /* ── SECTION ── */
+    .section { margin-bottom: 3rem; }
+    .section-title {
+      font-size: 1.15rem; font-weight: 700; color: var(--text);
+      padding-bottom: .5rem; margin: 0 0 1.2rem;
+      border-bottom: 2px solid var(--border);
+      display: flex; align-items: center; gap: .5rem;
+      text-align: left;
+    }
+    .section-title .sec-icon { font-size: 1.1rem; }
+
+    /* ── STAT CARDS ── */
+    .stat-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem; margin-bottom: 2rem;
+    }
+    .stat-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.1rem 1.3rem;
+      display: flex; flex-direction: column; gap: .3rem;
+      transition: border-color .2s;
+    }
+    .stat-card:hover { border-color: var(--border-strong); }
+    .stat-label { font-size: .75rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+    .stat-value { font-size: 1.5rem; font-weight: 700; line-height: 1.1; }
+    .stat-sub { font-size: .78rem; color: var(--subtle); }
+    .val-green { color: var(--green); }
+    .val-red { color: var(--red); }
+    .val-gold { color: var(--gold); }
+    .val-blue { color: var(--blue); }
+    .val-muted { color: var(--muted); }
+
+    /* ── TABLE ── */
+    .tbl-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; font-size: .87rem; }
+    thead th {
+      background: var(--surface-strong); color: var(--muted); font-size: .75rem;
+      font-weight: 600; text-transform: uppercase; letter-spacing: .05em;
+      padding: .65rem 1rem; text-align: left; white-space: nowrap;
+    }
+    tbody tr { border-bottom: 1px solid var(--border); transition: background .12s; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--accent-soft); }
+    tbody td { padding: .65rem 1rem; }
+    .td-mono { font-family: "SF Mono", "Fira Code", monospace; font-size: .83rem; }
+    .td-green { color: var(--green); font-weight: 600; }
+    .td-red { color: var(--red); font-weight: 600; }
+    .td-gold { color: var(--gold); }
+    .td-muted { color: var(--muted); }
+    .badge {
+      display: inline-block; padding: .2rem .55rem; border-radius: 6px; font-size: .73rem; font-weight: 600;
+    }
+    .badge-green { background: rgba(63,185,80,.15); color: var(--green); }
+    .badge-red { background: rgba(248,81,73,.15); color: var(--red); }
+    .badge-gold { background: rgba(243,207,122,.15); color: var(--gold); }
+    .badge-blue { background: rgba(124,194,255,.15); color: var(--blue); }
+    .badge-muted { background: rgba(168,152,200,.1); color: var(--muted); }
+
+    /* ── CALLOUT ── */
+    .callout {
+      display: flex; gap: .8rem; align-items: flex-start;
+      padding: .85rem 1.1rem; border-radius: 10px; margin: 1rem 0;
+      border: 1px solid transparent; font-size: .87rem;
+    }
+    .callout.warn { background: rgba(243,207,122,.08); border-color: rgba(243,207,122,.25); }
+    .callout.info { background: rgba(124,194,255,.08); border-color: rgba(124,194,255,.20); }
+    .callout-icon { font-size: 1rem; flex-shrink: 0; margin-top: .05rem; }
+    .callout strong { display: block; margin-bottom: .2rem; }
+
+    /* ── ACCORDION ── */
+    details.plat-block { margin-bottom: 1rem; }
+    details.plat-block > summary {
+      list-style: none; cursor: pointer;
+      display: flex; align-items: center; gap: .75rem;
+      padding: .9rem 1.2rem; border-radius: 12px;
+      background: var(--surface); border: 1px solid var(--border);
+      transition: background .15s, border-color .15s;
+    }
+    details.plat-block > summary::-webkit-details-marker { display: none; }
+    details.plat-block > summary:hover { background: var(--surface-strong); border-color: var(--border-strong); }
+    details.plat-block[open] > summary { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-color: var(--border-strong); }
+    .plat-icon { font-size: 1.3rem; }
+    .plat-name { font-weight: 600; color: var(--text); flex: 1; }
+    .plat-meta { font-size: .8rem; color: var(--muted); }
+    .plat-pnl { font-size: 1rem; font-weight: 700; }
+    .acc-icon { margin-left: .5rem; color: var(--subtle); font-size: .85rem; transition: transform .2s; }
+    details.plat-block[open] .acc-icon { transform: rotate(180deg); }
+    .plat-body {
+      padding: 1.2rem;
+      background: var(--surface-soft); border: 1px solid var(--border-strong);
+      border-top: none; border-radius: 0 0 12px 12px;
+    }
+
+    /* ── CPA SECTION ── */
+    .cpa-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: .75rem; margin-top: .75rem; }
+    .cpa-item {
+      padding: .8rem 1rem; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; font-size: .85rem;
+    }
+    .cpa-item strong { display: block; margin-bottom: .25rem; color: var(--gold); }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center; padding: 2rem 1rem 3rem;
+      font-size: .8rem; color: var(--subtle);
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      .topbar { gap: .4rem; }
+      .hero { padding: 2.5rem 1.2rem 1.5rem; }
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
+      thead th, tbody td { padding: .55rem .75rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="topbar" aria-label="Site navigation">
+    <span class="topbar-brand">📈 Trading Assistant</span>
+    <a class="pill-btn" href="../../index.html">🏠 Home</a>
+    <a class="pill-btn" href="resources.html">📚 Resources</a>
+    <a class="pill-btn" href="SmartTradingBlueprint/course-workbook.html">📘 STB Workbook</a>
+    <a class="pill-btn" href="inevitrade/inner-circle-workbook.html">📗 IT Inner Circle</a>
+    <div class="spacer"></div>
+    <button class="theme-btn" id="themeToggle" aria-label="Toggle light/dark mode">☀︎</button>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-tag">Private Portfolio Record</div>
+    <h1>Christopher Wilson — Unified P&amp;L Ledger</h1>
+    <p>All trading activity across futures, crypto, and options — one view. Source of truth for performance and tax tracking.</p>
+    <div class="hero-meta">
+      <span>Last updated: Mar 26, 2026</span>
+      <span>Maintained by Fortuna</span>
+      <span>⚠️ Working estimates — verify before filing</span>
+    </div>
+  </header>
+
+  <main class="content">
+
+    <!-- ── OVERALL SUMMARY ── -->
+    <section class="section" id="summary">
+      <h2 class="section-title"><span class="sec-icon">📊</span> Overall Summary</h2>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">2026 YTD Net</div>
+          <div class="stat-value val-green">+$65.50</div>
+          <div class="stat-sub">Futures +$93 · Crypto -$27.50</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">2025 Net</div>
+          <div class="stat-value val-red">~-$234</div>
+          <div class="stat-sub">BTCC -$82 · PocketOption -$151.62</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">2024 Net</div>
+          <div class="stat-value val-red">~-$2,115+</div>
+          <div class="stat-sub">BTCC only · Dec mass liquidation</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">BTCC All-Time</div>
+          <div class="stat-value val-red">~-$2,224</div>
+          <div class="stat-sub">Dec 2024 → Mar 2026</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Active Eval Accounts</div>
+          <div class="stat-value val-gold">2</div>
+          <div class="stat-sub">APEX-06 · TPT 50K</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Recovery Arc</div>
+          <div class="stat-value val-green">+$93</div>
+          <div class="stat-sub">Feb 23 – Mar 26, 2026</div>
+        </div>
+      </div>
+
+      <div class="callout warn">
+        <span class="callout-icon">⚠️</span>
+        <div><strong>Working Document</strong> All figures are working estimates derived from CSV exports. Verify all amounts against official platform statements before filing taxes. Crypto perp futures, binary options, and on-chain transactions may each have different tax treatment — consult a CPA.</div>
+      </div>
+    </section>
+
+    <!-- ── FUTURES ── -->
+    <section class="section" id="futures">
+      <h2 class="section-title"><span class="sec-icon">📉</span> Futures — Prop Firm Accounts</h2>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">2026 YTD (Feb–Mar)</div>
+          <div class="stat-value val-green">+$93.00</div>
+          <div class="stat-sub">8 sessions tracked</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">APEX-06 Status</div>
+          <div class="stat-value val-gold">Active</div>
+          <div class="stat-sub">Min days met Mar 24/25</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">TPT 50K Status</div>
+          <div class="stat-value val-gold">Active</div>
+          <div class="stat-sub">Day 1 of 5 completed</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">APEX-05</div>
+          <div class="stat-value val-red">Blown</div>
+          <div class="stat-sub">Mar 3 — Patterns 6+7</div>
+        </div>
+      </div>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Account</th>
+              <th>Instrument</th>
+              <th>P/L</th>
+              <th>Grade</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Feb 25, 2026</td>
+              <td class="td-muted">APEX-06</td>
+              <td>MNQ</td>
+              <td class="td-green td-mono">+$565.00</td>
+              <td><span class="badge badge-green">A+</span></td>
+              <td class="td-muted">All rules honored — recovery arc begins</td>
+            </tr>
+            <tr>
+              <td>Mar 3, 2026</td>
+              <td class="td-muted">APEX-05</td>
+              <td>ES / CL</td>
+              <td class="td-red td-mono">—</td>
+              <td><span class="badge badge-red">Blown</span></td>
+              <td class="td-muted">Patterns 6+7 — account liquidated</td>
+            </tr>
+            <tr>
+              <td>Mar 10, 2026</td>
+              <td class="td-muted">APEX-06</td>
+              <td>MNQ</td>
+              <td class="td-red td-mono">-$108.00</td>
+              <td><span class="badge badge-green">A+</span></td>
+              <td class="td-muted">SL held (Pattern 7 fix ✓) — passive exit</td>
+            </tr>
+            <tr>
+              <td>Mar 16, 2026</td>
+              <td class="td-muted">APEX-06</td>
+              <td>RTY</td>
+              <td class="td-green td-mono">+$935.00</td>
+              <td><span class="badge badge-gold">A-</span></td>
+              <td class="td-muted">Strong session</td>
+            </tr>
+            <tr>
+              <td>Mar 16, 2026</td>
+              <td class="td-muted">APEX-06</td>
+              <td>MNQ</td>
+              <td class="td-red td-mono">-$268.50</td>
+              <td><span class="badge badge-muted">—</span></td>
+              <td class="td-muted">SL adjusted — Pattern 7 echo</td>
+            </tr>
+            <tr>
+              <td>Mar 17, 2026</td>
+              <td class="td-muted">APEX-06</td>
+              <td>MNQ</td>
+              <td class="td-green td-mono">+$963.00</td>
+              <td><span class="badge badge-muted">—</span></td>
+              <td class="td-muted">Overnight; SL moved wide (Pattern 7 echo)</td>
+            </tr>
+            <tr>
+              <td>Mar 20, 2026</td>
+              <td class="td-muted">APEX-06</td>
+              <td>RTY</td>
+              <td class="td-green td-mono">+$525.00</td>
+              <td><span class="badge badge-muted">—</span></td>
+              <td class="td-muted">Unintentional fill; SL canceled (Pattern 9)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout info" style="margin-top:1rem;">
+        <span class="callout-icon">ℹ️</span>
+        <div>Prop firm eval P/L reflects eval score — not cash in hand. Payout pending for APEX-484839-06. Futures P/L is tracked for performance purposes; tax treatment of prop firm payouts requires CPA guidance.</div>
+      </div>
+    </section>
+
+    <!-- ── CRYPTO ── -->
+    <section class="section" id="crypto">
+      <h2 class="section-title"><span class="sec-icon">₿</span> Crypto Trading — BTCC</h2>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">All-Time Net</div>
+          <div class="stat-value val-red">~-$2,224</div>
+          <div class="stat-sub">Dec 2024 – Mar 2026</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">2024</div>
+          <div class="stat-value val-red">~-$2,115</div>
+          <div class="stat-sub">Dec mass liquidation dominant</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">2025</div>
+          <div class="stat-value val-red">~-$82</div>
+          <div class="stat-sub">API3 continuation</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">2026 YTD</div>
+          <div class="stat-value val-red">-$27.50</div>
+          <div class="stat-sub">SOL only; +$20.43 win offset</div>
+        </div>
+      </div>
+
+      <details class="plat-block" open>
+        <summary>
+          <span class="plat-icon">📊</span>
+          <span class="plat-name">BTCC — 2026 Trades (Detailed)</span>
+          <span class="plat-meta">SOL/USDT Perpetual</span>
+          <span class="plat-pnl val-red">-$27.50</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="plat-body">
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Instrument</th>
+                  <th>Direction</th>
+                  <th>Entry</th>
+                  <th>Exit</th>
+                  <th>Net P/L</th>
+                  <th>Pattern</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Feb 25–26</td>
+                  <td>SOLUSDT</td>
+                  <td><span class="badge badge-green">LONG 5×20x</span></td>
+                  <td class="td-mono">$87.4701</td>
+                  <td class="td-mono">$91.5556</td>
+                  <td class="td-green td-mono">+$20.43</td>
+                  <td class="td-muted">A+ — only win</td>
+                </tr>
+                <tr>
+                  <td>Mar 12</td>
+                  <td>SOLUSDT</td>
+                  <td><span class="badge badge-red">SHORT 1×50x</span></td>
+                  <td class="td-mono">$85.68</td>
+                  <td class="td-mono">$86.63 SL</td>
+                  <td class="td-red td-mono">-$1.00</td>
+                  <td class="td-muted">SL hit cleanly ✓</td>
+                </tr>
+                <tr>
+                  <td>Mar 13</td>
+                  <td>SOLUSDT</td>
+                  <td><span class="badge badge-red">SHORT 5×20x</span></td>
+                  <td class="td-mono">$85.1332</td>
+                  <td class="td-mono">$91.6940</td>
+                  <td class="td-red td-mono">-$32.80</td>
+                  <td class="td-muted">Pattern 8 — 30.5h hold</td>
+                </tr>
+                <tr>
+                  <td>Mar 25–26</td>
+                  <td>SOLUSDT</td>
+                  <td><span class="badge badge-green">LONG 5×20x</span></td>
+                  <td class="td-mono">$92.4686</td>
+                  <td class="td-mono">$89.6435</td>
+                  <td class="td-red td-mono">-$14.13</td>
+                  <td class="td-muted">Pattern 8+9 — voucher</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <details class="plat-block">
+        <summary>
+          <span class="plat-icon">📅</span>
+          <span class="plat-name">BTCC — 2024 Annual Summary</span>
+          <span class="plat-meta">Dec 17–31 only (CSV start date)</span>
+          <span class="plat-pnl val-red">~-$2,115</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="plat-body">
+          <p style="font-size:.9rem;color:var(--muted);margin:0 0 .8rem;">Dec 19 mass liquidation event: multiple positions simultaneously force-closed (XRP 180x, XLM 40x, SOL 500x, DOGE, API3, SUI, ADA, ACH). ~-$1,500+ in forced closes in one day.</p>
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>Period</th><th>Net P/L</th><th>Driver</th></tr></thead>
+              <tbody>
+                <tr><td>Dec 17–18 (pre-liquidation)</td><td class="td-green td-mono">~+$158</td><td class="td-muted">XRP short, BTC long profitable</td></tr>
+                <tr><td>Dec 19 (mass liquidation)</td><td class="td-red td-mono">~-$1,800+</td><td class="td-muted">Forced margin call — simultaneous closes</td></tr>
+                <tr><td>Dec 20–21 (partial recovery)</td><td class="td-green td-mono">~+$430</td><td class="td-muted">XRP, BTC, MANA partial recovery</td></tr>
+                <tr><td><strong>2024 Net</strong></td><td class="td-red td-mono"><strong>~-$2,115</strong></td><td class="td-muted">All short-term — see BTCC P&L 2024.md</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <a href="../../smarttrader-ai/reviews/2024/btcc_annual_summary_2024.md" style="font-size:.82rem; color:var(--accent);">→ Full 2024 review</a>
+        </div>
+      </details>
+
+      <details class="plat-block">
+        <summary>
+          <span class="plat-icon">📅</span>
+          <span class="plat-name">BTCC — 2025 Annual Summary</span>
+          <span class="plat-meta">Full year · 4 trades</span>
+          <span class="plat-pnl val-red">~-$82</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="plat-body">
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>Date</th><th>Instrument</th><th>Net P/L</th><th>Notes</th></tr></thead>
+              <tbody>
+                <tr><td>Feb 10</td><td>API3USDT</td><td class="td-red td-mono">-$14.19</td><td class="td-muted">Close of Dec 2024 long carry</td></tr>
+                <tr><td>Mar 4</td><td>API3USDT</td><td class="td-red td-mono">-$61.59 est</td><td class="td-muted">Largest 2025 loss</td></tr>
+                <tr><td>Mar 18</td><td>API3USDT</td><td class="td-red td-mono">-$7.52</td><td class="td-muted">Small close</td></tr>
+                <tr><td>May 12–16</td><td>XRPUSDT</td><td class="td-red td-mono">-$0.38</td><td class="td-muted">Near breakeven</td></tr>
+                <tr><td><strong>2025 Net</strong></td><td>—</td><td class="td-red td-mono"><strong>~-$82</strong></td><td class="td-muted">All short-term losses</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ── POCKET OPTION ── -->
+    <section class="section" id="pocketoption">
+      <h2 class="section-title"><span class="sec-icon">🎰</span> PocketOption — Binary Options</h2>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">2025 Net</div>
+          <div class="stat-value val-red">-$151.62</div>
+          <div class="stat-sub">May–Dec 2025</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Total Trades</div>
+          <div class="stat-value val-muted">~741</div>
+          <div class="stat-sub">Avg $1–2 each</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">2026 Activity</div>
+          <div class="stat-value val-muted">None</div>
+          <div class="stat-sub">No trades after Dec 2025</div>
+        </div>
+      </div>
+
+      <div class="callout warn">
+        <span class="callout-icon">⚠️</span>
+        <div><strong>Tax Note — Binary Options</strong> Binary options may be treated as ordinary income/loss (not capital gains) under IRS rules. Some argue Section 988 or gambling loss treatment. PocketOption is a foreign platform — FBAR reporting may apply if account balance exceeded $10,000 at any point. Consult a CPA.</div>
+      </div>
+    </section>
+
+    <!-- ── COINLEDGER ── -->
+    <section class="section" id="coinledger">
+      <h2 class="section-title"><span class="sec-icon">🔗</span> CoinLedger — On-Chain &amp; Exchange Activity</h2>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">CSV Rows</div>
+          <div class="stat-value val-muted">2,666</div>
+          <div class="stat-sub">2020–2025</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">2021–2023</div>
+          <div class="stat-value val-muted">TBD</div>
+          <div class="stat-sub">Heavy staking income</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">2024–2025</div>
+          <div class="stat-value val-muted">TBD</div>
+          <div class="stat-sub">SOL, CRO, HBAR trades</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Processing</div>
+          <div class="stat-value val-gold">Phase 3</div>
+          <div class="stat-sub">Tax pipeline pending</div>
+        </div>
+      </div>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Year</th><th>Activity</th><th>P/L Status</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>2020–2021</td><td>Staking, DeFi interest</td><td class="td-muted">TBD</td><td class="td-muted">Likely taxable interest income at FMV received</td></tr>
+            <tr><td>2021–2023</td><td>Heavy staking/interest</td><td class="td-muted">TBD</td><td class="td-muted">DeFi era — significant taxable events per year</td></tr>
+            <tr><td>2024</td><td>SOL, CRO, HBAR trades</td><td class="td-muted">TBD</td><td class="td-muted">Coinbase + Solana DEX activity</td></tr>
+            <tr><td>2025</td><td>Trading activity</td><td class="td-muted">TBD</td><td class="td-muted">Needs CoinLedger.io processing</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout info" style="margin-top:1rem;">
+        <span class="callout-icon">ℹ️</span>
+        <div>CoinLedger data requires full processing with CoinLedger.io software to compute accurate tax basis. Raw CSV is available at <code>data/imports/2025/CoinLedger_Transactions_as-of_20260326.csv</code>. Phase 3 of the Fortuna Tax Assistant pipeline.</div>
+      </div>
+    </section>
+
+    <!-- ── TAX SUMMARY ── -->
+    <section class="section" id="tax">
+      <h2 class="section-title"><span class="sec-icon">📋</span> Tax Summary (Working Estimates)</h2>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Tax Year</th>
+              <th>BTCC</th>
+              <th>PocketOption</th>
+              <th>CoinLedger</th>
+              <th>Futures (Prop)</th>
+              <th>Net</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>2024</strong></td>
+              <td class="td-red td-mono">~-$2,115</td>
+              <td class="td-muted">N/A</td>
+              <td class="td-muted">TBD</td>
+              <td class="td-muted">N/A</td>
+              <td class="td-red td-mono"><strong>~-$2,115+ TBD</strong></td>
+            </tr>
+            <tr>
+              <td><strong>2025</strong></td>
+              <td class="td-red td-mono">~-$82</td>
+              <td class="td-red td-mono">-$151.62</td>
+              <td class="td-muted">TBD</td>
+              <td class="td-muted">N/A</td>
+              <td class="td-red td-mono"><strong>~-$234 + TBD</strong></td>
+            </tr>
+            <tr>
+              <td><strong>2026 YTD</strong></td>
+              <td class="td-red td-mono">-$27.50</td>
+              <td class="td-muted">None</td>
+              <td class="td-muted">N/A</td>
+              <td class="td-green td-mono">+$93.00</td>
+              <td class="td-green td-mono"><strong>+$65.50 + TBD</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="font-size:.95rem; margin:1.5rem 0 .5rem; color:var(--text);">Key CPA Questions</h3>
+      <div class="cpa-grid">
+        <div class="cpa-item">
+          <strong>BTCC Perp Futures Classification</strong>
+          Section 1256 contracts (60/40 split) or ordinary capital gain/loss? BTCC is a foreign exchange.
+        </div>
+        <div class="cpa-item">
+          <strong>PocketOption Tax Treatment</strong>
+          Ordinary income/loss, Section 988, or gambling loss? Foreign platform reporting.
+        </div>
+        <div class="cpa-item">
+          <strong>Staking Income (2021–2023)</strong>
+          Taxable in year received at FMV. Significant unreported income may exist from DeFi era.
+        </div>
+        <div class="cpa-item">
+          <strong>Dec 2024 Force Liquidation</strong>
+          Exchange-initiated margin call. Does forced liquidation have different IRS treatment vs. voluntary close?
+        </div>
+        <div class="cpa-item">
+          <strong>FBAR Requirements</strong>
+          Foreign accounts (BTCC, PocketOption) — FinCEN 114 required if aggregate balance exceeded $10,000 at any point.
+        </div>
+        <div class="cpa-item">
+          <strong>Prop Firm Payouts</strong>
+          How are prop firm eval payouts classified? Self-employment income? Other income?
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SOURCE FILES ── -->
+    <section class="section" id="sources">
+      <h2 class="section-title"><span class="sec-icon">📁</span> Source Files</h2>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>File</th><th>Location</th><th>Updated</th></tr></thead>
+          <tbody>
+            <tr><td>BTCC CSV (2024–2026)</td><td class="td-mono td-muted" style="font-size:.78rem;">data/imports/2026/03-Mar/btcc-orders_20241217_thru_20260326.csv</td><td class="td-muted">Mar 26, 2026</td></tr>
+            <tr><td>BTCC P&L 2024</td><td class="td-mono td-muted" style="font-size:.78rem;">data/imports/2024/btcc_realized_pl_2024.md</td><td class="td-muted">Mar 26, 2026</td></tr>
+            <tr><td>BTCC P&L 2025</td><td class="td-mono td-muted" style="font-size:.78rem;">data/imports/2025/btcc_realized_pl_2025.md</td><td class="td-muted">Mar 26, 2026</td></tr>
+            <tr><td>BTCC P&L 2026 YTD</td><td class="td-mono td-muted" style="font-size:.78rem;">data/imports/2026/03-Mar/btcc_realized_pl_2026.md</td><td class="td-muted">Mar 26, 2026</td></tr>
+            <tr><td>PocketOption XLSX</td><td class="td-mono td-muted" style="font-size:.78rem;">data/imports/2025/PocketOption_export_history_as-of_20260326.xlsx</td><td class="td-muted">Mar 26, 2026</td></tr>
+            <tr><td>CoinLedger CSV</td><td class="td-mono td-muted" style="font-size:.78rem;">data/imports/2025/CoinLedger_Transactions_as-of_20260326.csv</td><td class="td-muted">Mar 26, 2026</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Maintained by Fortuna (Claude Code CLI) · Part of the <a href="https://github.com/drasticstatic/trading-assistant" target="_blank">trading-assistant</a> project</p>
+    <p style="margin-top:.4rem;">⚠️ Private record — working estimates only. Verify all figures before filing taxes.</p>
+  </footer>
+
+  <script>
+    const themeBtn = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') { html.classList.add('light'); themeBtn.textContent = '🌙'; }
+    themeBtn.addEventListener('click', () => {
+      const isLight = html.classList.toggle('light');
+      themeBtn.textContent = isLight ? '🌙' : '☀︎';
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>
