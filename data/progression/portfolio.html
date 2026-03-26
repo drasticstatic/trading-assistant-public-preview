@@ -3,525 +3,621 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trading Portfolio — Christopher Wilson</title>
-  <meta name="description" content="Unified P&amp;L ledger across all trading platforms — futures, crypto, and options. Christopher Wilson's living financial record.">
-  <meta name="color-scheme" content="dark light">
+  <title>Portfolio — Christopher Wilson</title>
+  <meta name="description" content="Unified trading P&L ledger — futures, crypto, options. Live analytics and tax tracking.">
+  <meta name="color-scheme" content="dark">
   <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="../../favicon.png" type="image/png" sizes="64x64">
   <style>
+    /* ── TERMINAL PALETTE ── */
     :root {
-      --bg: #0b0914; --bg-alt: #100c1c;
-      --surface: rgba(14,10,26,0.88); --surface-soft: rgba(12,8,22,0.56); --surface-strong: #170f2a;
-      --border: rgba(188,140,255,0.18); --border-strong: rgba(188,140,255,0.30);
-      --text: #e2daf4; --muted: #a898c8; --subtle: #6a5a8a;
-      --teal: #52d6c7; --green: #3fb950; --gold: #f3cf7a; --blue: #7cc2ff;
-      --purple: #bc8cff; --red: #f85149; --pine: #bc8cff;
-      --accent: #bc8cff; --accent-soft: rgba(188,140,255,0.12); --accent-bright: #d4b0ff;
-      --shadow: 0 18px 36px rgba(0,0,8,0.35);
-    }
-    html.light {
-      --bg: #f5f0ff; --bg-alt: #faf7ff;
-      --surface: rgba(255,255,255,0.92); --surface-soft: rgba(245,240,255,0.85); --surface-strong: #fff;
-      --border: rgba(120,80,200,0.15); --border-strong: rgba(120,80,200,0.28);
-      --text: #1e1030; --muted: #5a3e8a; --subtle: #7a5aaa;
-      --teal: #0d9488; --green: #1a7f37; --gold: #9a6700; --blue: #0969da;
-      --purple: #7c3aed; --red: #cf222e;
-      --accent: #7c3aed; --accent-soft: rgba(124,58,237,0.10); --accent-bright: #6d28d9;
-      --shadow: 0 18px 36px rgba(60,20,100,0.09);
+      --bg:       #060b14;
+      --bg2:      #0a1020;
+      --bg3:      #0f1828;
+      --panel:    #0d1a2d;
+      --panel2:   #112035;
+      --border:   rgba(0,180,255,0.15);
+      --border2:  rgba(0,180,255,0.30);
+      --text:     #c8d8f0;
+      --muted:    #5a7898;
+      --dim:      #2a3d55;
+      --blue:     #00b4ff;
+      --blue2:    #0088cc;
+      --cyan:     #00d4ff;
+      --green:    #00e87a;
+      --green2:   #00b85c;
+      --red:      #ff3b5c;
+      --red2:     #cc2a46;
+      --gold:     #ffb700;
+      --purple:   #7c5cff;
+      --glow-b:   rgba(0,180,255,0.08);
+      --glow-g:   rgba(0,232,122,0.08);
+      --glow-r:   rgba(255,59,92,0.08);
+      --mono: "SF Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
     }
 
-    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
-    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      margin: 0; min-height: 100vh;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-      font-size: 15px; line-height: 1.65; color: var(--text);
-      background:
-        radial-gradient(ellipse at 20% 8%, rgba(188,140,255,0.10) 0%, transparent 40%),
-        radial-gradient(ellipse at 80% 20%, rgba(82,214,199,0.07) 0%, transparent 35%),
-        radial-gradient(ellipse at 50% 90%, rgba(124,194,255,0.05) 0%, transparent 40%),
-        linear-gradient(160deg, var(--bg-alt) 0%, var(--bg) 100%);
-      background-attachment: fixed;
-      overflow-x: hidden; max-width: 100vw;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      font-size: 14px;
+      line-height: 1.6;
+      /* grid background texture */
+      background-image:
+        linear-gradient(rgba(0,180,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,180,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
     }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
 
-    /* ── TOP BAR ── */
-    .topbar {
-      position: sticky; top: 0; z-index: 150;
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { color: var(--cyan); }
+
+    /* ── NAV ── */
+    .nav {
       display: flex; align-items: center; gap: .6rem; flex-wrap: wrap;
-      padding: .55rem 1.2rem;
-      background: rgba(11,9,20,0.92); backdrop-filter: blur(12px);
+      padding: .6rem 1.4rem;
+      background: rgba(6,11,20,0.95); backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
     }
-    html.light .topbar { background: rgba(250,247,255,0.94); }
-    .topbar-brand { font-size: .82rem; font-weight: 600; color: var(--accent); margin-right: .4rem; white-space: nowrap; }
-    .pill-btn {
-      display: inline-flex; align-items: center; gap: .35rem;
-      padding: .3rem .75rem; border-radius: 999px; font-size: .78rem; font-weight: 500;
-      border: 1px solid var(--border-strong); background: var(--surface);
-      color: var(--muted); text-decoration: none; transition: background .15s, color .15s;
-      white-space: nowrap;
-    }
-    .pill-btn:hover { background: var(--accent-soft); color: var(--accent-bright); text-decoration: none; }
-    .spacer { flex: 1; }
-    .theme-btn {
-      background: none; border: 1px solid var(--border); border-radius: 999px;
-      color: var(--muted); cursor: pointer; padding: .28rem .6rem; font-size: .78rem;
-    }
+    .nav-brand { font-family: var(--mono); font-size: .78rem; color: var(--blue); letter-spacing: .04em; margin-right: .4rem; }
+    .nav-tag { padding: .22rem .65rem; border: 1px solid var(--border2); border-radius: 4px; font-size: .74rem; color: var(--muted); font-family: var(--mono); transition: border-color .15s, color .15s; }
+    .nav-tag:hover { border-color: var(--blue); color: var(--blue); }
+    .nav-space { flex: 1; }
+    .nav-status { font-family: var(--mono); font-size: .72rem; color: var(--green); }
+    .nav-status::before { content: "● "; }
 
-    /* ── HERO ── */
-    .hero {
-      padding: 3.5rem 2rem 2rem; text-align: center; position: relative;
+    /* ── HEADER ── */
+    .header {
+      padding: 2.8rem 1.4rem 1.6rem;
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
     }
-    .hero-tag {
-      display: inline-block; padding: .3rem .9rem; border-radius: 999px;
-      background: var(--accent-soft); border: 1px solid var(--border-strong);
-      color: var(--accent); font-size: .78rem; font-weight: 600; letter-spacing: .05em;
-      text-transform: uppercase; margin-bottom: 1.2rem;
+    .header::before {
+      content: "";
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--blue), var(--cyan), var(--blue), transparent);
     }
-    .hero h1 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700;
-      color: var(--text); margin: 0 0 .6rem;
-      letter-spacing: -.02em;
+    .header-inner { max-width: 1200px; margin: 0 auto; }
+    .header-eyebrow { font-family: var(--mono); font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: .6rem; }
+    .header-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; color: #fff; letter-spacing: -.02em; margin-bottom: .4rem; }
+    .header-title span { color: var(--cyan); }
+    .header-sub { font-family: var(--mono); font-size: .82rem; color: var(--muted); }
+    .header-meta { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.2rem; }
+    .header-badge {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .25rem .7rem; border: 1px solid var(--border2); border-radius: 3px;
+      font-family: var(--mono); font-size: .73rem; color: var(--muted);
     }
-    .hero p {
-      font-size: 1rem; color: var(--muted); max-width: 600px;
-      margin: 0 auto 2rem;
-    }
-    .hero-meta {
-      display: flex; justify-content: center; flex-wrap: wrap; gap: .75rem;
-      font-size: .8rem; color: var(--subtle);
-    }
-    .hero-meta span { padding: .25rem .7rem; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-soft); }
+    .header-badge.warn { border-color: rgba(255,183,0,.3); color: var(--gold); }
 
-    /* ── LAYOUT ── */
-    .content { max-width: 1100px; margin: 0 auto; padding: 0 1.2rem 4rem; }
+    /* ── CONTENT ── */
+    .content { max-width: 1200px; margin: 0 auto; padding: 1.6rem 1.4rem 4rem; }
 
     /* ── SECTION ── */
-    .section { margin-bottom: 3rem; }
-    .section-title {
-      font-size: 1.15rem; font-weight: 700; color: var(--text);
-      padding-bottom: .5rem; margin: 0 0 1.2rem;
-      border-bottom: 2px solid var(--border);
-      display: flex; align-items: center; gap: .5rem;
-      text-align: left;
+    .section { margin-bottom: 2.8rem; }
+    .sec-label {
+      font-family: var(--mono); font-size: .72rem; text-transform: uppercase;
+      letter-spacing: .12em; color: var(--blue); margin-bottom: .9rem;
+      display: flex; align-items: center; gap: .6rem;
     }
-    .section-title .sec-icon { font-size: 1.1rem; }
+    .sec-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
 
-    /* ── STAT CARDS ── */
-    .stat-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem; margin-bottom: 2rem;
+    /* ── STAT GRID ── */
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: .75rem; margin-bottom: 1.6rem; }
+    .stat {
+      background: var(--panel); border: 1px solid var(--border);
+      border-radius: 6px; padding: 1rem 1.1rem;
+      position: relative; overflow: hidden;
     }
-    .stat-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 14px; padding: 1.1rem 1.3rem;
-      display: flex; flex-direction: column; gap: .3rem;
-      transition: border-color .2s;
-    }
-    .stat-card:hover { border-color: var(--border-strong); }
-    .stat-label { font-size: .75rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
-    .stat-value { font-size: 1.5rem; font-weight: 700; line-height: 1.1; }
-    .stat-sub { font-size: .78rem; color: var(--subtle); }
-    .val-green { color: var(--green); }
-    .val-red { color: var(--red); }
-    .val-gold { color: var(--gold); }
-    .val-blue { color: var(--blue); }
-    .val-muted { color: var(--muted); }
+    .stat::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+    .stat.gain::before { background: var(--green); }
+    .stat.loss::before { background: var(--red); }
+    .stat.neutral::before { background: var(--blue); }
+    .stat.gold::before { background: var(--gold); }
+    .stat-label { font-family: var(--mono); font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: .4rem; }
+    .stat-val { font-family: var(--mono); font-size: 1.45rem; font-weight: 700; line-height: 1; }
+    .stat-val.up { color: var(--green); }
+    .stat-val.down { color: var(--red); }
+    .stat-val.blue { color: var(--cyan); }
+    .stat-val.gold { color: var(--gold); }
+    .stat-sub { font-size: .75rem; color: var(--dim); margin-top: .35rem; }
+
+    /* ── CHARTS ── */
+    .chart-wrap { background: var(--panel); border: 1px solid var(--border); border-radius: 6px; padding: 1.2rem 1.4rem; margin-bottom: 1.2rem; }
+    .chart-title { font-family: var(--mono); font-size: .74rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 1rem; }
+    .chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 700px) { .chart-row { grid-template-columns: 1fr; } }
+
+    /* SVG chart shared */
+    svg.chart { width: 100%; overflow: visible; }
 
     /* ── TABLE ── */
-    .tbl-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); }
-    table { width: 100%; border-collapse: collapse; font-size: .87rem; }
+    .tbl-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: .83rem; }
     thead th {
-      background: var(--surface-strong); color: var(--muted); font-size: .75rem;
-      font-weight: 600; text-transform: uppercase; letter-spacing: .05em;
-      padding: .65rem 1rem; text-align: left; white-space: nowrap;
+      font-family: var(--mono); font-size: .68rem; text-transform: uppercase;
+      letter-spacing: .08em; color: var(--muted); font-weight: 600;
+      padding: .55rem .9rem; text-align: left;
+      border-bottom: 1px solid var(--border2); white-space: nowrap;
     }
-    tbody tr { border-bottom: 1px solid var(--border); transition: background .12s; }
+    tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
     tbody tr:last-child { border-bottom: none; }
-    tbody tr:hover { background: var(--accent-soft); }
-    tbody td { padding: .65rem 1rem; }
-    .td-mono { font-family: "SF Mono", "Fira Code", monospace; font-size: .83rem; }
-    .td-green { color: var(--green); font-weight: 600; }
-    .td-red { color: var(--red); font-weight: 600; }
-    .td-gold { color: var(--gold); }
-    .td-muted { color: var(--muted); }
-    .badge {
-      display: inline-block; padding: .2rem .55rem; border-radius: 6px; font-size: .73rem; font-weight: 600;
+    tbody tr:hover { background: rgba(0,180,255,0.04); }
+    tbody td { padding: .55rem .9rem; }
+    .mono { font-family: var(--mono); }
+    .up { color: var(--green); }
+    .dn { color: var(--red); }
+    .dim { color: var(--muted); }
+    .gold { color: var(--gold); }
+    .tag {
+      display: inline-block; padding: .15rem .45rem; border-radius: 3px;
+      font-family: var(--mono); font-size: .68rem; font-weight: 700;
     }
-    .badge-green { background: rgba(63,185,80,.15); color: var(--green); }
-    .badge-red { background: rgba(248,81,73,.15); color: var(--red); }
-    .badge-gold { background: rgba(243,207,122,.15); color: var(--gold); }
-    .badge-blue { background: rgba(124,194,255,.15); color: var(--blue); }
-    .badge-muted { background: rgba(168,152,200,.1); color: var(--muted); }
+    .tag-g { background: rgba(0,232,122,.12); color: var(--green); }
+    .tag-r { background: rgba(255,59,92,.12); color: var(--red); }
+    .tag-b { background: rgba(0,180,255,.12); color: var(--cyan); }
+    .tag-d { background: rgba(90,120,152,.12); color: var(--muted); }
+    .tag-o { background: rgba(255,183,0,.12); color: var(--gold); }
+
+    /* ── PANEL ── */
+    .panel-block { background: var(--panel); border: 1px solid var(--border); border-radius: 6px; padding: 1.2rem 1.4rem; margin-bottom: 1rem; }
+    .panel-block + .panel-block { margin-top: 0; }
 
     /* ── CALLOUT ── */
-    .callout {
-      display: flex; gap: .8rem; align-items: flex-start;
-      padding: .85rem 1.1rem; border-radius: 10px; margin: 1rem 0;
-      border: 1px solid transparent; font-size: .87rem;
-    }
-    .callout.warn { background: rgba(243,207,122,.08); border-color: rgba(243,207,122,.25); }
-    .callout.info { background: rgba(124,194,255,.08); border-color: rgba(124,194,255,.20); }
-    .callout-icon { font-size: 1rem; flex-shrink: 0; margin-top: .05rem; }
-    .callout strong { display: block; margin-bottom: .2rem; }
+    .callout { display: flex; gap: .7rem; padding: .8rem 1rem; border-radius: 4px; font-size: .82rem; margin: .8rem 0; border: 1px solid; }
+    .callout.warn { background: rgba(255,183,0,.05); border-color: rgba(255,183,0,.25); color: #d4a030; }
+    .callout.info { background: rgba(0,180,255,.05); border-color: rgba(0,180,255,.20); color: var(--muted); }
 
     /* ── ACCORDION ── */
-    details.plat-block { margin-bottom: 1rem; }
-    details.plat-block > summary {
+    details.acc { background: var(--panel); border: 1px solid var(--border); border-radius: 6px; margin-bottom: .6rem; }
+    details.acc > summary {
       list-style: none; cursor: pointer;
-      display: flex; align-items: center; gap: .75rem;
-      padding: .9rem 1.2rem; border-radius: 12px;
-      background: var(--surface); border: 1px solid var(--border);
-      transition: background .15s, border-color .15s;
+      display: flex; align-items: center; gap: .8rem; padding: .9rem 1.2rem;
+      font-family: var(--mono); font-size: .82rem;
+      transition: background .12s;
     }
-    details.plat-block > summary::-webkit-details-marker { display: none; }
-    details.plat-block > summary:hover { background: var(--surface-strong); border-color: var(--border-strong); }
-    details.plat-block[open] > summary { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-color: var(--border-strong); }
-    .plat-icon { font-size: 1.3rem; }
-    .plat-name { font-weight: 600; color: var(--text); flex: 1; }
-    .plat-meta { font-size: .8rem; color: var(--muted); }
-    .plat-pnl { font-size: 1rem; font-weight: 700; }
-    .acc-icon { margin-left: .5rem; color: var(--subtle); font-size: .85rem; transition: transform .2s; }
-    details.plat-block[open] .acc-icon { transform: rotate(180deg); }
-    .plat-body {
-      padding: 1.2rem;
-      background: var(--surface-soft); border: 1px solid var(--border-strong);
-      border-top: none; border-radius: 0 0 12px 12px;
-    }
-
-    /* ── CPA SECTION ── */
-    .cpa-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: .75rem; margin-top: .75rem; }
-    .cpa-item {
-      padding: .8rem 1rem; background: var(--surface); border: 1px solid var(--border);
-      border-radius: 10px; font-size: .85rem;
-    }
-    .cpa-item strong { display: block; margin-bottom: .25rem; color: var(--gold); }
+    details.acc > summary::-webkit-details-marker { display: none; }
+    details.acc > summary:hover { background: rgba(0,180,255,0.04); }
+    details.acc[open] > summary { border-bottom: 1px solid var(--border); }
+    .acc-name { flex: 1; color: var(--text); }
+    .acc-meta { color: var(--muted); font-size: .74rem; }
+    .acc-val { font-weight: 700; }
+    .acc-body { padding: 1rem 1.2rem; }
+    .arr { color: var(--muted); font-size: .7rem; transition: transform .2s; }
+    details.acc[open] .arr { transform: rotate(90deg); }
 
     /* ── FOOTER ── */
-    .footer {
-      text-align: center; padding: 2rem 1rem 3rem;
-      font-size: .8rem; color: var(--subtle);
+    footer {
+      text-align: center; padding: 1.5rem 1rem 2.5rem;
+      font-family: var(--mono); font-size: .72rem; color: var(--dim);
       border-top: 1px solid var(--border);
     }
 
-    @media (max-width: 640px) {
-      .topbar { gap: .4rem; }
-      .hero { padding: 2.5rem 1.2rem 1.5rem; }
-      .stat-grid { grid-template-columns: repeat(2, 1fr); }
-      thead th, tbody td { padding: .55rem .75rem; }
-    }
+    /* scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--dim); border-radius: 3px; }
   </style>
 </head>
 <body>
-  <nav class="topbar" aria-label="Site navigation">
-    <span class="topbar-brand">📈 Trading Assistant</span>
-    <a class="pill-btn" href="../../index.html">🏠 Home</a>
-    <a class="pill-btn" href="resources.html">📚 Resources</a>
-    <a class="pill-btn" href="SmartTradingBlueprint/course-workbook.html">📘 STB Workbook</a>
-    <a class="pill-btn" href="inevitrade/inner-circle-workbook.html">📗 IT Inner Circle</a>
-    <div class="spacer"></div>
-    <button class="theme-btn" id="themeToggle" aria-label="Toggle light/dark mode">☀︎</button>
+
+  <!-- ── NAV ── -->
+  <nav class="nav">
+    <span class="nav-brand">PORTFOLIO//</span>
+    <a class="nav-tag" href="../../index.html">🏠 Home</a>
+    <a class="nav-tag" href="resources.html">📚 Resources</a>
+    <a class="nav-tag" href="SmartTradingBlueprint/course-workbook.html">📘 STB</a>
+    <a class="nav-tag" href="inevitrade/inner-circle-workbook.html">📗 IT</a>
+    <div class="nav-space"></div>
+    <span class="nav-status">Mar 26, 2026</span>
   </nav>
 
-  <header class="hero">
-    <div class="hero-tag">Private Portfolio Record</div>
-    <h1>Christopher Wilson — Unified P&amp;L Ledger</h1>
-    <p>All trading activity across futures, crypto, and options — one view. Source of truth for performance and tax tracking.</p>
-    <div class="hero-meta">
-      <span>Last updated: Mar 26, 2026</span>
-      <span>Maintained by Fortuna</span>
-      <span>⚠️ Working estimates — verify before filing</span>
+  <!-- ── HEADER ── -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="header-eyebrow">CHRISTOPHER WILSON // UNIFIED P&amp;L LEDGER</div>
+      <h1 class="header-title">Trading <span>Portfolio</span></h1>
+      <div class="header-sub">All platforms · All instruments · All years — one view</div>
+      <div class="header-meta">
+        <span class="header-badge">BTCC · Apex · TPT · PocketOption · CoinLedger</span>
+        <span class="header-badge">Updated: Mar 26, 2026</span>
+        <span class="header-badge warn">⚠ Working estimates — verify before filing</span>
+      </div>
     </div>
   </header>
 
   <main class="content">
 
-    <!-- ── OVERALL SUMMARY ── -->
-    <section class="section" id="summary">
-      <h2 class="section-title"><span class="sec-icon">📊</span> Overall Summary</h2>
+    <!-- ── OVERVIEW STATS ── -->
+    <section class="section" id="overview">
+      <div class="sec-label">OVERVIEW</div>
       <div class="stat-grid">
-        <div class="stat-card">
-          <div class="stat-label">2026 YTD Net</div>
-          <div class="stat-value val-green">+$65.50</div>
+        <div class="stat neutral">
+          <div class="stat-label">2026 YTD</div>
+          <div class="stat-val up">+$65.50</div>
           <div class="stat-sub">Futures +$93 · Crypto -$27.50</div>
         </div>
-        <div class="stat-card">
+        <div class="stat loss">
           <div class="stat-label">2025 Net</div>
-          <div class="stat-value val-red">~-$234</div>
-          <div class="stat-sub">BTCC -$82 · PocketOption -$151.62</div>
+          <div class="stat-val down">-$234</div>
+          <div class="stat-sub">BTCC -$82 · PocketOption -$152</div>
         </div>
-        <div class="stat-card">
+        <div class="stat loss">
           <div class="stat-label">2024 Net</div>
-          <div class="stat-value val-red">~-$2,115+</div>
-          <div class="stat-sub">BTCC only · Dec mass liquidation</div>
+          <div class="stat-val down">~-$2,115</div>
+          <div class="stat-sub">BTCC only · Dec liquidation event</div>
         </div>
-        <div class="stat-card">
+        <div class="stat loss">
           <div class="stat-label">BTCC All-Time</div>
-          <div class="stat-value val-red">~-$2,224</div>
+          <div class="stat-val down">~-$2,224</div>
           <div class="stat-sub">Dec 2024 → Mar 2026</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-label">Active Eval Accounts</div>
-          <div class="stat-value val-gold">2</div>
+        <div class="stat gold">
+          <div class="stat-label">Active Evals</div>
+          <div class="stat-val gold">2</div>
           <div class="stat-sub">APEX-06 · TPT 50K</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-label">Recovery Arc</div>
-          <div class="stat-value val-green">+$93</div>
-          <div class="stat-sub">Feb 23 – Mar 26, 2026</div>
+        <div class="stat gain">
+          <div class="stat-label">2026 Recovery Arc</div>
+          <div class="stat-val up">+$2,584</div>
+          <div class="stat-sub">Eval cumulative · Feb 25–Mar 26</div>
         </div>
-      </div>
-
-      <div class="callout warn">
-        <span class="callout-icon">⚠️</span>
-        <div><strong>Working Document</strong> All figures are working estimates derived from CSV exports. Verify all amounts against official platform statements before filing taxes. Crypto perp futures, binary options, and on-chain transactions may each have different tax treatment — consult a CPA.</div>
       </div>
     </section>
 
-    <!-- ── FUTURES ── -->
+    <!-- ── CHARTS ── -->
+    <section class="section" id="charts">
+      <div class="sec-label">ANALYTICS</div>
+
+      <div class="chart-row">
+        <!-- Year-over-Year P&L Bar Chart -->
+        <div class="chart-wrap">
+          <div class="chart-title">Year-over-Year Net P&L (All Platforms)</div>
+          <svg class="chart" viewBox="0 0 340 160" aria-label="Year over year P&L chart">
+            <defs>
+              <linearGradient id="grd-r" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#ff3b5c" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#cc2a46" stop-opacity="0.7"/>
+              </linearGradient>
+              <linearGradient id="grd-g" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#00e87a" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#00b85c" stop-opacity="0.7"/>
+              </linearGradient>
+            </defs>
+            <!-- Y axis baseline -->
+            <line x1="70" y1="10" x2="70" y2="130" stroke="rgba(0,180,255,0.2)" stroke-width="1"/>
+            <line x1="70" y1="130" x2="330" y2="130" stroke="rgba(0,180,255,0.2)" stroke-width="1"/>
+            <!-- Grid lines -->
+            <line x1="70" y1="50"  x2="330" y2="50"  stroke="rgba(0,180,255,0.06)" stroke-width="1" stroke-dasharray="3,3"/>
+            <line x1="70" y1="90"  x2="330" y2="90"  stroke="rgba(0,180,255,0.06)" stroke-width="1" stroke-dasharray="3,3"/>
+
+            <!-- 2024 bar: -$2,115 → max loss, full bar (70% of chart) -->
+            <!-- Scale: 2115 = 90px loss, 65 = 2px gain -->
+            <!-- 2024 label -->
+            <text x="62" y="70" font-family="'SF Mono',monospace" font-size="10" fill="#5a7898" text-anchor="end">2024</text>
+            <rect x="73" y="38" width="188" height="16" fill="url(#grd-r)" rx="2"/>
+            <text x="267" y="50" font-family="'SF Mono',monospace" font-size="9" fill="#ff6b80">~-$2,115</text>
+
+            <!-- 2025: -$234 → 234/2115 * 188 = ~21px -->
+            <text x="62" y="95" font-family="'SF Mono',monospace" font-size="10" fill="#5a7898" text-anchor="end">2025</text>
+            <rect x="73" y="83" width="21" height="16" fill="url(#grd-r)" rx="2"/>
+            <text x="100" y="95" font-family="'SF Mono',monospace" font-size="9" fill="#ff6b80">-$234</text>
+
+            <!-- 2026 YTD: +$65.50 → gain bar opposite direction -->
+            <text x="62" y="122" font-family="'SF Mono',monospace" font-size="10" fill="#5a7898" text-anchor="end">2026</text>
+            <rect x="73" y="110" width="6" height="16" fill="url(#grd-g)" rx="2"/>
+            <text x="85" y="122" font-family="'SF Mono',monospace" font-size="9" fill="#00e87a">+$65.50</text>
+
+            <!-- X axis labels -->
+            <text x="70" y="148" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="middle">0</text>
+            <text x="210" y="148" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="middle">-$1,000</text>
+            <text x="330" y="148" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="middle">-$2,115</text>
+          </svg>
+        </div>
+
+        <!-- Platform Breakdown -->
+        <div class="chart-wrap">
+          <div class="chart-title">All-Time P&L by Platform</div>
+          <svg class="chart" viewBox="0 0 340 160" aria-label="Platform P&L breakdown">
+            <!-- Horizontal bars, largest to smallest loss -->
+            <!-- Baseline -->
+            <line x1="80" y1="10" x2="80" y2="140" stroke="rgba(0,180,255,0.2)" stroke-width="1"/>
+
+            <!-- BTCC: -$2,224 = full bar 230px -->
+            <text x="74" y="35" font-family="'SF Mono',monospace" font-size="9" fill="#5a7898" text-anchor="end">BTCC</text>
+            <rect x="83" y="22" width="230" height="14" fill="rgba(255,59,92,0.75)" rx="2"/>
+            <text x="319" y="33" font-family="'SF Mono',monospace" font-size="9" fill="#ff6b80" text-anchor="end">-$2,224</text>
+
+            <!-- PocketOption: -$151.62 = 151.62/2224*230 = ~15.7px -->
+            <text x="74" y="63" font-family="'SF Mono',monospace" font-size="9" fill="#5a7898" text-anchor="end">Pocket</text>
+            <rect x="83" y="50" width="16" height="14" fill="rgba(255,59,92,0.5)" rx="2"/>
+            <text x="105" y="61" font-family="'SF Mono',monospace" font-size="9" fill="#cc5a70">-$152</text>
+
+            <!-- CoinLedger: TBD -->
+            <text x="74" y="91" font-family="'SF Mono',monospace" font-size="9" fill="#5a7898" text-anchor="end">On-Chain</text>
+            <rect x="83" y="78" width="60" height="14" fill="rgba(90,120,152,0.3)" stroke="rgba(90,120,152,0.4)" stroke-width="1" rx="2" stroke-dasharray="3,2"/>
+            <text x="149" y="89" font-family="'SF Mono',monospace" font-size="9" fill="#3a5a78">TBD</text>
+
+            <!-- Futures/Eval: +$93 gain — different direction concept, show as green offset -->
+            <text x="74" y="119" font-family="'SF Mono',monospace" font-size="9" fill="#5a7898" text-anchor="end">Futures</text>
+            <rect x="83" y="106" width="10" height="14" fill="rgba(0,232,122,0.75)" rx="2"/>
+            <text x="99" y="117" font-family="'SF Mono',monospace" font-size="9" fill="#00e87a">+$93</text>
+
+            <text x="80" y="155" font-family="'SF Mono',monospace" font-size="8" fill="#1a2d42" text-anchor="middle">$0</text>
+            <text x="310" y="155" font-family="'SF Mono',monospace" font-size="8" fill="#1a2d42" text-anchor="end">-$2,224</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 2026 Recovery Arc Chart -->
+      <div class="chart-wrap">
+        <div class="chart-title">2026 Recovery Arc — Cumulative Eval P&L (Feb 25 – Mar 26)</div>
+        <svg class="chart" viewBox="0 0 760 180" aria-label="2026 recovery arc cumulative chart">
+          <defs>
+            <linearGradient id="area-g" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#00e87a" stop-opacity="0.25"/>
+              <stop offset="100%" stop-color="#00e87a" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Data points: cumulative after each event -->
+          <!-- Feb 25 MNQ +565, SOL +20.43 → 585.43 -->
+          <!-- Mar 10 MNQ -108 → 477.43 -->
+          <!-- Mar 12-13 SOL -33.80 → 443.63 -->
+          <!-- Mar 16 RTY+MNQ +666.50 → 1110.13 -->
+          <!-- Mar 17 MNQ +963 → 2073.13 -->
+          <!-- Mar 20 RTY +525 → 2598.13 -->
+          <!-- Mar 25-26 SOL -14.13 → 2584.00 -->
+
+          <!-- Scale: max 2598, chart height 140px, y=150 is zero line -->
+          <!-- Each point: yval = 150 - (val/2598)*130 -->
+          <!-- Feb25: 585.43 → y = 150 - 29.3 = 120.7 -->
+          <!-- Mar10: 477.43 → y = 150 - 23.9 = 126.1 -->
+          <!-- Mar12-13: 443.63 → y = 150 - 22.2 = 127.8 -->
+          <!-- Mar16: 1110.13 → y = 150 - 55.6 = 94.4 -->
+          <!-- Mar17: 2073.13 → y = 150 - 103.7 = 46.3 -->
+          <!-- Mar20: 2598.13 → y = 150 - 130 = 20.0 -->
+          <!-- Mar25-26: 2584 → y = 150 - 129.3 = 20.7 -->
+
+          <!-- X positions: evenly spaced across 760, starting ~80 -->
+          <!-- Points at: 80, 180, 270, 370, 470, 570, 680 -->
+
+          <!-- Zero line -->
+          <line x1="60" y1="150" x2="740" y2="150" stroke="rgba(0,180,255,0.15)" stroke-width="1"/>
+          <text x="55" y="154" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="end">$0</text>
+
+          <!-- Grid lines -->
+          <line x1="60" y1="117" x2="740" y2="117" stroke="rgba(0,180,255,0.06)" stroke-width="1" stroke-dasharray="4,4"/>
+          <text x="55" y="121" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="end">+$1K</text>
+          <line x1="60" y1="84" x2="740" y2="84" stroke="rgba(0,180,255,0.06)" stroke-width="1" stroke-dasharray="4,4"/>
+          <text x="55" y="88" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="end">+$2K</text>
+          <line x1="60" y1="20" x2="740" y2="20" stroke="rgba(0,180,255,0.04)" stroke-width="1" stroke-dasharray="4,4"/>
+          <text x="55" y="24" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="end">+$2.6K</text>
+
+          <!-- Filled area polygon -->
+          <polygon points="80,150 80,121 180,126 270,128 370,94 470,46 570,20 680,21 680,150"
+                   fill="url(#area-g)"/>
+
+          <!-- Line path -->
+          <polyline points="80,121 180,126 270,128 370,94 470,46 570,20 680,21"
+                    fill="none" stroke="var(--green)" stroke-width="2" stroke-linejoin="round"/>
+
+          <!-- Data points -->
+          <circle cx="80"  cy="121" r="4" fill="var(--green)" stroke="var(--bg)" stroke-width="2"/>
+          <circle cx="180" cy="126" r="4" fill="var(--red)"   stroke="var(--bg)" stroke-width="2"/>
+          <circle cx="270" cy="128" r="4" fill="var(--red)"   stroke="var(--bg)" stroke-width="2"/>
+          <circle cx="370" cy="94"  r="4" fill="var(--green)" stroke="var(--bg)" stroke-width="2"/>
+          <circle cx="470" cy="46"  r="4" fill="var(--green)" stroke="var(--bg)" stroke-width="2"/>
+          <circle cx="570" cy="20"  r="4" fill="var(--green)" stroke="var(--bg)" stroke-width="2"/>
+          <circle cx="680" cy="21"  r="4" fill="var(--red)"   stroke="var(--bg)" stroke-width="2"/>
+
+          <!-- Value labels (above points) -->
+          <text x="80"  y="112" font-family="'SF Mono',monospace" font-size="8" fill="var(--green)" text-anchor="middle">+$585</text>
+          <text x="180" y="118" font-family="'SF Mono',monospace" font-size="8" fill="var(--red)"   text-anchor="middle">+$477</text>
+          <text x="270" y="120" font-family="'SF Mono',monospace" font-size="8" fill="var(--red)"   text-anchor="middle">+$444</text>
+          <text x="370" y="86"  font-family="'SF Mono',monospace" font-size="8" fill="var(--green)" text-anchor="middle">+$1,110</text>
+          <text x="470" y="38"  font-family="'SF Mono',monospace" font-size="8" fill="var(--green)" text-anchor="middle">+$2,073</text>
+          <text x="570" y="12"  font-family="'SF Mono',monospace" font-size="8" fill="var(--green)" text-anchor="middle">+$2,598</text>
+          <text x="680" y="14"  font-family="'SF Mono',monospace" font-size="8" fill="var(--gold)"  text-anchor="middle">+$2,584</text>
+
+          <!-- Date labels -->
+          <text x="80"  y="166" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Feb 25</text>
+          <text x="180" y="166" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 10</text>
+          <text x="270" y="166" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 12</text>
+          <text x="370" y="166" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 16</text>
+          <text x="470" y="166" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 17</text>
+          <text x="570" y="166" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 20</text>
+          <text x="680" y="166" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 25–26</text>
+        </svg>
+        <div style="font-family:var(--mono);font-size:.7rem;color:var(--muted);margin-top:.5rem;">
+          ⚠ Eval P&L only — cumulative paper score, not cash withdrawn. Green circles = net gain sessions · Red = net loss.
+        </div>
+      </div>
+
+      <!-- 2026 Session Bar Chart -->
+      <div class="chart-wrap">
+        <div class="chart-title">2026 Per-Session P&L — All Platforms</div>
+        <svg class="chart" viewBox="0 0 760 160" aria-label="Per-session P&L bar chart">
+          <!-- Bars scale: max 963, zero line at y=100 -->
+          <!-- Gains go up (y decreases), losses go down (y increases) -->
+          <!-- Height multiplier: 80px / 963 = 0.083 per $ -->
+          <!-- Bar positions: 8 sessions, each ~90px wide -->
+
+          <line x1="30" y1="100" x2="740" y2="100" stroke="rgba(0,180,255,0.3)" stroke-width="1"/>
+          <text x="25" y="104" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="end">$0</text>
+
+          <!-- Grid -->
+          <line x1="30" y1="55" x2="740" y2="55" stroke="rgba(0,180,255,0.06)" stroke-width="1" stroke-dasharray="3,3"/>
+          <text x="25" y="59" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="end">+$500</text>
+          <line x1="30" y1="17" x2="740" y2="17" stroke="rgba(0,180,255,0.06)" stroke-width="1" stroke-dasharray="3,3"/>
+          <text x="25" y="21" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="end">+$963</text>
+          <line x1="30" y1="115" x2="740" y2="115" stroke="rgba(0,180,255,0.04)" stroke-width="1" stroke-dasharray="3,3"/>
+          <text x="25" y="119" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="end">-$150</text>
+
+          <!-- Feb 25: +$565+20.43=585.43 → h=48.6, y=100-48.6=51.4 → bar top 51, h 49 -->
+          <rect x="45"  y="51" width="50" height="49" fill="rgba(0,232,122,0.7)" rx="2"/>
+          <text x="70"  y="45" font-family="'SF Mono',monospace" font-size="8" fill="var(--green)" text-anchor="middle">+$585</text>
+          <text x="70"  y="155" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Feb 25</text>
+
+          <!-- Mar 10: -$108 → h=9, y=100 to 109 -->
+          <rect x="140" y="100" width="50" height="9"  fill="rgba(255,59,92,0.7)"  rx="2"/>
+          <text x="165" y="122" font-family="'SF Mono',monospace" font-size="8" fill="var(--red)"   text-anchor="middle">-$108</text>
+          <text x="165" y="155" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 10</text>
+
+          <!-- Mar 12-13 SOL: -$33.80 → h=2.8, y=100 to 103 -->
+          <rect x="235" y="100" width="50" height="3"  fill="rgba(255,59,92,0.7)"  rx="2"/>
+          <text x="260" y="115" font-family="'SF Mono',monospace" font-size="8" fill="var(--red)"   text-anchor="middle">-$34</text>
+          <text x="260" y="155" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 12</text>
+          <text x="260" y="164" font-family="'SF Mono',monospace" font-size="7" fill="#2a3d55" text-anchor="middle">SOL</text>
+
+          <!-- Mar 16: +$666.50 → h=55.3, y=44.7 -->
+          <rect x="330" y="45" width="50" height="55" fill="rgba(0,232,122,0.7)"  rx="2"/>
+          <text x="355" y="39" font-family="'SF Mono',monospace" font-size="8" fill="var(--green)" text-anchor="middle">+$667</text>
+          <text x="355" y="155" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 16</text>
+
+          <!-- Mar 17: +$963 → h=80, y=20 -->
+          <rect x="425" y="20" width="50" height="80" fill="rgba(0,232,122,0.85)" rx="2"/>
+          <text x="450" y="14" font-family="'SF Mono',monospace" font-size="8" fill="var(--green)" text-anchor="middle">+$963</text>
+          <text x="450" y="155" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 17</text>
+
+          <!-- Mar 20: +$525 → h=43.6, y=56.4 -->
+          <rect x="520" y="56" width="50" height="44" fill="rgba(0,232,122,0.7)"  rx="2"/>
+          <text x="545" y="50" font-family="'SF Mono',monospace" font-size="8" fill="var(--green)" text-anchor="middle">+$525</text>
+          <text x="545" y="155" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 20</text>
+
+          <!-- Mar 25-26 SOL: -$14.13 → h=1.2 -->
+          <rect x="615" y="100" width="50" height="1"  fill="rgba(255,59,92,0.7)"  rx="1"/>
+          <text x="640" y="113" font-family="'SF Mono',monospace" font-size="8" fill="var(--red)"   text-anchor="middle">-$14</text>
+          <text x="640" y="155" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 25</text>
+          <text x="640" y="164" font-family="'SF Mono',monospace" font-size="7" fill="#2a3d55" text-anchor="middle">SOL</text>
+        </svg>
+      </div>
+
+      <!-- BTCC All-Time Yearly Breakdown -->
+      <div class="chart-wrap">
+        <div class="chart-title">BTCC Crypto — Yearly Realized P&L</div>
+        <svg class="chart" viewBox="0 0 500 130" aria-label="BTCC yearly P&L">
+          <!-- Scale max: 2115, chart width 380, baseline at y=80 -->
+          <line x1="80" y1="10" x2="80" y2="100" stroke="rgba(0,180,255,0.2)" stroke-width="1"/>
+          <line x1="80" y1="100" x2="480" y2="100" stroke="rgba(0,180,255,0.2)" stroke-width="1"/>
+
+          <!-- 2024: -2115 → full width 380px -->
+          <text x="74" y="37" font-family="'SF Mono',monospace" font-size="10" fill="#5a7898" text-anchor="end">2024</text>
+          <rect x="83" y="24" width="380" height="18" fill="rgba(255,59,92,0.7)" rx="2"/>
+          <text x="469" y="37" font-family="'SF Mono',monospace" font-size="9" fill="#ff6b80" text-anchor="end">~-$2,115</text>
+
+          <!-- 2025: -82 → 82/2115*380 = 14.7px -->
+          <text x="74" y="66" font-family="'SF Mono',monospace" font-size="10" fill="#5a7898" text-anchor="end">2025</text>
+          <rect x="83" y="53" width="15" height="18" fill="rgba(255,59,92,0.55)" rx="2"/>
+          <text x="104" y="66" font-family="'SF Mono',monospace" font-size="9" fill="#cc5a70">~-$82</text>
+
+          <!-- 2026 YTD: -27.5 → 27.5/2115*380 = 4.9px (show as red) -->
+          <text x="74" y="96" font-family="'SF Mono',monospace" font-size="10" fill="#5a7898" text-anchor="end">2026</text>
+          <rect x="83" y="83" width="5" height="14" fill="rgba(255,59,92,0.4)" rx="2"/>
+          <text x="94"  y="94" font-family="'SF Mono',monospace" font-size="9" fill="#aa4a60">-$27.50</text>
+          <text x="200" y="94" font-family="'SF Mono',monospace" font-size="8" fill="#2a5a3a">(+$20.43 Feb win offset)</text>
+
+          <text x="80" y="118" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="middle">0</text>
+          <text x="480" y="118" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="end">-$2,115</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ── FUTURES DETAIL ── -->
     <section class="section" id="futures">
-      <h2 class="section-title"><span class="sec-icon">📉</span> Futures — Prop Firm Accounts</h2>
-
-      <div class="stat-grid">
-        <div class="stat-card">
-          <div class="stat-label">2026 YTD (Feb–Mar)</div>
-          <div class="stat-value val-green">+$93.00</div>
-          <div class="stat-sub">8 sessions tracked</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">APEX-06 Status</div>
-          <div class="stat-value val-gold">Active</div>
-          <div class="stat-sub">Min days met Mar 24/25</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">TPT 50K Status</div>
-          <div class="stat-value val-gold">Active</div>
-          <div class="stat-sub">Day 1 of 5 completed</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">APEX-05</div>
-          <div class="stat-value val-red">Blown</div>
-          <div class="stat-sub">Mar 3 — Patterns 6+7</div>
-        </div>
+      <div class="sec-label">FUTURES // PROP FIRM EVALS</div>
+      <div class="stat-grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));">
+        <div class="stat gain"><div class="stat-label">2026 YTD P&L</div><div class="stat-val up">+$93.00</div><div class="stat-sub">Net — 7 sessions</div></div>
+        <div class="stat gold"><div class="stat-label">APEX-06</div><div class="stat-val gold">Active</div><div class="stat-sub">Min days met Mar 24/25</div></div>
+        <div class="stat gold"><div class="stat-label">TPT 50K</div><div class="stat-val gold">Active</div><div class="stat-sub">Day 1/5 completed</div></div>
+        <div class="stat loss"><div class="stat-label">APEX-05</div><div class="stat-val down">Blown</div><div class="stat-sub">Mar 3 — Pat. 6+7</div></div>
       </div>
-
-      <div class="tbl-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Account</th>
-              <th>Instrument</th>
-              <th>P/L</th>
-              <th>Grade</th>
-              <th>Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Feb 25, 2026</td>
-              <td class="td-muted">APEX-06</td>
-              <td>MNQ</td>
-              <td class="td-green td-mono">+$565.00</td>
-              <td><span class="badge badge-green">A+</span></td>
-              <td class="td-muted">All rules honored — recovery arc begins</td>
-            </tr>
-            <tr>
-              <td>Mar 3, 2026</td>
-              <td class="td-muted">APEX-05</td>
-              <td>ES / CL</td>
-              <td class="td-red td-mono">—</td>
-              <td><span class="badge badge-red">Blown</span></td>
-              <td class="td-muted">Patterns 6+7 — account liquidated</td>
-            </tr>
-            <tr>
-              <td>Mar 10, 2026</td>
-              <td class="td-muted">APEX-06</td>
-              <td>MNQ</td>
-              <td class="td-red td-mono">-$108.00</td>
-              <td><span class="badge badge-green">A+</span></td>
-              <td class="td-muted">SL held (Pattern 7 fix ✓) — passive exit</td>
-            </tr>
-            <tr>
-              <td>Mar 16, 2026</td>
-              <td class="td-muted">APEX-06</td>
-              <td>RTY</td>
-              <td class="td-green td-mono">+$935.00</td>
-              <td><span class="badge badge-gold">A-</span></td>
-              <td class="td-muted">Strong session</td>
-            </tr>
-            <tr>
-              <td>Mar 16, 2026</td>
-              <td class="td-muted">APEX-06</td>
-              <td>MNQ</td>
-              <td class="td-red td-mono">-$268.50</td>
-              <td><span class="badge badge-muted">—</span></td>
-              <td class="td-muted">SL adjusted — Pattern 7 echo</td>
-            </tr>
-            <tr>
-              <td>Mar 17, 2026</td>
-              <td class="td-muted">APEX-06</td>
-              <td>MNQ</td>
-              <td class="td-green td-mono">+$963.00</td>
-              <td><span class="badge badge-muted">—</span></td>
-              <td class="td-muted">Overnight; SL moved wide (Pattern 7 echo)</td>
-            </tr>
-            <tr>
-              <td>Mar 20, 2026</td>
-              <td class="td-muted">APEX-06</td>
-              <td>RTY</td>
-              <td class="td-green td-mono">+$525.00</td>
-              <td><span class="badge badge-muted">—</span></td>
-              <td class="td-muted">Unintentional fill; SL canceled (Pattern 9)</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="callout info" style="margin-top:1rem;">
-        <span class="callout-icon">ℹ️</span>
-        <div>Prop firm eval P/L reflects eval score — not cash in hand. Payout pending for APEX-484839-06. Futures P/L is tracked for performance purposes; tax treatment of prop firm payouts requires CPA guidance.</div>
+      <div class="panel-block">
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Date</th><th>Account</th><th>Instrument</th><th>P&L</th><th>Grade</th><th>Pattern</th></tr></thead>
+            <tbody>
+              <tr><td>Feb 25</td><td class="dim mono">APEX-06</td><td>MNQ</td><td class="up mono">+$565.00</td><td><span class="tag tag-g">A+</span></td><td class="dim">All rules honored ✓</td></tr>
+              <tr><td>Mar 3</td><td class="dim mono">APEX-05</td><td>ES/CL</td><td class="dn mono">—</td><td><span class="tag tag-r">Blown</span></td><td class="dim">Patterns 6+7</td></tr>
+              <tr><td>Mar 10</td><td class="dim mono">APEX-06</td><td>MNQ</td><td class="dn mono">-$108.00</td><td><span class="tag tag-g">A+</span></td><td class="dim">SL held (P7 fix ✓) — passive exit</td></tr>
+              <tr><td>Mar 16</td><td class="dim mono">APEX-06</td><td>RTY</td><td class="up mono">+$935.00</td><td><span class="tag tag-o">A-</span></td><td></td></tr>
+              <tr><td>Mar 16</td><td class="dim mono">APEX-06</td><td>MNQ</td><td class="dn mono">-$268.50</td><td><span class="tag tag-d">—</span></td><td class="dim">Pattern 7 echo</td></tr>
+              <tr><td>Mar 17</td><td class="dim mono">APEX-06</td><td>MNQ</td><td class="up mono">+$963.00</td><td><span class="tag tag-d">—</span></td><td class="dim">SL moved wide (P7 echo)</td></tr>
+              <tr><td>Mar 20</td><td class="dim mono">APEX-06</td><td>RTY</td><td class="up mono">+$525.00</td><td><span class="tag tag-d">—</span></td><td class="dim">Unintentional fill (Pattern 9)</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
-    <!-- ── CRYPTO ── -->
+    <!-- ── CRYPTO DETAIL ── -->
     <section class="section" id="crypto">
-      <h2 class="section-title"><span class="sec-icon">₿</span> Crypto Trading — BTCC</h2>
-
-      <div class="stat-grid">
-        <div class="stat-card">
-          <div class="stat-label">All-Time Net</div>
-          <div class="stat-value val-red">~-$2,224</div>
-          <div class="stat-sub">Dec 2024 – Mar 2026</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">2024</div>
-          <div class="stat-value val-red">~-$2,115</div>
-          <div class="stat-sub">Dec mass liquidation dominant</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">2025</div>
-          <div class="stat-value val-red">~-$82</div>
-          <div class="stat-sub">API3 continuation</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">2026 YTD</div>
-          <div class="stat-value val-red">-$27.50</div>
-          <div class="stat-sub">SOL only; +$20.43 win offset</div>
-        </div>
+      <div class="sec-label">CRYPTO // BTCC PERPETUALS</div>
+      <div class="stat-grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));">
+        <div class="stat loss"><div class="stat-label">All-Time</div><div class="stat-val down">~-$2,224</div><div class="stat-sub">Dec 2024 → Mar 2026</div></div>
+        <div class="stat loss"><div class="stat-label">2024</div><div class="stat-val down">~-$2,115</div><div class="stat-sub">Dec mass liquidation</div></div>
+        <div class="stat loss"><div class="stat-label">2025</div><div class="stat-val down">~-$82</div><div class="stat-sub">4 trades · API3/XRP</div></div>
+        <div class="stat loss"><div class="stat-label">2026 YTD</div><div class="stat-val down">-$27.50</div><div class="stat-sub">SOL only</div></div>
       </div>
 
-      <details class="plat-block" open>
+      <details class="acc" open>
         <summary>
-          <span class="plat-icon">📊</span>
-          <span class="plat-name">BTCC — 2026 Trades (Detailed)</span>
-          <span class="plat-meta">SOL/USDT Perpetual</span>
-          <span class="plat-pnl val-red">-$27.50</span>
-          <span class="acc-icon">▾</span>
+          <span class="mono dim">►</span>
+          <span class="acc-name">2026 BTCC Trades — SOL/USDT Perpetual</span>
+          <span class="acc-meta">4 trades</span>
+          <span class="acc-val dn">-$27.50</span>
+          <span class="arr">▶</span>
         </summary>
-        <div class="plat-body">
+        <div class="acc-body">
           <div class="tbl-wrap">
             <table>
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Instrument</th>
-                  <th>Direction</th>
-                  <th>Entry</th>
-                  <th>Exit</th>
-                  <th>Net P/L</th>
-                  <th>Pattern</th>
-                </tr>
-              </thead>
+              <thead><tr><th>Date</th><th>Direction</th><th>Qty/Lev</th><th>Entry</th><th>Exit</th><th>Net P&L</th><th>Note</th></tr></thead>
               <tbody>
-                <tr>
-                  <td>Feb 25–26</td>
-                  <td>SOLUSDT</td>
-                  <td><span class="badge badge-green">LONG 5×20x</span></td>
-                  <td class="td-mono">$87.4701</td>
-                  <td class="td-mono">$91.5556</td>
-                  <td class="td-green td-mono">+$20.43</td>
-                  <td class="td-muted">A+ — only win</td>
-                </tr>
-                <tr>
-                  <td>Mar 12</td>
-                  <td>SOLUSDT</td>
-                  <td><span class="badge badge-red">SHORT 1×50x</span></td>
-                  <td class="td-mono">$85.68</td>
-                  <td class="td-mono">$86.63 SL</td>
-                  <td class="td-red td-mono">-$1.00</td>
-                  <td class="td-muted">SL hit cleanly ✓</td>
-                </tr>
-                <tr>
-                  <td>Mar 13</td>
-                  <td>SOLUSDT</td>
-                  <td><span class="badge badge-red">SHORT 5×20x</span></td>
-                  <td class="td-mono">$85.1332</td>
-                  <td class="td-mono">$91.6940</td>
-                  <td class="td-red td-mono">-$32.80</td>
-                  <td class="td-muted">Pattern 8 — 30.5h hold</td>
-                </tr>
-                <tr>
-                  <td>Mar 25–26</td>
-                  <td>SOLUSDT</td>
-                  <td><span class="badge badge-green">LONG 5×20x</span></td>
-                  <td class="td-mono">$92.4686</td>
-                  <td class="td-mono">$89.6435</td>
-                  <td class="td-red td-mono">-$14.13</td>
-                  <td class="td-muted">Pattern 8+9 — voucher</td>
-                </tr>
+                <tr><td>Feb 25–26</td><td><span class="tag tag-g">LONG</span></td><td class="mono dim">5×20x</td><td class="mono">$87.47</td><td class="mono">$91.56</td><td class="up mono">+$20.43</td><td class="dim">A+ — IT Foundation aligned</td></tr>
+                <tr><td>Mar 12</td><td><span class="tag tag-r">SHORT</span></td><td class="mono dim">1×50x</td><td class="mono">$85.68</td><td class="mono">$86.63 SL</td><td class="dn mono">-$1.00</td><td class="dim">SL hit cleanly ✓</td></tr>
+                <tr><td>Mar 13</td><td><span class="tag tag-r">SHORT</span></td><td class="mono dim">5×20x</td><td class="mono">$85.13</td><td class="mono">$91.69</td><td class="dn mono">-$32.80</td><td class="dim">Pattern 8 — held 30.5h</td></tr>
+                <tr><td>Mar 25–26</td><td><span class="tag tag-g">LONG</span></td><td class="mono dim">5×20x</td><td class="mono">$92.47</td><td class="mono">$89.64</td><td class="dn mono">-$14.13</td><td class="dim">Pattern 8+9 · voucher</td></tr>
               </tbody>
             </table>
           </div>
         </div>
       </details>
 
-      <details class="plat-block">
+      <details class="acc">
         <summary>
-          <span class="plat-icon">📅</span>
-          <span class="plat-name">BTCC — 2024 Annual Summary</span>
-          <span class="plat-meta">Dec 17–31 only (CSV start date)</span>
-          <span class="plat-pnl val-red">~-$2,115</span>
-          <span class="acc-icon">▾</span>
+          <span class="mono dim">►</span>
+          <span class="acc-name">2024 BTCC — Annual Summary</span>
+          <span class="acc-meta">Dec 17–31 · mass liquidation event</span>
+          <span class="acc-val dn">~-$2,115</span>
+          <span class="arr">▶</span>
         </summary>
-        <div class="plat-body">
-          <p style="font-size:.9rem;color:var(--muted);margin:0 0 .8rem;">Dec 19 mass liquidation event: multiple positions simultaneously force-closed (XRP 180x, XLM 40x, SOL 500x, DOGE, API3, SUI, ADA, ACH). ~-$1,500+ in forced closes in one day.</p>
-          <div class="tbl-wrap">
-            <table>
-              <thead><tr><th>Period</th><th>Net P/L</th><th>Driver</th></tr></thead>
-              <tbody>
-                <tr><td>Dec 17–18 (pre-liquidation)</td><td class="td-green td-mono">~+$158</td><td class="td-muted">XRP short, BTC long profitable</td></tr>
-                <tr><td>Dec 19 (mass liquidation)</td><td class="td-red td-mono">~-$1,800+</td><td class="td-muted">Forced margin call — simultaneous closes</td></tr>
-                <tr><td>Dec 20–21 (partial recovery)</td><td class="td-green td-mono">~+$430</td><td class="td-muted">XRP, BTC, MANA partial recovery</td></tr>
-                <tr><td><strong>2024 Net</strong></td><td class="td-red td-mono"><strong>~-$2,115</strong></td><td class="td-muted">All short-term — see BTCC P&L 2024.md</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <a href="../../smarttrader-ai/reviews/2024/btcc_annual_summary_2024.md" style="font-size:.82rem; color:var(--accent);">→ Full 2024 review</a>
+        <div class="acc-body">
+          <div class="callout warn">⚠ Dec 19 mass liquidation: XRP 180x (-$812), XLM 40x (-$463), SOL 500x, API3 10x, DOGE, SUI, ADA, ACH — ~-$1,500+ gross in simultaneous forced closes. Dominant driver of 2024 P&L. Document for CPA as forced liquidation event.</div>
+          <a href="../../smarttrader-ai/reviews/2024/btcc_annual_summary_2024.md" style="font-family:var(--mono);font-size:.78rem;">→ Full 2024 review</a>
         </div>
       </details>
 
-      <details class="plat-block">
+      <details class="acc">
         <summary>
-          <span class="plat-icon">📅</span>
-          <span class="plat-name">BTCC — 2025 Annual Summary</span>
-          <span class="plat-meta">Full year · 4 trades</span>
-          <span class="plat-pnl val-red">~-$82</span>
-          <span class="acc-icon">▾</span>
+          <span class="mono dim">►</span>
+          <span class="acc-name">2025 BTCC — Annual Summary</span>
+          <span class="acc-meta">4 trades · API3 continuation</span>
+          <span class="acc-val dn">~-$82</span>
+          <span class="arr">▶</span>
         </summary>
-        <div class="plat-body">
+        <div class="acc-body">
           <div class="tbl-wrap">
             <table>
-              <thead><tr><th>Date</th><th>Instrument</th><th>Net P/L</th><th>Notes</th></tr></thead>
+              <thead><tr><th>Date</th><th>Instrument</th><th>Net P&L</th><th>Note</th></tr></thead>
               <tbody>
-                <tr><td>Feb 10</td><td>API3USDT</td><td class="td-red td-mono">-$14.19</td><td class="td-muted">Close of Dec 2024 long carry</td></tr>
-                <tr><td>Mar 4</td><td>API3USDT</td><td class="td-red td-mono">-$61.59 est</td><td class="td-muted">Largest 2025 loss</td></tr>
-                <tr><td>Mar 18</td><td>API3USDT</td><td class="td-red td-mono">-$7.52</td><td class="td-muted">Small close</td></tr>
-                <tr><td>May 12–16</td><td>XRPUSDT</td><td class="td-red td-mono">-$0.38</td><td class="td-muted">Near breakeven</td></tr>
-                <tr><td><strong>2025 Net</strong></td><td>—</td><td class="td-red td-mono"><strong>~-$82</strong></td><td class="td-muted">All short-term losses</td></tr>
+                <tr><td>Feb 10</td><td>API3USDT</td><td class="dn mono">-$14.19</td><td class="dim">Individual review available</td></tr>
+                <tr><td>Mar 4</td><td>API3USDT</td><td class="dn mono">-$61.59 est</td><td class="dim">Largest 2025 loss</td></tr>
+                <tr><td>Mar 18</td><td>API3USDT</td><td class="dn mono">-$7.52</td><td></td></tr>
+                <tr><td>May 12–16</td><td>XRPUSDT</td><td class="dn mono">-$0.38</td><td class="dim">Near flat</td></tr>
               </tbody>
             </table>
           </div>
@@ -529,188 +625,102 @@
       </details>
     </section>
 
-    <!-- ── POCKET OPTION ── -->
+    <!-- ── POCKETOPTION ── -->
     <section class="section" id="pocketoption">
-      <h2 class="section-title"><span class="sec-icon">🎰</span> PocketOption — Binary Options</h2>
-
-      <div class="stat-grid">
-        <div class="stat-card">
-          <div class="stat-label">2025 Net</div>
-          <div class="stat-value val-red">-$151.62</div>
-          <div class="stat-sub">May–Dec 2025</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">Total Trades</div>
-          <div class="stat-value val-muted">~741</div>
-          <div class="stat-sub">Avg $1–2 each</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">2026 Activity</div>
-          <div class="stat-value val-muted">None</div>
-          <div class="stat-sub">No trades after Dec 2025</div>
-        </div>
+      <div class="sec-label">BINARY OPTIONS // POCKETOPTION</div>
+      <div class="stat-grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));">
+        <div class="stat loss"><div class="stat-label">2025 Net</div><div class="stat-val down">-$151.62</div><div class="stat-sub">May–Dec 2025</div></div>
+        <div class="stat neutral"><div class="stat-label">Trades</div><div class="stat-val blue">~741</div><div class="stat-sub">Avg $1–2 each</div></div>
+        <div class="stat neutral"><div class="stat-label">2026</div><div class="stat-val dim" style="font-size:1rem;">None</div><div class="stat-sub">No activity after Dec 2025</div></div>
       </div>
-
-      <div class="callout warn">
-        <span class="callout-icon">⚠️</span>
-        <div><strong>Tax Note — Binary Options</strong> Binary options may be treated as ordinary income/loss (not capital gains) under IRS rules. Some argue Section 988 or gambling loss treatment. PocketOption is a foreign platform — FBAR reporting may apply if account balance exceeded $10,000 at any point. Consult a CPA.</div>
-      </div>
+      <div class="callout warn">⚠ Binary options: structurally negative EV (win 80–85%, lose 100%). PocketOption is a foreign platform — FBAR reporting may apply. Tax treatment: ordinary income/loss (not capital gains) — consult CPA.</div>
     </section>
 
     <!-- ── COINLEDGER ── -->
-    <section class="section" id="coinledger">
-      <h2 class="section-title"><span class="sec-icon">🔗</span> CoinLedger — On-Chain &amp; Exchange Activity</h2>
-
-      <div class="stat-grid">
-        <div class="stat-card">
-          <div class="stat-label">CSV Rows</div>
-          <div class="stat-value val-muted">2,666</div>
-          <div class="stat-sub">2020–2025</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">2021–2023</div>
-          <div class="stat-value val-muted">TBD</div>
-          <div class="stat-sub">Heavy staking income</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">2024–2025</div>
-          <div class="stat-value val-muted">TBD</div>
-          <div class="stat-sub">SOL, CRO, HBAR trades</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">Processing</div>
-          <div class="stat-value val-gold">Phase 3</div>
-          <div class="stat-sub">Tax pipeline pending</div>
-        </div>
+    <section class="section" id="onchain">
+      <div class="sec-label">ON-CHAIN // COINLEDGER</div>
+      <div class="stat-grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));">
+        <div class="stat neutral"><div class="stat-label">CSV Rows</div><div class="stat-val blue">2,666</div><div class="stat-sub">2020–2025</div></div>
+        <div class="stat neutral"><div class="stat-label">2021–2023</div><div class="stat-val gold" style="font-size:1rem;">TBD</div><div class="stat-sub">Heavy staking income</div></div>
+        <div class="stat neutral"><div class="stat-label">Processing</div><div class="stat-val dim" style="font-size:1rem;">Phase 3</div><div class="stat-sub">Tax pipeline pending</div></div>
       </div>
-
-      <div class="tbl-wrap">
-        <table>
-          <thead><tr><th>Year</th><th>Activity</th><th>P/L Status</th><th>Notes</th></tr></thead>
-          <tbody>
-            <tr><td>2020–2021</td><td>Staking, DeFi interest</td><td class="td-muted">TBD</td><td class="td-muted">Likely taxable interest income at FMV received</td></tr>
-            <tr><td>2021–2023</td><td>Heavy staking/interest</td><td class="td-muted">TBD</td><td class="td-muted">DeFi era — significant taxable events per year</td></tr>
-            <tr><td>2024</td><td>SOL, CRO, HBAR trades</td><td class="td-muted">TBD</td><td class="td-muted">Coinbase + Solana DEX activity</td></tr>
-            <tr><td>2025</td><td>Trading activity</td><td class="td-muted">TBD</td><td class="td-muted">Needs CoinLedger.io processing</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="callout info" style="margin-top:1rem;">
-        <span class="callout-icon">ℹ️</span>
-        <div>CoinLedger data requires full processing with CoinLedger.io software to compute accurate tax basis. Raw CSV is available at <code>data/imports/2025/CoinLedger_Transactions_as-of_20260326.csv</code>. Phase 3 of the Fortuna Tax Assistant pipeline.</div>
+      <div class="panel-block">
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Year</th><th>Activity</th><th>P&L</th><th>Note</th></tr></thead>
+            <tbody>
+              <tr><td>2020–2021</td><td>Staking, DeFi interest</td><td class="dim">TBD</td><td class="dim">Taxable income at FMV received</td></tr>
+              <tr><td>2021–2023</td><td>Heavy staking/interest</td><td class="dim">TBD</td><td class="dim">DeFi era — significant annual events</td></tr>
+              <tr><td>2024</td><td>SOL, CRO, HBAR trades</td><td class="dim">TBD</td><td class="dim">Coinbase + Solana DEX</td></tr>
+              <tr><td>2025</td><td>Trading activity</td><td class="dim">TBD</td><td class="dim">Needs CoinLedger.io processing</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
     <!-- ── TAX SUMMARY ── -->
     <section class="section" id="tax">
-      <h2 class="section-title"><span class="sec-icon">📋</span> Tax Summary (Working Estimates)</h2>
-
-      <div class="tbl-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Tax Year</th>
-              <th>BTCC</th>
-              <th>PocketOption</th>
-              <th>CoinLedger</th>
-              <th>Futures (Prop)</th>
-              <th>Net</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>2024</strong></td>
-              <td class="td-red td-mono">~-$2,115</td>
-              <td class="td-muted">N/A</td>
-              <td class="td-muted">TBD</td>
-              <td class="td-muted">N/A</td>
-              <td class="td-red td-mono"><strong>~-$2,115+ TBD</strong></td>
-            </tr>
-            <tr>
-              <td><strong>2025</strong></td>
-              <td class="td-red td-mono">~-$82</td>
-              <td class="td-red td-mono">-$151.62</td>
-              <td class="td-muted">TBD</td>
-              <td class="td-muted">N/A</td>
-              <td class="td-red td-mono"><strong>~-$234 + TBD</strong></td>
-            </tr>
-            <tr>
-              <td><strong>2026 YTD</strong></td>
-              <td class="td-red td-mono">-$27.50</td>
-              <td class="td-muted">None</td>
-              <td class="td-muted">N/A</td>
-              <td class="td-green td-mono">+$93.00</td>
-              <td class="td-green td-mono"><strong>+$65.50 + TBD</strong></td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="sec-label">TAX SUMMARY // WORKING ESTIMATES</div>
+      <div class="panel-block">
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Year</th><th>BTCC</th><th>PocketOption</th><th>CoinLedger</th><th>Futures</th><th>Net</th></tr></thead>
+            <tbody>
+              <tr><td><strong>2024</strong></td><td class="dn mono">~-$2,115</td><td class="dim">N/A</td><td class="dim">TBD</td><td class="dim">N/A</td><td class="dn mono"><strong>~-$2,115+</strong></td></tr>
+              <tr><td><strong>2025</strong></td><td class="dn mono">~-$82</td><td class="dn mono">-$151.62</td><td class="dim">TBD</td><td class="dim">N/A</td><td class="dn mono"><strong>~-$234+</strong></td></tr>
+              <tr><td><strong>2026 YTD</strong></td><td class="dn mono">-$27.50</td><td class="dim">None</td><td class="dim">N/A</td><td class="up mono">+$93.00</td><td class="up mono"><strong>+$65.50</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
-      <h3 style="font-size:.95rem; margin:1.5rem 0 .5rem; color:var(--text);">Key CPA Questions</h3>
-      <div class="cpa-grid">
-        <div class="cpa-item">
-          <strong>BTCC Perp Futures Classification</strong>
-          Section 1256 contracts (60/40 split) or ordinary capital gain/loss? BTCC is a foreign exchange.
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.6rem;margin-top:.8rem;">
+        <div class="panel-block" style="margin:0;border-color:rgba(255,183,0,.2);">
+          <div style="font-family:var(--mono);font-size:.72rem;color:var(--gold);margin-bottom:.3rem;">BTCC PERP FUTURES</div>
+          <div style="font-size:.82rem;color:var(--muted);">Section 1256 (60/40 split) or ordinary cap loss? BTCC is a foreign exchange. Verify with CPA.</div>
         </div>
-        <div class="cpa-item">
-          <strong>PocketOption Tax Treatment</strong>
-          Ordinary income/loss, Section 988, or gambling loss? Foreign platform reporting.
+        <div class="panel-block" style="margin:0;border-color:rgba(255,183,0,.2);">
+          <div style="font-family:var(--mono);font-size:.72rem;color:var(--gold);margin-bottom:.3rem;">DEC 2024 FORCED LIQUIDATION</div>
+          <div style="font-size:.82rem;color:var(--muted);">Exchange-initiated margin call. ~-$1,500+ in forced closes Dec 19. May have specific IRS treatment.</div>
         </div>
-        <div class="cpa-item">
-          <strong>Staking Income (2021–2023)</strong>
-          Taxable in year received at FMV. Significant unreported income may exist from DeFi era.
+        <div class="panel-block" style="margin:0;border-color:rgba(255,183,0,.2);">
+          <div style="font-family:var(--mono);font-size:.72rem;color:var(--gold);margin-bottom:.3rem;">STAKING INCOME 2021–2023</div>
+          <div style="font-size:.82rem;color:var(--muted);">Taxable in year received at FMV. Significant unreported income likely — priority for CoinLedger processing.</div>
         </div>
-        <div class="cpa-item">
-          <strong>Dec 2024 Force Liquidation</strong>
-          Exchange-initiated margin call. Does forced liquidation have different IRS treatment vs. voluntary close?
-        </div>
-        <div class="cpa-item">
-          <strong>FBAR Requirements</strong>
-          Foreign accounts (BTCC, PocketOption) — FinCEN 114 required if aggregate balance exceeded $10,000 at any point.
-        </div>
-        <div class="cpa-item">
-          <strong>Prop Firm Payouts</strong>
-          How are prop firm eval payouts classified? Self-employment income? Other income?
+        <div class="panel-block" style="margin:0;border-color:rgba(255,183,0,.2);">
+          <div style="font-family:var(--mono);font-size:.72rem;color:var(--gold);margin-bottom:.3rem;">FBAR REQUIREMENT</div>
+          <div style="font-size:.82rem;color:var(--muted);">BTCC + PocketOption are foreign accounts. FinCEN 114 required if aggregate exceeded $10K at any point.</div>
         </div>
       </div>
     </section>
 
-    <!-- ── SOURCE FILES ── -->
+    <!-- ── SOURCES ── -->
     <section class="section" id="sources">
-      <h2 class="section-title"><span class="sec-icon">📁</span> Source Files</h2>
-      <div class="tbl-wrap">
-        <table>
-          <thead><tr><th>File</th><th>Location</th><th>Updated</th></tr></thead>
-          <tbody>
-            <tr><td>BTCC CSV (2024–2026)</td><td class="td-mono td-muted" style="font-size:.78rem;">data/imports/2026/03-Mar/btcc-orders_20241217_thru_20260326.csv</td><td class="td-muted">Mar 26, 2026</td></tr>
-            <tr><td>BTCC P&L 2024</td><td class="td-mono td-muted" style="font-size:.78rem;">data/imports/2024/btcc_realized_pl_2024.md</td><td class="td-muted">Mar 26, 2026</td></tr>
-            <tr><td>BTCC P&L 2025</td><td class="td-mono td-muted" style="font-size:.78rem;">data/imports/2025/btcc_realized_pl_2025.md</td><td class="td-muted">Mar 26, 2026</td></tr>
-            <tr><td>BTCC P&L 2026 YTD</td><td class="td-mono td-muted" style="font-size:.78rem;">data/imports/2026/03-Mar/btcc_realized_pl_2026.md</td><td class="td-muted">Mar 26, 2026</td></tr>
-            <tr><td>PocketOption XLSX</td><td class="td-mono td-muted" style="font-size:.78rem;">data/imports/2025/PocketOption_export_history_as-of_20260326.xlsx</td><td class="td-muted">Mar 26, 2026</td></tr>
-            <tr><td>CoinLedger CSV</td><td class="td-mono td-muted" style="font-size:.78rem;">data/imports/2025/CoinLedger_Transactions_as-of_20260326.csv</td><td class="td-muted">Mar 26, 2026</td></tr>
-          </tbody>
-        </table>
+      <div class="sec-label">SOURCE FILES</div>
+      <div class="panel-block">
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>File</th><th>Path</th><th>Date</th></tr></thead>
+            <tbody>
+              <tr><td>BTCC CSV</td><td class="mono dim" style="font-size:.77rem;">data/imports/2026/03-Mar/btcc-orders_20241217_thru_20260326.csv</td><td class="dim">Mar 26, 2026</td></tr>
+              <tr><td>BTCC P&L 2024</td><td class="mono dim" style="font-size:.77rem;">data/imports/2024/btcc_realized_pl_2024.md</td><td class="dim">Mar 26, 2026</td></tr>
+              <tr><td>BTCC P&L 2025</td><td class="mono dim" style="font-size:.77rem;">data/imports/2025/btcc_realized_pl_2025.md</td><td class="dim">Mar 26, 2026</td></tr>
+              <tr><td>BTCC P&L 2026</td><td class="mono dim" style="font-size:.77rem;">data/imports/2026/03-Mar/btcc_realized_pl_2026.md</td><td class="dim">Mar 26, 2026</td></tr>
+              <tr><td>PocketOption XLSX</td><td class="mono dim" style="font-size:.77rem;">data/imports/2025/PocketOption_export_history_as-of_20260326.xlsx</td><td class="dim">Mar 26, 2026</td></tr>
+              <tr><td>CoinLedger CSV</td><td class="mono dim" style="font-size:.77rem;">data/imports/2025/CoinLedger_Transactions_as-of_20260326.csv</td><td class="dim">Mar 26, 2026</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
   </main>
 
-  <footer class="footer">
-    <p>Maintained by Fortuna (Claude Code CLI) · Part of the <a href="https://github.com/drasticstatic/trading-assistant" target="_blank">trading-assistant</a> project</p>
-    <p style="margin-top:.4rem;">⚠️ Private record — working estimates only. Verify all figures before filing taxes.</p>
+  <footer>
+    <p>FORTUNA // CLAUDE CODE CLI · <a href="https://github.com/drasticstatic/trading-assistant" target="_blank">trading-assistant</a></p>
+    <p style="margin-top:.3rem;color:#1a3050;">⚠ PRIVATE RECORD · WORKING ESTIMATES · VERIFY BEFORE FILING</p>
   </footer>
 
-  <script>
-    const themeBtn = document.getElementById('themeToggle');
-    const html = document.documentElement;
-    const saved = localStorage.getItem('theme');
-    if (saved === 'light') { html.classList.add('light'); themeBtn.textContent = '🌙'; }
-    themeBtn.addEventListener('click', () => {
-      const isLight = html.classList.toggle('light');
-      themeBtn.textContent = isLight ? '🌙' : '☀︎';
-      localStorage.setItem('theme', isLight ? 'light' : 'dark');
-    });
-  </script>
 </body>
 </html>
