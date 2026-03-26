@@ -1061,15 +1061,28 @@
       .compact-history .ch-table .ch-summary {
         white-space: normal;
         word-break: break-word;
-        min-width: 160px;
+        min-width: 140px;
         line-height: 1.4;
       }
+      /* Compact rows — reduce padding + font size on mobile */
+      .compact-history .ch-table td,
+      .compact-history .ch-table th {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.72rem;
+      }
+    }
+    /* Sticky thead — works when compact-history is the scroll container */
+    .compact-history .ch-table thead th {
+      position: sticky;
+      top: 0;
+      z-index: 3;
+      background: var(--surface-strong);
     }
 
     /* ── Compact table: jump-to-bottom button ─────────────────── */
     .ch-jump-bottom {
       display: none;
-      margin-top: 0.5rem;
+      margin: 0.6rem auto;
       font-size: 0.78rem;
       font-weight: 600;
       color: var(--subtle);
@@ -1078,10 +1091,92 @@
       border-radius: 8px;
       padding: 0.25em 0.7em;
       cursor: pointer;
+      text-align: center;
       transition: border-color 0.15s, color 0.15s;
     }
     .ch-jump-bottom:hover { border-color: var(--pine); color: var(--pine); }
-    .compact-history.is-visible + .ch-jump-bottom { display: inline-flex; align-items: center; gap: 0.3em; }
+    .compact-history.is-visible ~ .ch-jump-bottom-wrap .ch-jump-bottom { display: inline-flex; align-items: center; gap: 0.3em; }
+
+    /* ── Toggle state pill ────────────────────────────────────────── */
+    .toggle-state-pill {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      padding: 0.15rem 0.42rem;
+      border-radius: 999px;
+      background: rgba(139,148,158,0.15);
+      color: var(--muted);
+      border: 1px solid rgba(139,148,158,0.2);
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      vertical-align: middle;
+      margin-left: 0.3rem;
+    }
+    .toggle-state-pill.is-on {
+      background: rgba(63,185,80,0.18);
+      color: #3fb950;
+      border-color: rgba(63,185,80,0.3);
+    }
+
+    /* ── Jump-to-bottom button — centered ─────────────────────────── */
+    .ch-jump-bottom-wrap {
+      text-align: center;
+    }
+
+    /* ── Feature modals ───────────────────────────────────────────── */
+    .feature-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 900;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .feature-modal-overlay.is-open {
+      display: flex;
+    }
+    .feature-modal {
+      background: var(--surface-strong);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      max-width: 540px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    .feature-modal-close {
+      float: right;
+      cursor: pointer;
+      font-size: 1.2rem;
+      background: none;
+      border: none;
+      color: var(--muted);
+      padding: 0;
+      line-height: 1;
+    }
+    .feature-modal-close:hover { color: var(--text); }
+    .feature-modal h3 {
+      margin-top: 0;
+      color: var(--pine-bright);
+    }
+    .feature-see-details {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25em;
+      padding: 0.32em 0.7em;
+      font-size: 0.82em;
+      font-weight: 600;
+      color: var(--teal);
+      background: rgba(82, 214, 199, 0.07);
+      border: 1px solid rgba(82, 214, 199, 0.28);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      margin-top: 0.5rem;
+    }
+    .feature-see-details:hover { background: rgba(82, 214, 199, 0.14); border-color: rgba(82, 214, 199, 0.5); }
 
     /* ── Mobile tap = hover: buttons + nav ───────────────────────── */
     @media (hover: none) {
@@ -1108,7 +1203,7 @@
     <a href="#known-issues">🔎 Known Issues</a>
     <a href="#roadmap">🚀 Roadmap</a>
     <a href="./auto-levels.pine_indicator-guide.html">📖 Guide ↗</a>
-    <button id="view-toggle-btn" class="view-toggle" aria-pressed="true">📄 Expanded Version History View ⊞</button>
+    <button id="view-toggle-btn" class="view-toggle" aria-pressed="true">📄 Expanded Version History View ⊞</button><span class="toggle-state-pill" id="toggleStatePill">OFF</span>
   </nav>
   <main class="page">
     <header class="hero tone-guide">
@@ -1198,7 +1293,9 @@
       <h2 id="timeline-title">Open any revision for the deeper notes</h2>
       <p class="section-lead">The summaries below stay public-facing and trader-relevant: what changed, why it mattered, and where the remaining caution still lives.</p>
       <div class="compact-history" id="compact-history" aria-live="polite"></div>
-      <button class="ch-jump-bottom" id="ch-jump-bottom-btn" aria-label="Jump to last version">↓ Jump to oldest</button>
+      <div class="ch-jump-bottom-wrap">
+        <button class="ch-jump-bottom" id="ch-jump-bottom-btn" aria-label="Jump to last version">↓ Jump to oldest</button>
+      </div>
       <div class="release-list" id="release-list">
         <details class="release" open>
           <summary>
@@ -1254,6 +1351,19 @@
               <li><strong>CL, GC, and non-whitelisted instruments unaffected:</strong> <code>is_eth=false</code> for all their levels (no session split in the source pull), so they continue to use the cyan RTH color palette as before.</li>
               <li><strong>RTH levels on ETH charts:</strong> display gating unchanged — <code>f_should_display_zth(is_eth_level=false)</code> always returns <code>true</code>, so RTH levels are always visible regardless of chart session mode. The teal/cyan distinction now makes the origin immediately readable on both RTH and ETH charts without switching modes.</li>
             </ul>
+            <details class="ch-ki-resolved"><summary>✅ Issues Resolved in v2.27–v3.0.2</summary>
+              <ul class="list-tight" style="margin-top:0.6rem;">
+                <li>Single 4/5 toggle replaced with 4 independent per-chain toggles.</li>
+                <li>Maint rail decoupled from ETH gate.</li>
+                <li>18:00 eopen rail decoupled from ETH gate.</li>
+                <li>"prev 4/5" annotations appearing with any toggle on (f_sess_label cross-chain bug).</li>
+                <li>"prev 4/5" text persisting on maint chain (f_sess_dual_text simplified).</li>
+                <li>Erroneous 4/5 annotation on RTH 15:30 bar with maint toggle (f_near_t tolerance tightened).</li>
+                <li>All ZTH levels rendering same cyan regardless of session origin (ETH-derived levels now teal via f_lvl_color is_eth parameter).</li>
+                <li>CL/GC teal bug (level_is_eth incorrectly set via session-time check for non-RTH-primary instruments).</li>
+                <li>Trim loops removing RTH levels before ETH when ETH toggle adds budget pressure.</li>
+              </ul>
+            </details>
           </div>
         </details>
 
@@ -1348,6 +1458,14 @@
               <li><strong>f_sess_label — time proximity guard added:</strong> ZTH level label annotations (<code>| 4/5</code> / <code>| prev 4/5</code>) now require the level's birth timestamp to be within 90 minutes of the session event time, not just within price tolerance. Without this, levels born at 17:00, 21:00, or 6:00 whose prices accidentally matched old session rail values (e.g., yesterday's 16:00 close) received spurious <code>prev 4/5</code> annotations. The 4 valid annotation windows (9:30 open, 16:00 close, 16:30 maint close, 18:00 reopen) remain fully annotated.</li>
               <li><strong>Trim cadence gated on is_new_h1:</strong> the three trim while loops (KEY+5/5, 3/5, Ghost) previously ran on every chart bar. On a 5min chart that is 12× per hour vs 1× per hour on a 1hr chart. Each run re-evaluated "farthest from close" against the current intrabar price, progressively removing levels that the 1hr chart retained. Over a session this caused systematically fewer 5/5 and 3/5 levels on 5min/10min/15min charts. Fix: <code>trim_gate = chart_above_1h or is_new_h1 or is_new_h1_eth</code> — trim fires at the same cadence as level creation and mitigation, producing consistent level sets across all TFs ≤ 1hr.</li>
             </ul>
+            <details class="ch-ki-resolved"><summary>✅ Issues Resolved in v2.26</summary>
+              <ul class="list-tight" style="margin-top:0.6rem;">
+                <li>16:00 close rail printing at bar open (lookahead root cause).</li>
+                <li>Spurious "prev 4/5" annotations at wrong ETH session times.</li>
+                <li>Missing 9:30 open 4/5 rail and ZTH levels on ≤15min charts (v2.25 regression).</li>
+                <li>Missing 5/5 and 3/5 levels on ≤15min charts due to trim cadence mismatch.</li>
+              </ul>
+            </details>
           </div>
         </details>
 
@@ -1384,6 +1502,13 @@
               <li><strong>is_new_eopen guard (<code>time &gt;= eth_reopen_t</code>):</strong> safety guard ensuring the 18:00 reopen event fires no earlier than the 18:00 bar open. Prevents any lookahead edge-case where the fallback value becomes available before the 18:00 bar actually starts.</li>
               <li><strong>Root cause of "prev 4/5" mislabelling fixed:</strong> premature maint/close events caused <code>maint_t_today</code> and <code>sess_close_t_today</code> to hold timestamps from the previous session. <code>f_trade_day_id</code> comparisons then returned a date-mismatch → <code>' | prev 4/5'</code> on ZTH levels formed during ETH hours. With correct event timing, today's session timestamps populate correctly and the "4/5" vs "prev 4/5" dual-label is accurate.</li>
             </ul>
+            <details class="ch-ki-resolved"><summary>✅ Issues Resolved in v2.24</summary>
+              <ul class="list-tight" style="margin-top:0.6rem;">
+                <li>16:00 close rail firing 30 minutes early.</li>
+                <li>ETH maintenance (17:00) rail firing 30 minutes early.</li>
+                <li>ETH ZTH levels mislabelled "prev 4/5" due to wrong chain timestamps.</li>
+              </ul>
+            </details>
           </div>
         </details>
 
@@ -1442,6 +1567,14 @@
               <li><strong>FCR all-TF rotation fix:</strong> the scan loop now rotates the rotation array for each 9:30 found per chart bar. On weekly/monthly charts with 5 trading days per bar, all 5 9:30 events are captured in order — slots 0/1/2 always hold today/yesterday/day-before correctly. Drawing moved to <code>barstate.islast</code> exclusively.</li>
               <li><strong>BRK/RT color fix:</strong> <code>h_col</code>/<code>l_col</code> now force purple (#9b59b6) when BRK or RT is present on a candle side, regardless of co-occurring R/P/SFP labels.</li>
             </ul>
+            <details class="ch-ki-resolved"><summary>✅ Issues Resolved in v2.15–v2.19</summary>
+              <ul class="list-tight" style="margin-top:0.6rem;">
+                <li>ZTH sparse detection on 4hr/Daily/Weekly/Monthly charts.</li>
+                <li>FCR prior-day slots incorrect on Weekly/Monthly charts.</li>
+                <li>ZTH vertical post on 4hr/Daily RTH charts.</li>
+                <li>BRK/RT color inconsistency — purple not applied when co-occurring with R/P/SFP.</li>
+              </ul>
+            </details>
           </div>
         </details>
 
@@ -1538,6 +1671,14 @@
               <li><strong>BRK minimum pierce distance:</strong> new <code>brk_ticks</code> input (default 5 ticks) sets the minimum distance the close must clear the level on a BRK candle. Replaces the old upper-bound tolerance check. Too-short breaks no longer qualify.</li>
               <li><strong>BRK minimum body percentage:</strong> new <code>brk_body_pct</code> input (default 30%) requires the BRK candle body to be at least that percentage of the full candle range. Doji-like candles with large wicks but tiny bodies are excluded — commitment required.</li>
             </ul>
+            <details class="ch-ki-resolved"><summary>✅ Issues Resolved in v2.9–v2.14</summary>
+              <ul class="list-tight" style="margin-top:0.6rem;">
+                <li>Global proximity tick applied to all patterns equally — split into per-pattern inputs in v2.9.</li>
+                <li>All session rails and FCR rays still rendering as verticals on Daily/Weekly — f_visible_ray_end() applied to all in v2.11.</li>
+                <li>Weekly open golden vertical not showing when 4/5 session rails are OFF — show_session gate removed in v2.13.</li>
+                <li>BRK firing on low-commitment candles — minimum pierce distance and body % gates added in v2.14.</li>
+              </ul>
+            </details>
           </div>
         </details>
 
@@ -1661,6 +1802,13 @@
               <li><strong>Daily/Weekly vertical level fix:</strong> ZTH level rays were rendering as vertical 90° lines on Daily and Weekly charts. Root cause: the ray x2 endpoint was only 48 hours ahead of x1 — less than one weekly bar (168 hours), so both endpoints mapped to the same chart pixel. Fixed by routing ray end time through the existing <code>f_visible_ray_end()</code> helper, which guarantees the x2 endpoint is at least one full chart bar ahead of x1 on all timeframes.</li>
               <li><strong>Weekly open vertical toggle:</strong> new <code>show_weekly_open</code> toggle in the Display More group. When off, the Sunday 18:00 ET golden vertical is hidden without affecting the underlying event tracking. Toggle includes a tooltip explaining what the line marks and when it draws.</li>
             </ul>
+            <details class="ch-ki-resolved"><summary>✅ Issues Resolved in v2.8</summary>
+              <ul class="list-tight" style="margin-top:0.6rem;">
+                <li>ZTH levels rendering as vertical 90° lines on Daily/Weekly charts.</li>
+                <li>Patterns firing anywhere on chart (not near levels).</li>
+                <li>Pattern labels overlapping when multiple patterns fire on same candle side.</li>
+              </ul>
+            </details>
           </div>
         </details>
 
@@ -1688,6 +1836,14 @@
               <li><strong>Prior-day H/L/C directional shadows:</strong> the prior-day high line now casts a translucent red shadow band downward; the prior-day low casts a translucent green shadow band upward. Both use an 88% transparency fill so they read as context without competing with structural levels.</li>
               <li><strong>FVG polish:</strong> FVG boxes no longer have visible borders. Each zone extends 5 bars to the right of where it starts, and a dashed midpoint line bisects the gap at the 50% level.</li>
             </ul>
+            <details class="ch-ki-resolved"><summary>✅ Issues Resolved in v2.7</summary>
+              <ul class="list-tight" style="margin-top:0.6rem;">
+                <li>ETH toggle bypass on non-whitelisted instruments (GC, CL, etc. — gate now requires Show-ETH-Derived to be ON for all instruments).</li>
+                <li>17:00 maintenance close anchor printing on 18:00 candle (reverted to bar open 16:30 anchor).</li>
+                <li>Bar[1] levels and mitigation firing too early — shifted to bar[2] for one-candle confirmation buffer.</li>
+                <li>Sunday 18:00 vertical line (stray unintentional vertical converted to intentional golden weekly open marker).</li>
+              </ul>
+            </details>
           </div>
         </details>
 
@@ -1713,6 +1869,16 @@
               <li><strong>ETH 4/5 events — 17:00 close + 18:00 open:</strong> new independent chains for the CME daily maintenance window pause (16:45–17:00 bar close) and reopen (18:00 bar open). Gated by the "Show ETH-Derived Levels for Whitelisted" toggle on index futures; always active for non-whitelisted instruments. Each chain carries today / yesterday / 2 days' ago slots with the same fade pattern as the RTH chains. <code>security_lower_tf</code> scan + <code>request.security</code> fallback — same multi-TF architecture as 9:30 and 16:00.</li>
               <li><strong>Prior-day H/L/C polish:</strong> transparency increased from 30% to 50% so H/L/C reads as quiet context, not a competing structural rail. A subtle range fill (95% gray) now frames the prior-day high-to-low zone without adding visual noise.</li>
             </ul>
+            <details class="ch-ki-resolved"><summary>✅ Issues Resolved in v2.6</summary>
+              <ul class="list-tight" style="margin-top:0.6rem;">
+                <li>4/5 showing zero (sess_use_open always true — dual open/close chains introduced).</li>
+                <li>FCR rays not printing (sentinel variables initialized to na instead of 0).</li>
+                <li>Vertical spikes on 4hr+ charts (ray x2 only 1hr ahead — extended to 48hrs).</li>
+                <li>Runtime crash on 1–10min charts (array.size(na) — nested guard added).</li>
+                <li>ETH 4/5 events (17:00/18:00) not implemented — both chains now live.</li>
+                <li>Prior-day H/L/C too prominent (transparency increased, range fill added).</li>
+              </ul>
+            </details>
           </div>
         </details>
 
@@ -1909,45 +2075,6 @@
       <h2 id="known-issues-title">Recent Implementations &amp; Auditing</h2>
       <div class="grid" style="grid-template-columns: 1fr;">
         <article class="card">
-          <h3>✅ Closed in v2.9–v2.14</h3>
-          <p>4 issues resolved — per-pattern proximity split, session rail verticals on Daily/Weekly, weekly open toggle regression, and BRK commitment gate.</p>
-          <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v9-14" data-title="✅ Closed in v2.9–v2.14">View 4 closed issues →</button></p>
-        </article>
-        <article class="card">
-          <h3>✅ Closed in v2.8</h3>
-          <p>3 issues resolved — ZTH vertical lines on Daily/Weekly, patterns firing anywhere on chart, and pattern label overlap.</p>
-          <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v8" data-title="✅ Closed in v2.8">View 3 closed issues →</button></p>
-        </article>
-        <article class="card">
-          <h3>✅ Closed in v2.7</h3>
-          <p>4 issues resolved — ETH toggle bypass on non-whitelisted instruments, 17:00 maintenance close anchor, bar[1] confirmation delay, and weekly open stray vertical.</p>
-          <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v7" data-title="✅ Closed in v2.7">View 4 closed issues →</button></p>
-        </article>
-        <article class="card">
-          <h3>✅ Closed in v2.6</h3>
-          <p>6 issues resolved — 4/5 showing zero, FCR rays not printing, vertical spikes on 4hr+, runtime crash on 1–10min charts, ETH 4/5 chains not implemented, and prior-day H/L/C too prominent.</p>
-          <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v6" data-title="✅ Closed in v2.6">View 6 closed issues →</button></p>
-        </article>
-        <article class="card">
-          <h3>✅ Closed in v2.15–v2.19</h3>
-          <p>4 issues resolved — ZTH sparse detection on 4hr/Daily/Weekly/Monthly, FCR prior-day slots incorrect on Weekly/Monthly, ZTH vertical post on RTH charts, and BRK/RT color inconsistency.</p>
-          <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v15-19" data-title="✅ Closed in v2.15–v2.19">View 4 closed issues →</button></p>
-        </article>
-        <article class="card">
-          <h3>✅ Closed in v2.24</h3>
-          <p>3 issues resolved — 16:00 close rail firing 30 min early, ETH maintenance rail firing 30 min early, and ETH ZTH levels mislabelled "prev 4/5" due to wrong chain timestamps.</p>
-          <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v24" data-title="✅ Closed in v2.24">View 3 closed issues →</button></p>
-        </article>
-        <article class="card">
-          <h3>✅ Closed in v2.26</h3>
-          <p>4 issues resolved — 16:00 close rail printing at bar open (lookahead root cause), spurious "prev 4/5" annotations at wrong ETH session times, missing 9:30 open 4/5 + ZTH levels on ≤15min charts (v2.25 regression), and missing 5/5 / 3/5 levels on ≤15min charts due to trim cadence mismatch.</p>
-          <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v26" data-title="✅ Closed in v2.26">View 4 closed issues →</button></p>
-        </article>
-        <article class="card">
-          <h3>✅ Closed in v2.27–v3.0.2</h3>
-          <p>9 issues resolved — single 4/5 toggle replaced with 4 independent per-chain toggles, maint rail decoupled from ETH gate, 18:00 eopen rail decoupled from ETH gate, "prev 4/5" annotations appearing with any toggle on (f_sess_label cross-chain bug), "prev 4/5" text persisting on maint chain (f_sess_dual_text simplified), erroneous 4/5 annotation on RTH 15:30 bar with maint toggle (f_near_t tolerance tightened), all ZTH levels rendering same cyan color regardless of session origin (ETH-derived levels now teal via f_lvl_color is_eth parameter), CL/GC teal bug (level_is_eth incorrectly set via session-time check for non-RTH-primary instruments), and trim loops removing RTH levels before ETH when ETH toggle adds budget pressure.</p>
-        </article>
-        <article class="card">
           <h3>🔎 Still open after v3.0.2</h3>
           <ul class="list-tight">
             <li><strong>Previous-day 16:00 close ray vertical on RTH chart:</strong> yesterday's close 4/5 ray renders as a vertical post on some RTH 1hr chart configurations. Under continued observation.</li>
@@ -1969,31 +2096,23 @@
       <div class="grid" style="grid-template-columns: 1fr;">
         <article class="card">
           <h3>🏗️ Level retention — dormant buffer</h3>
-          <p>The most impactful architectural change. Currently when the trim loop removes a mitigated level, it is permanently deleted. If price later reclaims that zone, the structural context is gone. In live trading this creates a real edge-case: levels that were briefly mitigated and then reclaimed re-emerge as untagged 5/5 levels with no memory of their mitigation history.</p>
-          <p style="margin-top:0.75rem;">v3.0.0 introduces a <strong>dormant buffer</strong>: trimmed levels move to <code>dormant_price[]</code>, <code>dormant_type[]</code>, and <code>dormant_tags[]</code> arrays rather than being deleted. When price returns to a dormant zone, the level is restored with its mitigation state preserved — showing correctly as 3/5 or Ghost instead of appearing fresh. Levels only fully expire after a configurable time window.</p>
+          <p>The most impactful architectural change. Trimmed levels move to a dormant buffer instead of being permanently deleted, preserving mitigation state when price reclaims the zone.</p>
+          <button class="feature-see-details" data-feature-modal="fmod-dormant">See details →</button>
         </article>
         <article class="card">
           <h3>🎨 Unified color language — RTH / ETH / HA</h3>
-          <p>v2.29–v2.30 introduced the split between cyan (RTH open + close today) and teal (maint + eopen today). v3.0.0 completes this vision across the full level stack:</p>
-          <ul class="list-tight" style="margin-top:0.6rem;">
-            <li><strong>Cyan — all RTH-derived levels:</strong> every ZTH 5/5, 3/5, KEY, and Ghost level born from an RTH 1hr candle color-flip. Currently all levels are cyan regardless of session origin.</li>
-            <li><strong>Teal — all ETH-derived levels:</strong> <code>f_lvl_color</code> updated to accept an <code>is_eth</code> flag. ETH-born levels render teal on both RTH and ETH charts, making session origin visible at a glance without switching chart modes.</li>
-            <li><strong>Soft yellow / golden — Heikin Ashi levels:</strong> the new third level class (see below). RTH HA origin = warm yellow. ETH HA origin = deeper gold.</li>
-          </ul>
+          <p>Completes the cyan/teal/golden color split across the full level stack — cyan for RTH-derived, teal for ETH-derived, and soft yellow/gold for the new Heikin Ashi class.</p>
+          <button class="feature-see-details" data-feature-modal="fmod-color">See details →</button>
         </article>
         <article class="card">
           <h3>✨ Heikin Ashi levels — 3rd level class</h3>
-          <p>ZTH levels are born from standard 1hr candle color-flips. HA levels are born from <strong>Heikin Ashi</strong> 1hr candle color-flips — the open price of the first bar after a HA color change. Because HA candles smooth short-term noise, HA-derived levels represent a different structural weight than standard ZTH: they tend to cluster near the center of range rather than at extremes.</p>
-          <p style="margin-top:0.75rem;">A dedicated toggle enables HA levels as an independent overlay layer. RTH HA levels draw in soft yellow; ETH HA levels draw in golden. They participate in the same proximity, mitigation, and annotation system as ZTH levels — but are visually distinct so traders can weight them differently in their process.</p>
+          <p>A new level class born from Heikin Ashi 1hr color-flips — independent overlay layer with soft yellow (RTH) and golden (ETH) coloring, participating in the same proximity and mitigation system.</p>
+          <button class="feature-see-details" data-feature-modal="fmod-ha">See details →</button>
         </article>
         <article class="card">
           <h3>🔧 Carried-forward bug fixes</h3>
-          <ul class="list-tight">
-            <li><strong>5/5 not downgrading to 3/5 after body mitigation:</strong> levels observed body-closed-through on live charts that remain as 5/5. Root cause under investigation — likely the body-based mitigation check not firing on certain bar sequences, or edge cases in the level-retention architecture that will be addressed during the dormant buffer rewrite.</li>
-            <li><strong>17:00 4/5 vertical position intermittent:</strong> maint-chain 4/5 ray occasionally renders at the wrong y-position (correct x-position, wrong price). Suspected cause: maint price captured before bar confirmation on lower timeframes. TF-conditional <code>barstate.isconfirmed</code> for maint event — same pattern applied successfully to the close chain in v2.26.</li>
-            <li><strong>Previous-day 16:00 close ray vertical on RTH chart:</strong> under continued observation — may be a ray-end time boundary artifact resolvable during the dormant buffer rewrite.</li>
-            <li><strong>QI 3rd candle mitigation:</strong> <code>bar[2]</code> mitigation in place; needs runtime confirmation.</li>
-          </ul>
+          <p>4 open items carried into v3 scope: 5/5 not downgrading after body mitigation, 17:00 4/5 vertical position intermittent, previous-day 16:00 close ray vertical on RTH chart, and QI 3rd candle mitigation confirmation.</p>
+          <button class="feature-see-details" data-feature-modal="fmod-bugs">See details →</button>
         </article>
         <article class="card">
           <h3>🏗️ Architectural — <code>security_lower_tf("60")</code> scan</h3>
@@ -2045,6 +2164,47 @@
       </div>
     </footer>
   </main>
+  <!-- Feature detail modals -->
+  <div class="feature-modal-overlay" id="feature-modal-overlay" role="dialog" aria-modal="true">
+    <div class="feature-modal" id="feature-modal-box">
+      <button class="feature-modal-close" id="feature-modal-close" aria-label="Close">✕</button>
+      <div id="feature-modal-content"></div>
+    </div>
+  </div>
+
+  <!-- Feature modal content -->
+  <template id="fmod-dormant">
+    <h3>🏗️ Level retention — dormant buffer</h3>
+    <p>The most impactful architectural change. Currently when the trim loop removes a mitigated level, it is permanently deleted. If price later reclaims that zone, the structural context is gone. In live trading this creates a real edge-case: levels that were briefly mitigated and then reclaimed re-emerge as untagged 5/5 levels with no memory of their mitigation history.</p>
+    <p style="margin-top:0.75rem;">v3.0.0 introduces a <strong>dormant buffer</strong>: trimmed levels move to <code>dormant_price[]</code>, <code>dormant_type[]</code>, and <code>dormant_tags[]</code> arrays rather than being deleted. When price returns to a dormant zone, the level is restored with its mitigation state preserved — showing correctly as 3/5 or Ghost instead of appearing fresh. Levels only fully expire after a configurable time window.</p>
+  </template>
+
+  <template id="fmod-color">
+    <h3>🎨 Unified color language — RTH / ETH / HA</h3>
+    <p>v2.29–v2.30 introduced the split between cyan (RTH open + close today) and teal (maint + eopen today). v3.0.0 completes this vision across the full level stack:</p>
+    <ul class="list-tight" style="margin-top:0.6rem;">
+      <li><strong>Cyan — all RTH-derived levels:</strong> every ZTH 5/5, 3/5, KEY, and Ghost level born from an RTH 1hr candle color-flip. Currently all levels are cyan regardless of session origin.</li>
+      <li><strong>Teal — all ETH-derived levels:</strong> <code>f_lvl_color</code> updated to accept an <code>is_eth</code> flag. ETH-born levels render teal on both RTH and ETH charts, making session origin visible at a glance without switching chart modes.</li>
+      <li><strong>Soft yellow / golden — Heikin Ashi levels:</strong> the new third level class (see below). RTH HA origin = warm yellow. ETH HA origin = deeper gold.</li>
+    </ul>
+  </template>
+
+  <template id="fmod-ha">
+    <h3>✨ Heikin Ashi levels — 3rd level class</h3>
+    <p>ZTH levels are born from standard 1hr candle color-flips. HA levels are born from <strong>Heikin Ashi</strong> 1hr candle color-flips — the open price of the first bar after a HA color change. Because HA candles smooth short-term noise, HA-derived levels represent a different structural weight than standard ZTH: they tend to cluster near the center of range rather than at extremes.</p>
+    <p style="margin-top:0.75rem;">A dedicated toggle enables HA levels as an independent overlay layer. RTH HA levels draw in soft yellow; ETH HA levels draw in golden. They participate in the same proximity, mitigation, and annotation system as ZTH levels — but are visually distinct so traders can weight them differently in their process.</p>
+  </template>
+
+  <template id="fmod-bugs">
+    <h3>🔧 Carried-forward bug fixes</h3>
+    <ul class="list-tight">
+      <li><strong>5/5 not downgrading to 3/5 after body mitigation:</strong> levels observed body-closed-through on live charts that remain as 5/5. Root cause under investigation — likely the body-based mitigation check not firing on certain bar sequences, or edge cases in the level-retention architecture that will be addressed during the dormant buffer rewrite.</li>
+      <li><strong>17:00 4/5 vertical position intermittent:</strong> maint-chain 4/5 ray occasionally renders at the wrong y-position (correct x-position, wrong price). Suspected cause: maint price captured before bar confirmation on lower timeframes. TF-conditional <code>barstate.isconfirmed</code> for maint event — same pattern applied successfully to the close chain in v2.26.</li>
+      <li><strong>Previous-day 16:00 close ray vertical on RTH chart:</strong> under continued observation — may be a ray-end time boundary artifact resolvable during the dormant buffer rewrite.</li>
+      <li><strong>QI 3rd candle mitigation:</strong> <code>bar[2]</code> mitigation in place; needs runtime confirmation.</li>
+    </ul>
+  </template>
+
   <!-- Closed-issue modal content templates -->
   <template id="tpl-closed-v9-14">
     <ul class="list-tight">
@@ -2278,6 +2438,11 @@
           compactHistory.classList.remove('is-visible');
           releaseList.classList.remove('is-compact');
         }
+        const pill = document.getElementById('toggleStatePill');
+        if (pill) {
+          pill.textContent = compact ? 'ON' : 'OFF';
+          pill.classList.toggle('is-on', compact);
+        }
       };
       toggleBtn.addEventListener('click', () => { compact = !compact; applyCompact(); });
       applyCompact();
@@ -2294,6 +2459,31 @@
           }
         });
       }
+    })();
+
+    // ── Feature detail modals ──────────────────────────────────────────────
+    (() => {
+      const overlay  = document.getElementById('feature-modal-overlay');
+      const content  = document.getElementById('feature-modal-content');
+      const closeBtn = document.getElementById('feature-modal-close');
+      if (!overlay || !content || !closeBtn) return;
+
+      const openModal = (templateId) => {
+        const tpl = document.getElementById(templateId);
+        if (!tpl) return;
+        content.innerHTML = '';
+        content.appendChild(tpl.content.cloneNode(true));
+        overlay.classList.add('is-open');
+        closeBtn.focus();
+      };
+      const closeModal = () => overlay.classList.remove('is-open');
+
+      document.querySelectorAll('.feature-see-details').forEach(btn => {
+        btn.addEventListener('click', () => openModal(btn.dataset.featureModal));
+      });
+      closeBtn.addEventListener('click', closeModal);
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
     })();
 
     // ── Sticky nav active section highlight ────────────────────────────────
