@@ -879,14 +879,10 @@
     .compact-history.is-visible {
       display: block;
       max-height: 460px;
-      overflow-y: auto;
-      overflow-x: clip; /* clip not auto — keeps sticky working on thead */
+      overflow: auto; /* single scroll container — lets thead position:sticky work */
       border: 1px solid var(--border);
       border-radius: 14px;
       -webkit-overflow-scrolling: touch;
-    }
-    .compact-history .table-wrap {
-      overflow-x: auto; /* horizontal scroll lives here, not on outer scroll container */
     }
     .compact-history .ch-table {
       width: 100%;
@@ -1057,6 +1053,8 @@
       .compact-history.is-visible {
         max-height: 320px;
       }
+      /* No horizontal scroll on mobile — remove min-width constraint */
+      .compact-history .ch-table { min-width: 0; }
       /* Hide date + ↗ column on mobile — rows are tappable, ↗ just steals width */
       .compact-history .ch-table .ch-date,
       .compact-history .ch-table thead th:nth-child(2),
@@ -1099,7 +1097,6 @@
       transition: border-color 0.15s, color 0.15s;
     }
     .ch-jump-bottom:hover { border-color: var(--pine); color: var(--pine); }
-    .compact-history.is-visible ~ .ch-jump-bottom-wrap .ch-jump-bottom { display: inline-flex; align-items: center; gap: 0.3em; }
 
     /* ── Toggle state pill ────────────────────────────────────────── */
     .toggle-state-pill {
@@ -1122,12 +1119,19 @@
       border-color: rgba(63,185,80,0.3);
     }
 
-    /* ── Jump buttons — centered ───────────────────────────────────── */
-    .ch-jump-bottom-wrap {
-      text-align: center;
+    /* ── Jump buttons — combined row ───────────────────────────────── */
+    .ch-jump-row {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0.5rem 0;
     }
+    .compact-history.is-visible ~ .ch-jump-row { display: flex; }
+    .ch-jump-row .ch-jump-bottom,
+    .ch-jump-row .ch-jump-newest { display: inline-flex; align-items: center; gap: 0.3em; }
     .ch-jump-newest {
-      display: inline-flex; align-items: center; gap: 0.3em;
+      display: none;
       margin: 0 auto;
       font-size: 0.78rem; font-weight: 600;
       color: var(--subtle);
@@ -1217,7 +1221,7 @@
     <a href="#known-issues">🔎 Known Issues</a>
     <a href="#roadmap">🚀 Roadmap</a>
     <a href="./auto-levels.pine_indicator-guide.html">📖 Guide ↗</a>
-    <button id="view-toggle-btn" class="view-toggle" aria-pressed="true">📄 Expanded Version History View ⊞</button><span class="toggle-state-pill" id="toggleStatePill">OFF</span>
+    <button id="view-toggle-btn" class="view-toggle" aria-pressed="true">📄 Expanded Version History View ⊞ <span class="toggle-state-pill" id="toggleStatePill">OFF</span></button>
   </nav>
   <main class="page">
     <header class="hero tone-guide">
@@ -1307,7 +1311,8 @@
       <h2 id="timeline-title">Open any revision for the deeper notes</h2>
       <p class="section-lead">The summaries below stay public-facing and trader-relevant: what changed, why it mattered, and where the remaining caution still lives.</p>
       <div class="compact-history" id="compact-history" aria-live="polite"></div>
-      <div class="ch-jump-bottom-wrap">
+      <div class="ch-jump-row" id="ch-jump-row">
+        <button class="ch-jump-newest" id="ch-jump-newest-btn" aria-label="Jump to newest version">↑ Jump to newest</button>
         <button class="ch-jump-bottom" id="ch-jump-bottom-btn" aria-label="Jump to last version">↓ Jump to oldest</button>
       </div>
       <div class="release-list" id="release-list">
@@ -2081,9 +2086,6 @@
           </div>
         </details>
       </div>
-      <div class="ch-jump-bottom-wrap" style="margin-top:1.2rem;">
-        <button class="ch-jump-newest" id="ch-jump-newest-btn" onclick="document.getElementById('release-list').scrollIntoView({behavior:'smooth'})" aria-label="Jump to newest version">↑ Jump to newest</button>
-      </div>
     </section>
 
     <section class="panel tone-issues" id="known-issues" aria-labelledby="known-issues-title">
@@ -2436,11 +2438,11 @@
             <td class="ch-action">↗</td>
           </tr>`;
         }).join('');
-        compactHistory.innerHTML = `<div class="table-wrap"><table class="ch-table" aria-label="Version history index">
+        compactHistory.innerHTML = `<table class="ch-table" aria-label="Version history index">
           <thead><tr><th>Version</th><th>Date</th><th>Summary</th><th></th></tr></thead>
           <!-- rows have data-release-details → delegated document click handler opens modal -->
           <tbody>${rows}</tbody>
-        </table></div>`;
+        </table>`;
       };
 
       let compact = true;
@@ -2468,12 +2470,15 @@
       const jumpBtn = document.getElementById('ch-jump-bottom-btn');
       if (jumpBtn) {
         jumpBtn.addEventListener('click', () => {
-          const tbl = compactHistory.querySelector('.ch-table');
-          if (!tbl) return;
-          const lastRow = tbl.querySelector('tbody tr:last-child');
-          if (lastRow) {
-            compactHistory.scrollTo({ top: compactHistory.scrollHeight, behavior: 'smooth' });
-          }
+          compactHistory.scrollTo({ top: compactHistory.scrollHeight, behavior: 'smooth' });
+        });
+      }
+
+      // Jump-to-top of compact table
+      const jumpNewestBtn = document.getElementById('ch-jump-newest-btn');
+      if (jumpNewestBtn) {
+        jumpNewestBtn.addEventListener('click', () => {
+          compactHistory.scrollTo({ top: 0, behavior: 'smooth' });
         });
       }
     })();

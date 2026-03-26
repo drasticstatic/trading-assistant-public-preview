@@ -286,13 +286,14 @@
 
     /* ── SECTION HEADERS ── */
     .section-header {
-      display:flex; align-items:center; gap:.75rem;
+      position: relative;
+      display:flex; align-items:center;
       margin: 2.5rem 0 1.25rem; padding-bottom:.6rem;
       border-bottom: 1px solid var(--border);
     }
-    .section-icon { font-size:1.4rem; line-height:1; }
-    .section-title { font-size:1.15rem; font-weight:700; margin:0; text-align:center; flex:1; }
-    .section-count { font-size:.78rem; color:var(--muted); margin-left:auto; }
+    .section-icon { position: absolute; left: 0; font-size:1.4rem; line-height:1; }
+    .section-title { font-size:1.15rem; font-weight:700; margin:0; text-align:center; width:100%; }
+    .section-count { position: absolute; right: 0; font-size:.78rem; color:var(--muted); }
 
     /* ── SEARCH & FILTER ── */
     .glossary-controls {

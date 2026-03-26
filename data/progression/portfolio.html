@@ -5,51 +5,51 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio — Christopher Wilson</title>
   <meta name="description" content="Unified trading P&L ledger — futures, crypto, options. Live analytics and tax tracking.">
-  <meta name="color-scheme" content="dark">
   <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
   <style>
-    /* ── TERMINAL PALETTE ── */
     :root {
-      --bg:       #060b14;
-      --bg2:      #0a1020;
-      --bg3:      #0f1828;
-      --panel:    #0d1a2d;
-      --panel2:   #112035;
-      --border:   rgba(0,180,255,0.15);
-      --border2:  rgba(0,180,255,0.30);
-      --text:     #c8d8f0;
-      --muted:    #5a7898;
-      --dim:      #2a3d55;
-      --blue:     #00b4ff;
-      --blue2:    #0088cc;
-      --cyan:     #00d4ff;
-      --green:    #00e87a;
-      --green2:   #00b85c;
-      --red:      #ff3b5c;
-      --red2:     #cc2a46;
-      --gold:     #ffb700;
-      --purple:   #7c5cff;
-      --glow-b:   rgba(0,180,255,0.08);
-      --glow-g:   rgba(0,232,122,0.08);
-      --glow-r:   rgba(255,59,92,0.08);
-      --mono: "SF Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
+      --bg:       #07091200;
+      --bg-base:  #080c18;
+      --surface:  rgba(255,255,255,0.04);
+      --surface-soft: rgba(255,255,255,0.025);
+      --surface-raised: rgba(255,255,255,0.065);
+      --border:   rgba(255,255,255,0.09);
+      --border-glow: rgba(139,92,246,0.35);
+      --text:     #dce6f4;
+      --muted:    #8899b0;
+      --dim:      rgba(255,255,255,0.28);
+      --blue:     #7ec8ff;
+      --purple:   #a78bfa;
+      --cyan:     #67e8f9;
+      --green:    #4ade80;
+      --red:      #f87171;
+      --gold:     #fbbf24;
+      --pink:     #f472b6;
+      --radius-xl: 22px;
+      --radius-lg: 16px;
+      --radius-md: 10px;
+      --shadow-sm: 0 2px 12px rgba(0,0,0,0.3);
+      --shadow-md: 0 8px 32px rgba(0,0,0,0.4);
+      --shadow-glow: 0 0 40px rgba(139,92,246,0.08);
     }
 
     html { scroll-behavior: smooth; }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg-base);
       color: var(--text);
       min-height: 100vh;
       font-size: 14px;
-      line-height: 1.6;
-      /* grid background texture */
+      line-height: 1.65;
+      overflow-x: hidden;
       background-image:
-        linear-gradient(rgba(0,180,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,180,255,0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
+        radial-gradient(ellipse at 10% 5%, rgba(139,92,246,0.18) 0%, transparent 35%),
+        radial-gradient(ellipse at 85% 10%, rgba(56,189,248,0.14) 0%, transparent 30%),
+        radial-gradient(ellipse at 50% 80%, rgba(74,222,128,0.08) 0%, transparent 40%),
+        radial-gradient(ellipse at 95% 55%, rgba(244,114,182,0.07) 0%, transparent 30%);
+      background-attachment: fixed;
     }
 
     a { color: var(--blue); text-decoration: none; }
@@ -57,157 +57,215 @@
 
     /* ── NAV ── */
     .nav {
-      display: flex; align-items: center; gap: .6rem; flex-wrap: wrap;
-      padding: .6rem 1.4rem;
-      background: rgba(6,11,20,0.95); backdrop-filter: blur(10px);
+      display: flex; align-items: center; gap: .5rem; flex-wrap: wrap;
+      padding: .65rem 1.5rem;
+      background: rgba(8,12,24,0.8); backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
       position: sticky; top: 0; z-index: 100;
     }
-    .nav-brand { font-family: var(--mono); font-size: .78rem; color: var(--blue); letter-spacing: .04em; margin-right: .4rem; }
-    .nav-tag { padding: .22rem .65rem; border: 1px solid var(--border2); border-radius: 4px; font-size: .74rem; color: var(--muted); font-family: var(--mono); transition: border-color .15s, color .15s; }
-    .nav-tag:hover { border-color: var(--blue); color: var(--blue); }
+    .nav-brand {
+      font-size: .82rem; font-weight: 700; letter-spacing: .02em;
+      background: linear-gradient(90deg, var(--purple), var(--blue));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-right: .4rem;
+    }
+    .nav-tag {
+      padding: .22rem .7rem; border: 1px solid var(--border); border-radius: 999px;
+      font-size: .76rem; color: var(--muted); transition: border-color .15s, color .15s;
+    }
+    .nav-tag:hover { border-color: var(--purple); color: var(--text); }
     .nav-space { flex: 1; }
-    .nav-status { font-family: var(--mono); font-size: .72rem; color: var(--green); }
+    .nav-status { font-size: .75rem; color: var(--green); }
     .nav-status::before { content: "● "; }
 
     /* ── HEADER ── */
     .header {
-      padding: 2.8rem 1.4rem 1.6rem;
-      border-bottom: 1px solid var(--border);
+      padding: 3.2rem 1.5rem 2rem;
       position: relative; overflow: hidden;
+      border-bottom: 1px solid var(--border);
     }
     .header::before {
-      content: "";
-      position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--blue), var(--cyan), var(--blue), transparent);
+      content: ""; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 50%, rgba(139,92,246,0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 40%, rgba(56,189,248,0.12) 0%, transparent 45%);
+      pointer-events: none;
     }
-    .header-inner { max-width: 1200px; margin: 0 auto; }
-    .header-eyebrow { font-family: var(--mono); font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: .6rem; }
-    .header-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; color: #fff; letter-spacing: -.02em; margin-bottom: .4rem; }
-    .header-title span { color: var(--cyan); }
-    .header-sub { font-family: var(--mono); font-size: .82rem; color: var(--muted); }
-    .header-meta { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.2rem; }
+    .header-inner { max-width: 1200px; margin: 0 auto; position: relative; }
+    .header-eyebrow {
+      font-size: .72rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: .65rem;
+    }
+    .header-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800;
+      letter-spacing: -.03em; margin-bottom: .4rem; color: #fff;
+      line-height: 1.1;
+    }
+    .header-title span {
+      background: linear-gradient(120deg, var(--purple), var(--blue), var(--cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .header-sub { font-size: .9rem; color: var(--muted); margin-bottom: 1.4rem; }
+    .header-meta { display: flex; flex-wrap: wrap; gap: .5rem; }
     .header-badge {
-      display: inline-flex; align-items: center; gap: .4rem;
-      padding: .25rem .7rem; border: 1px solid var(--border2); border-radius: 3px;
-      font-family: var(--mono); font-size: .73rem; color: var(--muted);
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: .25rem .8rem; border: 1px solid var(--border); border-radius: 999px;
+      font-size: .74rem; color: var(--muted);
+      background: var(--surface);
     }
-    .header-badge.warn { border-color: rgba(255,183,0,.3); color: var(--gold); }
+    .header-badge.warn { border-color: rgba(251,191,36,.3); color: var(--gold); }
 
     /* ── CONTENT ── */
-    .content { max-width: 1200px; margin: 0 auto; padding: 1.6rem 1.4rem 4rem; }
+    .content { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
 
     /* ── SECTION ── */
-    .section { margin-bottom: 2.8rem; }
+    .section { margin-bottom: 3rem; }
     .sec-label {
-      font-family: var(--mono); font-size: .72rem; text-transform: uppercase;
-      letter-spacing: .12em; color: var(--blue); margin-bottom: .9rem;
+      font-size: .7rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: .14em; color: var(--purple); margin-bottom: 1rem;
       display: flex; align-items: center; gap: .6rem;
     }
     .sec-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
 
     /* ── STAT GRID ── */
-    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: .75rem; margin-bottom: 1.6rem; }
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: .8rem; margin-bottom: 1.5rem; }
     .stat {
-      background: var(--panel); border: 1px solid var(--border);
-      border-radius: 6px; padding: 1rem 1.1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.1rem 1.2rem;
       position: relative; overflow: hidden;
+      backdrop-filter: blur(12px);
+      transition: border-color .2s, box-shadow .2s;
     }
-    .stat::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
-    .stat.gain::before { background: var(--green); }
-    .stat.loss::before { background: var(--red); }
-    .stat.neutral::before { background: var(--blue); }
-    .stat.gold::before { background: var(--gold); }
-    .stat-label { font-family: var(--mono); font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: .4rem; }
-    .stat-val { font-family: var(--mono); font-size: 1.45rem; font-weight: 700; line-height: 1; }
-    .stat-val.up { color: var(--green); }
+    .stat:hover { border-color: rgba(255,255,255,0.15); box-shadow: var(--shadow-sm); }
+    .stat::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+    .stat.gain::before  { background: linear-gradient(90deg, var(--green), var(--cyan)); }
+    .stat.loss::before  { background: linear-gradient(90deg, var(--red), var(--pink)); }
+    .stat.neutral::before { background: linear-gradient(90deg, var(--blue), var(--purple)); }
+    .stat.gold::before  { background: linear-gradient(90deg, var(--gold), var(--pink)); }
+    .stat-label { font-size: .71rem; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin-bottom: .5rem; }
+    .stat-val { font-size: 1.5rem; font-weight: 800; line-height: 1.05; letter-spacing: -.02em; }
+    .stat-val.up   { color: var(--green); }
     .stat-val.down { color: var(--red); }
     .stat-val.blue { color: var(--cyan); }
     .stat-val.gold { color: var(--gold); }
-    .stat-sub { font-size: .75rem; color: var(--dim); margin-top: .35rem; }
+    .stat-val.dim  { color: var(--muted); }
+    .stat-sub { font-size: .75rem; color: var(--muted); margin-top: .3rem; opacity: .8; }
 
     /* ── CHARTS ── */
-    .chart-wrap { background: var(--panel); border: 1px solid var(--border); border-radius: 6px; padding: 1.2rem 1.4rem; margin-bottom: 1.2rem; }
-    .chart-title { font-family: var(--mono); font-size: .74rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 1rem; }
+    .chart-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1rem;
+      backdrop-filter: blur(12px);
+    }
+    .chart-title {
+      font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+      color: var(--muted); margin-bottom: 1.1rem;
+    }
     .chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     @media (max-width: 700px) { .chart-row { grid-template-columns: 1fr; } }
-
-    /* SVG chart shared */
     svg.chart { width: 100%; overflow: visible; }
 
     /* ── TABLE ── */
     .tbl-wrap { overflow-x: auto; }
-    table { width: 100%; border-collapse: collapse; font-size: .83rem; }
+    table { width: 100%; border-collapse: collapse; font-size: .84rem; }
     thead th {
-      font-family: var(--mono); font-size: .68rem; text-transform: uppercase;
-      letter-spacing: .08em; color: var(--muted); font-weight: 600;
-      padding: .55rem .9rem; text-align: left;
-      border-bottom: 1px solid var(--border2); white-space: nowrap;
+      font-size: .69rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .08em; color: var(--muted); padding: .55rem .85rem;
+      text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap;
     }
-    tbody tr { border-bottom: 1px solid var(--border); transition: background .1s; }
+    tbody tr { border-bottom: 1px solid var(--border); transition: background .12s; }
     tbody tr:last-child { border-bottom: none; }
-    tbody tr:hover { background: rgba(0,180,255,0.04); }
-    tbody td { padding: .55rem .9rem; }
-    .mono { font-family: var(--mono); }
-    .up { color: var(--green); }
-    .dn { color: var(--red); }
-    .dim { color: var(--muted); }
+    tbody tr:hover { background: rgba(255,255,255,0.03); }
+    tbody td { padding: .52rem .85rem; }
+    .mono { font-family: ui-monospace, "SF Mono", monospace; }
+    .up   { color: var(--green); }
+    .dn   { color: var(--red); }
+    .dim  { color: var(--muted); }
     .gold { color: var(--gold); }
     .tag {
-      display: inline-block; padding: .15rem .45rem; border-radius: 3px;
-      font-family: var(--mono); font-size: .68rem; font-weight: 700;
+      display: inline-block; padding: .15rem .5rem; border-radius: 999px;
+      font-size: .68rem; font-weight: 700;
     }
-    .tag-g { background: rgba(0,232,122,.12); color: var(--green); }
-    .tag-r { background: rgba(255,59,92,.12); color: var(--red); }
-    .tag-b { background: rgba(0,180,255,.12); color: var(--cyan); }
-    .tag-d { background: rgba(90,120,152,.12); color: var(--muted); }
-    .tag-o { background: rgba(255,183,0,.12); color: var(--gold); }
+    .tag-g { background: rgba(74,222,128,.12); color: var(--green); border: 1px solid rgba(74,222,128,.25); }
+    .tag-r { background: rgba(248,113,113,.12); color: var(--red);   border: 1px solid rgba(248,113,113,.25); }
+    .tag-b { background: rgba(126,200,255,.12); color: var(--blue);  border: 1px solid rgba(126,200,255,.2); }
+    .tag-d { background: rgba(139,153,176,.1);  color: var(--muted); border: 1px solid var(--border); }
+    .tag-o { background: rgba(251,191,36,.12);  color: var(--gold);  border: 1px solid rgba(251,191,36,.25); }
 
     /* ── PANEL ── */
-    .panel-block { background: var(--panel); border: 1px solid var(--border); border-radius: 6px; padding: 1.2rem 1.4rem; margin-bottom: 1rem; }
+    .panel-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 1rem;
+      backdrop-filter: blur(10px);
+    }
     .panel-block + .panel-block { margin-top: 0; }
 
     /* ── CALLOUT ── */
-    .callout { display: flex; gap: .7rem; padding: .8rem 1rem; border-radius: 4px; font-size: .82rem; margin: .8rem 0; border: 1px solid; }
-    .callout.warn { background: rgba(255,183,0,.05); border-color: rgba(255,183,0,.25); color: #d4a030; }
-    .callout.info { background: rgba(0,180,255,.05); border-color: rgba(0,180,255,.20); color: var(--muted); }
+    .callout {
+      display: flex; gap: .7rem;
+      padding: .85rem 1.1rem; border-radius: var(--radius-md);
+      font-size: .83rem; margin: .8rem 0; border: 1px solid;
+    }
+    .callout.warn { background: rgba(251,191,36,.05); border-color: rgba(251,191,36,.25); color: #c8973c; }
+    .callout.info { background: rgba(126,200,255,.05); border-color: rgba(126,200,255,.2); color: var(--muted); }
 
     /* ── ACCORDION ── */
-    details.acc { background: var(--panel); border: 1px solid var(--border); border-radius: 6px; margin-bottom: .6rem; }
+    details.acc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      margin-bottom: .65rem;
+      backdrop-filter: blur(10px);
+      transition: border-color .2s;
+    }
+    details.acc:hover { border-color: rgba(255,255,255,0.14); }
     details.acc > summary {
       list-style: none; cursor: pointer;
-      display: flex; align-items: center; gap: .8rem; padding: .9rem 1.2rem;
-      font-family: var(--mono); font-size: .82rem;
-      transition: background .12s;
+      display: flex; align-items: center; gap: .75rem; padding: .95rem 1.25rem;
+      font-size: .84rem; transition: background .12s; border-radius: var(--radius-lg);
     }
     details.acc > summary::-webkit-details-marker { display: none; }
-    details.acc > summary:hover { background: rgba(0,180,255,0.04); }
-    details.acc[open] > summary { border-bottom: 1px solid var(--border); }
-    .acc-name { flex: 1; color: var(--text); }
-    .acc-meta { color: var(--muted); font-size: .74rem; }
-    .acc-val { font-weight: 700; }
-    .acc-body { padding: 1rem 1.2rem; }
+    details.acc > summary:hover { background: var(--surface-raised); }
+    details.acc[open] > summary { border-bottom: 1px solid var(--border); border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+    .acc-name { flex: 1; color: var(--text); font-weight: 500; }
+    .acc-meta { color: var(--muted); font-size: .75rem; }
+    .acc-val  { font-weight: 700; }
+    .acc-body { padding: 1.1rem 1.25rem; }
     .arr { color: var(--muted); font-size: .7rem; transition: transform .2s; }
     details.acc[open] .arr { transform: rotate(90deg); }
 
     /* ── FOOTER ── */
     footer {
-      text-align: center; padding: 1.5rem 1rem 2.5rem;
-      font-family: var(--mono); font-size: .72rem; color: var(--dim);
+      text-align: center; padding: 1.8rem 1rem 3rem;
+      font-size: .74rem; color: var(--muted);
       border-top: 1px solid var(--border);
     }
 
     /* scrollbar */
     ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--dim); border-radius: 3px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 3px; }
+
+    @media (max-width: 600px) {
+      .stat-grid { grid-template-columns: 1fr 1fr; }
+      .header { padding: 2rem 1.1rem 1.5rem; }
+      .content { padding: 1.5rem 1.1rem 4rem; }
+    }
   </style>
 </head>
 <body>
 
   <!-- ── NAV ── -->
   <nav class="nav">
-    <span class="nav-brand">PORTFOLIO//</span>
+    <span class="nav-brand">Portfolio</span>
     <a class="nav-tag" href="../../index.html">🏠 Home</a>
     <a class="nav-tag" href="resources.html">📚 Resources</a>
     <a class="nav-tag" href="SmartTradingBlueprint/course-workbook.html">📘 STB</a>
@@ -219,7 +277,7 @@
   <!-- ── HEADER ── -->
   <header class="header">
     <div class="header-inner">
-      <div class="header-eyebrow">CHRISTOPHER WILSON // UNIFIED P&amp;L LEDGER</div>
+      <div class="header-eyebrow">Christopher Wilson · Unified P&amp;L Ledger</div>
       <h1 class="header-title">Trading <span>Portfolio</span></h1>
       <div class="header-sub">All platforms · All instruments · All years — one view</div>
       <div class="header-meta">
@@ -234,7 +292,7 @@
 
     <!-- ── OVERVIEW STATS ── -->
     <section class="section" id="overview">
-      <div class="sec-label">OVERVIEW</div>
+      <div class="sec-label">Overview</div>
       <div class="stat-grid">
         <div class="stat neutral">
           <div class="stat-label">2026 YTD</div>
@@ -271,7 +329,7 @@
 
     <!-- ── CHARTS ── -->
     <section class="section" id="charts">
-      <div class="sec-label">ANALYTICS</div>
+      <div class="sec-label">Analytics</div>
 
       <div class="chart-row">
         <!-- Year-over-Year P&L Bar Chart -->
@@ -280,42 +338,40 @@
           <svg class="chart" viewBox="0 0 340 160" aria-label="Year over year P&L chart">
             <defs>
               <linearGradient id="grd-r" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#ff3b5c" stop-opacity="0.9"/>
-                <stop offset="100%" stop-color="#cc2a46" stop-opacity="0.7"/>
+                <stop offset="0%" stop-color="#f87171" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#f472b6" stop-opacity="0.7"/>
               </linearGradient>
               <linearGradient id="grd-g" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#00e87a" stop-opacity="0.9"/>
-                <stop offset="100%" stop-color="#00b85c" stop-opacity="0.7"/>
+                <stop offset="0%" stop-color="#4ade80" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#67e8f9" stop-opacity="0.7"/>
               </linearGradient>
             </defs>
             <!-- Y axis baseline -->
-            <line x1="70" y1="10" x2="70" y2="130" stroke="rgba(0,180,255,0.2)" stroke-width="1"/>
-            <line x1="70" y1="130" x2="330" y2="130" stroke="rgba(0,180,255,0.2)" stroke-width="1"/>
+            <line x1="70" y1="10" x2="70" y2="130" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+            <line x1="70" y1="130" x2="330" y2="130" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
             <!-- Grid lines -->
-            <line x1="70" y1="50"  x2="330" y2="50"  stroke="rgba(0,180,255,0.06)" stroke-width="1" stroke-dasharray="3,3"/>
-            <line x1="70" y1="90"  x2="330" y2="90"  stroke="rgba(0,180,255,0.06)" stroke-width="1" stroke-dasharray="3,3"/>
+            <line x1="70" y1="50"  x2="330" y2="50"  stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="3,3"/>
+            <line x1="70" y1="90"  x2="330" y2="90"  stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="3,3"/>
 
             <!-- 2024 bar: -$2,115 → max loss, full bar (70% of chart) -->
-            <!-- Scale: 2115 = 90px loss, 65 = 2px gain -->
-            <!-- 2024 label -->
-            <text x="62" y="70" font-family="'SF Mono',monospace" font-size="10" fill="#5a7898" text-anchor="end">2024</text>
-            <rect x="73" y="38" width="188" height="16" fill="url(#grd-r)" rx="2"/>
-            <text x="267" y="50" font-family="'SF Mono',monospace" font-size="9" fill="#ff6b80">~-$2,115</text>
+            <text x="62" y="70" font-family="system-ui,sans-serif" font-size="10" fill="#8899b0" text-anchor="end">2024</text>
+            <rect x="73" y="38" width="188" height="16" fill="url(#grd-r)" rx="3"/>
+            <text x="267" y="50" font-family="system-ui,sans-serif" font-size="9" fill="#f87171">~-$2,115</text>
 
             <!-- 2025: -$234 → 234/2115 * 188 = ~21px -->
-            <text x="62" y="95" font-family="'SF Mono',monospace" font-size="10" fill="#5a7898" text-anchor="end">2025</text>
-            <rect x="73" y="83" width="21" height="16" fill="url(#grd-r)" rx="2"/>
-            <text x="100" y="95" font-family="'SF Mono',monospace" font-size="9" fill="#ff6b80">-$234</text>
+            <text x="62" y="95" font-family="system-ui,sans-serif" font-size="10" fill="#8899b0" text-anchor="end">2025</text>
+            <rect x="73" y="83" width="21" height="16" fill="url(#grd-r)" rx="3"/>
+            <text x="100" y="95" font-family="system-ui,sans-serif" font-size="9" fill="#f87171">-$234</text>
 
             <!-- 2026 YTD: +$65.50 → gain bar opposite direction -->
-            <text x="62" y="122" font-family="'SF Mono',monospace" font-size="10" fill="#5a7898" text-anchor="end">2026</text>
-            <rect x="73" y="110" width="6" height="16" fill="url(#grd-g)" rx="2"/>
-            <text x="85" y="122" font-family="'SF Mono',monospace" font-size="9" fill="#00e87a">+$65.50</text>
+            <text x="62" y="122" font-family="system-ui,sans-serif" font-size="10" fill="#8899b0" text-anchor="end">2026</text>
+            <rect x="73" y="110" width="6" height="16" fill="url(#grd-g)" rx="3"/>
+            <text x="85" y="122" font-family="system-ui,sans-serif" font-size="9" fill="#4ade80">+$65.50</text>
 
             <!-- X axis labels -->
-            <text x="70" y="148" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="middle">0</text>
-            <text x="210" y="148" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="middle">-$1,000</text>
-            <text x="330" y="148" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="middle">-$2,115</text>
+            <text x="70" y="148" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="middle">0</text>
+            <text x="210" y="148" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="middle">-$1,000</text>
+            <text x="330" y="148" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="middle">-$2,115</text>
           </svg>
         </div>
 
@@ -323,32 +379,31 @@
         <div class="chart-wrap">
           <div class="chart-title">All-Time P&L by Platform</div>
           <svg class="chart" viewBox="0 0 340 160" aria-label="Platform P&L breakdown">
-            <!-- Horizontal bars, largest to smallest loss -->
             <!-- Baseline -->
-            <line x1="80" y1="10" x2="80" y2="140" stroke="rgba(0,180,255,0.2)" stroke-width="1"/>
+            <line x1="80" y1="10" x2="80" y2="140" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
 
             <!-- BTCC: -$2,224 = full bar 230px -->
-            <text x="74" y="35" font-family="'SF Mono',monospace" font-size="9" fill="#5a7898" text-anchor="end">BTCC</text>
-            <rect x="83" y="22" width="230" height="14" fill="rgba(255,59,92,0.75)" rx="2"/>
-            <text x="319" y="33" font-family="'SF Mono',monospace" font-size="9" fill="#ff6b80" text-anchor="end">-$2,224</text>
+            <text x="74" y="35" font-family="system-ui,sans-serif" font-size="9" fill="#8899b0" text-anchor="end">BTCC</text>
+            <rect x="83" y="22" width="230" height="14" fill="rgba(248,113,113,0.7)" rx="3"/>
+            <text x="319" y="33" font-family="system-ui,sans-serif" font-size="9" fill="#f87171" text-anchor="end">-$2,224</text>
 
             <!-- PocketOption: -$151.62 = 151.62/2224*230 = ~15.7px -->
-            <text x="74" y="63" font-family="'SF Mono',monospace" font-size="9" fill="#5a7898" text-anchor="end">Pocket</text>
-            <rect x="83" y="50" width="16" height="14" fill="rgba(255,59,92,0.5)" rx="2"/>
-            <text x="105" y="61" font-family="'SF Mono',monospace" font-size="9" fill="#cc5a70">-$152</text>
+            <text x="74" y="63" font-family="system-ui,sans-serif" font-size="9" fill="#8899b0" text-anchor="end">Pocket</text>
+            <rect x="83" y="50" width="16" height="14" fill="rgba(248,113,113,0.45)" rx="3"/>
+            <text x="105" y="61" font-family="system-ui,sans-serif" font-size="9" fill="#c86888">-$152</text>
 
             <!-- CoinLedger: TBD -->
-            <text x="74" y="91" font-family="'SF Mono',monospace" font-size="9" fill="#5a7898" text-anchor="end">On-Chain</text>
-            <rect x="83" y="78" width="60" height="14" fill="rgba(90,120,152,0.3)" stroke="rgba(90,120,152,0.4)" stroke-width="1" rx="2" stroke-dasharray="3,2"/>
-            <text x="149" y="89" font-family="'SF Mono',monospace" font-size="9" fill="#3a5a78">TBD</text>
+            <text x="74" y="91" font-family="system-ui,sans-serif" font-size="9" fill="#8899b0" text-anchor="end">On-Chain</text>
+            <rect x="83" y="78" width="60" height="14" fill="rgba(139,153,176,0.15)" stroke="rgba(139,153,176,0.3)" stroke-width="1" rx="3" stroke-dasharray="3,2"/>
+            <text x="149" y="89" font-family="system-ui,sans-serif" font-size="9" fill="#6677888">TBD</text>
 
-            <!-- Futures/Eval: +$93 gain — different direction concept, show as green offset -->
-            <text x="74" y="119" font-family="'SF Mono',monospace" font-size="9" fill="#5a7898" text-anchor="end">Futures</text>
-            <rect x="83" y="106" width="10" height="14" fill="rgba(0,232,122,0.75)" rx="2"/>
-            <text x="99" y="117" font-family="'SF Mono',monospace" font-size="9" fill="#00e87a">+$93</text>
+            <!-- Futures/Eval: +$93 gain -->
+            <text x="74" y="119" font-family="system-ui,sans-serif" font-size="9" fill="#8899b0" text-anchor="end">Futures</text>
+            <rect x="83" y="106" width="10" height="14" fill="rgba(74,222,128,0.7)" rx="3"/>
+            <text x="99" y="117" font-family="system-ui,sans-serif" font-size="9" fill="#4ade80">+$93</text>
 
-            <text x="80" y="155" font-family="'SF Mono',monospace" font-size="8" fill="#1a2d42" text-anchor="middle">$0</text>
-            <text x="310" y="155" font-family="'SF Mono',monospace" font-size="8" fill="#1a2d42" text-anchor="end">-$2,224</text>
+            <text x="80" y="155" font-family="system-ui,sans-serif" font-size="8" fill="#3a4d65" text-anchor="middle">$0</text>
+            <text x="310" y="155" font-family="system-ui,sans-serif" font-size="8" fill="#3a4d65" text-anchor="end">-$2,224</text>
           </svg>
         </div>
       </div>
@@ -359,44 +414,28 @@
         <svg class="chart" viewBox="0 0 760 180" aria-label="2026 recovery arc cumulative chart">
           <defs>
             <linearGradient id="area-g" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#00e87a" stop-opacity="0.25"/>
-              <stop offset="100%" stop-color="#00e87a" stop-opacity="0"/>
+              <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.25"/>
+              <stop offset="50%" stop-color="#4ade80" stop-opacity="0.12"/>
+              <stop offset="100%" stop-color="#4ade80" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="line-g" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#a78bfa"/>
+              <stop offset="60%" stop-color="#4ade80"/>
+              <stop offset="100%" stop-color="#67e8f9"/>
             </linearGradient>
           </defs>
 
-          <!-- Data points: cumulative after each event -->
-          <!-- Feb 25 MNQ +565, SOL +20.43 → 585.43 -->
-          <!-- Mar 10 MNQ -108 → 477.43 -->
-          <!-- Mar 12-13 SOL -33.80 → 443.63 -->
-          <!-- Mar 16 RTY+MNQ +666.50 → 1110.13 -->
-          <!-- Mar 17 MNQ +963 → 2073.13 -->
-          <!-- Mar 20 RTY +525 → 2598.13 -->
-          <!-- Mar 25-26 SOL -14.13 → 2584.00 -->
-
-          <!-- Scale: max 2598, chart height 140px, y=150 is zero line -->
-          <!-- Each point: yval = 150 - (val/2598)*130 -->
-          <!-- Feb25: 585.43 → y = 150 - 29.3 = 120.7 -->
-          <!-- Mar10: 477.43 → y = 150 - 23.9 = 126.1 -->
-          <!-- Mar12-13: 443.63 → y = 150 - 22.2 = 127.8 -->
-          <!-- Mar16: 1110.13 → y = 150 - 55.6 = 94.4 -->
-          <!-- Mar17: 2073.13 → y = 150 - 103.7 = 46.3 -->
-          <!-- Mar20: 2598.13 → y = 150 - 130 = 20.0 -->
-          <!-- Mar25-26: 2584 → y = 150 - 129.3 = 20.7 -->
-
-          <!-- X positions: evenly spaced across 760, starting ~80 -->
-          <!-- Points at: 80, 180, 270, 370, 470, 570, 680 -->
-
           <!-- Zero line -->
-          <line x1="60" y1="150" x2="740" y2="150" stroke="rgba(0,180,255,0.15)" stroke-width="1"/>
-          <text x="55" y="154" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="end">$0</text>
+          <line x1="60" y1="150" x2="740" y2="150" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <text x="55" y="154" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="end">$0</text>
 
           <!-- Grid lines -->
-          <line x1="60" y1="117" x2="740" y2="117" stroke="rgba(0,180,255,0.06)" stroke-width="1" stroke-dasharray="4,4"/>
-          <text x="55" y="121" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="end">+$1K</text>
-          <line x1="60" y1="84" x2="740" y2="84" stroke="rgba(0,180,255,0.06)" stroke-width="1" stroke-dasharray="4,4"/>
-          <text x="55" y="88" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="end">+$2K</text>
-          <line x1="60" y1="20" x2="740" y2="20" stroke="rgba(0,180,255,0.04)" stroke-width="1" stroke-dasharray="4,4"/>
-          <text x="55" y="24" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="end">+$2.6K</text>
+          <line x1="60" y1="117" x2="740" y2="117" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4,4"/>
+          <text x="55" y="121" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="end">+$1K</text>
+          <line x1="60" y1="84" x2="740" y2="84" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4,4"/>
+          <text x="55" y="88" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="end">+$2K</text>
+          <line x1="60" y1="20" x2="740" y2="20" stroke="rgba(255,255,255,0.03)" stroke-width="1" stroke-dasharray="4,4"/>
+          <text x="55" y="24" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="end">+$2.6K</text>
 
           <!-- Filled area polygon -->
           <polygon points="80,150 80,121 180,126 270,128 370,94 470,46 570,20 680,21 680,150"
@@ -404,37 +443,37 @@
 
           <!-- Line path -->
           <polyline points="80,121 180,126 270,128 370,94 470,46 570,20 680,21"
-                    fill="none" stroke="var(--green)" stroke-width="2" stroke-linejoin="round"/>
+                    fill="none" stroke="url(#line-g)" stroke-width="2.5" stroke-linejoin="round"/>
 
           <!-- Data points -->
-          <circle cx="80"  cy="121" r="4" fill="var(--green)" stroke="var(--bg)" stroke-width="2"/>
-          <circle cx="180" cy="126" r="4" fill="var(--red)"   stroke="var(--bg)" stroke-width="2"/>
-          <circle cx="270" cy="128" r="4" fill="var(--red)"   stroke="var(--bg)" stroke-width="2"/>
-          <circle cx="370" cy="94"  r="4" fill="var(--green)" stroke="var(--bg)" stroke-width="2"/>
-          <circle cx="470" cy="46"  r="4" fill="var(--green)" stroke="var(--bg)" stroke-width="2"/>
-          <circle cx="570" cy="20"  r="4" fill="var(--green)" stroke="var(--bg)" stroke-width="2"/>
-          <circle cx="680" cy="21"  r="4" fill="var(--red)"   stroke="var(--bg)" stroke-width="2"/>
+          <circle cx="80"  cy="121" r="5" fill="#a78bfa" stroke="rgba(8,12,24,0.8)" stroke-width="2"/>
+          <circle cx="180" cy="126" r="5" fill="#f87171" stroke="rgba(8,12,24,0.8)" stroke-width="2"/>
+          <circle cx="270" cy="128" r="5" fill="#f87171" stroke="rgba(8,12,24,0.8)" stroke-width="2"/>
+          <circle cx="370" cy="94"  r="5" fill="#4ade80" stroke="rgba(8,12,24,0.8)" stroke-width="2"/>
+          <circle cx="470" cy="46"  r="5" fill="#4ade80" stroke="rgba(8,12,24,0.8)" stroke-width="2"/>
+          <circle cx="570" cy="20"  r="5" fill="#4ade80" stroke="rgba(8,12,24,0.8)" stroke-width="2"/>
+          <circle cx="680" cy="21"  r="5" fill="#fbbf24" stroke="rgba(8,12,24,0.8)" stroke-width="2"/>
 
           <!-- Value labels (above points) -->
-          <text x="80"  y="112" font-family="'SF Mono',monospace" font-size="8" fill="var(--green)" text-anchor="middle">+$585</text>
-          <text x="180" y="118" font-family="'SF Mono',monospace" font-size="8" fill="var(--red)"   text-anchor="middle">+$477</text>
-          <text x="270" y="120" font-family="'SF Mono',monospace" font-size="8" fill="var(--red)"   text-anchor="middle">+$444</text>
-          <text x="370" y="86"  font-family="'SF Mono',monospace" font-size="8" fill="var(--green)" text-anchor="middle">+$1,110</text>
-          <text x="470" y="38"  font-family="'SF Mono',monospace" font-size="8" fill="var(--green)" text-anchor="middle">+$2,073</text>
-          <text x="570" y="12"  font-family="'SF Mono',monospace" font-size="8" fill="var(--green)" text-anchor="middle">+$2,598</text>
-          <text x="680" y="14"  font-family="'SF Mono',monospace" font-size="8" fill="var(--gold)"  text-anchor="middle">+$2,584</text>
+          <text x="80"  y="112" font-family="system-ui,sans-serif" font-size="8" fill="#a78bfa" text-anchor="middle">+$585</text>
+          <text x="180" y="118" font-family="system-ui,sans-serif" font-size="8" fill="#f87171" text-anchor="middle">+$477</text>
+          <text x="270" y="120" font-family="system-ui,sans-serif" font-size="8" fill="#f87171" text-anchor="middle">+$444</text>
+          <text x="370" y="86"  font-family="system-ui,sans-serif" font-size="8" fill="#4ade80" text-anchor="middle">+$1,110</text>
+          <text x="470" y="38"  font-family="system-ui,sans-serif" font-size="8" fill="#4ade80" text-anchor="middle">+$2,073</text>
+          <text x="570" y="12"  font-family="system-ui,sans-serif" font-size="8" fill="#4ade80" text-anchor="middle">+$2,598</text>
+          <text x="680" y="14"  font-family="system-ui,sans-serif" font-size="8" fill="#fbbf24" text-anchor="middle">+$2,584</text>
 
           <!-- Date labels -->
-          <text x="80"  y="166" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Feb 25</text>
-          <text x="180" y="166" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 10</text>
-          <text x="270" y="166" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 12</text>
-          <text x="370" y="166" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 16</text>
-          <text x="470" y="166" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 17</text>
-          <text x="570" y="166" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 20</text>
-          <text x="680" y="166" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 25–26</text>
+          <text x="80"  y="166" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Feb 25</text>
+          <text x="180" y="166" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 10</text>
+          <text x="270" y="166" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 12</text>
+          <text x="370" y="166" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 16</text>
+          <text x="470" y="166" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 17</text>
+          <text x="570" y="166" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 20</text>
+          <text x="680" y="166" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 25–26</text>
         </svg>
-        <div style="font-family:var(--mono);font-size:.7rem;color:var(--muted);margin-top:.5rem;">
-          ⚠ Eval P&L only — cumulative paper score, not cash withdrawn. Green circles = net gain sessions · Red = net loss.
+        <div style="font-size:.72rem;color:var(--muted);margin-top:.5rem;">
+          ⚠ Eval P&L only — cumulative paper score, not cash withdrawn. Purple/green = net gain sessions · Red = net loss.
         </div>
       </div>
 
@@ -443,57 +482,60 @@
         <div class="chart-title">2026 Per-Session P&L — All Platforms</div>
         <svg class="chart" viewBox="0 0 760 160" aria-label="Per-session P&L bar chart">
           <!-- Bars scale: max 963, zero line at y=100 -->
-          <!-- Gains go up (y decreases), losses go down (y increases) -->
-          <!-- Height multiplier: 80px / 963 = 0.083 per $ -->
-          <!-- Bar positions: 8 sessions, each ~90px wide -->
+          <defs>
+            <linearGradient id="bar-g" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#4ade80" stop-opacity="0.7"/>
+            </linearGradient>
+          </defs>
 
-          <line x1="30" y1="100" x2="740" y2="100" stroke="rgba(0,180,255,0.3)" stroke-width="1"/>
-          <text x="25" y="104" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="end">$0</text>
+          <line x1="30" y1="100" x2="740" y2="100" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+          <text x="25" y="104" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="end">$0</text>
 
           <!-- Grid -->
-          <line x1="30" y1="55" x2="740" y2="55" stroke="rgba(0,180,255,0.06)" stroke-width="1" stroke-dasharray="3,3"/>
-          <text x="25" y="59" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="end">+$500</text>
-          <line x1="30" y1="17" x2="740" y2="17" stroke="rgba(0,180,255,0.06)" stroke-width="1" stroke-dasharray="3,3"/>
-          <text x="25" y="21" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="end">+$963</text>
-          <line x1="30" y1="115" x2="740" y2="115" stroke="rgba(0,180,255,0.04)" stroke-width="1" stroke-dasharray="3,3"/>
-          <text x="25" y="119" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="end">-$150</text>
+          <line x1="30" y1="55" x2="740" y2="55" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="3,3"/>
+          <text x="25" y="59" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="end">+$500</text>
+          <line x1="30" y1="17" x2="740" y2="17" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="3,3"/>
+          <text x="25" y="21" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="end">+$963</text>
+          <line x1="30" y1="115" x2="740" y2="115" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="3,3"/>
+          <text x="25" y="119" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="end">-$150</text>
 
-          <!-- Feb 25: +$565+20.43=585.43 → h=48.6, y=100-48.6=51.4 → bar top 51, h 49 -->
-          <rect x="45"  y="51" width="50" height="49" fill="rgba(0,232,122,0.7)" rx="2"/>
-          <text x="70"  y="45" font-family="'SF Mono',monospace" font-size="8" fill="var(--green)" text-anchor="middle">+$585</text>
-          <text x="70"  y="155" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Feb 25</text>
+          <!-- Feb 25: +$585.43 → h=49, y=51 -->
+          <rect x="45"  y="51" width="50" height="49" fill="url(#bar-g)" rx="3"/>
+          <text x="70"  y="45" font-family="system-ui,sans-serif" font-size="8" fill="#a78bfa" text-anchor="middle">+$585</text>
+          <text x="70"  y="155" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Feb 25</text>
 
           <!-- Mar 10: -$108 → h=9, y=100 to 109 -->
-          <rect x="140" y="100" width="50" height="9"  fill="rgba(255,59,92,0.7)"  rx="2"/>
-          <text x="165" y="122" font-family="'SF Mono',monospace" font-size="8" fill="var(--red)"   text-anchor="middle">-$108</text>
-          <text x="165" y="155" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 10</text>
+          <rect x="140" y="100" width="50" height="9"  fill="rgba(248,113,113,0.65)" rx="3"/>
+          <text x="165" y="122" font-family="system-ui,sans-serif" font-size="8" fill="#f87171" text-anchor="middle">-$108</text>
+          <text x="165" y="155" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 10</text>
 
-          <!-- Mar 12-13 SOL: -$33.80 → h=2.8, y=100 to 103 -->
-          <rect x="235" y="100" width="50" height="3"  fill="rgba(255,59,92,0.7)"  rx="2"/>
-          <text x="260" y="115" font-family="'SF Mono',monospace" font-size="8" fill="var(--red)"   text-anchor="middle">-$34</text>
-          <text x="260" y="155" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 12</text>
-          <text x="260" y="164" font-family="'SF Mono',monospace" font-size="7" fill="#2a3d55" text-anchor="middle">SOL</text>
+          <!-- Mar 12-13 SOL: -$33.80 → h=3 -->
+          <rect x="235" y="100" width="50" height="3"  fill="rgba(248,113,113,0.65)" rx="2"/>
+          <text x="260" y="115" font-family="system-ui,sans-serif" font-size="8" fill="#f87171" text-anchor="middle">-$34</text>
+          <text x="260" y="155" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 12</text>
+          <text x="260" y="164" font-family="system-ui,sans-serif" font-size="7" fill="#3a4d65" text-anchor="middle">SOL</text>
 
-          <!-- Mar 16: +$666.50 → h=55.3, y=44.7 -->
-          <rect x="330" y="45" width="50" height="55" fill="rgba(0,232,122,0.7)"  rx="2"/>
-          <text x="355" y="39" font-family="'SF Mono',monospace" font-size="8" fill="var(--green)" text-anchor="middle">+$667</text>
-          <text x="355" y="155" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 16</text>
+          <!-- Mar 16: +$666.50 → h=55, y=45 -->
+          <rect x="330" y="45" width="50" height="55" fill="rgba(74,222,128,0.65)" rx="3"/>
+          <text x="355" y="39" font-family="system-ui,sans-serif" font-size="8" fill="#4ade80" text-anchor="middle">+$667</text>
+          <text x="355" y="155" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 16</text>
 
           <!-- Mar 17: +$963 → h=80, y=20 -->
-          <rect x="425" y="20" width="50" height="80" fill="rgba(0,232,122,0.85)" rx="2"/>
-          <text x="450" y="14" font-family="'SF Mono',monospace" font-size="8" fill="var(--green)" text-anchor="middle">+$963</text>
-          <text x="450" y="155" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 17</text>
+          <rect x="425" y="20" width="50" height="80" fill="rgba(103,232,249,0.65)" rx="3"/>
+          <text x="450" y="14" font-family="system-ui,sans-serif" font-size="8" fill="#67e8f9" text-anchor="middle">+$963</text>
+          <text x="450" y="155" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 17</text>
 
-          <!-- Mar 20: +$525 → h=43.6, y=56.4 -->
-          <rect x="520" y="56" width="50" height="44" fill="rgba(0,232,122,0.7)"  rx="2"/>
-          <text x="545" y="50" font-family="'SF Mono',monospace" font-size="8" fill="var(--green)" text-anchor="middle">+$525</text>
-          <text x="545" y="155" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 20</text>
+          <!-- Mar 20: +$525 → h=44, y=56 -->
+          <rect x="520" y="56" width="50" height="44" fill="rgba(74,222,128,0.65)" rx="3"/>
+          <text x="545" y="50" font-family="system-ui,sans-serif" font-size="8" fill="#4ade80" text-anchor="middle">+$525</text>
+          <text x="545" y="155" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 20</text>
 
-          <!-- Mar 25-26 SOL: -$14.13 → h=1.2 -->
-          <rect x="615" y="100" width="50" height="1"  fill="rgba(255,59,92,0.7)"  rx="1"/>
-          <text x="640" y="113" font-family="'SF Mono',monospace" font-size="8" fill="var(--red)"   text-anchor="middle">-$14</text>
-          <text x="640" y="155" font-family="'SF Mono',monospace" font-size="8" fill="#3a5a78" text-anchor="middle">Mar 25</text>
-          <text x="640" y="164" font-family="'SF Mono',monospace" font-size="7" fill="#2a3d55" text-anchor="middle">SOL</text>
+          <!-- Mar 25-26 SOL: -$14.13 → h=1 -->
+          <rect x="615" y="100" width="50" height="1"  fill="rgba(248,113,113,0.65)" rx="1"/>
+          <text x="640" y="113" font-family="system-ui,sans-serif" font-size="8" fill="#f87171" text-anchor="middle">-$14</text>
+          <text x="640" y="155" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 25</text>
+          <text x="640" y="164" font-family="system-ui,sans-serif" font-size="7" fill="#3a4d65" text-anchor="middle">SOL</text>
         </svg>
       </div>
 
@@ -502,34 +544,34 @@
         <div class="chart-title">BTCC Crypto — Yearly Realized P&L</div>
         <svg class="chart" viewBox="0 0 500 130" aria-label="BTCC yearly P&L">
           <!-- Scale max: 2115, chart width 380, baseline at y=80 -->
-          <line x1="80" y1="10" x2="80" y2="100" stroke="rgba(0,180,255,0.2)" stroke-width="1"/>
-          <line x1="80" y1="100" x2="480" y2="100" stroke="rgba(0,180,255,0.2)" stroke-width="1"/>
+          <line x1="80" y1="10" x2="80" y2="100" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+          <line x1="80" y1="100" x2="480" y2="100" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
 
           <!-- 2024: -2115 → full width 380px -->
-          <text x="74" y="37" font-family="'SF Mono',monospace" font-size="10" fill="#5a7898" text-anchor="end">2024</text>
-          <rect x="83" y="24" width="380" height="18" fill="rgba(255,59,92,0.7)" rx="2"/>
-          <text x="469" y="37" font-family="'SF Mono',monospace" font-size="9" fill="#ff6b80" text-anchor="end">~-$2,115</text>
+          <text x="74" y="37" font-family="system-ui,sans-serif" font-size="10" fill="#8899b0" text-anchor="end">2024</text>
+          <rect x="83" y="24" width="380" height="18" fill="rgba(248,113,113,0.65)" rx="3"/>
+          <text x="469" y="37" font-family="system-ui,sans-serif" font-size="9" fill="#f87171" text-anchor="end">~-$2,115</text>
 
           <!-- 2025: -82 → 82/2115*380 = 14.7px -->
-          <text x="74" y="66" font-family="'SF Mono',monospace" font-size="10" fill="#5a7898" text-anchor="end">2025</text>
-          <rect x="83" y="53" width="15" height="18" fill="rgba(255,59,92,0.55)" rx="2"/>
-          <text x="104" y="66" font-family="'SF Mono',monospace" font-size="9" fill="#cc5a70">~-$82</text>
+          <text x="74" y="66" font-family="system-ui,sans-serif" font-size="10" fill="#8899b0" text-anchor="end">2025</text>
+          <rect x="83" y="53" width="15" height="18" fill="rgba(248,113,113,0.45)" rx="3"/>
+          <text x="104" y="66" font-family="system-ui,sans-serif" font-size="9" fill="#c86888">~-$82</text>
 
-          <!-- 2026 YTD: -27.5 → 27.5/2115*380 = 4.9px (show as red) -->
-          <text x="74" y="96" font-family="'SF Mono',monospace" font-size="10" fill="#5a7898" text-anchor="end">2026</text>
-          <rect x="83" y="83" width="5" height="14" fill="rgba(255,59,92,0.4)" rx="2"/>
-          <text x="94"  y="94" font-family="'SF Mono',monospace" font-size="9" fill="#aa4a60">-$27.50</text>
-          <text x="200" y="94" font-family="'SF Mono',monospace" font-size="8" fill="#2a5a3a">(+$20.43 Feb win offset)</text>
+          <!-- 2026 YTD: -27.5 → 4.9px -->
+          <text x="74" y="96" font-family="system-ui,sans-serif" font-size="10" fill="#8899b0" text-anchor="end">2026</text>
+          <rect x="83" y="83" width="5" height="14" fill="rgba(248,113,113,0.35)" rx="2"/>
+          <text x="94"  y="94" font-family="system-ui,sans-serif" font-size="9" fill="#a86878">-$27.50</text>
+          <text x="200" y="94" font-family="system-ui,sans-serif" font-size="8" fill="#3a6a4a">(+$20.43 Feb win offset)</text>
 
-          <text x="80" y="118" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="middle">0</text>
-          <text x="480" y="118" font-family="'SF Mono',monospace" font-size="8" fill="#2a3d55" text-anchor="end">-$2,115</text>
+          <text x="80" y="118" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="middle">0</text>
+          <text x="480" y="118" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="end">-$2,115</text>
         </svg>
       </div>
     </section>
 
     <!-- ── FUTURES DETAIL ── -->
     <section class="section" id="futures">
-      <div class="sec-label">FUTURES // PROP FIRM EVALS</div>
+      <div class="sec-label">Futures · Prop Firm Evals</div>
       <div class="stat-grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));">
         <div class="stat gain"><div class="stat-label">2026 YTD P&L</div><div class="stat-val up">+$93.00</div><div class="stat-sub">Net — 7 sessions</div></div>
         <div class="stat gold"><div class="stat-label">APEX-06</div><div class="stat-val gold">Active</div><div class="stat-sub">Min days met Mar 24/25</div></div>
@@ -556,7 +598,7 @@
 
     <!-- ── CRYPTO DETAIL ── -->
     <section class="section" id="crypto">
-      <div class="sec-label">CRYPTO // BTCC PERPETUALS</div>
+      <div class="sec-label">Crypto · BTCC Perpetuals</div>
       <div class="stat-grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));">
         <div class="stat loss"><div class="stat-label">All-Time</div><div class="stat-val down">~-$2,224</div><div class="stat-sub">Dec 2024 → Mar 2026</div></div>
         <div class="stat loss"><div class="stat-label">2024</div><div class="stat-val down">~-$2,115</div><div class="stat-sub">Dec mass liquidation</div></div>
@@ -566,7 +608,6 @@
 
       <details class="acc" open>
         <summary>
-          <span class="mono dim">►</span>
           <span class="acc-name">2026 BTCC Trades — SOL/USDT Perpetual</span>
           <span class="acc-meta">4 trades</span>
           <span class="acc-val dn">-$27.50</span>
@@ -589,7 +630,6 @@
 
       <details class="acc">
         <summary>
-          <span class="mono dim">►</span>
           <span class="acc-name">2024 BTCC — Annual Summary</span>
           <span class="acc-meta">Dec 17–31 · mass liquidation event</span>
           <span class="acc-val dn">~-$2,115</span>
@@ -597,13 +637,12 @@
         </summary>
         <div class="acc-body">
           <div class="callout warn">⚠ Dec 19 mass liquidation: XRP 180x (-$812), XLM 40x (-$463), SOL 500x, API3 10x, DOGE, SUI, ADA, ACH — ~-$1,500+ gross in simultaneous forced closes. Dominant driver of 2024 P&L. Document for CPA as forced liquidation event.</div>
-          <a href="../../smarttrader-ai/reviews/2024/btcc_annual_summary_2024.md" style="font-family:var(--mono);font-size:.78rem;">→ Full 2024 review</a>
+          <a href="../../smarttrader-ai/reviews/2024/btcc_annual_summary_2024.md" style="font-size:.8rem;">→ Full 2024 review</a>
         </div>
       </details>
 
       <details class="acc">
         <summary>
-          <span class="mono dim">►</span>
           <span class="acc-name">2025 BTCC — Annual Summary</span>
           <span class="acc-meta">4 trades · API3 continuation</span>
           <span class="acc-val dn">~-$82</span>
@@ -627,7 +666,7 @@
 
     <!-- ── POCKETOPTION ── -->
     <section class="section" id="pocketoption">
-      <div class="sec-label">BINARY OPTIONS // POCKETOPTION</div>
+      <div class="sec-label">Binary Options · PocketOption</div>
       <div class="stat-grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));">
         <div class="stat loss"><div class="stat-label">2025 Net</div><div class="stat-val down">-$151.62</div><div class="stat-sub">May–Dec 2025</div></div>
         <div class="stat neutral"><div class="stat-label">Trades</div><div class="stat-val blue">~741</div><div class="stat-sub">Avg $1–2 each</div></div>
@@ -638,7 +677,7 @@
 
     <!-- ── COINLEDGER ── -->
     <section class="section" id="onchain">
-      <div class="sec-label">ON-CHAIN // COINLEDGER</div>
+      <div class="sec-label">On-Chain · CoinLedger</div>
       <div class="stat-grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));">
         <div class="stat neutral"><div class="stat-label">CSV Rows</div><div class="stat-val blue">2,666</div><div class="stat-sub">2020–2025</div></div>
         <div class="stat neutral"><div class="stat-label">2021–2023</div><div class="stat-val gold" style="font-size:1rem;">TBD</div><div class="stat-sub">Heavy staking income</div></div>
@@ -661,7 +700,7 @@
 
     <!-- ── TAX SUMMARY ── -->
     <section class="section" id="tax">
-      <div class="sec-label">TAX SUMMARY // WORKING ESTIMATES</div>
+      <div class="sec-label">Tax Summary · Working Estimates</div>
       <div class="panel-block">
         <div class="tbl-wrap">
           <table>
@@ -676,20 +715,20 @@
       </div>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.6rem;margin-top:.8rem;">
-        <div class="panel-block" style="margin:0;border-color:rgba(255,183,0,.2);">
-          <div style="font-family:var(--mono);font-size:.72rem;color:var(--gold);margin-bottom:.3rem;">BTCC PERP FUTURES</div>
+        <div class="panel-block" style="margin:0;border-color:rgba(251,191,36,.2);">
+          <div style="font-size:.71rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:.3rem;">BTCC Perp Futures</div>
           <div style="font-size:.82rem;color:var(--muted);">Section 1256 (60/40 split) or ordinary cap loss? BTCC is a foreign exchange. Verify with CPA.</div>
         </div>
-        <div class="panel-block" style="margin:0;border-color:rgba(255,183,0,.2);">
-          <div style="font-family:var(--mono);font-size:.72rem;color:var(--gold);margin-bottom:.3rem;">DEC 2024 FORCED LIQUIDATION</div>
+        <div class="panel-block" style="margin:0;border-color:rgba(251,191,36,.2);">
+          <div style="font-size:.71rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:.3rem;">Dec 2024 Forced Liquidation</div>
           <div style="font-size:.82rem;color:var(--muted);">Exchange-initiated margin call. ~-$1,500+ in forced closes Dec 19. May have specific IRS treatment.</div>
         </div>
-        <div class="panel-block" style="margin:0;border-color:rgba(255,183,0,.2);">
-          <div style="font-family:var(--mono);font-size:.72rem;color:var(--gold);margin-bottom:.3rem;">STAKING INCOME 2021–2023</div>
+        <div class="panel-block" style="margin:0;border-color:rgba(251,191,36,.2);">
+          <div style="font-size:.71rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:.3rem;">Staking Income 2021–2023</div>
           <div style="font-size:.82rem;color:var(--muted);">Taxable in year received at FMV. Significant unreported income likely — priority for CoinLedger processing.</div>
         </div>
-        <div class="panel-block" style="margin:0;border-color:rgba(255,183,0,.2);">
-          <div style="font-family:var(--mono);font-size:.72rem;color:var(--gold);margin-bottom:.3rem;">FBAR REQUIREMENT</div>
+        <div class="panel-block" style="margin:0;border-color:rgba(251,191,36,.2);">
+          <div style="font-size:.71rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gold);margin-bottom:.3rem;">FBAR Requirement</div>
           <div style="font-size:.82rem;color:var(--muted);">BTCC + PocketOption are foreign accounts. FinCEN 114 required if aggregate exceeded $10K at any point.</div>
         </div>
       </div>
@@ -697,7 +736,7 @@
 
     <!-- ── SOURCES ── -->
     <section class="section" id="sources">
-      <div class="sec-label">SOURCE FILES</div>
+      <div class="sec-label">Source Files</div>
       <div class="panel-block">
         <div class="tbl-wrap">
           <table>
@@ -718,8 +757,8 @@
   </main>
 
   <footer>
-    <p>FORTUNA // CLAUDE CODE CLI · <a href="https://github.com/drasticstatic/trading-assistant" target="_blank">trading-assistant</a></p>
-    <p style="margin-top:.3rem;color:#1a3050;">⚠ PRIVATE RECORD · WORKING ESTIMATES · VERIFY BEFORE FILING</p>
+    <p>Fortuna · Claude Code CLI · <a href="https://github.com/drasticstatic/trading-assistant" target="_blank">trading-assistant</a></p>
+    <p style="margin-top:.3rem;opacity:.5;">⚠ Private Record · Working Estimates · Verify Before Filing</p>
   </footer>
 
 </body>

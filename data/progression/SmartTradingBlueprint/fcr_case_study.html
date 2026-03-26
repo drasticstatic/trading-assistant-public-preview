@@ -31,7 +31,7 @@
     html { scroll-behavior: smooth; scroll-padding-top: 64px; }
     *, *::before, *::after { box-sizing: border-box; }
     body {
-      margin: 0; min-height: 100vh;
+      margin: 0; min-height: 100vh; overflow-x: hidden;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
       font-size: 15px; line-height: 1.68; color: var(--text);
       background:
@@ -299,9 +299,35 @@
       background: var(--surface);
     }
 
+    /* ── Breadcrumb ── */
+    .nav-breadcrumb {
+      display: flex; align-items: center; gap: .25rem;
+      font-size: .78rem; color: var(--muted);
+      justify-self: start; white-space: nowrap; overflow: hidden;
+    }
+    .nav-breadcrumb a { color: var(--muted); text-decoration: none; }
+    .nav-breadcrumb a:hover { color: var(--text); }
+    .nav-breadcrumb .bc-sep { opacity: .4; }
+    .nav-breadcrumb .bc-current { color: var(--blue); overflow: hidden; text-overflow: ellipsis; }
+
+    /* ── Nav right actions ── */
+    .nav-actions {
+      display: flex; align-items: center; gap: .5rem;
+      justify-self: end; flex-wrap: wrap;
+    }
+
     @media (max-width: 700px) {
       .chart-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
+      /* Stat row: 2 columns on phone */
+      .stat-row { grid-template-columns: repeat(2, 1fr); }
+      /* Pattern cards: single column, reduce padding */
+      .grid-4 { grid-template-columns: 1fr; }
+      .pattern-card { padding: .85rem 1rem; }
+      /* Hide pill-btns on narrow nav to save space */
+      .nav-actions .pill-btn { display: none; }
+      /* Breadcrumb: shorten on very small screens */
+      .nav-breadcrumb .bc-mid { display: none; }
     }
     @media (max-width: 400px) {
       .stat-row { grid-template-columns: 1fr; }
@@ -311,7 +337,15 @@
 <body>
 
   <nav class="nav">
-    <span class="nav-brand">STB — FCR Case Study Tracker</span>
+    <nav class="nav-breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html" aria-label="Home">🏠</a>
+      <span class="bc-sep">›</span>
+      <a href="../resources.html" class="bc-mid">Progression</a>
+      <span class="bc-sep bc-mid">›</span>
+      <a href="course-workbook.html" class="bc-mid">STB</a>
+      <span class="bc-sep">›</span>
+      <span class="bc-current">FCR Case Study</span>
+    </nav>
     <div class="nav-links">
       <a href="#rule">The Rule</a>
       <a href="#pattern">Range Pattern</a>
@@ -320,16 +354,9 @@
       <a href="#scenarios">SMT Scenarios</a>
       <a href="#checklist">Checklist</a>
     </div>
-    <div style="display:flex;align-items:center;gap:.5rem;justify-self:end;flex-wrap:wrap;">
-      <nav aria-label="Breadcrumb" style="display:flex;align-items:center;gap:.25rem;font-size:.78rem;color:var(--muted);white-space:nowrap;">
-        <a href="../../index.html" style="color:var(--muted);text-decoration:none;" aria-label="Home">🏠</a>
-        <span style="opacity:.4">›</span>
-        <a href="../resources.html" style="color:var(--muted);text-decoration:none;">Progression</a>
-        <span style="opacity:.4">›</span>
-        <a href="course-workbook.html" style="color:var(--muted);text-decoration:none;">STB</a>
-        <span style="opacity:.4">›</span>
-        <span style="color:var(--blue);">FCR Case Study</span>
-      </nav>
+    <div class="nav-actions">
+      <a class="pill-btn" href="course-workbook.html">📘 STB Workbook</a>
+      <a class="pill-btn" href="../../index.html">🏠 Home</a>
       <button class="theme-btn" onclick="document.documentElement.classList.toggle('light')">☀ / ☾</button>
     </div>
   </nav>
