@@ -348,6 +348,10 @@
     }
 
     .card { padding: 1rem; }
+    .card h3 {
+      text-align: center;
+      margin-bottom: 0.6rem;
+    }
 
     .stat strong {
       display: block;
@@ -846,25 +850,44 @@
     .view-toggle {
       display: inline-flex;
       align-items: center;
-      gap: 0.3em;
-      padding: 0.35em 0.8em;
-      font-size: 0.8em;
-      font-weight: 600;
+      gap: 0.4em;
+      padding: 0.3em 0.95em;
+      border-radius: 999px;
+      border: 1.5px solid rgba(84, 214, 141, 0.55);
+      background: rgba(84, 214, 141, 0.08);
       color: var(--pine);
-      background: rgba(84, 214, 141, 0.07);
-      border: 1px solid rgba(84, 214, 141, 0.25);
-      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
       cursor: pointer;
-      transition: background 0.15s, border-color 0.15s;
-      vertical-align: middle;
+      transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
+      white-space: nowrap;
+      user-select: none;
       margin-left: 0.8rem;
+      border-left-color: rgba(84, 214, 141, 0.55);
+      box-shadow: inset 0 0 0 0 rgba(84,214,141,0);
     }
-    .view-toggle:hover { background: rgba(84, 214, 141, 0.14); border-color: rgba(84, 214, 141, 0.45); }
+    .view-toggle[aria-pressed="true"] {
+      background: rgba(84, 214, 141, 0.18);
+      border-color: var(--pine);
+      box-shadow: 0 0 0 1px rgba(84, 214, 141, 0.28);
+    }
+    .view-toggle:hover { background: rgba(84, 214, 141, 0.18); border-color: var(--pine); }
+    .view-toggle:active { background: rgba(84, 214, 141, 0.24); }
     .release-list.is-compact { display: none; }
     .compact-history { display: none; }
-    .compact-history.is-visible { display: block; }
+    .compact-history.is-visible {
+      display: block;
+      max-height: 460px;
+      overflow-y: auto;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      -webkit-overflow-scrolling: touch;
+    }
     .compact-history .ch-table {
       width: 100%;
+      min-width: 520px;
       border-collapse: collapse;
       font-size: 0.87em;
     }
@@ -877,7 +900,13 @@
       padding: 0.5rem 0.7rem;
       border-bottom: 1px solid var(--border-strong);
       text-align: left;
+      position: sticky;
+      top: 0;
+      z-index: 3;
+      background: var(--surface-strong);
     }
+    .compact-history .ch-table thead th:nth-child(1),
+    .compact-history .ch-table thead th:last-child { text-align: center; }
     .compact-history .ch-table tbody tr {
       border-bottom: 1px solid var(--border);
       transition: background 0.12s;
@@ -887,7 +916,7 @@
       padding: 0.55rem 0.7rem;
       vertical-align: middle;
     }
-    .ch-version { font-family: ui-monospace, monospace; color: var(--pine); font-weight: 700; white-space: nowrap; }
+    .ch-version { font-family: ui-monospace, monospace; color: var(--pine); font-weight: 700; white-space: nowrap; text-align: center; }
     .ch-status { }
     .ch-date { color: var(--subtle); white-space: nowrap; font-size: 0.82em; }
     .ch-summary { color: var(--muted); line-height: 1.45; }
@@ -1022,12 +1051,15 @@
       background: color-mix(in srgb, var(--surface-soft) 100%, var(--bg));
     }
     @media (max-width: 600px) {
-      /* Hide date on mobile — date is shown inside the modal */
+      .compact-history.is-visible {
+        max-height: 320px;
+      }
+      /* Hide date on mobile — shown inside modal */
       .compact-history .ch-table .ch-date,
       .compact-history .ch-table thead th:nth-child(2) { display: none; }
-      /* Constrain summary so it truncates gracefully */
+      /* Summary truncates gracefully */
       .compact-history .ch-table .ch-summary {
-        max-width: 52vw;
+        max-width: 58vw;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -1059,7 +1091,7 @@
     <a href="#known-issues">🔎 Known Issues</a>
     <a href="#roadmap">🚀 Roadmap</a>
     <a href="./auto-levels.pine_indicator-guide.html">📖 Guide ↗</a>
-    <button id="view-toggle-btn" class="view-toggle" aria-pressed="true">📄 Expanded Version History View ⊞</button>
+    <button id="view-toggle-btn" class="view-toggle" aria-pressed="true">⊞ Expanded</button>
   </nav>
   <main class="page">
     <header class="hero tone-guide">
@@ -1855,48 +1887,9 @@
 
     <section class="panel tone-issues" id="known-issues" aria-labelledby="known-issues-title">
       <div class="tone-bar" aria-hidden="true"></div>
-      <p class="kicker">Known issues and validation boundary</p>
-      <h2 id="known-issues-title">Recent Implementations &amp; Auditing</h2>
-      <div class="grid" style="grid-template-columns: 1fr;">
-        <article class="card">
-          <h3>✅ Closed in v2.9–v2.14</h3>
-          <p>4 issues resolved — per-pattern proximity split, session rail verticals on Daily/Weekly, weekly open toggle regression, and BRK commitment gate.</p>
-          <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v9-14" data-title="✅ Closed in v2.9–v2.14">View 4 closed issues →</button></p>
-        </article>
-        <article class="card">
-          <h3>✅ Closed in v2.8</h3>
-          <p>3 issues resolved — ZTH vertical lines on Daily/Weekly, patterns firing anywhere on chart, and pattern label overlap.</p>
-          <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v8" data-title="✅ Closed in v2.8">View 3 closed issues →</button></p>
-        </article>
-        <article class="card">
-          <h3>✅ Closed in v2.7</h3>
-          <p>4 issues resolved — ETH toggle bypass on non-whitelisted instruments, 17:00 maintenance close anchor, bar[1] confirmation delay, and weekly open stray vertical.</p>
-          <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v7" data-title="✅ Closed in v2.7">View 4 closed issues →</button></p>
-        </article>
-        <article class="card">
-          <h3>✅ Closed in v2.6</h3>
-          <p>6 issues resolved — 4/5 showing zero, FCR rays not printing, vertical spikes on 4hr+, runtime crash on 1–10min charts, ETH 4/5 chains not implemented, and prior-day H/L/C too prominent.</p>
-          <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v6" data-title="✅ Closed in v2.6">View 6 closed issues →</button></p>
-        </article>
-        <article class="card">
-          <h3>✅ Closed in v2.15–v2.19</h3>
-          <p>4 issues resolved — ZTH sparse detection on 4hr/Daily/Weekly/Monthly, FCR prior-day slots incorrect on Weekly/Monthly, ZTH vertical post on RTH charts, and BRK/RT color inconsistency.</p>
-          <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v15-19" data-title="✅ Closed in v2.15–v2.19">View 4 closed issues →</button></p>
-        </article>
-        <article class="card">
-          <h3>✅ Closed in v2.24</h3>
-          <p>3 issues resolved — 16:00 close rail firing 30 min early, ETH maintenance rail firing 30 min early, and ETH ZTH levels mislabelled "prev 4/5" due to wrong chain timestamps.</p>
-          <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v24" data-title="✅ Closed in v2.24">View 3 closed issues →</button></p>
-        </article>
-        <article class="card">
-          <h3>✅ Closed in v2.26</h3>
-          <p>4 issues resolved — 16:00 close rail printing at bar open (lookahead root cause), spurious "prev 4/5" annotations at wrong ETH session times, missing 9:30 open 4/5 + ZTH levels on ≤15min charts (v2.25 regression), and missing 5/5 / 3/5 levels on ≤15min charts due to trim cadence mismatch.</p>
-          <p style="margin-top:0.75rem;"><button class="tip-cta" data-modal="tpl-closed-v26" data-title="✅ Closed in v2.26">View 4 closed issues →</button></p>
-        </article>
-        <article class="card">
-          <h3>✅ Closed in v2.27–v3.0.2</h3>
-          <p>9 issues resolved — single 4/5 toggle replaced with 4 independent per-chain toggles, maint rail decoupled from ETH gate, 18:00 eopen rail decoupled from ETH gate, "prev 4/5" annotations appearing with any toggle on (f_sess_label cross-chain bug), "prev 4/5" text persisting on maint chain (f_sess_dual_text simplified), erroneous 4/5 annotation on RTH 15:30 bar with maint toggle (f_near_t tolerance tightened), all ZTH levels rendering same cyan color regardless of session origin (ETH-derived levels now teal via f_lvl_color is_eth parameter), CL/GC teal bug (level_is_eth incorrectly set via session-time check for non-RTH-primary instruments), and trim loops removing RTH levels before ETH when ETH toggle adds budget pressure.</p>
-        </article>
+      <p class="kicker">Open items and deferred features</p>
+      <h2 id="known-issues-title">Still Open &amp; Deferred — post v3.0.2</h2>
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
         <article class="card">
           <h3>🔎 Still open after v3.0.2</h3>
           <ul class="list-tight">
@@ -2219,7 +2212,7 @@
       let compact = true;
       const applyCompact = () => {
         toggleBtn.setAttribute('aria-pressed', compact);
-        toggleBtn.textContent = compact ? '📄 Expanded Version History View ⊞' : '📋 Compacted History ⊟ w Popout Modals ↗';
+        toggleBtn.textContent = compact ? '⊞ Expanded' : '⊟ Compact';
         if (compact) {
           if (!compactHistory.innerHTML) buildTable();
           compactHistory.classList.add('is-visible');
