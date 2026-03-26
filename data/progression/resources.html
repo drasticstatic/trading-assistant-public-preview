@@ -53,6 +53,8 @@
         linear-gradient(160deg, var(--bg-alt) 0%, var(--bg) 100%);
       background-attachment: fixed;
       transition: background 0.2s, color 0.2s;
+      overflow-x: hidden;
+      max-width: 100vw;
     }
     html.light body {
       background:
@@ -78,6 +80,7 @@
       display:flex; align-items:center; gap:.65rem; flex-wrap:wrap;
       padding:.6rem 1.25rem; border-bottom:1px solid var(--border);
       background:rgba(11,9,20,.92); backdrop-filter:blur(14px);
+      box-sizing: border-box; width: 100%;
     }
     html.light .topbar { background:rgba(245,240,255,.93); }
     .breadcrumb { display:flex; align-items:center; gap:.4rem; font-size:.78rem; color:var(--muted); flex:1; min-width:0; overflow:hidden; }
@@ -206,6 +209,7 @@
       display: flex;
       align-items: center;
       gap: 0.6rem;
+      box-sizing: border-box; width: 100%;
     }
     html.light .search-sticky-bar {
       background: rgba(245,240,255,0.97);
@@ -287,7 +291,7 @@
       border-bottom: 1px solid var(--border);
     }
     .section-icon { font-size:1.4rem; line-height:1; }
-    .section-title { font-size:1.15rem; font-weight:700; margin:0; }
+    .section-title { font-size:1.15rem; font-weight:700; margin:0; text-align:center; }
     .section-count { font-size:.78rem; color:var(--muted); margin-left:auto; }
 
     /* ── SEARCH & FILTER ── */
@@ -452,6 +456,7 @@
       margin-top: 2rem; padding: 1.2rem;
       border: 1px solid var(--border); border-radius: 16px;
       font-size: 0.8rem; color: var(--muted);
+      text-align: center;
     }
     .resources-footer p { margin: 0; }
     .resources-footer p + p { margin-top: 0.5rem; }
@@ -488,25 +493,29 @@
 </header>
 
 <nav class="sidebar" id="sidebar" aria-label="Page sections">
-  <div class="sidebar-title">📚 Resources</div>
+  <div class="sidebar-title">📚 Resources:</div>
   <a class="sidebar-item" href="#sessions">🕐 Session Reference</a>
   <a class="sidebar-item" href="#instruments">📊 Instruments</a>
   <a class="sidebar-item" href="#prop-firms">🏢 Prop Firms</a>
   <a class="sidebar-item" href="#psychology">🧠 Psychology</a>
   <a class="sidebar-item" href="#glossary">📖 Glossary</a>
   <div class="sidebar-divider"></div>
-  <a class="sidebar-item sidebar-external" href="./SmartTradingBlueprint/course-workbook.html">📘 STB Workbook ↗</a>
-  <a class="sidebar-item sidebar-external" href="./inevitrade/inner-circle-workbook.html">📗 IT Inner Circle ↗</a>
+  <div class="sidebar-title">📓 Workbooks:</div>
+  <a class="sidebar-item sidebar-external" href="./inevitrade/inner-circle-workbook.html">📗 IT | Inner Circle Workbook ↗</a>
+  <a class="sidebar-item sidebar-external" href="./SmartTradingBlueprint/course-workbook.html">📘 STB | Course Workbook ↗</a>
   <div class="sidebar-divider"></div>
-  <div class="sidebar-title">📄 All Pages</div>
-  <a class="sidebar-pages-item" href="../../../index.html">🏠 Home</a>
-  <a class="sidebar-pages-item" href="../../../404.html">🔍 404 / Navigation</a>
-  <a class="sidebar-pages-item" href="./SmartTradingBlueprint/course-workbook.html">📘 STB Course Workbook</a>
+  <div class="sidebar-title">📄 Additional Pages:</div>
+  <a class="sidebar-pages-item" href="../../index.html">🏠 Home</a>
+  <a class="sidebar-pages-item" href="../../404.html">🔍 404 / Navigation</a>
   <a class="sidebar-pages-item" href="./SmartTradingBlueprint/fcr_case_study.html">📈 FCR Case Study</a>
-  <a class="sidebar-pages-item" href="./inevitrade/inner-circle-workbook.html">📗 IT Inner Circle</a>
-  <a class="sidebar-pages-item" href="../../setup/auto-levels.pine_changelog.html">📊 Changelog</a>
-  <a class="sidebar-pages-item" href="../../setup/auto-levels.pine_indicator-guide.html">📖 Indicator Guide</a>
+  <a class="sidebar-pages-item" href="../../setup/auto-levels.pine_indicator-guide.html">📖 Auto-Levels Indicator Guide</a>
+  <a class="sidebar-pages-item" href="../../setup/auto-levels.pine_changelog.html">📊 Auto-Levels Changelog</a>
   <a class="sidebar-pages-item" href="../../setup/AugmentArchitecture.html">🏗️ Augment Architecture</a>
+  <div class="sidebar-divider"></div>
+  <div class="sidebar-title">🧑🏻‍💻 Meet the Trader:</div>
+  <a class="sidebar-pages-item" href="../../../index.html">🧑🏻‍🔧 Developer</a>
+  <div class="sidebar-title">🧑🏻‍🔬 Other Projects:</div>
+  <a class="sidebar-pages-item" href="https://github.com/drasticstatic">💼 Github</a>
 </nav>
 <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
@@ -1585,7 +1594,6 @@
       sidebar.classList.add('is-open');
       if (!isDesktop()) backdrop.classList.add('is-open');
       toggle.setAttribute('aria-expanded', 'true');
-      toggle.textContent = '✕ Nav';
       if (!isDesktop()) document.body.style.paddingLeft = '';
       else document.body.style.paddingLeft = '240px';
     }
@@ -1593,7 +1601,6 @@
       sidebar.classList.remove('is-open');
       backdrop.classList.remove('is-open');
       toggle.setAttribute('aria-expanded', 'false');
-      toggle.textContent = '☰ Nav';
       if (!isDesktop()) document.body.style.paddingLeft = '';
       else document.body.style.paddingLeft = '0';
     }
@@ -1601,25 +1608,20 @@
     // On desktop, sidebar starts open (CSS handles it); on mobile, starts closed
     if (isDesktop()) {
       toggle.setAttribute('aria-expanded', 'true');
-      toggle.textContent = '✕ Nav';
     }
 
     toggle.addEventListener('click', () => {
       if (isDesktop()) {
-        // On desktop, toggle adds/removes is-open class to allow closing if desired
-        const isOpen = sidebar.classList.contains('is-open') || isDesktop();
-        if (sidebar.classList.contains('is-open')) {
-          // Already forced-open by CSS on desktop; use a manual override class
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        if (expanded) {
           sidebar.style.transform = 'translateX(-100%)';
           document.body.style.paddingLeft = '0';
           toggle.setAttribute('aria-expanded', 'false');
-          toggle.textContent = '☰ Nav';
           sidebar.dataset.manualClosed = '1';
         } else {
           sidebar.style.transform = '';
           document.body.style.paddingLeft = '240px';
           toggle.setAttribute('aria-expanded', 'true');
-          toggle.textContent = '✕ Nav';
           delete sidebar.dataset.manualClosed;
         }
       } else {
