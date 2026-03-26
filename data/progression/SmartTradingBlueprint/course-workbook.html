@@ -17,6 +17,7 @@
       --green: #3fb950; --red: #f85149; --blue: #7cc2ff; --yellow: #e3b341; --purple: #bc8cff;
       --shadow: 0 18px 36px rgba(2,6,23,0.2);
       --w1: #7cc2ff; --w2: #3fb950; --w3: #bc8cff; --w4: #e3b341;
+      --w5: #f0883e; --w6: #58a6ff; --w7: #56d364; --w8: #d2a8ff;
     }
     html.light {
       --bg: #eef3fb; --bg-alt: #f7faff;
@@ -145,6 +146,10 @@
     .week-jump.w2 { border-color:rgba(63,185,80,.3); } .week-jump.w2:hover { border-color:var(--w2); color:var(--w2); }
     .week-jump.w3 { border-color:rgba(188,140,255,.3); } .week-jump.w3:hover { border-color:var(--w3); color:var(--w3); }
     .week-jump.w4 { border-color:rgba(227,179,65,.3); } .week-jump.w4:hover { border-color:var(--w4); color:var(--w4); }
+    .week-jump.w5 { border-color:rgba(240,136,62,.3); } .week-jump.w5:hover { border-color:var(--w5); color:var(--w5); }
+    .week-jump.w6 { border-color:rgba(88,166,255,.3); } .week-jump.w6:hover { border-color:var(--w6); color:var(--w6); }
+    .week-jump.w7 { border-color:rgba(86,211,100,.3); } .week-jump.w7:hover { border-color:var(--w7); color:var(--w7); }
+    .week-jump.w8 { border-color:rgba(210,168,255,.3); } .week-jump.w8:hover { border-color:var(--w8); color:var(--w8); }
 
     /* ── PREREQS ── */
     .prereqs { margin-bottom:1.5rem; padding:1rem 1.2rem;
@@ -167,6 +172,8 @@
     .week-number { font-size:1.5rem; font-weight:900; line-height:1; letter-spacing:-.05em; }
     .week-number.w1 { color:var(--w1); } .week-number.w2 { color:var(--w2); }
     .week-number.w3 { color:var(--w3); } .week-number.w4 { color:var(--w4); }
+    .week-number.w5 { color:var(--w5); } .week-number.w6 { color:var(--w6); }
+    .week-number.w7 { color:var(--w7); } .week-number.w8 { color:var(--w8); }
     .week-info { flex:1; }
     .week-info h2 { margin:0; font-size:1.05rem; font-weight:700; }
     .week-info p { margin:.15rem 0 0; font-size:.82rem; color:var(--muted); }
@@ -394,6 +401,21 @@
     <a class="sidebar-item" href="#week-4-review"><span class="sidebar-dot" style="background:var(--w4)"></span>Week 4 Review<span class="sidebar-progress" id="sp-w4r"></span></a>
     <a class="sidebar-item" href="#bachelor-exam"><span class="sidebar-dot" style="background:var(--w4)"></span>🎓 Bachelor Exam<span class="sidebar-progress" id="sp-exam"></span></a>
 
+    <div class="sidebar-week" style="color:var(--w5)">WEEK 5</div>
+    <a class="sidebar-item" href="#week-5"><span class="sidebar-dot" style="background:var(--w5)"></span>Week 5 — Coming Soon<span class="sidebar-progress" style="color:var(--subtle)">…</span></a>
+
+    <div class="sidebar-week" style="color:var(--w6)">WEEK 6</div>
+    <a class="sidebar-item" href="#week-6"><span class="sidebar-dot" style="background:var(--w6)"></span>Week 6 — Coming Soon<span class="sidebar-progress" style="color:var(--subtle)">…</span></a>
+
+    <div class="sidebar-week" style="color:var(--w7)">WEEK 7</div>
+    <a class="sidebar-item" href="#week-7"><span class="sidebar-dot" style="background:var(--w7)"></span>Week 7 — Coming Soon<span class="sidebar-progress" style="color:var(--subtle)">…</span></a>
+
+    <div class="sidebar-week" style="color:var(--w8)">WEEK 8</div>
+    <a class="sidebar-item" href="#week-8"><span class="sidebar-dot" style="background:var(--w8)"></span>Week 8 — Coming Soon<span class="sidebar-progress" style="color:var(--subtle)">…</span></a>
+
+    <div class="sidebar-week" style="color:var(--purple)">EXTRA</div>
+    <a class="sidebar-item" href="#extra-modules"><span class="sidebar-dot" style="background:var(--purple)"></span>✨ Extra Modules<span class="sidebar-progress" style="color:var(--subtle)">…</span></a>
+
     <a class="sidebar-back" href="../../../index.html">← Back to hub</a>
   </nav>
 
@@ -414,6 +436,11 @@
         <a class="week-jump w2" href="#week-2">🧱 Week 2 — Blocks</a>
         <a class="week-jump w3" href="#week-3">💧 Week 3 — Liquidity</a>
         <a class="week-jump w4" href="#week-4">⏱️ Week 4 — Time &amp; Sessions</a>
+        <a class="week-jump w5" href="#week-5">📦 Week 5 — Coming Soon</a>
+        <a class="week-jump w6" href="#week-6">📦 Week 6 — Coming Soon</a>
+        <a class="week-jump w7" href="#week-7">📦 Week 7 — Coming Soon</a>
+        <a class="week-jump w8" href="#week-8">📦 Week 8 — Coming Soon</a>
+        <a class="week-jump" href="#extra-modules" style="border-color:rgba(139,148,158,.25);">✨ Extra Modules</a>
       </div>
     </div>
 
@@ -686,6 +713,11 @@
             </div>
 
           </div>
+
+          <div class="callout info" style="margin-top:1rem;">
+            <span class="callout-icon">📝</span>
+            <div><strong>Supplementary context — Range Structure:</strong> Range structure operates in the context of consolidation, compression, and corrective phases — not impulse structure. Impulse structure represents explosive energy, conviction, and vertical movement; range structure represents equilibrium, balance, and horizontal consolidation where price oscillates between established support and resistance. Understand the difference between retracement vs. expansion, fair market value, and how price moves between internal and external levels.</div>
+          </div>
         </div>
       </details>
 
@@ -931,6 +963,11 @@
             </div>
 
           </div>
+
+          <div class="callout info" style="margin-top:1rem;">
+            <span class="callout-icon">📝</span>
+            <div><strong>Supplementary context — Displacement:</strong> <strong>Displacement is required to have valid structure</strong> — it confirms smart money participation and forces you to wait for confirmation that real money is behind the move. A wick is not structure; a displacement close is. This distinction is the foundation of the FCR signal: displacement above the high ray = LONG, displacement below the low ray = SHORT.</div>
+          </div>
         </div>
       </details>
 
@@ -992,14 +1029,6 @@
         </div>
       </details>
 
-      <!-- ── Week 1 Supplementary Context ── -->
-      <div class="callout info" style="margin:1rem 0;">
-        <span class="callout-icon">📝</span>
-        <div>
-          <strong>Supplementary context — Week 1:</strong>
-          Range structure operates in the context of consolidation, compression, and corrective phases — not impulse structure. Impulse structure represents explosive energy, conviction, and vertical movement; range structure represents equilibrium, balance, and horizontal consolidation where price oscillates between established support and resistance. Retracement vs. expansion, fair market value, and how price moves between internal and external levels. <strong>Displacement is required to have valid structure</strong> — it confirms smart money participation and forces you to wait for confirmation that real money is behind the move.
-        </div>
-      </div>
 
     </section><!-- /week-1 -->
 
@@ -1063,6 +1092,11 @@
             </div>
 
           </div>
+
+          <div class="callout info" style="margin-top:1rem;">
+            <span class="callout-icon">📝</span>
+            <div><strong>Supplementary context — Areas of Interest:</strong> A <strong>confluence</strong> is something you see on the chart that agrees with what you see elsewhere on the chart. Footprints show smart money participation and work best when aligned with range structure.</div>
+          </div>
         </div>
       </details>
 
@@ -1109,6 +1143,11 @@
               <div class="qa-a pending">Personal reflection — a trade where you got swept out of a position by what turned out to be a manipulation block, or a session where recognizing the pattern would have saved a stop-out.</div>
             </div>
 
+          </div>
+
+          <div class="callout info" style="margin-top:1rem;">
+            <span class="callout-icon">📝</span>
+            <div><strong>Supplementary context — Manipulation Blocks:</strong> The manipulation candle must be engulfed by an opposing candle, and must align with overall range bias. This is the key validation step — not every sweep is a manipulation block; it requires the engulfing confirmation and structural context.</div>
           </div>
         </div>
       </details>
@@ -1163,6 +1202,11 @@
               <div class="qa-a pending">Personal reflection — a trade where price returned to an order block zone and you either caught or missed the reaction, or a session where you can now identify the OB that drove the move.</div>
             </div>
 
+          </div>
+
+          <div class="callout info" style="margin-top:1rem;">
+            <span class="callout-icon">📝</span>
+            <div><strong>Supplementary context — Order Blocks:</strong> An order block is a range or candle where institutions will be buying or selling against the retail trend. The key distinction: it is the <em>last opposing candle</em> before the displacement move — institutions placed their orders there and the zone retains unfilled orders on revisit.</div>
           </div>
         </div>
       </details>
@@ -1229,6 +1273,11 @@
             </div>
 
           </div>
+
+          <div class="callout info" style="margin-top:1rem;">
+            <span class="callout-icon">📝</span>
+            <div><strong>Supplementary context — FVGs vs. Liquidity Voids:</strong> A FVG is a specific three-candle pattern where the wicks of the first and third candles do not overlap — a precise, often short-term inefficiency. A liquidity void is a broader displacement spanning multiple candles — essentially a larger-scale version of a FVG. Both are price inefficiencies drawn back to fill, but the FVG is the surgical tool and the liquidity void is the wider-angle objective.</div>
+          </div>
         </div>
       </details>
 
@@ -1294,6 +1343,11 @@
             </div>
 
           </div>
+
+          <div class="callout info" style="margin-top:1rem;">
+            <span class="callout-icon">📝</span>
+            <div><strong>Supplementary context — Breaker Blocks:</strong> Breaker blocks are involved during runs on liquidity. When a significant OB is broken with displacement, the zone flips polarity — the return to that breaker is a precision entry in the direction of the break. Breakers confirm structural shift and give the clearest S/R-flip entries in the entire block taxonomy.</div>
+          </div>
         </div>
       </details>
 
@@ -1345,6 +1399,11 @@
               <div class="qa-a pending">Personal reflection — a session where price kept reversing around the same zone unexpectedly (that may have been a BPR), or a time where you identified an FVG that "didn't work" because it was actually part of a BPR overlap.</div>
             </div>
 
+          </div>
+
+          <div class="callout info" style="margin-top:1rem;">
+            <span class="callout-icon">📝</span>
+            <div><strong>Supplementary context — Balanced Price Ranges:</strong> BPRs are two overlapping FVGs — a "hotspot" where institutional players showed conflicting interest and may return. The overlap zone is true equilibrium and acts as a powerful magnet. The contested nature of a BPR means reactions there are often sharper and more reliable than single-direction FVGs.</div>
           </div>
         </div>
       </details>
@@ -1406,13 +1465,18 @@
             </div>
 
           </div>
+
+          <div class="callout info" style="margin-top:1rem;">
+            <span class="callout-icon">📝</span>
+            <div><strong>Supplementary context — Wick Blocks:</strong> A wick block is usually made of a candle that takes liquidity and has a big wick. The wick zone (candle body edge to tip) marks the zone of strong institutional absorption — price tends to react there on revisit. Layer wick blocks with FVGs, order blocks, and breakers for highest-confluence entries.</div>
+          </div>
         </div>
       </details>
 
       <!-- ── Week 2 Review ── -->
       <details class="class-card" id="week-2-review">
         <summary>
-          <span class="class-badge" style="background:rgba(63,185,80,.15);color:var(--w2)">W2R</span>
+          <span class="class-badge" style="background:rgba(63,185,80,.12);color:var(--green)">W2 ✓</span>
           <span class="class-title-text">Week 2 Review</span>
           <span class="class-status partial">In Progress</span>
           <span class="acc-icon">▾</span>
@@ -1455,14 +1519,6 @@
         </div>
       </details>
 
-      <!-- ── Week 2 Supplementary Context ── -->
-      <div class="callout info" style="margin:1rem 0;">
-        <span class="callout-icon">📝</span>
-        <div>
-          <strong>Supplementary context — Week 2:</strong>
-          A <strong>confluence</strong> is something you see on the chart that agrees with what you see elsewhere on the chart. Footprints show smart money participation and work best when aligned with range structure. Manipulation blocks: the manipulation candle must be engulfed by an opposing candle, and must align with overall range bias. An order block is a range or candle where institutions will be buying or selling against the retail trend. <strong>FVGs vs. Liquidity Voids:</strong> a FVG is a specific three-candle pattern where the wicks of the first and third candles do not overlap — a precise, often short-term inefficiency. A liquidity void is a broader displacement spanning multiple candles — essentially a larger-scale version of a FVG. Breaker blocks are involved during runs on liquidity. <strong>BPRs:</strong> two overlapping FVGs — a "hotspot" where institutional players showed conflicting interest and may return. A wick block is usually made of a candle that takes liquidity and has a big wick.
-        </div>
-      </div>
 
     </section><!-- /week-2 -->
 
@@ -1580,6 +1636,11 @@
               <div class="qa-a pending">Personal reflection: the Mar 24 ES sell limit — overnight analysis identified Monday's highs as the buy-side DOL. The entire session wait was based on price needing to reach that level before the macro bear could continue.</div>
             </div>
           </div>
+
+          <div class="callout info" style="margin-top:1rem;">
+            <span class="callout-icon">📝</span>
+            <div><strong>Supplementary context — Draw on Liquidity:</strong> The draw on liquidity is the current price objective for a given timeframe. Use range context, footprints, and especially displacement to identify where price is likely reaching next. Combine the Daily and 1-Hour timeframes, know when to stand aside, and manage exits at low-hanging fruit and higher-timeframe objectives.</div>
+          </div>
         </div>
       </details>
 
@@ -1632,6 +1693,11 @@
               <div class="qa-q">Q8 — Write down a time in your trading career relating to the teachings in this lesson.</div>
               <div class="qa-a pending">Personal reflection: Mar 24 — the ES sell limit filled at 6673.0 as price displaced into the supply zone. Or any session where a "breakout" failed because it was a wick (manipulation) rather than a close (displacement).</div>
             </div>
+          </div>
+
+          <div class="callout info" style="margin-top:1rem;">
+            <span class="callout-icon">📝</span>
+            <div><strong>Supplementary context — Understanding Displacement:</strong> Displacement validates market structure, signals where price is reaching (the DOL), and distinguishes continuation from reversal. It is the confirmation filter for every other concept — without displacement, you are guessing at structure rather than reading it.</div>
           </div>
         </div>
       </details>
@@ -1776,13 +1842,18 @@
               <div class="qa-a pending">Personal reflection: the Mar 24 "Pivot Sell / Rejection off Resistance" — a named pattern in the TradeZella export. The pattern was confirmed in advance, allowing you to set the limit and step away — the pattern did the work.</div>
             </div>
           </div>
+
+          <div class="callout info" style="margin-top:1rem;">
+            <span class="callout-icon">📝</span>
+            <div><strong>Supplementary context — Smart Trading Patterns (Market Maker Model):</strong> The MMM (Market Maker Model) is the model the instructor uses — recognize the model, the precise conditions for use, and execute using structure, footprints, liquidity, and displacement. All Week 1–3 concepts converge in this model: the pattern is the repeatable form; the concepts are the components that explain why it works.</div>
+          </div>
         </div>
       </details>
 
       <!-- ── Week 3 Review ── -->
       <details class="class-card" id="week-3-review">
         <summary>
-          <span class="class-badge" style="background:var(--w3)">W3R</span>
+          <span class="class-badge" style="background:rgba(63,185,80,.12);color:var(--green)">W3 ✓</span>
           <span class="class-title-text">Week 3 Review</span>
           <span class="class-status partial">In Progress</span>
           <span class="acc-icon">▾</span>
@@ -1818,14 +1889,6 @@
         </div>
       </details>
 
-      <!-- ── Week 3 Supplementary Context ── -->
-      <div class="callout info" style="margin:1rem 0;">
-        <span class="callout-icon">📝</span>
-        <div>
-          <strong>Supplementary context — Week 3:</strong>
-          <strong>Draw on liquidity</strong> — the current price objective for a given timeframe. Use range context, footprints, and especially displacement to identify where price is likely reaching next. Combine the Daily and 1-Hour timeframes, know when to stand aside, and manage exits at low-hanging fruit and higher-timeframe objectives. Displacement validates market structure, signals where price is reaching (the DOL), and distinguishes continuation from reversal. <strong>Smart Trading Pattern (MMM — Market Maker Model):</strong> the model the instructor uses — recognize the model, the precise conditions for use, and execute using structure, footprints, liquidity, and displacement.
-        </div>
-      </div>
 
     </section>
 
@@ -2262,7 +2325,7 @@
       <!-- ── Week 4 Review ── -->
       <details class="class-card" id="week-4-review">
         <summary>
-          <span class="class-badge" style="background:var(--w4)">W4R</span>
+          <span class="class-badge" style="background:rgba(63,185,80,.12);color:var(--green)">W4 ✓</span>
           <span class="class-title-text">Week 4 Review</span>
           <span class="class-status partial">In Progress</span>
           <span class="acc-icon">▾</span>
@@ -2361,6 +2424,141 @@
               <div class="qa-q">Q10 — Give me any suggestions, feedback, or comments about your journey thus far as a Smart Trader.</div>
               <div class="qa-a pending">Personal reflection.</div>
             </div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ════════════════════════════════════════ WEEK 5 -->
+    <section class="week-block" id="week-5">
+      <div class="week-banner">
+        <div class="week-number w5">W5</div>
+        <div class="week-info">
+          <h2>Week 5 — Coming Soon</h2>
+          <p>Content for this week will be added as the course progresses.</p>
+        </div>
+        <span class="week-stat">Coming Soon</span>
+      </div>
+
+      <details class="class-card" id="w5-coming-soon">
+        <summary>
+          <span class="class-badge" style="background:rgba(240,136,62,.12);color:var(--w5)">W5</span>
+          <span class="class-title-text">Coming soon</span>
+          <span class="class-status pending">Pending</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="placeholder-block">
+            <div class="ph-icon">📦</div>
+            <p>Content for this week will be added as the course progresses.</p>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ════════════════════════════════════════ WEEK 6 -->
+    <section class="week-block" id="week-6">
+      <div class="week-banner">
+        <div class="week-number w6">W6</div>
+        <div class="week-info">
+          <h2>Week 6 — Coming Soon</h2>
+          <p>Content for this week will be added as the course progresses.</p>
+        </div>
+        <span class="week-stat">Coming Soon</span>
+      </div>
+
+      <details class="class-card" id="w6-coming-soon">
+        <summary>
+          <span class="class-badge" style="background:rgba(88,166,255,.12);color:var(--w6)">W6</span>
+          <span class="class-title-text">Coming soon</span>
+          <span class="class-status pending">Pending</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="placeholder-block">
+            <div class="ph-icon">📦</div>
+            <p>Content for this week will be added as the course progresses.</p>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ════════════════════════════════════════ WEEK 7 -->
+    <section class="week-block" id="week-7">
+      <div class="week-banner">
+        <div class="week-number w7">W7</div>
+        <div class="week-info">
+          <h2>Week 7 — Coming Soon</h2>
+          <p>Content for this week will be added as the course progresses.</p>
+        </div>
+        <span class="week-stat">Coming Soon</span>
+      </div>
+
+      <details class="class-card" id="w7-coming-soon">
+        <summary>
+          <span class="class-badge" style="background:rgba(86,211,100,.12);color:var(--w7)">W7</span>
+          <span class="class-title-text">Coming soon</span>
+          <span class="class-status pending">Pending</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="placeholder-block">
+            <div class="ph-icon">📦</div>
+            <p>Content for this week will be added as the course progresses.</p>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ════════════════════════════════════════ WEEK 8 -->
+    <section class="week-block" id="week-8">
+      <div class="week-banner">
+        <div class="week-number w8">W8</div>
+        <div class="week-info">
+          <h2>Week 8 — Coming Soon</h2>
+          <p>Content for this week will be added as the course progresses.</p>
+        </div>
+        <span class="week-stat">Coming Soon</span>
+      </div>
+
+      <details class="class-card" id="w8-coming-soon">
+        <summary>
+          <span class="class-badge" style="background:rgba(210,168,255,.12);color:var(--w8)">W8</span>
+          <span class="class-title-text">Coming soon</span>
+          <span class="class-status pending">Pending</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="placeholder-block">
+            <div class="ph-icon">📦</div>
+            <p>Content for this week will be added as the course progresses.</p>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ════════════════════════════════════════ EXTRA MODULES -->
+    <section class="week-block" id="extra-modules">
+      <div class="week-banner">
+        <div class="week-number" style="color:var(--purple);font-size:1.1rem;">✨</div>
+        <div class="week-info">
+          <h2>✨ Extra Modules — Coming Soon</h2>
+          <p>Bonus content and supplementary modules will be added here as the course progresses.</p>
+        </div>
+        <span class="week-stat">Coming Soon</span>
+      </div>
+
+      <details class="class-card" id="extra-coming-soon">
+        <summary>
+          <span class="class-badge" style="background:rgba(188,140,255,.12);color:var(--purple)">Extra</span>
+          <span class="class-title-text">Coming soon</span>
+          <span class="class-status pending">Pending</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="placeholder-block">
+            <div class="ph-icon">✨</div>
+            <p>Content for this week will be added as the course progresses.</p>
           </div>
         </div>
       </details>
@@ -2474,7 +2672,7 @@
   }
 
   // ── SCROLLSPY ──
-  const sections = document.querySelectorAll('#welcome, #prereqs-anchor, [id^="lesson-"], [id^="week-"], #bachelor-exam');
+  const sections = document.querySelectorAll('#welcome, #prereqs-anchor, [id^="lesson-"], [id^="week-"], #bachelor-exam, #extra-modules');
   const sidebarLinks = document.querySelectorAll('.sidebar-item');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {

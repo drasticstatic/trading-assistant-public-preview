@@ -40,7 +40,7 @@
       --cat-account: #9a6700; --cat-behavior: #bc4c00;
     }
 
-    html { scroll-behavior: smooth; scroll-padding-top: 68px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 108px; }
     *, *::before, *::after { box-sizing: border-box; }
     body {
       margin: 0; min-height: 100vh;
@@ -113,9 +113,28 @@
       position: fixed; inset: 0;
       background: rgba(0,0,0,0.45);
       z-index: 199;
-      backdrop-filter: blur(2px);
     }
     .sidebar-backdrop.is-open { display: block; }
+
+    /* Desktop: sidebar always visible, no backdrop blur needed */
+    @media (min-width: 768px) {
+      .sidebar {
+        transform: translateX(0);
+      }
+      .sidebar-backdrop {
+        display: none !important;
+      }
+      body {
+        padding-left: 240px;
+      }
+    }
+
+    /* Mobile: backdrop blur only */
+    @media (max-width: 767px) {
+      .sidebar-backdrop.is-open {
+        backdrop-filter: blur(2px);
+      }
+    }
     .sidebar-title {
       padding: 0 1.2rem 0.75rem;
       font-size: 0.72rem;
@@ -149,6 +168,22 @@
     }
     .sidebar-external { font-size: 0.8rem; opacity: 0.7; }
     .sidebar-external:hover { opacity: 1; }
+    .sidebar-pages-item {
+      display: block;
+      padding: 0.38rem 1.2rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 400;
+      transition: background 0.12s, color 0.12s;
+      border-left: 2px solid transparent;
+    }
+    .sidebar-pages-item:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-left-color: var(--accent);
+      text-decoration: none;
+    }
 
     /* ── HERO ── */
     .hero {
@@ -159,28 +194,88 @@
     .hero-title { font-size:clamp(1.6rem,4vw,2.4rem); font-weight:800; margin:0 0 .75rem; line-height:1.2; }
     .hero-sub { color:var(--muted); font-size:1rem; max-width:580px; margin:0 auto 1.75rem; }
 
-    /* ── HERO SEARCH ── */
-    .hero-search {
-      margin: 1.5rem auto 0;
-      max-width: 480px;
-      width: 100%;
+    /* ── STICKY SEARCH BAR ── */
+    .search-sticky-bar {
+      position: sticky;
+      top: 44px; /* sits below the topbar */
+      z-index: 140;
+      background: rgba(11,9,20,0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
     }
-    .hero-search input {
-      width: 100%;
-      padding: 0.7rem 1.1rem;
+    html.light .search-sticky-bar {
+      background: rgba(245,240,255,0.97);
+    }
+    .search-sticky-bar input {
+      flex: 1;
+      min-width: 0;
+      padding: 0.42rem 1rem;
       border-radius: 24px;
       border: 1.5px solid var(--border-strong);
       background: var(--surface);
       color: var(--text);
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       outline: none;
       transition: border-color 0.15s, box-shadow 0.15s;
     }
-    .hero-search input:focus {
+    .search-sticky-bar input:focus {
       border-color: var(--accent);
       box-shadow: 0 0 0 3px var(--accent-soft);
     }
-    .hero-search input::placeholder { color: var(--subtle); }
+    .search-sticky-bar input::placeholder { color: var(--subtle); }
+    .search-next-btn {
+      display: inline-flex; align-items: center;
+      padding: 0.3rem 0.7rem;
+      border: 1px solid var(--border-strong);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--accent);
+      font-size: 0.8rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .search-next-btn:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+    }
+    .search-match-count {
+      font-size: 0.78rem;
+      color: var(--muted);
+      white-space: nowrap;
+      min-width: 3rem;
+    }
+
+    /* ── HERO FLOATING WORDS ── */
+    .hero-floating-words {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .hero { position: relative; }
+    .hero > *:not(.hero-floating-words) { position: relative; z-index: 1; }
+    .floating-word {
+      position: absolute;
+      opacity: 0;
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 500;
+      pointer-events: auto;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      user-select: none;
+    }
+    .floating-word:hover { opacity: 0.6 !important; }
+    @keyframes floatWord {
+      0%, 100% { opacity: 0; transform: translateY(4px); }
+      40%, 60% { opacity: 0.28; transform: translateY(0); }
+    }
 
     /* ── MAIN LAYOUT ── */
     .main { max-width: 900px; margin: 0 auto; padding: 0 1.25rem 4rem; }
@@ -346,19 +441,22 @@
 
     /* ── SEARCH HIGHLIGHT ── */
     mark.search-highlight {
-      background: rgba(188, 140, 255, 0.35);
-      color: inherit;
+      background: rgba(188, 140, 255, 0.65);
+      color: #fff;
       border-radius: 2px;
       padding: 0 1px;
     }
 
     /* ── FOOTER ── */
-    footer {
-      text-align:center; padding:2rem 1rem; font-size:.8rem; color:var(--subtle);
-      border-top:1px solid var(--border); margin-top:3rem;
+    .resources-footer {
+      margin-top: 2rem; padding: 1.2rem;
+      border: 1px solid var(--border); border-radius: 16px;
+      font-size: 0.8rem; color: var(--muted);
     }
-    footer a { color:var(--subtle); }
-    footer a:hover { color:var(--accent); }
+    .resources-footer p { margin: 0; }
+    .resources-footer p + p { margin-top: 0.5rem; }
+    .resources-footer a { color: var(--accent); }
+    .resources-footer a:hover { color: var(--accent-bright); text-decoration: underline; }
 
     /* ── RESPONSIVE ── */
     @media (max-width:600px) {
@@ -382,7 +480,7 @@
     <strong>📚 Resources</strong>
   </nav>
   <div class="topbar-actions">
-    <button class="pill-btn" id="sidebarToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <button class="pill-btn" id="sidebarToggle" aria-label="Toggle navigation" aria-expanded="false">☰ Nav</button>
     <a class="pill-btn" href="./SmartTradingBlueprint/course-workbook.html">📘 STB</a>
     <a class="pill-btn" href="./inevitrade/inner-circle-workbook.html">📗 IT</a>
     <button class="pill-btn" onclick="toggleTheme()" id="themeBtn">☀️</button>
@@ -399,16 +497,45 @@
   <div class="sidebar-divider"></div>
   <a class="sidebar-item sidebar-external" href="./SmartTradingBlueprint/course-workbook.html">📘 STB Workbook ↗</a>
   <a class="sidebar-item sidebar-external" href="./inevitrade/inner-circle-workbook.html">📗 IT Inner Circle ↗</a>
+  <div class="sidebar-divider"></div>
+  <div class="sidebar-title">📄 All Pages</div>
+  <a class="sidebar-pages-item" href="../../../index.html">🏠 Home</a>
+  <a class="sidebar-pages-item" href="../../../404.html">🔍 404 / Navigation</a>
+  <a class="sidebar-pages-item" href="./SmartTradingBlueprint/course-workbook.html">📘 STB Course Workbook</a>
+  <a class="sidebar-pages-item" href="./SmartTradingBlueprint/fcr_case_study.html">📈 FCR Case Study</a>
+  <a class="sidebar-pages-item" href="./inevitrade/inner-circle-workbook.html">📗 IT Inner Circle</a>
+  <a class="sidebar-pages-item" href="../../setup/auto-levels.pine_changelog.html">📊 Changelog</a>
+  <a class="sidebar-pages-item" href="../../setup/auto-levels.pine_indicator-guide.html">📖 Indicator Guide</a>
+  <a class="sidebar-pages-item" href="../../setup/AugmentArchitecture.html">🏗️ Augment Architecture</a>
 </nav>
 <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
+<div class="search-sticky-bar" role="search">
+  <input type="search" id="globalSearch" placeholder="🔍 Search anything on this page…" aria-label="Search page content" autocomplete="off">
+  <button class="search-next-btn" id="searchNextBtn" aria-label="Next match">↓ Next</button>
+  <span class="search-match-count" id="searchMatchCount" aria-live="polite"></span>
+</div>
+
 <div class="hero">
+  <div class="hero-floating-words" aria-hidden="true">
+    <span class="floating-word" style="top:12%;left:8%;font-size:0.78rem;animation:floatWord 10s 0s infinite;">FCR setup</span>
+    <span class="floating-word" style="top:22%;left:78%;font-size:0.9rem;animation:floatWord 12s 1.2s infinite;">liquidity sweep</span>
+    <span class="floating-word" style="top:65%;left:5%;font-size:0.72rem;animation:floatWord 9s 2.5s infinite;">FVG</span>
+    <span class="floating-word" style="top:75%;left:82%;font-size:0.85rem;animation:floatWord 13s 0.7s infinite;">session times</span>
+    <span class="floating-word" style="top:10%;left:55%;font-size:0.76rem;animation:floatWord 11s 3.1s infinite;">prop firm rules</span>
+    <span class="floating-word" style="top:82%;left:30%;font-size:0.82rem;animation:floatWord 10s 1.8s infinite;">golden pocket</span>
+    <span class="floating-word" style="top:18%;left:30%;font-size:0.88rem;animation:floatWord 14s 0.4s infinite;">SMT divergence</span>
+    <span class="floating-word" style="top:55%;left:88%;font-size:0.7rem;animation:floatWord 9s 4.0s infinite;">trailing drawdown</span>
+    <span class="floating-word" style="top:40%;left:3%;font-size:1.0rem;animation:floatWord 12s 2.2s infinite;">psychology</span>
+    <span class="floating-word" style="top:88%;left:65%;font-size:0.76rem;animation:floatWord 11s 1.5s infinite;">ICT concepts</span>
+    <span class="floating-word" style="top:48%;left:75%;font-size:0.82rem;animation:floatWord 10s 3.6s infinite;">NY session</span>
+    <span class="floating-word" style="top:30%;left:88%;font-size:0.72rem;animation:floatWord 13s 0.9s infinite;">order flow</span>
+    <span class="floating-word" style="top:70%;left:50%;font-size:0.78rem;animation:floatWord 9s 2.8s infinite;">instruments</span>
+    <span class="floating-word" style="top:8%;left:40%;font-size:0.9rem;animation:floatWord 12s 4.4s infinite;">EMA confluence</span>
+  </div>
   <p class="hero-eyebrow">📚 Living Reference · Updated as the journey evolves</p>
   <h1 class="hero-title">Trading Resources</h1>
   <p class="hero-sub">Glossary, prop firm mechanics, session reference, and psychology lessons — captured so others can learn without the same tuition.</p>
-  <div class="hero-search">
-    <input type="search" id="globalSearch" placeholder="🔍 Search anything on this page…" aria-label="Search page content" autocomplete="off">
-  </div>
 </div>
 
 <main class="main" id="main-content">
@@ -514,41 +641,56 @@
 
   <div class="prop-grid">
 
-    <div class="prop-card">
-      <h3>💡 Subscription Renewal — The Big Misconception</h3>
+    <details class="prop-card">
+      <summary style="cursor:pointer;list-style:none;display:flex;align-items:center;gap:.5rem;">
+        <span style="color:var(--subtle);font-size:.8rem;flex-shrink:0;">›</span>
+        <h3 style="margin:0;">💡 Subscription Renewal — The Big Misconception</h3>
+      </summary>
       <p><strong>Myth:</strong> "If I don't pass the evaluation before my subscription renews, I lose my progress and start over."</p>
       <p><strong>Reality:</strong> Prop firm evaluation accounts do <em>not</em> reset on subscription renewal if the account is in good standing (not failed). Gains, losses, and drawdown levels carry over into the next billing cycle. This is standard industry practice.</p>
       <p>This misconception has caused countless traders to overtrade, take low-quality setups under time pressure, and blow accounts that were actually progressing well. There is no 30-day deadline to pass — only the requirements (profit target + minimum days + max drawdown) to satisfy.</p>
       <div class="lesson-tag">💰 Tuition paid: believing this cost at least one blown eval — now you know.</div>
-    </div>
+    </details>
 
-    <div class="prop-card">
-      <h3>📊 Account Types Compared</h3>
+    <details class="prop-card">
+      <summary style="cursor:pointer;list-style:none;display:flex;align-items:center;gap:.5rem;">
+        <span style="color:var(--subtle);font-size:.8rem;flex-shrink:0;">›</span>
+        <h3 style="margin:0;">📊 Account Types Compared</h3>
+      </summary>
       <p><strong>Static drawdown:</strong> Fixed floor from the starting balance. Doesn't move. Simpler to manage — always know exactly where the floor is.</p>
       <p><strong>Trailing drawdown:</strong> Follows your highest equity point. Rises as you profit — tightening the floor below you. Stops trailing after a certain profit threshold on legacy Apex accounts (converts to static floor at ~$2,500 profit on 100K).</p>
       <p><strong>Standard vs. Legacy accounts:</strong> Legacy Apex accounts (from 90% off sale, etc.) preserve favorable terms across renewals. Starting with a 100K static/legacy account is more comfortable for managing the emotional weight of trailing drawdown — less "chasing the floor" anxiety during intraday swings.</p>
       <div class="lesson-tag">💰 Learned via experience: 100K static feels more manageable than aggressive trailing.</div>
-    </div>
+    </details>
 
-    <div class="prop-card">
-      <h3>📅 Minimum Trading Days</h3>
+    <details class="prop-card">
+      <summary style="cursor:pointer;list-style:none;display:flex;align-items:center;gap:.5rem;">
+        <span style="color:var(--subtle);font-size:.8rem;flex-shrink:0;">›</span>
+        <h3 style="margin:0;">📅 Minimum Trading Days</h3>
+      </summary>
       <p><strong>Apex Trader Funding:</strong> 7 minimum trading days required before requesting a funded account.</p>
       <p><strong>TakeProfitTrader (TPT):</strong> 5 minimum trading days required.</p>
       <p>These days accumulate across billing cycles and carry forward on renewal. A day with any trade (profit or loss) counts. Days do not need to be consecutive. You cannot "speed-run" the evaluation by hitting the profit target in 2 days — the minimum days requirement gates the advance regardless of P&amp;L.</p>
-    </div>
+    </details>
 
-    <div class="prop-card">
-      <h3>⚠️ Auto-Close Risk Disclosure</h3>
+    <details class="prop-card">
+      <summary style="cursor:pointer;list-style:none;display:flex;align-items:center;gap:.5rem;">
+        <span style="color:var(--subtle);font-size:.8rem;flex-shrink:0;">›</span>
+        <h3 style="margin:0;">⚠️ Auto-Close Risk Disclosure</h3>
+      </summary>
       <p>Apex (and most prop firms) have a disclosure that their auto-liquidation systems can fail. If price moves sharply at end of day or during news events, the auto-close may not execute at the expected price — or may not execute at all.</p>
       <p><strong>Best practice:</strong> do not rely on auto-liquidation as your primary risk control. Close positions manually before 4:00 PM (hard stop rule). If holding overnight intentionally, ensure a deliberate bracket is in place with stop loss already set.</p>
-    </div>
+    </details>
 
-    <div class="prop-card">
-      <h3>💸 The Cost of Learning</h3>
+    <details class="prop-card">
+      <summary style="cursor:pointer;list-style:none;display:flex;align-items:center;gap:.5rem;">
+        <span style="color:var(--subtle);font-size:.8rem;flex-shrink:0;">›</span>
+        <h3 style="margin:0;">💸 The Cost of Learning</h3>
+      </summary>
       <p>Perspective on early account blowouts: with the 90% off Apex sale, reset costs during the learning phase were approximately $50 per reset. The tuition paid to experience tilt, emotional restarts, and pattern recognition across several accounts was relatively low in dollar terms — high in emotional terms.</p>
       <p>The real cost is not the dollar amount but the time and emotional capital. Every blown account teaches a pattern. The goal is to learn those patterns at the lowest-cost phase (evaluation, not live funded) and carry the lessons forward.</p>
       <div class="lesson-tag">📖 Lesson: buy experience cheap, then scale when the patterns are understood.</div>
-    </div>
+    </details>
 
   </div>
 
@@ -560,41 +702,56 @@
 
   <div class="psych-grid">
 
-    <div class="psych-card">
-      <h3>⏳ Patience as an Active Edge</h3>
+    <details class="psych-card">
+      <summary style="cursor:pointer;list-style:none;display:flex;align-items:center;gap:.5rem;">
+        <span style="color:var(--subtle);font-size:.8rem;flex-shrink:0;">›</span>
+        <h3 style="margin:0;">⏳ Patience as an Active Edge</h3>
+      </summary>
       <blockquote>"Patience and stillness seem to be my edge — most of my anxiety in trading comes from thinking the market is going to develop faster than it does."</blockquote>
       <p>The market does not move on your timeline. Most setups take longer to develop than feels comfortable. Most traders adjust, chase, or abandon their plan long before the setup completes. Staying anchored to the structural thesis and letting price do the work is an active decision that requires discipline — it is not passivity.</p>
       <p>The 36-hour patience arc (Mar 23–25 ES sell limit) is a documented example. The sell limit waited through two overnight sessions, London, and pre-market without being touched. The position remained valid throughout because the structural thesis (buy-side pool above as DOL) was unchanged.</p>
       <p><strong>The plan is the knock. The limit is the ask. Matthew 7:8.</strong></p>
-    </div>
+    </details>
 
-    <div class="psych-card">
-      <h3>📐 The 30-Day Deadline Trap</h3>
+    <details class="psych-card">
+      <summary style="cursor:pointer;list-style:none;display:flex;align-items:center;gap:.5rem;">
+        <span style="color:var(--subtle);font-size:.8rem;flex-shrink:0;">›</span>
+        <h3 style="margin:0;">📐 The 30-Day Deadline Trap</h3>
+      </summary>
       <p>One of the most destructive psychological patterns in prop firm trading: the belief that you must pass the evaluation before the billing cycle resets. This creates artificial urgency — a self-imposed deadline that the prop firm never actually enforced.</p>
       <p>The consequences: overtrading during low-probability windows, taking B-grade or C-grade setups because "time is running out," increasing position size to accelerate progress, and tilt trading after a loss because "I need to make it back before month end."</p>
       <p>The fix: understand that renewal carries progress forward. Remove the artificial deadline. Trade only A+ setups. The evaluation completes when the requirements are met — not when the calendar says.</p>
-    </div>
+    </details>
 
-    <div class="psych-card">
-      <h3>🎓 Tuition vs. Profit</h3>
+    <details class="psych-card">
+      <summary style="cursor:pointer;list-style:none;display:flex;align-items:center;gap:.5rem;">
+        <span style="color:var(--subtle);font-size:.8rem;flex-shrink:0;">›</span>
+        <h3 style="margin:0;">🎓 Tuition vs. Profit</h3>
+      </summary>
       <p>Early losses and blown accounts are not failures — they are tuition. The question is: what did you learn, and what was the cost per lesson? At 90% off Apex sale prices, the tuition per lesson was relatively low.</p>
       <p>The patterns learned through experience (Pattern 7 SL modification, Pattern 8 exit passivity, the 30-day deadline misconception, tilt trading after losses) are worth far more than the cost of the accounts lost while learning them. The goal is to graduate from expensive live-capital lessons to low-cost evaluation lessons to eventually no lessons needed at all.</p>
       <p>Perspective: the initial eagerness to go with 100K full accounts vs. standard 50K — even that was valuable. The experience of managing the emotional weight of a larger account taught something that simulation cannot: what it feels like when the numbers matter.</p>
-    </div>
+    </details>
 
-    <div class="psych-card">
-      <h3>🎯 Quality Over Quantity</h3>
+    <details class="psych-card">
+      <summary style="cursor:pointer;list-style:none;display:flex;align-items:center;gap:.5rem;">
+        <span style="color:var(--subtle);font-size:.8rem;flex-shrink:0;">›</span>
+        <h3 style="margin:0;">🎯 Quality Over Quantity</h3>
+      </summary>
       <p>A week with zero trades is better than a week with five C-grade trades. A session with one A+ entry is better than a session with six B-grade entries. This is not a philosophical preference — it is a mathematical truth about expectancy.</p>
       <p>If your A+ trades have a positive expectancy and your B-grade trades have a near-zero or negative expectancy, then filtering out B-grade trades and C-grade trades mathematically improves your overall account performance even though your trade count drops significantly.</p>
       <p>The hardest sessions to honor are the ones where you have context (the market is doing something interesting) but no valid signal. The discipline of sitting on your hands during Scenario C — no trade — is a skill that must be practiced as actively as any entry technique.</p>
-    </div>
+    </details>
 
-    <div class="psych-card">
-      <h3>🌿 Rest as Part of the Process</h3>
+    <details class="psych-card">
+      <summary style="cursor:pointer;list-style:none;display:flex;align-items:center;gap:.5rem;">
+        <span style="color:var(--subtle);font-size:.8rem;flex-shrink:0;">›</span>
+        <h3 style="margin:0;">🌿 Rest as Part of the Process</h3>
+      </summary>
       <p>Trading exhausted is one of the highest-probability ways to trigger behavioral patterns (7, 8, 9). When the mental clarity required for pattern recognition and rule adherence is diminished, the discipline that holds these patterns in check is also diminished.</p>
       <p>A walk, a shower, and a reset are not lost trading time — they are part of the process. The market will be there after the walk. The setup that existed before the break will still be valid or will have resolved itself clearly, making the decision easier, not harder.</p>
       <p>Like the Claude dreaming analogy: the brain needs consolidation time. Forcing continuation on depleted cognitive resources produces lower-quality output than stepping away and returning refreshed.</p>
-    </div>
+    </details>
 
   </div>
 
@@ -1335,14 +1492,19 @@
 
   </div><!-- /glossary-grid -->
 
-  <footer>
-    <p>📚 Trading Resources · Christopher Wilson · <a href="./SmartTradingBlueprint/course-workbook.html">STB Workbook</a> · <a href="./inevitrade/inner-circle-workbook.html">IT Inner Circle</a></p>
+  <footer class="resources-footer">
+    <p>📚 Trading Resources · Christopher Wilson · Part of the <a href="../../index.html">Trading Assistant</a> public preview · <a href="./SmartTradingBlueprint/course-workbook.html">STB Workbook</a> · <a href="./inevitrade/inner-circle-workbook.html">IT Inner Circle</a></p>
     <p><a href="https://github.com/drasticstatic/trading-assistant">↩ Trading-Assistant · Public Repo</a></p>
   </footer>
 
 </main>
 
 <script>
+  // ── SCROLL RESTORATION (Change 4) ──
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  window.addEventListener('beforeunload', () => window.scrollTo(0, 0));
+  window.addEventListener('load', () => { if (!window.location.hash) window.scrollTo(0, 0); });
+
   // ── THEME ──
   const html = document.documentElement;
   const themeBtn = document.getElementById('themeBtn');
@@ -1417,28 +1579,73 @@
     const backdrop = document.getElementById('sidebarBackdrop');
     if (!toggle || !sidebar) return;
 
+    const isDesktop = () => window.innerWidth >= 768;
+
     function openSidebar() {
       sidebar.classList.add('is-open');
-      backdrop.classList.add('is-open');
+      if (!isDesktop()) backdrop.classList.add('is-open');
       toggle.setAttribute('aria-expanded', 'true');
-      toggle.textContent = '✕';
+      toggle.textContent = '✕ Nav';
+      if (!isDesktop()) document.body.style.paddingLeft = '';
+      else document.body.style.paddingLeft = '240px';
     }
     function closeSidebar() {
       sidebar.classList.remove('is-open');
       backdrop.classList.remove('is-open');
       toggle.setAttribute('aria-expanded', 'false');
-      toggle.textContent = '☰';
+      toggle.textContent = '☰ Nav';
+      if (!isDesktop()) document.body.style.paddingLeft = '';
+      else document.body.style.paddingLeft = '0';
+    }
+
+    // On desktop, sidebar starts open (CSS handles it); on mobile, starts closed
+    if (isDesktop()) {
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.textContent = '✕ Nav';
     }
 
     toggle.addEventListener('click', () => {
-      sidebar.classList.contains('is-open') ? closeSidebar() : openSidebar();
+      if (isDesktop()) {
+        // On desktop, toggle adds/removes is-open class to allow closing if desired
+        const isOpen = sidebar.classList.contains('is-open') || isDesktop();
+        if (sidebar.classList.contains('is-open')) {
+          // Already forced-open by CSS on desktop; use a manual override class
+          sidebar.style.transform = 'translateX(-100%)';
+          document.body.style.paddingLeft = '0';
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.textContent = '☰ Nav';
+          sidebar.dataset.manualClosed = '1';
+        } else {
+          sidebar.style.transform = '';
+          document.body.style.paddingLeft = '240px';
+          toggle.setAttribute('aria-expanded', 'true');
+          toggle.textContent = '✕ Nav';
+          delete sidebar.dataset.manualClosed;
+        }
+      } else {
+        sidebar.classList.contains('is-open') ? closeSidebar() : openSidebar();
+      }
     });
     backdrop.addEventListener('click', closeSidebar);
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSidebar(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { if (!isDesktop()) closeSidebar(); } });
+
+    // On resize to desktop, restore sidebar
+    window.addEventListener('resize', () => {
+      if (isDesktop()) {
+        backdrop.classList.remove('is-open');
+        if (!sidebar.dataset.manualClosed) {
+          sidebar.style.transform = '';
+          document.body.style.paddingLeft = '240px';
+        }
+      } else {
+        sidebar.style.transform = '';
+        document.body.style.paddingLeft = '';
+      }
+    });
 
     // Close sidebar on nav item click (mobile)
     sidebar.querySelectorAll('.sidebar-item[href^="#"]').forEach(a => {
-      a.addEventListener('click', () => { if (window.innerWidth < 900) closeSidebar(); });
+      a.addEventListener('click', () => { if (window.innerWidth < 768) closeSidebar(); });
     });
 
     // Scrollspy
@@ -1456,31 +1663,42 @@
     sections.forEach(s => observer.observe(s));
   })();
 
-  // ── Global page search highlight ────────────────────────────
+  // ── Global page search highlight + next-instance (Changes 3 & 7) ──
   (function() {
     const input = document.getElementById('globalSearch');
+    const nextBtn = document.getElementById('searchNextBtn');
+    const matchCountEl = document.getElementById('searchMatchCount');
     if (!input) return;
 
     const main = document.getElementById('main-content');
+    let matchIndex = -1;
 
     function escapeRegex(s) {
       return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     }
 
     function clearHighlights() {
-      main.querySelectorAll('mark.search-highlight').forEach(mark => {
+      document.querySelectorAll('mark.search-highlight').forEach(mark => {
         const parent = mark.parentNode;
         parent.replaceChild(document.createTextNode(mark.textContent), mark);
         parent.normalize();
       });
+      matchIndex = -1;
+      if (matchCountEl) matchCountEl.textContent = '';
     }
 
-    function highlight(query) {
-      clearHighlights();
-      if (!query.trim()) return;
+    function highlight(query, scope) {
+      const target = scope || main;
+      // Clear within target scope only
+      target.querySelectorAll('mark.search-highlight').forEach(mark => {
+        const parent = mark.parentNode;
+        parent.replaceChild(document.createTextNode(mark.textContent), mark);
+        parent.normalize();
+      });
+      if (!query || !query.trim()) return;
       const safe = escapeRegex(query.trim());
       const re = new RegExp('(' + safe + ')', 'gi');
-      const walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, null);
+      const walker = document.createTreeWalker(target, NodeFilter.SHOW_TEXT, null);
       const nodes = [];
       let node;
       while ((node = walker.nextNode())) nodes.push(node);
@@ -1494,10 +1712,10 @@
         re.lastIndex = 0;
         while ((m = re.exec(textNode.nodeValue)) !== null) {
           frag.appendChild(document.createTextNode(textNode.nodeValue.slice(last, m.index)));
-          const mark = document.createElement('mark');
-          mark.className = 'search-highlight';
-          mark.textContent = m[0];
-          frag.appendChild(mark);
+          const mk = document.createElement('mark');
+          mk.className = 'search-highlight';
+          mk.textContent = m[0];
+          frag.appendChild(mk);
           last = m.index + m[0].length;
         }
         frag.appendChild(document.createTextNode(textNode.nodeValue.slice(last)));
@@ -1505,13 +1723,54 @@
       });
     }
 
+    function updateMatchCount() {
+      const marks = Array.from(document.querySelectorAll('mark.search-highlight'));
+      const total = marks.length;
+      if (total === 0) {
+        if (matchCountEl) matchCountEl.textContent = input.value.trim() ? '0 matches' : '';
+        return marks;
+      }
+      const current = matchIndex >= 0 ? matchIndex + 1 : 1;
+      if (matchCountEl) matchCountEl.textContent = current + ' / ' + total;
+      return marks;
+    }
+
+    function runHighlight() {
+      clearHighlights();
+      highlight(input.value);
+      matchIndex = -1;
+      const marks = updateMatchCount();
+      if (marks.length > 0) {
+        matchIndex = 0;
+        // Open containing details if needed
+        const firstMark = marks[0];
+        const details = firstMark.closest('details');
+        if (details) details.open = true;
+        firstMark.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (matchCountEl) matchCountEl.textContent = '1 / ' + marks.length;
+      }
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        const marks = Array.from(document.querySelectorAll('mark.search-highlight'));
+        if (marks.length === 0) return;
+        matchIndex = (matchIndex + 1) % marks.length;
+        const target = marks[matchIndex];
+        const details = target.closest('details');
+        if (details) details.open = true;
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (matchCountEl) matchCountEl.textContent = (matchIndex + 1) + ' / ' + marks.length;
+      });
+    }
+
     let debounceTimer;
     input.addEventListener('input', () => {
       clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(() => highlight(input.value), 150);
+      debounceTimer = setTimeout(runHighlight, 150);
     });
 
-    // Sync with glossary search if both exist
+    // Sync with glossary search
     const glossarySearch = document.getElementById('glossarySearch');
     if (glossarySearch) {
       input.addEventListener('input', () => {
@@ -1519,6 +1778,72 @@
         glossarySearch.dispatchEvent(new Event('input'));
       });
     }
+  })();
+
+  // ── Glossary search also highlights (Change 7) ──
+  (function() {
+    const glossarySearch = document.getElementById('glossarySearch');
+    const glossarySection = document.getElementById('glossaryGrid');
+    if (!glossarySearch || !glossarySection) return;
+
+    const origUpdateGlossary = window._origUpdateGlossary;
+
+    // Patch updateGlossary to also call highlight on the glossary section
+    function escapeRegex(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+    function highlightInGlossary(query) {
+      glossarySection.querySelectorAll('mark.search-highlight').forEach(mark => {
+        const parent = mark.parentNode;
+        parent.replaceChild(document.createTextNode(mark.textContent), mark);
+        parent.normalize();
+      });
+      if (!query || !query.trim()) return;
+      const safe = escapeRegex(query.trim());
+      const re = new RegExp('(' + safe + ')', 'gi');
+      const walker = document.createTreeWalker(glossarySection, NodeFilter.SHOW_TEXT, null);
+      const nodes = [];
+      let node;
+      while ((node = walker.nextNode())) nodes.push(node);
+      nodes.forEach(textNode => {
+        if (!re.test(textNode.nodeValue)) return;
+        re.lastIndex = 0;
+        const parent = textNode.parentNode;
+        if (parent.closest('script, style, input, textarea, mark')) return;
+        const frag = document.createDocumentFragment();
+        let last = 0, m;
+        re.lastIndex = 0;
+        while ((m = re.exec(textNode.nodeValue)) !== null) {
+          frag.appendChild(document.createTextNode(textNode.nodeValue.slice(last, m.index)));
+          const mk = document.createElement('mark');
+          mk.className = 'search-highlight';
+          mk.textContent = m[0];
+          frag.appendChild(mk);
+          last = m.index + m[0].length;
+        }
+        frag.appendChild(document.createTextNode(textNode.nodeValue.slice(last)));
+        parent.replaceChild(frag, textNode);
+      });
+    }
+
+    glossarySearch.addEventListener('input', () => {
+      // Only highlight from glossary-specific search when global search is empty
+      const globalInput = document.getElementById('globalSearch');
+      if (globalInput && globalInput.value.trim()) return;
+      setTimeout(() => highlightInGlossary(glossarySearch.value), 200);
+    });
+  })();
+
+  // ── Floating word click → populate search (Change 5) ──
+  (function() {
+    document.querySelectorAll('.floating-word').forEach(word => {
+      word.addEventListener('click', () => {
+        const input = document.getElementById('globalSearch');
+        if (!input) return;
+        input.value = word.textContent;
+        input.dispatchEvent(new Event('input'));
+        input.focus();
+      });
+    });
   })();
 </script>
 
