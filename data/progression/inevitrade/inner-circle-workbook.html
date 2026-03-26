@@ -297,6 +297,20 @@
       details .class-body { display:block !important; }
     }
 
+    /* ── SIDEBAR BACKDROP ── */
+    .sidebar-backdrop {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 189;
+    }
+    .sidebar-backdrop.is-visible { display: block; }
+    @media (max-width: 767px) {
+      .sidebar-backdrop.is-visible {
+        backdrop-filter: blur(4px);
+      }
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width:860px) {
       .layout { grid-template-columns:1fr; }
@@ -378,6 +392,7 @@
 
     <a class="sidebar-back" href="../../../index.html">← Back to hub</a>
   </nav>
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
   <!-- ── MAIN ── -->
   <main class="main" id="main-content">
@@ -1205,14 +1220,26 @@
   function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
     const layout = document.querySelector('.layout');
+    const backdrop = document.getElementById('sidebarBackdrop');
     if (window.innerWidth > 860) {
       const hiding = !sidebar.classList.contains('hidden');
       sidebar.classList.toggle('hidden', hiding);
       layout.classList.toggle('no-sidebar', hiding);
     } else {
-      sidebar.classList.toggle('open');
+      const isOpen = sidebar.classList.toggle('open');
+      if (backdrop) backdrop.classList.toggle('is-visible', isOpen);
     }
   }
+  (function() {
+    const backdrop = document.getElementById('sidebarBackdrop');
+    if (backdrop) {
+      backdrop.addEventListener('click', function() {
+        const sidebar = document.getElementById('sidebar');
+        if (sidebar) sidebar.classList.remove('open');
+        backdrop.classList.remove('is-visible');
+      });
+    }
+  })();
 
   function expandAll() {
     document.querySelectorAll('details').forEach(d => d.open = true);

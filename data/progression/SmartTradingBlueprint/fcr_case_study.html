@@ -91,6 +91,13 @@
       justify-self: end;
     }
     .theme-btn:hover { border-color: var(--border-strong); color: var(--text); }
+    .pill-btn {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      padding: 0.3rem 0.7rem; border: 1px solid var(--border); border-radius: 999px;
+      background: transparent; color: var(--muted); font-size: 0.8rem; cursor: pointer;
+      transition: border-color 0.15s, color 0.15s; white-space: nowrap; text-decoration: none;
+    }
+    .pill-btn:hover { border-color: var(--blue); color: var(--text); text-decoration: none; }
 
     .page { width: min(var(--max), calc(100% - 2rem)); margin: 0 auto; padding: 2rem 0 4rem; }
 
@@ -313,7 +320,11 @@
       <a href="#scenarios">SMT Scenarios</a>
       <a href="#checklist">Checklist</a>
     </div>
-    <button class="theme-btn" onclick="document.documentElement.classList.toggle('light')">☀ / ☾</button>
+    <div style="display:flex;align-items:center;gap:.5rem;justify-self:end;">
+      <a class="pill-btn" href="course-workbook.html">📘 STB Workbook</a>
+      <a class="pill-btn" href="../../index.html">🏠 Home</a>
+      <button class="theme-btn" onclick="document.documentElement.classList.toggle('light')">☀ / ☾</button>
+    </div>
   </nav>
 
   <main class="page">
