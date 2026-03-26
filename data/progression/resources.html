@@ -10,14 +10,15 @@
   <link rel="icon" href="../../favicon.png" type="image/png" sizes="64x64">
   <style>
     :root {
-      --bg: #07120e; --bg-alt: #0b1812;
-      --surface: rgba(10,24,18,0.86); --surface-soft: rgba(8,20,14,0.56); --surface-strong: #0f1f18;
-      --border: rgba(139,148,158,0.18); --border-strong: rgba(139,148,158,0.30);
-      --text: #d4ddd8; --muted: #8fa898; --subtle: #5d7369;
+      --bg: #0b0914; --bg-alt: #100c1c;
+      --surface: rgba(14,10,26,0.88); --surface-soft: rgba(12,8,22,0.56); --surface-strong: #170f2a;
+      --border: rgba(188,140,255,0.18); --border-strong: rgba(188,140,255,0.30);
+      --text: #e2daf4; --muted: #a898c8; --subtle: #6a5a8a;
       --teal: #52d6c7; --green: #3fb950; --gold: #f3cf7a; --blue: #7cc2ff;
-      --purple: #bc8cff; --red: #f85149; --pine: #54d68d;
-      --shadow: 0 18px 36px rgba(0,8,4,0.3);
-      /* category colors */
+      --purple: #bc8cff; --red: #f85149; --pine: #bc8cff;
+      --accent: #bc8cff; --accent-soft: rgba(188,140,255,0.12); --accent-bright: #d4b0ff;
+      --shadow: 0 18px 36px rgba(0,0,8,0.35);
+      /* category colors — keep diverse */
       --cat-price: #7cc2ff;
       --cat-footprint: #bc8cff;
       --cat-strategy: #52d6c7;
@@ -26,13 +27,15 @@
       --cat-behavior: #f78166;
     }
     html.light {
-      --bg: #eef8f1; --bg-alt: #f5fbf7;
-      --surface: rgba(255,255,255,0.9); --surface-soft: rgba(238,248,241,0.8); --surface-strong: #fff;
-      --border: rgba(60,100,75,0.15); --border-strong: rgba(60,100,75,0.26);
-      --text: #1a2e23; --muted: #4a6b55; --subtle: #6b8a74;
+      --bg: #f5f0ff; --bg-alt: #faf7ff;
+      --surface: rgba(255,255,255,0.92); --surface-soft: rgba(245,240,255,0.85); --surface-strong: #fff;
+      --border: rgba(120,80,200,0.15); --border-strong: rgba(120,80,200,0.28);
+      --text: #1e1030; --muted: #5a3e8a; --subtle: #7a5aaa;
       --teal: #0d9488; --green: #1a7f37; --gold: #9a6700; --blue: #0969da;
-      --purple: #8250df; --red: #cf222e; --pine: #1a7f37;
-      --cat-price: #0969da; --cat-footprint: #8250df;
+      --purple: #7c3aed; --red: #cf222e; --pine: #7c3aed;
+      --accent: #7c3aed; --accent-soft: rgba(124,58,237,0.10); --accent-bright: #6d28d9;
+      --shadow: 0 18px 36px rgba(60,20,100,0.09);
+      --cat-price: #0969da; --cat-footprint: #7c3aed;
       --cat-strategy: #0d9488; --cat-session: #1a7f37;
       --cat-account: #9a6700; --cat-behavior: #bc4c00;
     }
@@ -44,22 +47,22 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
       font-size: 15px; line-height: 1.65; color: var(--text);
       background:
-        radial-gradient(ellipse at 15% 10%, rgba(82,214,199,0.10) 0%, transparent 40%),
-        radial-gradient(ellipse at 85% 15%, rgba(63,185,80,0.08) 0%, transparent 35%),
-        radial-gradient(ellipse at 50% 85%, rgba(188,140,255,0.06) 0%, transparent 40%),
+        radial-gradient(ellipse at 15% 10%, rgba(188,140,255,0.12) 0%, transparent 40%),
+        radial-gradient(ellipse at 85% 15%, rgba(124,58,237,0.08) 0%, transparent 35%),
+        radial-gradient(ellipse at 50% 85%, rgba(82,214,199,0.05) 0%, transparent 40%),
         linear-gradient(160deg, var(--bg-alt) 0%, var(--bg) 100%);
       background-attachment: fixed;
       transition: background 0.2s, color 0.2s;
     }
     html.light body {
       background:
-        radial-gradient(ellipse at 15% 10%, rgba(13,148,136,0.07) 0%, transparent 40%),
-        radial-gradient(ellipse at 85% 15%, rgba(26,127,55,0.06) 0%, transparent 35%),
-        radial-gradient(ellipse at 50% 85%, rgba(130,80,223,0.04) 0%, transparent 40%),
+        radial-gradient(ellipse at 15% 10%, rgba(124,58,237,0.07) 0%, transparent 40%),
+        radial-gradient(ellipse at 85% 15%, rgba(109,40,217,0.06) 0%, transparent 35%),
+        radial-gradient(ellipse at 50% 85%, rgba(13,148,136,0.04) 0%, transparent 40%),
         linear-gradient(160deg, var(--bg-alt) 0%, var(--bg) 100%);
       background-attachment: fixed;
     }
-    a { color: var(--teal); text-decoration: none; }
+    a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
     a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 
@@ -74,12 +77,12 @@
       position:sticky; top:0; z-index:150;
       display:flex; align-items:center; gap:.65rem; flex-wrap:wrap;
       padding:.6rem 1.25rem; border-bottom:1px solid var(--border);
-      background:rgba(7,18,14,.90); backdrop-filter:blur(14px);
+      background:rgba(11,9,20,.92); backdrop-filter:blur(14px);
     }
-    html.light .topbar { background:rgba(238,248,241,.93); }
+    html.light .topbar { background:rgba(245,240,255,.93); }
     .breadcrumb { display:flex; align-items:center; gap:.4rem; font-size:.78rem; color:var(--muted); flex:1; min-width:0; overflow:hidden; }
     .breadcrumb a { color:var(--muted); white-space:nowrap; }
-    .breadcrumb a:hover { color:var(--teal); text-decoration:none; }
+    .breadcrumb a:hover { color:var(--accent); text-decoration:none; }
     .breadcrumb span { opacity:.5; }
     .topbar-actions { display:flex; gap:.45rem; align-items:center; margin-left:auto; flex-wrap:wrap; }
     .pill-btn {
@@ -89,37 +92,95 @@
       transition:border-color .18s, color .18s, transform .15s;
       white-space:nowrap; text-decoration:none;
     }
-    .pill-btn:hover { border-color:var(--teal); color:var(--text); transform:translateY(-1px); text-decoration:none; }
+    .pill-btn:hover { border-color:var(--accent); color:var(--text); transform:translateY(-1px); text-decoration:none; }
+
+    /* ── Sidebar ──────────────────────────────────────────────── */
+    .sidebar {
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      width: 240px;
+      background: var(--surface-strong);
+      border-right: 1px solid var(--border);
+      padding: 72px 0 2rem;
+      z-index: 200;
+      transform: translateX(-100%);
+      transition: transform 0.24s cubic-bezier(0.4,0,0.2,1);
+      overflow-y: auto;
+    }
+    .sidebar.is-open { transform: translateX(0); }
+    .sidebar-backdrop {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 199;
+      backdrop-filter: blur(2px);
+    }
+    .sidebar-backdrop.is-open { display: block; }
+    .sidebar-title {
+      padding: 0 1.2rem 0.75rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--subtle);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 0.5rem;
+    }
+    .sidebar-item {
+      display: block;
+      padding: 0.55rem 1.2rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: background 0.12s, color 0.12s;
+      border-left: 2px solid transparent;
+    }
+    .sidebar-item:hover, .sidebar-item.active {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-left-color: var(--accent);
+    }
+    .sidebar-item:hover { text-decoration: none; }
+    .sidebar-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0.75rem 1rem;
+    }
+    .sidebar-external { font-size: 0.8rem; opacity: 0.7; }
+    .sidebar-external:hover { opacity: 1; }
 
     /* ── HERO ── */
     .hero {
       max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 2rem;
       text-align: center;
     }
-    .hero-eyebrow { font-size:.78rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--teal); margin-bottom:.75rem; }
+    .hero-eyebrow { font-size:.78rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); margin-bottom:.75rem; }
     .hero-title { font-size:clamp(1.6rem,4vw,2.4rem); font-weight:800; margin:0 0 .75rem; line-height:1.2; }
     .hero-sub { color:var(--muted); font-size:1rem; max-width:580px; margin:0 auto 1.75rem; }
-    .hero-nav {
-      display:flex; flex-wrap:wrap; gap:.5rem; justify-content:center; margin-bottom:.5rem;
+
+    /* ── HERO SEARCH ── */
+    .hero-search {
+      margin: 1.5rem auto 0;
+      max-width: 480px;
+      width: 100%;
     }
-    .hero-nav a {
-      display:inline-flex; align-items:center; gap:.4rem;
-      padding:.45rem 1rem; border:1px solid var(--border); border-radius:999px;
-      font-size:.85rem; color:var(--muted); transition:all .18s; text-decoration:none;
+    .hero-search input {
+      width: 100%;
+      padding: 0.7rem 1.1rem;
+      border-radius: 24px;
+      border: 1.5px solid var(--border-strong);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
     }
-    .hero-nav a:hover { text-decoration:none; transform:translateY(-1px); }
-    .hero-nav a.price { border-color:rgba(124,194,255,.3); color:var(--cat-price); }
-    .hero-nav a.price:hover { border-color:var(--cat-price); background:rgba(124,194,255,.07); }
-    .hero-nav a.footprint { border-color:rgba(188,140,255,.3); color:var(--cat-footprint); }
-    .hero-nav a.footprint:hover { border-color:var(--cat-footprint); background:rgba(188,140,255,.07); }
-    .hero-nav a.strategy { border-color:rgba(82,214,199,.3); color:var(--cat-strategy); }
-    .hero-nav a.strategy:hover { border-color:var(--cat-strategy); background:rgba(82,214,199,.07); }
-    .hero-nav a.session { border-color:rgba(63,185,80,.3); color:var(--cat-session); }
-    .hero-nav a.session:hover { border-color:var(--cat-session); background:rgba(63,185,80,.07); }
-    .hero-nav a.account { border-color:rgba(243,207,122,.3); color:var(--cat-account); }
-    .hero-nav a.account:hover { border-color:var(--cat-account); background:rgba(243,207,122,.07); }
-    .hero-nav a.behavior { border-color:rgba(247,129,102,.3); color:var(--cat-behavior); }
-    .hero-nav a.behavior:hover { border-color:var(--cat-behavior); background:rgba(247,129,102,.07); }
+    .hero-search input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+    .hero-search input::placeholder { color: var(--subtle); }
 
     /* ── MAIN LAYOUT ── */
     .main { max-width: 900px; margin: 0 auto; padding: 0 1.25rem 4rem; }
@@ -146,7 +207,7 @@
       background:var(--surface-soft); color:var(--text); font-size:.88rem;
       transition:border-color .18s;
     }
-    .search-wrap input:focus { outline:none; border-color:var(--teal); }
+    .search-wrap input:focus { outline:none; border-color:var(--accent); }
     .search-wrap input::placeholder { color:var(--subtle); }
     .search-wrap::before { content:"🔍"; position:absolute; left:.7rem; top:50%; transform:translateY(-50%); font-size:.8rem; pointer-events:none; }
     .filter-btns { display:flex; flex-wrap:wrap; gap:.4rem; }
@@ -156,7 +217,7 @@
       transition:all .15s;
     }
     .filter-btn.active, .filter-btn:hover { color:var(--text); }
-    .filter-btn[data-cat="all"].active { border-color:var(--teal); background:rgba(82,214,199,.1); color:var(--teal); }
+    .filter-btn[data-cat="all"].active { border-color:var(--accent); background:var(--accent-soft); color:var(--accent); }
     .filter-btn[data-cat="price"].active { border-color:var(--cat-price); background:rgba(124,194,255,.1); color:var(--cat-price); }
     .filter-btn[data-cat="footprint"].active { border-color:var(--cat-footprint); background:rgba(188,140,255,.1); color:var(--cat-footprint); }
     .filter-btn[data-cat="strategy"].active { border-color:var(--cat-strategy); background:rgba(82,214,199,.1); color:var(--cat-strategy); }
@@ -216,7 +277,7 @@
       border:1px solid var(--border); color:var(--muted);
       cursor:pointer; transition:border-color .15s, color .15s;
     }
-    .g-tag:hover { border-color:var(--teal); color:var(--teal); }
+    .g-tag:hover { border-color:var(--accent); color:var(--accent); }
 
     /* ── SESSION REFERENCE ── */
     .session-grid {
@@ -278,9 +339,17 @@
     .psych-card p strong { color:var(--text); }
     blockquote {
       margin:1rem 0 .5rem; padding:.65rem 1rem;
-      border-left:3px solid var(--teal);
-      background:rgba(82,214,199,.06); border-radius:0 6px 6px 0;
+      border-left:3px solid var(--accent);
+      background:var(--accent-soft); border-radius:0 6px 6px 0;
       font-style:italic; color:var(--muted); font-size:.88rem;
+    }
+
+    /* ── SEARCH HIGHLIGHT ── */
+    mark.search-highlight {
+      background: rgba(188, 140, 255, 0.35);
+      color: inherit;
+      border-radius: 2px;
+      padding: 0 1px;
     }
 
     /* ── FOOTER ── */
@@ -289,7 +358,7 @@
       border-top:1px solid var(--border); margin-top:3rem;
     }
     footer a { color:var(--subtle); }
-    footer a:hover { color:var(--teal); }
+    footer a:hover { color:var(--accent); }
 
     /* ── RESPONSIVE ── */
     @media (max-width:600px) {
@@ -306,31 +375,228 @@
 
 <header class="topbar" role="banner">
   <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="../../index.html">🏠 Hub</a>
-    <span>›</span>
+    <a href="../../index.html">🏠 Trading Assistant</a>
+    <span aria-hidden="true">›</span>
+    <span>Progression</span>
+    <span aria-hidden="true">›</span>
     <strong>📚 Resources</strong>
   </nav>
   <div class="topbar-actions">
-    <a class="pill-btn" href="./SmartTradingBlueprint/course-workbook.html">📘 STB Workbook</a>
-    <a class="pill-btn" href="./inevitrade/inner-circle-workbook.html">📗 IT Inner Circle</a>
+    <button class="pill-btn" id="sidebarToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <a class="pill-btn" href="./SmartTradingBlueprint/course-workbook.html">📘 STB</a>
+    <a class="pill-btn" href="./inevitrade/inner-circle-workbook.html">📗 IT</a>
     <button class="pill-btn" onclick="toggleTheme()" id="themeBtn">☀️</button>
   </div>
 </header>
+
+<nav class="sidebar" id="sidebar" aria-label="Page sections">
+  <div class="sidebar-title">📚 Resources</div>
+  <a class="sidebar-item" href="#sessions">🕐 Session Reference</a>
+  <a class="sidebar-item" href="#instruments">📊 Instruments</a>
+  <a class="sidebar-item" href="#prop-firms">🏢 Prop Firms</a>
+  <a class="sidebar-item" href="#psychology">🧠 Psychology</a>
+  <a class="sidebar-item" href="#glossary">📖 Glossary</a>
+  <div class="sidebar-divider"></div>
+  <a class="sidebar-item sidebar-external" href="./SmartTradingBlueprint/course-workbook.html">📘 STB Workbook ↗</a>
+  <a class="sidebar-item sidebar-external" href="./inevitrade/inner-circle-workbook.html">📗 IT Inner Circle ↗</a>
+</nav>
+<div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
 <div class="hero">
   <p class="hero-eyebrow">📚 Living Reference · Updated as the journey evolves</p>
   <h1 class="hero-title">Trading Resources</h1>
   <p class="hero-sub">Glossary, prop firm mechanics, session reference, and psychology lessons — captured so others can learn without the same tuition.</p>
-  <nav class="hero-nav" aria-label="Jump to section">
-    <a href="#glossary" class="strategy">📖 Glossary</a>
-    <a href="#sessions" class="session">🕐 Session Reference</a>
-    <a href="#instruments" class="price">📊 Instruments</a>
-    <a href="#prop-firms" class="account">🏢 Prop Firms</a>
-    <a href="#psychology" class="behavior">🧠 Psychology</a>
-  </nav>
+  <div class="hero-search">
+    <input type="search" id="globalSearch" placeholder="🔍 Search anything on this page…" aria-label="Search page content" autocomplete="off">
+  </div>
 </div>
 
 <main class="main" id="main-content">
+
+  <!-- ═══════════════════════════════════════ SESSIONS ═══════════════════════════════════════ -->
+  <div class="section-header" id="sessions">
+    <span class="section-icon">🕐</span>
+    <h2 class="section-title">Session Quick Reference</h2>
+  </div>
+
+  <div class="session-grid">
+    <div class="session-card asian">
+      <div class="s-name" style="color:var(--purple)">🌏 Asian Session</div>
+      <div class="s-time">7:00 PM – 12:00 AM ET</div>
+      <div class="s-note">Accumulation phase. CBDR forms. Low volatility, range-building. Asian high/low = liquidity map for London. Use standard deviations for expansion projections.</div>
+    </div>
+    <div class="session-card london">
+      <div class="s-name" style="color:var(--blue)">🇬🇧 London Kill Zone</div>
+      <div class="s-time">3:00 AM – 5:00 AM ET</div>
+      <div class="s-note">Manipulation phase. Sweeps the Asian range. Often sets the day's high or low. High-probability displacement follows the sweep. London close: ~12:00 PM ET.</div>
+    </div>
+    <div class="session-card ny-am">
+      <div class="s-name" style="color:var(--teal)">🗽 NY AM Session</div>
+      <div class="s-time">9:30 AM – 11:30 AM ET</div>
+      <div class="s-note">FCR applies. Distribution phase. Highest volume for US index futures. FCR kill zone: 9:30–9:45 AM (first candle). Primary window for STB setups.</div>
+    </div>
+    <div class="session-card lunch">
+      <div class="s-name" style="color:var(--subtle)">🚫 Lunch / No-Trade Zone</div>
+      <div class="s-time">12:00 PM – 1:30 PM ET</div>
+      <div class="s-note">No entries. Institutional lunch hour. Choppy, low-probability price action. This rule alone eliminates a significant class of low-quality losses.</div>
+    </div>
+    <div class="session-card ny-pm">
+      <div class="s-name" style="color:var(--green)">🌆 NY PM Session</div>
+      <div class="s-time">1:30 PM – 4:00 PM ET</div>
+      <div class="s-note">ZTH &amp; Inevitrade IT EMA strategies active. AM continuation or Po3 distribution. Hard stop: 4:00 PM. Heikin Ashi trailing exits apply here.</div>
+    </div>
+    <div class="session-card eia">
+      <div class="s-name" style="color:var(--gold)">⚡ EIA Window (Wed)</div>
+      <div class="s-time">10:15 AM – 10:45 AM ET</div>
+      <div class="s-note">No new CL/MCL entries. EIA Crude Oil Inventories release. 1–2% CL spikes possible. Index positions unaffected unless CL cascades directly.</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ INSTRUMENTS ═══════════════════════════════════════ -->
+  <div class="section-header" id="instruments">
+    <span class="section-icon">📊</span>
+    <h2 class="section-title">Instrument Reference</h2>
+  </div>
+
+  <table class="instrument-table">
+    <thead>
+      <tr><th>Instrument</th><th>Role</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="inst-name">MNQ / NQ</div><div style="font-size:.8rem;color:var(--muted)">Micro/Mini NASDAQ</div></td>
+        <td><span class="inst-badge primary">Primary</span></td>
+        <td style="font-size:.85rem;color:var(--muted)">Primary Apex instrument. FCR kill zone 9:30 AM. SMT leader — NQ breaking LVN = acceleration signal for other indices.</td>
+      </tr>
+      <tr>
+        <td><div class="inst-name">ES / MES</div><div style="font-size:.8rem;color:var(--muted)">E-mini / Micro S&amp;P 500</div></td>
+        <td><span class="inst-badge confirm">Confirming</span></td>
+        <td style="font-size:.85rem;color:var(--muted)">Core SMT confirmation index. FCR rays always watched. ES sell limit active Mar 23–25 patience arc.</td>
+      </tr>
+      <tr>
+        <td><div class="inst-name">YM / MYM</div><div style="font-size:.8rem;color:var(--muted)">E-mini Dow / Micro Dow</div></td>
+        <td><span class="inst-badge confirm">Confirming</span></td>
+        <td style="font-size:.85rem;color:var(--muted)">SMT divergence partner. YM/RTY pair — often lead or lag NQ/ES divergence. ZTH levels actively watched.</td>
+      </tr>
+      <tr>
+        <td><div class="inst-name">RTY / M2K</div><div style="font-size:.8rem;color:var(--muted)">E-mini / Micro Russell 2000</div></td>
+        <td><span class="inst-badge confirm">Confirming</span></td>
+        <td style="font-size:.85rem;color:var(--muted)">SMT partner to YM. Often the "furthest behind" in divergence reads. Mar 20 RTY trade +$525 (A-grade).</td>
+      </tr>
+      <tr>
+        <td><div class="inst-name">CL / MCL</div><div style="font-size:.8rem;color:var(--muted)">WTI Crude Oil / Micro</div></td>
+        <td><span class="inst-badge energy">Energy</span></td>
+        <td style="font-size:.85rem;color:var(--muted)">Tradeable on Apex ✅. Inverse correlation to indices — CL up = indices down (and vice versa). EIA blackout Wed 10:15–10:45 ET. SMT pair with XBR.</td>
+      </tr>
+      <tr>
+        <td><div class="inst-name">XBR (Brent)</div><div style="font-size:.8rem;color:var(--muted)">XBRUSDT.P (Gate.io perp)</div></td>
+        <td><span class="inst-badge energy">Energy SMT</span></td>
+        <td style="font-size:.85rem;color:var(--muted)">Preferred for level marking (no rollover gaps). SMT pair with CL — divergence between the two = directional signal.</td>
+      </tr>
+      <tr>
+        <td><div class="inst-name">GC / MGC</div><div style="font-size:.8rem;color:var(--muted)">Gold Futures / Micro</div></td>
+        <td><span class="inst-badge ref">Reference</span><span class="inst-badge halted">Halted Apex</span></td>
+        <td style="font-size:.85rem;color:var(--muted)">Halted on Apex Feb 6, 2026. Used for safe-haven confluence reference only. GC elevated = macro risk-off signal.</td>
+      </tr>
+      <tr>
+        <td><div class="inst-name">SOL/USDT</div><div style="font-size:.8rem;color:var(--muted)">BTCC Perp · 20x voucher</div></td>
+        <td><span class="inst-badge crypto">Crypto</span></td>
+        <td style="font-size:.85rem;color:var(--muted)">BTCC exchange. Voucher trades allow learning leverage mechanics with reduced risk. Mar 25 entry: 92.4686 @ 06:04 ET, 20x.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ═══════════════════════════════════════ PROP FIRMS ═══════════════════════════════════════ -->
+  <div class="section-header" id="prop-firms">
+    <span class="section-icon">🏢</span>
+    <h2 class="section-title">Prop Firm Mechanics</h2>
+  </div>
+
+  <div class="prop-grid">
+
+    <div class="prop-card">
+      <h3>💡 Subscription Renewal — The Big Misconception</h3>
+      <p><strong>Myth:</strong> "If I don't pass the evaluation before my subscription renews, I lose my progress and start over."</p>
+      <p><strong>Reality:</strong> Prop firm evaluation accounts do <em>not</em> reset on subscription renewal if the account is in good standing (not failed). Gains, losses, and drawdown levels carry over into the next billing cycle. This is standard industry practice.</p>
+      <p>This misconception has caused countless traders to overtrade, take low-quality setups under time pressure, and blow accounts that were actually progressing well. There is no 30-day deadline to pass — only the requirements (profit target + minimum days + max drawdown) to satisfy.</p>
+      <div class="lesson-tag">💰 Tuition paid: believing this cost at least one blown eval — now you know.</div>
+    </div>
+
+    <div class="prop-card">
+      <h3>📊 Account Types Compared</h3>
+      <p><strong>Static drawdown:</strong> Fixed floor from the starting balance. Doesn't move. Simpler to manage — always know exactly where the floor is.</p>
+      <p><strong>Trailing drawdown:</strong> Follows your highest equity point. Rises as you profit — tightening the floor below you. Stops trailing after a certain profit threshold on legacy Apex accounts (converts to static floor at ~$2,500 profit on 100K).</p>
+      <p><strong>Standard vs. Legacy accounts:</strong> Legacy Apex accounts (from 90% off sale, etc.) preserve favorable terms across renewals. Starting with a 100K static/legacy account is more comfortable for managing the emotional weight of trailing drawdown — less "chasing the floor" anxiety during intraday swings.</p>
+      <div class="lesson-tag">💰 Learned via experience: 100K static feels more manageable than aggressive trailing.</div>
+    </div>
+
+    <div class="prop-card">
+      <h3>📅 Minimum Trading Days</h3>
+      <p><strong>Apex Trader Funding:</strong> 7 minimum trading days required before requesting a funded account.</p>
+      <p><strong>TakeProfitTrader (TPT):</strong> 5 minimum trading days required.</p>
+      <p>These days accumulate across billing cycles and carry forward on renewal. A day with any trade (profit or loss) counts. Days do not need to be consecutive. You cannot "speed-run" the evaluation by hitting the profit target in 2 days — the minimum days requirement gates the advance regardless of P&amp;L.</p>
+    </div>
+
+    <div class="prop-card">
+      <h3>⚠️ Auto-Close Risk Disclosure</h3>
+      <p>Apex (and most prop firms) have a disclosure that their auto-liquidation systems can fail. If price moves sharply at end of day or during news events, the auto-close may not execute at the expected price — or may not execute at all.</p>
+      <p><strong>Best practice:</strong> do not rely on auto-liquidation as your primary risk control. Close positions manually before 4:00 PM (hard stop rule). If holding overnight intentionally, ensure a deliberate bracket is in place with stop loss already set.</p>
+    </div>
+
+    <div class="prop-card">
+      <h3>💸 The Cost of Learning</h3>
+      <p>Perspective on early account blowouts: with the 90% off Apex sale, reset costs during the learning phase were approximately $50 per reset. The tuition paid to experience tilt, emotional restarts, and pattern recognition across several accounts was relatively low in dollar terms — high in emotional terms.</p>
+      <p>The real cost is not the dollar amount but the time and emotional capital. Every blown account teaches a pattern. The goal is to learn those patterns at the lowest-cost phase (evaluation, not live funded) and carry the lessons forward.</p>
+      <div class="lesson-tag">📖 Lesson: buy experience cheap, then scale when the patterns are understood.</div>
+    </div>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════ PSYCHOLOGY ═══════════════════════════════════════ -->
+  <div class="section-header" id="psychology">
+    <span class="section-icon">🧠</span>
+    <h2 class="section-title">Trading Psychology</h2>
+  </div>
+
+  <div class="psych-grid">
+
+    <div class="psych-card">
+      <h3>⏳ Patience as an Active Edge</h3>
+      <blockquote>"Patience and stillness seem to be my edge — most of my anxiety in trading comes from thinking the market is going to develop faster than it does."</blockquote>
+      <p>The market does not move on your timeline. Most setups take longer to develop than feels comfortable. Most traders adjust, chase, or abandon their plan long before the setup completes. Staying anchored to the structural thesis and letting price do the work is an active decision that requires discipline — it is not passivity.</p>
+      <p>The 36-hour patience arc (Mar 23–25 ES sell limit) is a documented example. The sell limit waited through two overnight sessions, London, and pre-market without being touched. The position remained valid throughout because the structural thesis (buy-side pool above as DOL) was unchanged.</p>
+      <p><strong>The plan is the knock. The limit is the ask. Matthew 7:8.</strong></p>
+    </div>
+
+    <div class="psych-card">
+      <h3>📐 The 30-Day Deadline Trap</h3>
+      <p>One of the most destructive psychological patterns in prop firm trading: the belief that you must pass the evaluation before the billing cycle resets. This creates artificial urgency — a self-imposed deadline that the prop firm never actually enforced.</p>
+      <p>The consequences: overtrading during low-probability windows, taking B-grade or C-grade setups because "time is running out," increasing position size to accelerate progress, and tilt trading after a loss because "I need to make it back before month end."</p>
+      <p>The fix: understand that renewal carries progress forward. Remove the artificial deadline. Trade only A+ setups. The evaluation completes when the requirements are met — not when the calendar says.</p>
+    </div>
+
+    <div class="psych-card">
+      <h3>🎓 Tuition vs. Profit</h3>
+      <p>Early losses and blown accounts are not failures — they are tuition. The question is: what did you learn, and what was the cost per lesson? At 90% off Apex sale prices, the tuition per lesson was relatively low.</p>
+      <p>The patterns learned through experience (Pattern 7 SL modification, Pattern 8 exit passivity, the 30-day deadline misconception, tilt trading after losses) are worth far more than the cost of the accounts lost while learning them. The goal is to graduate from expensive live-capital lessons to low-cost evaluation lessons to eventually no lessons needed at all.</p>
+      <p>Perspective: the initial eagerness to go with 100K full accounts vs. standard 50K — even that was valuable. The experience of managing the emotional weight of a larger account taught something that simulation cannot: what it feels like when the numbers matter.</p>
+    </div>
+
+    <div class="psych-card">
+      <h3>🎯 Quality Over Quantity</h3>
+      <p>A week with zero trades is better than a week with five C-grade trades. A session with one A+ entry is better than a session with six B-grade entries. This is not a philosophical preference — it is a mathematical truth about expectancy.</p>
+      <p>If your A+ trades have a positive expectancy and your B-grade trades have a near-zero or negative expectancy, then filtering out B-grade trades and C-grade trades mathematically improves your overall account performance even though your trade count drops significantly.</p>
+      <p>The hardest sessions to honor are the ones where you have context (the market is doing something interesting) but no valid signal. The discipline of sitting on your hands during Scenario C — no trade — is a skill that must be practiced as actively as any entry technique.</p>
+    </div>
+
+    <div class="psych-card">
+      <h3>🌿 Rest as Part of the Process</h3>
+      <p>Trading exhausted is one of the highest-probability ways to trigger behavioral patterns (7, 8, 9). When the mental clarity required for pattern recognition and rule adherence is diminished, the discipline that holds these patterns in check is also diminished.</p>
+      <p>A walk, a shower, and a reset are not lost trading time — they are part of the process. The market will be there after the walk. The setup that existed before the break will still be valid or will have resolved itself clearly, making the decision easier, not harder.</p>
+      <p>Like the Claude dreaming analogy: the brain needs consolidation time. Forcing continuation on depleted cognitive resources produces lower-quality output than stepping away and returning refreshed.</p>
+    </div>
+
+  </div>
 
   <!-- ═══════════════════════════════════════ GLOSSARY ═══════════════════════════════════════ -->
   <div class="section-header" id="glossary">
@@ -1069,191 +1335,6 @@
 
   </div><!-- /glossary-grid -->
 
-  <!-- ═══════════════════════════════════════ SESSIONS ═══════════════════════════════════════ -->
-  <div class="section-header" id="sessions">
-    <span class="section-icon">🕐</span>
-    <h2 class="section-title">Session Quick Reference</h2>
-  </div>
-
-  <div class="session-grid">
-    <div class="session-card asian">
-      <div class="s-name" style="color:var(--purple)">🌏 Asian Session</div>
-      <div class="s-time">7:00 PM – 12:00 AM ET</div>
-      <div class="s-note">Accumulation phase. CBDR forms. Low volatility, range-building. Asian high/low = liquidity map for London. Use standard deviations for expansion projections.</div>
-    </div>
-    <div class="session-card london">
-      <div class="s-name" style="color:var(--blue)">🇬🇧 London Kill Zone</div>
-      <div class="s-time">3:00 AM – 5:00 AM ET</div>
-      <div class="s-note">Manipulation phase. Sweeps the Asian range. Often sets the day's high or low. High-probability displacement follows the sweep. London close: ~12:00 PM ET.</div>
-    </div>
-    <div class="session-card ny-am">
-      <div class="s-name" style="color:var(--teal)">🗽 NY AM Session</div>
-      <div class="s-time">9:30 AM – 11:30 AM ET</div>
-      <div class="s-note">FCR applies. Distribution phase. Highest volume for US index futures. FCR kill zone: 9:30–9:45 AM (first candle). Primary window for STB setups.</div>
-    </div>
-    <div class="session-card lunch">
-      <div class="s-name" style="color:var(--subtle)">🚫 Lunch / No-Trade Zone</div>
-      <div class="s-time">12:00 PM – 1:30 PM ET</div>
-      <div class="s-note">No entries. Institutional lunch hour. Choppy, low-probability price action. This rule alone eliminates a significant class of low-quality losses.</div>
-    </div>
-    <div class="session-card ny-pm">
-      <div class="s-name" style="color:var(--green)">🌆 NY PM Session</div>
-      <div class="s-time">1:30 PM – 4:00 PM ET</div>
-      <div class="s-note">ZTH &amp; Inevitrade IT EMA strategies active. AM continuation or Po3 distribution. Hard stop: 4:00 PM. Heikin Ashi trailing exits apply here.</div>
-    </div>
-    <div class="session-card eia">
-      <div class="s-name" style="color:var(--gold)">⚡ EIA Window (Wed)</div>
-      <div class="s-time">10:15 AM – 10:45 AM ET</div>
-      <div class="s-note">No new CL/MCL entries. EIA Crude Oil Inventories release. 1–2% CL spikes possible. Index positions unaffected unless CL cascades directly.</div>
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════════════ INSTRUMENTS ═══════════════════════════════════════ -->
-  <div class="section-header" id="instruments">
-    <span class="section-icon">📊</span>
-    <h2 class="section-title">Instrument Reference</h2>
-  </div>
-
-  <table class="instrument-table">
-    <thead>
-      <tr><th>Instrument</th><th>Role</th><th>Notes</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><div class="inst-name">MNQ / NQ</div><div style="font-size:.8rem;color:var(--muted)">Micro/Mini NASDAQ</div></td>
-        <td><span class="inst-badge primary">Primary</span></td>
-        <td style="font-size:.85rem;color:var(--muted)">Primary Apex instrument. FCR kill zone 9:30 AM. SMT leader — NQ breaking LVN = acceleration signal for other indices.</td>
-      </tr>
-      <tr>
-        <td><div class="inst-name">ES / MES</div><div style="font-size:.8rem;color:var(--muted)">E-mini / Micro S&amp;P 500</div></td>
-        <td><span class="inst-badge confirm">Confirming</span></td>
-        <td style="font-size:.85rem;color:var(--muted)">Core SMT confirmation index. FCR rays always watched. ES sell limit active Mar 23–25 patience arc.</td>
-      </tr>
-      <tr>
-        <td><div class="inst-name">YM / MYM</div><div style="font-size:.8rem;color:var(--muted)">E-mini Dow / Micro Dow</div></td>
-        <td><span class="inst-badge confirm">Confirming</span></td>
-        <td style="font-size:.85rem;color:var(--muted)">SMT divergence partner. YM/RTY pair — often lead or lag NQ/ES divergence. ZTH levels actively watched.</td>
-      </tr>
-      <tr>
-        <td><div class="inst-name">RTY / M2K</div><div style="font-size:.8rem;color:var(--muted)">E-mini / Micro Russell 2000</div></td>
-        <td><span class="inst-badge confirm">Confirming</span></td>
-        <td style="font-size:.85rem;color:var(--muted)">SMT partner to YM. Often the "furthest behind" in divergence reads. Mar 20 RTY trade +$525 (A-grade).</td>
-      </tr>
-      <tr>
-        <td><div class="inst-name">CL / MCL</div><div style="font-size:.8rem;color:var(--muted)">WTI Crude Oil / Micro</div></td>
-        <td><span class="inst-badge energy">Energy</span></td>
-        <td style="font-size:.85rem;color:var(--muted)">Tradeable on Apex ✅. Inverse correlation to indices — CL up = indices down (and vice versa). EIA blackout Wed 10:15–10:45 ET. SMT pair with XBR.</td>
-      </tr>
-      <tr>
-        <td><div class="inst-name">XBR (Brent)</div><div style="font-size:.8rem;color:var(--muted)">XBRUSDT.P (Gate.io perp)</div></td>
-        <td><span class="inst-badge energy">Energy SMT</span></td>
-        <td style="font-size:.85rem;color:var(--muted)">Preferred for level marking (no rollover gaps). SMT pair with CL — divergence between the two = directional signal.</td>
-      </tr>
-      <tr>
-        <td><div class="inst-name">GC / MGC</div><div style="font-size:.8rem;color:var(--muted)">Gold Futures / Micro</div></td>
-        <td><span class="inst-badge ref">Reference</span><span class="inst-badge halted">Halted Apex</span></td>
-        <td style="font-size:.85rem;color:var(--muted)">Halted on Apex Feb 6, 2026. Used for safe-haven confluence reference only. GC elevated = macro risk-off signal.</td>
-      </tr>
-      <tr>
-        <td><div class="inst-name">SOL/USDT</div><div style="font-size:.8rem;color:var(--muted)">BTCC Perp · 20x voucher</div></td>
-        <td><span class="inst-badge crypto">Crypto</span></td>
-        <td style="font-size:.85rem;color:var(--muted)">BTCC exchange. Voucher trades allow learning leverage mechanics with reduced risk. Mar 25 entry: 92.4686 @ 06:04 ET, 20x.</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <!-- ═══════════════════════════════════════ PROP FIRMS ═══════════════════════════════════════ -->
-  <div class="section-header" id="prop-firms">
-    <span class="section-icon">🏢</span>
-    <h2 class="section-title">Prop Firm Mechanics</h2>
-  </div>
-
-  <div class="prop-grid">
-
-    <div class="prop-card">
-      <h3>💡 Subscription Renewal — The Big Misconception</h3>
-      <p><strong>Myth:</strong> "If I don't pass the evaluation before my subscription renews, I lose my progress and start over."</p>
-      <p><strong>Reality:</strong> Prop firm evaluation accounts do <em>not</em> reset on subscription renewal if the account is in good standing (not failed). Gains, losses, and drawdown levels carry over into the next billing cycle. This is standard industry practice.</p>
-      <p>This misconception has caused countless traders to overtrade, take low-quality setups under time pressure, and blow accounts that were actually progressing well. There is no 30-day deadline to pass — only the requirements (profit target + minimum days + max drawdown) to satisfy.</p>
-      <div class="lesson-tag">💰 Tuition paid: believing this cost at least one blown eval — now you know.</div>
-    </div>
-
-    <div class="prop-card">
-      <h3>📊 Account Types Compared</h3>
-      <p><strong>Static drawdown:</strong> Fixed floor from the starting balance. Doesn't move. Simpler to manage — always know exactly where the floor is.</p>
-      <p><strong>Trailing drawdown:</strong> Follows your highest equity point. Rises as you profit — tightening the floor below you. Stops trailing after a certain profit threshold on legacy Apex accounts (converts to static floor at ~$2,500 profit on 100K).</p>
-      <p><strong>Standard vs. Legacy accounts:</strong> Legacy Apex accounts (from 90% off sale, etc.) preserve favorable terms across renewals. Starting with a 100K static/legacy account is more comfortable for managing the emotional weight of trailing drawdown — less "chasing the floor" anxiety during intraday swings.</p>
-      <div class="lesson-tag">💰 Learned via experience: 100K static feels more manageable than aggressive trailing.</div>
-    </div>
-
-    <div class="prop-card">
-      <h3>📅 Minimum Trading Days</h3>
-      <p><strong>Apex Trader Funding:</strong> 7 minimum trading days required before requesting a funded account.</p>
-      <p><strong>TakeProfitTrader (TPT):</strong> 5 minimum trading days required.</p>
-      <p>These days accumulate across billing cycles and carry forward on renewal. A day with any trade (profit or loss) counts. Days do not need to be consecutive. You cannot "speed-run" the evaluation by hitting the profit target in 2 days — the minimum days requirement gates the advance regardless of P&amp;L.</p>
-    </div>
-
-    <div class="prop-card">
-      <h3>⚠️ Auto-Close Risk Disclosure</h3>
-      <p>Apex (and most prop firms) have a disclosure that their auto-liquidation systems can fail. If price moves sharply at end of day or during news events, the auto-close may not execute at the expected price — or may not execute at all.</p>
-      <p><strong>Best practice:</strong> do not rely on auto-liquidation as your primary risk control. Close positions manually before 4:00 PM (hard stop rule). If holding overnight intentionally, ensure a deliberate bracket is in place with stop loss already set.</p>
-    </div>
-
-    <div class="prop-card">
-      <h3>💸 The Cost of Learning</h3>
-      <p>Perspective on early account blowouts: with the 90% off Apex sale, reset costs during the learning phase were approximately $50 per reset. The tuition paid to experience tilt, emotional restarts, and pattern recognition across several accounts was relatively low in dollar terms — high in emotional terms.</p>
-      <p>The real cost is not the dollar amount but the time and emotional capital. Every blown account teaches a pattern. The goal is to learn those patterns at the lowest-cost phase (evaluation, not live funded) and carry the lessons forward.</p>
-      <div class="lesson-tag">📖 Lesson: buy experience cheap, then scale when the patterns are understood.</div>
-    </div>
-
-  </div>
-
-  <!-- ═══════════════════════════════════════ PSYCHOLOGY ═══════════════════════════════════════ -->
-  <div class="section-header" id="psychology">
-    <span class="section-icon">🧠</span>
-    <h2 class="section-title">Trading Psychology</h2>
-  </div>
-
-  <div class="psych-grid">
-
-    <div class="psych-card">
-      <h3>⏳ Patience as an Active Edge</h3>
-      <blockquote>"Patience and stillness seem to be my edge — most of my anxiety in trading comes from thinking the market is going to develop faster than it does."</blockquote>
-      <p>The market does not move on your timeline. Most setups take longer to develop than feels comfortable. Most traders adjust, chase, or abandon their plan long before the setup completes. Staying anchored to the structural thesis and letting price do the work is an active decision that requires discipline — it is not passivity.</p>
-      <p>The 36-hour patience arc (Mar 23–25 ES sell limit) is a documented example. The sell limit waited through two overnight sessions, London, and pre-market without being touched. The position remained valid throughout because the structural thesis (buy-side pool above as DOL) was unchanged.</p>
-      <p><strong>The plan is the knock. The limit is the ask. Matthew 7:8.</strong></p>
-    </div>
-
-    <div class="psych-card">
-      <h3>📐 The 30-Day Deadline Trap</h3>
-      <p>One of the most destructive psychological patterns in prop firm trading: the belief that you must pass the evaluation before the billing cycle resets. This creates artificial urgency — a self-imposed deadline that the prop firm never actually enforced.</p>
-      <p>The consequences: overtrading during low-probability windows, taking B-grade or C-grade setups because "time is running out," increasing position size to accelerate progress, and tilt trading after a loss because "I need to make it back before month end."</p>
-      <p>The fix: understand that renewal carries progress forward. Remove the artificial deadline. Trade only A+ setups. The evaluation completes when the requirements are met — not when the calendar says.</p>
-    </div>
-
-    <div class="psych-card">
-      <h3>🎓 Tuition vs. Profit</h3>
-      <p>Early losses and blown accounts are not failures — they are tuition. The question is: what did you learn, and what was the cost per lesson? At 90% off Apex sale prices, the tuition per lesson was relatively low.</p>
-      <p>The patterns learned through experience (Pattern 7 SL modification, Pattern 8 exit passivity, the 30-day deadline misconception, tilt trading after losses) are worth far more than the cost of the accounts lost while learning them. The goal is to graduate from expensive live-capital lessons to low-cost evaluation lessons to eventually no lessons needed at all.</p>
-      <p>Perspective: the initial eagerness to go with 100K full accounts vs. standard 50K — even that was valuable. The experience of managing the emotional weight of a larger account taught something that simulation cannot: what it feels like when the numbers matter.</p>
-    </div>
-
-    <div class="psych-card">
-      <h3>🎯 Quality Over Quantity</h3>
-      <p>A week with zero trades is better than a week with five C-grade trades. A session with one A+ entry is better than a session with six B-grade entries. This is not a philosophical preference — it is a mathematical truth about expectancy.</p>
-      <p>If your A+ trades have a positive expectancy and your B-grade trades have a near-zero or negative expectancy, then filtering out B-grade trades and C-grade trades mathematically improves your overall account performance even though your trade count drops significantly.</p>
-      <p>The hardest sessions to honor are the ones where you have context (the market is doing something interesting) but no valid signal. The discipline of sitting on your hands during Scenario C — no trade — is a skill that must be practiced as actively as any entry technique.</p>
-    </div>
-
-    <div class="psych-card">
-      <h3>🌿 Rest as Part of the Process</h3>
-      <p>Trading exhausted is one of the highest-probability ways to trigger behavioral patterns (7, 8, 9). When the mental clarity required for pattern recognition and rule adherence is diminished, the discipline that holds these patterns in check is also diminished.</p>
-      <p>A walk, a shower, and a reset are not lost trading time — they are part of the process. The market will be there after the walk. The setup that existed before the break will still be valid or will have resolved itself clearly, making the decision easier, not harder.</p>
-      <p>Like the Claude dreaming analogy: the brain needs consolidation time. Forcing continuation on depleted cognitive resources produces lower-quality output than stepping away and returning refreshed.</p>
-    </div>
-
-  </div>
-
   <footer>
     <p>📚 Trading Resources · Christopher Wilson · <a href="./SmartTradingBlueprint/course-workbook.html">STB Workbook</a> · <a href="./inevitrade/inner-circle-workbook.html">IT Inner Circle</a></p>
     <p><a href="https://github.com/drasticstatic/trading-assistant">↩ Trading-Assistant · Public Repo</a></p>
@@ -1294,6 +1375,7 @@
       const searchMatch = !q || text.includes(q);
       if (catMatch && searchMatch) {
         card.classList.remove('hidden');
+        if (q) card.open = true; // auto-expand matching cards when searching
         visible++;
       } else {
         card.classList.add('hidden');
@@ -1327,6 +1409,117 @@
 
   // Initial count
   updateGlossary();
+
+  // ── Sidebar toggle ──────────────────────────────────────────
+  (function() {
+    const toggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+    const backdrop = document.getElementById('sidebarBackdrop');
+    if (!toggle || !sidebar) return;
+
+    function openSidebar() {
+      sidebar.classList.add('is-open');
+      backdrop.classList.add('is-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.textContent = '✕';
+    }
+    function closeSidebar() {
+      sidebar.classList.remove('is-open');
+      backdrop.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = '☰';
+    }
+
+    toggle.addEventListener('click', () => {
+      sidebar.classList.contains('is-open') ? closeSidebar() : openSidebar();
+    });
+    backdrop.addEventListener('click', closeSidebar);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSidebar(); });
+
+    // Close sidebar on nav item click (mobile)
+    sidebar.querySelectorAll('.sidebar-item[href^="#"]').forEach(a => {
+      a.addEventListener('click', () => { if (window.innerWidth < 900) closeSidebar(); });
+    });
+
+    // Scrollspy
+    const sections = document.querySelectorAll('#sessions, #instruments, #prop-firms, #psychology, #glossary');
+    const sidebarLinks = sidebar.querySelectorAll('.sidebar-item[href^="#"]');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          sidebarLinks.forEach(l => l.classList.remove('active'));
+          const a = sidebar.querySelector('.sidebar-item[href="#' + entry.target.id + '"]');
+          if (a) a.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+    sections.forEach(s => observer.observe(s));
+  })();
+
+  // ── Global page search highlight ────────────────────────────
+  (function() {
+    const input = document.getElementById('globalSearch');
+    if (!input) return;
+
+    const main = document.getElementById('main-content');
+
+    function escapeRegex(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function clearHighlights() {
+      main.querySelectorAll('mark.search-highlight').forEach(mark => {
+        const parent = mark.parentNode;
+        parent.replaceChild(document.createTextNode(mark.textContent), mark);
+        parent.normalize();
+      });
+    }
+
+    function highlight(query) {
+      clearHighlights();
+      if (!query.trim()) return;
+      const safe = escapeRegex(query.trim());
+      const re = new RegExp('(' + safe + ')', 'gi');
+      const walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, null);
+      const nodes = [];
+      let node;
+      while ((node = walker.nextNode())) nodes.push(node);
+      nodes.forEach(textNode => {
+        if (!re.test(textNode.nodeValue)) return;
+        re.lastIndex = 0;
+        const parent = textNode.parentNode;
+        if (parent.closest('script, style, input, textarea, mark')) return;
+        const frag = document.createDocumentFragment();
+        let last = 0, m;
+        re.lastIndex = 0;
+        while ((m = re.exec(textNode.nodeValue)) !== null) {
+          frag.appendChild(document.createTextNode(textNode.nodeValue.slice(last, m.index)));
+          const mark = document.createElement('mark');
+          mark.className = 'search-highlight';
+          mark.textContent = m[0];
+          frag.appendChild(mark);
+          last = m.index + m[0].length;
+        }
+        frag.appendChild(document.createTextNode(textNode.nodeValue.slice(last)));
+        parent.replaceChild(frag, textNode);
+      });
+    }
+
+    let debounceTimer;
+    input.addEventListener('input', () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => highlight(input.value), 150);
+    });
+
+    // Sync with glossary search if both exist
+    const glossarySearch = document.getElementById('glossarySearch');
+    if (glossarySearch) {
+      input.addEventListener('input', () => {
+        glossarySearch.value = input.value;
+        glossarySearch.dispatchEvent(new Event('input'));
+      });
+    }
+  })();
 </script>
 
 </body>
