@@ -880,10 +880,13 @@
       display: block;
       max-height: 460px;
       overflow-y: auto;
-      overflow-x: auto;
+      overflow-x: clip; /* clip not auto — keeps sticky working on thead */
       border: 1px solid var(--border);
       border-radius: 14px;
       -webkit-overflow-scrolling: touch;
+    }
+    .compact-history .table-wrap {
+      overflow-x: auto; /* horizontal scroll lives here, not on outer scroll container */
     }
     .compact-history .ch-table {
       width: 100%;
@@ -1054,14 +1057,15 @@
       .compact-history.is-visible {
         max-height: 320px;
       }
-      /* Hide date on mobile — shown inside modal */
+      /* Hide date + ↗ column on mobile — rows are tappable, ↗ just steals width */
       .compact-history .ch-table .ch-date,
-      .compact-history .ch-table thead th:nth-child(2) { display: none; }
-      /* Summary: wrap naturally — no truncation on mobile */
+      .compact-history .ch-table thead th:nth-child(2),
+      .compact-history .ch-table .ch-action,
+      .compact-history .ch-table thead th:last-child { display: none; }
+      /* Summary: let it breathe on mobile */
       .compact-history .ch-table .ch-summary {
         white-space: normal;
         word-break: break-word;
-        min-width: 140px;
         line-height: 1.4;
       }
       /* Compact rows — reduce padding + font size on mobile */
@@ -1118,10 +1122,20 @@
       border-color: rgba(63,185,80,0.3);
     }
 
-    /* ── Jump-to-bottom button — centered ─────────────────────────── */
+    /* ── Jump buttons — centered ───────────────────────────────────── */
     .ch-jump-bottom-wrap {
       text-align: center;
     }
+    .ch-jump-newest {
+      display: inline-flex; align-items: center; gap: 0.3em;
+      margin: 0 auto;
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--subtle);
+      background: none; border: 1px solid var(--border);
+      border-radius: 8px; padding: 0.25em 0.7em;
+      cursor: pointer; transition: border-color 0.15s, color 0.15s;
+    }
+    .ch-jump-newest:hover { border-color: var(--pine); color: var(--pine); }
 
     /* ── Feature modals ───────────────────────────────────────────── */
     .feature-modal-overlay {
@@ -1162,10 +1176,10 @@
       color: var(--pine-bright);
     }
     .feature-see-details {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25em;
-      padding: 0.32em 0.7em;
+      display: block;
+      width: fit-content;
+      margin: 0.6rem auto 0;
+      padding: 0.32em 0.9em;
       font-size: 0.82em;
       font-weight: 600;
       color: var(--teal);
@@ -1173,8 +1187,8 @@
       border: 1px solid rgba(82, 214, 199, 0.28);
       border-radius: 8px;
       cursor: pointer;
+      text-align: center;
       transition: background 0.15s, border-color 0.15s;
-      margin-top: 0.5rem;
     }
     .feature-see-details:hover { background: rgba(82, 214, 199, 0.14); border-color: rgba(82, 214, 199, 0.5); }
 
@@ -2066,6 +2080,9 @@
             </ul>
           </div>
         </details>
+      </div>
+      <div class="ch-jump-bottom-wrap" style="margin-top:1.2rem;">
+        <button class="ch-jump-newest" id="ch-jump-newest-btn" onclick="document.getElementById('release-list').scrollIntoView({behavior:'smooth'})" aria-label="Jump to newest version">↑ Jump to newest</button>
       </div>
     </section>
 
