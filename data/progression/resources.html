@@ -207,6 +207,7 @@
       border-bottom: 1px solid var(--border);
       padding: 0.5rem 1.25rem;
       display: flex;
+      justify-content: center;
       align-items: center;
       gap: 0.6rem;
       box-sizing: border-box; width: 100%;
@@ -215,7 +216,9 @@
       background: rgba(245,240,255,0.97);
     }
     .search-sticky-bar input {
-      flex: 1;
+      width: 100%;
+      max-width: 440px;
+      flex: 0 1 440px;
       min-width: 0;
       padding: 0.42rem 1rem;
       border-radius: 24px;
@@ -287,13 +290,13 @@
     /* ── SECTION HEADERS ── */
     .section-header {
       position: relative;
-      display:flex; align-items:center;
-      margin: 2.5rem 0 1.25rem; padding-bottom:.6rem;
+      margin: 2.5rem 0 1.25rem;
+      padding: 0 2.4rem .6rem;   /* symmetric side padding clears the absolute icon/count */
       border-bottom: 1px solid var(--border);
     }
-    .section-icon { position: absolute; left: 0; font-size:1.4rem; line-height:1; }
-    .section-title { font-size:1.15rem; font-weight:700; margin:0; text-align:center; width:100%; }
-    .section-count { position: absolute; right: 0; font-size:.78rem; color:var(--muted); }
+    .section-icon { position: absolute; left: 0; top: 0; font-size:1.4rem; line-height:1.2; }
+    .section-title { display: block; font-size:1.15rem; font-weight:700; margin:0; text-align:center; }
+    .section-count { position: absolute; right: 0; top: 50%; transform:translateY(-50%); font-size:.78rem; color:var(--muted); }
 
     /* ── SEARCH & FILTER ── */
     .glossary-controls {
@@ -470,6 +473,8 @@
       .main { padding:0 1rem 3rem; }
       .topbar { padding:.5rem 1rem; gap:.4rem; }
       .session-grid { grid-template-columns:1fr; }
+      /* On mobile: hide nav pills — sidebar (☰ Nav) has all links */
+      .res-nav-pill { display: none !important; }
     }
   </style>
 </head>
@@ -487,9 +492,10 @@
   </nav>
   <div class="topbar-actions">
     <button class="pill-btn" id="sidebarToggle" aria-label="Toggle navigation" aria-expanded="false">☰ Nav</button>
-    <a class="pill-btn" href="./SmartTradingBlueprint/course-workbook.html">📘 STB</a>
-    <a class="pill-btn" href="./inevitrade/inner-circle-workbook.html">📗 IT</a>
-    <a class="pill-btn" href="./portfolio.html">📊 Portfolio</a>
+    <a class="pill-btn res-nav-pill" href="../../index.html">🏠 Home</a>
+    <a class="pill-btn res-nav-pill" href="./SmartTradingBlueprint/course-workbook.html">📘 STB</a>
+    <a class="pill-btn res-nav-pill" href="./inevitrade/inner-circle-workbook.html">📗 IT</a>
+    <a class="pill-btn res-nav-pill" href="./portfolio.html">📊 Portfolio</a>
     <button class="pill-btn" onclick="toggleTheme()" id="themeBtn">☀️</button>
   </div>
 </header>

@@ -28,7 +28,7 @@
       --green: #1a7f37; --red: #cf222e; --blue: #0969da;
       --yellow: #9a6700; --purple: #8250df; --cyan: #0e7490;
     }
-    html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 64px; overflow-x: hidden; }
     *, *::before, *::after { box-sizing: border-box; }
     body {
       margin: 0; min-height: 100vh; overflow-x: hidden;
@@ -56,6 +56,7 @@
     .nav {
       position: sticky; top: 0; z-index: 100;
       display: grid;
+      isolation: isolate;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
       padding: 0 1.5rem;
@@ -316,21 +317,68 @@
       justify-self: end; flex-wrap: wrap;
     }
 
+    /* ── Mobile nav dropdown ── */
+    .nav-hamburger { display: none; }
+    .nav-dropdown {
+      display: none;
+      position: absolute; top: 52px; left: 0; right: 0;
+      background: rgba(12,18,24,0.97); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      z-index: 99; padding: .5rem 1rem .75rem; flex-direction: column; gap: .1rem;
+    }
+    .nav-dropdown.is-open { display: flex; }
+    .nav-dropdown a {
+      display: block; padding: .6rem .5rem;
+      color: var(--muted); font-size: .87rem;
+      border-bottom: 1px solid var(--border); text-decoration: none;
+    }
+    .nav-dropdown a:last-child { border-bottom: none; }
+    .nav-dropdown a:hover { color: var(--blue); }
+
+    /* ── Mobile card modal ── */
+    .card-modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.65); z-index: 500;
+      align-items: flex-end; justify-content: center;
+      backdrop-filter: blur(4px);
+    }
+    .card-modal-overlay.is-open { display: flex; }
+    .card-modal {
+      background: var(--bg-alt); border: 1px solid var(--border);
+      border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+      padding: 1.5rem 1.25rem 2.5rem; width: 100%; max-height: 80vh;
+      overflow-y: auto; position: relative;
+    }
+    .card-modal-close {
+      position: absolute; top: .75rem; right: .75rem;
+      background: none; border: 1px solid var(--border); border-radius: 8px;
+      color: var(--muted); cursor: pointer; padding: .2rem .55rem; font-size: .85rem;
+    }
+    .card-modal-handle {
+      width: 2.5rem; height: 4px; background: var(--border);
+      border-radius: 2px; margin: 0 auto 1.25rem;
+    }
+
     @media (max-width: 700px) {
       .chart-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
+      .nav-hamburger { display: inline-flex; }
+      /* Hide desktop pill-btns to save space; hamburger handles nav */
+      .fcr-nav-pill { display: none; }
       /* Stat row: 2 columns on phone */
       .stat-row { grid-template-columns: repeat(2, 1fr); }
-      /* Pattern cards: single column, reduce padding */
-      .grid-4 { grid-template-columns: 1fr; }
-      .pattern-card { padding: .85rem 1rem; }
-      /* Hide pill-btns on narrow nav to save space */
-      .nav-actions .pill-btn { display: none; }
+      /* Pattern cards: 2-column compact grid, tappable for modal */
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .pattern-card { padding: .7rem .75rem; cursor: pointer; }
+      .pattern-card p { display: none; } /* hide body text — modal shows it */
+      .pattern-card::after { content: "Tap for details →"; display: block; font-size: .72rem; color: var(--blue); margin-top: .4rem; opacity: .8; }
       /* Breadcrumb: shorten on very small screens */
       .nav-breadcrumb .bc-mid { display: none; }
+      .nav-breadcrumb { font-size: .72rem; }
     }
     @media (max-width: 400px) {
       .stat-row { grid-template-columns: 1fr; }
+      .grid-4 { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -338,11 +386,11 @@
 
   <nav class="nav">
     <nav class="nav-breadcrumb" aria-label="Breadcrumb">
-      <a href="../../index.html" aria-label="Home">🏠</a>
+      <a href="../../../index.html">🏠 Trading Assistant</a>
       <span class="bc-sep">›</span>
       <a href="../resources.html" class="bc-mid">Progression</a>
       <span class="bc-sep bc-mid">›</span>
-      <a href="course-workbook.html" class="bc-mid">STB</a>
+      <a href="course-workbook.html" class="bc-mid">SmartTradingBlueprint</a>
       <span class="bc-sep">›</span>
       <span class="bc-current">FCR Case Study</span>
     </nav>
@@ -355,8 +403,9 @@
       <a href="#checklist">Checklist</a>
     </div>
     <div class="nav-actions">
-      <a class="pill-btn" href="course-workbook.html">📘 STB Workbook</a>
-      <a class="pill-btn" href="../../index.html">🏠 Home</a>
+      <a class="pill-btn fcr-nav-pill" href="course-workbook.html">📘 STB Workbook</a>
+      <a class="pill-btn fcr-nav-pill" href="../../../index.html">🏠 Home</a>
+      <button class="pill-btn nav-hamburger" id="navHamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
       <button class="theme-btn" onclick="document.documentElement.classList.toggle('light')">☀ / ☾</button>
     </div>
   </nav>
@@ -797,6 +846,27 @@
 
   </main>
 
+  <!-- Mobile nav dropdown -->
+  <div class="nav-dropdown" id="navDropdown">
+    <a href="#rule">📌 The Rule</a>
+    <a href="#pattern">📐 Range Pattern</a>
+    <a href="#charts">📸 Charts</a>
+    <a href="#log">📋 Case Log</a>
+    <a href="#scenarios">🔗 SMT Scenarios</a>
+    <a href="#checklist">✅ Checklist</a>
+    <a href="course-workbook.html">📘 STB Workbook</a>
+    <a href="../../../index.html">🏠 Home</a>
+  </div>
+
+  <!-- Mobile card modal -->
+  <div class="card-modal-overlay" id="cardModalOverlay">
+    <div class="card-modal" id="cardModal" role="dialog" aria-modal="true" aria-label="Card details">
+      <div class="card-modal-handle"></div>
+      <button class="card-modal-close" id="cardModalClose" aria-label="Close">✕</button>
+      <div id="cardModalBody"></div>
+    </div>
+  </div>
+
   <script>
     // Theme persistence
     if (localStorage.getItem('theme') === 'light') {
@@ -845,6 +915,52 @@
 
     window.addEventListener('scroll', updateActive, { passive: true });
     updateActive();
+
+    // Hamburger toggle
+    const hamburgerBtn = document.getElementById('navHamburgerBtn');
+    const navDropdown  = document.getElementById('navDropdown');
+    if (hamburgerBtn && navDropdown) {
+      hamburgerBtn.addEventListener('click', () => {
+        const open = navDropdown.classList.toggle('is-open');
+        hamburgerBtn.setAttribute('aria-expanded', open);
+      });
+      // Close when a dropdown link is clicked
+      navDropdown.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          navDropdown.classList.remove('is-open');
+          hamburgerBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    // Mobile card modals
+    const modalOverlay = document.getElementById('cardModalOverlay');
+    const modalBody    = document.getElementById('cardModalBody');
+    const closeModalEl = document.getElementById('cardModalClose');
+    const openCardModal = (card) => {
+      modalBody.innerHTML = card.innerHTML;
+      // Remove the ::after "Tap for details" text from cloned content
+      modalBody.querySelectorAll('.card-modal-close').forEach(el => el.remove());
+      modalOverlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeCardModal = () => {
+      modalOverlay.classList.remove('is-open');
+      document.body.style.overflow = '';
+    };
+    document.querySelectorAll('.pattern-card').forEach(card => {
+      card.addEventListener('click', () => {
+        if (window.innerWidth <= 700) openCardModal(card);
+      });
+    });
+    if (closeModalEl) closeModalEl.addEventListener('click', closeCardModal);
+    if (modalOverlay) modalOverlay.addEventListener('click', e => {
+      if (e.target === modalOverlay) closeCardModal();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCardModal(); });
+
+    // Prevent scroll restoration from showing mid-page on refresh
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   </script>
 
 </body>
