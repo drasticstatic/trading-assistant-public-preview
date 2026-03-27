@@ -910,14 +910,15 @@
 //  Leave a field as '' to skip that chain.
 // ═══════════════════════════════════════════════════════════════════════════
 const WALLET_CONFIG = {
-  solana:    '',   // Solana public key (base58, 32–44 chars)
-  ethereum:  '',   // EVM address (0x...) — covers ETH, Polygon, BSC, Base, Optimism, Arbitrum
-  hedera:    '',   // Hedera account ID (0.0.XXXXXX)
-  tezos:     '',   // Tezos address (tz1... or KT1...)
-  cosmos:    '',   // Cosmos address (cosmos1...)
-  algorand:  '',   // Algorand address (58 chars)
-  bitcoin:   '',   // Bitcoin address (legacy, P2SH, or bech32)
-  ton:       '',   // TON address (UQ... or EQ...)
+  solana:    '',                                             // Solana public key (base58, 32–44 chars) — pending
+  ethereum:  '0x96F185dB969F3c45EDDff27c73A4880A877BaeF6', // EVM — ETH, Polygon, BSC, Base, Optimism, Arbitrum
+  hedera:    '',                                             // Hedera account ID (0.0.XXXXXX) — pending
+  tezos:     '',                                             // Tezos address (tz1...) — pending
+  cosmos:    '',                                             // Cosmos address (cosmos1...) — pending
+  algorand:  '',                                             // Algorand address (58 chars) — pending
+  bitcoin:   'bc1q9ak9tt7v4m7egv5gfv32g93ghah5tvzh8c7hwh', // Bitcoin native segwit
+  ton:       '',                                             // TON address (UQ... or EQ...) — pending
+  cardano:   'addr1q9f5wu44906hflrh9ce8ts0hnkat6022rw642ehfkcukj3c9cwda6hcsmdvsa0rc7la8jq66lqrzdfenahkey83nla2svpg9nt', // ADA Shelley
 };
 
 // ── Chain metadata ──────────────────────────────────────────────────────────
@@ -930,6 +931,7 @@ const CHAINS = {
   algorand: { name:'Algorand',  symbol:'ALGO', cgId:'algorand',         dec:6,  color:'#00cc99', icon:'Ⓐ' },
   bitcoin:  { name:'Bitcoin',   symbol:'BTC',  cgId:'bitcoin',          dec:8,  color:'#f7931a', icon:'₿' },
   ton:      { name:'TON',       symbol:'TON',  cgId:'the-open-network', dec:9,  color:'#0098ea', icon:'◈' },
+  cardano:  { name:'Cardano',   symbol:'ADA',  cgId:'cardano',          dec:6,  color:'#0033ad', icon:'₳' },
 };
 
 // ── Balance fetchers ─────────────────────────────────────────────────────────
@@ -983,6 +985,20 @@ async function fetchRawBalance(chain, address) {
         res  = await fetch(`https://toncenter.com/api/v2/getAddressBalance?address=${encodeURIComponent(address)}`, { signal:ctl.signal });
         data = await res.json();
         raw  = parseInt(data.result ?? '0');
+        break;
+      case 'cardano':
+        res  = await fetch(`https://cardano-mainnet.blockfrost.io/api/v0/addresses/${address}`, { signal:ctl.signal,
+                 headers:{'project_id':'mainnetabc123'} });
+        // Fallback: use public Maestro or koios (no key required)
+        if (!res.ok) {
+          res  = await fetch(`https://api.koios.rest/api/v1/address_info?_address=${address}`, { signal:ctl.signal,
+                   headers:{'Accept':'application/json'} });
+          data = await res.json();
+          raw  = parseInt(data?.[0]?.balance ?? '0');
+        } else {
+          data = await res.json();
+          raw  = parseInt(data.controlled_amount ?? data.lovelace ?? '0');
+        }
         break;
     }
     clearTimeout(tid);
