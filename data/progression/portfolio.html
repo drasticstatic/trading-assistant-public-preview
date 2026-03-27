@@ -909,18 +909,34 @@
 //  These are READ-ONLY public blockchain addresses. Never put private keys here.
 //  Leave a field as '' to skip that chain.
 // ═══════════════════════════════════════════════════════════════════════════
+// Each chain holds an array of {addr, label} — add more wallets without code changes
 const WALLET_CONFIG = {
-  solana:     'Es5c7dbeFobHyP6sB4m8JQXaijSba7RrtUdJNPajs1HX', // Soul Sniper — NEW safe wallet (post-breach)
-  ethereum:   '0x96F185dB969F3c45EDDff27c73A4880A877BaeF6',    // Primary EVM — ETH/Polygon/BSC/Base/Arbitrum
-  hedera:     '',                                               // Hedera (0.0.XXXXXX) — pending
-  tezos:      '',                                               // Tezos (tz1...) — pending
-  cosmos:     '',                                               // Cosmos (cosmos1...) — pending
-  algorand:   '',                                               // Algorand (58-char) — pending
-  bitcoin:    'bc1q9ak9tt7v4m7egv5gfv32g93ghah5tvzh8c7hwh',   // Bitcoin native segwit
-  ton:        'UQAYKFEok2aXI8KcIFek7cWyhGvAxaPoA5gu_JSGJ4dopbZg', // TON — Tower wallet
-  ton_gateio: 'UQASImW6BphVvatmUPFsw4sVeD8_Is4hRYeaDMGZUhvSzciL', // TON — Gate.io wallet
-  cardano:    'addr1q9f5wu44906hflrh9ce8ts0hnkat6022rw642ehfkcukj3c9cwda6hcsmdvsa0rc7la8jq66lqrzdfenahkey83nla2svpg9nt',
-  dogecoin:   'D7fQthvuwXxWmRJNo78PHQL6uiWZTFMSnu',            // DOGE
+  bitcoin: [
+    { addr: 'bc1q9ak9tt7v4m7egv5gfv32g93ghah5tvzh8c7hwh',   label: 'Primary' },
+    { addr: 'bc1qmf7z8vcd5ejnlsz8hnuk8f4kdkp842xu8u3mfs',   label: 'Mining App' },
+  ],
+  ethereum: [
+    { addr: '0x96F185dB969F3c45EDDff27c73A4880A877BaeF6',    label: 'Primary' },
+  ],
+  solana: [
+    { addr: 'Es5c7dbeFobHyP6sB4m8JQXaijSba7RrtUdJNPajs1HX', label: 'Soul Sniper' },
+    { addr: 'CtzcpTLPz41tjMep9HoG6L7PoBtXUhNyMtohtr7XMpGR', label: 'Phantom' },
+  ],
+  ton: [
+    { addr: 'UQBxgmv81rlsl0YGHKmO4GocCSKjnrUU0RKlQw5iyS4VXrC8', label: 'MyTONWallet' },
+    { addr: 'UQCZw3Z0kV2TcsQxZ33F-zhKMK7hiohiqkWYGXWv4al3XdwW', label: 'Tonkeeper' },
+    { addr: 'UQASImW6BphVvatmUPFsw4sVeD8_Is4hRYeaDMGZUhvSzciL', label: 'Gate.io' },
+  ],
+  cardano: [
+    { addr: 'addr1q9f5wu44906hflrh9ce8ts0hnkat6022rw642ehfkcukj3c9cwda6hcsmdvsa0rc7la8jq66lqrzdfenahkey83nla2svpg9nt', label: 'Primary' },
+  ],
+  dogecoin: [
+    { addr: 'D7fQthvuwXxWmRJNo78PHQL6uiWZTFMSnu',            label: 'Primary' },
+  ],
+  hedera:   [], // 0.0.XXXXXX — pending
+  tezos:    [], // tz1... — pending
+  cosmos:   [], // cosmos1... — pending
+  algorand: [], // 58-char — pending
 };
 
 // ── Chain metadata ──────────────────────────────────────────────────────────
@@ -933,9 +949,8 @@ const CHAINS = {
   algorand: { name:'Algorand',  symbol:'ALGO', cgId:'algorand',         dec:6,  color:'#00cc99', icon:'Ⓐ' },
   bitcoin:  { name:'Bitcoin',   symbol:'BTC',  cgId:'bitcoin',          dec:8,  color:'#f7931a', icon:'₿' },
   ton:      { name:'TON',       symbol:'TON',  cgId:'the-open-network', dec:9,  color:'#0098ea', icon:'◈' },
-  cardano:  { name:'Cardano',    symbol:'ADA',  cgId:'cardano',          dec:6,  color:'#0033ad', icon:'₳' },
-  ton_gateio:{ name:'TON (Gate.io)', symbol:'TON', cgId:'the-open-network', dec:9, color:'#0098ea', icon:'◈' },
-  dogecoin: { name:'Dogecoin',   symbol:'DOGE', cgId:'dogecoin',         dec:8,  color:'#c2a633', icon:'Ð' },
+  cardano:  { name:'Cardano',   symbol:'ADA',  cgId:'cardano',          dec:6,  color:'#0033ad', icon:'₳' },
+  dogecoin: { name:'Dogecoin',  symbol:'DOGE', cgId:'dogecoin',         dec:8,  color:'#c2a633', icon:'Ð' },
 };
 
 // ── Balance fetchers ─────────────────────────────────────────────────────────
@@ -996,11 +1011,6 @@ async function fetchRawBalance(chain, address) {
         data = await res.json();
         raw  = parseInt(data?.[0]?.balance ?? '0');
         break;
-      case 'ton_gateio':
-        res  = await fetch(`https://toncenter.com/api/v2/getAddressBalance?address=${encodeURIComponent(address)}`, { signal:ctl.signal });
-        data = await res.json();
-        raw  = parseInt(data.result ?? '0');
-        break;
       case 'dogecoin':
         res  = await fetch(`https://api.blockcypher.com/v1/doge/main/addrs/${address}/balance`, { signal:ctl.signal });
         data = await res.json();
@@ -1026,13 +1036,13 @@ async function fetchPrices(cgIds) {
 }
 
 // ── Card renderer ────────────────────────────────────────────────────────────
-function renderCard(chain, state, amount, usd) {
+function renderCard(key, chain, state, amount, usd, label) {
   const m = CHAINS[chain];
   const grid = document.getElementById('lb-grid');
-  let el = document.getElementById(`lb-card-${chain}`);
+  let el = document.getElementById(`lb-card-${key}`);
   if (!el) {
     el = document.createElement('div');
-    el.id = `lb-card-${chain}`;
+    el.id = `lb-card-${key}`;
     el.style.cssText = `
       background:var(--surface);border:1px solid var(--border);border-radius:12px;
       padding:.75rem .9rem;position:relative;overflow:hidden;
@@ -1043,10 +1053,12 @@ function renderCard(chain, state, amount, usd) {
     grid.appendChild(el);
   }
 
+  const labelTag = label ? `<span style="font-size:.65rem;color:var(--subtle);font-weight:400;margin-left:.25rem;">${label}</span>` : '';
+
   if (state === 'loading') {
     el.innerHTML += `<div style="font-size:.78rem;color:var(--muted);margin-top:.2rem;">
       <span style="font-size:1.1rem;">${m.icon}</span>
-      <strong style="color:var(--text);margin-left:.3rem;">${m.name}</strong>
+      <strong style="color:var(--text);margin-left:.3rem;">${m.name}</strong>${labelTag}
       <div style="margin-top:.4rem;color:var(--subtle);font-size:.72rem;">fetching…</div>
     </div>`;
     return;
@@ -1056,7 +1068,7 @@ function renderCard(chain, state, amount, usd) {
     el.innerHTML = `<div style="position:absolute;top:0;left:0;right:0;height:3px;background:${m.color};opacity:.7;"></div>
     <div style="font-size:.78rem;">
       <span style="font-size:1.1rem;opacity:.4;">${m.icon}</span>
-      <strong style="color:var(--subtle);margin-left:.3rem;">${m.name}</strong>
+      <strong style="color:var(--subtle);margin-left:.3rem;">${m.name}</strong>${labelTag}
       <div style="margin-top:.35rem;font-size:.7rem;color:var(--subtle);">fetch error — check address</div>
     </div>`;
     return;
@@ -1068,9 +1080,10 @@ function renderCard(chain, state, amount, usd) {
 
   el.innerHTML = `<div style="position:absolute;top:0;left:0;right:0;height:3px;background:${m.color};opacity:.7;"></div>
   <div>
-    <div style="display:flex;align-items:baseline;gap:.35rem;">
+    <div style="display:flex;align-items:baseline;gap:.35rem;flex-wrap:wrap;">
       <span style="font-size:1.05rem;">${m.icon}</span>
       <span style="font-size:.82rem;font-weight:700;color:var(--text);">${m.name}</span>
+      ${labelTag}
       <span style="font-size:.7rem;color:var(--subtle);margin-left:auto;">${m.symbol}</span>
     </div>
     <div style="margin-top:.45rem;font-size:1.05rem;font-weight:700;color:${m.color};">${amtStr}</div>
@@ -1086,7 +1099,17 @@ async function loadBalances() {
   const totEl= document.getElementById('lb-total-usd');
   const btn  = document.getElementById('lb-refresh');
 
-  const configured = Object.entries(WALLET_CONFIG).filter(([,v]) => v.trim() !== '');
+  // Flatten WALLET_CONFIG arrays into [{key, chain, addr, label}]
+  const configured = [];
+  for (const [chain, entries] of Object.entries(WALLET_CONFIG)) {
+    if (!entries.length) continue;
+    for (let i = 0; i < entries.length; i++) {
+      const { addr, label } = entries[i];
+      if (!addr || !addr.trim()) continue;
+      const key = entries.length > 1 ? `${chain}_${i}` : chain;
+      configured.push({ key, chain, addr: addr.trim(), label: label || '' });
+    }
+  }
 
   if (configured.length === 0) {
     configBanner.style.display = '';
@@ -1102,31 +1125,32 @@ async function loadBalances() {
 
   // Seed loading cards
   grid.innerHTML = '';
-  for (const [chain] of configured) {
-    renderCard(chain, 'loading');
+  for (const { key, chain, label } of configured) {
+    renderCard(key, chain, 'loading', null, null, label);
   }
 
   // Fetch all balances in parallel
   const balanceResults = await Promise.all(
-    configured.map(([chain, addr]) => fetchRawBalance(chain, addr).then(r => ({ chain, raw: r })))
+    configured.map(({ key, chain, addr }) => fetchRawBalance(chain, addr).then(r => ({ key, chain, raw: r })))
   );
 
-  // Fetch prices
-  const cgIds = configured.map(([chain]) => CHAINS[chain].cgId);
+  // Fetch prices (deduplicate cgIds across multi-wallet chains)
+  const cgIds = [...new Set(configured.map(({ chain }) => CHAINS[chain].cgId))];
   const prices = await fetchPrices(cgIds);
 
   let total = 0;
-  for (const { chain, raw } of balanceResults) {
+  for (const { key, chain, raw } of balanceResults) {
     const m = CHAINS[chain];
+    const { label } = configured.find(c => c.key === key);
     if (raw === null) {
-      renderCard(chain, 'error');
+      renderCard(key, chain, 'error', null, null, label);
       continue;
     }
     const amount = raw / Math.pow(10, m.dec);
     const price  = prices[m.cgId]?.usd ?? null;
     const usd    = price != null ? amount * price : null;
     if (usd != null) total += usd;
-    renderCard(chain, 'ok', amount, usd);
+    renderCard(key, chain, 'ok', amount, usd, label);
   }
 
   totEl.textContent = total > 0 ? 'Total: $' + total.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}) : '';
