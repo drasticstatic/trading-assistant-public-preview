@@ -921,6 +921,7 @@ const WALLET_CONFIG = {
   solana: [
     { addr: 'Es5c7dbeFobHyP6sB4m8JQXaijSba7RrtUdJNPajs1HX', label: 'Soul Sniper' },
     { addr: 'CtzcpTLPz41tjMep9HoG6L7PoBtXUhNyMtohtr7XMpGR', label: 'Phantom' },
+    { addr: 'AWbacEKrkzYtW8fCYfbcrpZhvLZrdPpTJntR4YCycy7X', label: 'Trust Wallet' },
   ],
   ton: [
     { addr: 'UQBxgmv81rlsl0YGHKmO4GocCSKjnrUU0RKlQw5iyS4VXrC8', label: 'MyTONWallet' },
@@ -933,10 +934,11 @@ const WALLET_CONFIG = {
   dogecoin: [
     { addr: 'D7fQthvuwXxWmRJNo78PHQL6uiWZTFMSnu',            label: 'Primary' },
   ],
-  hedera:   [], // 0.0.XXXXXX — pending
-  tezos:    [], // tz1... — pending
-  cosmos:   [], // cosmos1... — pending
+  hedera:   [{ addr: '0.0.7848193',                                label: 'HashPack' }],
+  tezos:    [{ addr: 'tz1ZQZnHg2teMd92mfCwryi9MorKpj7gMaZd',    label: 'Temple' }],
+  cosmos:   [{ addr: 'cosmos1sf5t8uxxytdq25qe4a5p702qnvhv8f3pye4mez', label: 'Leap' }],
   algorand: [], // 58-char — pending
+  cronos:   [{ addr: '0x2626774dd6D83706f7Cf96eE34433fBdeF1d6c2B', label: 'Crypto.com' }],
 };
 
 // ── Chain metadata ──────────────────────────────────────────────────────────
@@ -951,6 +953,7 @@ const CHAINS = {
   ton:      { name:'TON',       symbol:'TON',  cgId:'the-open-network', dec:9,  color:'#0098ea', icon:'◈' },
   cardano:  { name:'Cardano',   symbol:'ADA',  cgId:'cardano',          dec:6,  color:'#0033ad', icon:'₳' },
   dogecoin: { name:'Dogecoin',  symbol:'DOGE', cgId:'dogecoin',         dec:8,  color:'#c2a633', icon:'Ð' },
+  cronos:   { name:'Cronos',    symbol:'CRO',  cgId:'crypto-com-chain', dec:18, color:'#002D74', icon:'⬡' },
 };
 
 // ── Balance fetchers ─────────────────────────────────────────────────────────
@@ -1010,6 +1013,13 @@ async function fetchRawBalance(chain, address) {
                  headers:{'Accept':'application/json'} });
         data = await res.json();
         raw  = parseInt(data?.[0]?.balance ?? '0');
+        break;
+      case 'cronos':
+        res  = await fetch('https://evm.cronos.org', { signal:ctl.signal, method:'POST',
+                 headers:{'Content-Type':'application/json'},
+                 body: JSON.stringify({jsonrpc:'2.0',id:1,method:'eth_getBalance',params:[address,'latest']}) });
+        data = await res.json();
+        raw  = parseInt(data.result ?? '0x0', 16);
         break;
       case 'dogecoin':
         res  = await fetch(`https://api.blockcypher.com/v1/doge/main/addrs/${address}/balance`, { signal:ctl.signal });
