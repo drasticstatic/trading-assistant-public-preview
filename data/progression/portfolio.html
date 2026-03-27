@@ -77,6 +77,55 @@
     .nav-space { flex: 1; }
     .nav-status { font-size: .75rem; color: var(--green); }
     .nav-status::before { content: "● "; }
+    .nav-donate-btn {
+      padding: .22rem .7rem; border: 1px solid var(--purple); border-radius: 999px;
+      font-size: .76rem; color: var(--purple); background: none; cursor: pointer;
+      transition: background .15s, color .15s;
+    }
+    .nav-donate-btn:hover { background: var(--purple); color: #fff; }
+
+    /* ── DONATE MODAL ── */
+    .donate-overlay {
+      display: none; position: fixed; inset: 0; z-index: 500;
+      background: rgba(0,0,0,.65); backdrop-filter: blur(4px);
+      align-items: center; justify-content: center;
+    }
+    .donate-overlay.open { display: flex; }
+    .donate-modal {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.6rem 1.8rem; width: min(480px, 94vw); position: relative;
+    }
+    .donate-modal h3 {
+      margin: 0 0 .3rem; font-size: 1rem;
+      background: linear-gradient(90deg, var(--purple), var(--blue));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .donate-modal p { margin: 0 0 1.2rem; font-size: .8rem; color: var(--muted); }
+    .donate-close {
+      position: absolute; top: .8rem; right: 1rem;
+      background: none; border: none; color: var(--muted); font-size: 1.1rem; cursor: pointer;
+    }
+    .donate-close:hover { color: var(--text); }
+    .donate-chain { margin-bottom: 1rem; }
+    .donate-chain-label {
+      font-size: .72rem; font-weight: 600; color: var(--muted);
+      text-transform: uppercase; letter-spacing: .06em; margin-bottom: .35rem;
+    }
+    .donate-addr-row {
+      display: flex; align-items: center; gap: .5rem;
+      background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: .45rem .7rem;
+    }
+    .donate-addr {
+      flex: 1; font-size: .72rem; font-family: monospace; color: var(--text);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .donate-copy {
+      flex-shrink: 0; background: none; border: 1px solid var(--border); border-radius: 6px;
+      padding: .2rem .55rem; font-size: .72rem; color: var(--muted); cursor: pointer;
+      transition: border-color .15s, color .15s;
+    }
+    .donate-copy:hover { border-color: var(--purple); color: var(--text); }
+    .donate-copy.copied { border-color: var(--green); color: var(--green); }
 
     /* ── HEADER ── */
     .header {
@@ -271,8 +320,46 @@
     <a class="nav-tag" href="SmartTradingBlueprint/course-workbook.html">📘 STB</a>
     <a class="nav-tag" href="inevitrade/inner-circle-workbook.html">📗 IT</a>
     <div class="nav-space"></div>
+    <button class="nav-donate-btn" onclick="document.getElementById('donateOverlay').classList.add('open')">💜 Donate</button>
     <span class="nav-status">Mar 26, 2026</span>
   </nav>
+
+  <!-- ── DONATE MODAL ── -->
+  <div class="donate-overlay" id="donateOverlay" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="donate-modal">
+      <button class="donate-close" onclick="document.getElementById('donateOverlay').classList.remove('open')">✕</button>
+      <h3>💜 Support This Work</h3>
+      <p>If you find this useful, any contribution is appreciated. Send to any address below.</p>
+      <div class="donate-chain">
+        <div class="donate-chain-label">₿ Bitcoin</div>
+        <div class="donate-addr-row">
+          <span class="donate-addr">bc1q9ak9tt7v4m7egv5gfv32g93ghah5tvzh8c7hwh</span>
+          <button class="donate-copy" onclick="donCopy(this,'bc1q9ak9tt7v4m7egv5gfv32g93ghah5tvzh8c7hwh')">Copy</button>
+        </div>
+      </div>
+      <div class="donate-chain">
+        <div class="donate-chain-label">Ξ Ethereum</div>
+        <div class="donate-addr-row">
+          <span class="donate-addr">0x96F185dB969F3c45EDDff27c73A4880A877BaeF6</span>
+          <button class="donate-copy" onclick="donCopy(this,'0x96F185dB969F3c45EDDff27c73A4880A877BaeF6')">Copy</button>
+        </div>
+      </div>
+      <div class="donate-chain">
+        <div class="donate-chain-label">◎ Solana</div>
+        <div class="donate-addr-row">
+          <span class="donate-addr">CtzcpTLPz41tjMep9HoG6L7PoBtXUhNyMtohtr7XMpGR</span>
+          <button class="donate-copy" onclick="donCopy(this,'CtzcpTLPz41tjMep9HoG6L7PoBtXUhNyMtohtr7XMpGR')">Copy</button>
+        </div>
+      </div>
+      <div class="donate-chain">
+        <div class="donate-chain-label">◈ TON</div>
+        <div class="donate-addr-row">
+          <span class="donate-addr">UQBxgmv81rlsl0YGHKmO4GocCSKjnrUU0RKlQw5iyS4VXrC8</span>
+          <button class="donate-copy" onclick="donCopy(this,'UQBxgmv81rlsl0YGHKmO4GocCSKjnrUU0RKlQw5iyS4VXrC8')">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ── HEADER ── -->
   <header class="header">
@@ -939,6 +1026,7 @@ const WALLET_CONFIG = {
   cosmos:   [{ addr: 'cosmos1sf5t8uxxytdq25qe4a5p702qnvhv8f3pye4mez', label: 'Leap' }],
   algorand: [], // 58-char — pending
   cronos:   [{ addr: '0x2626774dd6D83706f7Cf96eE34433fBdeF1d6c2B', label: 'Crypto.com' }],
+  core:     [{ addr: '0x86f68a9E23506D2f4973d1926415857cABae25bE',  label: 'Core DAO' }],
 };
 
 // ── Chain metadata ──────────────────────────────────────────────────────────
@@ -954,6 +1042,7 @@ const CHAINS = {
   cardano:  { name:'Cardano',   symbol:'ADA',  cgId:'cardano',          dec:6,  color:'#0033ad', icon:'₳' },
   dogecoin: { name:'Dogecoin',  symbol:'DOGE', cgId:'dogecoin',         dec:8,  color:'#c2a633', icon:'Ð' },
   cronos:   { name:'Cronos',    symbol:'CRO',  cgId:'crypto-com-chain', dec:18, color:'#002D74', icon:'⬡' },
+  core:     { name:'Core',      symbol:'CORE', cgId:'coredaoorg',       dec:18, color:'#ff6b35', icon:'◆' },
 };
 
 // ── Balance fetchers ─────────────────────────────────────────────────────────
@@ -1025,6 +1114,13 @@ async function fetchRawBalance(chain, address) {
         res  = await fetch(`https://api.blockcypher.com/v1/doge/main/addrs/${address}/balance`, { signal:ctl.signal });
         data = await res.json();
         raw  = data.balance ?? 0;
+        break;
+      case 'core':
+        res  = await fetch('https://rpc.coredao.org', { signal:ctl.signal, method:'POST',
+                 headers:{'Content-Type':'application/json'},
+                 body: JSON.stringify({jsonrpc:'2.0',id:1,method:'eth_getBalance',params:[address,'latest']}) });
+        data = await res.json();
+        raw  = parseInt(data.result ?? '0x0', 16);
         break;
     }
     clearTimeout(tid);
@@ -1171,6 +1267,13 @@ async function loadBalances() {
 
 // Auto-load on page open
 window.addEventListener('DOMContentLoaded', loadBalances);
+
+function donCopy(btn, addr) {
+  navigator.clipboard.writeText(addr).then(() => {
+    btn.textContent = 'Copied!'; btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1800);
+  });
+}
 </script>
 
 </body>

@@ -96,6 +96,47 @@
       white-space:nowrap; text-decoration:none;
     }
     .pill-btn:hover { border-color:var(--accent); color:var(--text); transform:translateY(-1px); text-decoration:none; }
+    .pill-btn.donate-pill { border-color: #9b5de5; color: #9b5de5; }
+    .pill-btn.donate-pill:hover { background: #9b5de5; color: #fff; border-color: #9b5de5; }
+
+    /* ── DONATE MODAL ── */
+    .donate-overlay {
+      display: none; position: fixed; inset: 0; z-index: 500;
+      background: rgba(0,0,0,.65); backdrop-filter: blur(4px);
+      align-items: center; justify-content: center;
+    }
+    .donate-overlay.open { display: flex; }
+    .donate-modal {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.6rem 1.8rem; width: min(480px, 94vw); position: relative;
+    }
+    .donate-modal h3 { margin: 0 0 .3rem; font-size: 1rem; color: #9b5de5; }
+    .donate-modal p { margin: 0 0 1.2rem; font-size: .8rem; color: var(--muted); }
+    .donate-close {
+      position: absolute; top: .8rem; right: 1rem;
+      background: none; border: none; color: var(--muted); font-size: 1.1rem; cursor: pointer;
+    }
+    .donate-close:hover { color: var(--text); }
+    .donate-chain { margin-bottom: 1rem; }
+    .donate-chain-label {
+      font-size: .72rem; font-weight: 600; color: var(--muted);
+      text-transform: uppercase; letter-spacing: .06em; margin-bottom: .35rem;
+    }
+    .donate-addr-row {
+      display: flex; align-items: center; gap: .5rem;
+      background: var(--bg,#0d0d0d); border: 1px solid var(--border); border-radius: 8px; padding: .45rem .7rem;
+    }
+    .donate-addr {
+      flex: 1; font-size: .72rem; font-family: monospace; color: var(--text);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .donate-copy {
+      flex-shrink: 0; background: none; border: 1px solid var(--border); border-radius: 6px;
+      padding: .2rem .55rem; font-size: .72rem; color: var(--muted); cursor: pointer;
+      transition: border-color .15s, color .15s;
+    }
+    .donate-copy:hover { border-color: #9b5de5; color: var(--text); }
+    .donate-copy.copied { border-color: #3af5a0; color: #3af5a0; }
 
     /* ── Sidebar ──────────────────────────────────────────────── */
     .sidebar {
@@ -527,6 +568,7 @@
     <a class="pill-btn res-nav-pill" href="./SmartTradingBlueprint/course-workbook.html">📘 STB</a>
     <a class="pill-btn res-nav-pill" href="./inevitrade/inner-circle-workbook.html">📗 IT</a>
     <a class="pill-btn res-nav-pill" href="./portfolio.html">📊 Portfolio</a>
+    <button class="pill-btn donate-pill" onclick="document.getElementById('donateOverlay').classList.add('open')">💜 Donate</button>
     <button class="pill-btn" onclick="toggleTheme()" id="themeBtn">☀️</button>
   </div>
 </header>
@@ -1975,6 +2017,51 @@
       }, { passive: false });
     });
   })();
+</script>
+
+<!-- ── DONATE MODAL ── -->
+<div class="donate-overlay" id="donateOverlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="donate-modal">
+    <button class="donate-close" onclick="document.getElementById('donateOverlay').classList.remove('open')">✕</button>
+    <h3>💜 Support This Work</h3>
+    <p>If you find this useful, any contribution is appreciated. Send to any address below.</p>
+    <div class="donate-chain">
+      <div class="donate-chain-label">₿ Bitcoin</div>
+      <div class="donate-addr-row">
+        <span class="donate-addr">bc1q9ak9tt7v4m7egv5gfv32g93ghah5tvzh8c7hwh</span>
+        <button class="donate-copy" onclick="donCopy(this,'bc1q9ak9tt7v4m7egv5gfv32g93ghah5tvzh8c7hwh')">Copy</button>
+      </div>
+    </div>
+    <div class="donate-chain">
+      <div class="donate-chain-label">Ξ Ethereum</div>
+      <div class="donate-addr-row">
+        <span class="donate-addr">0x96F185dB969F3c45EDDff27c73A4880A877BaeF6</span>
+        <button class="donate-copy" onclick="donCopy(this,'0x96F185dB969F3c45EDDff27c73A4880A877BaeF6')">Copy</button>
+      </div>
+    </div>
+    <div class="donate-chain">
+      <div class="donate-chain-label">◎ Solana</div>
+      <div class="donate-addr-row">
+        <span class="donate-addr">CtzcpTLPz41tjMep9HoG6L7PoBtXUhNyMtohtr7XMpGR</span>
+        <button class="donate-copy" onclick="donCopy(this,'CtzcpTLPz41tjMep9HoG6L7PoBtXUhNyMtohtr7XMpGR')">Copy</button>
+      </div>
+    </div>
+    <div class="donate-chain">
+      <div class="donate-chain-label">◈ TON</div>
+      <div class="donate-addr-row">
+        <span class="donate-addr">UQBxgmv81rlsl0YGHKmO4GocCSKjnrUU0RKlQw5iyS4VXrC8</span>
+        <button class="donate-copy" onclick="donCopy(this,'UQBxgmv81rlsl0YGHKmO4GocCSKjnrUU0RKlQw5iyS4VXrC8')">Copy</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+function donCopy(btn, addr) {
+  navigator.clipboard.writeText(addr).then(() => {
+    btn.textContent = 'Copied!'; btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1800);
+  });
+}
 </script>
 
 </body>
