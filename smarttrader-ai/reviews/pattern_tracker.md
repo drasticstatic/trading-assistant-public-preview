@@ -27,6 +27,10 @@
 | 015 | Mar 16 | RTY | Short | 2,522.90 | 2,504.20 (TP hit) | **+$935.00** | 2.79 | 4/5 | A | ✅ SFP + ZTH KEY rejection + bearish FVG + OB confluence at TP | ✅ Placed pre-entry, never touched | **Yes** |
 | 016 | Mar 17–18 | MNQ | Short | 25,095.50 | 24,935.00 (TP hit) | **+$963.00** | — | 70.94 | 2.5/5 | ⚠️ Structural SHORT — SMT divergence — rushed bracket rebuild post-class | ❌ Moved wide (25,144→25,416, Asia session) | Partial |
 | 017 | Mar 20 | RTY | Long | 2,455.10 | 2,465.60 (AutoLiq 16:59) | **+$525.00** | N/A (SL canceled) | 78.94 | 2.5/5 | ⚠️ Unintentional fill — ZTH HVN Bounce + SFP (old projected limit) | ❌ SL canceled 17min post-fill | No |
+| 018 | Mar 24 | ES | Short | 6,673.00 | 6,648.50 (AutoLiq) | **+$1,225.00** | — | 74.24 | 3.5/5 | ✅ ZTH Pivot + SMT lower highs + IT OG sell · 36hr overnight limit fill | ✅ Placed, never threatened | Partial |
+| 019 | Mar 25–26 | SOL/USDT | Long | 92.4686 | 89.6435 (manual) | **-$14.13** | — | — | — | ⚠️ IT EMAs bullish · OPEN/CAUTION at entry · near swing high | ✅ N/A (voucher, no SL set) | No |
+| 020 | Mar 26 | MCL | Long | 89.9 | 88.4 (SL hit) | **-$300.00** | — | — | 0.5/5 | ✅ EMA bullish · OB + key level · pivot retracement (valid setup) | ✅ Respected — instant (Pattern 9 ✅) | No |
+| 021 | Mar 26 | MGC | Short | 4,410.6 | 4,405.9 (manual) | **+$94.00** | — | 48.45 | 0.5/5 | ✅ EMAs bearish · rejection off resistance · pivot sell | ❌ Moved through 38.7-pt adverse (Pattern 7 repeat) | No |
 
 ---
 
@@ -48,11 +52,13 @@ Mar 16   +$666.50  ████████████████ NET WIN ✅ 
 Mar 17   +$963.00  ████████████████ WIN ✅ (overnight MNQ SHORT — SMT divergence — SL moved wide, TP hit while resting)
 Mar 18–19   $0.00  ────────────────  no qualifying fills
 Mar 20   +$525.00  ████████████████ WIN ✅ (unintentional fill — AutoLiq exit)
+Mar 24  +$1,225.00  ████████████████ WIN ✅ (ES short · 36hr overnight limit · AutoLiq · APEX-06)
+Mar 25       $0.00  ────────────────  no fills — APEX milestone day · TPT Day 1 starts
+Mar 26    -$206.00  ████░░░░░░░░░░░  TPT net loss (MCL -$300 · MGC +$94) — news candle stop hunt
 
-Cumulative (Feb 23–Mar 20): +$93.00 (USD futures) + $20.63 USDT crypto
-  Correction: prior tracker showed -$1,536.50 (Mar 16/17 missing, treated as $0 in "observation")
-              + $666.50 (Mar 16 net) + $963.00 (Mar 17) = +$93.00 corrected total
-Note: Mar 3 includes account breach. APEX-484839-05 trailing drawdown floor $98,130.50 — breached by $60.
+Cumulative (Feb 23–Mar 26, USD futures/crypto): +$1,112.00 (USD futures) - $14.13 USDT + $20.63 USDT = ~+$1,118.50
+  APEX-06: +$1,225 (Mar 24) · TPT: -$206 (Mar 26) · APEX-05: blown Mar 3 (included in Feb-Mar running loss)
+Note: Mar 24 APEX-06 balance ~$103,252. TPT 50K: Day 2 of 5 min days complete. GC trade open (pending).
 ```
 
 ---
@@ -78,7 +84,10 @@ Note: Mar 3 includes account breach. APEX-484839-05 trailing drawdown floor $98,
 | Mar 16 MNQ (T1) | Ambivalent | Partial | ⚠️ Break & Retest SHORT — FCR structural reference used for first time live | ❌ Adjusted in-trade (moved to FCR long-from-here ray) — rationalized as structural | SL adjustment preceded stop-out at adjusted level — Pattern 7 echo even within a positive-net session |
 | Mar 16 RTY (T2) | Calm, confident | **Yes** | ✅ SFP + ZTH KEY + bearish FVG + OB at TP — clean execution stack | ✅ Placed pre-entry, held throughout, hit exactly | Conservative TP near RTH close = correct read; first green day; Feb 25 execution standard matched |
 | Mar 17 MNQ (T1) | Anxious, rushed | Partial | ⚠️ Valid SMT divergence read — bracket rebuilt under time pressure post-class | ❌ Moved wide (25,144→25,416) during Asia session — rationalized as noise survival | Win via overnight TP fill while resting; SL movement was a Pattern 7 echo — win does not validate the behavior |
-| Mar 20 RTY (T1) | Ambivalent, anxious, fearful, frustrated, happy, stressed, excited | No | ⚠️ Unintentional — old projected limit filled while resting | ❌ Canceled 17min post-fill — MAE within 0.4pts of original SL | Unintentional fill → correct structural hold (HVN + Mar 8 low SMT) → AutoLiq |
+| Mar 20 RTY (T1) | Ambivalent, anxious, fearful, frustrated, happy, stressed, excited | No | ⚠️ Unintentional — old projected limit filled while resting | ❌ Canceled 17min post-fill — MAE within 0.4pts of original SL |
+| Mar 24 ES (T1) | Confident, excited, fearful, frustrated, happy, stressed, ambivalent, anxious, angry, calm | Partial | ✅ ZTH Pivot + SMT lower highs + IT OG sell + overnight structural entry | ✅ Placed, never threatened — cleanest Pattern 7 pass under max pressure |
+| Mar 26 MCL (T1) | Angry, ambivalent, fearful, frustrated, stressed | No | ✅ EMA bullish, OB + key level, pivot retracement (valid setup, news event) | ✅ Instant fill — stop hit before any Pattern 7 window existed |
+| Mar 26 MGC (T2) | Ambivalent, anxious, confident, fearful, frustrated, happy, neutral, stressed | No | ✅ EMAs bearish, rejection off resistance, pivot sell | ❌ Moved multiple times through 38.7-pt adverse — Pattern 7, fourth consecutive session | Unintentional fill → correct structural hold (HVN + Mar 8 low SMT) → AutoLiq |
 
 **Trend:**
 ```
@@ -379,10 +388,26 @@ Mar 20  ████████████░░░░░░░░  ⚠️ Win
                                AutoLiq at 16:59 → +$525. Quadruple witching day.
                                Pattern 9 identified: unintentional fill, pre-rest order management.
 
-Arc status: SL discipline: 10/15 filled trades — Pattern 7 echo in Mar 16 MNQ (adjusted), Mar 17 MNQ (moved wide), Mar 20 (canceled).
-            Win rate improving: 6/15 = 40% vs 4/12 = 33% prior. Three wins in final stretch.
-            Account P&L turned positive (+$93) but process incomplete — wins via AutoLiq or resting TP, not active exits.
-            Next frontier: write exit rules before every trade · pre-rest order cancel checklist · define personal hard exit time (16:00 ET).
+Mar 24  ████████████████████  ✅ +$1,225 ES short (APEX-06) — 36hr overnight patience arc
+                               Sell limit at 6673.0 set night of Mar 23 after London STB call.
+                               Full RTH session observed without touching entry. Filled ETH at 16:26.
+                               Pattern 7 HELD under maximum pressure (APEX deadline + exhaustion).
+                               Pattern 8 present — AutoLiq exit at 16:59, TP at 6588.75 not reached.
+                               Pattern 9 — intentional: bracket in place, prayer said, rested deliberately.
+                               APEX-06 min days met Mar 25. First intentional overnight fill executed.
+
+Mar 26  ████░░░░░░░░░░░░░░░░  ⚠️ News candle stop hunt · TPT net -$206
+                               MCL LONG 89.9: news candle at 16:11 ET — stopped out in 4 seconds.
+                               Stop was PRE-PLACED → -$300 defined loss. Pattern 9 ✅ improvement.
+                               MGC SHORT 4410.6: 38.7-pt adverse move (MAE -$774). SL moved through adverse.
+                               Pattern 7 — four consecutive sessions (Mar 16, 17, 20, 26).
+                               Survived adverse, manually closed at 4405.9, +$94. Pattern 8 partial ✅.
+                               GC full contract short entered evening — news candle at ~22:00 ET, overnight drawdown. Pending.
+
+Arc status: Pattern 7 — most persistent unresolved pattern: 4 consecutive sessions. Fix required: define SL structurally, commit in writing, do not touch.
+            Pattern 8 — first manual close on Mar 26 MGC. Progress. Build on it.
+            Pattern 9 — MCL stop saved the account on Mar 26. This is what the pattern is about.
+            Account standing: APEX-06 eval progressing (min days done, profit target remaining). TPT Day 2 of 5.
 ```
 
 ---
@@ -440,6 +465,10 @@ Links to individual reviews:
 - [Mar 16 — RTY Short T2 (+$935)](2026/03-Mar/review_20260316_RTY_002.md)
 - [Mar 17–18 — MNQ Short overnight (+$963)](2026/03-Mar/review_20260317_MNQ_001.md)
 - [Mar 20 — RTY Long (+$525 · unintentional fill)](2026/03-Mar/review_20260320_RTY_001.md)
+- [Mar 24 — ES Short overnight (+$1,225 · APEX-06)](2026/03-Mar/review_20260324_ES-APEX_001.md)
+- [Mar 25–26 — SOL/USDT Long (-$14.13 · BTCC voucher)](2026/03-Mar/review_20260325_SOLUSDT-BTCC_001.md)
+- [Mar 26 — MCL Long (-$300 · TPT · news candle)](2026/03-Mar/review_20260326_MCL-TPT_001.md)
+- [Mar 26 — MGC Short (+$94 · TPT · stop hunt survival)](2026/03-Mar/review_20260326_MGC-TPT_002.md)
 
 ---
 
