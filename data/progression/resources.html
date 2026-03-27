@@ -280,8 +280,39 @@
     }
     .floating-word:hover { opacity: 0.6 !important; }
     @keyframes floatWord {
-      0%, 100% { opacity: 0; transform: translateY(4px); }
-      40%, 60% { opacity: 0.28; transform: translateY(0); }
+      0%, 100% { opacity: 0; transform: translateY(4px) rotate(var(--fw-rot, 0deg)); }
+      40%, 60% { opacity: 0.28; transform: translateY(0) rotate(var(--fw-rot, 0deg)); }
+    }
+    /* ── Floating word tooltip ── */
+    .fw-tooltip-box {
+      position: fixed;
+      z-index: 9999;
+      max-width: 220px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.45rem 0.7rem;
+      font-size: 0.78rem;
+      color: var(--text);
+      line-height: 1.45;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.45);
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.15s, transform 0.15s;
+    }
+    .fw-tooltip-box.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fw-tooltip-term {
+      display: block;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.2rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
     /* ── MAIN LAYOUT ── */
@@ -537,20 +568,26 @@
 
 <div class="hero">
   <div class="hero-floating-words" aria-hidden="true">
-    <span class="floating-word" style="top:12%;left:8%;font-size:0.78rem;animation:floatWord 10s 0s infinite;">FCR setup</span>
-    <span class="floating-word" style="top:22%;left:78%;font-size:0.9rem;animation:floatWord 12s 1.2s infinite;">liquidity sweep</span>
-    <span class="floating-word" style="top:65%;left:5%;font-size:0.72rem;animation:floatWord 9s 2.5s infinite;">FVG</span>
-    <span class="floating-word" style="top:75%;left:82%;font-size:0.85rem;animation:floatWord 13s 0.7s infinite;">session times</span>
-    <span class="floating-word" style="top:10%;left:55%;font-size:0.76rem;animation:floatWord 11s 3.1s infinite;">prop firm rules</span>
-    <span class="floating-word" style="top:82%;left:30%;font-size:0.82rem;animation:floatWord 10s 1.8s infinite;">golden pocket</span>
-    <span class="floating-word" style="top:18%;left:30%;font-size:0.88rem;animation:floatWord 14s 0.4s infinite;">SMT divergence</span>
-    <span class="floating-word" style="top:55%;left:88%;font-size:0.7rem;animation:floatWord 9s 4.0s infinite;">trailing drawdown</span>
-    <span class="floating-word" style="top:40%;left:3%;font-size:1.0rem;animation:floatWord 12s 2.2s infinite;">psychology</span>
-    <span class="floating-word" style="top:88%;left:65%;font-size:0.76rem;animation:floatWord 11s 1.5s infinite;">ICT concepts</span>
-    <span class="floating-word" style="top:48%;left:75%;font-size:0.82rem;animation:floatWord 10s 3.6s infinite;">NY session</span>
-    <span class="floating-word" style="top:30%;left:88%;font-size:0.72rem;animation:floatWord 13s 0.9s infinite;">order flow</span>
-    <span class="floating-word" style="top:70%;left:50%;font-size:0.78rem;animation:floatWord 9s 2.8s infinite;">instruments</span>
-    <span class="floating-word" style="top:8%;left:40%;font-size:0.9rem;animation:floatWord 12s 4.4s infinite;">EMA confluence</span>
+    <span class="floating-word" data-tip="9:30 AM open — first 15-min candle sets the HIGH and LOW. Displacement outside those rays is the only valid entry signal." style="top:12%;left:8%;font-size:0.78rem;--fw-rot:-2deg;animation:floatWord 10s 0s infinite;">FCR setup</span>
+    <span class="floating-word" data-tip="Price sweeps past a prior high or low to collect resting stop orders, then reverses. The sweep is the signal — not the break." style="top:22%;left:78%;font-size:0.9rem;--fw-rot:1.5deg;animation:floatWord 12s 1.2s infinite;">liquidity sweep</span>
+    <span class="floating-word" data-tip="Fair Value Gap — a 3-candle imbalance where price moved so fast that the market didn't trade at certain prices. Acts as a magnet for future price." style="top:65%;left:5%;font-size:0.72rem;--fw-rot:3deg;animation:floatWord 9s 2.5s infinite;">FVG</span>
+    <span class="floating-word" data-tip="Futures trade in defined windows. NY AM: 9:30–11:30. London: 3–5 AM ET. Overnight: 6 PM–midnight ET." style="top:75%;left:82%;font-size:0.85rem;--fw-rot:-1deg;animation:floatWord 13s 0.7s infinite;">session times</span>
+    <span class="floating-word" data-tip="Evaluation rules vary by firm. Key: profit target, max drawdown, minimum days. Subscription renewal does NOT reset your progress." style="top:10%;left:55%;font-size:0.76rem;--fw-rot:2deg;animation:floatWord 11s 3.1s infinite;">prop firm rules</span>
+    <span class="floating-word" data-tip="Fibonacci 0.5–0.618 retracement zone. High-probability reversal area — especially when an FVG overlaps within the pocket." style="top:82%;left:30%;font-size:0.82rem;--fw-rot:-2.5deg;animation:floatWord 10s 1.8s infinite;">golden pocket</span>
+    <span class="floating-word" data-tip="Smart Money Technique divergence — when NQ, ES, and YM fail to confirm the same move. One index making a new low while others don't = reversal signal." style="top:18%;left:30%;font-size:0.88rem;--fw-rot:1deg;animation:floatWord 14s 0.4s infinite;">SMT divergence</span>
+    <span class="floating-word" data-tip="Trailing drawdown follows your peak equity upward, tightening the floor. On some Apex accounts it converts to static once profit exceeds ~$2,500." style="top:55%;left:88%;font-size:0.7rem;--fw-rot:-3deg;animation:floatWord 9s 4.0s infinite;">trailing drawdown</span>
+    <span class="floating-word" data-tip="The mental edge: patience, discipline, and neutrality. Most losses come from emotional decisions, not bad setups." style="top:40%;left:3%;font-size:1.0rem;--fw-rot:1.5deg;animation:floatWord 12s 2.2s infinite;">psychology</span>
+    <span class="floating-word" data-tip="Inner Circle Trader framework — order blocks, FVGs, liquidity, and institutional market structure concepts developed by Michael Huddleston." style="top:88%;left:65%;font-size:0.76rem;--fw-rot:-1.5deg;animation:floatWord 11s 1.5s infinite;">ICT concepts</span>
+    <span class="floating-word" data-tip="New York AM session (9:30–11:30 ET) — highest volume, most institutional activity. Prime window for FCR setups." style="top:48%;left:75%;font-size:0.82rem;--fw-rot:2.5deg;animation:floatWord 10s 3.6s infinite;">NY session</span>
+    <span class="floating-word" data-tip="The sequence of buy/sell orders moving through the market. Reading order flow reveals institutional intent before price confirms direction." style="top:30%;left:88%;font-size:0.72rem;--fw-rot:-2deg;animation:floatWord 13s 0.9s infinite;">order flow</span>
+    <span class="floating-word" data-tip="Primary: MNQ. Confirming: ES/MES, YM. Energy: CL. Crypto: SOL/USDT. Triple-index SMT requires all three to confirm direction." style="top:70%;left:50%;font-size:0.78rem;--fw-rot:1deg;animation:floatWord 9s 2.8s infinite;">instruments</span>
+    <span class="floating-word" data-tip="IT Foundation EMA stack — fast/slow EMAs gate Scenario B entries. Red dominant = short bias valid. Green dominant = long bias valid." style="top:8%;left:40%;font-size:0.9rem;--fw-rot:-1.5deg;animation:floatWord 12s 4.4s infinite;">EMA confluence</span>
+    <span class="floating-word" data-tip="A displacement candle moves strongly in one direction, leaving an FVG behind. True displacement is the entry trigger — not just a large candle." style="top:35%;left:58%;font-size:0.75rem;--fw-rot:2deg;animation:floatWord 11s 5.1s infinite;">displacement</span>
+    <span class="floating-word" data-tip="Buy-side liquidity: stop orders clustered above highs. Sell-side: stops below lows. Price raids these clusters before reversing." style="top:58%;left:20%;font-size:0.8rem;--fw-rot:-2deg;animation:floatWord 10s 6.3s infinite;">sell-side liq</span>
+    <span class="floating-word" data-tip="Kill zones are high-probability time windows when institutional players are active: London Open (3–5 AM ET), NY Open (9:30–11 AM ET), NY Close (3–4 PM ET)." style="top:92%;left:12%;font-size:0.74rem;--fw-rot:3deg;animation:floatWord 13s 2.0s infinite;">kill zones</span>
+    <span class="floating-word" data-tip="Market structure is defined by swing highs/lows. A break of structure (BOS) confirms trend. A change of character (ChoCH) signals potential reversal." style="top:25%;left:12%;font-size:0.77rem;--fw-rot:-1deg;animation:floatWord 9s 4.8s infinite;">market structure</span>
+    <span class="floating-word" data-tip="Daily bias is the directional lean going into a session, based on HTF levels, overnight range, and economic calendar. Trades should align with daily bias unless there's a clear counter-narrative." style="top:62%;left:62%;font-size:0.73rem;--fw-rot:1.5deg;animation:floatWord 12s 3.4s infinite;">daily bias</span>
+    <span class="floating-word" data-tip="Micro Nasdaq futures — 1/10th the size of NQ. Primary instrument on Apex. Allows precise position sizing during evaluation." style="top:45%;left:42%;font-size:0.88rem;--fw-rot:-3deg;animation:floatWord 10s 7.2s infinite;">MNQ</span>
   </div>
   <p class="hero-eyebrow">📚 Living Reference · Updated as the journey evolves</p>
   <h1 class="hero-title">Trading Resources</h1>
@@ -709,6 +746,17 @@
       <p>Perspective on early account blowouts: with the 90% off Apex sale, reset costs during the learning phase were approximately $50 per reset. The tuition paid to experience tilt, emotional restarts, and pattern recognition across several accounts was relatively low in dollar terms — high in emotional terms.</p>
       <p>The real cost is not the dollar amount but the time and emotional capital. Every blown account teaches a pattern. The goal is to learn those patterns at the lowest-cost phase (evaluation, not live funded) and carry the lessons forward.</p>
       <div class="lesson-tag">📖 Lesson: buy experience cheap, then scale when the patterns are understood.</div>
+    </details>
+
+    <details class="prop-card">
+      <summary style="cursor:pointer;list-style:none;display:flex;align-items:center;gap:.5rem;">
+        <span style="color:var(--subtle);font-size:.8rem;flex-shrink:0;">›</span>
+        <h3 style="margin:0;">🔀 Cross-Margin vs. Isolated Margin</h3>
+      </summary>
+      <p><strong>Isolated margin</strong> means each position has its own dedicated collateral. If that position is liquidated, only the margin allocated to it is lost — your other positions and remaining balance are untouched. Think of it as a per-trade firewall.</p>
+      <p><strong>Cross-margin</strong> means all open positions share your full available account balance as collateral. A position moving against you can pull from margin that was also backing your other positions. This reduces the immediate liquidation risk on any single trade — but a cascading move across multiple positions can liquidate everything simultaneously.</p>
+      <p><strong>Why it matters in practice:</strong> On prop firm evaluations, cross-margin behaviour varies by platform. On crypto exchanges like BTCC, defaulting to cross-margin without realising it means a single adverse move can affect unrelated open positions. The safer default for learners is isolated margin — the loss ceiling per trade is visible and fixed.</p>
+      <div class="lesson-tag">💰 Learned: BTCC voucher trade Mar 25 — cross-margin mode compounded drawdown across balance. Default to isolated.</div>
     </details>
 
   </div>
@@ -1855,6 +1903,57 @@
         input.dispatchEvent(new Event('input'));
         input.focus();
       });
+    });
+  })();
+
+  // ── Floating word tooltips ──
+  (function() {
+    const box = document.createElement('div');
+    box.className = 'fw-tooltip-box';
+    document.body.appendChild(box);
+
+    let hideTimer;
+
+    function showTip(word, tip) {
+      clearTimeout(hideTimer);
+      box.innerHTML = '<span class="fw-tooltip-term">' + word + '</span>' + tip;
+      box.classList.add('is-visible');
+    }
+
+    function hideTip() {
+      hideTimer = setTimeout(() => box.classList.remove('is-visible'), 120);
+    }
+
+    function positionBox(e) {
+      const margin = 12;
+      const bw = box.offsetWidth, bh = box.offsetHeight;
+      let x = e.clientX + margin, y = e.clientY - bh / 2;
+      if (x + bw > window.innerWidth - 8) x = e.clientX - bw - margin;
+      if (y < 8) y = 8;
+      if (y + bh > window.innerHeight - 8) y = window.innerHeight - bh - 8;
+      box.style.left = x + 'px';
+      box.style.top = y + 'px';
+    }
+
+    document.querySelectorAll('.floating-word[data-tip]').forEach(el => {
+      const tipText = el.dataset.tip;
+      const wordText = el.textContent.trim();
+
+      // Desktop: mouse
+      el.addEventListener('mouseenter', (e) => { showTip(wordText, tipText); positionBox(e); });
+      el.addEventListener('mousemove', positionBox);
+      el.addEventListener('mouseleave', hideTip);
+
+      // Mobile: tap
+      el.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        const t = e.touches[0];
+        showTip(wordText, tipText);
+        box.style.left = Math.min(t.clientX + 12, window.innerWidth - box.offsetWidth - 8) + 'px';
+        box.style.top = Math.max(t.clientY - box.offsetHeight - 12, 8) + 'px';
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(() => box.classList.remove('is-visible'), 2800);
+      }, { passive: false });
     });
   })();
 </script>
