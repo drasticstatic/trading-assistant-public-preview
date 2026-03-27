@@ -22,8 +22,13 @@ TradingView (Charts + Alerts)
     ├── Custom Pine Script indicators (overlays + alerts)
     └── Webhook alerts → tunnel → local server → AI
 
-Tradovate API (Brokerage)
+Tradovate API (Brokerage — CME Futures)
     └── MCP Server → AI reads account data, positions, fills
+
+Hummingbot Stack (Crypto CEX + DEX Execution)
+    ├── hummingbot-api (Docker) — FastAPI on :8000, PostgreSQL, EMQX MQTT
+    ├── Hummingbot Gateway (DEX middleware — Solana, EVM chains)
+    └── MCP Server (hummingbot-mcp) → AI places orders, manages positions, deploys bots
 
 AI Agents
     ├── Fortuna (Claude Code) — strategy, coaching, session intelligence
@@ -32,13 +37,17 @@ AI Agents
 
 TradeZella (Journaling)
     └── CSV exports → AI analyzes trades vs rules
+
+Public-Facing Pages (GitHub Pages)
+    ├── portfolio.html — 2026 YTD stats, recovery arc, futures log, CoinLedger breakdown, live web3 balances
+    └── resources.html — floating word glossary, coaching cards, prop firm mechanics, psychology cards
 ```
 
 ## Agent Architecture
 
 | Agent | Model | Role | Key Tools / Access |
 |---|---|---|---|
-| **Fortuna** | Claude Code CLI | Primary collaborator — trading strategy, chart analysis, behavioral coaching, session management | MCP: `tv-alerts`, `tradovate`, `auggie` · Screenshot analysis · TradeZella exports |
+| **Fortuna** | Claude Code CLI | Primary collaborator — trading strategy, chart analysis, behavioral coaching, session management | MCP: `tv-alerts`, `tradovate`, `auggie`, `hummingbot-mcp` · Screenshot analysis · TradeZella exports |
 | **Auggie** | Augment CLI / VS Code Agent | Primary builder bench — implementation, infrastructure, Pine Script, Python, MCP servers | Full workspace read/write · Shell · Git · Package managers |
 | **Kavanah** | Augment Intent | Orchestration layer — keeps the live spec current, breaks work into tasks, and delegates scoped specialists such as implementors, verifiers, or UI-focused agents | Reads spec + task notes · Delegates task agents · Works from Intent's separate workspace clone |
 
@@ -77,14 +86,35 @@ Fortuna reads real-time chart events mid-session
 
 ## Prop Firm Accounts
 
-| Firm | Status | Platform | Notes |
-|---|---|---|---|
-| **Apex Trader Funding** | Active — $100K evaluation | Tradovate | Primary account |
-| **TakeProfitTrader** | Active — evaluation | Tradovate | — |
-| **LucidFlex** | Planned | TBD | Phase 2 |
-| **Tradeify** | Planned | TBD | Phase 3 |
+| Firm | Account | Status | Platform | Notes |
+|---|---|---|---|---|
+| **Apex Trader Funding** | APEX-06 (100K) | ✅ Min days met Mar 24 | Tradovate | Status TBD — awaiting payout/consistency review |
+| **TakeProfitTrader** | TPT 50K | ✅ Active — Day 2/5 min started Mar 25 | Tradovate | 5-day minimum in progress |
+| **BTCC** | SOL/USDT perp | ✅ Active — crypto CEX | BTCC | Voucher account; manual entry; Hummingbot integration planned |
+| **LucidFlex** | — | Planned | TBD | Phase 2 |
+| **Tradeify** | — | Planned | TBD | Phase 3 |
 
 > ⚠️ No account numbers or credentials stored in this file. See private `.env` files for auth.
+
+## MCP Server Registry
+
+| Server | Transport | Purpose | Status |
+|---|---|---|---|
+| `tradovate` | stdio (Python) | Futures brokerage — account, positions, fills, orders | ✅ Connected |
+| `tv-alerts` | stdio (Python) | TradingView webhook alerts — real-time chart events | ✅ Connected |
+| `auggie` | stdio | Augment Code CLI agent access | ✅ Connected |
+| `hummingbot-mcp` | stdio (uv/Python) | Crypto CEX + DEX execution — orders, positions, swaps, bot orchestration | ✅ Connected (Mar 27, 2026) |
+| `telegram-mcp` | stdio | Telegram bidirectional messaging — mobile alerts + DeFi interaction channel | 🔜 Planned |
+
+**Hummingbot Docker stack** (`~/hummingbot/hummingbot-api/`):
+
+| Container | Image | Purpose | Port |
+|---|---|---|---|
+| `hummingbot-api` | hummingbot/hummingbot-api | FastAPI execution layer | 8000 |
+| `hummingbot-postgres` | postgres:16 | Trade/bot state persistence | 5432 |
+| `hummingbot-broker` | emqx:5 | MQTT broker for bot communication | 1883 |
+
+Start/stop: `cd ~/hummingbot/hummingbot-api && make deploy` / `make stop`
 
 ## Export Spec
 
@@ -177,5 +207,24 @@ Strategy details, Pine Script source, and agent specs are in the private workspa
 
 ---
 
-*Built with Claude Code CLI (Anthropic) + Augment Code | 2026*
+## Public Pages
+
+| Page | URL | Purpose |
+|---|---|---|
+| `portfolio.html` | GitHub Pages | 2026 YTD stats, recovery arc, futures trade log, CoinLedger breakdown, live on-chain balance viewer, tax summary |
+| `resources.html` | GitHub Pages | Floating word glossary (20 terms w/ tooltips), coaching methodology cards, prop firm mechanics, psychology cards |
+| `auto-levels.pine_changelog.html` | GitHub Pages | Auto Levels Pine Script version history — compact/expanded toggle, popout modals |
+
+## Planned Integrations
+
+| Integration | Purpose | Prerequisite |
+|---|---|---|
+| **Telegram MCP** (`chigwell/telegram-mcp`) | Bidirectional Telegram messaging — mobile alerts, DeFi dust cleanup, staking management via chat | Telegram API credentials from my.telegram.org/apps |
+| **Hummingbot Gateway** | DEX execution — Solana/EVM swaps, CLMM liquidity positions, wallet sends | Gateway container start + wallet credentials added via `accounts/gateway/add-wallet` |
+| **Hummingbot CEX connectors** | Live crypto trading on BTCC, Bybit, Binance etc. | Exchange API keys added via `accounts/add-credential` |
+| **DEX Arbitrage Bot** | Uniswap/PancakeSwap arb on Arbitrum via Hardhat | Hummingbot Gateway + cross-repo context share from `trading-bot_arbitrage_DAPPUv3_hardhat_UNI-CAKE` |
+
+---
+
+*Built with Claude Code CLI (Anthropic) + Augment Code | 2026 · Last updated Mar 27, 2026*
 
