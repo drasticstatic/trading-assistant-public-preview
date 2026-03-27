@@ -804,6 +804,42 @@
 
     </section>
 
+    <!-- ── LIVE BALANCES ── -->
+    <section class="section" id="live-balances">
+      <div class="sec-label">Live Web3 Balances</div>
+
+      <div id="lb-config-banner" class="callout warn" style="display:none;">
+        ⚙️ <strong>No wallet addresses configured.</strong> Add your public addresses to the <code>WALLET_CONFIG</code> block in the script below to see live balances. Addresses are read-only — no private keys needed or used.
+      </div>
+
+      <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;flex-wrap:wrap;">
+        <button id="lb-refresh" onclick="loadBalances()" style="
+          background:rgba(167,139,250,0.15);border:1px solid rgba(167,139,250,0.35);
+          color:#a78bfa;padding:.35rem .9rem;border-radius:999px;font-size:.82rem;
+          cursor:pointer;font-weight:600;letter-spacing:.04em;transition:.15s;
+        " onmouseover="this.style.background='rgba(167,139,250,0.28)'" onmouseout="this.style.background='rgba(167,139,250,0.15)'">
+          ↻ Refresh Balances
+        </button>
+        <span id="lb-timestamp" style="font-size:.75rem;color:var(--muted);"></span>
+        <span id="lb-total-usd" style="margin-left:auto;font-size:1.05rem;font-weight:700;color:#4ade80;"></span>
+      </div>
+
+      <div id="lb-grid" style="
+        display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.65rem;
+      "></div>
+
+      <div style="margin-top:1rem;padding:.6rem .8rem;background:rgba(255,255,255,0.03);border-radius:8px;border:1px solid var(--border);">
+        <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--subtle);margin-bottom:.35rem;">Exchange accounts (API key required)</div>
+        <div style="display:flex;flex-wrap:wrap;gap:.4rem;">
+          <span style="font-size:.78rem;color:var(--muted);padding:.2rem .6rem;border:1px solid var(--border);border-radius:6px;">Coinbase</span>
+          <span style="font-size:.78rem;color:var(--muted);padding:.2rem .6rem;border:1px solid var(--border);border-radius:6px;">Binance US</span>
+          <span style="font-size:.78rem;color:var(--muted);padding:.2rem .6rem;border:1px solid var(--border);border-radius:6px;">Crypto.com</span>
+          <span style="font-size:.78rem;color:var(--muted);padding:.2rem .6rem;border:1px solid var(--border);border-radius:6px;">BTCC</span>
+          <span style="font-size:.72rem;color:var(--subtle);padding:.2rem .5rem;border:1px dashed var(--border);border-radius:6px;">Phase 2 — API integration</span>
+        </div>
+      </div>
+    </section>
+
     <!-- ── TAX SUMMARY ── -->
     <section class="section" id="tax">
       <div class="sec-label">Tax Summary · Working Estimates</div>
@@ -866,6 +902,220 @@
     <p>Fortuna · Claude Code CLI · <a href="https://github.com/drasticstatic/trading-assistant" target="_blank">trading-assistant</a></p>
     <p style="margin-top:.3rem;opacity:.5;">⚠ Private Record · Working Estimates · Verify Before Filing</p>
   </footer>
+
+<script>
+// ═══════════════════════════════════════════════════════════════════════════
+//  LIVE WALLET CONFIG — add your public addresses here
+//  These are READ-ONLY public blockchain addresses. Never put private keys here.
+//  Leave a field as '' to skip that chain.
+// ═══════════════════════════════════════════════════════════════════════════
+const WALLET_CONFIG = {
+  solana:    '',   // Solana public key (base58, 32–44 chars)
+  ethereum:  '',   // EVM address (0x...) — covers ETH, Polygon, BSC, Base, Optimism, Arbitrum
+  hedera:    '',   // Hedera account ID (0.0.XXXXXX)
+  tezos:     '',   // Tezos address (tz1... or KT1...)
+  cosmos:    '',   // Cosmos address (cosmos1...)
+  algorand:  '',   // Algorand address (58 chars)
+  bitcoin:   '',   // Bitcoin address (legacy, P2SH, or bech32)
+  ton:       '',   // TON address (UQ... or EQ...)
+};
+
+// ── Chain metadata ──────────────────────────────────────────────────────────
+const CHAINS = {
+  solana:   { name:'Solana',    symbol:'SOL',  cgId:'solana',           dec:9,  color:'#9945ff', icon:'◎' },
+  ethereum: { name:'Ethereum',  symbol:'ETH',  cgId:'ethereum',         dec:18, color:'#627eea', icon:'Ξ' },
+  hedera:   { name:'Hedera',    symbol:'HBAR', cgId:'hedera-hashgraph', dec:8,  color:'#00b4d8', icon:'ℏ' },
+  tezos:    { name:'Tezos',     symbol:'XTZ',  cgId:'tezos',            dec:6,  color:'#2c7df7', icon:'ꜩ' },
+  cosmos:   { name:'Cosmos',    symbol:'ATOM', cgId:'cosmos',           dec:6,  color:'#7b68ee', icon:'⚛' },
+  algorand: { name:'Algorand',  symbol:'ALGO', cgId:'algorand',         dec:6,  color:'#00cc99', icon:'Ⓐ' },
+  bitcoin:  { name:'Bitcoin',   symbol:'BTC',  cgId:'bitcoin',          dec:8,  color:'#f7931a', icon:'₿' },
+  ton:      { name:'TON',       symbol:'TON',  cgId:'the-open-network', dec:9,  color:'#0098ea', icon:'◈' },
+};
+
+// ── Balance fetchers ─────────────────────────────────────────────────────────
+async function fetchRawBalance(chain, address) {
+  const T = 7000; // 7s timeout
+  const ctl = new AbortController();
+  const tid = setTimeout(() => ctl.abort(), T);
+  try {
+    let res, data, raw = 0;
+    switch (chain) {
+      case 'solana':
+        res  = await fetch('https://api.mainnet-beta.solana.com', { signal:ctl.signal, method:'POST',
+                 headers:{'Content-Type':'application/json'},
+                 body: JSON.stringify({jsonrpc:'2.0',id:1,method:'getBalance',params:[address]}) });
+        data = await res.json();
+        raw  = data.result?.value ?? 0;
+        break;
+      case 'ethereum':
+        res  = await fetch('https://eth.llamarpc.com', { signal:ctl.signal, method:'POST',
+                 headers:{'Content-Type':'application/json'},
+                 body: JSON.stringify({jsonrpc:'2.0',id:1,method:'eth_getBalance',params:[address,'latest']}) });
+        data = await res.json();
+        raw  = parseInt(data.result ?? '0x0', 16);
+        break;
+      case 'hedera':
+        res  = await fetch(`https://mainnet-public.mirrornode.hedera.com/api/v1/accounts/${address}`, { signal:ctl.signal });
+        data = await res.json();
+        raw  = data.balance?.balance ?? 0;
+        break;
+      case 'tezos':
+        res  = await fetch(`https://api.tzkt.io/v1/accounts/${address}`, { signal:ctl.signal });
+        data = await res.json();
+        raw  = data.balance ?? 0;
+        break;
+      case 'cosmos':
+        res  = await fetch(`https://rest.cosmos.directory/cosmoshub/cosmos/bank/v1beta1/balances/${address}`, { signal:ctl.signal });
+        data = await res.json();
+        raw  = parseInt(data.balances?.find(b => b.denom === 'uatom')?.amount ?? '0');
+        break;
+      case 'algorand':
+        res  = await fetch(`https://mainnet-api.algonode.cloud/v2/accounts/${address}`, { signal:ctl.signal });
+        data = await res.json();
+        raw  = data.amount ?? 0;
+        break;
+      case 'bitcoin':
+        res  = await fetch(`https://blockstream.info/api/address/${address}`, { signal:ctl.signal });
+        data = await res.json();
+        raw  = (data.chain_stats?.funded_txo_sum ?? 0) - (data.chain_stats?.spent_txo_sum ?? 0);
+        break;
+      case 'ton':
+        res  = await fetch(`https://toncenter.com/api/v2/getAddressBalance?address=${encodeURIComponent(address)}`, { signal:ctl.signal });
+        data = await res.json();
+        raw  = parseInt(data.result ?? '0');
+        break;
+    }
+    clearTimeout(tid);
+    return raw;
+  } catch(e) {
+    clearTimeout(tid);
+    return null;
+  }
+}
+
+async function fetchPrices(cgIds) {
+  try {
+    const ids = cgIds.join(',');
+    const res  = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`, { signal: AbortSignal.timeout(8000) });
+    return await res.json();
+  } catch(e) {
+    return {};
+  }
+}
+
+// ── Card renderer ────────────────────────────────────────────────────────────
+function renderCard(chain, state, amount, usd) {
+  const m = CHAINS[chain];
+  const grid = document.getElementById('lb-grid');
+  let el = document.getElementById(`lb-card-${chain}`);
+  if (!el) {
+    el = document.createElement('div');
+    el.id = `lb-card-${chain}`;
+    el.style.cssText = `
+      background:var(--surface);border:1px solid var(--border);border-radius:12px;
+      padding:.75rem .9rem;position:relative;overflow:hidden;
+    `;
+    const bar = document.createElement('div');
+    bar.style.cssText = `position:absolute;top:0;left:0;right:0;height:3px;background:${m.color};opacity:.7;`;
+    el.appendChild(bar);
+    grid.appendChild(el);
+  }
+
+  if (state === 'loading') {
+    el.innerHTML += `<div style="font-size:.78rem;color:var(--muted);margin-top:.2rem;">
+      <span style="font-size:1.1rem;">${m.icon}</span>
+      <strong style="color:var(--text);margin-left:.3rem;">${m.name}</strong>
+      <div style="margin-top:.4rem;color:var(--subtle);font-size:.72rem;">fetching…</div>
+    </div>`;
+    return;
+  }
+
+  if (state === 'error') {
+    el.innerHTML = `<div style="position:absolute;top:0;left:0;right:0;height:3px;background:${m.color};opacity:.7;"></div>
+    <div style="font-size:.78rem;">
+      <span style="font-size:1.1rem;opacity:.4;">${m.icon}</span>
+      <strong style="color:var(--subtle);margin-left:.3rem;">${m.name}</strong>
+      <div style="margin-top:.35rem;font-size:.7rem;color:var(--subtle);">fetch error — check address</div>
+    </div>`;
+    return;
+  }
+
+  const usdStr  = usd != null ? '$' + usd.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}) : '—';
+  const amtStr  = amount.toLocaleString('en-US',{minimumFractionDigits:4,maximumFractionDigits:6});
+  const noPrice = usd == null;
+
+  el.innerHTML = `<div style="position:absolute;top:0;left:0;right:0;height:3px;background:${m.color};opacity:.7;"></div>
+  <div>
+    <div style="display:flex;align-items:baseline;gap:.35rem;">
+      <span style="font-size:1.05rem;">${m.icon}</span>
+      <span style="font-size:.82rem;font-weight:700;color:var(--text);">${m.name}</span>
+      <span style="font-size:.7rem;color:var(--subtle);margin-left:auto;">${m.symbol}</span>
+    </div>
+    <div style="margin-top:.45rem;font-size:1.05rem;font-weight:700;color:${m.color};">${amtStr}</div>
+    <div style="font-size:.78rem;color:${noPrice ? 'var(--subtle)' : '#4ade80'};margin-top:.15rem;">${usdStr}</div>
+  </div>`;
+}
+
+// ── Main loader ───────────────────────────────────────────────────────────────
+async function loadBalances() {
+  const grid = document.getElementById('lb-grid');
+  const configBanner = document.getElementById('lb-config-banner');
+  const ts   = document.getElementById('lb-timestamp');
+  const totEl= document.getElementById('lb-total-usd');
+  const btn  = document.getElementById('lb-refresh');
+
+  const configured = Object.entries(WALLET_CONFIG).filter(([,v]) => v.trim() !== '');
+
+  if (configured.length === 0) {
+    configBanner.style.display = '';
+    grid.innerHTML = '';
+    totEl.textContent = '';
+    ts.textContent = '';
+    return;
+  }
+  configBanner.style.display = 'none';
+
+  btn.textContent = '↻ Fetching…';
+  btn.disabled = true;
+
+  // Seed loading cards
+  grid.innerHTML = '';
+  for (const [chain] of configured) {
+    renderCard(chain, 'loading');
+  }
+
+  // Fetch all balances in parallel
+  const balanceResults = await Promise.all(
+    configured.map(([chain, addr]) => fetchRawBalance(chain, addr).then(r => ({ chain, raw: r })))
+  );
+
+  // Fetch prices
+  const cgIds = configured.map(([chain]) => CHAINS[chain].cgId);
+  const prices = await fetchPrices(cgIds);
+
+  let total = 0;
+  for (const { chain, raw } of balanceResults) {
+    const m = CHAINS[chain];
+    if (raw === null) {
+      renderCard(chain, 'error');
+      continue;
+    }
+    const amount = raw / Math.pow(10, m.dec);
+    const price  = prices[m.cgId]?.usd ?? null;
+    const usd    = price != null ? amount * price : null;
+    if (usd != null) total += usd;
+    renderCard(chain, 'ok', amount, usd);
+  }
+
+  totEl.textContent = total > 0 ? 'Total: $' + total.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}) : '';
+  ts.textContent = 'Updated ' + new Date().toLocaleTimeString();
+  btn.textContent = '↻ Refresh Balances';
+  btn.disabled = false;
+}
+
+// Auto-load on page open
+window.addEventListener('DOMContentLoaded', loadBalances);
+</script>
 
 </body>
 </html>
