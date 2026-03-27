@@ -26,7 +26,7 @@
       --text: #1f2328; --muted: #57606a; --subtle: #6e7781;
       --green: #1a7f37; --red: #cf222e; --blue: #0969da; --yellow: #9a6700; --purple: #8250df;
     }
-    html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 64px; overflow-x: hidden; }
     *, *::before, *::after { box-sizing: border-box; }
     body {
       margin: 0; min-height: 100vh; overflow-x: hidden;
@@ -75,7 +75,7 @@
     .breadcrumb a { color:var(--muted); }
     .breadcrumb a:hover { color:var(--blue); }
     .breadcrumb span { opacity:.5; }
-    .topbar-actions { display:flex; gap:.5rem; align-items:center; margin-left:auto; }
+    .topbar-actions { display:flex; gap:.5rem; align-items:center; margin-left:auto; flex-wrap:wrap; }
     .pill-btn {
       display:inline-flex; align-items:center; gap:.35rem;
       padding:.35rem .75rem; border:1px solid var(--border); border-radius:999px;
@@ -318,6 +318,8 @@
       .sidebar.open { display:flex; position:fixed; left:0; top:44px; width:240px; height:calc(100vh - 44px);
         z-index:190; box-shadow:4px 0 24px rgba(2,6,23,.3); }
       .main { padding:1.25rem 1rem 3rem; }
+      /* Keep only hamburger + theme on mobile — sidebar has all other nav */
+      .topbar-actions .tb-hide-mobile { display: none !important; }
     }
     @media (max-width:560px) {
       .wh-title { font-size:1.35rem; }
@@ -345,13 +347,13 @@
     <strong>Course Workbook</strong>
   </nav>
   <div class="topbar-actions">
-    <a class="pill-btn" href="../resources.html">📚 Resources</a>
     <button class="pill-btn" onclick="toggleSidebar()">☰ Nav</button>
-    <button class="pill-btn" onclick="expandAll()">⊞ Expand</button>
-    <button class="pill-btn" onclick="collapseAll()">⊟ Collapse</button>
-    <a class="pill-btn" href="../inevitrade/inner-circle-workbook.html">📗 IT ←</a>
-    <a class="pill-btn" href="./fcr_case_study.html">📈 FCR Case Study</a>
-    <button class="pill-btn" onclick="window.print()">🖨</button>
+    <a class="pill-btn tb-hide-mobile" href="../resources.html">📚 Resources</a>
+    <button class="pill-btn tb-hide-mobile" onclick="expandAll()">⊞ Expand</button>
+    <button class="pill-btn tb-hide-mobile" onclick="collapseAll()">⊟ Collapse</button>
+    <a class="pill-btn tb-hide-mobile" href="../inevitrade/inner-circle-workbook.html">📗 IT ←</a>
+    <a class="pill-btn tb-hide-mobile" href="./fcr_case_study.html">📈 FCR Case Study</a>
+    <button class="pill-btn tb-hide-mobile" onclick="window.print()">🖨</button>
     <button class="pill-btn" onclick="toggleTheme()" id="themeBtn">☀️</button>
   </div>
 </header>
