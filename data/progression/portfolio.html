@@ -682,23 +682,126 @@
     <section class="section" id="onchain">
       <div class="sec-label">On-Chain · CoinLedger</div>
       <div class="stat-grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));">
-        <div class="stat neutral"><div class="stat-label">CSV Rows</div><div class="stat-val blue">2,666</div><div class="stat-sub">2020–2025</div></div>
-        <div class="stat neutral"><div class="stat-label">2021–2023</div><div class="stat-val gold" style="font-size:1rem;">TBD</div><div class="stat-sub">Heavy staking income</div></div>
-        <div class="stat neutral"><div class="stat-label">Processing</div><div class="stat-val dim" style="font-size:1rem;">Phase 3</div><div class="stat-sub">Tax pipeline pending</div></div>
+        <div class="stat neutral"><div class="stat-label">Total Transactions</div><div class="stat-val blue">2,666</div><div class="stat-sub">2020–2025 · all platforms</div></div>
+        <div class="stat neutral"><div class="stat-label">Income Events</div><div class="stat-val gold">2,005</div><div class="stat-sub">Staking · interest · rewards</div></div>
+        <div class="stat neutral"><div class="stat-label">Platforms</div><div class="stat-val blue">18</div><div class="stat-sub">Coinbase · Binance US · Solana…</div></div>
+        <div class="stat neutral"><div class="stat-label">Processing</div><div class="stat-val dim" style="font-size:1rem;">Phase 3</div><div class="stat-sub">Tax calc pending CPA review</div></div>
       </div>
-      <div class="panel-block">
-        <div class="tbl-wrap">
-          <table>
-            <thead><tr><th>Year</th><th>Activity</th><th>P&L</th><th>Note</th></tr></thead>
-            <tbody>
-              <tr><td>2020–2021</td><td>Staking, DeFi interest</td><td class="dim">TBD</td><td class="dim">Taxable income at FMV received</td></tr>
-              <tr><td>2021–2023</td><td>Heavy staking/interest</td><td class="dim">TBD</td><td class="dim">DeFi era — significant annual events</td></tr>
-              <tr><td>2024</td><td>SOL, CRO, HBAR trades</td><td class="dim">TBD</td><td class="dim">Coinbase + Solana DEX</td></tr>
-              <tr><td>2025</td><td>Trading activity</td><td class="dim">TBD</td><td class="dim">Needs CoinLedger.io processing</td></tr>
-            </tbody>
-          </table>
+
+      <details class="acc" open>
+        <summary>
+          <span class="acc-name">Transaction Volume by Year</span>
+          <span class="acc-meta">2020–2025</span>
+          <span class="acc-val">2,666 rows</span>
+          <span class="arr">▶</span>
+        </summary>
+        <div class="acc-body">
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>Year</th><th>Transactions</th><th>Dominant Activity</th><th>Tax Note</th></tr></thead>
+              <tbody>
+                <tr><td>2020</td><td class="mono">4</td><td class="dim">PayPal BTC deposit</td><td class="dim">Minimal — BTC purchase, likely cost basis event</td></tr>
+                <tr><td>2021</td><td class="mono up">979</td><td class="dim">Staking income · interest · DeFi</td><td class="dim warn">⚠ High income year — XTZ, ALGO, ATOM, DAI staking at peak rates</td></tr>
+                <tr><td>2022</td><td class="mono up">666</td><td class="dim">Staking continues · market crash</td><td class="dim warn">⚠ Casualty loss events present (6 rows) — FTX/Terra era. Staking income still taxable even in down year.</td></tr>
+                <tr><td>2023</td><td class="mono">222</td><td class="dim">Reduced activity · staking winds down</td><td class="dim">Lower volume — review for basis reallocation events (65 rows)</td></tr>
+                <tr><td>2024</td><td class="mono">517</td><td class="dim">SOL, HBAR, Solana DEX, Coinbase</td><td class="dim">Trade events (155 total across all years) — capital gains/losses apply</td></tr>
+                <tr><td>2025</td><td class="mono">278</td><td class="dim">Active trading · CRO, TON, POL</td><td class="dim">Most recent — priority for CPA deliverable</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
+      </details>
+
+      <details class="acc">
+        <summary>
+          <span class="acc-name">Platforms &amp; Wallets Identified</span>
+          <span class="acc-meta">18 sources in CoinLedger</span>
+          <span class="acc-val">2,666 rows</span>
+          <span class="arr">▶</span>
+        </summary>
+        <div class="acc-body">
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>Platform / Chain</th><th>Transactions</th><th>Type</th></tr></thead>
+              <tbody>
+                <tr><td>Coinbase</td><td class="mono">2,012</td><td class="dim">CEX — staking rewards, trades, income</td></tr>
+                <tr><td>Binance US</td><td class="mono">171</td><td class="dim">CEX — trades, deposits</td></tr>
+                <tr><td>Solana</td><td class="mono">156</td><td class="dim">On-chain — SOL, JitoSOL, SPL tokens</td></tr>
+                <tr><td>Manual</td><td class="mono">59</td><td class="dim">Hand-entered transactions</td></tr>
+                <tr><td>Crypto.com</td><td class="mono">54</td><td class="dim">CEX — CRO, trades</td></tr>
+                <tr><td>Hedera Hashgraph</td><td class="mono">37</td><td class="dim">On-chain — HBAR, SAUCE, HBARX</td></tr>
+                <tr><td>Ethereum</td><td class="mono">28</td><td class="dim">On-chain — ETH, ERC-20 tokens</td></tr>
+                <tr><td>Tezos</td><td class="mono">24</td><td class="dim">On-chain — XTZ baking rewards</td></tr>
+                <tr><td>Polygon</td><td class="mono">20</td><td class="dim">On-chain — POL, bridged assets</td></tr>
+                <tr><td>PayPal</td><td class="mono">20</td><td class="dim">CEX — early BTC purchases (2020)</td></tr>
+                <tr><td>TON</td><td class="mono">17</td><td class="dim">On-chain — TON token</td></tr>
+                <tr><td>Optimism</td><td class="mono">17</td><td class="dim">L2 — ETH, bridged assets</td></tr>
+                <tr><td>Binance Smart Chain</td><td class="mono">15</td><td class="dim">On-chain — BNB, tokens</td></tr>
+                <tr><td>Cosmos</td><td class="mono">11</td><td class="dim">On-chain — ATOM staking</td></tr>
+                <tr><td>Stellar / Base / Bitcoin / XRP / Tron / Tangem</td><td class="mono">22</td><td class="dim">Various — smaller activity</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>
+          <span class="acc-name">Transaction Type Breakdown</span>
+          <span class="acc-meta">Income events dominate — tax priority</span>
+          <span class="acc-val">2,666 total</span>
+          <span class="arr">▶</span>
+        </summary>
+        <div class="acc-body">
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>Type</th><th>Count</th><th>Tax Treatment</th></tr></thead>
+              <tbody>
+                <tr><td>Staking Income</td><td class="mono up">770</td><td class="dim warn">⚠ Ordinary income at FMV when received — likely largest tax liability</td></tr>
+                <tr><td>Interest Income</td><td class="mono up">685</td><td class="dim warn">⚠ Ordinary income at FMV when received</td></tr>
+                <tr><td>Income (rewards, airdrops)</td><td class="mono up">550</td><td class="dim warn">⚠ Ordinary income — airdrops taxable at FMV at time of receipt</td></tr>
+                <tr><td>Deposit</td><td class="mono">191</td><td class="dim">Generally not taxable — inbound transfers</td></tr>
+                <tr><td>Trade</td><td class="mono">155</td><td class="dim">Capital gain/loss — each trade is a taxable disposal</td></tr>
+                <tr><td>Withdrawal</td><td class="mono">84</td><td class="dim">Not taxable unless treated as disposal — verify</td></tr>
+                <tr><td>Basis Reallocation</td><td class="mono">65</td><td class="dim">CoinLedger internal — cost basis adjustments</td></tr>
+                <tr><td>Buy</td><td class="mono">50</td><td class="dim">Cost basis established — not taxable at purchase</td></tr>
+                <tr><td>Transfer</td><td class="mono">42</td><td class="dim">Between own wallets — not taxable if no disposal</td></tr>
+                <tr><td>Fee</td><td class="mono">23</td><td class="dim">Potentially deductible — verify with CPA</td></tr>
+                <tr><td>Multi Asset Swap / Leveraged Buy / Bridge / Mint</td><td class="mono">18</td><td class="dim">Each swap may be a taxable disposal — flag for review</td></tr>
+                <tr><td>Casualty Loss</td><td class="mono">6</td><td class="dim warn">⚠ FTX/Terra era losses — deductible under theft/casualty rules if qualified</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout warn" style="margin-top:.8rem;">⚠ <strong>2,005 income events (staking + interest + rewards)</strong> spanning 2020–2025. At 2021–2022 crypto prices, the FMV of these rewards at receipt could represent significant unreported taxable income. This is the highest-priority item for CPA review before filing any amended or delinquent returns.</div>
+        </div>
+      </details>
+
+      <details class="acc">
+        <summary>
+          <span class="acc-name">Top Assets Transacted</span>
+          <span class="acc-meta">By transaction count</span>
+          <span class="acc-val dim">All years</span>
+          <span class="arr">▶</span>
+        </summary>
+        <div class="acc-body">
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>Asset</th><th>Txns</th><th>Context</th></tr></thead>
+              <tbody>
+                <tr><td>DAI</td><td class="mono">690</td><td class="dim">Interest income — Coinbase DAI rewards program (2021–2023 peak rates)</td></tr>
+                <tr><td>XTZ (Tezos)</td><td class="mono">511</td><td class="dim">Baking rewards — on-chain staking, frequent small distributions</td></tr>
+                <tr><td>ALGO (Algorand)</td><td class="mono">480</td><td class="dim">Staking rewards — Coinbase earn + on-chain</td></tr>
+                <tr><td>ATOM (Cosmos)</td><td class="mono">303</td><td class="dim">Staking rewards — Cosmos Hub delegation</td></tr>
+                <tr><td>SOL (Solana)</td><td class="mono">142</td><td class="dim">Staking + trading + DEX activity</td></tr>
+                <tr><td>BNB / ETH / BTC</td><td class="mono">121</td><td class="dim">Trades, deposits, bridging</td></tr>
+                <tr><td>HBAR</td><td class="mono">34</td><td class="dim">Hedera staking + SAUCE LP activity</td></tr>
+                <tr><td>ALEO</td><td class="mono">30</td><td class="dim">Airdrop / testnet rewards — verify taxability</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
     </section>
 
     <!-- ── TAX SUMMARY ── -->
@@ -711,7 +814,7 @@
             <tbody>
               <tr><td><strong>2024</strong></td><td class="dn mono">~-$2,115</td><td class="dim">N/A</td><td class="dim">TBD</td><td class="dim">N/A</td><td class="dn mono"><strong>~-$2,115+</strong></td></tr>
               <tr><td><strong>2025</strong></td><td class="dn mono">~-$82</td><td class="dn mono">-$151.62</td><td class="dim">TBD</td><td class="dim">N/A</td><td class="dn mono"><strong>~-$234+</strong></td></tr>
-              <tr><td><strong>2026 YTD</strong></td><td class="dn mono">-$27.50</td><td class="dim">None</td><td class="dim">N/A</td><td class="up mono">+$93.00</td><td class="up mono"><strong>+$65.50</strong></td></tr>
+              <tr><td><strong>2026 YTD</strong></td><td class="dn mono">-$27.50</td><td class="dim">None</td><td class="dim">N/A</td><td class="up mono">+$1,112.00</td><td class="up mono"><strong>+$1,084.50</strong></td></tr>
             </tbody>
           </table>
         </div>
