@@ -361,7 +361,16 @@
 
     @media (max-width: 700px) {
       .chart-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
+      /* Switch nav from 3-col grid to flex so breadcrumb can shrink without overlapping actions */
+      .nav { display: flex; padding: 0 1rem; }
+      .nav-links { display: none !important; }
+      .nav-breadcrumb {
+        flex: 1; min-width: 0; overflow: hidden;
+        font-size: .72rem; justify-self: unset;
+        white-space: nowrap;
+      }
+      .nav-breadcrumb .bc-mid { display: none; }
+      .nav-actions { flex-shrink: 0; justify-self: unset; }
       .nav-hamburger { display: inline-flex; }
       /* Hide desktop pill-btns to save space; hamburger handles nav */
       .fcr-nav-pill { display: none; }
@@ -372,9 +381,6 @@
       .pattern-card { padding: .7rem .75rem; cursor: pointer; }
       .pattern-card p { display: none; } /* hide body text — modal shows it */
       .pattern-card::after { content: "Tap for details →"; display: block; font-size: .72rem; color: var(--blue); margin-top: .4rem; opacity: .8; }
-      /* Breadcrumb: shorten on very small screens */
-      .nav-breadcrumb .bc-mid { display: none; }
-      .nav-breadcrumb { font-size: .72rem; }
     }
     @media (max-width: 400px) {
       .stat-row { grid-template-columns: 1fr; }
@@ -930,6 +936,14 @@
           navDropdown.classList.remove('is-open');
           hamburgerBtn.setAttribute('aria-expanded', 'false');
         });
+      });
+      // Close when clicking anywhere outside the nav
+      document.addEventListener('click', e => {
+        if (!navDropdown.classList.contains('is-open')) return;
+        if (!hamburgerBtn.contains(e.target) && !navDropdown.contains(e.target)) {
+          navDropdown.classList.remove('is-open');
+          hamburgerBtn.setAttribute('aria-expanded', 'false');
+        }
       });
     }
 

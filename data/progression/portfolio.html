@@ -78,53 +78,52 @@
     .nav-status { font-size: .75rem; color: var(--green); }
     .nav-status::before { content: "● "; }
     .nav-donate-btn {
-      padding: .22rem .7rem; border: 1px solid var(--purple); border-radius: 999px;
-      font-size: .76rem; color: var(--purple); background: none; cursor: pointer;
+      padding: .22rem .7rem; border: 1px solid var(--cyan); border-radius: 999px;
+      font-size: .76rem; color: var(--cyan); background: none; cursor: pointer;
       transition: background .15s, color .15s;
     }
-    .nav-donate-btn:hover { background: var(--purple); color: #fff; }
+    .nav-donate-btn:hover { background: var(--cyan); color: #07091e; }
 
     /* ── DONATE MODAL ── */
     .donate-overlay {
       display: none; position: fixed; inset: 0; z-index: 500;
-      background: rgba(0,0,0,.65); backdrop-filter: blur(4px);
+      background: rgba(0,0,0,.87);
       align-items: center; justify-content: center;
     }
     .donate-overlay.open { display: flex; }
     .donate-modal {
-      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
-      padding: 1.6rem 1.8rem; width: min(480px, 94vw); position: relative;
+      background: #0e1422; border: 1px solid var(--border); border-radius: 14px;
+      padding: 1.6rem 1.8rem; width: min(500px, 94vw); max-height: 88vh;
+      overflow-y: auto; position: relative;
     }
     .donate-modal h3 {
-      margin: 0 0 .3rem; font-size: 1rem;
-      background: linear-gradient(90deg, var(--purple), var(--blue));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin: 0 0 .3rem; font-size: 1rem; color: var(--cyan);
     }
-    .donate-modal p { margin: 0 0 1.2rem; font-size: .8rem; color: var(--muted); }
+    .donate-modal p { margin: 0 0 1.1rem; font-size: .8rem; color: var(--muted); }
     .donate-close {
       position: absolute; top: .8rem; right: 1rem;
       background: none; border: none; color: var(--muted); font-size: 1.1rem; cursor: pointer;
     }
     .donate-close:hover { color: var(--text); }
-    .donate-chain { margin-bottom: 1rem; }
+    .donate-chain { margin-bottom: .85rem; }
     .donate-chain-label {
       font-size: .72rem; font-weight: 600; color: var(--muted);
-      text-transform: uppercase; letter-spacing: .06em; margin-bottom: .35rem;
+      text-transform: uppercase; letter-spacing: .06em; margin-bottom: .3rem;
     }
     .donate-addr-row {
       display: flex; align-items: center; gap: .5rem;
-      background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: .45rem .7rem;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 8px; padding: .4rem .65rem;
     }
     .donate-addr {
-      flex: 1; font-size: .72rem; font-family: monospace; color: var(--text);
+      flex: 1; font-size: .7rem; font-family: monospace; color: var(--text);
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
     .donate-copy {
       flex-shrink: 0; background: none; border: 1px solid var(--border); border-radius: 6px;
-      padding: .2rem .55rem; font-size: .72rem; color: var(--muted); cursor: pointer;
+      padding: .18rem .5rem; font-size: .7rem; color: var(--muted); cursor: pointer;
       transition: border-color .15s, color .15s;
     }
-    .donate-copy:hover { border-color: var(--purple); color: var(--text); }
+    .donate-copy:hover { border-color: var(--cyan); color: var(--text); }
     .donate-copy.copied { border-color: var(--green); color: var(--green); }
 
     /* ── HEADER ── */
@@ -328,8 +327,8 @@
   <div class="donate-overlay" id="donateOverlay" onclick="if(event.target===this)this.classList.remove('open')">
     <div class="donate-modal">
       <button class="donate-close" onclick="document.getElementById('donateOverlay').classList.remove('open')">✕</button>
-      <h3>💜 Support This Work</h3>
-      <p>If you find this useful, any contribution is appreciated. Send to any address below.</p>
+      <h3>Support This Work</h3>
+      <p>If this is useful to you, any contribution is appreciated — send to any address below.</p>
       <div class="donate-chain">
         <div class="donate-chain-label">₿ Bitcoin</div>
         <div class="donate-addr-row">
@@ -338,7 +337,7 @@
         </div>
       </div>
       <div class="donate-chain">
-        <div class="donate-chain-label">Ξ Ethereum</div>
+        <div class="donate-chain-label">Ξ Ethereum / EVM</div>
         <div class="donate-addr-row">
           <span class="donate-addr">0x96F185dB969F3c45EDDff27c73A4880A877BaeF6</span>
           <button class="donate-copy" onclick="donCopy(this,'0x96F185dB969F3c45EDDff27c73A4880A877BaeF6')">Copy</button>
@@ -356,6 +355,27 @@
         <div class="donate-addr-row">
           <span class="donate-addr">UQBxgmv81rlsl0YGHKmO4GocCSKjnrUU0RKlQw5iyS4VXrC8</span>
           <button class="donate-copy" onclick="donCopy(this,'UQBxgmv81rlsl0YGHKmO4GocCSKjnrUU0RKlQw5iyS4VXrC8')">Copy</button>
+        </div>
+      </div>
+      <div class="donate-chain">
+        <div class="donate-chain-label">Ð Dogecoin</div>
+        <div class="donate-addr-row">
+          <span class="donate-addr">D7fQthvuwXxWmRJNo78PHQL6uiWZTFMSnu</span>
+          <button class="donate-copy" onclick="donCopy(this,'D7fQthvuwXxWmRJNo78PHQL6uiWZTFMSnu')">Copy</button>
+        </div>
+      </div>
+      <div class="donate-chain">
+        <div class="donate-chain-label">₳ Cardano</div>
+        <div class="donate-addr-row">
+          <span class="donate-addr">addr1q9f5wu44906hflrh9ce8ts0hnkat6022rw642ehfkcukj3c9cwda6hcsmdvsa0rc7la8jq66lqrzdfenahkey83nla2svpg9nt</span>
+          <button class="donate-copy" onclick="donCopy(this,'addr1q9f5wu44906hflrh9ce8ts0hnkat6022rw642ehfkcukj3c9cwda6hcsmdvsa0rc7la8jq66lqrzdfenahkey83nla2svpg9nt')">Copy</button>
+        </div>
+      </div>
+      <div class="donate-chain">
+        <div class="donate-chain-label">ℏ Hedera</div>
+        <div class="donate-addr-row">
+          <span class="donate-addr">0.0.7848193</span>
+          <button class="donate-copy" onclick="donCopy(this,'0.0.7848193')">Copy</button>
         </div>
       </div>
     </div>
