@@ -55,11 +55,13 @@ Auggie (Augment Code) — builds, infrastructure, Pine Scripts, MCP servers
     ↕
 Kavanah (Augment Intent) — task orchestration, documentation, strategy refs
 
-    ┌─────────────────────────────────────────┐
-    │  TradingView ←→ Webhook Pipeline ←→ AI  │
-    │  Tradovate API ←→ MCP Server ←→ AI      │
-    │  TradeZella ←→ Python Pipeline ←→ AI    │
-    └─────────────────────────────────────────┘
+    ┌──────────────────────────────────────────────────────────────┐
+    │  TradingView ←→ Webhook Pipeline ←→ AI                      │
+    │  Tradovate API ←→ MCP Server ←→ AI  (CME futures)           │
+    │  Hummingbot API ←→ MCP Server ←→ AI (crypto CEX + DEX)      │
+    │  TradeZella ←→ Python Pipeline ←→ AI                        │
+    │  Telegram ←→ MCP Server ←→ AI       (mobile + DeFi alerts)  │
+    └──────────────────────────────────────────────────────────────┘
 ```
 
 - [`setup/system-overview.md`](setup/system-overview.md) — high-level map of the agents, clones, MCP servers, and workflow lanes.
@@ -71,15 +73,17 @@ Kavanah (Augment Intent) — task orchestration, documentation, strategy refs
 | Strategy | Accounts | Markets | Status |
 | --- | --- | --- | --- |
 | ZeroToHero (ZTH) | Apex Trader Funding, Take Profit Trader | Futures (NQ, ES, CL, GC) | 🔥 Live |
-| SmartTradingBlueprint (STB) | All accounts — foundational layer | Futures & Crypto Futures | 🔥 Live |
+| SmartTradingBlueprint (STB) | Foundational ICT layer | Futures & Crypto Futures | ⚠️ Mentorship removed Mar 26 (payment) — framework retained |
 | Inevitrade (IT) | Lucid, Tradeify, Crypto Futures | Futures & Crypto Futures | 🔥 Live |
 
 ## ⚙️ Key Infrastructure
 
-- **MCP Servers** — Tradovate brokerage data + TradingView webhook alerts, queryable by AI mid-session
+- **MCP Servers (4 active)** — Tradovate (CME futures) · TradingView webhook alerts · Auggie · Hummingbot (crypto CEX + DEX), all queryable by Fortuna mid-session
+- **Hummingbot Stack** — Docker-based API server (FastAPI + PostgreSQL + EMQX MQTT) at `~/hummingbot/hummingbot-api`; MCP layer at `~/hummingbot/mcp`; Gateway for DEX/wallet execution planned
 - **Pine Script Indicators** — Custom overlays for FCR levels, FVGs, EMAs, and pattern detection
 - **Webhook Pipeline** — TradingView alerts → tunnel → local server → AI receives live chart events
 - **TradeZella Pipeline** — Automated CSV export → Python conversion → Google Sheets → coaching platform
+- **Public Pages** — `portfolio.html` (live P&L, recovery arc, web3 balance viewer) · `resources.html` (glossary, coaching cards) · `auto-levels.pine_changelog.html`
 - **Multi-Repo Sync** — GitExporter mirrors public-safe content; two clones on `main` with push/pull sync
 
 ## 🗂️ Repo Structure
