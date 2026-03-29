@@ -64,7 +64,7 @@
 
     /* ── TOP BAR ── */
     .topbar {
-      position:sticky; top:0; z-index:150;
+      position:fixed; top:0; left:0; right:0; z-index:150;
       display:flex; align-items:center; gap:.75rem; flex-wrap:wrap;
       padding:.6rem 1.25rem; border-bottom:1px solid var(--border);
       background:rgba(12,18,24,.88); backdrop-filter:blur(14px);
@@ -84,7 +84,7 @@
     .pill-btn:hover { border-color:var(--blue); color:var(--text); transform:translateY(-1px); }
 
     /* ── LAYOUT ── */
-    .layout { display:grid; grid-template-columns:240px minmax(0,1fr); min-height:calc(100vh - 44px); }
+    .layout { display:grid; grid-template-columns:240px minmax(0,1fr); min-height:calc(100vh - 44px); margin-top:44px; }
 
     /* ── SIDEBAR ── */
     .sidebar {
