@@ -60,11 +60,15 @@ The win offsets some of the MCL loss. Net TPT for the day: **-$206**.
 
 Full review: [review_20260326_MGC-TPT_002.md](review_20260326_MGC-TPT_002.md)
 
-### Evening — GC Trade Entry
+### Evening — MGC Overnight Short Entry (Closed Mar 27 · Account Blown)
 
-Later in the evening, Christopher entered a **GC (full gold futures) short position** on the TPT account. A second news candle at approximately 22:00 ET drove a sharp adverse move, and the position entered overnight drawdown. Christopher was evaluating whether to close or hold for the reversal at time of writing.
+At **21:32 EDT**, Christopher re-entered **2 MGC SHORT at 4,410.0** for a second gold position of the day — a downtrend continuation short with bearish EMAs as confluence. A contributing factor noted in TradeZella: *"I had to take a trade to pass the eval anyway"* (TPT 5-day minimum requirement). This is Pattern 10 — eval pressure trade.
 
-*GC trade review pending — will be completed when the position closes.*
+A news event at approximately 22:00 EDT drove a sharp adverse spike. The position was held overnight as price continued against the short through the Asian and London sessions.
+
+The trade closed on **March 27 at 10:55 EDT via auto-liquidation at 4,499.7** — a 13h 23m hold and a -$1,794 loss. The TPT 50K account was blown. Three exit opportunities were identified during the hold (once at the start, twice near break-even) and none were acted on. This is the most significant Pattern 7 + Pattern 8 event in the recovery arc.
+
+Full review: [review_20260326_MGC-TPT_003.md](review_20260326_MGC-TPT_003.md)
 
 ---
 
@@ -74,9 +78,11 @@ Later in the evening, Christopher entered a **GC (full gold futures) short posit
 |---|------|-----------|-------|------|--------|-----|-------|-------|
 | 001 | Long | MCL (TPT) | 89.9 | 88.4 (SL) | -1.5 | **-$300.00** | 0.5/5 | News candle · stop respected · 4 seconds · Pattern 9 ✅ |
 | 002 | Short | MGC (TPT) | 4,410.6 | 4,405.9 (manual) | +4.7 | **+$94.00** | 0.5/5 | 38.7-pt MAE · stop moved (P7) · manual close (P8 partial) |
+| 003 | Short | MGC (TPT) | 4,410.0 | 4,499.7 (AutoLiq) | -89.7 | **-$1,794.00** | 1.0/5 | Overnight · eval pressure (P10 NEW) · SL moved 13h · 3 exit opps missed · ACCOUNT BLOWN |
 | — | Long | SOL/USDT (BTCC) | 92.4686 | 89.6435 | -2.83 | **-$14.13** | — | Closed 01:44 ET · 20hr hold · P8+P9 · see Mar 25 review |
 
-**TPT Net P&L: -$206.00** | **BTCC P&L: -$14.13** | **APEX-06: $0.00 (no entries)**
+**TPT Net P&L (Day): -$206.00** | **TPT Overnight (closes Mar 27): -$1,794.00** | **BTCC P&L: -$14.13** | **APEX-06: $0.00 (no entries)**
+**⚠️ TPT 50K account BLOWN on Mar 27 · trade #003 auto-liquidated overnight**
 
 ---
 
