@@ -396,50 +396,59 @@ Mar 24  ████████████████████  ✅ +$1,22
                                Pattern 9 — intentional: bracket in place, prayer said, rested deliberately.
                                APEX-06 min days met Mar 25. First intentional overnight fill executed.
 
-Mar 26  ████░░░░░░░░░░░░░░░░  ⚠️ News candle stop hunt · TPT net -$206
+Mar 26  ████░░░░░░░░░░░░░░░░  ⚠️ News candle stop hunt · TPT net -$206 · overnight entry
                                MCL LONG 89.9: news candle at 16:11 ET — stopped out in 4 seconds.
                                Stop was PRE-PLACED → -$300 defined loss. Pattern 9 ✅ improvement.
                                MGC SHORT 4410.6: 38.7-pt adverse move (MAE -$774). SL moved through adverse.
-                               Pattern 7 — four consecutive sessions (Mar 16, 17, 20, 26).
+                               Pattern 7 — five consecutive sessions (Mar 16, 17, 20, 26 T002, 26 T003).
                                Survived adverse, manually closed at 4405.9, +$94. Pattern 8 partial ✅.
-                               GC full contract short entered evening — news candle at ~22:00 ET, overnight drawdown. Pending.
+                               MGC SHORT 4410.0 21:32 EDT — overnight re-entry. NOT a+ setup.
+                               Entry motivation: eval compliance pressure (Pattern 10 — NEW).
+                               SL moved through entire overnight hold. 3 exit opps recognized and bypassed.
 
-Arc status: Pattern 7 — most persistent unresolved pattern: 4 consecutive sessions. Fix required: define SL structurally, commit in writing, do not touch.
-            Pattern 8 — first manual close on Mar 26 MGC. Progress. Build on it.
-            Pattern 9 — MCL stop saved the account on Mar 26. This is what the pattern is about.
-            Account standing: APEX-06 eval progressing (min days done, profit target remaining). TPT Day 2 of 5.
+Mar 27  ░░░░░░░░░░░░░░░░░░░░  🔴 ACCOUNT BLOWN — overnight MGC auto-liq
+                               MGC SHORT (carry from Mar 26 21:32 EDT) auto-liquidated 10:55 EDT.
+                               Exit: 4,499.7 · -89.7 pts · -$1,794 · Duration: 13h 23m.
+                               MAE: 4,545.3 (-$2,706 max adverse). MFE: $0 (never profitable).
+                               3 exit opportunities bypassed including 2 at/near break-even.
+                               P7 + P8 + P10 simultaneously active — full expression of the loss pattern.
+                               TPT 50K (reset-2) BLOWN. Christopher walked away; did not revenge-trade. ✅
+                               Zella Score: -66.30 (new arc low).
+
+Arc status: Pattern 7 — 6 consecutive sessions with SL modification. Critical escalation. Hard rule required.
+            Pattern 8 — 3 exit opportunities recognized and bypassed on single trade. Most significant P8 event.
+            Pattern 9 — MCL pre-placed stop remains the arc's clearest protection example. Hold this standard.
+            Pattern 10 — NEW: eval/pressure trade. Entry motivated by compliance, not pure A+ signal.
+            Account standing: APEX-06 active (min days met, profit target remaining). TPT BLOWN. BTCC $0.
 ```
 
 ---
 
-## Statistical Summary (Feb 23 – Mar 20)
+## Statistical Summary (Feb 23 – Mar 27)
 
 | Metric | Value |
 |--------|-------|
-| Total trade entries | 15 (14 futures, 1 crypto) |
-| Monitoring sessions (no fill) | 1+ (Feb 27, Mar 11–15, Mar 18–19) |
-| Winners | 6 (Feb 25 MNQ, Mar 2 YM, Mar 2 ES T2, Mar 16 RTY, Mar 17 MNQ, Mar 20 RTY) |
-| Losers | 9 (adds Mar 16 MNQ -$268.50) |
-| No fills (neutral) | 1+ |
-| Win rate (filled futures trades) | 40% (6/15) |
-| Avg winner | +$701.75 USD (+$565, +$185, +$1,037.50, +$935, +$963, +$525) |
-| Avg loser | -$457.50 USD (9 losses total) |
-| Total P&L (USD futures) | +$93.00 |
-| Total P&L (crypto) | +$20.63 USDT |
-| SL respected | 10/15 filled futures trades (Mar 2 T3 moved · Mar 3 T2 canceled · Mar 16 MNQ adjusted · Mar 17 moved wide · Mar 20 canceled) |
-| Stops moved/canceled | 5 (Mar 2 T3 moved · Mar 3 T2 canceled · Mar 16 MNQ adjusted · Mar 17 moved wide · Mar 20 canceled) |
-| A+ entry filters honored | 2/15 filled trades (Feb 25 MNQ, Mar 2 ES T2) |
-| Emotionally stable sessions | 3/15 trades (Feb 25 MNQ, Mar 3 CL, Mar 16 RTY) |
-| Zella Score range | -93.75 → 94.05 |
+| Total trade entries | 23 (21 futures + 2 crypto) |
+| Monitoring sessions (no fill) | 1+ (Feb 27, Mar 11–15, Mar 18–19, Mar 23) |
+| Winners | 8 (+Mar 24 ES +$1,225 · +Mar 26 MGC T002 +$94) |
+| Losers | 15 (+Mar 25-26 BTCC -$14.13 · +Mar 26 MCL -$300 · +Mar 26-27 MGC -$1,794) |
+| Win rate (futures) | 38% (8/21) |
+| Total P&L (USD futures) | **-$682.00** (prev +$93 + Mar 24 +$1,225 + Mar 26 MCL -$300 + Mar 26 MGC T002 +$94 + Mar 26-27 MGC -$1,794) |
+| Total P&L (crypto) | **+$6.50 USDT** (prev +$20.63 + Mar 25-26 BTCC -$14.13) |
+| SL respected | 12/21 futures (+Mar 24 ES ✅ · +Mar 26 MCL ✅ · Mar 26 MGC T002 ❌ moved · Mar 26-27 MGC ❌ moved) |
+| Stops moved/canceled | 7 |
+| A+ entry filters honored | 2/21 futures (Feb 25 MNQ, Mar 2 ES T2) |
+| Zella Score range | -66.30 → 94.05 |
 | Best trade | Mar 2 ES T2 (94.05 Zella, 5/5 layers, +$1,037.50, 9 min, A+) |
-| Worst trade | Mar 3 ES T1 (-93.75 Zella, counter-trend, red dominant, 86 sec) |
-| Directionally correct reads | 11/15 trades |
-| Eval accounts | 1 blown (APEX-484839-05, Mar 3) |
+| Worst trade | Mar 26-27 MGC overnight (-66.30 Zella · -$1,794 · P7+P8+P10 · account blown) |
+| Directionally correct reads | 13/21 futures |
+| Eval accounts blown | 2 (APEX-484839-05 Mar 3 · TPT 50K reset-2 Mar 27) |
 | Pattern 5 fix | ✅ Applied Feb 27 — within 24 hours |
 | Pattern 6 identified | Mar 2 — re-entry in risky direction |
-| Pattern 7 identified | Mar 3 — SL cancellation under eval pressure · recurring Mar 16/17/20 |
-| Pattern 8 identified | Mar 10 — exit passivity / prop firm reliance |
-| Pattern 9 identified | Mar 20 — unintentional fill from resting bracket order |
+| Pattern 7 identified | Mar 3 — SL cancellation under eval pressure · recurring 6 consecutive sessions through Mar 26-27 |
+| Pattern 8 identified | Mar 10 — exit passivity / prop firm reliance · critical escalation Mar 26-27 (3 exits bypassed) |
+| Pattern 9 identified | Mar 20 — pre-rest order hygiene · MCL Mar 26 = confirmed fix in action ✅ |
+| Pattern 10 identified | Mar 26-27 — eval/pressure trade · entry motivated by compliance not pure A+ signal |
 
 ---
 
@@ -469,6 +478,7 @@ Links to individual reviews:
 - [Mar 25–26 — SOL/USDT Long (-$14.13 · BTCC voucher)](2026/03-Mar/review_20260325_SOLUSDT-BTCC_001.md)
 - [Mar 26 — MCL Long (-$300 · TPT · news candle)](2026/03-Mar/review_20260326_MCL-TPT_001.md)
 - [Mar 26 — MGC Short (+$94 · TPT · stop hunt survival)](2026/03-Mar/review_20260326_MGC-TPT_002.md)
+- [Mar 26–27 — MGC Short (-$1,794 · TPT · overnight · account blown)](2026/03-Mar/review_20260326_MGC-TPT_003.md)
 
 ---
 
