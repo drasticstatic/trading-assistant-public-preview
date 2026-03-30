@@ -5,6 +5,8 @@
 **Session:** Pre-NY Open (entry) → Overnight (exit)
 **Review #:** 001 for Mar 25
 
+[Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
+
 ---
 
 ## ⚡ 1. What Happened
@@ -40,21 +42,38 @@ The Mar 26 charts show SOL continuing to decline after the exit, with significan
 
 ---
 
-## 🧠 3. Behavioral Notes
+## 📋 3. Order Execution
 
-**Pattern 8 — Exit Passivity (recurring):** By Christopher's own account: "so many times I told myself to take some $ off the table." SOL ran from 92.47 near a multi-week swing high, gave clear signals of exhaustion (OPEN/CAUTION indicator, VRVP developing VA high overhead), and declined steadily. Each time the internal voice said *take profit* or *close this*, the action wasn't taken. The position was eventually closed ~20 hours later at a loss.
+| Order | Time (ET) | Type | Price | Notes |
+|-------|-----------|------|-------|-------|
+| OPEN — 5 SOL LONG (20x) | Mar 25 · 06:04 | Market | $92.4686 | Position 30600389; voucher |
+| CLOSE — 5 SOL (manual) | Mar 26 · 01:44 | Market | $89.6435 | Held ~19.7h; -$14.13 |
 
-This is Pattern 8 in its clearest form — not a fast, emotional hold, but a sustained, deliberate *decision not to decide*. The market moved, the signals were there, and the exit never came until it became unavoidable.
-
-**Entering near a swing high:** SOL had rallied from ~$85 to ~$93 in a week. A LONG entry at $92.47 — near the top of that move — required either a very clear continuation setup or tight management. The OPEN/CAUTION signal on the NY/London session indicator at the time of entry was a flag. The IT Foundation EMAs were bullish at that moment, but that reflected the prior move, not the next one.
-
-**Voucher psychology:** The $20–25 BTCC voucher framing can create a "house money" mindset that loosens risk management. If this had been $92 of personal capital at 20x, would the exit have come sooner? Possibly. The lesson: manage voucher positions identically to real capital — because the habit of passivity carries over.
-
-**The walk away + see what happens pattern:** Christopher noted he was planning to take the dog for a walk and "see what the world has to say." Stepping away from an open, unmanaged position is a version of Pattern 9 (pre-rest order hygiene) — the position needed either a hard SL set before stepping away, or a decision to close it first.
+*Source: BTCC-orders_2024_12-17_thru_2026_03-26.csv*
 
 ---
 
-## 📝 4. Notes for Coaches
+## 📖 4. Session Narrative
+
+*[Stub — to be filled in. Describe the broader session context: what was happening in the SOL/crypto market in the days leading up to this, how the voucher decision was made, and how the overnight hold unfolded from a session-arc perspective.]*
+
+---
+
+## 📸 5. Screenshot Timeline
+
+**Mar 25, 08:08 ET — 5D overview at time of entry: bullish run, OPEN/CAUTION at session transition**
+![SOL/USDT 5D — Mar 25 entry context](../../../../data/screenshots/SOLUSDT_2026-03-25_08-08-24_88f83.png)
+
+**Mar 26, 05:36 ET — 2M timeframe: post-exit price action showing continued decline**
+![SOL/USDT 2M — Mar 26 after exit](../../../../data/screenshots/SOLUSDT_2026-03-26_05-36-03_8a7a9.png)
+
+**Mar 26, 05:37 ET — 15M timeframe: full context of the reversal from the entry high**
+![SOL/USDT 15M — Mar 26 reversal context](../../../../data/screenshots/SOLUSDT_2026-03-26_05-36-59_e339a.png)
+
+---
+
+<a id="notes-for-coaches"></a>
+## 📝 6. Notes for Coaches + SmartTraderAI
 
 *This trade is on BTCC (voucher/crypto perp), not a prop firm account. Pattern documentation is the relevant output.*
 
@@ -73,7 +92,21 @@ This is Pattern 8 in its clearest form — not a fast, emotional hold, but a sus
 
 ---
 
-## 🔁 5. Pattern Tracker
+## 🧠 7. Behavioral Notes
+
+**Pattern 8 — Exit Passivity (recurring):** By Christopher's own account: "so many times I told myself to take some $ off the table." SOL ran from 92.47 near a multi-week swing high, gave clear signals of exhaustion (OPEN/CAUTION indicator, VRVP developing VA high overhead), and declined steadily. Each time the internal voice said *take profit* or *close this*, the action wasn't taken. The position was eventually closed ~20 hours later at a loss.
+
+This is Pattern 8 in its clearest form — not a fast, emotional hold, but a sustained, deliberate *decision not to decide*. The market moved, the signals were there, and the exit never came until it became unavoidable.
+
+**Entering near a swing high:** SOL had rallied from ~$85 to ~$93 in a week. A LONG entry at $92.47 — near the top of that move — required either a very clear continuation setup or tight management. The OPEN/CAUTION signal on the NY/London session indicator at the time of entry was a flag. The IT Foundation EMAs were bullish at that moment, but that reflected the prior move, not the next one.
+
+**Voucher psychology:** The $20–25 BTCC voucher framing can create a "house money" mindset that loosens risk management. If this had been $92 of personal capital at 20x, would the exit have come sooner? Possibly. The lesson: manage voucher positions identically to real capital — because the habit of passivity carries over.
+
+**The walk away + see what happens pattern:** Christopher noted he was planning to take the dog for a walk and "see what the world has to say." Stepping away from an open, unmanaged position is a version of Pattern 9 (pre-rest order hygiene) — the position needed either a hard SL set before stepping away, or a decision to close it first.
+
+---
+
+## 🔁 8. Pattern Tracker
 
 | Pattern | Status | Notes |
 |---------|--------|-------|
@@ -82,24 +115,12 @@ This is Pattern 8 in its clearest form — not a fast, emotional hold, but a sus
 
 ---
 
-## 📋 6. Order Execution
+## 🎯 9. Forward Focus
 
-| Order | Time (ET) | Type | Price | Notes |
-|-------|-----------|------|-------|-------|
-| OPEN — 5 SOL LONG (20x) | Mar 25 · 06:04 | Market | $92.4686 | Position 30600389; voucher |
-| CLOSE — 5 SOL (manual) | Mar 26 · 01:44 | Market | $89.6435 | Held ~19.7h; -$14.13 |
-
-*Source: BTCC-orders_2024_12-17_thru_2026_03-26.csv*
+*[Stub — to be filled in. 1–3 priorities for the next session.]*
 
 ---
 
-## 📸 7. Screenshot Timeline
+> See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260325_SOLUSDT-BTCC_001.md
 
-**Mar 25, 08:08 ET — 5D overview at time of entry: bullish run, OPEN/CAUTION at session transition**
-![SOL/USDT 5D — Mar 25 entry context](../../../../data/screenshots/SOLUSDT_2026-03-25_08-08-24_88f83.png)
-
-**Mar 26, 05:36 ET — 2M timeframe: post-exit price action showing continued decline**
-![SOL/USDT 2M — Mar 26 after exit](../../../../data/screenshots/SOLUSDT_2026-03-26_05-36-03_8a7a9.png)
-
-**Mar 26, 05:37 ET — 15M timeframe: full context of the reversal from the entry high**
-![SOL/USDT 15M — Mar 26 reversal context](../../../../data/screenshots/SOLUSDT_2026-03-26_05-36-59_e339a.png)
+*Trade Review — Fortuna · March 25–26, 2026 · SOLUSDT-BTCC-001*
