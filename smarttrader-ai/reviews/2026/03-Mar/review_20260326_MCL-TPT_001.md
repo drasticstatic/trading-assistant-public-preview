@@ -2,6 +2,8 @@
 #### Fortuna — Wealth Warden | Claude Code CLI
 #### Review #001 for Mar 26
 
+[Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
+
 ---
 
 ## ⚡ 1. What Happened
@@ -42,19 +44,35 @@ The stop was in place. The stop was respected. The account was protected. That i
 
 ---
 
-## 🧠 3. Behavioral Notes
+## 📋 3. Order Execution
 
-**Pattern 9 — IMPROVEMENT confirmed.** The stop was IN PLACE before the position opened. This is the single most important behavioral takeaway from this trade. The March 20 pattern (fill occurs → SL not set or canceled → unprotected position runs -$925 MAE) did not repeat. The bracket was defined, the stop was live, and the account was protected. If the stop had not been placed, this news spike — which ran approximately $3 below entry — could have done catastrophic damage to the TPT 50K account. The SL saved the account.
+| Order | Time (ET) | Type | Price | Notes |
+|-------|-----------|------|-------|-------|
+| OPEN — 2x MCL LONG | Mar 26 · 16:11:45 | Market/limit fill | 89.9 | Avg buy price |
+| CLOSE — 2x MCL (stop) | Mar 26 · 16:11:49 | Stop — respected | 88.4 | Avg sell price · 4 seconds · instant stop-out |
 
-**Pattern 7 — did not fire.** There was no opportunity to move the stop. The news candle filled both orders in four seconds. But the absence of opportunity is not the same as a Pattern 7 fix — the real test of Pattern 7 is whether the SL gets moved during an adverse move that develops slowly enough for the impulse to act. That test is still coming. This session is clean on Pattern 7 by circumstance, not by discipline.
-
-**The trade did not have a realistic chance.** At 16:11 ET, a macro event detonated across the commodity complex. MCL and MGC both had violent moves at precisely the same moment. Christopher's entry was technically valid (bullish EMA, pivot retracement, key level, OB confluence) but the news event was unforeseeable. A valid setup can still lose to an exogenous shock — that is not a process failure.
-
-**The frustration is legitimate.** Christopher described this as "manipulation" and expressed disappointment with the amount of market manipulation. What he experienced is real: institutional players often use news events to sweep stops above and below key levels before reversing to their true objective. The MCL LONG was stopped out, and price recovered. The setup read was not wrong. The timing was.
+*Source: tradezella_20260326.csv*
 
 ---
 
-## 📝 4. Notes for Coaches
+## 📖 4. Session Narrative
+
+*[Stub — to be filled in. Describe the session arc: the Mar 26 afternoon context, the bullish EMA setup on crude, how this entry came in the final minutes of the regular session, and what the energy market was doing leading into the 16:11 news event.]*
+
+---
+
+## 📸 5. Screenshot Timeline
+
+**16:11 ET — MCL 1-min: news candle spike · entry and stop both filled in 4 seconds**
+![MCL 1-min — news candle stop-out](../../../../data/screenshots/MCL_Fri%2027%20Mar%20'26_01-27-41.png)
+
+**16:11 ET — MCL 15-min: wider context · uptrend approach to key level**
+![MCL 15-min — entry level context](../../../../data/screenshots/MCL_Fri%2027%20Mar%20'26_01-28-48.png)
+
+---
+
+<a id="notes-for-coaches"></a>
+## 📝 6. Notes for Coaches + SmartTraderAI
 
 *TPT 50K account — Day 2 of 5 minimum trading days.*
 
@@ -66,7 +84,19 @@ The stop was in place. The stop was respected. The account was protected. That i
 
 ---
 
-## 🔁 5. Pattern Tracker
+## 🧠 7. Behavioral Notes
+
+**Pattern 9 — IMPROVEMENT confirmed.** The stop was IN PLACE before the position opened. This is the single most important behavioral takeaway from this trade. The March 20 pattern (fill occurs → SL not set or canceled → unprotected position runs -$925 MAE) did not repeat. The bracket was defined, the stop was live, and the account was protected. If the stop had not been placed, this news spike — which ran approximately $3 below entry — could have done catastrophic damage to the TPT 50K account. The SL saved the account.
+
+**Pattern 7 — did not fire.** There was no opportunity to move the stop. The news candle filled both orders in four seconds. But the absence of opportunity is not the same as a Pattern 7 fix — the real test of Pattern 7 is whether the SL gets moved during an adverse move that develops slowly enough for the impulse to act. That test is still coming. This session is clean on Pattern 7 by circumstance, not by discipline.
+
+**The trade did not have a realistic chance.** At 16:11 ET, a macro event detonated across the commodity complex. MCL and MGC both had violent moves at precisely the same moment. Christopher's entry was technically valid (bullish EMA, pivot retracement, key level, OB confluence) but the news event was unforeseeable. A valid setup can still lose to an exogenous shock — that is not a process failure.
+
+**The frustration is legitimate.** Christopher described this as "manipulation" and expressed disappointment with the amount of market manipulation. What he experienced is real: institutional players often use news events to sweep stops above and below key levels before reversing to their true objective. The MCL LONG was stopped out, and price recovered. The setup read was not wrong. The timing was.
+
+---
+
+## 🔁 8. Pattern Tracker
 
 | Pattern | Status | Notes |
 |---------|--------|-------|
@@ -75,25 +105,12 @@ The stop was in place. The stop was respected. The account was protected. That i
 
 ---
 
-## 📋 6. Order Execution
+## 🎯 9. Forward Focus
 
-| Order | Time (ET) | Type | Price | Notes |
-|-------|-----------|------|-------|-------|
-| OPEN — 2x MCL LONG | Mar 26 · 16:11:45 | Market/limit fill | 89.9 | Avg buy price |
-| CLOSE — 2x MCL (stop) | Mar 26 · 16:11:49 | Stop — respected | 88.4 | Avg sell price · 4 seconds · instant stop-out |
-
-*Source: tradezella_20260326.csv*
+*[Stub — to be filled in. 1–3 priorities for the next session.]*
 
 ---
 
-## 📸 7. Screenshot Timeline
-
-**16:11 ET — MCL 1-min: news candle spike · entry and stop both filled in 4 seconds**
-![MCL 1-min — news candle stop-out](../../../../data/screenshots/MCL_Fri%2027%20Mar%20'26_01-27-41.png)
-
-**16:11 ET — MCL 15-min: wider context · uptrend approach to key level**
-![MCL 15-min — entry level context](../../../../data/screenshots/MCL_Fri%2027%20Mar%20'26_01-28-48.png)
-
----
+> See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260326_MCL-TPT_001.md
 
 *Trade Review — Fortuna · March 26, 2026 · MCL-TPT-001*

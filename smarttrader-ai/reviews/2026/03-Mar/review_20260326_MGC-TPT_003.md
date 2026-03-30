@@ -2,6 +2,8 @@
 #### Fortuna — Wealth Warden | Claude Code CLI
 #### Review #003 for Mar 26 (closed Mar 27 · 10:55 EDT)
 
+[Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
+
 ---
 
 ## ⚡ 1. What Happened
@@ -56,23 +58,41 @@ The loss was not just financial. Christopher has described this experience as on
 
 ---
 
-## 🧠 3. Behavioral Notes
+## 📋 3. Order Execution
 
-**Pattern 7 — recurring and escalating.** The stop was moved repeatedly through 13 hours of adverse movement. TradeZella records it directly: *"kept moving stoploss, essentially cancelled, not respected, original stop would have hit."* This is the same Pattern 7 that appeared on Mar 2, Mar 16, Mar 17, Mar 20, and again on Mar 26 (the first MGC trade). Each prior echo produced a win or a survivable outcome. This time, the market did not cooperate.
+| Order | Time (ET) | Type | Price | Notes |
+|-------|-----------|------|-------|-------|
+| OPEN — 2x MGC SHORT | Mar 26 · 21:32:00 | Limit fill (multi-bracket) | 4,410.0 | Avg entry |
+| [Stop moved repeatedly] | 21:32 – 10:55 | Manual SL moves | — | SL moved through 13h adverse move; original stop would have hit early |
+| CLOSE — 2x MGC (auto-liq) | Mar 27 · 10:55:00 | Auto-liquidation | 4,499.7 | Account blown |
 
-**Pattern 8 — acute failure at three decision points.** This is the most significant Pattern 8 occurrence to date. The first MGC trade of the day had shown a partial improvement — a manual exit. Here, three separate exit opportunities were presented and bypassed: once at the initial adverse move and twice when the market returned to near break-even. The inability to pull the trigger at break-even, not once but twice, is the clearest expression of exit passivity in this recovery arc.
-
-**Pattern 10 — NEW: Eval pressure trade.** Christopher's own notes state: *"I had to take a trade to pass the eval anyway."* This is a new behavioral category: entering a position not primarily because the A+ criteria are met, but because external structure (the 5-day minimum trading requirement) creates pressure to be active. The 5-layer entry filter exists precisely to prevent this. When the motivation for entry is partly "I need to trade today," the filter is compromised before the first candle. This distinction matters: a trade entered for external compliance reasons carries a fundamentally different psychological profile than a trade entered purely on technical conviction.
-
-**The emotional profile.** TradeZella lists the emotions experienced: ambivalent, angry, anxious, confident, fearful, frustrated, greedy, happy, calm, excited, stressed. This is the full emotional spectrum compressed into a single position — and it shows. "I was stable before entering but not while in the trade." The period before entry and the period in the trade are two entirely different states. The entry-state can look like conviction. The in-trade state, when adverse, reveals everything that was actually present underneath.
-
-**Three exit opportunities: the architecture of the hold.** The first opportunity was "at the start" — likely during the initial adverse spike when the thesis was already under pressure. The second and third opportunities were when price came back toward break-even. Christopher notes he *"didn't listen to that feeling and instead listened to the opposite."* This is the Pattern 8 mechanism: at each decision point, the feeling to exit was recognized, identified, and overridden. The question to sit with is not why he didn't exit but what specifically overrode the exit impulse at each moment. Journaling on those three specific moments will be more valuable than any technical post-mortem.
-
-**"The humbling experience I still needed yet."** His own words. This is important framing — not victimhood, but recognition that something in the pattern had to reach this severity before it could shift. The fact that he was able to walk away, rest, and return with perspective in hand is itself a form of discipline. The session ended. The next one hasn't started yet.
+*No Orders.csv available for this trade — position closed by AutoLiq after account breach. TradeZella data confirmed from tradezella_20260329.csv.*
 
 ---
 
-## 📝 4. Notes for Coaches
+## 📖 4. Session Narrative
+
+*[Stub — to be filled in. Describe the overnight arc: the mental state entering at 21:32 after an already-full trading day (2 prior trades, emotional MCL stop-out + MGC win), how the 13-hour hold unfolded in real time, and the decision to walk away after AutoLiq.]*
+
+---
+
+## 📸 5. Screenshot Timeline
+
+**Mar 27–28 — MGC: Higher timeframe overview · downtrend context and violent breakout rally**
+![MGC HTF overview — downtrend context and breakout](../../../../data/screenshots/MGC1!_2026-03-28_18-36-46_daaff.png)
+
+**Mar 27–28 — MGC: Mid timeframe · V-reversal detail and volume profile**
+![MGC mid TF — V reversal and volume profile](../../../../data/screenshots/MGC1!_2026-03-28_18-37-46_9fb19.png)
+
+**Mar 27–28 — MGC: Lower timeframe · entry zone detail · IT Foundation EMAs · upside continuation**
+![MGC lower TF — entry zone and EMAs](../../../../data/screenshots/MGC1!_2026-03-28_18-38-38_bb83f.png)
+
+*Screenshots taken Mar 28 during post-trade documentation and reflection.*
+
+---
+
+<a id="notes-for-coaches"></a>
+## 📝 6. Notes for Coaches + SmartTraderAI
 
 *STB: Christopher was removed from mentorship on March 26 (unpaid final payment). These notes are written to support his own documentation of the development arc, and for any future coaching context.*
 
@@ -89,7 +109,23 @@ The loss was not just financial. Christopher has described this experience as on
 
 ---
 
-## 🔁 5. Pattern Tracker
+## 🧠 7. Behavioral Notes
+
+**Pattern 7 — recurring and escalating.** The stop was moved repeatedly through 13 hours of adverse movement. TradeZella records it directly: *"kept moving stoploss, essentially cancelled, not respected, original stop would have hit."* This is the same Pattern 7 that appeared on Mar 2, Mar 16, Mar 17, Mar 20, and again on Mar 26 (the first MGC trade). Each prior echo produced a win or a survivable outcome. This time, the market did not cooperate.
+
+**Pattern 8 — acute failure at three decision points.** This is the most significant Pattern 8 occurrence to date. The first MGC trade of the day had shown a partial improvement — a manual exit. Here, three separate exit opportunities were presented and bypassed: once at the initial adverse move and twice when the market returned to near break-even. The inability to pull the trigger at break-even, not once but twice, is the clearest expression of exit passivity in this recovery arc.
+
+**Pattern 10 — NEW: Eval pressure trade.** Christopher's own notes state: *"I had to take a trade to pass the eval anyway."* This is a new behavioral category: entering a position not primarily because the A+ criteria are met, but because external structure (the 5-day minimum trading requirement) creates pressure to be active. The 5-layer entry filter exists precisely to prevent this. When the motivation for entry is partly "I need to trade today," the filter is compromised before the first candle. This distinction matters: a trade entered for external compliance reasons carries a fundamentally different psychological profile than a trade entered purely on technical conviction.
+
+**The emotional profile.** TradeZella lists the emotions experienced: ambivalent, angry, anxious, confident, fearful, frustrated, greedy, happy, calm, excited, stressed. This is the full emotional spectrum compressed into a single position — and it shows. "I was stable before entering but not while in the trade." The period before entry and the period in the trade are two entirely different states. The entry-state can look like conviction. The in-trade state, when adverse, reveals everything that was actually present underneath.
+
+**Three exit opportunities: the architecture of the hold.** The first opportunity was "at the start" — likely during the initial adverse spike when the thesis was already under pressure. The second and third opportunities were when price came back toward break-even. Christopher notes he *"didn't listen to that feeling and instead listened to the opposite."* This is the Pattern 8 mechanism: at each decision point, the feeling to exit was recognized, identified, and overridden. The question to sit with is not why he didn't exit but what specifically overrode the exit impulse at each moment. Journaling on those three specific moments will be more valuable than any technical post-mortem.
+
+**"The humbling experience I still needed yet."** His own words. This is important framing — not victimhood, but recognition that something in the pattern had to reach this severity before it could shift. The fact that he was able to walk away, rest, and return with perspective in hand is itself a form of discipline. The session ended. The next one hasn't started yet.
+
+---
+
+## 🔁 8. Pattern Tracker
 
 | Pattern | Status | Notes |
 |---------|--------|-------|
@@ -99,31 +135,12 @@ The loss was not just financial. Christopher has described this experience as on
 
 ---
 
-## 📋 6. Order Execution
+## 🎯 9. Forward Focus
 
-| Order | Time (ET) | Type | Price | Notes |
-|-------|-----------|------|-------|-------|
-| OPEN — 2x MGC SHORT | Mar 26 · 21:32:00 | Limit fill (multi-bracket) | 4,410.0 | Avg entry |
-| [Stop moved repeatedly] | 21:32 – 10:55 | Manual SL moves | — | SL moved through 13h adverse move; original stop would have hit early |
-| CLOSE — 2x MGC (auto-liq) | Mar 27 · 10:55:00 | Auto-liquidation | 4,499.7 | Account blown |
-
-*No Orders.csv available for this trade — position closed by AutoLiq after account breach. TradeZella data confirmed from tradezella_20260329.csv.*
+*[Stub — to be filled in. 1–3 priorities for the next session.]*
 
 ---
 
-## 📸 7. Screenshot Timeline
-
-**Mar 27–28 — MGC: Higher timeframe overview · downtrend context and violent breakout rally**
-![MGC HTF overview — downtrend context and breakout](../../../../data/screenshots/MGC1!_2026-03-28_18-36-46_daaff.png)
-
-**Mar 27–28 — MGC: Mid timeframe · V-reversal detail and volume profile**
-![MGC mid TF — V reversal and volume profile](../../../../data/screenshots/MGC1!_2026-03-28_18-37-46_9fb19.png)
-
-**Mar 27–28 — MGC: Lower timeframe · entry zone detail · IT Foundation EMAs · upside continuation**
-![MGC lower TF — entry zone and EMAs](../../../../data/screenshots/MGC1!_2026-03-28_18-38-38_bb83f.png)
-
-*Screenshots taken Mar 28 during post-trade documentation and reflection.*
-
----
+> See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260326_MGC-TPT_003.md
 
 *Trade Review — Fortuna · March 26–27, 2026 · MGC-TPT-003*
