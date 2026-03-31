@@ -117,7 +117,9 @@ This is Pattern 8 in its clearest form — not a fast, emotional hold, but a sus
 
 ## 🎯 9. Forward Focus
 
-*[Stub — to be filled in. 1–3 priorities for the next session.]*
+1. **Pre-plan the exit before the position opens.** Both TP and SL written on the chart before stepping away from any crypto position. "See what the world has to say" is Pattern 8 framing, not a plan. The exit decision must be made in a clear mental state — before the trade begins, not during it.
+2. **Voucher capital follows the same rules as personal capital.** The funding source is different; the discipline required is not. Manage BTCC voucher positions identically to real capital — because the habits built here carry directly into funded accounts.
+3. **OPEN/CAUTION at a multi-week swing high is a hold-time signal.** It's not a reason to skip the entry outright, but it is a reason to keep the hold short and tight. An entry near the high of an 8-point rally with the session indicator showing OPEN/CAUTION is not a setup for a 20-hour unmanaged overnight position.
 
 ---
 

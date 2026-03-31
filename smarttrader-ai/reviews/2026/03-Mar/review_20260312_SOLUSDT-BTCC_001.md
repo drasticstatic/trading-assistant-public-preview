@@ -1,9 +1,8 @@
 # Trade Review — Mar 12, 2026 | SOL/USDT · BTCC | Two Shorts
+#### Fortuna — Wealth Warden | Claude Code CLI
+#### Review #001 for Mar 12
 
-**Account:** BTCC Crypto Exchange
-**Instrument:** SOLUSDT (20x + 50x Perp)
-**Session:** Overnight ETH / Pre-NY Open
-**Review #:** 001 for Mar 12
+[Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 
 ---
 
@@ -45,19 +44,40 @@ The full 5-day context chart (see Mar 25 overview screenshot) confirms what happ
 
 ---
 
-## 🧠 3. Behavioral Notes
+## 📋 3. Order Execution
 
-**Pattern 8 — Exit Passivity (recurring):** The 50x position had a stop loss and exited cleanly. The 20x position had no documented exit rule enforced — it held through a gap reversal, overnight, and into the next day's RTH open. By the time it was closed, price had moved 6.56 against the short. This is the same pattern that has appeared in recent futures reviews: entries are placed, but exits are passive (no SL enforcement on the main position, or SL set so wide as to be meaningless).
+| Order | Time (ET) | Type | Price | Notes |
+|-------|-----------|------|-------|-------|
+| OPEN — 5 SOL SHORT (20x) | Mar 12 · 02:41 | Market | $85.1332 | Position 30348603 |
+| OPEN — 1 SOL SHORT (50x) | Mar 12 · 03:32 | Limit | $85.68 | Position 30349047 |
+| CLOSE — 1 SOL (SL hit) | Mar 12 · 05:45 | Stop Loss | $86.6297 | -$0.95 ✓ managed |
+| CLOSE — 5 SOL (manual) | Mar 13 · 09:18 | Market | $91.6940 | Held ~30.5h; -$32.80 |
 
-**Position A held ~30.5 hours.** That is not a scalp or a swing with a plan — it's a position that became unmanageable. The exit at 09:17 ET Mar 13 (RTH open area) suggests Christopher may have closed it when the new session started and the loss became undeniable.
-
-**Holding through a trap reversal:** The 84.97 low was likely a liquidity sweep — the kind of move IT Foundation is built to identify. If the 4H bearish alignment was valid, the failure to reclaim below 84.97 and the subsequent bounce should have been a signal to close or stop out. Instead, the position held through a 6.5+ point run against it.
-
-**The 50x limit entry is worth noting:** Placing a second SHORT above the first (85.68 vs 85.13) with a 50x multiplier while the primary short was already open shows conviction in the direction — and the stop loss on it shows at least some risk management was attempted. The execution on Position B was clean. Position A needed the same discipline.
+*Source: BTCC-orders_2024_12-17_thru_2026_03-26.csv*
 
 ---
 
-## 📝 4. Notes for Coaches
+## 📖 4. Session Narrative
+
+*[Stub — to be filled in. Describe the overnight arc: entering in the early hours of Mar 12 with a clean bearish read, how the position felt through the overnight hours as price dipped toward 84.97 then reversed, and what the decision process looked like on Mar 13 at the RTH open when the loss became undeniable.]*
+
+---
+
+## 📸 5. Screenshot Timeline
+
+**Mar 11, 23:23 ET — Pre-entry context: IT Foundation bearish, SMOG zone, G2 setup**
+![SOL/USDT 1D + 15M — Mar 11 setup](../../../../data/screenshots/SOLUSDT_2026-03-11_23-23-18_mar12setup.png)
+
+**Mar 12, 02:49 ET — During trade: price testing SMOG zone, 2M + 15M view**
+![SOL/USDT 2M + 15M — Mar 12 trade in progress](../../../../data/screenshots/SOLUSDT_2026-03-12_02-49-10_mar12trade.png)
+
+**Mar 25, 08:08 ET — 5-day context: the Mar 12 trap reversal visible in full**
+![SOL/USDT 5D overview — showing Mar 12 sweep, subsequent 93 run](../../../../data/screenshots/SOLUSDT_2026-03-25_08-08-24_88f83.png)
+
+---
+
+<a id="notes-for-coaches"></a>
+## 📝 6. Notes for Coaches + SmartTraderAI
 
 *This trade is on BTCC (crypto perp), not a prop firm account, so there are no firm-specific rule violations. However, it reflects behavioral tendencies that carry across all accounts.*
 
@@ -75,7 +95,19 @@ The full 5-day context chart (see Mar 25 overview screenshot) confirms what happ
 
 ---
 
-## 🔁 5. Pattern Tracker
+## 🧠 7. Behavioral Notes
+
+**Pattern 8 — Exit Passivity (recurring):** The 50x position had a stop loss and exited cleanly. The 20x position had no documented exit rule enforced — it held through a gap reversal, overnight, and into the next day's RTH open. By the time it was closed, price had moved 6.56 against the short. This is the same pattern that has appeared in recent futures reviews: entries are placed, but exits are passive (no SL enforcement on the main position, or SL set so wide as to be meaningless).
+
+**Position A held ~30.5 hours.** That is not a scalp or a swing with a plan — it's a position that became unmanageable. The exit at 09:17 ET Mar 13 (RTH open area) suggests Christopher may have closed it when the new session started and the loss became undeniable.
+
+**Holding through a trap reversal:** The 84.97 low was likely a liquidity sweep — the kind of move IT Foundation is built to identify. If the 4H bearish alignment was valid, the failure to reclaim below 84.97 and the subsequent bounce should have been a signal to close or stop out. Instead, the position held through a 6.5+ point run against it.
+
+**The 50x limit entry is worth noting:** Placing a second SHORT above the first (85.68 vs 85.13) with a 50x multiplier while the primary short was already open shows conviction in the direction — and the stop loss on it shows at least some risk management was attempted. The execution on Position B was clean. Position A needed the same discipline.
+
+---
+
+## 🔁 8. Pattern Tracker
 
 | Pattern | Status | Notes |
 |---------|--------|-------|
@@ -84,26 +116,14 @@ The full 5-day context chart (see Mar 25 overview screenshot) confirms what happ
 
 ---
 
-## 📋 6. Order Execution
+## 🎯 9. Forward Focus
 
-| Order | Time (ET) | Type | Price | Notes |
-|-------|-----------|------|-------|-------|
-| OPEN — 5 SOL SHORT (20x) | Mar 12 · 02:41 | Market | $85.1332 | Position 30348603 |
-| OPEN — 1 SOL SHORT (50x) | Mar 12 · 03:32 | Limit | $85.68 | Position 30349047 |
-| CLOSE — 1 SOL (SL hit) | Mar 12 · 05:45 | Stop Loss | $86.6297 | -$0.95 ✓ managed |
-| CLOSE — 5 SOL (manual) | Mar 13 · 09:18 | Market | $91.6940 | Held ~30.5h; -$32.80 |
-
-*Source: BTCC-orders_2024_12-17_thru_2026_03-26.csv*
+1. **Hard stop required on every BTCC position before stepping away from the desk.** An overnight crypto position without a stop is not a swing trade — it is an unmanaged position. The 50x position demonstrated exactly how a stop works: clean exit, defined loss, no decision required at 03:00 AM. The 20x position needed the same treatment.
+2. **When price sweeps a key liquidity level and fails to continue, that is an exit signal.** The 84.97 low was the SMOG zone being tested. The failure to break below and continue is a specific condition in IT Foundation — price swept the sell-side, couldn't sustain the move. The correct response in that scenario is to close or tighten the stop dramatically, not hold for a second attempt.
+3. **Three-item pre-trade checklist applies to BTCC as much as to futures.** Entry thesis + SL level + one defined exit condition — written before any BTCC bracket is placed. Position B had a stop. Position A did not. The difference in outcome (-$0.95 vs -$32.80) is the same difference that will appear in every account where the checklist is applied inconsistently.
 
 ---
 
-## 📸 7. Screenshot Timeline
+> See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260312_SOLUSDT-BTCC_001.md
 
-**Mar 11, 23:23 ET — Pre-entry context: IT Foundation bearish, SMOG zone, G2 setup**
-![SOL/USDT 1D + 15M — Mar 11 setup](../../../../data/screenshots/SOLUSDT_2026-03-11_23-23-18_mar12setup.png)
-
-**Mar 12, 02:49 ET — During trade: price testing SMOG zone, 2M + 15M view**
-![SOL/USDT 2M + 15M — Mar 12 trade in progress](../../../../data/screenshots/SOLUSDT_2026-03-12_02-49-10_mar12trade.png)
-
-**Mar 25, 08:08 ET — 5-day context: the Mar 12 trap reversal visible in full**
-![SOL/USDT 5D overview — showing Mar 12 sweep, subsequent 93 run](../../../../data/screenshots/SOLUSDT_2026-03-25_08-08-24_88f83.png)
+*Trade Review — Fortuna · March 12–13, 2026 · SOLUSDT-BTCC-001*
