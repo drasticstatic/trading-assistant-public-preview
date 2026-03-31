@@ -1,7 +1,7 @@
 # Weekly Review — Week of March 23–27, 2026
 #### Fortuna — Wealth Warden | Claude Code CLI
 
-[Jump to 🕊️ Spiritual Lens ↓](#spiritual-lens) · [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
+[Jump to 🕊️ Spiritual Lens ↓](#spiritual-lens) · [Jump to 📊 SmartTraderAI Response ↓](#smarttraderai-response) · [Jump to 🤖 Final STB Submission ↓](#smarttraderai-copy-paste)
 
 ---
 
@@ -106,11 +106,11 @@ The stop hunt, the overnight hold, the break-even decision — these aren't rand
 
 What makes this week different from prior losses is the recognition: three exit opportunities, each identified in real time, each consciously overridden. The awareness is there. The execution gap is narrow — not between knowing and not-knowing, but between knowing and doing.
 
-Walking away was the right response. The rest is not avoidance; it is preparation. The week ahead begins from a cleared place.
+Walking away was the right response. The rest is not avoidance; it is preparation.
 
-The weekend after the blow was a deliberate pause — not a retreat, a recalibration. Christopher stepped back from the desk, from the urgency, from the pressure to respond. He watched the market on Monday (Mar 30), attended live coaching calls, and didn't find a trade setup he felt convicted to enter. He honored that. The not-trading was its own discipline.
+The weekend after the blow was a deliberate pause — not a retreat, a recalibration. I stepped back from the desk, from the urgency, from the pressure to respond. I watched the market on Monday (Mar 30), attended live coaching calls, and didn't find a trade setup I felt convicted to enter. I honored that. The not-trading was its own discipline.
 
-What filled the space was the life that trading is supposed to serve. Time with his sister, her husband, and their nephew. Time with his girlfriend, her kids, and their animals. Reconnecting with his sponsor. Catching up on emails and exploring web3 job opportunities — not because trading has stopped, but because being of service while continuing to learn is part of the picture. There's something clarifying about not having to go to the machine shop: the freedom to catch up, to show up, to be present for the people around him. That space is the *why* behind the leap of faith into trading — not the P&L number, but the time and presence to serve family and community in a way a shift schedule makes nearly impossible.
+What filled the space was the life that trading is supposed to serve. Time with my sister, her husband, and my nephew. Time with my girlfriend, her kids, and their animals. Reconnecting with my sponsor. Catching up on emails and exploring web3 job opportunities — not because trading has stopped, but because being of service while continuing to learn is part of the picture. There's something clarifying about not having to go to the machine shop: the freedom to catch up, to show up, to be present for the people around me. That space is the *why* behind the leap of faith into trading — not the P&L number, but the time and presence to serve family and community in a way a shift schedule makes nearly impossible.
 
 Even a week that ends with an account blown and a net loss of $789 contains that gift. The context reframes the loss without minimizing it.
 
@@ -139,113 +139,7 @@ The week ahead begins from a cleared place.
 
 ---
 
-<a id="smarttraderai-copy-paste"></a>
-
-## 🤖 SmartTraderAI Weekly Copy-Paste Fields
-
----
-
-**What trade setups/tactics worked this week?**
-
-The Mar 24 ES short (APEX-06) is the benchmark. Sell limit placed the night of March 23 at 6,673.0 after the London STB call. Full RTH session watched without touching the entry — a clean demonstration of patience in the five-layer filter. Position filled ETH at 16:26. SL placed and untouched. Overnight hold intentional and pre-planned with bracket in place. TP hit. This trade satisfied the pre-trade exit planning requirement: a defined bracket with a known TP level. Pattern 7 held for the full session. This is what correct execution of the arc looks like.
-
----
-
-**What didn't work this week?**
-
-The March 26 overnight MGC short. Three behavioral failures simultaneously: entered partly because of eval compliance pressure rather than pure A+ signal (Pattern 10 — new); stop moved repeatedly through 13 hours of adverse overnight movement (Pattern 7 — 6th consecutive occurrence); three exit opportunities — including two near break-even — recognized in real time and bypassed (Pattern 8 — most significant occurrence in the arc). All three together produced the account blow. No single one was sufficient alone; the combination was catastrophic.
-
----
-
-**What observable patterns did you see in the market this week?**
-
-Gold (MGC/GC) showed institutional volatility both during the 16:11 ET news candle on Thursday (stop sweep before reversal) and during the overnight session (sharp adverse move through entry zone, then a return toward break-even, then continuation higher through the session). The first MGC trade of Thursday demonstrated the architecture: 38-point stop hunt before directional commitment. The second MGC position was entered into this same structure but on the evening session, and the directional commitment went against the short thesis through Friday morning.
-
----
-
-**What observable patterns did you see in your trades this week?**
-
-Direction accuracy: 3/5 trades were directionally correct (ES short ✅, MGC T002 short ✅, MCL stop hunt ❌, BTCC voucher ❌, overnight MGC ❌). Entry quality: 1/5 trades met full A-grade criteria (ES short Mar 24). SL discipline: 2/5 trades had SL respected (ES Mar 24 ✅, MCL instant stop ✅). Exit process: 1/5 trades had an active manual exit decision (MGC T002 — partial P8 improvement). The entry filter work is being applied inconsistently. The SL and exit disciplines continue to be the unresolved gap.
-
----
-
-**What mistakes did you make this week?**
-
-Looking back with a few days of distance: the clearest mistake was the sequence itself. By the time the overnight MGC position opened at 21:32, it was already the third trade of a day that included a 4-second emotional stop-out on MCL and a 47-minute fight through a 38-point adverse move on MGC. The mental state wasn't clean. I recognized on some level it wasn't a full A+ setup. I entered anyway because the TPT 5-day minimum created a "have to" feeling that overrode the filter. That's Pattern 10 in its clearest form — not negligence, but a specific rationalization that felt reasonable in the moment. I also kept moving the stop because I was tired and didn't want to absorb another loss after the day I'd had. And at the break-even moments, Pattern 8 wasn't indifference — it was something closer to "just let it run back, please." The market doesn't care about what kind of day I had before I entered.
-
-Primary documented mistakes: (1) Entering overnight MGC short with eval compliance as a motivating factor — not a pure A+ entry. (2) Moving stop through entire overnight adverse hold rather than accepting the original SL outcome. (3) Not exiting at three identified exit opportunities, including two close to break-even. (4) Entering an overnight position in gold without a structurally-defined hard stop that would be respected regardless of adverse movement.
-
----
-
-**What recurring problems are you seeing week over week?**
-
-Pattern 7 has now appeared in 6 of the last 7 trading sessions. The rationalization changes (survival of news candle, structural alignment, eval pressure, overnight management) but the behavior is the same: the stop moves. Pattern 8 has been named since March 10 and has produced zero fully active exit decisions in any trade since identification. The gap between recognizing an exit impulse (which now clearly happens) and acting on it is the specific, narrow problem. Pattern 10 is new this week: when external requirements (eval mechanics, minimum trading days) become motivation to enter, the five-layer filter is effectively bypassed before it begins.
-
----
-
-**What solutions are you implementing to fix those problems?**
-
-The week ahead starts clean — APEX-06 is still active and that's where the focus is. The specific commitments for this week:
-- **Three-item pre-trade checklist — mandatory.** Entry thesis + SL level + one exit condition, all written before the bracket goes in. No exceptions.
-- **No overnight positions without a pre-written structural SL rationale.** If the reason to hold the stop can't be written out clearly before entry, the overnight position doesn't happen.
-- **Eval filter in use.** Before any entry: "Would I take this trade if there were no minimum-day requirement today?" If the honest answer is no — no trade.
-
-Fortuna's recommendation:
-1. **Pattern 8 — active exit requirement:** Before any bracket is placed, write one explicit scratch condition on the chart: "If price returns to X, I close." This is the non-negotiable requirement — not a preference, a rule. The recognition of the exit impulse is already there. The only gap is converting recognition to action. Writing the condition forces the decision before the emotional state of being in a live position.
-2. **Pattern 7 — hard commitment:** SL is placed at structural invalidation. Rationale documented in writing. No modification under any circumstance. If the written rationale no longer holds, the trade is closed — not the stop moved.
-3. **Pattern 10 — eval/pressure filter:** Before any entry, ask: "Would I take this trade if I had no eval minimum requirement today?" If the honest answer is no, the trade is not taken. The eval structure is a container, not a directive.
-4. **Pre-trade documentation:** Entry thesis + SL level + one exit condition — all written before bracket placement. This is the three-item checklist that covers all three active patterns.
-
----
-
-**Weekly Performance Questions (yes/no)**
-
-- Did you trade your plan? Partially — Mar 24 ES ✅ · Mar 26 MCL/MGC partially · Mar 26-27 overnight ❌ (eval pressure override)
-- Did you follow your rules? Partially — five-layer filter applied for some entries ✅ · SL violated on 2/5 trades ❌ · exit planning absent on most trades ❌
-- Did you overtrade? No (5 trades over 5 days)
-- Did you revenge trade? No — walked away after the loss
-- Did you hold a position too long? Yes — overnight MGC held through 3 exit opportunities across 13h
-- Did you exit too early? No
-- Did you move your stop loss? Yes — 2 of 5 trades had SL modification ❌
-- Did you add to a loser? No
-- Did you take profit too early? Not on losers (no active exits taken)
-
----
-
-**This week my action steps are:**
-
-1. Three-item checklist before every bracket: entry thesis + SL level + one exit condition, written before any position opens
-2. Economic calendar check before any entry near a session boundary — especially CL/MCL in the 30 minutes around 16:00 ET
-3. No overnight position without a pre-written SL rationale that will not be modified
-4. Keep micro sizing as the default for any session with elevated volatility or a scheduled macro event in the relevant window
-
----
-
-**What I want to work on / improve / get better at:**
-
-The specific skill is converting exit recognition into exit action — the break-even moments were seen, named in real time, and overridden each time. The gap isn't awareness; it's the pre-commitment. Writing the exit condition before the trade means it exists when the emotional weight of being in a live position tries to override it.
-
-Outside of trading: eager to get back into the Pine Script auto-levels work and continue moving the DEX arbitrage deployment toward launch (running through Claude Code credits to keep that workspace active while Augment credits are paused). Still chasing down the Telegram API error and the BTCC open support ticket — both are in process. Looking forward to more time with SmartTraderAI's improved analysis capabilities for premarket work to preserve Claude credits for code tasks.
-
-Fortuna's note: The specific skill is converting exit awareness to exit action. The market showed this week that the recognition is present — three times Christopher knew he should exit and didn't. The work is narrowing the gap between the knowing and the doing. Not building new awareness. Acting on the awareness that's already there.
-
----
-
-**How I plan to study the market this week:**
-
-- Upload this week's session data to SmartTraderAI and use its enhanced cross-session memory for premarket planning — testing it as the primary premarket analysis tool while preserving Claude credits for code and review work
-- Participate in live ZTH coaching calls — ZTH setups are available all session hours, so study time includes market hours
-- Review the Mar 24 ES trade review as the behavioral benchmark before each session — that is what correct execution looks like across all five layers, and it happened this same week
-
----
-
-**GitHub review link:**
-
-https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260327_weekly-review.md
-
----
-
----
+<a id="smarttraderai-response"></a>
 
 ## 📊 SmartTraderAI's Response to Christopher's Weekly Submission
 
@@ -373,6 +267,110 @@ This is distinct from Pattern 7 (moving stops under pressure) and Pattern 8 (exi
 | Behavioral P&L Range | $3,019 range (+$1,225 to -$1,794) — most extreme volatility in documented arc |
 
 *Data Foundation: 1 trade record, 4 daily reviews, 2 weekly check-ins. Cross-referenced against 6+ weeks of recovery arc data for pattern frequency and progression analysis.*
+
+---
+
+<a id="smarttraderai-copy-paste"></a>
+
+## 🤖 SmartTraderAI Weekly Copy-Paste Fields
+
+*Final submission — updated with SmartTraderAI insights*
+
+---
+
+**What trade setups/tactics worked this week?**
+
+My ES short on APEX-06 on March 24 was the cleanest trade I've executed in this recovery arc. I placed a sell limit at 6,673.0 the night of March 23 after the London STB call and let the entire RTH session pass without touching it. When it filled ETH at 16:26, my bracket was already in place. The SL was never moved. TP hit. SmartTraderAI measured that trade at 74.24% exit efficiency — and that number represents what I'm capable of when the five-layer filter is fully applied and the exit is pre-planned. That's the version of execution I'm building toward.
+
+---
+
+**What didn't work this week?**
+
+The March 26 overnight MGC short — and it wasn't any one thing that failed, it was the convergence of three patterns in a single trade, which SmartTraderAI flagged as the first occurrence of that in my recovery arc. By 21:32 I'd already been through two trades that day: a 4-second MCL stop-out and a 47-minute fight through a 38-point adverse move. My mental state wasn't clean before I even typed the entry. I knew it wasn't a full A+ setup. I entered anyway because the TPT 5-day minimum had created a "have to trade today" feeling that bypassed my entry filter — that's Pattern 10. Then I moved the stop through 13 hours of adverse overnight movement (Pattern 7, 6th occurrence in 7 sessions). Three times I recognized I should exit, twice near break-even, and each time I told myself "just let it run back." SmartTraderAI's read is accurate: this is not an awareness problem. I identified every exit opportunity correctly. The execution failed.
+
+---
+
+**What observable patterns did you see in the market this week?**
+
+Gold showed institutional behavior I'm starting to recognize clearly: the 16:11 news candle on Thursday swept stops on both sides of the commodity complex simultaneously before reversing to its actual direction. I experienced both sides of that in 6 seconds — MCL long stopped out, MGC short immediately hit with a 38-point spike against it. Both instruments then reversed toward the original thesis. That's structured stop hunting before directional commitment, not random volatility. The overnight MGC position entered that same structure hours later, but by then the institutional directional commitment had already moved against the short thesis and continued through Friday morning.
+
+---
+
+**What observable patterns did you see in your trades this week?**
+
+I was directionally correct on 3 of my 5 trades (ES ✅, MGC T002 ✅, overnight MGC ❌, MCL ❌, BTCC ❌). Only my March 24 ES trade met full A-grade entry criteria. I respected the SL on 2 of 5 trades. I made one active manual exit decision all week — MGC T002 — and even that came in at 48.45% of MFE. SmartTraderAI confirmed what I already feel: Pattern 8 has a 0% success rate since March 10. Not one fully active exit across every session since it was identified. My entry filter is being applied inconsistently, and exit planning is absent from nearly every trade I take.
+
+---
+
+**What mistakes did you make this week?**
+
+Looking back with a few days of distance: the clearest mistake was the sequence itself. By the time the overnight MGC position opened at 21:32, it was already the third trade of a day that included a 4-second emotional stop-out on MCL and a 47-minute fight through a 38-point adverse move. My mental state wasn't clean and I knew it. I entered anyway because the TPT 5-day minimum had created a "have to" feeling that overrode my filter. That's Pattern 10 — not negligence, but a specific rationalization that felt reasonable in the moment. I also kept moving the stop because I was tired and didn't want to absorb another loss after the day I'd had. And at the break-even moments, it wasn't indifference — it was something closer to "just let it run back, please." The market doesn't care about what kind of day I had before I entered.
+
+Documented mistakes: (1) I entered the overnight MGC short with eval compliance as a contributing motivation — not a pure A+ entry, and I knew it going in. (2) I moved the stop through the entire overnight adverse hold rather than accepting the original SL outcome. (3) I identified three exit opportunities in real time and bypassed all three, including two near break-even. (4) I entered an overnight position in gold without a structurally-defined hard stop I was committed to hold.
+
+---
+
+**What recurring problems are you seeing week over week?**
+
+Pattern 7 has shown up in 6 of my last 7 sessions. The story I tell myself changes each time — this week it was structural conviction and overnight management — but the behavior is the same: the stop moves. Pattern 8 has been active every session since March 10 with a 0% success rate on active exits. I identified all three exit opportunities on the overnight MGC trade in real time and overrode all three. SmartTraderAI's finding puts it plainly: this is not an awareness problem. The awareness is working. What's missing is a pre-committed exit condition that exists before I'm in the trade, written before the emotional weight can override it. Pattern 10 is new this week: when external requirements create a "have to trade" feeling, my five-layer filter is corrupted before analysis even begins.
+
+---
+
+**What solutions are you implementing to fix those problems?**
+
+APEX-06 is the only active account now — that removes the eval pressure vector that enabled Pattern 10 this week. But the deeper fix is architectural. SmartTraderAI's convergence finding is the core insight: individual pattern fixes work in isolation but fail when multiple patterns activate simultaneously. The three-item pre-trade checklist addresses all three at once: entry thesis (P10 filter) + SL level with written rationale (P7 fix) + one exit condition committed in writing before the bracket goes in (P8 fix). All three documented before any position opens, before any emotional weight of being in a trade can override them.
+
+My specific commitments for the week ahead:
+- **Three-item pre-trade checklist — mandatory.** Entry thesis + SL level + one exit condition, all written before the bracket. No exceptions.
+- **No overnight positions without a pre-written structural SL rationale** I'm committed to hold. If I can't write it clearly before entry, the overnight position doesn't happen.
+- **Eval filter active.** Before any entry: "Would I take this trade if there were no minimum-day requirement today?" If the honest answer is no — no trade.
+
+*Fortuna's architectural note for coaches: Pattern 8 fix requires the exit condition be written on the chart before bracket placement — not a mental note (mental notes get overridden by in-trade emotion), a physical annotation. Pattern 7 fix: SL rationale documented in writing; if the written rationale no longer holds, the trade closes — the stop doesn't move. Pattern 10 filter: "Would I take this trade without the eval requirement?" — if no, no trade. All three are covered by the same pre-trade documentation step.*
+
+---
+
+**Weekly Performance Questions (yes/no)**
+
+- Did you trade your plan? Partially — Mar 24 ES ✅ · Mar 26 MCL/MGC partially · Mar 26-27 overnight ❌ (eval pressure override)
+- Did you follow your rules? Partially — five-layer filter applied for some entries ✅ · SL violated on 2/5 trades ❌ · exit planning absent on most trades ❌
+- Did you overtrade? No (5 trades over 5 days)
+- Did you revenge trade? No — walked away after the loss
+- Did you hold a position too long? Yes — overnight MGC held through 3 exit opportunities across 13h
+- Did you exit too early? No
+- Did you move your stop loss? Yes — 2 of 5 trades had SL modification ❌
+- Did you add to a loser? No
+- Did you take profit too early? Not on losers (no active exits taken)
+
+---
+
+**This week my action steps are:**
+
+1. Three-item checklist before every bracket: entry thesis + SL level + one exit condition, written before any position opens
+2. Economic calendar check before any entry near a session boundary — especially CL/MCL in the 30 minutes around 16:00 ET
+3. No overnight position without a pre-written SL rationale that will not be modified
+4. Keep micro sizing as the default for any session with elevated volatility or a scheduled macro event in the relevant window
+
+---
+
+**What I want to work on / improve / get better at:**
+
+The specific skill is converting exit recognition into exit action. The break-even moments were seen, named in real time, and overridden each time. The gap isn't awareness — it's the pre-commitment. Writing the exit condition before the trade means it exists when the emotional weight of being in a live position tries to override it. That's the one thing that would have changed the outcome of the overnight MGC trade.
+
+Outside of trading: eager to get back into the Pine Script auto-levels work and continue moving the DEX arbitrage deployment toward launch. Still chasing down the Telegram API error and the BTCC open support ticket — both are in process. Looking forward to testing SmartTraderAI for premarket analysis to preserve Claude credits for code tasks.
+
+---
+
+**How I plan to study the market this week:**
+
+- Upload this week's session data to SmartTraderAI and use its enhanced cross-session memory for premarket planning — testing it as the primary premarket analysis tool while preserving Claude credits for code and review work
+- Participate in live ZTH coaching calls — ZTH setups are available all session hours, so study time includes market hours
+- Review the Mar 24 ES trade review as the behavioral benchmark before each session — that is what correct execution looks like across all five layers, and it happened this same week
+
+---
+
+**GitHub review link:**
+
+https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260327_weekly-review.md
 
 ---
 
