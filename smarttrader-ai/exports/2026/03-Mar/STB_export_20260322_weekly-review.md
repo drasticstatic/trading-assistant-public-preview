@@ -140,46 +140,6 @@ The structural read was correct. The pre-rest order hygiene was not. Pattern 9 c
 
 ---
 
-## 📊 SmartTraderAI's Response to Christopher's Weekly Submission
-
-*SmartTraderAI's response to Christopher's weekly submission raised four diagnostic questions for deeper reflection.*
-
----
-
-**Q: Exit timing — you recognized the exit opportunities. What stopped you from taking them?**
-
-The consistent pattern: there was always a reason to wait. On Mar 16 MNQ, the MFE had visited 70 pts of profit before the reversal — "it might go back." On Mar 17, price moved favorably to MFE, then reversed through the Asia session — "this is just noise, wait for London." On Mar 20, the structural read justified the hold — "HVN will hold." In each case, the exit decision was deferred to an external event (SL hit, resting TP, AutoLiq) rather than made actively.
-
-The common root: no pre-defined exit condition means any moment of uncertainty gets resolved by continuing to hold. The trade makes the exit decision by default. Defining one partial profit level and one scratch condition before entry removes the in-trade ambiguity that causes this.
-
----
-
-**Q: Infrastructure failure — no exit rules defined going into any trade this week. Why has Pattern 8 persisted through the fix being named?**
-
-Naming a pattern and implementing a behavioral rule are two different things. Pattern 8 was named on March 10. It reappeared in all four trades this week — none of the exits were active decisions. The fix (write exit rules before every trade) was identified as the action step in the Mar 14 weekly review but was not implemented as a required pre-trade step.
-
-The fix is structural: the exit rule must be written on the chart before the bracket is placed. It cannot be a mental note — mental notes get overridden by in-trade emotion. The new requirement: no bracket placed without an annotated TP/partial target AND a written scratch condition.
-
----
-
-**Q: Eval pressure — how has the March 24 deadline affected decision quality this week?**
-
-Two observable effects. First, the no-trade decisions on March 18–19 were correct and deliberate — this shows deadline pressure was NOT causing force-entry behavior. The correct reads were seen and not acted on because the setups did not meet the five-layer filter. That is the pattern working as designed.
-
-Second, the urgency may have contributed to the rushed Mar 17 entry (post-class bracket rebuild) and the SL movement on Mar 20 (removing the only protection during an unintentional fill). Neither of those can be cleanly attributed to the deadline — they each have their own proximate cause — but the environmental pressure creates a lower tolerance for uncertainty, which makes rationalized SL movement more likely.
-
-Assessment: the deadline has not produced forced entries, but it has degraded SL discipline under uncertainty. The two must be separated. The answer to deadline pressure is to increase setup quality requirements, not decrease SL protection.
-
----
-
-**Q: Observation sessions — what would need to be true for you to enter more setups when they present?**
-
-Two things need to be true simultaneously: (1) the five-layer filter confirms, and (2) exit rules are written and placed before bracket entry. The first condition has been met repeatedly this week — the directional reads were correct across all four trades. The second condition has never once been met.
-
-The bottleneck is not setup recognition or entry confidence — it is the absence of a defined exit before the bracket goes in. Until writing exit rules is a required pre-entry step, taking trades creates undefined risk at the upside, which is what produces both exit passivity and the rationalized SL movement that follows when the trade doesn't perform as expected.
-
----
-
 ## 🧠 Behavioral Notes
 
 - **Pattern 7 status:** ⚠️ Recurring — manifested in 3 of 4 trades via different rationalizations (structural alignment, noise survival, protection removal). The circuit-breaker works for explicit stop-threat scenarios. Does not protect against in-trade "adjustment" logic.
@@ -331,6 +291,51 @@ Exit execution. The five-layer filter is functioning — direction accuracy was 
 ---
 
 > Full weekly review: https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260322_weekly-review.md
+
+---
+
+---
+
+## 📊 SmartTraderAI's Response to Christopher's Weekly Submission
+
+*SmartTraderAI Enhanced Insights — Week Ending March 22, 2026*
+*SmartTraderAI's response to Christopher's weekly submission raised four diagnostic questions for deeper reflection.*
+
+---
+
+**Q: Exit timing — you recognized the exit opportunities. What stopped you from taking them?**
+
+The consistent pattern: there was always a reason to wait. On Mar 16 MNQ, the MFE had visited 70 pts of profit before the reversal — "it might go back." On Mar 17, price moved favorably to MFE, then reversed through the Asia session — "this is just noise, wait for London." On Mar 20, the structural read justified the hold — "HVN will hold." In each case, the exit decision was deferred to an external event (SL hit, resting TP, AutoLiq) rather than made actively.
+
+The common root: no pre-defined exit condition means any moment of uncertainty gets resolved by continuing to hold. The trade makes the exit decision by default. Defining one partial profit level and one scratch condition before entry removes the in-trade ambiguity that causes this.
+
+---
+
+**Q: Infrastructure failure — no exit rules defined going into any trade this week. Why has Pattern 8 persisted through the fix being named?**
+
+Naming a pattern and implementing a behavioral rule are two different things. Pattern 8 was named on March 10. It reappeared in all four trades this week — none of the exits were active decisions. The fix (write exit rules before every trade) was identified as the action step in the Mar 14 weekly review but was not implemented as a required pre-trade step.
+
+The fix is structural: the exit rule must be written on the chart before the bracket is placed. It cannot be a mental note — mental notes get overridden by in-trade emotion. The new requirement: no bracket placed without an annotated TP/partial target AND a written scratch condition.
+
+---
+
+**Q: Eval pressure — how has the March 24 deadline affected decision quality this week?**
+
+Two observable effects. First, the no-trade decisions on March 18–19 were correct and deliberate — this shows deadline pressure was NOT causing force-entry behavior. The correct reads were seen and not acted on because the setups did not meet the five-layer filter. That is the pattern working as designed.
+
+Second, the urgency may have contributed to the rushed Mar 17 entry (post-class bracket rebuild) and the SL movement on Mar 20 (removing the only protection during an unintentional fill). Neither of those can be cleanly attributed to the deadline — they each have their own proximate cause — but the environmental pressure creates a lower tolerance for uncertainty, which makes rationalized SL movement more likely.
+
+Assessment: the deadline has not produced forced entries, but it has degraded SL discipline under uncertainty. The two must be separated. The answer to deadline pressure is to increase setup quality requirements, not decrease SL protection.
+
+---
+
+**Q: Observation sessions — what would need to be true for you to enter more setups when they present?**
+
+Two things need to be true simultaneously: (1) the five-layer filter confirms, and (2) exit rules are written and placed before bracket entry. The first condition has been met repeatedly this week — the directional reads were correct across all four trades. The second condition has never once been met.
+
+The bottleneck is not setup recognition or entry confidence — it is the absence of a defined exit before the bracket goes in. Until writing exit rules is a required pre-entry step, taking trades creates undefined risk at the upside, which is what produces both exit passivity and the rationalized SL movement that follows when the trade doesn't perform as expected.
+
+---
 
 *🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
 *Anthropic claude-sonnet-4-6 | March 22, 2026*
