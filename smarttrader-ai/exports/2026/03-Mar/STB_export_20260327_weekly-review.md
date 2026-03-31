@@ -108,7 +108,13 @@ What makes this week different from prior losses is the recognition: three exit 
 
 Walking away was the right response. The rest is not avoidance; it is preparation. The week ahead begins from a cleared place.
 
-*More journaling to follow from Christopher. This section will be updated.*
+The weekend after the blow was a deliberate pause — not a retreat, a recalibration. Christopher stepped back from the desk, from the urgency, from the pressure to respond. He watched the market on Monday (Mar 30), attended live coaching calls, and didn't find a trade setup he felt convicted to enter. He honored that. The not-trading was its own discipline.
+
+What filled the space was the life that trading is supposed to serve. Time with his sister, her husband, and their nephew. Time with his girlfriend, her kids, and their animals. Reconnecting with his sponsor. Catching up on emails and exploring web3 job opportunities — not because trading has stopped, but because being of service while continuing to learn is part of the picture. There's something clarifying about not having to go to the machine shop: the freedom to catch up, to show up, to be present for the people around him. That space is the *why* behind the leap of faith into trading — not the P&L number, but the time and presence to serve family and community in a way a shift schedule makes nearly impossible.
+
+Even a week that ends with an account blown and a net loss of $789 contains that gift. The context reframes the loss without minimizing it.
+
+The week ahead begins from a cleared place.
 
 ---
 
@@ -165,7 +171,7 @@ Direction accuracy: 3/5 trades were directionally correct (ES short ✅, MGC T00
 
 **What mistakes did you make this week?**
 
-*[Christopher to complete — additional journaling in progress]*
+Looking back with a few days of distance: the clearest mistake was the sequence itself. By the time the overnight MGC position opened at 21:32, it was already the third trade of a day that included a 4-second emotional stop-out on MCL and a 47-minute fight through a 38-point adverse move on MGC. The mental state wasn't clean. I recognized on some level it wasn't a full A+ setup. I entered anyway because the TPT 5-day minimum created a "have to" feeling that overrode the filter. That's Pattern 10 in its clearest form — not negligence, but a specific rationalization that felt reasonable in the moment. I also kept moving the stop because I was tired and didn't want to absorb another loss after the day I'd had. And at the break-even moments, Pattern 8 wasn't indifference — it was something closer to "just let it run back, please." The market doesn't care about what kind of day I had before I entered.
 
 Primary documented mistakes: (1) Entering overnight MGC short with eval compliance as a motivating factor — not a pure A+ entry. (2) Moving stop through entire overnight adverse hold rather than accepting the original SL outcome. (3) Not exiting at three identified exit opportunities, including two close to break-even. (4) Entering an overnight position in gold without a structurally-defined hard stop that would be respected regardless of adverse movement.
 
@@ -179,7 +185,10 @@ Pattern 7 has now appeared in 6 of the last 7 trading sessions. The rationalizat
 
 **What solutions are you implementing to fix those problems?**
 
-*[Christopher to complete — his intended action steps for the week ahead]*
+The week ahead starts clean — APEX-06 is still active and that's where the focus is. The specific commitments for this week:
+- **Three-item pre-trade checklist — mandatory.** Entry thesis + SL level + one exit condition, all written before the bracket goes in. No exceptions.
+- **No overnight positions without a pre-written structural SL rationale.** If the reason to hold the stop can't be written out clearly before entry, the overnight position doesn't happen.
+- **Eval filter in use.** Before any entry: "Would I take this trade if there were no minimum-day requirement today?" If the honest answer is no — no trade.
 
 Fortuna's recommendation:
 1. **Pattern 8 — active exit requirement:** Before any bracket is placed, write one explicit scratch condition on the chart: "If price returns to X, I close." This is the non-negotiable requirement — not a preference, a rule. The recognition of the exit impulse is already there. The only gap is converting recognition to action. Writing the condition forces the decision before the emotional state of being in a live position.
@@ -205,13 +214,18 @@ Fortuna's recommendation:
 
 **This week my action steps are:**
 
-*[Christopher to complete based on reflection]*
+1. Three-item checklist before every bracket: entry thesis + SL level + one exit condition, written before any position opens
+2. Economic calendar check before any entry near a session boundary — especially CL/MCL in the 30 minutes around 16:00 ET
+3. No overnight position without a pre-written SL rationale that will not be modified
+4. Keep micro sizing as the default for any session with elevated volatility or a scheduled macro event in the relevant window
 
 ---
 
 **What I want to work on / improve / get better at:**
 
-*[Christopher to complete — his journaling in progress]*
+The specific skill is converting exit recognition into exit action — the break-even moments were seen, named in real time, and overridden each time. The gap isn't awareness; it's the pre-commitment. Writing the exit condition before the trade means it exists when the emotional weight of being in a live position tries to override it.
+
+Outside of trading: eager to get back into the Pine Script auto-levels work and continue moving the DEX arbitrage deployment toward launch (running through Claude Code credits to keep that workspace active while Augment credits are paused). Still chasing down the Telegram API error and the BTCC open support ticket — both are in process. Looking forward to more time with SmartTraderAI's improved analysis capabilities for premarket work to preserve Claude credits for code tasks.
 
 Fortuna's note: The specific skill is converting exit awareness to exit action. The market showed this week that the recognition is present — three times Christopher knew he should exit and didn't. The work is narrowing the gap between the knowing and the doing. Not building new awareness. Acting on the awareness that's already there.
 
@@ -219,13 +233,15 @@ Fortuna's note: The specific skill is converting exit awareness to exit action. 
 
 **How I plan to study the market this week:**
 
-*[Christopher to complete]*
+- Upload this week's session data to SmartTraderAI and use its enhanced cross-session memory for premarket planning — testing it as the primary premarket analysis tool while preserving Claude credits for code and review work
+- Participate in live ZTH coaching calls — ZTH setups are available all session hours, so study time includes market hours
+- Review the Mar 24 ES trade review as the behavioral benchmark before each session — that is what correct execution looks like across all five layers, and it happened this same week
 
 ---
 
 **GitHub review link:**
 
-*[To be added on next commit]*
+https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260327_weekly-review.md
 
 ---
 

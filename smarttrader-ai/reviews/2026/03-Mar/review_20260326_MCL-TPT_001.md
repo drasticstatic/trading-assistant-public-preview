@@ -107,7 +107,9 @@ The stop was in place. The stop was respected. The account was protected. That i
 
 ## 🎯 9. Forward Focus
 
-*[Stub — to be filled in. 1–3 priorities for the next session.]*
+1. **Check the economic calendar before any entry near a session boundary.** The 16:00–16:15 ET window in the commodity complex is a documented news-event zone. A quick calendar scan before entering MCL or CL in the final 30 minutes of the regular session would have flagged this. Make it a standing step in the pre-entry checklist.
+2. **Pattern 9 is confirmed — carry it forward without exception.** The pre-placed stop that saved this account from a potential $3+ drop is now the standard. Stop in place before fill. No bracket placed without an SL defined. This is no longer aspirational; it is the minimum.
+3. **A valid setup that loses to an exogenous shock is not a process failure.** The entry was technically sound: bullish EMA confluence, pivot retracement, OB confluence. Institutional news-event stop hunts are real and unforeseeable. Accept the defined loss, trust the process, and move to the next setup with discipline intact.
 
 ---
 
