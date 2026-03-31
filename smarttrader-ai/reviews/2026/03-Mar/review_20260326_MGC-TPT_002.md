@@ -121,7 +121,9 @@ Final result: **+$94 / +4.7 points / 2 contracts**. Duration: 47 minutes.
 
 ## 🎯 9. Forward Focus
 
-*[Stub — to be filled in. 1–3 priorities for the next session.]*
+1. **Write the structural SL before the bracket goes in — and commit to it in writing.** One sentence: "SL at X because [reason]. Will not be moved." A pre-trade commitment written in a clear state is harder to override than an in-trade impulse. If the structure changes, close the trade — don't move the stop.
+2. **Pre-commit the exit condition before entry.** The 16:50 window was real — the trade gave $194 and you captured $94. The 9-minute drift between MFE and actual exit is the cost of not having a written scratch condition. "If price is at X with Y minutes remaining, I close" needs to exist before the bracket is placed.
+3. **Micro sizing in elevated-volatility sessions is the right call — formalize it.** Confirmed here: 38-point adverse move on 2 MGC = $774. Same move on 2 GC = $3,870. When the calendar shows a scheduled macro event or session-boundary volatility is elevated, the default is micro sizing until the event window passes. Make this a standing rule, not an in-the-moment decision.
 
 ---
 

@@ -137,7 +137,9 @@ The loss was not just financial. Christopher has described this experience as on
 
 ## 🎯 9. Forward Focus
 
-*[Stub — to be filled in. 1–3 priorities for the next session.]*
+1. **The eval filter is non-negotiable.** Before any entry: "Would I take this trade if today were not a minimum-day requirement?" If the honest answer is no — the trade is not taken. The eval structure is a container, not a directive. Passing an eval on a pressure trade that blows the account produces zero net result. The entry filter exists for exactly this scenario.
+2. **Overnight positions require a pre-written SL rationale that will not be moved.** Not a mental note — a written sentence: "SL at X because [structural reason]. If price reaches X, the thesis is invalidated. I accept that outcome." The overnight session is not the place to discover whether you'll hold the stop. The commitment must be made before sleep, not tested during it.
+3. **The three break-even moments were three decisions.** Pre-commit in writing before any entry: "If price returns to X, I close the position." Writing the condition before the trade means it exists when the emotional weight of being in a 13-hour overnight hold tries to override it. The recognition was already there — it failed at the action step, not the awareness step. The pre-commitment is the bridge.
 
 ---
 
