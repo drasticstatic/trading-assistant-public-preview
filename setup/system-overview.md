@@ -20,7 +20,9 @@ An AI-assisted trading system built on **Claude Code CLI** (Anthropic) and **Aug
 ```
 TradingView (Charts + Alerts)
     ├── Custom Pine Script indicators (overlays + alerts)
-    └── Webhook alerts → tunnel → local server → AI
+    ├── Webhook alerts → tunnel → local server → AI
+    └── TradingView MCP (tradingview-mcp-jackson) → CDP port 9222 → AI reads charts directly
+        └── Morning brief: scan Fortuna watchlist · read indicator values · apply rules.json · session bias
 
 Tradovate API (Brokerage — CME Futures)
     └── MCP Server → AI reads account data, positions, fills
@@ -47,7 +49,7 @@ Public-Facing Pages (GitHub Pages)
 
 | Agent | Model | Role | Key Tools / Access |
 |---|---|---|---|
-| **Fortuna** | Claude Code CLI | Primary collaborator — trading strategy, chart analysis, behavioral coaching, session management | MCP: `tv-alerts`, `tradovate`, `auggie`, `hummingbot-mcp` · Screenshot analysis · TradeZella exports |
+| **Fortuna** | Claude Code CLI | Primary collaborator — trading strategy, chart analysis, behavioral coaching, session management | MCP: `tv-alerts`, `tradovate`, `tradingview`, `auggie`, `hummingbot-mcp` · Direct chart reading · Morning brief · TradeZella exports |
 | **Auggie** | Augment CLI / VS Code Agent | Primary builder bench — implementation, infrastructure, Pine Script, Python, MCP servers | Full workspace read/write · Shell · Git · Package managers |
 | **Kavanah** | Augment Intent | Orchestration layer — keeps the live spec current, breaks work into tasks, and delegates scoped specialists such as implementors, verifiers, or UI-focused agents | Reads spec + task notes · Delegates task agents · Works from Intent's separate workspace clone |
 
@@ -102,6 +104,7 @@ Fortuna reads real-time chart events mid-session
 |---|---|---|---|
 | `tradovate` | stdio (Python) | Futures brokerage — account, positions, fills, orders | ✅ Connected |
 | `tv-alerts` | stdio (Python) | TradingView webhook alerts — real-time chart events | ✅ Connected |
+| `tradingview` | stdio (Node.js) | TradingView Desktop direct access via CDP — chart state, indicator values, Pine Script dev, morning brief, replay mode | ✅ Connected (Apr 3, 2026) |
 | `auggie` | stdio | Augment Code CLI agent access | ✅ Connected |
 | `hummingbot-mcp` | stdio (uv/Python) | Crypto CEX + DEX execution — orders, positions, swaps, bot orchestration | ✅ Connected (Mar 27, 2026) |
 | `telegram-mcp` | stdio | Telegram bidirectional messaging — mobile alerts + DeFi interaction channel | 🔜 Planned |
@@ -226,5 +229,5 @@ Strategy details, Pine Script source, and agent specs are in the private workspa
 
 ---
 
-*Built with Claude Code CLI (Anthropic) + Augment Code | 2026 · Last updated Mar 27, 2026*
+*Built with Claude Code CLI (Anthropic) + Augment Code | 2026 · Last updated Apr 3, 2026*
 
