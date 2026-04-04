@@ -90,8 +90,8 @@ Fortuna reads real-time chart events mid-session
 
 | Firm | Account | Status | Platform | Notes |
 |---|---|---|---|---|
-| **Apex Trader Funding** | APEX-06 (100K) | ✅ Min days met Mar 24 | Tradovate | Status TBD — awaiting payout/consistency review |
-| **TakeProfitTrader** | TPT 50K | ✅ Active — Day 2/5 min started Mar 25 | Tradovate | 5-day minimum in progress |
+| **Apex Trader Funding** | APEX-06 (100K) | ✅ Min days met Mar 24 | Tradovate | Profit gap still needs to be met |
+| **TakeProfitTrader** | TAKEPROFIT558167553 (50K) | ✅ Active — reset Apr 1, 2026 | Tradovate | Fresh eval |
 | **BTCC** | SOL/USDT perp | ✅ Active — crypto CEX | BTCC | Voucher account; manual entry; Hummingbot integration planned |
 | **LucidFlex** | — | Planned | TBD | Phase 2 |
 | **Tradeify** | — | Planned | TBD | Phase 3 |
