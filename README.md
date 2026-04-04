@@ -74,8 +74,8 @@ Kavanah (Augment Intent) — task orchestration, documentation, strategy refs
 | Strategy | Accounts | Markets | Status |
 | --- | --- | --- | --- |
 | ZeroToHero (ZTH) | Apex Trader Funding, Take Profit Trader | Futures (NQ, ES, CL, GC) | 🔥 Live |
-| SmartTradingBlueprint (STB) | Foundational ICT layer | Futures & Crypto Futures | ⚠️ Mentorship removed Mar 26 (payment) — framework retained |
-| Inevitrade (IT) | Lucid, Tradeify, Crypto Futures | Futures & Crypto Futures | 🔥 Live |
+| SmartTradingBlueprint (STB) | Foundational ICT layer | Futures & Crypto Futures | 📚 [course in progress](data/progression/SmartTradingBlueprint/course-workbook.md) |
+| Inevitrade (IT) | Lucid, Tradeify, Crypto Futures | Futures & Crypto Futures | 📈 [paper-trading](data/progression/inevitrade/inner-circle-workbook.md) |
 
 ## ⚙️ Key Infrastructure
 
