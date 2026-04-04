@@ -57,6 +57,7 @@ Kavanah (Augment Intent) — task orchestration, documentation, strategy refs
 
     ┌──────────────────────────────────────────────────────────────┐
     │  TradingView ←→ Webhook Pipeline ←→ AI                      │
+    │  TradingView Desktop ←→ MCP (CDP) ←→ AI  (direct chart read)│
     │  Tradovate API ←→ MCP Server ←→ AI  (CME futures)           │
     │  Hummingbot API ←→ MCP Server ←→ AI (crypto CEX + DEX)      │
     │  TradeZella ←→ Python Pipeline ←→ AI                        │
@@ -78,7 +79,7 @@ Kavanah (Augment Intent) — task orchestration, documentation, strategy refs
 
 ## ⚙️ Key Infrastructure
 
-- **MCP Servers (4 active)** — Tradovate (CME futures) · TradingView webhook alerts · Auggie · Hummingbot (crypto CEX + DEX), all queryable by Fortuna mid-session
+- **MCP Servers (5 active)** — Tradovate (CME futures) · TradingView webhook alerts · **TradingView Desktop direct** (chart state, indicator values, morning brief via [tradingview-mcp-jackson](https://github.com/LewisWJackson/tradingview-mcp-jackson)) · Auggie · Hummingbot (crypto CEX + DEX), all queryable by Fortuna mid-session
 - **Hummingbot Stack** — Docker-based API server (FastAPI + PostgreSQL + EMQX MQTT) at `~/hummingbot/hummingbot-api`; MCP layer at `~/hummingbot/mcp`; Gateway for DEX/wallet execution planned
 - **Pine Script Indicators** — Custom overlays for FCR levels, FVGs, EMAs, and pattern detection
 - **Webhook Pipeline** — TradingView alerts → tunnel → local server → AI receives live chart events
