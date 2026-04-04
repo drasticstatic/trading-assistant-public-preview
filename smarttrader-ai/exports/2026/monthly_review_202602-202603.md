@@ -7,13 +7,13 @@
 ## 📊 Combined Dashboard
 
 <table><tr>
-<td width="50%"><img src="../../../../../data/screenshots/SmartTrader_Feb.png" width="100%"><br><sub>SmartTrader — February 2026 Calendar</sub></td>
-<td width="50%"><img src="../../../../../data/screenshots/SmartTrader_Mar.png" width="100%"><br><sub>SmartTrader — March 2026 Calendar</sub></td>
+<td width="50%"><img src="../../../data/screenshots/SmartTrader_Feb.png" width="100%"><br><sub>SmartTrader — February 2026 Calendar</sub></td>
+<td width="50%"><img src="../../../data/screenshots/SmartTrader_Mar.png" width="100%"><br><sub>SmartTrader — March 2026 Calendar</sub></td>
 </tr></table>
 
 <table><tr>
-<td width="50%"><img src="../../../../../data/screenshots/TradeZella_Feb.png" width="100%"><br><sub>TradeZella — February 2026 Analytics</sub></td>
-<td width="50%"><img src="../../../../../data/screenshots/TradeZella_Mar.png" width="100%"><br><sub>TradeZella — March 2026 Analytics</sub></td>
+<td width="50%"><img src="../../../data/screenshots/TradeZella_Feb.png" width="100%"><br><sub>TradeZella — February 2026 Analytics</sub></td>
+<td width="50%"><img src="../../../data/screenshots/TradeZella_Mar.png" width="100%"><br><sub>TradeZella — March 2026 Analytics</sub></td>
 </tr></table>
 
 ---

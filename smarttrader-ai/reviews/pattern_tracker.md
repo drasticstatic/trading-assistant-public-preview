@@ -5,6 +5,13 @@
 
 ---
 
+**Jump to section:**
+[📊 Trade Log](#trade-log) · [💰 Running P&L](#running-pnl) · [🧠 Behavioral Progression](#behavioral-progression) · [📋 Compliance Scores](#compliance-scores) · [🔍 Entry Filter Stack](#entry-filter-stack) · [⏱️ Session Durations](#session-durations) · [👥 Coach Interaction Log](#coach-interaction-log) · [🔁 Key Patterns](#key-patterns) · [📈 Recovery Arc Timeline](#recovery-arc-timeline) · [📉 Statistical Summary](#statistical-summary) · [📎 Individual Reviews](#individual-reviews)
+
+---
+
+<a id="trade-log"></a>
+
 ## Trade Log — All Sessions
 
 | # | Date | Instrument | Dir | Entry | Exit | P&L | R:R | Zella | Rating | Entry Filter | SL Respected | Stable |
@@ -34,6 +41,8 @@
 
 ---
 
+<a id="running-pnl"></a>
+
 ## Running P&L (USD Futures)
 
 ```
@@ -62,6 +71,8 @@ Note: Mar 24 APEX-06 balance ~$103,252. TPT 50K: Day 2 of 5 min days complete. G
 ```
 
 ---
+
+<a id="behavioral-progression"></a>
 
 ## Behavioral Progression
 
@@ -118,6 +129,8 @@ Entry filter discipline:
 
 ---
 
+<a id="compliance-scores"></a>
+
 ## Compliance Scores
 
 | Date | ZeroToHero | Inevitrade | STB / ICT | Overall |
@@ -135,6 +148,8 @@ Entry filter discipline:
 | Mar 3 T3 (CL) | ~6/10 | ~7/10 | ~7/10 | ~7/10 (process correct; account buffer caused forced exit) |
 
 ---
+
+<a id="entry-filter-stack"></a>
 
 ## Entry Filter Stack — Per Trade
 
@@ -154,6 +169,8 @@ Entry filter discipline:
 | Mar 3 CL T1 | ✅ Scenario B LONG | ✅ Green dom | ⚠️ Partial | — | — | 3/5 | **B** |
 
 ---
+
+<a id="session-durations"></a>
 
 ## Session Durations + Hold Behavior
 
@@ -175,6 +192,8 @@ Entry filter discipline:
 
 ---
 
+<a id="coach-interaction-log"></a>
+
 ## Coach Interaction Log
 
 | Date | Coach Group | Interaction | Outcome |
@@ -191,6 +210,8 @@ Entry filter discipline:
 **Note on coaching groups:** STB = FCR at the 9:30 AM open (additional STB strategies to be introduced over time). ZTH = setups monitored and looked for all day long, not limited to the open. Inevitrade = IT Foundation strategies applied outside the NY AM session (afternoons, overnight, pre-market). All groups interact across sessions and masterclasses at various times of day.
 
 ---
+
+<a id="key-patterns"></a>
 
 ## Key Patterns Identified
 
@@ -322,6 +343,8 @@ Note:       Root cause same as Pattern 1 (FOMO) but mechanism differs:
 
 ---
 
+<a id="recovery-arc-timeline"></a>
+
 ## Recovery Arc Timeline
 
 ```
@@ -424,6 +447,8 @@ Arc status: Pattern 7 — 6 consecutive sessions with SL modification. Critical 
 
 ---
 
+<a id="statistical-summary"></a>
+
 ## Statistical Summary (Feb 23 – Mar 27)
 
 | Metric | Value |
@@ -451,6 +476,8 @@ Arc status: Pattern 7 — 6 consecutive sessions with SL modification. Critical 
 | Pattern 10 identified | Mar 26-27 — eval/pressure trade · entry motivated by compliance not pure A+ signal |
 
 ---
+
+<a id="individual-reviews"></a>
 
 ## How to Use This File
 
