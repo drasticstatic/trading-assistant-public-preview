@@ -12,7 +12,7 @@
 
 <a id="trade-log"></a>
 
-## Trade Log — All Sessions
+## 📊 Trade Log — All Sessions
 
 | # | Date | Instrument | Dir | Entry | Exit | P&L | R:R | Zella | Rating | Entry Filter | SL Respected | Stable |
 |---|------|-----------|-----|-------|------|-----|-----|-------|--------|--------------|--------------|--------|
@@ -43,7 +43,7 @@
 
 <a id="running-pnl"></a>
 
-## Running P&L (USD Futures)
+## 💰 Running P&L (USD Futures)
 
 ```
 Feb 23   -$100.50   ████░░░░░░░░░░░  loss
@@ -74,7 +74,7 @@ Note: Mar 24 APEX-06 balance ~$103,252. TPT 50K: Day 2 of 5 min days complete. G
 
 <a id="behavioral-progression"></a>
 
-## Behavioral Progression
+## 🧠 Behavioral Progression
 
 | Date | Emotions at Entry | Emotionally Stable | Entry Filter Honored | SL Respected | Root Cause of Error |
 |------|------------------|--------------------|---------------------|--------------|---------------------|
@@ -131,7 +131,7 @@ Entry filter discipline:
 
 <a id="compliance-scores"></a>
 
-## Compliance Scores
+## 📋 Compliance Scores
 
 | Date | ZeroToHero | Inevitrade | STB / ICT | Overall |
 |------|-----------|-----------|-----------|---------|
@@ -151,7 +151,7 @@ Entry filter discipline:
 
 <a id="entry-filter-stack"></a>
 
-## Entry Filter Stack — Per Trade
+## 🔍 Entry Filter Stack — Per Trade
 
 | Date | FCR Scenario | EMA Gate | FVG | SMT | Fibonacci | Layers ✅ | Grade |
 |------|-------------|----------|-----|-----|-----------|-----------|-------|
@@ -172,7 +172,7 @@ Entry filter discipline:
 
 <a id="session-durations"></a>
 
-## Session Durations + Hold Behavior
+## ⏱️ Session Durations + Hold Behavior
 
 | Date | Instrument | Duration | Hold Behavior | Notes |
 |------|-----------|----------|--------------|-------|
@@ -194,7 +194,7 @@ Entry filter discipline:
 
 <a id="coach-interaction-log"></a>
 
-## Coach Interaction Log
+## 👥 Coach Interaction Log
 
 | Date | Coach Group | Interaction | Outcome |
 |------|------------|-------------|---------|
@@ -213,7 +213,7 @@ Entry filter discipline:
 
 <a id="key-patterns"></a>
 
-## Key Patterns Identified
+## 🔁 Key Patterns Identified
 
 ### Pattern 1 — FOMO Entry (Feb 23)
 ```
@@ -345,7 +345,7 @@ Note:       Root cause same as Pattern 1 (FOMO) but mechanism differs:
 
 <a id="recovery-arc-timeline"></a>
 
-## Recovery Arc Timeline
+## 📈 Recovery Arc Timeline
 
 ```
 Feb 13  ██████████░░░░░░░░░░  BLOWUP — stops moved, accounts blown
@@ -449,7 +449,7 @@ Arc status: Pattern 7 — 6 consecutive sessions with SL modification. Critical 
 
 <a id="statistical-summary"></a>
 
-## Statistical Summary (Feb 23 – Mar 27)
+## 📉 Statistical Summary (Feb 23 – Mar 27)
 
 | Metric | Value |
 |--------|-------|
@@ -479,7 +479,7 @@ Arc status: Pattern 7 — 6 consecutive sessions with SL modification. Critical 
 
 <a id="individual-reviews"></a>
 
-## How to Use This File
+## 📎 How to Use This File + Individual Reviews
 
 Each session: append a new row to the **Trade Log** table, a new row to **Behavioral Progression**, update **Running P&L**, and add any new **Patterns Identified**. Individual trade reviews link here for the broader arc view.
 

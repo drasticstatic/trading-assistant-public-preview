@@ -104,7 +104,7 @@ Fortuna reads real-time chart events mid-session
 |---|---|---|---|
 | `tradovate` | stdio (Python) | Futures brokerage — account, positions, fills, orders | ✅ Connected |
 | `tv-alerts` | stdio (Python) | TradingView webhook alerts — real-time chart events | ✅ Connected |
-| `tradingview` | stdio (Node.js) | TradingView Desktop direct access via CDP — chart state, indicator values, Pine Script dev, morning brief, replay mode | ✅ Connected (Apr 3, 2026) · [tradingview-mcp-jackson](https://github.com/LewisWJackson/tradingview-mcp-jackson) — thank you LewisWJackson 🙏 |
+| `tradingview` | stdio (Node.js) | TradingView Desktop direct access via CDP — chart state, indicator values, Pine Script dev, morning brief, replay mode | ✅ Connected (Apr 3, 2026) · [tradingview-mcp-jackson](https://github.com/LewisWJackson/tradingview-mcp-jackson) — thank you LewisWJackson 🙏 · [▶️ Setup walkthrough](https://www.youtube.com/watch?v=vIX6ztULs4U) |
 | `auggie` | stdio | Augment Code CLI agent access | ✅ Connected |
 | `hummingbot-mcp` | stdio (uv/Python) | Crypto CEX + DEX execution — orders, positions, swaps, bot orchestration | ✅ Connected (Mar 27, 2026) |
 | `telegram-mcp` | stdio | Telegram bidirectional messaging — mobile alerts + DeFi interaction channel | 🔜 Planned |
