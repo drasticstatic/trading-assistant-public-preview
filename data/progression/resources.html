@@ -172,10 +172,9 @@
       body {
         padding-left: 240px;
       }
-      /* Shift search bar to align with content area (past sidebar) */
+      /* Offset search bar content past the sidebar — bar stays full-width (matches topbar) */
       .search-sticky-bar {
-        left: 240px;
-        width: auto; /* left+right define width; overrides base width:100% which would blow out past right edge */
+        padding-left: calc(240px + 1.25rem); /* sidebar + original padding; centers input within content area */
       }
     }
 
