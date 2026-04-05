@@ -40,7 +40,7 @@
       --cat-account: #9a6700; --cat-behavior: #bc4c00;
     }
 
-    html { scroll-behavior: smooth; scroll-padding-top: 108px; overflow-x: hidden; }
+    html { scroll-behavior: smooth; scroll-padding-top: 108px; overflow-x: clip; }
     *, *::before, *::after { box-sizing: border-box; }
     body {
       margin: 0; min-height: 100vh; padding-top: 86px; /* topbar 44px + search bar ~38px + 4px gap */
@@ -171,6 +171,10 @@
       }
       body {
         padding-left: 240px;
+      }
+      /* Shift fixed bars to align with content area (past sidebar) */
+      .topbar, .search-sticky-bar {
+        left: 240px;
       }
     }
 
@@ -587,10 +591,11 @@
   <div class="sidebar-title">📓 Workbooks:</div>
   <a class="sidebar-item sidebar-external" href="./inevitrade/inner-circle-workbook.html">📗 IT | Inner Circle Workbook ↗</a>
   <a class="sidebar-item sidebar-external" href="./SmartTradingBlueprint/course-workbook.html">📘 STB | Course Workbook ↗</a>
-  <a class="sidebar-item sidebar-external" href="./portfolio.html">📊 Portfolio | P&L Ledger ↗</a>
-  <a class="sidebar-item sidebar-external" href="../tax/tax.html">💰 Tax Tracker ↗</a>
   <br />
   <div class="sidebar-title">📄 Additional Pages:</div>
+  <a class="sidebar-pages-item" href="./portfolio.html">📊 Portfolio | P&L Ledger ↗</a>
+  <a class="sidebar-pages-item" href="../tax/tax.html">💰 Tax Tracker ↗</a>
+  <div class="sidebar-divider"></div>
   <a class="sidebar-pages-item" href="../../index.html">🏠 Home</a>
   <a class="sidebar-pages-item" href="../../404.html">🔍 404 / Navigation</a>
   <div class="sidebar-divider"></div>
