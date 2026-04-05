@@ -227,7 +227,68 @@ Strategy details, Pine Script source, and agent specs are in the private workspa
 | **Hummingbot CEX connectors** | Live crypto trading on BTCC, Bybit, Binance etc. | Exchange API keys added via `accounts/add-credential` |
 | **DEX Arbitrage Bot** | Uniswap/PancakeSwap arb on Arbitrum via Hardhat | Hummingbot Gateway + cross-repo context share from `trading-bot_arbitrage_DAPPUv3_hardhat_UNI-CAKE` |
 
+## MCP Ecosystem — What AI Trading Systems Can Do
+
+This system is built on the **Model Context Protocol (MCP)** — an open standard that lets AI assistants connect to live data sources, brokerages, and tools. Below is a reference for what's available in the broader MCP ecosystem, both what this system uses today and what is possible to build.
+
+### What MCP Enables for Trading
+
+| Capability | Available Today | Example MCPs |
+|---|---|---|
+| **Live chart reading** | ✅ | `tradingview-mcp-jackson` — reads indicator values, draws levels, runs Pine Script, morning brief |
+| **Futures brokerage access** | ✅ | Custom Tradovate MCP — account balance, positions, fills, orders |
+| **Webhook event ingestion** | ✅ | Custom `tv-alerts` MCP — receives TradingView alerts in real time |
+| **Crypto CEX + DEX execution** | ✅ | `hummingbot-mcp` — orders, positions, bot orchestration across 40+ exchanges |
+| **Equity portfolio read** | ✅ | `robinhood-mcp` — portfolio value, positions, quotes, news, options |
+| **Mobile alert delivery** | 🔜 Planned | `telegram-mcp` — bidirectional messaging for mobile session alerts |
+| **AI-to-AI coordination** | ✅ | `auggie` MCP — Claude Code delegates tasks to Augment Code agent |
+| **News + earnings data** | ✅ via Robinhood | Robinhood MCP includes news, ratings, earnings, fundamentals |
+| **Options data** | ✅ via Robinhood | `robinhood_get_options_positions` — options portfolio read |
+| **DEX + on-chain execution** | ✅ via Hummingbot | Gateway — Solana, EVM swaps, CLMM liquidity, wallet sends |
+| **Strategy backtesting** | 🔜 | TradingView MCP includes `data_get_strategy_results` — Pine Strategy Tester output |
+| **Market replay** | ✅ | TradingView MCP `replay_start/step/trade` — bar-by-bar replay with live trade simulation |
+| **Alert management** | ✅ | TradingView MCP `alert_create/list/delete` — programmatic TradingView alert control |
+| **Screener / symbol search** | ✅ | TradingView MCP `symbol_search`, Robinhood MCP `robinhood_search_symbols` |
+
+### Open-Source MCP Servers Worth Knowing
+
+These are community-built MCP servers available publicly that extend what an AI trading assistant can do:
+
+| Server | Repo / Source | What It Does |
+|---|---|---|
+| **tradingview-mcp-jackson** | `LewisWJackson/tradingview-mcp-jackson` | CDP-based direct access to TradingView Desktop — full chart control, indicator reading, Pine Script dev, morning brief |
+| **robinhood-mcp** | `verygoodplugins/robinhood-mcp` | Robinhood portfolio, quotes, news, earnings, options, watchlist — read-only |
+| **hummingbot-mcp** | `hummingbot/hummingbot-mcp` | Full Hummingbot API access — bots, strategies, CEX/DEX execution, position management |
+| **telegram-mcp** | `chigwell/telegram-mcp` | Bidirectional Telegram messaging — send/receive messages, mobile alert delivery |
+| **alpaca-mcp** | Various | Equity/options trading via Alpaca API (US equities, paper + live) |
+| **polygon-mcp** | Various | Real-time + historical market data via Polygon.io |
+| **yfinance / market data** | Various | Yahoo Finance data — free historical prices, fundamentals, options chains |
+
+### What This System's AI Can Do Today
+
+With the current MCP stack live, Fortuna (Claude Code) can:
+
+- **Read live TradingView charts** — indicator values, VWAP bands, EMA levels, Auto Levels output — without any human screenshots
+- **Generate a morning brief** — scan watchlist, apply personal trading rules, output per-instrument bias and key levels
+- **Receive real-time trade signals** — TradingView webhook alerts arrive mid-session and are readable immediately
+- **Check account status** — Apex + TPT account data, current positions, order history pulled directly from Tradovate
+- **Orchestrate crypto bots** — via Hummingbot MCP, manage strategies across 40+ CEX and DEX venues
+- **Read equity portfolio** — Robinhood positions, P&L, news, options — pending auth fix
+
+### Recommended Starting Stack
+
+For anyone building a similar AI trading assistant, a minimal working stack:
+
+```
+1. Claude Code CLI (or any MCP-compatible AI)
+2. tradingview-mcp-jackson  →  chart reading + morning brief
+3. One brokerage MCP (Tradovate, Robinhood, Alpaca — pick your venue)
+4. A webhook receiver  →  TradingView alerts into the AI mid-session
+```
+
+From there, add Hummingbot for crypto execution, Telegram for mobile delivery, and custom Pine Script indicators for your specific strategy's signal layer.
+
 ---
 
-*Built with Claude Code CLI (Anthropic) + Augment Code | 2026 · Last updated Apr 3, 2026*
+*Built with Claude Code CLI (Anthropic) + Augment Code | 2026 · Last updated Apr 5, 2026*
 
