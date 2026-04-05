@@ -1,14 +1,15 @@
 # data/ — Public References, Screenshots & Progression
 
-This directory holds trade data imports, chart screenshots, and progression materials.
+This directory holds trade data imports, chart screenshots, tax summaries, and progression materials.
 
 ## 📂 Subdirectories
 
 | Directory | Contents |
 |-----------|----------|
-| `imports/` | TradeZella + Tradovate CSV imports by month |
+| `imports/` | TradeZella, Tradovate, BTCC, Robinhood imports by platform + month |
 | `screenshots/` | Trade screenshots and annotated charts (referenced in session reviews) |
-| `progression/` | Course workbooks and learning resources — HTML surfaces below |
+| `progression/` | Course workbooks, learning resources, and portfolio HTML |
+| `tax/` | Realized P&L summaries by year — BTCC, Robinhood dividends, futures |
 
 ## 📄 Rendered Pages
 
