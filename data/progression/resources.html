@@ -282,7 +282,7 @@
     }
     .search-sticky-bar input::placeholder { color: var(--subtle); }
     .search-next-btn {
-      display: inline-flex; align-items: center;
+      display: none; align-items: center;
       padding: 0.3rem 0.7rem;
       border: 1px solid var(--border-strong);
       border-radius: 999px;
@@ -302,7 +302,10 @@
       color: var(--muted);
       white-space: nowrap;
       min-width: 3rem;
+      display: none;
     }
+    .search-next-btn.visible { display: inline-flex; }
+    .search-match-count.visible { display: inline; }
 
     /* ── HERO FLOATING WORDS ── */
     .hero-floating-words {
@@ -1814,7 +1817,8 @@
         parent.normalize();
       });
       matchIndex = -1;
-      if (matchCountEl) matchCountEl.textContent = '';
+      if (matchCountEl) { matchCountEl.textContent = ''; matchCountEl.classList.remove('visible'); }
+      if (nextBtn) nextBtn.classList.remove('visible');
     }
 
     function highlight(query, scope) {
@@ -1856,12 +1860,15 @@
     function updateMatchCount() {
       const marks = Array.from(document.querySelectorAll('mark.search-highlight'));
       const total = marks.length;
+      const hasQuery = input.value.trim().length > 0;
       if (total === 0) {
-        if (matchCountEl) matchCountEl.textContent = input.value.trim() ? '0 matches' : '';
+        if (matchCountEl) { matchCountEl.textContent = hasQuery ? '0 matches' : ''; matchCountEl.classList.toggle('visible', hasQuery); }
+        if (nextBtn) nextBtn.classList.remove('visible');
         return marks;
       }
       const current = matchIndex >= 0 ? matchIndex + 1 : 1;
-      if (matchCountEl) matchCountEl.textContent = current + ' / ' + total;
+      if (matchCountEl) { matchCountEl.textContent = current + ' / ' + total; matchCountEl.classList.add('visible'); }
+      if (nextBtn) nextBtn.classList.add('visible');
       return marks;
     }
 
