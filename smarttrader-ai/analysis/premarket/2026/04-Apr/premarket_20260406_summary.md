@@ -341,13 +341,99 @@ All three (BTC/ETH/SOL) below bearish EMA structure — consistent. No internal 
 
 | Indicator | Status |
 |---|---|
-| IT Foundation (New) — EMAs | ✅ Returning on all instruments |
-| Auto Levels v3.0.2 | ✅ On chart — values not returned this scan (may need study_filter targeting) |
-| Smart Money Concepts [LuxAlgo] | ✅ Returning PlotCandle values |
-| VWAP | ✅ (from Run 1) |
-| Fortuna Webhook Alerts | ✅ On chart |
+| IT Foundation (New) — EMAs | ✅ Returning on all 9 instruments |
+| Auto Levels v3.0.2 | ✅ Returning for NQ, ES, YM. RTY/CL/GC/Crypto: not outputting (instrument scope limitation in script) |
+| Smart Money Concepts [LuxAlgo] | ✅ PlotCandle value (current price mirror) |
+| VWAP | ⚠️ Weekend only — no live session bar. Returns values during live session. |
+| MACD / RSI / StochRSI | ⚠️ Weekend only — sub-pane indicators require active bar to compute. Available during live session. |
+| Visual overlays (ICT Concepts, Spline QR, Dynamic Extreme, etc.) | ℹ️ Chart visuals only — no numeric output to data window by design. |
 
-**Calibration note:** Auto Levels v3.0.2 is visible on the 1hr chart but its EMA/prev day values didn't populate in Run 2. Next step: try `data_get_study_values` with `study_filter="Auto Levels"` directly for targeted reads. The IT Foundation EMAs are now the primary gate indicator — working cleanly.
+---
+
+## 🔧 Indicator Toggle Workflow — Calibration Notes
+
+*First full toggle test run Apr 4-5, 2026. Key findings for future morning briefs.*
+
+**The 5-indicator active slot limit (TradingView subscription tier):**
+19 indicators are on the 1hr chart. Only 5 can be active at a time. The correct toggle sequence:
+
+```
+1. Turn OFF all indicators down to 0 active (or ≤5 already)
+2. Turn ON only the batch you want to read (≤5)
+3. sleep 4 seconds — let them calculate
+4. data_get_study_values → capture readings
+5. Turn OFF that batch → Turn ON next batch
+6. Repeat until all target indicators read
+7. Restore ALL indicators to original state
+```
+
+**Entity IDs — 1hr NQ chart (use for morning brief toggle routine):**
+
+| Indicator | Entity ID | Outputs Numeric Values | Notes |
+|---|---|---|---|
+| Auto Levels v3.0.2 | `OKj7Th` | ✅ Always | EMA Fast/Mid/Slow, PDH/PDL/PDC |
+| IT Foundation (New) | `mocpK4` | ✅ Always | EMA1/2/3 |
+| Smart Money Concepts | `9aaD9n` | ✅ Always | PlotCandle (price) |
+| VWAP | `kV94Xy` | ✅ Live session only | VWAP + 3 bands |
+| MACD | `nxxMW3` | ✅ Live session only | MACD, Signal, Histogram |
+| Stochastic RSI | `dLo120` | ✅ Live session only | K, D |
+| RSI | `Iectq5` | ✅ Live session only | RSI value |
+| Relative Volume | `8J7nYM` | ✅ Live session only | RelVol |
+| Normalized Resonator | `6bA8d5` | ✅ Live session only | Oscillator values |
+| Spline Quantile Regression | `pza4VB` | ❌ Visual only | — |
+| Fortuna Webhook Alerts | `cx4GrT` | ❌ Visual only | — |
+| Key Levels SpacemanBTC | `QE7MBc` | ❌ Visual only | — |
+| ICT Concepts [LuxAlgo] | `vHkIY2` | ❌ Visual only | — |
+| Dynamic Extreme Channels | `9SoG1R` | ❌ Visual only | — |
+| MSB & OB Toolkit | `9IKfXW` | ❌ Visual only | — |
+| Visible Range VP | `MR9jYH` | ❌ Visual only | — |
+| ICT Killzones & Pivots | `TaTquh` | ❌ Visual only | — |
+| Market Structure Break & OB | `4pskFq` | ❌ Visual only | — |
+| Session Volume Profile HD | `keDDbA` | ❌ Visual only | — |
+
+**Optimized morning brief batch plan:**
+- **Batch 1** (already returns without toggling): Auto Levels + IT Foundation + SMC — always active, always reading
+- **Batch 2** (live session): Turn off Batch 1 → Turn ON VWAP + MACD + RSI → sleep 4s → read → restore
+- **Batch 3** (live session): Turn OFF Batch 2 → Turn ON StochRSI + RelVol + Normalized Resonator → sleep 4s → read → restore
+- Visual overlays: turn OFF before any batch (free up all 5 slots), restore at end
+
+**Auto Levels scope:** Returns for NQ, ES, YM (primary futures). Does not return for RTY, CL, GC, or crypto — the script may be scoped to the main 3 indices or those charts need separate Auto Levels config.
+
+---
+
+## 📊 Complete Auto Levels Data — Targeted Reads (Apr 5, 2026 ~9:30 PM ET)
+
+| | NQ1! | ES1! | YM1! |
+|---|---|---|---|
+| **Current Price** | 24,129.75 | 6,603.75 | 46,629 |
+| **Auto Levels EMA Fast** | 24,142.42 | 6,605.72 | 46,639 |
+| **Auto Levels EMA Mid** | 24,127.60 | 6,603.04 | 46,631 |
+| **Auto Levels EMA Slow** | 24,048.13 | 6,587.18 | 46,569 |
+| **Prev Day High** | 24,266.75 | 6,644.50 | 47,090 |
+| **Prev Day Low** | 23,666.00 | 6,503.50 | 46,492 |
+| **Prev Day Close** | 24,218.00 | 6,622.25 | 46,806 |
+| **vs PDC** | -88.25 ❌ | -18.50 ❌ | -177 ❌ |
+
+**Key observation — NQ price sandwich:**
+- Auto Levels EMA Fast: **24,142** ← resistance above
+- IT Foundation EMA1: **24,129.78** ← at price
+- Auto Levels EMA Mid: **24,127.60** ← support just below
+- Current price: **24,129.75**
+
+NQ is sitting in a 15-point EMA cluster (24,127–24,142). Multiple EMA layers converging at this exact level. Monday's first candle direction through this cluster is the key decision.
+
+**Pane 1 — 5-min ES VWAP + Auto Levels:**
+
+| Level | Value |
+|---|---|
+| VWAP | 6,611.77 |
+| Upper Band 1 | 6,627.31 |
+| Lower Band 1 | 6,596.24 |
+| Auto Levels EMA Fast (5-min) | 6,604.17 |
+| Auto Levels EMA Mid (5-min) | 6,605.70 |
+| Auto Levels EMA Slow (5-min) | 6,606.25 |
+
+**5-min EMA note:** On the 5-min chart, EMA Slow (6,606.25) > EMA Mid (6,605.70) > EMA Fast (6,604.17) — inverted order = **BEARISH** EMA structure on the short-term timeframe. Aligns with the 1hr bearish lean.
 
 ---
 
