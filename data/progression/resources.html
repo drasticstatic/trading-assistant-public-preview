@@ -43,7 +43,7 @@
     html { scroll-behavior: smooth; scroll-padding-top: 108px; overflow-x: hidden; }
     *, *::before, *::after { box-sizing: border-box; }
     body {
-      margin: 0; min-height: 100vh; padding-top: 44px;
+      margin: 0; min-height: 100vh; padding-top: 86px; /* topbar 44px + search bar ~38px + 4px gap */
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
       font-size: 15px; line-height: 1.65; color: var(--text);
       background:
@@ -239,10 +239,11 @@
     .hero-title { font-size:clamp(1.6rem,4vw,2.4rem); font-weight:800; margin:0 0 .75rem; line-height:1.2; }
     .hero-sub { color:var(--muted); font-size:1rem; max-width:580px; margin:0 auto 1.75rem; }
 
-    /* ── STICKY SEARCH BAR ── */
+    /* ── FIXED SEARCH BAR ── */
     .search-sticky-bar {
-      position: sticky;
-      top: 44px; /* sits below the topbar */
+      position: fixed;
+      top: 44px; /* sits flush below the fixed topbar */
+      left: 0; right: 0;
       z-index: 140;
       background: rgba(11,9,20,0.95);
       backdrop-filter: blur(14px);
