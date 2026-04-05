@@ -388,8 +388,8 @@
       <h1 class="header-title">Trading <span>Portfolio</span></h1>
       <div class="header-sub">All platforms · All instruments · All years — one view</div>
       <div class="header-meta">
-        <span class="header-badge">BTCC · Apex · TPT · PocketOption · CoinLedger</span>
-        <span class="header-badge">Updated: Mar 26, 2026</span>
+        <span class="header-badge">BTCC · Apex · TPT · Robinhood · PocketOption · CoinLedger</span>
+        <span class="header-badge">Updated: Apr 5, 2026</span>
         <span class="header-badge warn">⚠ Working estimates — verify before filing</span>
       </div>
     </div>
@@ -947,17 +947,103 @@
       </div>
     </section>
 
+    <!-- ── ROBINHOOD EQUITIES ── -->
+    <section class="section" id="robinhood">
+      <div class="sec-label">Robinhood · Equities Portfolio</div>
+
+      <div class="stat-grid">
+        <div class="stat gain">
+          <div class="stat-label">Current Equity</div>
+          <div class="stat-val up">$1,731</div>
+          <div class="stat-sub">70 positions · Apr 5, 2026</div>
+        </div>
+        <div class="stat gain">
+          <div class="stat-label">Dividends All-Time</div>
+          <div class="stat-val up">$101.80</div>
+          <div class="stat-sub">2021–2026 · ~$20/yr steady</div>
+        </div>
+        <div class="stat neutral">
+          <div class="stat-label">2026 YTD Dividends</div>
+          <div class="stat-val gold">$4.93</div>
+          <div class="stat-sub">+$1.00 pending · Apr 2026</div>
+        </div>
+        <div class="stat neutral">
+          <div class="stat-label">MCP Connection</div>
+          <div class="stat-val" style="color:var(--green);font-size:1rem;">● Live</div>
+          <div class="stat-sub">Connected Apr 5, 2026</div>
+        </div>
+      </div>
+
+      <!-- Top Holdings -->
+      <details open style="margin-bottom:1rem;">
+        <summary style="cursor:pointer;font-size:.8rem;font-weight:700;color:var(--purple);padding:.5rem 0;list-style:none;display:flex;align-items:center;gap:.5rem;">
+          <span>▾</span> Top Holdings
+        </summary>
+        <div class="panel-block" style="margin-top:.5rem;">
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>Symbol</th><th>Name</th><th>Equity</th><th>% Portfolio</th><th>% Change</th></tr></thead>
+              <tbody>
+                <tr><td><strong>AMZN</strong></td><td>Amazon</td><td class="up mono">$209.78</td><td class="dim">12.11%</td><td class="up mono">+27.05%</td></tr>
+                <tr><td><strong>PRI</strong></td><td>Primerica</td><td class="up mono">$192.05</td><td class="dim">11.08%</td><td class="up mono">+68.67%</td></tr>
+                <tr><td><strong>JCI</strong></td><td>Johnson Controls</td><td class="up mono">$147.40</td><td class="dim">8.51%</td><td class="up mono">+114.50%</td></tr>
+                <tr><td><strong>BE</strong></td><td>Bloom Energy</td><td class="up mono">$135.51</td><td class="dim">7.82%</td><td class="up mono">+220.74%</td></tr>
+                <tr><td><strong>NEE</strong></td><td>NextEra Energy</td><td class="up mono">$94.59</td><td class="dim">5.46%</td><td class="up mono">+15.27%</td></tr>
+                <tr><td><strong>KMT</strong></td><td>Kennametal</td><td class="up mono">$83.76</td><td class="dim">4.83%</td><td class="up mono">+5.29%</td></tr>
+                <tr><td><strong>MIELY</strong></td><td>Mitsubishi Electric</td><td class="up mono">$65.94</td><td class="dim">3.81%</td><td class="up mono">+109.07%</td></tr>
+                <tr><td><strong>SPOT</strong></td><td>Spotify</td><td class="up mono">$62.88</td><td class="dim">3.63%</td><td class="up mono">+55.25%</td></tr>
+                <tr><td><strong>GOOGL</strong></td><td>Alphabet Class A</td><td class="up mono">$59.63</td><td class="dim">3.44%</td><td class="up mono">+182.59%</td></tr>
+                <tr><td><strong>MPWR</strong></td><td>Monolithic Power Systems</td><td class="up mono">$57.97</td><td class="dim">3.35%</td><td class="up mono">+204.29%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <!-- Dividend History -->
+      <details style="margin-bottom:1rem;">
+        <summary style="cursor:pointer;font-size:.8rem;font-weight:700;color:var(--purple);padding:.5rem 0;list-style:none;display:flex;align-items:center;gap:.5rem;">
+          <span>▶</span> Dividend History by Year
+        </summary>
+        <div class="panel-block" style="margin-top:.5rem;">
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>Year</th><th>Total Paid</th><th>Top Payers</th></tr></thead>
+              <tbody>
+                <tr><td>2021</td><td class="up mono">$23.14</td><td class="dim">BIBL, NATR, PRI</td></tr>
+                <tr><td>2022</td><td class="up mono">$16.03</td><td class="dim">PRI, NEE, KMT</td></tr>
+                <tr><td>2023</td><td class="up mono">$17.63</td><td class="dim">PRI, NEE, PSEC</td></tr>
+                <tr><td>2024</td><td class="up mono">$19.97</td><td class="dim">PRI, NEE, PSEC</td></tr>
+                <tr><td>2025</td><td class="up mono">$20.10</td><td class="dim">PRI, NEE, KMT</td></tr>
+                <tr><td>2026 YTD</td><td class="up mono">$4.93 <span class="dim">(+$1.00 pending)</span></td><td class="dim">PRI, NEE, PSEC</td></tr>
+                <tr><td><strong>All-Time</strong></td><td class="up mono"><strong>$101.80</strong></td><td class="dim">554 records</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <!-- Tax Loss Harvest Note -->
+      <div class="callout warn" style="margin-top:.5rem;">
+        ⚠ <strong>Tax-loss harvest candidates:</strong> ~18 positions (cannabis sector, early clean energy, speculative) are down 85–100% — combined equity under $60. Prime candidates for wash-sale analysis with CPA before selling. See <code>data/imports/robinhood/robinhood_snapshot_20260405.md</code>.
+      </div>
+      <div style="margin-top:.5rem;padding:.5rem .8rem;background:rgba(255,255,255,0.03);border-radius:8px;border:1px solid var(--border);font-size:.76rem;color:var(--muted);">
+        ⚠ Realized gains/losses from stock sales not available via MCP — obtain official Robinhood 1099-B for tax filing.
+      </div>
+
+    </section>
+
     <!-- ── TAX SUMMARY ── -->
     <section class="section" id="tax">
       <div class="sec-label">Tax Summary · Working Estimates</div>
       <div class="panel-block">
         <div class="tbl-wrap">
           <table>
-            <thead><tr><th>Year</th><th>BTCC</th><th>PocketOption</th><th>CoinLedger</th><th>Futures</th><th>Net</th></tr></thead>
+            <thead><tr><th>Year</th><th>BTCC</th><th>Robinhood Divs</th><th>PocketOption</th><th>CoinLedger</th><th>Futures</th><th>Net</th></tr></thead>
             <tbody>
-              <tr><td><strong>2024</strong></td><td class="dn mono">~-$2,115</td><td class="dim">N/A</td><td class="dim">TBD</td><td class="dim">N/A</td><td class="dn mono"><strong>~-$2,115+</strong></td></tr>
-              <tr><td><strong>2025</strong></td><td class="dn mono">~-$82</td><td class="dn mono">-$151.62</td><td class="dim">TBD</td><td class="dim">N/A</td><td class="dn mono"><strong>~-$234+</strong></td></tr>
-              <tr><td><strong>2026 YTD</strong></td><td class="dn mono">-$27.50</td><td class="dim">None</td><td class="dim">N/A</td><td class="up mono">+$1,112.00</td><td class="up mono"><strong>+$1,084.50</strong></td></tr>
+              <tr><td><strong>2024</strong></td><td class="dn mono">~-$2,115</td><td class="up mono">+$19.97</td><td class="dim">N/A</td><td class="dim">TBD</td><td class="dim">N/A</td><td class="dn mono"><strong>~-$2,095+</strong></td></tr>
+              <tr><td><strong>2025</strong></td><td class="dn mono">~-$82</td><td class="up mono">+$20.10</td><td class="dn mono">-$151.62</td><td class="dim">TBD</td><td class="dim">N/A</td><td class="dn mono"><strong>~-$214+</strong></td></tr>
+              <tr><td><strong>2026 YTD</strong></td><td class="dn mono">-$27.50</td><td class="up mono">+$4.93</td><td class="dim">None</td><td class="dim">N/A</td><td class="up mono">+$1,112.00</td><td class="up mono"><strong>+$1,089+</strong></td></tr>
             </tbody>
           </table>
         </div>
@@ -997,6 +1083,7 @@
               <tr><td>BTCC P&L 2026</td><td class="mono dim" style="font-size:.77rem;">data/imports/2026/03-Mar/btcc_realized_pl_2026.md</td><td class="dim">Mar 26, 2026</td></tr>
               <tr><td>PocketOption XLSX</td><td class="mono dim" style="font-size:.77rem;">data/imports/2025/PocketOption_export_history_as-of_20260326.xlsx</td><td class="dim">Mar 26, 2026</td></tr>
               <tr><td>CoinLedger CSV</td><td class="mono dim" style="font-size:.77rem;">data/imports/2025/CoinLedger_Transactions_as-of_20260326.csv</td><td class="dim">Mar 26, 2026</td></tr>
+              <tr><td>Robinhood Snapshot</td><td class="mono dim" style="font-size:.77rem;">data/imports/robinhood/robinhood_snapshot_20260405.md</td><td class="dim">Apr 5, 2026</td></tr>
             </tbody>
           </table>
         </div>

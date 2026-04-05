@@ -1,5 +1,5 @@
 # Christopher Wilson — Unified P&L Ledger
-**Maintained by Fortuna | Last updated: Mar 26, 2026**
+**Maintained by Fortuna | Last updated: Apr 5, 2026**
 
 This document is the source of truth for all trading P&L across all platforms and accounts. It feeds the `portfolio.html` public display page.
 
@@ -7,11 +7,12 @@ This document is the source of truth for all trading P&L across all platforms an
 
 ## 🏦 Active Accounts Summary
 
-| Platform | Account | Type | Status | Current P/L (session) |
-|----------|---------|------|--------|----------------------|
+| Platform | Account | Type | Status | Notes |
+|----------|---------|------|--------|-------|
 | Apex Trader Funding | APEX-484839-06 | 100K Eval | ✅ Active | Min days met Mar 24/25 — payout pending |
-| TakeProfitTrader | TPT 50K | 50K Eval | ✅ Active | Day 1 of 5 completed Mar 25 |
-| BTCC | SOL/USDT Perp | Crypto | ✅ Positive balance | +$20.43 YTD (after Mar losses) |
+| TakeProfitTrader | TPT 50K | 50K Eval | ✅ Active | Reset Apr 1, 2026 |
+| BTCC | SOL/USDT Perp | Crypto | ✅ Account active | -$27.50 YTD 2026 |
+| Robinhood | •••••••••• | Equities | ✅ Connected Apr 2026 | $1,731 equity · 70 positions |
 | APEX-484839-05 | 100K Eval | — | ❌ Blown Mar 3, 2026 | — |
 
 ---
@@ -68,6 +69,55 @@ This document is the source of truth for all trading P&L across all platforms an
 
 ---
 
+## 📈 Robinhood — Equities Portfolio
+
+**Platform:** Robinhood (equities, ETFs, ADRs)
+**MCP Connection:** Live as of Apr 5, 2026
+**Account:** ••••••••••
+
+### Snapshot — Apr 5, 2026
+
+| Metric | Value |
+|--------|-------|
+| Total Equity | **$1,731.01** |
+| Extended Hours Equity | $1,734.39 |
+| Positions | 70 |
+| Dividends Received (2021–2026) | **$101.80** |
+
+### Top Holdings
+
+| Symbol | Name | Equity | % Chg |
+|--------|------|--------|-------|
+| AMZN | Amazon | $209.78 | +27.05% |
+| PRI | Primerica | $192.05 | +68.67% |
+| JCI | Johnson Controls | $147.40 | +114.50% |
+| BE | Bloom Energy | $135.51 | +220.74% |
+| NEE | NextEra Energy | $94.59 | +15.27% |
+| SPOT | Spotify | $62.88 | +55.25% |
+| GOOGL | Alphabet Class A | $59.63 | +182.59% |
+| MPWR | Monolithic Power | $57.97 | +204.29% |
+| MIELY | Mitsubishi Electric | $65.94 | +109.07% |
+| KMT | Kennametal | $83.76 | +5.29% |
+
+### Dividend History
+
+| Year | Total Dividends Paid |
+|------|---------------------|
+| 2021 | $23.14 |
+| 2022 | $16.03 |
+| 2023 | $17.63 |
+| 2024 | $19.97 |
+| 2025 | $20.10 |
+| 2026 YTD | $4.93 (+$1.00 pending) |
+| **All-Time** | **$101.80** |
+
+> Consistent ~$17–20/yr from PRI, NEE, KMT, JCI, CMCSA — solid passive income relative to portfolio size.
+
+> ⚠️ Robinhood realized gains/losses from stock sales not available via MCP. Obtain official 1099-B for tax filing.
+> Full snapshot: `data/imports/robinhood/robinhood_snapshot_20260405.md`
+
+---
+
 ## 🎰 PocketOption — Binary Options
 
 **Platform:** PocketOption (binary options, foreign platform)
@@ -101,11 +151,11 @@ This document is the source of truth for all trading P&L across all platforms an
 
 > ⚠️ These are working estimates. Verify all figures with BTCC official statements and CoinLedger software before filing. Consult a CPA.
 
-| Tax Year | BTCC | PocketOption | CoinLedger/On-Chain | Futures (Prop) | **Net** |
-|----------|------|-------------|---------------------|----------------|---------|
-| 2024 | ~-$2,115 | N/A | TBD | N/A (pre-trading) | **~-$2,115+ TBD** |
-| 2025 | ~-$82 | -$151.62 | TBD | N/A | **~-$234 + TBD** |
-| 2026 YTD | -$27.50 | N/A | N/A | +$93.00 | **+$65.50 + TBD** |
+| Tax Year | BTCC | Robinhood Divs | PocketOption | CoinLedger/On-Chain | Futures (Prop) | **Net** |
+|----------|------|----------------|-------------|---------------------|----------------|---------|
+| 2024 | ~-$2,115 | +$19.97 | N/A | TBD | N/A (pre-trading) | **~-$2,095+ TBD** |
+| 2025 | ~-$82 | +$20.10 | -$151.62 | TBD | N/A | **~-$214 + TBD** |
+| 2026 YTD | -$27.50 | +$4.93 | N/A | N/A | +$1,112.00 | **+$1,089+ TBD** |
 
 **Key CPA questions:**
 1. BTCC perp futures — Section 1256 (60/40 split) or ordinary capital gain/loss?
