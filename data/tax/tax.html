@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tax Tracker — Christopher Wilson</title>
+  <meta name="description" content="Multi-year tax tracking — futures, crypto, equities. Loss harvesting opportunities, CPA prep, and filing status.">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../favicon.png" type="image/png" sizes="64x64">
+  <style>
+    :root {
+      --bg-base:  #080c18;
+      --surface:  rgba(255,255,255,0.04);
+      --surface-soft: rgba(255,255,255,0.025);
+      --surface-raised: rgba(255,255,255,0.065);
+      --border:   rgba(255,255,255,0.09);
+      --text:     #dce6f4;
+      --muted:    #8899b0;
+      --dim:      rgba(255,255,255,0.28);
+      --blue:     #7ec8ff;
+      --purple:   #a78bfa;
+      --cyan:     #67e8f9;
+      --green:    #4ade80;
+      --red:      #f87171;
+      --gold:     #fbbf24;
+      --pink:     #f472b6;
+      --radius-lg: 16px;
+      --radius-md: 10px;
+    }
+    html { scroll-behavior: smooth; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg-base);
+      color: var(--text);
+      min-height: 100vh;
+      font-size: 14px;
+      line-height: 1.65;
+      overflow-x: hidden;
+      background-image:
+        radial-gradient(ellipse at 10% 5%, rgba(251,191,36,0.10) 0%, transparent 35%),
+        radial-gradient(ellipse at 85% 10%, rgba(248,113,113,0.09) 0%, transparent 30%),
+        radial-gradient(ellipse at 50% 80%, rgba(74,222,128,0.06) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { color: var(--cyan); }
+
+    /* ── NAV ── */
+    .nav {
+      display: flex; align-items: center; gap: .5rem; flex-wrap: wrap;
+      padding: .65rem 1.5rem;
+      background: rgba(8,12,24,0.85); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .nav-brand {
+      font-size: .82rem; font-weight: 700; letter-spacing: .02em;
+      background: linear-gradient(90deg, var(--gold), var(--pink));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-right: .4rem;
+    }
+    .nav-tag {
+      padding: .22rem .7rem; border: 1px solid var(--border); border-radius: 999px;
+      font-size: .76rem; color: var(--muted); transition: border-color .15s, color .15s;
+    }
+    .nav-tag:hover { border-color: var(--gold); color: var(--text); }
+    .nav-space { flex: 1; }
+    .nav-status { font-size: .75rem; color: var(--gold); }
+    .nav-status::before { content: "⚠ "; }
+
+    /* ── HEADER ── */
+    .header {
+      padding: 3.2rem 1.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .header::before {
+      content: ""; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 50%, rgba(251,191,36,0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 40%, rgba(248,113,113,0.10) 0%, transparent 45%);
+      pointer-events: none;
+    }
+    .header-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+    .header-eyebrow {
+      font-size: .72rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: .65rem;
+    }
+    .header-title {
+      font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800;
+      letter-spacing: -.03em; margin-bottom: .4rem; color: #fff; line-height: 1.1;
+    }
+    .header-title span {
+      background: linear-gradient(120deg, var(--gold), var(--pink), var(--red));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .header-sub { font-size: .9rem; color: var(--muted); margin-bottom: 1.4rem; }
+    .header-meta { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .header-badge {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: .25rem .8rem; border: 1px solid var(--border); border-radius: 999px;
+      font-size: .74rem; color: var(--muted); background: var(--surface);
+    }
+    .header-badge.warn { border-color: rgba(248,113,113,.35); color: var(--red); }
+    .header-badge.caution { border-color: rgba(251,191,36,.35); color: var(--gold); }
+
+    /* ── CONTENT ── */
+    .content { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+    .section { margin-bottom: 3rem; }
+    .sec-label {
+      font-size: .7rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: .14em; color: var(--gold); margin-bottom: 1rem;
+      display: flex; align-items: center; gap: .6rem;
+    }
+    .sec-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+
+    /* ── STAT GRID ── */
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: .8rem; margin-bottom: 1.5rem; }
+    .stat {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md);
+      padding: 1rem 1.1rem;
+    }
+    .stat-label { font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: .3rem; }
+    .stat-val { font-size: 1.5rem; font-weight: 800; letter-spacing: -.03em; margin-bottom: .2rem; }
+    .stat-sub { font-size: .72rem; color: var(--muted); }
+    .up { color: var(--green); }
+    .dn { color: var(--red); }
+    .gold { color: var(--gold); }
+    .stat.notfiled { border-color: rgba(248,113,113,.35); }
+    .stat.filed { border-color: rgba(74,222,128,.25); }
+    .stat.inprogress { border-color: rgba(251,191,36,.3); }
+
+    /* ── PANEL ── */
+    .panel {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 1.2rem 1.4rem; margin-bottom: 1rem;
+    }
+    .panel.warn { border-color: rgba(248,113,113,.3); }
+    .panel.caution { border-color: rgba(251,191,36,.25); }
+    .panel.positive { border-color: rgba(74,222,128,.2); }
+    .panel-title { font-size: .8rem; font-weight: 700; color: var(--text); margin-bottom: .7rem; }
+
+    /* ── TABLE ── */
+    .tbl-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+    th {
+      text-align: left; padding: .55rem .7rem;
+      font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em;
+      color: var(--muted); border-bottom: 1px solid var(--border);
+    }
+    td { padding: .5rem .7rem; border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(255,255,255,0.025); }
+    .mono { font-family: monospace; }
+
+    /* ── CHECKLIST ── */
+    .checklist { list-style: none; padding: 0; }
+    .checklist li {
+      display: flex; align-items: flex-start; gap: .6rem;
+      padding: .5rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: .83rem;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon { flex-shrink: 0; font-size: .9rem; margin-top: .05rem; }
+    .check-label { flex: 1; }
+    .check-sub { font-size: .74rem; color: var(--muted); margin-top: .15rem; }
+    .status-done { color: var(--green); }
+    .status-pending { color: var(--gold); }
+    .status-urgent { color: var(--red); }
+
+    /* ── HARVEST TABLE ── */
+    .harvest-total {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: .6rem .8rem; background: rgba(248,113,113,0.07);
+      border: 1px solid rgba(248,113,113,0.25); border-radius: 8px;
+      margin-top: .8rem; font-size: .83rem; font-weight: 700;
+    }
+
+    /* ── DOWNLOAD SECTION ── */
+    .download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: .75rem; }
+    .download-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md);
+      padding: .9rem 1rem; display: flex; flex-direction: column; gap: .35rem;
+    }
+    .download-card.ready { border-color: rgba(74,222,128,.25); }
+    .download-card.pending { border-color: rgba(255,255,255,0.07); opacity: .65; }
+    .dl-label { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); }
+    .dl-title { font-size: .85rem; font-weight: 600; color: var(--text); }
+    .dl-btn {
+      display: inline-flex; align-items: center; gap: .3rem; margin-top: .3rem;
+      padding: .25rem .7rem; border-radius: 999px; font-size: .75rem; font-weight: 600;
+      background: rgba(74,222,128,.1); border: 1px solid rgba(74,222,128,.3); color: var(--green);
+      cursor: pointer; text-decoration: none; transition: .15s;
+    }
+    .dl-btn:hover { background: rgba(74,222,128,.2); color: var(--green); }
+    .dl-btn.pending { background: rgba(255,255,255,0.04); border-color: var(--border); color: var(--muted); cursor: default; }
+
+    /* ── CPA QUESTIONS ── */
+    .cpa-item {
+      padding: .7rem .9rem; margin-bottom: .5rem;
+      background: rgba(251,191,36,0.06); border: 1px solid rgba(251,191,36,0.2);
+      border-radius: 8px; font-size: .83rem;
+    }
+    .cpa-q { font-weight: 700; color: var(--gold); margin-bottom: .2rem; }
+    .cpa-detail { color: var(--muted); font-size: .78rem; }
+
+    footer {
+      text-align: center; padding: 2rem 1.5rem;
+      border-top: 1px solid var(--border); font-size: .75rem; color: var(--muted);
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 640px) {
+      .header { padding: 2rem 1rem 1.5rem; }
+      .content { padding: 1.5rem 1rem 4rem; }
+      .nav { padding: .5rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <span class="nav-brand">💰 Tax Tracker</span>
+    <a class="nav-tag" href="../../index.html">🏠 Home</a>
+    <a class="nav-tag" href="../progression/portfolio.html">📊 Portfolio</a>
+    <a class="nav-tag" href="../progression/resources.html">📚 Resources</a>
+    <div class="nav-space"></div>
+    <span class="nav-status">2024 &amp; 2025 NOT FILED</span>
+  </nav>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="header-eyebrow">Christopher Wilson · Multi-Year Tax Tracking</div>
+      <h1 class="header-title">Tax <span>Tracker</span></h1>
+      <div class="header-sub">Futures · Crypto · Equities · Loss Harvesting — one view</div>
+      <div class="header-meta">
+        <span class="header-badge warn">⚠ 2024 NOT FILED</span>
+        <span class="header-badge warn">⚠ 2025 NOT FILED</span>
+        <span class="header-badge caution">2026 In Progress</span>
+        <span class="header-badge">Updated: Apr 5, 2026</span>
+        <span class="header-badge">Working estimates — verify before filing</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="content">
+
+    <!-- ── FILING STATUS ── -->
+    <section class="section" id="status">
+      <div class="sec-label">Filing Status</div>
+      <div class="stat-grid">
+        <div class="stat notfiled">
+          <div class="stat-label">2024 Filing</div>
+          <div class="stat-val dn">NOT FILED</div>
+          <div class="stat-sub">Est. net ~-$2,095 · CoinLedger TBD</div>
+        </div>
+        <div class="stat notfiled">
+          <div class="stat-label">2025 Filing</div>
+          <div class="stat-val dn">NOT FILED</div>
+          <div class="stat-sub">Est. net ~-$214 · CoinLedger TBD</div>
+        </div>
+        <div class="stat inprogress">
+          <div class="stat-label">2026 YTD</div>
+          <div class="stat-val gold">IN PROGRESS</div>
+          <div class="stat-sub">Est. net +$1,089 · tracking live</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Robinhood Divs All-Time</div>
+          <div class="stat-val up">$101.80</div>
+          <div class="stat-sub">2021–2026 · ~$20/yr</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Harvest Opportunity</div>
+          <div class="stat-val dn">~-$1,200</div>
+          <div class="stat-sub">Unrealized Robinhood losses · 2026</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">CPA Status</div>
+          <div class="stat-val gold">NEEDED</div>
+          <div class="stat-sub">Staking income + BTCC treatment</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── P&L SUMMARY ── -->
+    <section class="section" id="summary">
+      <div class="sec-label">P&amp;L Summary by Year</div>
+      <div class="panel">
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>BTCC Crypto</th>
+                <th>Robinhood Divs</th>
+                <th>PocketOption</th>
+                <th>CoinLedger / On-Chain</th>
+                <th>Futures (Prop)</th>
+                <th>Net (Est.)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>2024</strong></td>
+                <td class="dn mono">~-$2,115</td>
+                <td class="up mono">+$19.97</td>
+                <td class="mono" style="color:var(--muted)">N/A</td>
+                <td style="color:var(--gold)">⚠ TBD — staking income likely significant</td>
+                <td style="color:var(--muted)">N/A (pre-trading)</td>
+                <td class="dn mono"><strong>~-$2,095 + TBD</strong></td>
+              </tr>
+              <tr>
+                <td><strong>2025</strong></td>
+                <td class="dn mono">~-$82</td>
+                <td class="up mono">+$20.10</td>
+                <td class="dn mono">-$151.62</td>
+                <td style="color:var(--gold)">⚠ TBD — staking income 2021–2023 spans into history</td>
+                <td style="color:var(--muted)">N/A</td>
+                <td class="dn mono"><strong>~-$214 + TBD</strong></td>
+              </tr>
+              <tr>
+                <td><strong>2026 YTD</strong></td>
+                <td class="dn mono">-$27.50</td>
+                <td class="up mono">+$4.93</td>
+                <td style="color:var(--muted)">None</td>
+                <td style="color:var(--muted)">N/A</td>
+                <td class="up mono">+$1,112.00</td>
+                <td class="up mono"><strong>+$1,089+ TBD</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel caution" style="font-size:.78rem;color:var(--muted);">
+        ⚠ <strong style="color:var(--gold)">Robinhood realized gains/losses (stock sales) not included</strong> — not available via MCP. Obtain official Robinhood 1099-B for 2024 and 2025 to complete the picture. These could meaningfully change the net figures.
+      </div>
+    </section>
+
+    <!-- ── TAX LOSS HARVEST ── -->
+    <section class="section" id="harvest">
+      <div class="sec-label">Tax Loss Harvesting — Robinhood Deep Losses</div>
+
+      <div class="panel">
+        <div class="panel-title">Overview</div>
+        <p style="font-size:.83rem;color:var(--muted);margin-bottom:.8rem;">
+          The following Robinhood positions are currently held at deep unrealized losses — mostly cannabis sector, early clean energy, and speculative plays from 2020–2022.
+          Selling them in <strong style="color:var(--text)">2026</strong> would generate approximately <strong style="color:var(--red)">~$1,200 in capital losses</strong> that can be used to offset gains or deducted up to $3,000/yr against ordinary income (with unlimited carryforward).
+          Most positions have been held &gt;1 year — these would be <strong style="color:var(--text)">long-term capital losses</strong>.
+        </p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.6rem;margin-bottom:1rem;">
+          <div style="padding:.6rem .8rem;background:rgba(248,113,113,0.07);border:1px solid rgba(248,113,113,.2);border-radius:8px;">
+            <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem;">Est. Total Harvestable Loss</div>
+            <div style="font-size:1.4rem;font-weight:800;color:var(--red);">~-$1,200</div>
+            <div style="font-size:.72rem;color:var(--muted);">If all positions below are sold</div>
+          </div>
+          <div style="padding:.6rem .8rem;background:rgba(251,191,36,0.06);border:1px solid rgba(251,191,36,.2);border-radius:8px;">
+            <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem;">Wash-Sale Warning</div>
+            <div style="font-size:.85rem;font-weight:700;color:var(--gold);">30-Day Rule</div>
+            <div style="font-size:.72rem;color:var(--muted);">Do not repurchase the same or substantially identical security within 30 days before or after selling</div>
+          </div>
+          <div style="padding:.6rem .8rem;background:rgba(74,222,128,0.05);border:1px solid rgba(74,222,128,.15);border-radius:8px;">
+            <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem;">$3K/Year Deduction</div>
+            <div style="font-size:.85rem;font-weight:700;color:var(--green);">+ Unlimited Carryforward</div>
+            <div style="font-size:.72rem;color:var(--muted);">Losses exceeding gains can offset $3K ordinary income per year; rest carries forward indefinitely</div>
+          </div>
+        </div>
+
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr><th>Symbol</th><th>Name</th><th>% Change</th><th>Current Equity</th><th>Est. Unrealized Loss</th><th>Hold Period</th><th>Type</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>FUVV</strong></td><td>Futureland Corp</td><td class="dn mono">-100%</td><td class="mono">$0.00</td><td class="dn mono">~-$622.80</td><td style="color:var(--muted)">2021+ · LT</td><td style="color:var(--red)">⚠ May be unsaleable ($0.0001/sh)</td></tr>
+              <tr><td><strong>PLUG</strong></td><td>Plug Power</td><td class="dn mono">-96%</td><td class="mono">$2.41</td><td class="dn mono">~-$64.29</td><td style="color:var(--muted)">2020–21 · LT</td><td style="color:var(--gold)">Sell candidate</td></tr>
+              <tr><td><strong>BYND</strong></td><td>Beyond Meat</td><td class="dn mono">-99.65%</td><td class="mono">$0.15</td><td class="dn mono">~-$42.87</td><td style="color:var(--muted)">2021 · LT</td><td style="color:var(--gold)">Sell candidate</td></tr>
+              <tr><td><strong>CGC</strong></td><td>Canopy Growth</td><td class="dn mono">-99.76%</td><td class="mono">$0.10</td><td class="dn mono">~-$42.48</td><td style="color:var(--muted)">2021 · LT</td><td style="color:var(--gold)">Sell candidate</td></tr>
+              <tr><td><strong>HAIN</strong></td><td>Hain Celestial</td><td class="dn mono">-98%</td><td class="mono">$0.83</td><td class="dn mono">~-$40.55</td><td style="color:var(--muted)">2021 · LT</td><td style="color:var(--gold)">Sell candidate</td></tr>
+              <tr><td><strong>CMPS</strong></td><td>Compass Pathways</td><td class="dn mono">-86.87%</td><td class="mono">$5.81</td><td class="dn mono">~-$38.44</td><td style="color:var(--muted)">2021 · LT</td><td style="color:var(--gold)">Sell candidate</td></tr>
+              <tr><td><strong>MSTR</strong></td><td>Strategy Inc.</td><td class="dn mono">-62.43%</td><td class="mono">$22.84</td><td class="dn mono">~-$37.96</td><td style="color:var(--muted)">2021 · LT</td><td style="color:var(--gold)">Sell candidate</td></tr>
+              <tr><td><strong>SMG</strong></td><td>Scotts Miracle-Gro</td><td class="dn mono">-67.79%</td><td class="mono">$15.63</td><td class="dn mono">~-$32.88</td><td style="color:var(--muted)">2021 · LT</td><td style="color:var(--gold)">Sell candidate</td></tr>
+              <tr><td><strong>CMCSA</strong></td><td>Comcast</td><td class="dn mono">-42.95%</td><td class="mono">$32.45</td><td class="dn mono">~-$24.43</td><td style="color:var(--muted)">2021 · LT</td><td style="color:var(--muted)">Monitor — still pays dividends ($1.45/yr)</td></tr>
+              <tr><td><strong>FCEL</strong></td><td>FuelCell Energy</td><td class="dn mono">-99.06%</td><td class="mono">$0.22</td><td class="dn mono">~-$23.26</td><td style="color:var(--muted)">2021 · LT</td><td style="color:var(--gold)">Sell candidate</td></tr>
+              <tr><td><strong>MSOS</strong></td><td>US Cannabis ETF</td><td class="dn mono">-91.42%</td><td class="mono">$1.93</td><td class="dn mono">~-$20.50</td><td style="color:var(--muted)">2021 · LT</td><td style="color:var(--gold)">Sell candidate</td></tr>
+              <tr><td><strong>YOLO</strong></td><td>Cannabis ETF</td><td class="dn mono">-86.54%</td><td class="mono">$3.00</td><td class="dn mono">~-$19.25</td><td style="color:var(--muted)">2021 · LT</td><td style="color:var(--gold)">Sell candidate</td></tr>
+              <tr><td><strong>ICLN</strong></td><td>iShares Clean Energy</td><td class="dn mono">-39.26%</td><td class="mono">$29.06</td><td class="dn mono">~-$18.82</td><td style="color:var(--muted)">2021 · LT</td><td style="color:var(--muted)">Consider — pays dividends</td></tr>
+              <tr><td><strong>ENPH</strong></td><td>Enphase Energy</td><td class="dn mono">-81.07%</td><td class="mono">$3.49</td><td class="dn mono">~-$14.94</td><td style="color:var(--muted)">2021 · LT</td><td style="color:var(--gold)">Sell candidate</td></tr>
+              <tr><td><strong>GAIA</strong></td><td>Gaia</td><td class="dn mono">-73.17%</td><td class="mono">$5.12</td><td class="dn mono">~-$13.96</td><td style="color:var(--muted)">2021 · LT</td><td style="color:var(--gold)">Sell candidate</td></tr>
+              <tr><td><strong>ACB</strong></td><td>Aurora Cannabis</td><td class="dn mono">-97.27%</td><td class="mono">$0.34</td><td class="dn mono">~-$12.21</td><td style="color:var(--muted)">2021 · LT</td><td style="color:var(--gold)">Sell candidate</td></tr>
+              <tr><td><strong>PYPL</strong></td><td>PayPal</td><td class="dn mono">-82.85%</td><td class="mono">$2.28</td><td class="dn mono">~-$11.01</td><td style="color:var(--muted)">2021 · LT</td><td style="color:var(--muted)">Evaluate recovery potential</td></tr>
+              <tr><td><strong>GRWG</strong></td><td>GrowGeneration</td><td class="dn mono">-98.31%</td><td class="mono">$0.16</td><td class="dn mono">~-$9.52</td><td style="color:var(--muted)">2021 · LT</td><td style="color:var(--gold)">Sell candidate</td></tr>
+              <tr><td><strong>SNDL</strong></td><td>SNDL</td><td class="dn mono">-88%</td><td class="mono">$1.31</td><td class="dn mono">~-$9.64</td><td style="color:var(--muted)">2021 · LT</td><td style="color:var(--gold)">Sell candidate</td></tr>
+              <tr><td><strong>VFF</strong></td><td>Village Farms</td><td class="dn mono">-76.99%</td><td class="mono">$2.89</td><td class="dn mono">~-$9.67</td><td style="color:var(--muted)">2021 · LT</td><td style="color:var(--gold)">Sell candidate</td></tr>
+              <tr><td><strong>HYFM</strong></td><td>Hydrofarm</td><td class="dn mono">-99.88%</td><td class="mono">$0.01</td><td class="dn mono">~-$8.19</td><td style="color:var(--muted)">2021 · LT</td><td style="color:var(--gold)">Sell candidate</td></tr>
+              <tr><td><strong>NEPTF</strong></td><td>Neptune Wellness</td><td class="dn mono">-100%</td><td class="mono">$0.00</td><td class="dn mono">~-$7.76</td><td style="color:var(--muted)">2021 · LT</td><td style="color:var(--red)">May already be worthless/delisted</td></tr>
+              <tr><td><strong>RUN</strong></td><td>Sunrun</td><td class="dn mono">-81.78%</td><td class="mono">$1.35</td><td class="dn mono">~-$6.05</td><td style="color:var(--muted)">2021 · LT</td><td style="color:var(--gold)">Sell candidate</td></tr>
+              <tr><td colspan="4" style="text-align:right;font-size:.75rem;color:var(--muted);padding-top:.6rem;">+ TLRY, OGI, MJ, CNBS, PSIL, HELP, BLNK, ZG, XIFR, WPRT, TOKE, IGC (~-$55 combined)</td><td class="dn mono">~-$55</td><td colspan="2"></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="harvest-total">
+          <span>Estimated total harvestable loss (excl. FUVV/NEPTF which may be unsaleable):</span>
+          <span class="dn mono" style="font-size:1rem;">~-$540 to -$580</span>
+        </div>
+        <div class="harvest-total" style="margin-top:.4rem;border-color:rgba(248,113,113,.4);">
+          <span>Including FUVV if saleable:</span>
+          <span class="dn mono" style="font-size:1rem;">~-$1,150 to -$1,200</span>
+        </div>
+      </div>
+
+      <div class="panel caution">
+        <div class="panel-title" style="color:var(--gold);">Before You Sell — Key Rules</div>
+        <ul style="list-style:none;padding:0;font-size:.82rem;color:var(--muted);">
+          <li style="padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,0.04);">⚠ <strong style="color:var(--text)">Wash-sale rule (IRS §1091):</strong> Loss is disallowed if you buy the same or "substantially identical" security within 30 days before or after selling. ETFs tracking the same index may qualify.</li>
+          <li style="padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,0.04);">⚠ <strong style="color:var(--text)">Long-term vs. short-term:</strong> Confirm holding period on each position with Robinhood 1099 — positions acquired in 2020–2022 are LT, but verify shares bought at different times (fractional DCA).</li>
+          <li style="padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,0.04);">⚠ <strong style="color:var(--text)">Worthless securities:</strong> FUVV, NEPTF may qualify as worthless for tax purposes under IRS §165(g). CPA should advise — may allow you to claim the loss without selling.</li>
+          <li style="padding:.3rem 0;">⚠ <strong style="color:var(--text)">Net capital loss limit:</strong> Only $3,000/year can offset ordinary income. If 2026 futures gains (+$1,112 YTD) offset losses first, remaining losses carry forward.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ── DOCUMENT CHECKLIST ── -->
+    <section class="section" id="docs">
+      <div class="sec-label">Document Checklist</div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;">
+
+        <div class="panel">
+          <div class="panel-title">2024 — What You Need</div>
+          <ul class="checklist">
+            <li>
+              <span class="check-icon status-done">✅</span>
+              <div class="check-label">BTCC CSV export (Dec 17–31 2024)
+                <div class="check-sub">Available — <code>data/imports/2026/03-Mar/btcc-orders_...</code></div>
+              </div>
+            </li>
+            <li>
+              <span class="check-icon status-urgent">🔴</span>
+              <div class="check-label">BTCC official account statement (PDF)
+                <div class="check-sub">Download from BTCC portal — cross-reference CSV figures</div>
+              </div>
+            </li>
+            <li>
+              <span class="check-icon status-urgent">🔴</span>
+              <div class="check-label">Robinhood 1099-B (2024)
+                <div class="check-sub">Download from Robinhood → Account → Statements &amp; Documents. Shows all stock sales + cost basis.</div>
+              </div>
+            </li>
+            <li>
+              <span class="check-icon status-urgent">🔴</span>
+              <div class="check-label">CoinLedger — process 2024 transactions
+                <div class="check-sub">Upload CSV to CoinLedger.io to compute staking income + realized gains. High priority — 2020–2024 staking income may be significant.</div>
+              </div>
+            </li>
+            <li>
+              <span class="check-icon status-done">✅</span>
+              <div class="check-label">Robinhood dividend records (2024: $19.97)
+                <div class="check-sub">Pulled via MCP Apr 5, 2026</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title">2025 — What You Need</div>
+          <ul class="checklist">
+            <li>
+              <span class="check-icon status-done">✅</span>
+              <div class="check-label">BTCC CSV (2025 trades)
+                <div class="check-sub">Available in imports — ~-$82 net</div>
+              </div>
+            </li>
+            <li>
+              <span class="check-icon status-done">✅</span>
+              <div class="check-label">PocketOption history (May–Dec 2025)
+                <div class="check-sub"><code>PocketOption_export_history_as-of_20260326.xlsx</code> — -$151.62</div>
+              </div>
+            </li>
+            <li>
+              <span class="check-icon status-urgent">🔴</span>
+              <div class="check-label">Robinhood 1099-B (2025)
+                <div class="check-sub">Same as 2024 — any stock sales made in 2025 need to be reported</div>
+              </div>
+            </li>
+            <li>
+              <span class="check-icon status-pending">🟡</span>
+              <div class="check-label">CoinLedger — process 2025 transactions
+                <div class="check-sub">CSV has 2020–2025 data. Process through CoinLedger.io.</div>
+              </div>
+            </li>
+            <li>
+              <span class="check-icon status-done">✅</span>
+              <div class="check-label">Robinhood dividend records (2025: $20.10)
+                <div class="check-sub">Pulled via MCP Apr 5, 2026</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title">2026 — Tracking Live</div>
+          <ul class="checklist">
+            <li>
+              <span class="check-icon status-done">✅</span>
+              <div class="check-label">BTCC 2026 YTD (-$27.50 thru Mar 26)
+                <div class="check-sub">Available in imports</div>
+              </div>
+            </li>
+            <li>
+              <span class="check-icon status-done">✅</span>
+              <div class="check-label">Robinhood MCP connected (Apr 5, 2026)
+                <div class="check-sub">Live position + dividend tracking</div>
+              </div>
+            </li>
+            <li>
+              <span class="check-icon status-pending">🟡</span>
+              <div class="check-label">Apex/TPT Tradovate exports
+                <div class="check-sub">Pull monthly as trades occur</div>
+              </div>
+            </li>
+            <li>
+              <span class="check-icon status-pending">🟡</span>
+              <div class="check-label">Tax loss harvesting — Robinhood
+                <div class="check-sub">~$540–1,200 in potential 2026 losses. Confirm with CPA before selling.</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CPA QUESTIONS ── -->
+    <section class="section" id="cpa">
+      <div class="sec-label">CPA Priority Questions</div>
+
+      <div class="cpa-item">
+        <div class="cpa-q">1. BTCC Perpetual Futures — Section 1256 or Ordinary Capital Loss?</div>
+        <div class="cpa-detail">Section 1256 contracts get favorable 60% long-term / 40% short-term treatment. BTCC is a foreign exchange — may or may not qualify. ~-$2,224 all-time at stake. If Section 1256 applies, net capital loss limit is $3K/yr but carryback 3 years is allowed.</div>
+      </div>
+      <div class="cpa-item">
+        <div class="cpa-q">2. December 2024 Forced Liquidation (~-$1,500+)</div>
+        <div class="cpa-detail">Exchange-initiated margin calls Dec 18–19 ET. Approximately -$1,500+ in forced closes. Does this have any special IRS treatment vs. voluntary sells? Document clearly for CPA review.</div>
+      </div>
+      <div class="cpa-item">
+        <div class="cpa-q">3. PocketOption — Gambling Loss or Capital Loss?</div>
+        <div class="cpa-detail">-$151.62 in 2025. Binary options on a foreign platform. May be treated as gambling losses (Schedule A, limited to gambling winnings) or as capital losses. The platform's jurisdiction matters. CPA needed.</div>
+      </div>
+      <div class="cpa-item">
+        <div class="cpa-q">4. CoinLedger Staking Income (2020–2025) — Taxable in Year Received</div>
+        <div class="cpa-detail">2,666 transactions including ~2,005 income events. Staking rewards are taxable as ordinary income at FMV at the time of receipt. 2021–2023 crypto prices were high — this may represent the largest tax liability in the entire profile. Highest-priority CPA item before filing any year.</div>
+      </div>
+      <div class="cpa-item">
+        <div class="cpa-q">5. FBAR Requirement (FinCEN 114)</div>
+        <div class="cpa-detail">BTCC (foreign) and PocketOption (foreign) are foreign financial accounts. If aggregate balance exceeded $10,000 USD at any point in 2024 or 2025, FBAR filing was required. Penalties for non-filing can be severe. Verify with CPA.</div>
+      </div>
+      <div class="cpa-item">
+        <div class="cpa-q">6. Worthless Securities — FUVV, NEPTF (IRS §165(g))</div>
+        <div class="cpa-detail">Stocks that became completely worthless during the tax year can be claimed as capital losses without selling. If FUVV ($622.80 cost basis) or NEPTF became worthless in 2024 or 2025, you may be able to claim those losses on the prior-year return. CPA should verify timing.</div>
+      </div>
+      <div class="cpa-item">
+        <div class="cpa-q">7. Robinhood Dividends — Qualified vs. Ordinary</div>
+        <div class="cpa-detail">~$20/yr in dividends. Most US stock dividends qualify for the lower qualified dividend rate (0%, 15%, or 20% depending on income bracket). ADR dividends (SSUMY, MIELY, CMPS) may have foreign withholding tax — check 1099-DIV Box 7 for credit.</div>
+      </div>
+
+    </section>
+
+    <!-- ── DOWNLOADS ── -->
+    <section class="section" id="downloads">
+      <div class="sec-label">Download Center</div>
+      <div style="font-size:.8rem;color:var(--muted);margin-bottom:1rem;">Filled and signed tax forms will be linked here as they are completed. Raw data exports available below.</div>
+
+      <div class="download-grid">
+        <div class="download-card ready">
+          <div class="dl-label">Data Export · Apr 2026</div>
+          <div class="dl-title">Robinhood Portfolio Snapshot</div>
+          <a class="dl-btn" href="../imports/2026/04-Apr/robinhood_snapshot_20260405.md">⬇ View MD</a>
+        </div>
+        <div class="download-card pending">
+          <div class="dl-label">2024 · Pending</div>
+          <div class="dl-title">Form 1040 + Schedule D (2024)</div>
+          <span class="dl-btn pending">⏳ Not yet prepared</span>
+        </div>
+        <div class="download-card pending">
+          <div class="dl-label">2025 · Pending</div>
+          <div class="dl-title">Form 1040 + Schedule D (2025)</div>
+          <span class="dl-btn pending">⏳ Not yet prepared</span>
+        </div>
+        <div class="download-card pending">
+          <div class="dl-label">2024 · Pending</div>
+          <div class="dl-title">FinCEN 114 (FBAR 2024)</div>
+          <span class="dl-btn pending">⏳ CPA review needed</span>
+        </div>
+        <div class="download-card pending">
+          <div class="dl-label">2025 · Pending</div>
+          <div class="dl-title">FinCEN 114 (FBAR 2025)</div>
+          <span class="dl-btn pending">⏳ CPA review needed</span>
+        </div>
+        <div class="download-card ready">
+          <div class="dl-label">BTCC · All Years</div>
+          <div class="dl-title">BTCC P&L Summary</div>
+          <a class="dl-btn" href="../imports/2026/03-Mar/btcc_realized_pl_2026.md">⬇ 2026 YTD</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── IMMEDIATE NEXT STEPS ── -->
+    <section class="section" id="next-steps">
+      <div class="sec-label">Immediate Action Plan</div>
+      <div class="panel positive">
+        <ol style="padding-left:1.2rem;font-size:.83rem;line-height:2;">
+          <li><strong>Download Robinhood 2024 &amp; 2025 1099-B</strong> — Robinhood app → Account → Statements &amp; Documents → Tax Documents. This is the critical missing piece for both unfiled years.</li>
+          <li><strong>Process CoinLedger CSV through CoinLedger.io</strong> — Upload <code>CoinLedger_Transactions_as-of_20260326.csv</code>. This will reveal the actual staking income tax liability for 2021–2025.</li>
+          <li><strong>Download BTCC official PDF statements</strong> for 2024 and 2025 to cross-reference the CSV figures before handing to CPA.</li>
+          <li><strong>Engage a CPA with crypto experience</strong> — The BTCC Section 1256 question, staking income, and FBAR filing are complex. A crypto-savvy CPA is worth the cost here.</li>
+          <li><strong>Plan Robinhood tax-loss harvest for 2026</strong> — Once unfiled years are handled, work with CPA to strategically sell the deep-loss positions in 2026 to generate carryforward losses, mindful of wash-sale rules.</li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Fortuna · Claude Code CLI · <a href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank">trading-assistant</a> · <a href="../progression/portfolio.html">Portfolio</a></p>
+    <p style="margin-top:.3rem;opacity:.5;">⚠ Private Record · Working Estimates · Consult a CPA Before Filing</p>
+  </footer>
+
+</body>
+</html>

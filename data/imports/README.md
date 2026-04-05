@@ -6,8 +6,6 @@ Raw and processed trade data imports from all platforms, organized by year/month
 
 ```
 imports/
-├── robinhood/              ← Robinhood equity portfolio snapshots + dividend history
-│   └── robinhood_snapshot_20260405.md
 ├── 2024/
 │   └── btcc_realized_pl_2024.md
 ├── 2025/
@@ -18,14 +16,15 @@ imports/
 └── 2026/
     └── MM-Mon/
         ├── tradezella_YYYYMMDD.csv
-        └── tradovate_orders_YYYYMMDD.csv
+        ├── tradovate_orders_YYYYMMDD.csv
+        └── robinhood_snapshot_YYYYMMDD.md   ← Robinhood snapshots by date
 ```
 
 ## 📋 Platform Coverage
 
 | Platform | Format | Status | Location |
 |----------|--------|--------|----------|
-| Robinhood | MCP live + MD snapshot | ✅ Connected Apr 2026 | `robinhood/` |
+| Robinhood | MCP live + MD snapshot | ✅ Connected Apr 2026 | `2026/04-Apr/` |
 | BTCC | CSV export → MD P&L | ✅ Dec 2024–Mar 2026 | `2024/`, `2025/`, `2026/` |
 | Tradovate (Apex/TPT) | CSV export | ✅ Ongoing | `2026/MM-Mon/` |
 | TradeZella | CSV export | ✅ Ongoing | `2026/MM-Mon/` |
