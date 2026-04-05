@@ -239,6 +239,99 @@ Markets have been closed since Thursday April 2 close (Good Friday + Easter week
 
 ---
 
+## 🔄 Revised Morning Brief — Run 2
+**1hr Chart · Correct Pane (Pane 0) · IT Foundation EMAs Live**
+*Captured Saturday Apr 5, ~9:33 PM ET · rules.json updated: NQ1!, GC1!, BTC, ETH added*
+
+> **What changed:** First run hit the wrong pane (5-min ES chart, different indicators). This run correctly targets the left pane (1hr) with IT Foundation EMAs, Auto Levels v3.0.2, and SMC visible. All 9 instruments now returning full IT Foundation data.
+
+---
+
+### Rapid-Fire Bias Table
+
+| Symbol | Last | EMA1 | EMA2 | EMA3 | vs EMA1 | EMA Stack | Bias |
+|---|---|---|---|---|---|---|---|
+| **NQ1!** | 24,129.75 | 24,129.78 | 24,048.13 | 24,017.50 | -0.03 ⚠️ | Bullish spread | **DECISION POINT** |
+| **ES1!** | 6,603.75 | 6,603.44 | 6,587.17 | 6,576.08 | +0.31 ✅ | Bullish spread | **MARGINALLY BULLISH** |
+| **YM1!** | 46,629 | 46,633 | 46,569 | 46,452 | -4 ❌ | Bullish spread | **MARGINAL BEAR** |
+| **RTY1!** | 2,531.7 | 2,531.0 | 2,521.7 | 2,509.6 | +0.7 ✅ | Bullish spread | **MARGINALLY BULLISH** |
+| **CL1!** | 112.06 | 108.56 | 105.25 | 99.45 | +3.50 ✅✅ | Strong bullish | **STRONG BULLISH** |
+| **GC1!** | 4,702.7 | 4,690.6 | 4,688.7 | 4,653.2 | +12.1 ✅✅ | Bullish | **BULLISH — ATH zone** |
+| **SOLUSD** | 80.61 | 80.59 | 80.41 | 82.13 | +0.02 | EMA3 above ❌ | **BEARISH** |
+| **BTCUSD** | 67,082 | 67,181 | 67,097 | 67,482 | -99 ❌ | EMA3 above ❌ | **BEARISH** |
+| **ETHUSD** | 2,057.76 | 2,058.72 | 2,058.93 | 2,066.36 | -0.96 ❌ | EMA3 above ❌ | **BEARISH** |
+
+---
+
+### Key Readings — Instrument by Instrument
+
+**NQ1! — Primary Analysis Instrument**
+Price: 24,129.75 | EMA1: 24,129.78 — **literally -0.03 below the fast EMA.** This is the IT Foundation EMA gate in real time. NQ is sitting exactly on EMA1. EMA2 and EMA3 are well below (24,048 / 24,017), meaning the broader EMA structure is still technically bullish (EMA1 > EMA2 > EMA3) — but price needs to hold above EMA1 to keep that intact. Monday's first 1hr candle close is the verdict.
+
+**ES1! — Confirming Index**
+Price just above EMA1 by 0.31 — essentially the same story as NQ. All EMAs below price in bullish spread (EMA1 6,603 > EMA2 6,587 > EMA3 6,576). Barely holding the EMA gate.
+
+**YM1! — Confirming Index**
+The weakest of the three. Price 46,629 is 4 points BELOW EMA1 (46,633). Already through the fast EMA. EMAs still in bullish spread below, but YM is the first to crack the gate — watch for confirmation or divergence with NQ/ES at open.
+
+**RTY1! — Confirming Index (non-primary but useful)**
+Price barely above EMA1 (2,531.7 vs 2,531.0). EMA spread bullish. Holding but barely.
+
+**CL1! — Energy / SMT**
+Price 112.06 is $3.50 above EMA1 (108.56), which is $8.61 above EMA2, and EMA3 is all the way down at 99.45. **This confirms the CL "gap" question:** the EMA3 at 99.45 shows where crude was recently trading — the spike to 112 is a real, sharp macro-driven move well above the EMA stack. Not a data error. The EMs haven't caught up yet because the move happened fast (Easter weekend). CL is in full bullish breakout above all EMA levels.
+
+**GC1! — Gold (macro context, Apex halted)**
+Gold at $4,702.7. EMA1: 4,690 — price is above all three EMAs, EMAs in bullish spread. **Gold making all-time highs.** GC surging while equities are at their EMA gate = classic macro risk-off. Safe-haven bid (gold) + energy bid (CL) + equity weakness = market is pricing in a major macro event over the Easter weekend. No trade on Apex, but this is critical context.
+
+**Crypto SMT — BTC / ETH / SOL**
+All three showing the same structure: price below EMA1, AND EMA3 (slowest) is the highest EMA. That inverted EMA order (EMA3 > EMA1) is a bearish structure. No divergence between BTC/ETH/SOL — they're all confirming each other's bearish lean. No SMT opportunity within crypto, but the crypto-equity bearish alignment reinforces the macro risk-off read.
+
+---
+
+### Revised Macro Picture
+
+The data tells a clear story heading into Monday:
+
+> **Macro context:** Gold at $4,702 ATH + CL at $112 (well above EMA stack) + equity indices pinned at EMA1 decision points + all crypto below bearish EMA structure = **significant macro risk-off event occurred over the Easter weekend.** Markets are repricing something big.
+
+**IT Foundation EMA Gate for Monday:**
+- NQ/ES/YM/RTY are all within 4 points of their EMA1 — this is literally the line in the sand
+- If Monday opens and NQ sustains **below EMA1 (24,129)** → IT Foundation EMAs go **RED dominant** → **Scenario B SHORT** valid outside NY AM
+- If NQ holds **above EMA1** → monitor for bullish reclaim → potential LONG setup
+- At 9:30 AM: FCR first candle overlays this — **Scenario A SHORT** if FCR LOW is displaced with NQ/ES/YM confirming below
+
+**Crypto SMT Read:**
+All three (BTC/ETH/SOL) below bearish EMA structure — consistent. No internal crypto SMT signal, but the uniform weakness confirms the macro. SOL specifically: EMA3 (82.13) overhead is resistance; price needs to reclaim 82+ to flip structure.
+
+---
+
+### Updated Scenario Table
+
+| Scenario | Trigger | Bias | Instrument |
+|---|---|---|---|
+| **A SHORT** | NQ/ES/YM displace below FCR LOW at 9:30 | PRIMARY WATCH | MNQ (Apex) |
+| **B SHORT** | NQ sustains below EMA1, IT EMAs RED dominant | Valid outside NY AM | MNQ (Apex) |
+| **A LONG** | NQ/ES/YM displace above FCR HIGH at 9:30 | Requires reclaim above all EMAs | MNQ (Apex) |
+| **C — No Trade** | Mixed index signals at open | SIT OUT | — |
+| **CL continuation** | CL holds above EMA1 (108.56), no fade | BULLISH | CL (Apex ✅) |
+| **GC macro read** | Gold holding ATH confirms risk-off | Context only | Apex halted ❌ |
+
+---
+
+### On-Chart Indicators Confirmed (1hr Pane)
+
+| Indicator | Status |
+|---|---|
+| IT Foundation (New) — EMAs | ✅ Returning on all instruments |
+| Auto Levels v3.0.2 | ✅ On chart — values not returned this scan (may need study_filter targeting) |
+| Smart Money Concepts [LuxAlgo] | ✅ Returning PlotCandle values |
+| VWAP | ✅ (from Run 1) |
+| Fortuna Webhook Alerts | ✅ On chart |
+
+**Calibration note:** Auto Levels v3.0.2 is visible on the 1hr chart but its EMA/prev day values didn't populate in Run 2. Next step: try `data_get_study_values` with `study_filter="Auto Levels"` directly for targeted reads. The IT Foundation EMAs are now the primary gate indicator — working cleanly.
+
+---
+
 <a id="smarttraderai-copy-paste"></a>
 ## 🤖 SmartTraderAI Copy-Paste
 
