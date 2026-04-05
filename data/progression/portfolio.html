@@ -33,7 +33,7 @@
       --shadow-glow: 0 0 40px rgba(139,92,246,0.08);
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
@@ -83,6 +83,17 @@
       transition: background .15s, color .15s;
     }
     .nav-donate-btn:hover { background: var(--cyan); color: #07091e; }
+    .nav-section-row {
+      width: 100%; flex-basis: 100%;
+      display: flex; gap: .2rem; flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,0.06); padding-top: .4rem; margin-top: .15rem;
+    }
+    .nav-section-link {
+      padding: .16rem .55rem; border: 1px solid transparent; border-radius: 999px;
+      font-size: .71rem; color: var(--dim); transition: border-color .15s, color .15s;
+      white-space: nowrap; text-decoration: none;
+    }
+    .nav-section-link:hover { border-color: var(--purple); color: var(--text); }
 
     /* ── DONATE MODAL ── */
     .donate-overlay {
@@ -322,6 +333,18 @@
     <div class="nav-space"></div>
     <button class="nav-donate-btn" onclick="document.getElementById('donateOverlay').classList.add('open')">💜 Donate</button>
     <span class="nav-status">Apr 5, 2026</span>
+    <div class="nav-section-row">
+      <a class="nav-section-link" href="#overview">Overview</a>
+      <a class="nav-section-link" href="#charts">Charts</a>
+      <a class="nav-section-link" href="#futures">Futures</a>
+      <a class="nav-section-link" href="#crypto">Crypto</a>
+      <a class="nav-section-link" href="#pocketoption">PocketOption</a>
+      <a class="nav-section-link" href="#onchain">On-Chain</a>
+      <a class="nav-section-link" href="#live-balances">Live Balances</a>
+      <a class="nav-section-link" href="#robinhood">Robinhood</a>
+      <a class="nav-section-link" href="#tax">Tax</a>
+      <a class="nav-section-link" href="#sources">Sources</a>
+    </div>
   </nav>
 
   <!-- ── DONATE MODAL ── -->
