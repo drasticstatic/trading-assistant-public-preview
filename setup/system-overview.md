@@ -107,7 +107,9 @@ Fortuna reads real-time chart events mid-session
 | `tradingview` | stdio (Node.js) | TradingView Desktop direct access via CDP — chart state, indicator values, Pine Script dev, morning brief, replay mode | ✅ Connected (Apr 3, 2026) · [tradingview-mcp-jackson](https://github.com/LewisWJackson/tradingview-mcp-jackson) — thank you LewisWJackson 🙏 · [▶️ Setup walkthrough](https://www.youtube.com/watch?v=vIX6ztULs4U) |
 | `auggie` | stdio | Augment Code CLI agent access | ✅ Connected |
 | `hummingbot-mcp` | stdio (uv/Python) | Crypto CEX + DEX execution — orders, positions, swaps, bot orchestration | ✅ Connected (Mar 27, 2026) |
-| `telegram-mcp` | stdio | **Dual role:** (1) Telegram as a crypto trading venue — Fortuna executes trades in Telegram wallet/DEX chats, similar to BTCC; (2) Mobile interface — communicate with Fortuna on the go via Telegram. Awaiting Telegram trading support comparable to BTCC before fully operational. | 🔜 Planned |
+| `robinhood` | stdio (Python) | Robinhood equity portfolio — positions, quotes, news, earnings, options (read; trade execution roadmap) | ✅ Registered · auth fix pending |
+| `btcc-mcp` | stdio | BTCC crypto exchange — SOL/USDT perpetual futures, direct REST API integration. Separate from Hummingbot; native BTCC order management. | 🔜 Planned — REST API roadmap |
+| `telegram-mcp` | stdio | **Dual role:** (1) Execute trades inside Telegram-native wallet/DEX interfaces; (2) Mobile interface — communicate with Fortuna on the go via Telegram, issue instructions, receive alerts. Credentials: API keys via `my.telegram.org/apps` + bot token via BotFather. | 🔜 Planned |
 
 **Hummingbot Docker stack** (`~/hummingbot/hummingbot-api/`):
 
@@ -222,9 +224,10 @@ Strategy details, Pine Script source, and agent specs are in the private workspa
 
 | Integration | Purpose | Prerequisite |
 |---|---|---|
-| **Telegram MCP** (`chigwell/telegram-mcp`) | Dual role: (1) Telegram as a crypto trading venue — execute trades inside Telegram wallet/DEX chats, similar to BTCC as a venue; (2) Mobile interface to Fortuna — communicate with Fortuna on the go, issue trade instructions, receive session alerts. Awaiting Telegram trading support comparable to BTCC. | Telegram API credentials from my.telegram.org/apps |
+| **BTCC REST API MCP** | Direct BTCC exchange integration — SOL/USDT perp order management, position tracking, P&L, native to BTCC's REST API. Separate from Hummingbot; gives Fortuna direct BTCC control. | BTCC API key + secret |
+| **Telegram MCP** (`chigwell/telegram-mcp`) | Dual role: (1) Execute trades inside Telegram-native wallet/DEX interfaces; (2) Mobile Fortuna interface — communicate with Fortuna on the go, issue trade instructions, receive session alerts. | Two credentials required: API key + hash from `my.telegram.org/apps` + bot token from BotFather |
 | **Hummingbot Gateway** | DEX execution — Solana/EVM swaps, CLMM liquidity positions, wallet sends | Gateway container start + wallet credentials added via `accounts/gateway/add-wallet` |
-| **Hummingbot CEX connectors** | Live crypto trading on BTCC, Bybit, Binance etc. | Exchange API keys added via `accounts/add-credential` |
+| **Hummingbot CEX connectors** | Live crypto trading on Bybit, Binance, and other CEXs via Hummingbot strategy layer | Exchange API keys added via `accounts/add-credential` |
 | **DEX Arbitrage Bot** | Uniswap/PancakeSwap arb on Arbitrum via Hardhat | Hummingbot Gateway + cross-repo context share from `trading-bot_arbitrage_DAPPUv3_hardhat_UNI-CAKE` |
 
 ## MCP Ecosystem — What AI Trading Systems Can Do
@@ -240,7 +243,7 @@ This system is built on the **Model Context Protocol (MCP)** — an open standar
 | **Webhook event ingestion** | ✅ | Custom `tv-alerts` MCP — receives TradingView alerts in real time |
 | **Crypto CEX + DEX execution** | ✅ | `hummingbot-mcp` — orders, positions, bot orchestration across 40+ exchanges |
 | **Equity portfolio read** | ✅ | `robinhood-mcp` — portfolio value, positions, quotes, news, options |
-| **Mobile alert delivery** | 🔜 Planned | `telegram-mcp` — bidirectional messaging for mobile session alerts |
+| **Mobile alert delivery + remote control** | 🔜 Planned | `telegram-mcp` — bidirectional messaging: Fortuna sends alerts, Christopher issues instructions on the go |
 | **AI-to-AI coordination** | ✅ | `auggie` MCP — Claude Code delegates tasks to Augment Code agent |
 | **News + earnings data** | ✅ via Robinhood | Robinhood MCP includes news, ratings, earnings, fundamentals |
 | **Options data** | ✅ via Robinhood | `robinhood_get_options_positions` — options portfolio read |
@@ -259,7 +262,7 @@ These are community-built MCP servers available publicly that extend what an AI 
 | **tradingview-mcp-jackson** | `LewisWJackson/tradingview-mcp-jackson` | CDP-based direct access to TradingView Desktop — full chart control, indicator reading, Pine Script dev, morning brief |
 | **robinhood-mcp** | `verygoodplugins/robinhood-mcp` | Robinhood portfolio, quotes, news, earnings, options, watchlist — read-only |
 | **hummingbot-mcp** | `hummingbot/hummingbot-mcp` | Full Hummingbot API access — bots, strategies, CEX/DEX execution, position management |
-| **telegram-mcp** | `chigwell/telegram-mcp` | Bidirectional Telegram messaging — send/receive messages, mobile alert delivery |
+| **telegram-mcp** | `chigwell/telegram-mcp` | Bidirectional Telegram messaging — send/receive messages, mobile alert delivery, remote trade instructions. Requires: API credentials from `my.telegram.org/apps` + bot token from BotFather. |
 | **alpaca-mcp** | Various | Equity/options trading via Alpaca API (US equities, paper + live) |
 | **polygon-mcp** | Various | Real-time + historical market data via Polygon.io |
 | **yfinance / market data** | Various | Yahoo Finance data — free historical prices, fundamentals, options chains |
@@ -286,7 +289,7 @@ For anyone building a similar AI trading assistant, a minimal working stack:
 4. A webhook receiver  →  TradingView alerts into the AI mid-session
 ```
 
-From there, add Hummingbot for crypto execution, Telegram for mobile delivery, and custom Pine Script indicators for your specific strategy's signal layer.
+From there, add Hummingbot for crypto execution, a Telegram MCP for mobile alerts and remote control, and custom Pine Script indicators for your specific strategy's signal layer.
 
 ---
 
