@@ -29,15 +29,34 @@
 
 **THREE-DAY HOLIDAY ACCUMULATION — ELEVATED VOLATILITY RISK**
 
-Markets have been closed since Thursday April 2 close (Good Friday + Easter weekend = 3 full days of no US equity trading). Key risks:
+### Holiday Close Schedule — Why This Weekend Is Different
 
-1. **CL gap +$11.94 (+11.9%)** — WTI crude has moved from ~100.12 to 112.06 over the holiday weekend. This magnitude of move on crude suggests a significant macro event (geopolitical escalation, OPEC+ surprise, tariff impact on energy). **Verify news before 9:30.** CL/energy diverging sharply from equity weakness = unusual SMT signal.
+Each market closed at a different time, creating a staggered information gap heading into Monday:
 
-2. **Gap risk at Monday open** — With 3 days of news accumulation, equity indices may gap significantly at 9:30. The FCR first candle could be extremely volatile. Wait for the full 9:30–9:45 ET candle to form before acting.
+| Market | Last Close | Notes |
+|---|---|---|
+| **NYSE / NASDAQ (cash equity)** | Thursday Apr 2, 4:00 PM ET | Closed all day Good Friday |
+| **ES, NQ, YM, RTY futures** | Friday Apr 3, ~10:15 AM ET | CME Good Friday partial session — equity futures halted mid-morning |
+| **CL (WTI crude) — NYMEX** | Friday Apr 3, ~1:30 PM ET | ~3 hours more trading than equity futures |
+| **GC (Gold) — COMEX** | Friday Apr 3, ~1:30 PM ET | Same extended window as energy |
+| **All markets resume** | Sunday Apr 6, 6:00 PM ET | Electronic open — first simultaneous pricing since Thursday |
 
-3. **IT Foundation EMA data unavailable this run** — Auto Levels only returned on YM, RTY, CL, SOL. Scenario B EMA gate cannot be confirmed until Monday. Check IT Foundation colors live at open.
+**What this means:** CL and GC had approximately **3 extra hours of trading on Friday afternoon** that equity futures did not. Whatever macro event drove CL +$12 and GC to $4,702 ATH — commodities partially priced it in on Friday while equities were already closed. Equity futures (ES/NQ) reopened Sunday evening and are now catching up.
 
-4. **Metals still halted on Apex** (since Feb 6) — No GC, SI, MGC, HG, PL, PA, QI, QO.
+**Monday 9:30 AM — the key divergence watch:**
+- **CL holds $112 + equities continue lower** → macro fear confirmed, commodity-equity divergence is real, Scenario A SHORT has legs on NQ/ES
+- **CL fades + equities bounce** → profit-taking on the Friday commodity spike, potential short-squeeze on equity open — be careful fading strength
+- **CL holds + equities reverse higher** → macro narrative may have already been fully priced; look for Scenario C / no trade
+
+### Risk Items
+
+1. **CL gap +$11.94 (+11.9%) from Thursday close** — extraordinary move. EMA3 at 99.45 (from Run 2) confirms where crude was recently — the spike to 112 is real and happened fast. Verify macro news before 9:30.
+
+2. **GC at $4,702 — all-time high territory** — gold surging alongside crude while equities weaken = classic risk-off. Safe-haven + energy bid simultaneously = macro fear event. GC tradeable on TPT when setup presents (Apex halted).
+
+3. **Gap risk at Monday 9:30 open** — 3+ days of news accumulation since equity futures last traded meaningfully. FCR first candle may be wide and volatile. Wait for full 9:30–9:45 ET candle to close before reading displacement.
+
+4. **Metals halted on Apex** (since Feb 6) — No GC, SI, MGC, HG, PL, PA, QI, QO on Apex. GC only on TPT.
 
 ---
 

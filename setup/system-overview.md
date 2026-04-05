@@ -107,7 +107,7 @@ Fortuna reads real-time chart events mid-session
 | `tradingview` | stdio (Node.js) | TradingView Desktop direct access via CDP — chart state, indicator values, Pine Script dev, morning brief, replay mode | ✅ Connected (Apr 3, 2026) · [tradingview-mcp-jackson](https://github.com/LewisWJackson/tradingview-mcp-jackson) — thank you LewisWJackson 🙏 · [▶️ Setup walkthrough](https://www.youtube.com/watch?v=vIX6ztULs4U) |
 | `auggie` | stdio | Augment Code CLI agent access | ✅ Connected |
 | `hummingbot-mcp` | stdio (uv/Python) | Crypto CEX + DEX execution — orders, positions, swaps, bot orchestration | ✅ Connected (Mar 27, 2026) |
-| `telegram-mcp` | stdio | Telegram bidirectional messaging — mobile alerts + DeFi interaction channel | 🔜 Planned |
+| `telegram-mcp` | stdio | **Dual role:** (1) Telegram as a crypto trading venue — Fortuna executes trades in Telegram wallet/DEX chats, similar to BTCC; (2) Mobile interface — communicate with Fortuna on the go via Telegram. Awaiting Telegram trading support comparable to BTCC before fully operational. | 🔜 Planned |
 
 **Hummingbot Docker stack** (`~/hummingbot/hummingbot-api/`):
 
@@ -222,7 +222,7 @@ Strategy details, Pine Script source, and agent specs are in the private workspa
 
 | Integration | Purpose | Prerequisite |
 |---|---|---|
-| **Telegram MCP** (`chigwell/telegram-mcp`) | Bidirectional Telegram messaging — mobile alerts, DeFi dust cleanup, staking management via chat | Telegram API credentials from my.telegram.org/apps |
+| **Telegram MCP** (`chigwell/telegram-mcp`) | Dual role: (1) Telegram as a crypto trading venue — execute trades inside Telegram wallet/DEX chats, similar to BTCC as a venue; (2) Mobile interface to Fortuna — communicate with Fortuna on the go, issue trade instructions, receive session alerts. Awaiting Telegram trading support comparable to BTCC. | Telegram API credentials from my.telegram.org/apps |
 | **Hummingbot Gateway** | DEX execution — Solana/EVM swaps, CLMM liquidity positions, wallet sends | Gateway container start + wallet credentials added via `accounts/gateway/add-wallet` |
 | **Hummingbot CEX connectors** | Live crypto trading on BTCC, Bybit, Binance etc. | Exchange API keys added via `accounts/add-credential` |
 | **DEX Arbitrage Bot** | Uniswap/PancakeSwap arb on Arbitrum via Hardhat | Hummingbot Gateway + cross-repo context share from `trading-bot_arbitrage_DAPPUv3_hardhat_UNI-CAKE` |
