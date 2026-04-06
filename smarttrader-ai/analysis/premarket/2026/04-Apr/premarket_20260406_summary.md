@@ -254,7 +254,76 @@ Each market closed at a different time, creating a staggered information gap hea
 
 ## ⏱️ Live Updates
 
-*To be updated during Monday session if needed.*
+### ~9:29–9:45 AM ET — Morning Brief Run (Apr 6, live)
+
+**TradingView MCP:** CDP connection was down at session start (original TV instance lacked debugging port). Killed + relaunched with CDP active. Connection restored via `tv_launch`. Dual-pane layout confirmed: **Pane 0 = NQ1! 1hr (left)** · **Pane 1 = CL1! 5min (right)**.
+
+---
+
+#### NQ1! — Pane 0 (1hr) — Live Readings
+
+| Level | Value | Source |
+|---|---|---|
+| **Last** | **24,332.75** | quote_get |
+| VWAP | 24,240.07 | VWAP |
+| VWAP UB1 | 24,297.04 | VWAP |
+| VWAP LB1 | 24,183.11 | VWAP |
+| VWAP UB3 | 24,411.01 | VWAP |
+| VWAP LB3 | 24,069.22 | VWAP |
+| IT Foundation EMA1 | 24,251.03 | IT Foundation |
+| IT Foundation EMA2 | 24,150.60 | IT Foundation |
+| IT Foundation EMA3 | 24,052.68 | IT Foundation |
+| Auto Levels EMA Fast | 24,299.78 | Auto Levels v3.0.2 |
+| Auto Levels EMA Mid | 24,247.04 | Auto Levels v3.0.2 |
+| Auto Levels EMA Slow | 24,150.54 | Auto Levels v3.0.2 |
+| **Prev Day High** | **24,255.00** | Auto Levels v3.0.2 |
+| Prev Day Low | 24,106.00 | Auto Levels v3.0.2 |
+| Prev Day Close | 24,129.75 | Auto Levels v3.0.2 |
+
+**NQ Bias: BULLISH REVERSAL**
+- Price (24,332) **above VWAP** (24,240) +92 pts → ✅ bullish
+- Price **above PDH** (24,255) → breaking above yesterday's high ✅
+- IT Foundation EMA stack: EMA1 > EMA2 > EMA3 → **GREEN dominant** ✅
+- Auto Levels EMA stack: Fast > Mid > Slow → bullish spread ✅
+- Price above all EMA layers → full bullish alignment ✅
+
+**Complete reversal from Saturday's bearish read.** All equity EMA gates have been reclaimed.
+
+---
+
+#### CL1! — Pane 1 (5min) — Live Readings
+
+| Level | Value | Source |
+|---|---|---|
+| **Last** | **112.91** | quote_get |
+| IT Foundation EMA1 | 111.39 | IT Foundation |
+| IT Foundation EMA2 | 110.84 | IT Foundation |
+| IT Foundation EMA3 | 110.69 | IT Foundation |
+| Auto Levels EMA Fast | 112.01 | Auto Levels v3.0.2 |
+| Auto Levels EMA Mid | 111.35 | Auto Levels v3.0.2 |
+| Auto Levels EMA Slow | 110.84 | Auto Levels v3.0.2 |
+| Prev Day High | 113.97 | Auto Levels v3.0.2 |
+| Prev Day Low | 97.50 | Auto Levels v3.0.2 |
+| Prev Day Close | 111.54 | Auto Levels v3.0.2 |
+
+**CL Bias: BULLISH** — Price above PDC (111.54) and above all EMA layers. Next resistance: PDH 113.97.
+
+---
+
+#### Live Scenario Update
+
+| Scenario | Status |
+|---|---|
+| **Scenario A SHORT** | ❌ Off the table — NQ well above PDH and all EMAs |
+| **Scenario B LONG** | ✅ Valid — IT Foundation GREEN dominant, price above EMA1 |
+| **Scenario A LONG** | Watch — NQ/ES/YM all need to displace above FCR HIGH |
+| **Scenario C** | Lower probability given strong bullish alignment |
+
+**FCR — confirm your levels:** Mark the 9:30 first 15-min candle HIGH and LOW rays if not already done. With NQ at 24,332 and PDH at 24,255, price has gapped above yesterday's high at the open. FCR HIGH ray is the key level — sustained displacement above = A+ LONG signal.
+
+**Pattern locks active:** Pattern 7 (no SL moves) · Pattern 8 (active exit required) · Pattern 9 (cancel orders before stepping away)
+
+**Chart config note:** IT strategy bot indicators (TCL, TC1, G2, OG) removed from Fortuna tab 0. Dedicated IT tab to be set up separately — see PENDING-TASKS.md.
 
 ---
 
