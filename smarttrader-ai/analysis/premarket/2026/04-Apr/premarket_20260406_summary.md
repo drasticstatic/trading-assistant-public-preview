@@ -10,18 +10,38 @@
 
 ## 📋 Dashboard
 
+### Saturday (Pre-Session) Snapshot — Apr 5, 2026 ~9 PM ET
+*Original data at time of writing — kept for reference*
+
 | | MNQ | ES | YM | RTY | CL | SOL |
 |---|---|---|---|---|---|---|
 | **Last** | 24,132.25 | 6,603.75 | 46,629 | 2,531.7 | 112.06 | 80.65 |
-| **VWAP** | 24,175.31 | 6,612.22 | 46,679 | 2,535.5 | 109.02 | 80.71 |
 | **vs VWAP** | -43 ❌ | -8.5 ❌ | -50 ❌ | -3.8 ❌ | +3.04 ✅ | -0.06 ❌ |
-| **EMA Stack** | N/A | N/A | BELOW ❌ | BELOW ❌ | ABOVE ✅ | BELOW ❌ |
-| **Prev Day Close** | — | — | 46,806 | 2,544.0 | 100.12* | 80.83 |
-| **vs PDC** | — | — | -177 ❌ | -12.3 ❌ | +11.94 ⚠️ | -0.18 ❌ |
+| **HTF Bias** | BEARISH | BEARISH | BEARISH | BEARISH | BULLISH | NEUTRAL |
 
-*CL prev day data from Thursday Apr 2 (last full session before Good Friday). Weekend move is extraordinary — see Risk Alert.
+---
 
-**HTF Bias: BEARISH** — All 4 equity indices below VWAP. YM + RTY confirmed below EMA stack. Price action heading into Monday is uniformly weak across indices.
+### Live Dashboard — Apr 6, 2026 ~9:30–10 AM ET
+*Fortuna-Master watchlist pull via TradingView MCP · quotes only for correlated instruments*
+
+| Symbol | Last | Change | Change % | vs PDC | Bias |
+|---|---|---|---|---|---|
+| **NQ1!** | **24,399.75** | +270.00 | +1.12% | **+270 above PDC 24,129** ✅✅ | **BULLISH** |
+| **ES1!** | **6,642.75** | +39.00 | +0.59% | Above PDC | ✅ BULLISH |
+| **YM1!** | **46,731** | +102 | +0.22% | Above PDC 46,806 ⚠️ | Lagging |
+| **RTY1!** | **2,548.1** | +16.4 | +0.65% | Above PDC 2,544 ✅ | BULLISH |
+| NKD1! | 53,850 | +460 | +0.86% | — | BULLISH |
+| **GC1!** | **4,701.6** | +21.9 | +0.47% | ATH zone | BULLISH |
+| **CL1!** | **112.13** | +0.59 | +0.53% | Above PDC 111.54 ✅ | BULLISH |
+| SI1! | 72.830 | — | — | — | — |
+| HG1! | 5.6135 | +0.030 | +0.54% | — | — |
+| NG1! | 2.839 | +0.039 | +1.39% | — | — |
+| PA1! | 1,494.5 | — | — | Apex halted ❌ | — |
+| PL1! | 1,981.4 | — | — | Apex halted ❌ | — |
+
+**Triple-index SMT read:** NQ +1.12% · ES +0.59% · YM +0.22% · RTY +0.65% — all green, NQ leading, YM lagging. NQ/ES/RTY confirming bullish. YM diverging slightly (weakest). Watch for SMT divergence signal if YM continues to lag NQ.
+
+**HTF Bias: BULLISH REVERSAL** — Complete flip from Saturday's bearish read. All 4 equity indices above PDC. NQ has broken well above PDH (24,255). Gold holding ATH zone. CL maintaining weekend gap levels.
 
 ---
 
