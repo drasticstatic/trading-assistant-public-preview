@@ -24,6 +24,8 @@
 | 📝 Paper Trading | ⏳ Pending | — / 30 trades | Positive expectancy |
 | 💰 Live Trading | ⏳ Pending | — / 30 trades | Compare to paper data |
 
+> **Backtesting prereq — Apr 6, 2026:** IT strategy bot indicators (IT SMOG, IT OG, IT ADX, Inevitrade Pro+) have been removed from Fortuna tab 0 (main NQ chart). A **dedicated IT tab** must be set up before replay/backtesting sessions begin. IT Foundation + IT strategy bots currently live on Pane 1 (CL 5min right pane, entity IDs in FORTUNA_WORKFLOW.md). See PENDING-TASKS.md → "Dedicated IT strategy tab — setup".
+
 ---
 
 ## 📝 Daily Trade Plan Template
