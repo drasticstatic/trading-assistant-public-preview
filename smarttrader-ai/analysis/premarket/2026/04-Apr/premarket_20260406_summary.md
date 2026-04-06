@@ -369,11 +369,14 @@ Each market closed at a different time, creating a staggered information gap hea
 
 *Pane 0 (left): NQ1! 1hr — indicators toggled off during data read session. Pane 1 (right): CL1! 5min. Watchlist visible right sidebar.*
 
-**NQ full view** — *pending manual screenshot*
+**NQ1! — Week open, ~12:38 PM ET**
+![NQ1! Apr 6 Week Open](../../../../../data/screenshots/NQ1!_2026-04-06_12-38-34_f3a76.png)
 
-**CL full view** — *pending manual screenshot*
+**GC1! — Week open, ~12:38 PM ET**
+![GC1! Apr 6 Week Open](../../../../../data/screenshots/GC1!_2026-04-06_12-38-58_f2254.png)
 
-**GC full view** — *pending manual screenshot*
+**CL1! — Week open, ~12:39 PM ET**
+![CL1! Apr 6 Week Open](../../../../../data/screenshots/CL1!_2026-04-06_12-39-25_921e0.png)
 
 ---
 

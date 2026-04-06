@@ -24,6 +24,9 @@
 | 📝 Paper Trading | ⏳ Pending | — / 30 trades | Positive expectancy |
 | 💰 Live Trading | ⏳ Pending | — / 30 trades | Compare to paper data |
 
+> **Screenshot Compression — Apr 6, 2026**
+> TradingView exports ~2.5MB PNGs. Use `pngquant` (lossless, 50–70% reduction, zero quality loss) before committing. Integrate into bot testing screenshot workflow once UI automation is active. See PENDING-TASKS.md → "Screenshot compression pipeline".
+
 > **TradingView Layout Plan — Apr 6, 2026**
 >
 > | Layout | Purpose | Strategy |
