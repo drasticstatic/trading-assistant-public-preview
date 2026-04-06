@@ -24,7 +24,17 @@
 | 📝 Paper Trading | ⏳ Pending | — / 30 trades | Positive expectancy |
 | 💰 Live Trading | ⏳ Pending | — / 30 trades | Compare to paper data |
 
-> **Backtesting prereq — Apr 6, 2026:** IT strategy bot indicators (IT SMOG, IT OG, IT ADX, Inevitrade Pro+) have been removed from Fortuna tab 0 (main NQ chart). A **dedicated IT tab** must be set up before replay/backtesting sessions begin. IT Foundation + IT strategy bots currently live on Pane 1 (CL 5min right pane, entity IDs in FORTUNA_WORKFLOW.md). See PENDING-TASKS.md → "Dedicated IT strategy tab — setup".
+> **TradingView Layout Plan — Apr 6, 2026**
+>
+> | Layout | Purpose | Strategy |
+> |---|---|---|
+> | **Fortuna (Tab 0)** | ZTH + STB live trades | NQ1! 1hr (left) · CL1! 5min (right) |
+> | **Layout 2** | IT Backtesting / Case Studies | SMOG (OG) |
+> | **Layout 3** | IT Backtesting / Case Studies | TCL |
+> | **Layout 4** | IT Backtesting / Case Studies | TC1 |
+> | **Layout 5** | IT Backtesting / Case Studies | G2 |
+>
+> IT strategy bot indicators (IT SMOG, IT OG, IT ADX, Inevitrade Pro+) removed from Fortuna tab 0 — they now live on the dedicated IT layouts (tabs 2–5). Fortuna tab 0 is clean for ZTH/STB sessions. Backtesting layouts must be set up before replay/case study work begins. See PENDING-TASKS.md → "Dedicated IT strategy tab — setup".
 
 ---
 
