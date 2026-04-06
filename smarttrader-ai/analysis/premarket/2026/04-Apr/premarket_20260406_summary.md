@@ -330,6 +330,19 @@ Each market closed at a different time, creating a staggered information gap hea
 
 ---
 
+#### CL1! — Pane 1 Auto Levels Pine Labels (FCR Signal Levels)
+
+| Label | Price | Reading |
+|---|---|---|
+| ▲ LONG | 113.14 | FCR/signal LONG trigger |
+| ▲ | 113.48 | Extended target / signal |
+| ▼ SHORT | 111.93 | FCR/signal SHORT trigger |
+| ▼ | 111.50 | Extended target / signal |
+
+> CL current price ~112.56 is between the SHORT trigger (111.93) and LONG trigger (113.14). Price consolidating inside the FCR range — no displacement signal yet.
+
+---
+
 #### Live Scenario Update
 
 | Scenario | Status |
@@ -344,6 +357,23 @@ Each market closed at a different time, creating a staggered information gap hea
 **Pattern locks active:** Pattern 7 (no SL moves) · Pattern 8 (active exit required) · Pattern 9 (cancel orders before stepping away)
 
 **Chart config note:** IT strategy bot indicators (TCL, TC1, G2, OG) removed from Fortuna tab 0. Dedicated IT tab to be set up separately — see PENDING-TASKS.md.
+
+---
+
+#### Screenshots
+
+> **Morning brief screenshot standard (going forward):** 3 manual screenshots taken by Christopher — NQ both panes · CL both panes · GC both panes. Manual preferred so chart scale and indicator visibility are controlled. Fortuna embeds once provided.
+
+**Fortuna MCP snapshot — Tab 0 at ~10 AM ET (NQ left, CL right)**
+![Apr 6 Morning Brief — NQ 1hr + CL 5min](../../../../../data/screenshots/NQ_CL_2026-04-06_morning_brief.png)
+
+*Pane 0 (left): NQ1! 1hr — indicators toggled off during data read session. Pane 1 (right): CL1! 5min. Watchlist visible right sidebar.*
+
+**NQ full view** — *pending manual screenshot*
+
+**CL full view** — *pending manual screenshot*
+
+**GC full view** — *pending manual screenshot*
 
 ---
 
