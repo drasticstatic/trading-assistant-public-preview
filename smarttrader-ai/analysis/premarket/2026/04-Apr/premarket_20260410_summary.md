@@ -229,6 +229,9 @@ Comparing current 4hr bar vs read 15min ago:
 
 - 5:58 AM ET: London OPEN. CL compressing $98.10–98.75. CPI in ~2.5hrs is the key catalyst.
 - 6:10 AM ET: **CL broke $100** (H 100.42, vol 24K). NQ -29pts / ES -4.50pts simultaneously. Risk-off / inflation divergence active. London front-running hot CPI. No entries pre-8:30.
+- ~6:15 AM ET: Full instrument scan complete — NQ/ES/YM/RTY/CL/GC/BTC/ETH/SOL all read on 4hr (500 bars ≈ 83 trading days). All indices macro bearish / recovering from lows. Scenario A alignment confirmed — no divergence between indices. CL held above $99 post-breakout. GC selling in London session. BTC showing relative strength vs equities.
+- ~6:20 AM ET: Context window compacted — session continuity maintained. Pre-market and AGENT-SYNC updated to reflect full session state.
+- **8:30 AM ET — CPI WINDOW:** *(update here post-print)*
 
 ---
 
