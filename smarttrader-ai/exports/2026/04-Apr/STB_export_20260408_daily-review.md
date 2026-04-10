@@ -72,46 +72,6 @@ This did not affect the eval accounts. That protection held.
 
 ---
 
-<a id="smarttraderai-copy-paste"></a>
-
-## 🤖 SmartTraderAI Post-Market Copy-Paste Fields
-
----
-
-**Q1 — What happened today?**
-
-Late-night BTCC voucher SHORT on SOLUSDT at $81.92 with 20x leverage, entered at 11:29 PM ET before voucher expiration. Trade briefly profitable, no active exit taken, auto-liquidated near $86 for ~$20–$24 loss. Pattern 8 (exit passivity) recurring. Pre-entry indecision noted — briefly considered reversing to long. Eval accounts not involved.
-
----
-
-**Q2 — What did I learn?**
-
-The exit thought is the trade instruction — when it arrives consciously, act. Deadline pressure (voucher, eval, legal, financial) shapes entries in ways that signal pressure does not. These are different stressors that can look similar at execution. The ability to read structure is not the gap; the gap is in the moment of commitment and the moment of exit. Both are trainable.
-
----
-
-**Q3 — Results**
-
-| Metric | Value |
-|--------|-------|
-| Trades | 1 |
-| Wins | 0 |
-| Losses | 1 |
-| Net P&L | ~-$22 (BTCC voucher) |
-| Eval P&L | $0 (not involved) |
-| Pattern 8 | Recurred |
-| Prop firm status | APEX-06 active · TPT active · both protected ✅ |
-
----
-
-## 🎯 Forward Focus
-
-1. Pattern 8 remediation — paper trade or next BTCC rep: exit when the thought arrives.
-2. Pre-entry: if conviction is strong enough to flip direction at the last second, wait for the next candle instead.
-3. Eval accounts are the priority — BTCC reps are supplemental. Keep the hierarchy clear.
-
----
-
 ## 📓 Apr 9 Evening Update
 
 **Class session attended.** Watched others in the community work through the same struggles — recognizing this as a healthy and necessary part of the learning process. The mind is being trained to see structure; that training is visible in others and confirms the path. The desire to eventually share auto-levels with the community to help them on their journey reflects what this whole effort is for.
@@ -125,6 +85,51 @@ The exit thought is the trade instruction — when it arrives consciously, act. 
 - **Fortuna automation vision documented:** Discord feed, Telegram channel, Railway cloud execution — the infrastructure picture is clear. Executing in phases as access unlocks.
 
 **Sponsor reminder:** Focus on recovery first. Seek first the Kingdom. Everything else follows. This is the foundation the rest is built on.
+
+---
+
+<a id="smarttraderai-copy-paste"></a>
+
+## 🤖 SmartTraderAI Post-Market Copy-Paste Fields
+
+---
+
+**What actually happened?**
+
+Late-night BTCC voucher SHORT on SOLUSDT at $81.92 with 20x leverage, entered at 11:29 PM ET before voucher expiration. Trade briefly profitable, no active exit taken, auto-liquidated near $86 for ~$20–$24 loss. Pattern 8 (exit passivity) recurring. Pre-entry indecision noted — briefly considered reversing to long. Eval accounts not involved.
+
+---
+
+**What did you learn?**
+
+The exit thought is the trade instruction — when it arrives consciously, act. Deadline pressure (voucher, eval, legal, financial) shapes entries in ways that signal pressure does not. These are different stressors that can look similar at execution. The ability to read structure is not the gap; the gap is in the moment of commitment and the moment of exit. Both are trainable.
+
+---
+
+**What were your results for the day?**
+
+| Metric | Value |
+|--------|-------|
+| Trades | 1 |
+| Wins | 0 |
+| Losses | 1 |
+| Net P&L | ~-$22 (BTCC voucher) |
+| Eval P&L | $0 (not involved) |
+| Pattern 8 | Recurred |
+| Prop firm status | APEX-06 active · TPT active · both protected ✅ |
+
+> Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/04-Apr/STB_export_20260408_daily-review.md
+
+> Full individual trade reviews:
+> - [review_20260408_SOLUSDT-BTCC_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/04-Apr/review_20260408_SOLUSDT-BTCC_001.md) — BTCC SOL SHORT $81.92 · 20x · AutoLiq ~$86 · ~-$22 · Pattern 8
+
+---
+
+## 🎯 Forward Focus
+
+1. **Pattern 8 remediation** — paper trade or next BTCC rep: exit when the thought arrives. The thought is the instruction.
+2. **Pre-entry conviction check** — if the direction flip crosses your mind at the moment of entry, that is a signal to wait, not to flip. A confident entry feels like conviction, not a coin toss at 11:29 PM.
+3. **Eval accounts are the priority** — BTCC reps are supplemental learning. Keep the hierarchy clear.
 
 ---
 

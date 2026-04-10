@@ -94,6 +94,19 @@ APEX minimum days completing without a forced trade is the correct outcome — p
 
 $0.00 futures P&L. BTCC SOL LONG open (not yet closed). APEX-06 eval standing: ~+$3,252 above start, trailing drawdown floor ~$100,629, min days complete. TPT 50K Day 1 of 5 started.
 
+> Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260325_daily-review.md
+
+> Full individual trade reviews:
+> - [review_20260325_SOLUSDT-BTCC_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260325_SOLUSDT-BTCC_001.md) — BTCC SOL LONG voucher entry at $92.4686 · 20x · overnight hold · no SL/TP defined
+
+---
+
+## 🎯 Forward Focus
+
+1. **BTCC SOL LONG is still open** — have your exit plan ready before you touch the chart. Define the level now: if it hasn't hit target by open, break-even or take what's there.
+2. **TPT Day 2 of 5 — first active trading day.** Target MCL or MGC on a clean A+ signal. Do not enter to satisfy the minimum requirement — the signal has to be there first.
+3. **APEX-06 profit gap remains.** One well-chosen FCR setup at 9:30 is the path. No stacking, no forcing — one trade, right signal, right execution.
+
 ---
 
 *Daily Review — Fortuna · March 25, 2026*
