@@ -192,11 +192,43 @@ All four indices net negative, all recovering from macro lows, all in sync overn
 
 ---
 
+## 🌐 GC + Crypto Brief — 4hr, 300 bars
+
+| Instrument | Period O | 50d High | 50d Low | Current | Net |
+|-----------|---------|---------|---------|---------|-----|
+| **GC1!** | 5,546.30 | 5,613.10 | 4,131.80 | **4,770.30** | -776 (-13.99%) |
+| **BTC** | 66,469 | 76,013 | 62,525 | **71,759** | +5,290 (+7.96%) |
+| **ETH** | 1,948.25 | 2,386.23 | 1,800.09 | **2,193.45** | +245 (+12.59%) |
+| **SOL** | 81.21 | 97.70 | 75.63 | **83.40** | +2.19 (+2.70%) |
+
+**GC:** Corrected -13.99% from $5,613 highs to $4,131 low. Recovering at $4,770 but London session selling with elevated volume (16,853) — H barely above O at $4,790.20, L down to $4,752.70. Metals context only (Apex halt).
+**BTC:** Net positive +7.96%, showing relative strength vs equities. Drifted from 73,159 high, holding 71,400–71,900 on low volume. Watch BTC vs NQ SMT.
+**ETH:** Strongest crypto (+12.59%). Rejected 2,245, current bar recovering 2,179→2,193. Range-bound.
+**SOL:** Weakest (+2.70%). Rejected $85.90, drifting $82–83. BTCC SHORT entry ($81.92 Apr 8) — current $83.40 confirms auto-liq was right call. Macro range: $75.63–$97.70.
+
+---
+
+## ⚡ CL vs Index Divergence — ~6:10 AM ET (London)
+
+Comparing current 4hr bar vs read 15min ago:
+
+| | Close Then | Close Now | High Now | Low Now | Vol Then | Vol Now |
+|--|-----------|-----------|----------|---------|----------|---------|
+| **CL** | 98.37 | **99.16** | **100.42** | 98.29 | 447 | **24,269** 🟢 |
+| **NQ** | 25,259.75 | **25,230.50** | 25,274.75 | **25,202.75** | 717 | **24,019** 🔴 |
+| **ES** | 6,861.25 | **6,856.75** | 6,867 | **6,850.50** | 1,720 | **47,537** 🔴 |
+| **RTY** | 2,645.30 | 2,646.30 | 2,651.90 | 2,641.20 | 117 | 4,650 🔴 |
+
+**CL broke $100** (H 100.42), volume 54x from 447→24,269. NQ -29pts, ES -4.50pts simultaneously with big volume. Classic **energy up / equities down = risk-off / inflation trade**. London pricing in hot CPI before the 8:30 print. If confirmed → CL $102+ target (yesterday's high), equities toward macro lows. If surprise cool print → CL reversal, equity relief rally.  **No entries pre-8:30 either side.**
+
+---
+
 ## ⏱️ Live Session Updates
 
 *Append here during session — keep brief. Full detail goes in daily review.*
 
 - 5:58 AM ET: London OPEN. CL compressing $98.10–98.75. CPI in ~2.5hrs is the key catalyst.
+- 6:10 AM ET: **CL broke $100** (H 100.42, vol 24K). NQ -29pts / ES -4.50pts simultaneously. Risk-off / inflation divergence active. London front-running hot CPI. No entries pre-8:30.
 
 ---
 
