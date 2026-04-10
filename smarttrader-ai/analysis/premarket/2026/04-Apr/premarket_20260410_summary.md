@@ -318,6 +318,8 @@ Comparing current 4hr bar vs read 15min ago:
   - SOL: 84.71 (+$1.30) — EMAs bullish ✅, watching PDH 85.90 as next magnet
   - Crypto SMT: BTC ✅ ETH ✅ SOL ✅ — full confirmation
   - **Overall bias:** Cautiously bullish on NQ/ES (Scenario B LONG valid). YM/RTY soft = not clean Scenario A. Current character: take partials fast, move to BE immediately — coaches demonstrating correct volatility-adjusted exit approach.
+- **~10:30 AM ET:** **ZTH — ES LONG 2R WIN** ✅ After the earlier BE stop, ZTH re-entered long on ES and caught a 2R winner. Coaches reading the volatility correctly — quick BE on the first attempt, then re-entry on confirmation = the right process in this tape.
+- **~10:30 AM ET — Christopher:** Conservative limit orders active on MCL, MES, and RTY. Watching but not forcing entries. Sitting on hands with nerves = correct discipline for a volatile Friday tape.
 
 ---
 
