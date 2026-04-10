@@ -150,6 +150,48 @@ On the STB London call — learning environment active. Watching community proce
 
 ---
 
+## 🌐 Morning Brief — 4hr Instrument Scan (300 bars ≈ 50 trading days)
+
+### NQ1!
+| Period O | 50d High | 50d Low | Current | Net |
+|----------|----------|---------|---------|-----|
+| 26,214 | 26,243.25 | **22,961.50** | **25,259.75** | -954 (-3.64%) |
+
+Last 4hr bars: compressing 25,145–25,303, volume collapsed from 237K (bar -4) to 717 (now). 70% recovery from the 22,961 flush. Macro bearish structure — below period open.
+
+### ES1!
+| Period O | 50d High | 50d Low | Current | Net |
+|----------|----------|---------|---------|-----|
+| 7,043.50 | 7,078 | **6,353.25** | **6,861.25** | -182 (-2.59%) |
+
+Bar -4: 751,743 volume (institutional). Now 1,720 London. Tight box 6,848–6,876. 76% recovery from low. Macro bearish — below period open.
+
+### YM1!
+| Period O | 50d High | 50d Low | Current | Net |
+|----------|----------|---------|---------|-----|
+| 49,428 | 50,916 | **45,052** | **48,356** | -1,072 (-2.17%) |
+
+Volume dead overnight — 123 contracts current bar. Recovered ~3,300 pts from lows. Macro bearish — below period open.
+
+### RTY1!
+| Period O | 50d High | 50d Low | Current | Net |
+|----------|----------|---------|---------|-----|
+| 2,673.60 | 2,736.60 | **2,409.40** | **2,645.30** | -28 (-1.06%) |
+
+Lagging recovery vs NQ/ES. Canary for risk-off — watch for RTY vs NQ SMT divergence at open.
+
+### CL1!
+| Period O | 50d High | 50d Low | Current | Net |
+|----------|----------|---------|---------|-----|
+| 63.97 | **118.80** | 60.37 | **98.37** | +34.40 (+53.78%) |
+
+Bar -4: 143,941 vol, $7.45 range sell (102.70→95.25). Buyers recovered to $98.37. Sitting below $100. London vol: 447.
+
+### 🔗 SMT Read
+All four indices net negative, all recovering from macro lows, all in sync overnight — **Scenario A alignment, no divergence.** Volume evaporated across the board. CPI at 8:30 breaks the coil. RTY lagging = mild bearish lean.
+
+---
+
 ## ⏱️ Live Session Updates
 
 *Append here during session — keep brief. Full detail goes in daily review.*
