@@ -315,22 +315,26 @@ Comparing current 4hr bar vs read 15min ago:
 
 ---
 
-**~5:45–5:50 AM ET — Indices 10min | Pre-London Context**
+**~5:45 AM ET — NQ1! 10min | Pre-London Context**
+![NQ1! 10min](../../../../../data/screenshots/NQ1!_2026-04-10_05-45-35_1b5e8.png)
 
-<table><tr>
-<td width="25%"><img src="../../../../../data/screenshots/NQ1!_2026-04-10_05-45-35_1b5e8.png" width="100%"><br><sub>NQ1! 10min</sub></td>
-<td width="25%"><img src="../../../../../data/screenshots/ES1!_2026-04-10_05-46-14_d2247.png" width="100%"><br><sub>ES1! 10min</sub></td>
-<td width="25%"><img src="../../../../../data/screenshots/RTY1!_2026-04-10_05-46-00_2a630.png" width="100%"><br><sub>RTY1! 10min</sub></td>
-<td width="25%"><img src="../../../../../data/screenshots/YM1!_2026-04-10_05-46-41_625fc.png" width="100%"><br><sub>YM1! 10min</sub></td>
-</tr></table>
+**~5:46 AM ET — ES1! 10min | Pre-London Context**
+![ES1! 10min](../../../../../data/screenshots/ES1!_2026-04-10_05-46-14_d2247.png)
 
-**~5:47–5:50 AM ET — Energy / Metals / Crypto 10min | Pre-London Context**
+**~5:46 AM ET — RTY1! 10min | Pre-London Context**
+![RTY1! 10min](../../../../../data/screenshots/RTY1!_2026-04-10_05-46-00_2a630.png)
 
-<table><tr>
-<td width="33%"><img src="../../../../../data/screenshots/GC1!_2026-04-10_05-47-15_81232.png" width="100%"><br><sub>GC1! 10min</sub></td>
-<td width="33%"><img src="../../../../../data/screenshots/MCL1!_2026-04-10_05-48-19_f2028.png" width="100%"><br><sub>MCL1! (Micro CL) 10min</sub></td>
-<td width="33%"><img src="../../../../../data/screenshots/BTCUSDT_2026-04-10_05-50-28_be5df.png" width="100%"><br><sub>BTCUSDT 10min</sub></td>
-</tr></table>
+**~5:46 AM ET — YM1! 10min | Pre-London Context**
+![YM1! 10min](../../../../../data/screenshots/YM1!_2026-04-10_05-46-41_625fc.png)
+
+**~5:47 AM ET — GC1! 10min | Pre-London Context**
+![GC1! 10min](../../../../../data/screenshots/GC1!_2026-04-10_05-47-15_81232.png)
+
+**~5:48 AM ET — MCL1! (Micro CL) 10min | Pre-London Context**
+![MCL1! 10min](../../../../../data/screenshots/MCL1!_2026-04-10_05-48-19_f2028.png)
+
+**~5:50 AM ET — BTCUSDT 10min | Pre-London Context**
+![BTCUSDT 10min](../../../../../data/screenshots/BTCUSDT_2026-04-10_05-50-28_be5df.png)
 
 ---
 
