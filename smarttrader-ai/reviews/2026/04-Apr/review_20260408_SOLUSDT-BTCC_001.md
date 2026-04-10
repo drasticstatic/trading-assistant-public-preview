@@ -61,6 +61,18 @@ What matters here: this did not happen on an eval account. The prop firm capital
 
 ---
 
+## 📸 Screenshot Timeline
+
+**Apr 9, 9:17 PM ET — SOLUSDT broader view (IT strategy signals, post-trade context)**
+![SOLUSDT Apr 9 broader view](../../../../data/screenshots/SOLUSDT_2026-04-09_21-17-43_f04b5.png)
+
+**Apr 9, 9:23 PM ET — SOLUSDT IT Foundation EMAs view (recovery rally context)**
+![SOLUSDT Apr 9 IT EMA view](../../../../data/screenshots/SOLUSDT_2026-04-09_21-23-50_81231.png)
+
+*Note: Both screenshots taken Apr 9 evening — retrospective context showing SOL's recovery to ~$107 zone after the Apr 8 short auto-liquidation near ~$86.*
+
+---
+
 <a id="notes-for-coaches"></a>
 
 ## 📝 Notes for Coaches + SmartTraderAI
@@ -113,21 +125,7 @@ New behavioral note: pre-entry directional whiplash — brief reversal thought a
 
 ---
 
-> See full trade review: [GitHub](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/04-Apr/review_20260408_SOLUSDT-BTCC_001.md)
-
----
-
-## 📸 Screenshot Timeline
-
-**Apr 9, 9:17 PM ET — SOLUSDT broader view (IT strategy signals, post-trade context)**
-![SOLUSDT Apr 9 broader view](../../../../data/screenshots/SOLUSDT_2026-04-09_21-17-43_f04b5.png)
-
-**Apr 9, 9:23 PM ET — SOLUSDT IT Foundation EMAs view (recovery rally context)**
-![SOLUSDT Apr 9 IT EMA view](../../../../data/screenshots/SOLUSDT_2026-04-09_21-23-50_81231.png)
-
-*Note: Both screenshots taken Apr 9 evening — retrospective context showing SOL's recovery to ~$107 zone after the Apr 8 short auto-liquidation near ~$86.*
-
----
+> See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/04-Apr/review_20260408_SOLUSDT-BTCC_001.md
 
 *Fortuna — Wealth Warden | Claude Code CLI*
 *Pattern #022 · Apr 8, 2026 · BTCC SOLUSDT Voucher SHORT*

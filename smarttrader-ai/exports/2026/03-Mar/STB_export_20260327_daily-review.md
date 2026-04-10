@@ -57,6 +57,12 @@ This response — choosing to stop, absorb, and process rather than revenge-trad
 
 ---
 
+## 📸 Screenshots
+
+*No new screenshots taken on March 27. Charts documenting the overnight MGC position were captured on March 28 during post-trade reflection — see [review_20260326_MGC-TPT_003.md](../../reviews/2026/03-Mar/review_20260326_MGC-TPT_003.md).*
+
+---
+
 ## 🧠 Behavioral Notes
 
 Three behavioral patterns were simultaneously active in the overnight MGC trade:
@@ -84,9 +90,12 @@ The interaction of all three: a forced-entry (P10) + stop moved away (P7) + exit
 
 ---
 
-## 📸 Screenshots
+## 🔑 Key Lessons
 
-*No new screenshots taken on March 27. Charts documenting the overnight MGC position were captured on March 28 during post-trade reflection — see [review_20260326_MGC-TPT_003.md](review_20260326_MGC-TPT_003.md).*
+1. **Three patterns, one outcome.** Pattern 10 (eval pressure entry) + Pattern 7 (SL moved through a 13-hour hold) + Pattern 8 (three exit opportunities bypassed) = account liquidation. No single pattern caused this — the combination did. Know the interaction.
+2. **The market gave you two chances to walk away flat.** Near break-even, twice. Both passed without action. The next time price returns to break-even on an underwater trade, that is the exit signal — not a reason to hold longer.
+3. **Walking away after the loss was correct.** Not revenge-trading, not immediately re-entering — stepping away, journaling, processing. This is the discipline that protects the next session. That response itself represents real growth.
+4. **Rest before returning to the desk.** The weight Christopher described — physical, mental, emotional, spiritual — is real and trades from that state produce the same outcomes. Recovery is part of the process, not a detour from it.
 
 ---
 
@@ -111,6 +120,16 @@ Three patterns operating simultaneously created the conditions for an account-le
 **What were your results for the day?**
 
 TPT 50K: -$1,794.00 (overnight MGC auto-liquidated). TPT 50K account BLOWN. APEX-06: no trades, eval standing maintained. BTCC: no trades. Weekly TPT net (Mar 25–27): -$2,000 (-$206 Day 1 MCL/MGC + -$1,794 overnight MGC). Christopher plans to let the TPT subscription renew if bank processes payment.
+
+> Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260327_daily-review.md
+
+---
+
+## 🎯 Forward Focus
+
+1. **TPT 50K is blown — determine reset path.** If the subscription renews, treat it as a clean slate: micro sizing only, A+ signals only, no entries for eval compliance. The account can only be rebuilt one correct trade at a time.
+2. **APEX-06 is the only active eval — protect it above all else.** No entries without the full 5-layer filter. No trades taken because the day requires one. One correct setup at the right time is the entire job.
+3. **Rest before returning to the desk.** The physical, mental, emotional, and spiritual weight from this week is real. Come back when composure is restored — not before. Trading from depletion produces the same results.
 
 ---
 
