@@ -304,7 +304,20 @@ Comparing current 4hr bar vs read 15min ago:
 - 6:10 AM ET: **CL broke $100** (H 100.42, vol 24K). NQ -29pts / ES -4.50pts simultaneously. Risk-off / inflation divergence active. London front-running hot CPI. No entries pre-8:30.
 - ~6:15 AM ET: Full instrument scan complete — NQ/ES/YM/RTY/CL/GC/BTC/ETH/SOL all read on 4hr (500 bars ≈ 83 trading days). All indices macro bearish / recovering from lows. Scenario A alignment confirmed — no divergence between indices. CL held above $99 post-breakout. GC selling in London session. BTC showing relative strength vs equities.
 - ~6:20 AM ET: Context window compacted — session continuity maintained. Pre-market and AGENT-SYNC updated to reflect full session state.
-- **8:30 AM ET — CPI WINDOW:** *(update here post-print)*
+- **8:30 AM ET — CPI WINDOW:** CPI printed — significant market reaction. NQ/ES spiked then reversed. CL sold off from $98.65 high to $97.69 low (bearish 1hr candle, gave back the overnight ramp). Gold ripped +$30 to $4,811.50. Equities initially whipsawed both directions.
+- **~9:30 AM ET — NY OPEN:** STB shorted NQ — stopped at break-even (valid read, market snapped back). ZTH longed ES — stopped at break-even (valid read, same chop). Both coaches moved to BE quickly — correct posture for current volatility environment.
+- **~10:19 AM ET — POST-OPEN SCAN (Fortuna):** Full morning_brief pulled across all instruments.
+  - NQ: 25,321 (+46 from pre-mkt) — holding bullish structure, EMAs green below price ✅
+  - ES: 6,873 (+7.50) — above all EMAs, low of 6,862.50 tested EMA Fast zone and held ✅
+  - YM: 48,311 — **divergence confirmed and widening** (now -105 below PDC 48,416, was -20 pre-mkt) ⚠️
+  - RTY: 2,649 — slipped below PDC (2,651.6), sandwiched between EMA Fast/Mid ⚠️
+  - CL: 97.85 — bearish 1hr candle, essentially at PDC, no EMA reclaim. No long setups.
+  - GC: 4,811.50 (+$30 from pre-mkt) — ripping, approaching PDC (4,818). TPT only.
+  - BTC: 72,784 (+$794) — EMAs all below price ✅, approaching PDH 73,159
+  - ETH: 2,244 (+$43) — 1hr range 2,221–2,301, strongest crypto candle of session
+  - SOL: 84.71 (+$1.30) — EMAs bullish ✅, watching PDH 85.90 as next magnet
+  - Crypto SMT: BTC ✅ ETH ✅ SOL ✅ — full confirmation
+  - **Overall bias:** Cautiously bullish on NQ/ES (Scenario B LONG valid). YM/RTY soft = not clean Scenario A. Current character: take partials fast, move to BE immediately — coaches demonstrating correct volatility-adjusted exit approach.
 
 ---
 
