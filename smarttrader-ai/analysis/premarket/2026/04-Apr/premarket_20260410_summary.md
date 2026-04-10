@@ -306,20 +306,69 @@ Comparing current 4hr bar vs read 15min ago:
 - ~6:20 AM ET: Context window compacted — session continuity maintained. Pre-market and AGENT-SYNC updated to reflect full session state.
 - **8:30 AM ET — CPI WINDOW:** CPI printed — significant market reaction. NQ/ES spiked then reversed. CL sold off from $98.65 high to $97.69 low (bearish 1hr candle, gave back the overnight ramp). Gold ripped +$30 to $4,811.50. Equities initially whipsawed both directions.
 - **~9:30 AM ET — NY OPEN:** STB shorted NQ — stopped at break-even (valid read, market snapped back). ZTH longed ES — stopped at break-even (valid read, same chop). Both coaches moved to BE quickly — correct posture for current volatility environment.
-- **~10:19 AM ET — POST-OPEN SCAN (Fortuna):** Full morning_brief pulled across all instruments.
-  - NQ: 25,321 (+46 from pre-mkt) — holding bullish structure, EMAs green below price ✅
-  - ES: 6,873 (+7.50) — above all EMAs, low of 6,862.50 tested EMA Fast zone and held ✅
-  - YM: 48,311 — **divergence confirmed and widening** (now -105 below PDC 48,416, was -20 pre-mkt) ⚠️
-  - RTY: 2,649 — slipped below PDC (2,651.6), sandwiched between EMA Fast/Mid ⚠️
-  - CL: 97.85 — bearish 1hr candle, essentially at PDC, no EMA reclaim. No long setups.
-  - GC: 4,811.50 (+$30 from pre-mkt) — ripping, approaching PDC (4,818). TPT only.
-  - BTC: 72,784 (+$794) — EMAs all below price ✅, approaching PDH 73,159
-  - ETH: 2,244 (+$43) — 1hr range 2,221–2,301, strongest crypto candle of session
-  - SOL: 84.71 (+$1.30) — EMAs bullish ✅, watching PDH 85.90 as next magnet
-  - Crypto SMT: BTC ✅ ETH ✅ SOL ✅ — full confirmation
-  - **Overall bias:** Cautiously bullish on NQ/ES (Scenario B LONG valid). YM/RTY soft = not clean Scenario A. Current character: take partials fast, move to BE immediately — coaches demonstrating correct volatility-adjusted exit approach.
-- **~10:30 AM ET:** **ZTH — ES LONG 2R WIN** ✅ After the earlier BE stop, ZTH re-entered long on ES and caught a 2R winner. Coaches reading the volatility correctly — quick BE on the first attempt, then re-entry on confirmation = the right process in this tape.
-- **~10:30 AM ET — Christopher:** Conservative limit orders active on MCL, MES, and RTY. Watching but not forcing entries. Sitting on hands with nerves = correct discipline for a volatile Friday tape.
+---
+
+### 📊 ~10:19 AM ET — Post-Open Instrument Scan (Fortuna morning_brief)
+
+#### Price Movement: Pre-Market → Post-Open
+
+| Symbol | Pre-Mkt | Now | Move | vs PDC | EMA Stack | Bias |
+|--------|---------|-----|------|--------|-----------|------|
+| **NQ1!** | 25,275 | **25,321** | +46 | +192 ✅ | All EMAs below ✅ | **BULLISH LEADER** |
+| **ES1!** | 6,865.50 | **6,873** | +7.50 | +9.75 ✅ | All EMAs below ✅ | **BULLISH** |
+| **YM1!** | 48,396 | **48,311** | -85 | **-105 ⚠️** | All EMAs below ✅ | **SMT DIVERGENCE** |
+| **RTY1!** | 2,652.9 | **2,649** | -3.7 | -2.4 ⚠️ | Between Fast/Mid ⚠️ | **SOFT** |
+| **CL1!** | 98.18 | **97.85** | -0.33 | -0.02 | All EMAs above ⚠️ | **BEARISH LEAN** |
+| **GC1!** | 4,781 | **4,811.50** | **+30.50** | -6.50 | All EMAs below ✅ | **RIPPING (TPT only)** |
+| **BTC** | 71,990 | **72,784** | **+794** | +972 ✅ | All EMAs below ✅ | **BULLISH** |
+| **ETH** | 2,201 | **2,244** | **+43** | +54 ✅ | All EMAs below ✅ | **LEADING CRYPTO** |
+| **SOL** | 83.41 | **84.71** | **+1.30** | +1.37 ✅ | All EMAs below ✅ | **BULLISH** |
+
+#### IT Foundation EMAs — Post-Open
+
+| Symbol | EMA Fast | EMA Mid | EMA Slow | Price | Status |
+|--------|----------|---------|----------|-------|--------|
+| ES1! | 6,866 | 6,858 | 6,827 | **6,873** | ✅ All below — green dominant |
+| RTY1! | 2,650 | 2,647 | 2,635 | **2,649** | ⚠️ Between Fast/Mid |
+| CL1! | 98.61 | 99.35 | 101.35 | **97.85** | ❌ All above — bearish |
+| BTC | 72,197 | 71,996 | 71,564 | **72,784** | ✅ All below — green |
+| SOL | 83.86 | 83.56 | 83.20 | **84.71** | ✅ All below — green |
+
+#### SMT Status — Post-Open
+
+| Pair | Read | Signal |
+|------|------|--------|
+| NQ / ES / YM | NQ +46, ES +7.50, **YM -85** | ⚠️ YM divergence confirmed + widening |
+| NQ / ES / RTY | NQ leading, RTY soft | ⚠️ Small-cap not confirming |
+| BTC / ETH / SOL | All 3 above PDC, all EMAs green | ✅ Full crypto confirmation |
+| CL / Equities | CL bearish, equities bullish | ⚠️ Risk-off signal mixed in |
+
+#### Scenario Status — Post-Open
+
+| Scenario | Condition | Status |
+|----------|-----------|--------|
+| A LONG | All 3 indices above FCR HIGH | ❌ YM divergence prevents clean A |
+| A SHORT | All 3 indices below FCR LOW | ❌ NQ/ES too strong |
+| **B LONG** | NQ leads, IT Foundation green dominant | ✅ **Valid — active** |
+| B SHORT | IT Foundation red dominant | ❌ Not valid |
+| C — No Trade | Mixed / chopping | ⚠️ Applies to YM/RTY/CL |
+
+#### NQ 5min — Post-Open Volume Structure
+
+| Time (ET) | Close | Volume | Read |
+|-----------|-------|--------|------|
+| ~9:55 AM | 25,319 | 13,205 | Pre-news high |
+| ~10:00 AM | 25,290 | **26,806** ⬆️ | News drop — volume spike |
+| ~10:05 AM | 25,287 | 21,027 | Continued selling |
+| ~10:10 AM | 25,323 | **30,566** ⬆️⬆️ | Buyer absorption — hard reversal |
+| ~10:15 AM | 25,321 | 15,780 | Consolidating recovery |
+
+> 30,566 volume bar at 10:10 = buyers absorbed the news sell-off hard. Market told the story fast.
+
+---
+
+- **~10:30 AM ET:** **ZTH — ES LONG 2R WIN** ✅ Re-entry after earlier BE stop. Confirmation entry on structure — caught the recovery. Quick BE first attempt → re-entry on confirmation = correct volatility process.
+- **~10:30 AM ET — Christopher:** Conservative limit orders working on MCL, MES, RTY (APEX). Nothing filled. Sitting on hands with nerves = correct discipline for a volatile Friday tape.
 
 ---
 
