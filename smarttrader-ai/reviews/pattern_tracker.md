@@ -38,6 +38,7 @@
 | 019 | Mar 25–26 | SOL/USDT | Long | 92.4686 | 89.6435 (manual) | **-$14.13** | — | — | — | ⚠️ IT EMAs bullish · OPEN/CAUTION at entry · near swing high | ✅ N/A (voucher, no SL set) | No |
 | 020 | Mar 26 | MCL | Long | 89.9 | 88.4 (SL hit) | **-$300.00** | — | — | 0.5/5 | ✅ EMA bullish · OB + key level · pivot retracement (valid setup) | ✅ Respected — instant (Pattern 9 ✅) | No |
 | 021 | Mar 26 | MGC | Short | 4,410.6 | 4,405.9 (manual) | **+$94.00** | — | 48.45 | 0.5/5 | ✅ EMAs bearish · rejection off resistance · pivot sell | ❌ Moved through 38.7-pt adverse (Pattern 7 repeat) | No |
+| 022 | Apr 8 | SOLUSDT | Short | 81.92 | AutoLiq ~$86 | **~-$22 (BTCC)** | — | — | ⚠️ C | ⚠️ IT EMAs bearish · SHORT aligned · deadline-motivated entry (voucher expiry 11:30 PM) | ❌ None set — voucher | No |
 
 ---
 
@@ -64,10 +65,11 @@ Mar 20   +$525.00  ████████████████ WIN ✅ (uni
 Mar 24  +$1,225.00  ████████████████ WIN ✅ (ES short · 36hr overnight limit · AutoLiq · APEX-06)
 Mar 25       $0.00  ────────────────  no fills — APEX milestone day · TPT Day 1 starts
 Mar 26    -$206.00  ████░░░░░░░░░░░  TPT net loss (MCL -$300 · MGC +$94) — news candle stop hunt
+Apr 8       ~-$22  █░░░░░░░░░░░░░░  BTCC voucher SHORT · AutoLiq · Pattern 8 · eval accounts untouched
 
-Cumulative (Feb 23–Mar 26, USD futures/crypto): +$1,112.00 (USD futures) - $14.13 USDT + $20.63 USDT = ~+$1,118.50
-  APEX-06: +$1,225 (Mar 24) · TPT: -$206 (Mar 26) · APEX-05: blown Mar 3 (included in Feb-Mar running loss)
-Note: Mar 24 APEX-06 balance ~$103,252. TPT 50K: Day 2 of 5 min days complete. GC trade open (pending).
+Cumulative (Feb 23–Apr 8, USD futures/crypto): +$1,112.00 (USD futures) - $14.13 USDT - ~$22 USDT + $20.63 USDT = ~+$1,096.50
+  APEX-06: +$1,225 (Mar 24) · TPT: -$206 (Mar 26) · APEX-05: blown Mar 3 · BTCC net: ~-$15.50
+Note: APEX-06 active. TPT 50K active. Both eval accounts protected Apr 8.
 ```
 
 ---
@@ -507,6 +509,7 @@ Links to individual reviews:
 - [Mar 26 — MCL Long (-$300 · TPT · news candle)](2026/03-Mar/review_20260326_MCL-TPT_001.md)
 - [Mar 26 — MGC Short (+$94 · TPT · stop hunt survival)](2026/03-Mar/review_20260326_MGC-TPT_002.md)
 - [Mar 26–27 — MGC Short (-$1,794 · TPT · overnight · account blown)](2026/03-Mar/review_20260326_MGC-TPT_003.md)
+- [Apr 8 — SOL Short (~-$22 · BTCC voucher · AutoLiq)](2026/04-Apr/review_20260408_SOLUSDT-BTCC_001.md)
 
 ---
 
