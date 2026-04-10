@@ -112,5 +112,21 @@ The exit thought is the trade instruction — when it arrives consciously, act. 
 
 ---
 
+## 📓 Apr 9 Evening Update
+
+**Class session attended.** Watched others in the community work through the same struggles — recognizing this as a healthy and necessary part of the learning process. The mind is being trained to see structure; that training is visible in others and confirms the path. The desire to eventually share auto-levels with the community to help them on their journey reflects what this whole effort is for.
+
+**Coach feedback — auto-levels:** ZTH coach reviewed the auto-levels indicator and has ideas. Getting back with specifics. Noted in PENDING-TASKS.
+
+**Architecture expansion — Apr 9:**
+- Lewis Jackson's `claude-tradingview-mcp-trading` repo reviewed and cleared (no malicious code). BitGet HMAC signing pattern (`placeBitGetOrder()`) is directly reusable for a BitGet MCP. Railway cloud deployment architecture noted for future 24/7 bot execution.
+- **Exchange roster confirmed:** BTCC (active) · BitGet (CEX + Web3 wallet, VPN required for US) · Coinbase · Robinhood. All in PENDING-TASKS for phased MCP integration.
+- **DEX arbitrage bot:** Code complete on Arbitrum. Waiting on ETH wallet funds for deployment + gas.
+- **Fortuna automation vision documented:** Discord feed, Telegram channel, Railway cloud execution — the infrastructure picture is clear. Executing in phases as access unlocks.
+
+**Sponsor reminder:** Focus on recovery first. Seek first the Kingdom. Everything else follows. This is the foundation the rest is built on.
+
+---
+
 *Fortuna — Wealth Warden | Claude Code CLI*
-*Daily Review · Apr 8, 2026 · BTCC SOLUSDT Voucher Session*
+*Daily Review · Apr 8, 2026 · Updated Apr 9*
