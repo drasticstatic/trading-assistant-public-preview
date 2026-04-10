@@ -188,6 +188,21 @@ The stop was the hero of this session. MCL instant stop-out was painful but the 
 
 TPT 50K: -$206 net (-$300 MCL + $94 MGC). BTCC: -$14.13 (SOL long closed). GC overnight position open (not yet closed — review pending). TPT Day 2 of 5 minimum days complete. APEX-06: no trades, eval standing maintained.
 
+> Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260326_daily-review.md
+
+> Full individual trade reviews:
+> - [review_20260326_MCL-TPT_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260326_MCL-TPT_001.md) — MCL LONG $89.9 · news candle SL hit in 4 seconds · -$300 · Pattern 9 ✅
+> - [review_20260326_MGC-TPT_002.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260326_MGC-TPT_002.md) — MGC SHORT $4,410.6 · 38-pt adverse · manual exit · +$94 · Pattern 7 + partial P8 fix
+> - [review_20260326_MGC-TPT_003.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260326_MGC-TPT_003.md) — MGC SHORT $4,410.0 · overnight · AutoLiq Mar 27 · -$1,794 · P7+P8+P10 · ACCOUNT BLOWN
+
+---
+
+## 🎯 Forward Focus
+
+1. **MGC overnight SHORT is still open** — first action at session start is to assess the chart and determine exit. Three acceptable outcomes: TP hit, break-even close, or stop. No scenario warrants a fourth overnight hold.
+2. **Pattern 7 is 4 consecutive sessions** — before placing the next order, write the stop level down. Say it out loud. Commit to it explicitly before the fill. Do not touch it for any reason after entry.
+3. **TPT Day 3 of 5 depends on how the overnight resolves** — if the MGC closes at a significant loss, evaluate account standing before entering again. Account health is the constraint, not the day count.
+
 ---
 
 *Daily Review — Fortuna · March 26, 2026*
