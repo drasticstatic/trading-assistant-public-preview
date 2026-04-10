@@ -157,38 +157,75 @@ On the STB London call — learning environment active. Watching community proce
 |----------|----------|---------|---------|-----|
 | 26,214 | 26,243.25 | **22,961.50** | **25,259.75** | -954 (-3.64%) |
 
-Last 4hr bars: compressing 25,145–25,303, volume collapsed from 237K (bar -4) to 717 (now). 70% recovery from the 22,961 flush. Macro bearish structure — below period open.
+**Last 4hr bars (London open ~5:45 AM ET):**
+
+| Bar | Range | Close | Vol | Read |
+|-----|-------|-------|-----|------|
+| -4 (prior session high) | — | — | **237,000** | Institutional — largest bar in lookback |
+| -3 to -1 | — | — | declining | Volume fade into overnight |
+| 0 (London open) | 25,145–25,303 | **25,259.75** | **717** | Compression — coil |
+
+70% recovery from the 22,961 flush. Macro bearish structure — below period open 26,214.
 
 ### ES1!
 | Period O | 50d High | 50d Low | Current | Net |
 |----------|----------|---------|---------|-----|
 | 7,043.50 | 7,078 | **6,353.25** | **6,861.25** | -182 (-2.59%) |
 
-Bar -4: 751,743 volume (institutional). Now 1,720 London. Tight box 6,848–6,876. 76% recovery from low. Macro bearish — below period open.
+**Last 4hr bars (London open ~5:46 AM ET):**
+
+| Bar | Range | Close | Vol | Read |
+|-----|-------|-------|-----|------|
+| -4 (prior session) | — | — | **751,743** | Largest institutional bar — full session |
+| -3 to -1 | — | — | declining | Overnight fade |
+| 0 (London open) | 6,848–6,876 | **6,861.25** | **1,720** | Tight box — compression |
+
+76% recovery from 6,353 low. Macro bearish — below period open 7,043.50.
 
 ### YM1!
 | Period O | 50d High | 50d Low | Current | Net |
 |----------|----------|---------|---------|-----|
 | 49,428 | 50,916 | **45,052** | **48,356** | -1,072 (-2.17%) |
 
-Volume dead overnight — 123 contracts current bar. Recovered ~3,300 pts from lows. Macro bearish — below period open.
+**Last 4hr bars (London open ~5:46 AM ET):**
+
+| Bar | Range | Close | Vol | Read |
+|-----|-------|-------|-----|------|
+| -4 to -1 | — | — | minimal | Volume evaporated overnight |
+| 0 (London open) | — | **48,356** | **123** | Dead volume — London ignoring YM |
+
+Recovered ~3,300 pts from 45,052 lows. Macro bearish — below period open 49,428.
 
 ### RTY1!
 | Period O | 50d High | 50d Low | Current | Net |
 |----------|----------|---------|---------|-----|
 | 2,673.60 | 2,736.60 | **2,409.40** | **2,645.30** | -28 (-1.06%) |
 
-Lagging recovery vs NQ/ES. Canary for risk-off — watch for RTY vs NQ SMT divergence at open.
+**Last 4hr bars (London open ~5:46 AM ET):**
+
+| Bar | Range | Close | Vol | Read |
+|-----|-------|-------|-----|------|
+| 0 (London open) | 2,641.20–2,651.90 | **2,645.30** | **4,650** | Least recovery of all 4 indices |
+
+Lagging recovery vs NQ/ES — smallest % recovery from lows. Canary for risk-off. Watch RTY vs NQ SMT divergence at NY open. Macro bearish — below period open 2,673.60.
 
 ### CL1!
 | Period O | 50d High | 50d Low | Current | Net |
 |----------|----------|---------|---------|-----|
 | 63.97 | **118.80** | 60.37 | **98.37** | +34.40 (+53.78%) |
 
-Bar -4: 143,941 vol, $7.45 range sell (102.70→95.25). Buyers recovered to $98.37. Sitting below $100. London vol: 447.
+**Last 4hr bars (London open ~5:48 AM ET):**
+
+| Bar | O | H | L | C | Vol | Read |
+|-----|---|---|---|---|-----|------|
+| -4 (prior session) | ~102.70 | 102.70 | 95.25 | ~96 | **143,941** | $7.45 range sell — massive institutional |
+| -3 to -1 | — | — | — | — | declining | Overnight recovery |
+| 0 (London open) | ~98.39 | 98.75 | 98.11 | **98.37** | **447** | Compressing — coil pre-CPI |
+
+Sitting below $100. London started flat — then broke (see divergence section below).
 
 ### 🔗 SMT Read
-All four indices net negative, all recovering from macro lows, all in sync overnight — **Scenario A alignment, no divergence.** Volume evaporated across the board. CPI at 8:30 breaks the coil. RTY lagging = mild bearish lean.
+All four indices net negative, all recovering from macro lows, all in sync overnight — **Scenario A alignment, no divergence.** Volume evaporated across the board (NQ: 717, ES: 1,720, YM: 123, RTY: 4,650). CPI at 8:30 breaks the coil. RTY lagging = mild bearish lean.
 
 ---
 
@@ -201,10 +238,46 @@ All four indices net negative, all recovering from macro lows, all in sync overn
 | **ETH** | 1,948.25 | 2,386.23 | 1,800.09 | **2,193.45** | +245 (+12.59%) |
 | **SOL** | 81.21 | 97.70 | 75.63 | **83.40** | +2.19 (+2.70%) |
 
-**GC:** Corrected -13.99% from $5,613 highs to $4,131 low. Recovering at $4,770 but London session selling with elevated volume (16,853) — H barely above O at $4,790.20, L down to $4,752.70. Metals context only (Apex halt).
-**BTC:** Net positive +7.96%, showing relative strength vs equities. Drifted from 73,159 high, holding 71,400–71,900 on low volume. Watch BTC vs NQ SMT.
-**ETH:** Strongest crypto (+12.59%). Rejected 2,245, current bar recovering 2,179→2,193. Range-bound.
-**SOL:** Weakest (+2.70%). Rejected $85.90, drifting $82–83. BTCC SHORT entry ($81.92 Apr 8) — current $83.40 confirms auto-liq was right call. Macro range: $75.63–$97.70.
+**GC1! — London bar (4hr, ~5:47 AM ET):**
+
+| Bar | O | H | L | C | Vol | Read |
+|-----|---|---|---|---|-----|------|
+| 0 (London) | ~4,770.30 | **4,790.20** | **4,752.70** | 4,770.30 | **16,853** | Selling into London open — H barely above O, L -$17.60. Elevated vol. |
+
+Corrected -13.99% from $5,613 highs to $4,131 low. Recovering at $4,770 but London session actively selling. Metals context only (Apex halt on GC/MGC since Feb 6).
+
+---
+
+**BTC/USDT — London bar (4hr, ~5:50 AM ET):**
+
+| Bar | Range | Close | Vol | Read |
+|-----|-------|-------|-----|------|
+| Prior high | — | 73,159 | — | Session high — drifted from here |
+| 0 (London) | 71,400–71,900 | **71,759** | low | Holding range, low vol — relative strength vs equities |
+
+Net +7.96% vs period open 66,469. Watching BTC vs NQ SMT — BTC holding while NQ sells = bullish divergence signal.
+
+---
+
+**ETH/USDT — London bar (4hr, ~5:50 AM ET):**
+
+| Bar | O | H | L | C | Read |
+|-----|---|---|---|---|------|
+| Prior rejection | — | **2,245** | — | — | Rejected here |
+| 0 (London) | ~2,179 | — | — | **2,193** | Recovering — current bar bullish lean |
+
+Strongest crypto this period (+12.59% vs period open 1,948.25). Range-bound between 2,179–2,245.
+
+---
+
+**SOL/USDT — London bar (4hr, ~5:50 AM ET):**
+
+| Bar | H | L | C | Read |
+|-----|---|---|---|------|
+| Prior rejection | **85.90** | — | — | Rejected here |
+| 0 (London) | — | **82.00** | **83.40** | Drifting $82–83 range |
+
+Weakest crypto (+2.70% vs period open 81.21). Macro range: $75.63–$97.70. BTCC SHORT entry ($81.92 Apr 8) — current $83.40 = auto-liq confirmed right directional read (exit passivity was the failure, not the read).
 
 ---
 
