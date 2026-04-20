@@ -39,6 +39,7 @@
 | 020 | Mar 26 | MCL | Long | 89.9 | 88.4 (SL hit) | **-$300.00** | — | — | 0.5/5 | ✅ EMA bullish · OB + key level · pivot retracement (valid setup) | ✅ Respected — instant (Pattern 9 ✅) | No |
 | 021 | Mar 26 | MGC | Short | 4,410.6 | 4,405.9 (manual) | **+$94.00** | — | 48.45 | 0.5/5 | ✅ EMAs bearish · rejection off resistance · pivot sell | ❌ Moved through 38.7-pt adverse (Pattern 7 repeat) | No |
 | 022 | Apr 8 | SOLUSDT | Short | 81.92 | AutoLiq ~$86 | **~-$22 (BTCC)** | — | — | ⚠️ C | ⚠️ IT EMAs bearish · SHORT aligned · deadline-motivated entry (voucher expiry 11:30 PM) | ❌ None set — voucher | No |
+| 023 | Apr 17 | M2K | Short | 2,770.70 | 2,788.10 | **-$87.00** | Neg | -46.77 | 1/5 | ⚠️ OB + key level · reversal bias · FOMO component · overnight limit | ❌ Canceled at fill (Pattern 9) — unprotected 8h | No |
 
 ---
 
@@ -66,10 +67,13 @@ Mar 24  +$1,225.00  ████████████████ WIN ✅ (ES
 Mar 25       $0.00  ────────────────  no fills — APEX milestone day · TPT Day 1 starts
 Mar 26    -$206.00  ████░░░░░░░░░░░  TPT net loss (MCL -$300 · MGC +$94) — news candle stop hunt
 Apr 8       ~-$22  █░░░░░░░░░░░░░░  BTCC voucher SHORT · AutoLiq · Pattern 8 · eval accounts untouched
+Apr 14–16   $0.00  ────────────────  no fills — PIR community work · course study · live calls
+Apr 17      -$87   ██░░░░░░░░░░░░░  M2K SHORT overnight limit · 8h hold · no protective orders · Pattern 8
+Apr 18      $0.00  ────────────────  no fills
 
-Cumulative (Feb 23–Apr 8, USD futures/crypto): +$1,112.00 (USD futures) - $14.13 USDT - ~$22 USDT + $20.63 USDT = ~+$1,096.50
-  APEX-06: +$1,225 (Mar 24) · TPT: -$206 (Mar 26) · APEX-05: blown Mar 3 · BTCC net: ~-$15.50
-Note: APEX-06 active. TPT 50K active. Both eval accounts protected Apr 8.
+Cumulative (Feb 23–Apr 17, USD futures/crypto): +$1,025.00 (USD futures) - $14.13 USDT - ~$22 USDT + $20.63 USDT = ~+$1,009.50
+  APEX-06: +$1,138 net (+$1,225 Mar 24 · -$87 Apr 17) · TPT: -$206 (Mar 26) · APEX-05: blown Mar 3 · BTCC net: ~-$15.50
+Note: APEX-06 active. TPT 50K active. Both eval accounts protected week of Apr 14.
 ```
 
 ---
