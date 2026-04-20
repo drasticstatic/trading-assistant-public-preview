@@ -206,6 +206,34 @@ Primary clones:
 
 **What is `md-sync`?** This is Intent's internal workspace group name. It appears in the clone path but has no special meaning outside of Intent's directory structure.
 
+## Skills Library
+
+Claude Code skills are structured prompt files in `.claude/skills/` that give Fortuna a repeatable, high-quality procedure for common tasks. Only the 3-line header is loaded at context start; full body loads when triggered.
+
+### Project Skills (`.claude/skills/`)
+
+| Skill | Trigger | Purpose |
+|-------|---------|---------|
+| `/trade-review` | "create review for [trade]" | 9-section individual trade review (FORTUNA_WORKFLOW template) |
+| `/daily-review` | "daily review for [date]" | STB daily export (9 sections + SmartTraderAI 3Qs) |
+| `/weekly-review` | "weekly review" | STB weekly export (behavioral arc + 9-question copy-paste) |
+| `/premarket` | "create premarket" | Pre-session analysis plan (10 sections + SmartTraderAI 5Qs) |
+| `/goodmorning` | "good morning" / "start session" | Live trading startup — MCP health checks + account brief |
+| `/goodnight` | "goodnight" / "end session" | Session close + commit + session log |
+| `/create-skill` | "create a skill for X" | Design new skills; 7 hacks + makemyskill.com workflow |
+
+### Global Skill (`~/.claude/skills/`)
+
+| Skill | Trigger | Purpose |
+|-------|---------|---------|
+| `/startup` | "startup" (any repo) | Cross-repo session orientation — read CLAUDE.md, git state, brief |
+
+**Cross-repo deployment guide** (for Auggie, Kavanah, Intent workspaces): `AGENT-SYNC/CROSS_REPO_SKILLS_DEPLOY.md`
+
+**Marp deck** (shareable slide version of the skills guide): `.claude/skills/create-skill.marp.html`
+
+---
+
 ## For Coaches
 This public repo contains analysis exports, session reviews, and methodology documentation.
 Strategy details, Pine Script source, and agent specs are in the private workspace.
@@ -293,5 +321,5 @@ From there, add Hummingbot for crypto execution, a Telegram MCP for mobile alert
 
 ---
 
-*Built with Claude Code CLI (Anthropic) + Augment Code | 2026 · Last updated Apr 5, 2026*
+*Built with Claude Code CLI (Anthropic) + Augment Code | 2026 · Last updated Apr 20, 2026*
 
