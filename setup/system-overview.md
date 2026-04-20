@@ -221,6 +221,7 @@ Claude Code skills are structured prompt files in `.claude/skills/` that give Fo
 | `/goodmorning` | "good morning" / "start session" | Live trading startup — MCP health checks + account brief |
 | `/goodnight` | "goodnight" / "end session" | Session close + commit + session log |
 | `/create-skill` | "create a skill for X" | Design new skills; 7 hacks + makemyskill.com workflow |
+| `/marp-deck` | "create a deck for", "make slides from" | Convert any doc into a dark-theme Marp slide deck + generate HTML |
 
 ### Global Skill (`~/.claude/skills/`)
 
@@ -231,6 +232,28 @@ Claude Code skills are structured prompt files in `.claude/skills/` that give Fo
 **Cross-repo deployment guide** (for Auggie, Kavanah, Intent workspaces): `AGENT-SYNC/CROSS_REPO_SKILLS_DEPLOY.md`
 
 **Marp deck** (shareable slide version of the skills guide): `.claude/skills/create-skill.marp.html`
+
+### Skills Candidates Roadmap
+
+Skills to build next, in priority order. Run each description through [makemyskill.com](https://makemyskill.com) before writing the full body.
+
+| # | Skill | Trigger | What It Does |
+|---|-------|---------|-------------|
+| 1 | `/level-brief` | "give me my levels", "level brief" | Read auto-levels output via TradingView MCP (pine_labels/lines/boxes) → summarize key levels per instrument, FCR rays, ZTH levels for the session |
+| 2 | `/smt-scan` | "SMT scan", "check SMT" | Cycle pane_focus across NQ/ES/YM → identify index divergences → output Scenario A/B/C verdict with reasoning |
+| 3 | `/session-sync` | "sync agents", "update agent-sync" | Commit staged work → push → append session block to AGENT_SYNC.md → create/update session log. Lighter than /goodnight — for mid-session syncs. |
+| 4 | `/marp-deck` | "create a deck for", "make slides from" | Convert any review/briefing doc into a dark-theme Marp slide deck + generate HTML ✅ *Built Apr 20* |
+| 5 | `/import-trades` | "import trades", "process the CSV" | Run the TradeZella → STB pipeline (`scripts/tradezella-sync.sh`), verify output, flag any missing trade reviews |
+| 6 | `/eval-progress` | "eval status", "where am I on the eval" | Pull live account data (get_account) → report balance, trailing floor, gap to target, min days remaining, daily-run-rate math |
+| 7 | `/open-orders` | "open orders", "check all positions" | Pull live positions/orders from all connected exchanges (Tradovate MCP + future BTCC/BitGet MCPs) → single-pane status report |
+| 8 | `/pattern-review` | "pattern review", "update pattern tracker" | Read pattern_tracker.md → analyze recent trades → identify frequency/P&L impact per pattern → append a dated review block to the tracker with one mechanical fix per active pattern |
+| 9 | `/coach-note` | "write a coach note", "draft note for ZTH" | Build a structured coach note from session data — what happened, pattern observed, question for coach. ZTH and IT have different formats. |
+| 10 | `/trade-recap` | "trade recap", "quick recap" | One-paragraph narrative of a just-closed trade — pulls fills from Tradovate, maps to nearest review file, flags missing documentation |
+| 11 | `/tax-entry` | "log this for tax", "add to tax log" | Append a trade or document to `taxes/YYYY/` working files — instrument, entry/exit, P&L, fees, holding period |
+| 12 | `/summarize` *(global)* | "summarize this", "tldr" | Distill a long document, PR, or conversation thread into bullets — context-adaptive |
+| 13 | `/explain` *(global)* | "explain this", "walk me through" | Explain a concept, file, or code at the right depth for Christopher's known expertise (calibrated from memory) |
+
+**Skills + Scripts:** Each skill can include a `## Quick Commands` section with pre-built bash one-liners for the repeatable parts — reduces tokens and improves consistency. Example: `/import-trades` embeds the full `tradezella-sync.sh` invocation; `/session-sync` embeds the git add/commit/push sequence. Build the script alongside the skill, not separately.
 
 ---
 
