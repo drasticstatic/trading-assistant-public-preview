@@ -13,9 +13,10 @@ style: |
   pre { background: #1e1e3a; border: 1px solid #4a4a7a; border-radius: 6px; padding: 1em; }
   table { border-collapse: collapse; width: 100%; font-size: 0.85em; }
   th { background: #2a3a5a; color: #a8d8f8; padding: 6px 12px; }
-  td { border: 1px solid #3a3a5a; padding: 5px 12px; }
+  td { border: 1px solid #3a3a5a; padding: 5px 12px; background: #1e1e3a; color: #e8e8f0; }
   blockquote { border-left: 4px solid #4a90d9; padding-left: 1em; color: #b0c0d8; font-style: italic; }
   .subtitle { color: #8899aa; font-size: 0.8em; margin-top: 0.5em; }
+  .credit { color: #7090a0; font-size: 0.75em; margin-top: 1em; }
 ---
 
 # 🧠 How to Create Claude Code Skills
@@ -175,12 +176,14 @@ The `.md` skill format is an **open standard**.
 For skills you'll use every day:
 
 1. Copy just the `description` section
-2. Paste into **makemyskill.com**
+2. Paste into **[makemyskill.com](https://makemyskill.com)**
 3. Describe the skill — the **longer the better**
 4. Replace your description with the refined version
 5. Re-test with the debug trick
 
 Optional but recommended for: `/goodmorning`, `/trade-review`, `/premarket`
+
+<div class="credit">💡 makemyskill.com built by <a href="https://ruben.substack.com/p/claude-skills">Ruben Hassid</a> and his consulting team — where this whole framework came from.</div>
 
 ---
 
@@ -243,4 +246,7 @@ Go back to that conversation. Find the prompt that worked. That's your skill bod
 ---
 
 *Fortuna × Claude Code CLI | trading-assistant | 2026*
-*[makemyskill.com](https://makemyskill.com) — refine your skill descriptions*
+
+**[makemyskill.com](https://makemyskill.com)** — refine your skill descriptions
+
+<div class="credit">Framework by <a href="https://ruben.substack.com/p/claude-skills">Ruben Hassid</a> — thank you 🙏</div>
