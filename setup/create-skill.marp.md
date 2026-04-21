@@ -25,6 +25,8 @@ style: |
 
 <div class="subtitle">Fortuna × Christopher Wilson | trading-assistant | Apr 2026</div>
 
+<div class="credit">▶️ <a href="https://drasticstatic.github.io/trading-assistant-public-preview/setup/create-skill.marp.html">View rendered slides</a> · <a href="https://ruben.substack.com/p/claude-skills">Framework by Ruben Hassid</a></div>
+
 ---
 
 ## What Is a Skill?
