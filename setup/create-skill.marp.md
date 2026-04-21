@@ -183,7 +183,7 @@ For skills you'll use every day:
 
 Optional but recommended for: `/goodmorning`, `/trade-review`, `/premarket`
 
-<div class="credit">💡 makemyskill.com built by <a href="https://ruben.substack.com/p/claude-skills">Ruben Hassid</a> and his consulting team — where this whole framework came from.</div>
+<div class="credit">💡 makemyskill.com built by <a href="https://ruben.substack.com/p/claude-skills">Ruben Hassid</a> and his consulting team</div>
 
 ---
 
@@ -211,27 +211,52 @@ cp .claude/skills/create-skill.md \
 ```
 
 **Rules:**
-- Only copy skills **relevant to that repo's workflow**
-- Don't copy trading-specific skills to non-trading repos
-- Update the repo's CLAUDE.md `## Skills` section
-- Commit: `"Add .claude/skills/ — [names] from trading-assistant"`
-
-Full guide: `AGENT-SYNC/CROSS_REPO_SKILLS_DEPLOY.md`
+- Only copy skills **relevant** to that repo's workflow
+- Non-trading repos get `/create-skill` + `/startup` only
+- `.claude/` is **gitignored** everywhere — skills are local to each machine
 
 ---
 
-## Marp Export Option
+## Scripts in Skills — The Pattern
 
-For skills that produce shareable docs:
+Add a `## Quick Commands` section to every skill.
 
-Add a `## Marp Export` section to the skill file.
+**Why:** Saves tokens. Ensures consistency. No re-deriving paths.
 
+```markdown
+## Quick Commands
 ```bash
-# Generate HTML from any Marp skill deck
-marp input.marp.md -o output.html
+# The exact command, flags, and paths — pre-built
+pngquant --quality=65-80 --speed=1 ... data/screenshots/*.png
+git add smarttrader-ai/reviews/ && git commit -m "..."
+git push origin main
+` `` ← (remove space)
 ```
 
-**Template:** `.claude/skills/create-skill.marp.md` ← this file
+The skill body handles *reasoning*. Quick Commands handle *execution*.
+
+---
+
+## Example: /marp-deck
+
+The `/marp-deck` skill converts any review doc to slides.
+
+Its `## Quick Commands` section:
+
+```bash
+# Generate HTML — skill deck (public, in setup/)
+marp setup/create-skill.marp.md -o setup/create-skill.marp.html
+
+# Generate HTML — coach-share deck (in exports/)
+marp smarttrader-ai/exports/YYYY/MM-Mon/[name].marp.md \
+     -o smarttrader-ai/exports/YYYY/MM-Mon/[name].marp.html
+
+# Commit
+git add setup/*.marp.md setup/*.marp.html && \
+  git commit -m "Add [topic] Marp deck [date]"
+```
+
+**Public Marp files go in `setup/` — gitignored `.claude/` stays local.**
 
 ---
 
