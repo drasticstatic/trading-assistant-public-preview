@@ -231,7 +231,7 @@ Claude Code skills are structured prompt files in `.claude/skills/` that give Fo
 
 **Cross-repo deployment guide** (for Auggie, Kavanah, Intent workspaces): `AGENT-SYNC/CROSS_REPO_SKILLS_DEPLOY.md`
 
-**Marp deck** (shareable slide version of the skills guide): `.claude/skills/create-skill.marp.html`
+**Marp deck** (shareable slides — public): [`setup/create-skill.marp.html`](./create-skill.marp.html) · Source: `setup/create-skill.marp.md`
 
 ### Skills Candidates Roadmap
 
@@ -253,7 +253,7 @@ Skills to build next, in priority order. Run each description through [makemyski
 | 12 | `/summarize` *(global)* | "summarize this", "tldr" | Distill a long document, PR, or conversation thread into bullets — context-adaptive |
 | 13 | `/explain` *(global)* | "explain this", "walk me through" | Explain a concept, file, or code at the right depth for Christopher's known expertise (calibrated from memory) |
 
-**Skills + Scripts:** Each skill can include a `## Quick Commands` section with pre-built bash one-liners for the repeatable parts — reduces tokens and improves consistency. Example: `/import-trades` embeds the full `tradezella-sync.sh` invocation; `/session-sync` embeds the git add/commit/push sequence. Build the script alongside the skill, not separately.
+**Skills + Scripts:** Every skill includes a `## Quick Commands` section with exact bash one-liners for the repeatable parts — pre-built paths, flags, and commit messages. This saves tokens (no re-deriving commands) and ensures consistency across sessions. The skill body handles *reasoning*; Quick Commands handle *execution*. Build the script alongside the skill, not separately.
 
 ---
 
