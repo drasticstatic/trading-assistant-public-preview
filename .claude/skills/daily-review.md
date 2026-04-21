@@ -3,7 +3,8 @@ name: daily-review
 description: >
   Use when Christopher asks to create a daily review, session review, or STB daily export for
   a completed trading session. TRIGGER when: "daily review for [date]", "session review",
-  "STB daily export", "write up today's session", "daily wrap", "end of session review".
+  "STB daily export", "write up today's session", "daily wrap", "end of session review",
+  "create session summary", "trading session writeup", "post-market review", "end-of-day review".
   Do NOT use for: individual trade reviews (single trade), weekly reviews, premarket summaries,
   or when Christopher asks about a specific trade only rather than the full session.
 ---
@@ -19,6 +20,8 @@ Build a complete daily review following FORTUNA_WORKFLOW.md Section 4.
 3. Read the premarket summary if it exists (link it in Session Narrative)
 4. Gather all screenshots from `data/screenshots/` for the session date
 5. Check `data/imports/YYYY/MM-Mon/tradezella_YYYYMMDD.csv` for trade data
+
+If any data is missing, note it and proceed with what's available. On no-trade days, adjust sections accordingly.
 
 ## File Path
 
@@ -44,6 +47,7 @@ If no premarket exists, note the reason inline.
 ### 4. `## 📊 Trade Log`
 Trade table: # | Instrument | Dir | Entry | Exit | P&L | Grade | Review Link
 Or `## 📊 Trade Summary` + `## 📋 Trade Details` if two levels of detail are needed.
+On no-trade days: `No fills today. [Brief reason: infrastructure work, market conditions, etc.]`
 
 ### 5. `## 📸 Key Charts`
 Session screenshots. Full-size for daily reviews. Grid only if excessive screenshots.
@@ -81,6 +85,36 @@ Full-size format:
 ![Alt text](../../../../data/screenshots/filename.png)
 ```
 URL-encode spaces: `%20`. Path: `../../../../data/screenshots/` (4 levels up from `exports/YYYY/MM-Mon/`).
+
+## Common Scenarios
+
+**No-Trade Day:**
+- Session Summary: Note "0 fills"
+- Trade Log: Replace with "No fills today. [Reason]"
+- Key Charts: Omit entirely
+- Behavioral Notes: Focus on decision to stay out
+- Forward Focus: What conditions would trigger entry next session
+
+**Missing Premarket Summary:**
+In Session Narrative, note inline:
+```
+No formal premarket plan — impromptu session based on [context].
+```
+
+**Multiple Instruments:**
+In Trade Log, group by instrument or chronologically — whichever tells the clearer story.
+
+## Quality Checklist
+
+- [ ] All 9 sections present and in order
+- [ ] Jump link at top works
+- [ ] Premarket link in Session Narrative (or noted as missing)
+- [ ] All individual trade review links work
+- [ ] Screenshots use correct relative path (4 levels up, spaces URL-encoded)
+- [ ] SmartTraderAI anchor ID is correct
+- [ ] Q3 ends with full review links
+- [ ] Forward Focus is last section with no links
+- [ ] Commit message follows format
 
 ## After Creating
 

@@ -74,7 +74,7 @@ Full roadmap with descriptions: `setup/system-overview.md` → Skills Candidates
 | 6 | `/eval-progress` | Live account data → balance, floor, gap to target, daily-run-rate math |
 | 7 | `/open-orders` | Pull positions/orders from all connected exchanges → single status report |
 | 8 | `/pattern-review` | Read pattern_tracker.md → analyze trends → append dated review block with fix per pattern |
-| 9 | `/coach-note` | Build structured coach note from session data (ZTH and IT formats differ) |
+| 9 | `/monthly-audit` | End-of-month Marp deck: P&L + behavioral arc + strategy/course progression for all coaching groups ✅ Built |
 | 10 | `/trade-recap` | One-paragraph narrative from just-closed trade; pulls fills, flags missing review |
 | 11 | `/tax-entry` | Append trade or document to `taxes/YYYY/` working files |
 | 12 | `/smog-analysis` | SMOG framework analysis for a specific trade or setup — ref `strategies/inevitrade/smog-reference.md` |
