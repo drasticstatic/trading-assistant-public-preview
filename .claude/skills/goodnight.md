@@ -3,7 +3,8 @@ name: goodnight
 description: >
   Use to close a trading session cleanly — commit work, push, update session log, and hand off
   context. TRIGGER when: "goodnight", "end session", "close out", "session done", "wrapping up",
-  "calling it", "signing off", "that's it for today". Do NOT use for: mid-session pauses,
+  "calling it", "signing off", "that's it for today", "done for the day", "finishing up",
+  "logging off", "end of session", "close the session". Do NOT use for: mid-session pauses,
   stepping away temporarily, or non-trading sessions.
 ---
 

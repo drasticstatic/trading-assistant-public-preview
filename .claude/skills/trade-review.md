@@ -11,7 +11,19 @@ description: >
 
 # Skill: /trade-review
 
-Build a complete 9-section individual trade review. Follow FORTUNA_WORKFLOW.md Section 3 exactly.
+Build complete, publication-ready individual trade reviews following Christopher's Fortuna workflow.
+Each review documents a single completed trade with full context, data, screenshots, and actionable
+coaching insights.
+
+## What This Skill Does
+
+Transforms raw trade data (CSVs, screenshots, notes) into a structured 9-section markdown review that:
+- Reconstructs what happened and why
+- Presents exact execution data from broker exports
+- Embeds full-size screenshots with timeline context
+- Provides coaching-focused analysis tied to behavioral patterns
+- Updates pattern tracker and weekly review files
+- Generates GitHub-ready public preview links
 
 ## Before Starting
 
@@ -100,9 +112,66 @@ Immediately before `*Fortuna — Wealth Warden*`:
 > See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/YYYY/MM-Mon/review_YYYYMMDD_INSTRUMENT-PLATFORM_NNN.md
 ```
 
+## Data Source Priorities
+
+1. **TradeZella CSV** (`tradezella_YYYYMMDD.csv`):
+   - P&L (gross and net), Zella score, rating, emotional stability
+   - Entry/exit times (approximate), MFE/MAE (if available)
+   - Notes for Coaches field
+
+2. **Tradovate Orders CSV** (`tradovate_orders_YYYYMMDD.csv`):
+   - Exact fill prices, order types (Market, Limit, Stop)
+   - Precise timestamps (ET), order status (Filled, Canceled, Working)
+
+3. **Screenshots** — visual confirmation of setup, context for decision-making, timeline reconstruction
+
+4. **Christopher's verbal/written notes** — intent, expectations, emotional state, session context
+
+## Common Patterns
+
+**Overnight limit orders**: Note in Trade Data table under "Order Set". Explain in Session Narrative
+why limit was chosen and what happened at open.
+
+**Multiple entries**: Treat as single trade if same setup/thesis. Note in Order Execution table.
+Discuss in Notes for Coaches if second entry was justified.
+
+**Partial fills**: Show in Order Execution table. Calculate P&L based on actual filled quantity.
+
+**Moved stops/targets**: Show original and modified orders in Order Execution table. Analyze in
+Notes for Coaches whether move was disciplined or emotional.
+
+## Quality Checklist
+
+- [ ] All 9 sections present and in order
+- [ ] Trade Data table has exact CSV values (no estimates)
+- [ ] Order Execution table matches Tradovate CSV exactly
+- [ ] All session screenshots embedded full-size
+- [ ] Screenshot paths URL-encoded and correct (4 levels up)
+- [ ] Notes for Coaches has anchor tag on line before heading
+- [ ] Verbatim TradeZella quotes in blockquotes
+- [ ] Pattern Tracker status table included
+- [ ] Forward Focus is specific and actionable
+- [ ] Header jump link present
+- [ ] Footer GitHub link present with correct path
+- [ ] File named correctly: `review_YYYYMMDD_INSTRUMENT-PLATFORM_NNN.md`
+
+## Key Principles
+
+**Accuracy over speed** — Cross-reference CSVs. Never estimate.
+
+**Context over data** — Numbers tell what happened. Narrative tells why.
+
+**Coaching-focused** — Every insight should help Christopher improve.
+
+**Full transparency** — Show all orders, including mistakes and canceled stops.
+
+**Behavioral patterns first** — Technical analysis is secondary to pattern recognition.
+
+**Actionable forward focus** — Specific next steps, not vague advice.
+
 ## After Creating the Review
 
-1. Run `pngquant --quality=65-80 --speed=1 --skip-if-larger --ext .png --force *.png` in `data/screenshots/` if new screenshots were added
+1. Run `pngquant --quality=65-80 --speed=1 --skip-if-larger --ext .png --force data/screenshots/*.png` if new screenshots were added
 2. Update `smarttrader-ai/reviews/pattern_tracker.md` — add trade to log table, update Running P&L, update cumulative
 3. Update weekly review file if it already exists — add trade to Week at a Glance table
 4. Commit with message: "Add trade review #NNN — [INSTRUMENT] [DIR] [DATE] · [P&L]"
