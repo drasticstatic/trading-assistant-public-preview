@@ -231,7 +231,7 @@ Claude Code skills are structured prompt files in `.claude/skills/` that give Fo
 
 **Cross-repo deployment guide** (for Auggie, Kavanah, Intent workspaces): `AGENT-SYNC/CROSS_REPO_SKILLS_DEPLOY.md`
 
-**Marp deck** (shareable slides — public): [`setup/create-skill.marp.html`](./create-skill.marp.html) · Source: `setup/create-skill.marp.md`
+**Marp deck** (shareable slides — public): [`setup/create-skill.marp.md`](./create-skill.marp.md) · [▶️ Rendered view](https://drasticstatic.github.io/trading-assistant-public-preview/setup/create-skill.marp.html)
 
 ### Skills Candidates Roadmap
 
@@ -250,8 +250,10 @@ Skills to build next, in priority order. Run each description through [makemyski
 | 9 | `/coach-note` | "write a coach note", "draft note for ZTH" | Build a structured coach note from session data — what happened, pattern observed, question for coach. ZTH and IT have different formats. |
 | 10 | `/trade-recap` | "trade recap", "quick recap" | One-paragraph narrative of a just-closed trade — pulls fills from Tradovate, maps to nearest review file, flags missing documentation |
 | 11 | `/tax-entry` | "log this for tax", "add to tax log" | Append a trade or document to `taxes/YYYY/` working files — instrument, entry/exit, P&L, fees, holding period |
-| 12 | `/summarize` *(global)* | "summarize this", "tldr" | Distill a long document, PR, or conversation thread into bullets — context-adaptive |
-| 13 | `/explain` *(global)* | "explain this", "walk me through" | Explain a concept, file, or code at the right depth for Christopher's known expertise (calibrated from memory) |
+| 12 | `/smog-analysis` | "SMOG analysis", "run SMOG on this" | SMOG framework analysis for a specific trade or setup — ref `strategies/inevitrade/smog-reference.md` |
+| 13 | `/tcl-analysis` | "TCL analysis", "run TCL on this" | TCL strategy analysis for a trade or setup — ref `strategies/inevitrade/tcl-reference.md` |
+| 14 | `/summarize` *(global)* | "summarize this", "tldr" | Distill a long document, PR, or conversation thread into bullets — context-adaptive |
+| 15 | `/explain` *(global)* | "explain this", "walk me through" | Explain a concept, file, or code at the right depth for Christopher's known expertise (calibrated from memory) |
 
 **Skills + Scripts:** Every skill includes a `## Quick Commands` section with exact bash one-liners for the repeatable parts — pre-built paths, flags, and commit messages. This saves tokens (no re-deriving commands) and ensures consistency across sessions. The skill body handles *reasoning*; Quick Commands handle *execution*. Build the script alongside the skill, not separately.
 
