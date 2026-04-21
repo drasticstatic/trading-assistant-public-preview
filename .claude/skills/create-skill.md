@@ -51,6 +51,42 @@ Only the 3-line header is read at context load; full body only loads when trigge
 [Cleanup, commits, follow-on actions]
 ```
 
+## Generation Workflow
+
+### 1. Write the Description First
+**Start with the "Do NOT use for" line** — prevents skill hijacking before positive triggers are written.
+
+Then write the positive triggers:
+- What does it do? (One sentence)
+- TRIGGER when: [list specific keywords, task types, file types, user phrasings]
+- Include synonyms and adjacent terms — Claude tends to undertrigger, so be "pushy"
+
+### 2. Write the Body — Be Ruthlessly Concise
+Every line must earn its place.
+- **Explain WHY, not just WHAT** — Claude responds better to reasoning than rigid rules
+- **Only teach what Claude doesn't know** — don't restate obvious best practices
+- **Concrete examples beat abstract placeholders**
+- Target: 150–350 lines total across all files
+
+### 3. Self-Review Before Saving
+- Can I cut 20% without losing value? Do it.
+- Are there rigid rules that should be reasoning instead?
+- Does the description cover all trigger scenarios?
+- Would this work across many different prompts?
+
+### 4. Test the Trigger
+Ask: "When would you use the [skill-name] skill?" — Claude quotes the description back.
+Reveals what's vague, too broad, or too narrow.
+
+### 5. Run Through makemyskill.com (Before Shipping)
+Submit just the `description` section — the longer the better. Replace description with refined output. Re-test.
+
+### 6. Save and Register
+- Save to `.claude/skills/skill-name.md`
+- Add to MEMORY.md skills table
+- Add to `setup/system-overview.md` Skills Library + Roadmap table
+- Update CLAUDE.md skills table (trading-assistant and intent repos only)
+
 ## How to Use This Skill
 
 1. Christopher describes what he wants the skill to do
@@ -58,6 +94,36 @@ Only the 3-line header is read at context load; full body only loads when trigge
 3. Christopher reviews — test the description with the debug trick (ask "When would you use X?")
 4. Optionally: submit the description section to makemyskill.com for a refined version
 5. Save the final file to `.claude/skills/skill-name.md`
+
+## Quality Checklist
+
+- [ ] Description covers WHAT + WHEN, includes triggers and anti-triggers
+- [ ] "Do NOT use for" is more specific than positive triggers
+- [ ] Body is under 300 lines, focused and actionable
+- [ ] Explains WHY behind guidance, not just rigid rules
+- [ ] Every line earns its place — no generic filler
+- [ ] No sensitive data, secrets, or account numbers (see Version Control Safety)
+- [ ] `## Quick Commands` section present with exact bash commands
+- [ ] Trigger tested with description echo before committing
+
+## Strong vs. Weak Descriptions
+
+**Weak:**
+```yaml
+description: A skill for building dashboards.
+```
+
+**Strong:**
+```yaml
+description: >
+  Build simple, fast dashboards to display data. Use this whenever the user
+  mentions dashboards, data visualization, metrics display, charts, graphs,
+  or wants to display any kind of data visually, even if they don't explicitly
+  ask for a 'dashboard'. Do NOT use for: complex BI tools, data warehousing,
+  or ETL pipelines.
+```
+
+The strong version answers: **What** (build dashboards), **When** (data viz, metrics, charts), **What Not** (BI, warehousing, ETL).
 
 ## Skills Roadmap (Next to Build)
 
