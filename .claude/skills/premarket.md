@@ -3,14 +3,16 @@ name: premarket
 description: >
   Use when Christopher asks to build or create a premarket summary, pre-market analysis, morning
   brief, or pre-session plan. TRIGGER when: "create premarket", "build premarket summary",
-  "premarket for [date]", "premarket plan", "morning brief", "pre-market", "build the plan for today".
+  "premarket for [date]", "premarket plan", "morning brief", "pre-market", "build the plan for today",
+  "prep for the session", "session prep", "market prep", "morning plan", "today's plan".
   Do NOT use for: daily reviews, weekly reviews, individual trade reviews, post-session analysis,
   or when Christopher is asking about a past session rather than preparing for today.
 ---
 
 # Skill: /premarket
 
-Build a complete premarket summary following FORTUNA_WORKFLOW.md Section 2.
+Build a complete premarket summary following FORTUNA_WORKFLOW.md Section 2. Premarket prep is
+**decision compression** — front-loading analysis to reduce cognitive load during live trading.
 
 ## Before Starting
 
@@ -30,25 +32,148 @@ Add per-instrument files if warranted: `premarket_YYYYMMDD_[instrument].md`
 
 ## Required Sections — In This Order
 
-1. `## 📋 Session Dashboard` — Date, session type, key levels table, account status
-2. `## ⚠️ Session Risk Alert` — prop firm trailing floor, max loss rules, any account-specific flags
-3. `## 🌙 Overnight / ETH Context` — what happened overnight, ETH price action, key levels that held or broke
-4. `## 🌤️ At the Open` — what to watch for at 9:30 AM ET, FCR setup conditions
-5. `## 🔗 SMT Divergence Scenarios` — Scenario A (all confirm), B (NQ leading), C (mixed/flat)
-6. `## 📅 Economic Calendar` — news events, times, expected figures, prior values, potential impact
-7. `## 🎯 Today's Priority Instruments` — ranked list with rationale
-8. Per-Instrument Analysis sections — one `##` per instrument (MNQ, RTY, CL, etc.)
-   - Higher timeframe bias
-   - Key levels (support/resistance, FCR reference, auto-levels output)
-   - Setup conditions (what needs to happen for a trade)
-   - Invalidation (what cancels the setup)
-9. `## 🧠 Pre-Session Mental State / Behavioral Reminder`
-   - Active pattern reminders (Pattern 7, 8, 9 as applicable)
-   - One-sentence intention for the session
-10. `## ⏱️ Live Session Updates` — **keep minimal at creation**: brief trade projection ideas and key level notes only. Detailed tracking goes in daily review.
-11. `## 🤖 SmartTraderAI Pre-Market Copy-Paste Fields`
+### 1. `## 📋 Session Dashboard`
 
-## SmartTraderAI Pre-Market Template (5 questions — verbatim)
+```markdown
+## 📋 Session Dashboard
+
+**Date:** [Day of week], [Month] [DD], [YYYY]
+**Session Type:** [Regular / Volatile / News-Heavy / Choppy Expected]
+
+| Metric | Value |
+|--------|-------|
+| APEX-06 Balance | $X,XXX.XX |
+| Trailing Floor | $X,XXX.XX |
+| Max Daily Loss | $XXX |
+| Primary Instruments | MNQ, RTY, CL |
+| Key Economic Events | [Time] - [Event] |
+```
+
+### 2. `## ⚠️ Session Risk Alert`
+
+```markdown
+## ⚠️ Session Risk Alert
+
+- **Trailing Floor:** $X,XXX.XX — Do not let balance fall below this
+- **Max Daily Loss:** $XXX — Stop trading if hit
+- **Active Behavioral Patterns:** [Pattern 7 / 8 / 9 if applicable]
+- **Account Notes:** [Any prop firm flags, recent violations, warnings]
+```
+
+### 3. `## 🌙 Overnight / ETH Context`
+
+What happened overnight, ETH price action, key levels that held or broke:
+
+```markdown
+## 🌙 Overnight / ETH Context
+
+**Asia Session:** [Key price action, range, direction]
+**London Session:** [Key price action, any breakouts or rejections]
+**ETH Price Action:** [What happened overnight, which levels held or broke]
+**Overnight Catalysts:** [Any news, geopolitical events, or macro moves]
+```
+
+### 4. `## 🌤️ At the Open`
+
+```markdown
+## 🌤️ At the Open (9:30 AM ET)
+
+**Watch for:**
+- FCR setup conditions on [instruments]
+- Initial direction: [bullish / bearish / neutral]
+- Key levels to monitor: [specific prices]
+
+**First 30 Minutes:**
+- Avoid trading if: [conditions]
+- Look for entries if: [conditions]
+```
+
+### 5. `## 🔗 SMT Divergence Scenarios`
+
+```markdown
+## 🔗 SMT Divergence Scenarios
+
+**Scenario A — All Confirm (High Confidence)**
+- NQ, ES, YM, RTY all make new highs/lows together → full size
+
+**Scenario B — NQ Leading (Moderate Confidence)**
+- NQ makes new high/low, ES/YM lag → reduce size, tighten stops
+
+**Scenario C — Mixed / Flat (Low Confidence)**
+- Indices not aligned → consider staying flat or paper trading only
+```
+
+### 6. `## 📅 Economic Calendar`
+
+```markdown
+## 📅 Economic Calendar
+
+| Time (ET) | Event | Expected | Prior | Impact |
+|-----------|-------|----------|-------|--------|
+| 8:30 AM | [Event] | [Value] | [Value] | High |
+
+**Session Impact:** [How these events could affect price action]
+```
+
+### 7. `## 🎯 Today's Priority Instruments`
+
+```markdown
+## 🎯 Today's Priority Instruments
+
+1. **MNQ** — [Reason: strong trend, clear levels, etc.]
+2. **RTY** — [Reason]
+3. **CL** — [Reason]
+```
+
+### 8. Per-Instrument Analysis (one `##` per instrument)
+
+```markdown
+## [Instrument] — [Bias: Long / Short / Neutral]
+
+**Higher Timeframe Context:**
+- Daily: [trend, structure]
+- 4H: [key levels, bias]
+
+**Key Levels:**
+- Resistance: [price]
+- Support: [price]
+- FCR Reference: [if applicable]
+- Auto-levels output: [if available]
+
+**Setup Conditions:**
+- Long if: [specific conditions]
+- Short if: [specific conditions]
+
+**Invalidation:**
+- Long invalidated if: [price action]
+- Short invalidated if: [price action]
+```
+
+### 9. `## 🧠 Pre-Session Mental State / Behavioral Reminder`
+
+```markdown
+## 🧠 Pre-Session Mental State / Behavioral Reminder
+
+**Active Pattern Reminders:** [Pattern 7 / 8 / 9 notes if applicable]
+**Session Intention:** [One-sentence intention: e.g., "Wait for clear FCR confirmation before entering"]
+```
+
+### 10. `## ⏱️ Live Session Updates`
+
+**Keep minimal at creation** — brief trade projection ideas and key level notes only.
+Detailed tracking goes in daily review.
+
+```markdown
+## ⏱️ Live Session Updates
+
+**Pre-Market Notes:**
+- [Brief projection ideas]
+- [Key level reminders]
+
+*Detailed trade tracking and narrative belong in the daily review.*
+```
+
+### 11. `## 🤖 SmartTraderAI Pre-Market Copy-Paste Fields`
 
 Anchor: `<a id="smarttraderai-copy-paste"></a>` before `## 🤖` heading.
 `---` after the `## 🤖` heading and between every question.
@@ -58,6 +183,36 @@ Anchor: `<a id="smarttraderai-copy-paste"></a>` before `## 🤖` heading.
 3. What are the key higher-timeframe figures and their likely effect on price today?
 4. What is your intraday bias and at what price levels do you expect to trade from?
 5. What is your expectation for today's session based on the above?
+
+## Key Concepts
+
+**FCR (First Candle Range):** The high and low of the first 15-min candle after 9:30 AM ET.
+Displacement ABOVE the high = LONG signal. Displacement BELOW the low = SHORT signal.
+First candle color is irrelevant — only displacement outside the range matters.
+Wait for confirmation; premature entries on the initial break often fail.
+
+**SMT Divergence:** When correlated instruments (NQ/ES, RTY/YM) fail to confirm each other's highs
+or lows. "ES makes a new high above a prior range. At the same time, NQ fails to break its own high
+and starts reversing." Signals potential manipulation and reversal. Use as confirmation, not standalone entry.
+
+**Auto-Levels:** TradingView Pine scripts that automatically plot support/resistance and institutional
+levels. Reference when available but always validate with price action context.
+
+## What NOT to Include
+
+- Rigid predictions — markets are probabilistic, not deterministic
+- Overconfident bias — always present both bull and bear cases
+- Generic advice without defining what confirmation looks like
+- Duplicate content across multiple sections
+- Post-session analysis — that belongs in the daily review
+
+## Common Pitfalls
+
+1. Too much analysis, not enough actionable setups — focus on "if this, then that" logic
+2. Ignoring overnight context — ETH and Asia/London action often sets the tone
+3. Forgetting behavioral patterns — if Pattern 7/8/9 is active, it must be front and center
+4. Weak invalidation criteria — always define what cancels the setup
+5. No SMT analysis — divergence is a critical confirmation tool for futures traders
 
 ## Screenshots
 
