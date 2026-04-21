@@ -15,7 +15,7 @@ Build a polished end-of-month audit as a Marp slide deck. Unlike daily and weekl
 designed to be shared directly with STB, ZTH, and IT coaching groups as a complete picture of
 the month's development.
 
-## What This Skill Does
+## Overview
 
 Produces a `.marp.md` + `.marp.html` deck covering:
 - Month P&L and account progression
@@ -45,7 +45,7 @@ smarttrader-ai/exports/YYYY/MM-Mon/monthly-audit_YYYYMM.marp.html
 
 Example: `smarttrader-ai/exports/2026/04-Apr/monthly-audit_202604.marp.md`
 
-## Required Slides — In This Order
+## Slide Structure
 
 ### Slide 1 — Title
 
