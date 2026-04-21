@@ -247,7 +247,7 @@ Skills to build next, in priority order. Run each description through [makemyski
 | 6 | `/eval-progress` | "eval status", "where am I on the eval" | Pull live account data (get_account) → report balance, trailing floor, gap to target, min days remaining, daily-run-rate math |
 | 7 | `/open-orders` | "open orders", "check all positions" | Pull live positions/orders from all connected exchanges (Tradovate MCP + future BTCC/BitGet MCPs) → single-pane status report |
 | 8 | `/pattern-review` | "pattern review", "update pattern tracker" | Read pattern_tracker.md → analyze recent trades → identify frequency/P&L impact per pattern → append a dated review block to the tracker with one mechanical fix per active pattern |
-| 9 | `/coach-note` | "write a coach note", "draft note for ZTH" | Build a structured coach note from session data — what happened, pattern observed, question for coach. ZTH and IT have different formats. |
+| 9 | `/monthly-audit` | "monthly audit", "end of month", "April audit" | End-of-month Marp deck: P&L summary, behavioral arc, strategy/course progression across all coaching groups (STB, ZTH, IT) — polished output for coach sharing ✅ *Built Apr 21* |
 | 10 | `/trade-recap` | "trade recap", "quick recap" | One-paragraph narrative of a just-closed trade — pulls fills from Tradovate, maps to nearest review file, flags missing documentation |
 | 11 | `/tax-entry` | "log this for tax", "add to tax log" | Append a trade or document to `taxes/YYYY/` working files — instrument, entry/exit, P&L, fees, holding period |
 | 12 | `/smog-analysis` | "SMOG analysis", "run SMOG on this" | SMOG framework analysis for a specific trade or setup — ref `strategies/inevitrade/smog-reference.md` |

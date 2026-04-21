@@ -66,6 +66,8 @@ style: |
 ---
 ```
 
+**Why this theme:** Dark backgrounds reduce eye strain for coach review sessions. Color-coded headings (blue H1, green H2, gold H3) create visual hierarchy. Explicit `td` background styling prevents table text from becoming invisible on dark slide backgrounds.
+
 **Slide rules:**
 - One idea per slide — if a slide needs scrolling, split it
 - Tables: max 6-7 rows before splitting or summarizing
@@ -96,6 +98,43 @@ marp [path/to/file.marp.md] -o [path/to/output.html]
 ```
 
 Verify the output opens in a browser and all tables render with dark backgrounds.
+
+## Example: Weekly Review Deck Structure
+
+```markdown
+---
+# Week of Apr 14, 2026
+**Weekly Trading Review**
+
+---
+
+## Week Overview
+
+- **Net P&L:** +$X.XX (+X.X%)
+- **Win Rate:** X/Y trades (XX%)
+- **Key Pattern:** [Pattern name]
+
+---
+
+## Trade Log
+
+| Date | Instrument | Entry | Exit | P&L | Notes |
+|------|-----------|-------|------|-----|-------|
+| 4/14 | ES | 5150 | 5165 | +$75 | Clean SMT setup |
+
+---
+
+## Behavioral Notes
+
+**What Went Well:** [bullet points]
+**What Needs Work:** [bullet points]
+
+---
+
+## Key Lesson
+
+> "The best setups come to you. The worst ones you chase."
+```
 
 ## After Completing
 

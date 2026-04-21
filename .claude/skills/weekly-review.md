@@ -3,7 +3,9 @@ name: weekly-review
 description: >
   Use when Christopher asks to create a weekly review, end-of-week summary, or STB weekly export.
   TRIGGER when: "create weekly review", "write up the week", "weekly review for week of [date]",
-  "STB weekly export", "week ending [date]", "weekly wrap", "end of week". Do NOT use for:
+  "STB weekly export", "week ending [date]", "weekly wrap", "end of week", "weekly summary",
+  "week in review", "wrap up the week", "export for STB", "SmartTraderAI weekly",
+  "trading week summary", or mentions assembling a multi-day trading summary. Do NOT use for:
   individual trade reviews, daily reviews, premarket summaries, mid-week check-ins, or single
   trade analysis.
 ---
@@ -96,6 +98,20 @@ Then:
 - **What I want to work on:** (one focused thing)
 - **How I plan to study:** (specific study method)
 - **GitHub:** (link to relevant public resource or pir-devine-news if community work was significant)
+
+## Key Principles
+
+**Behavioral Arc is central** — The "What is resolved / What is the work / What coaches should see / Broader context" structure is the heart of the review. This is where Christopher synthesizes the week's trading psychology and growth.
+
+**Grid format for screenshots** — Weeklies cover multiple days, so full-size images would be overwhelming. Use grid layout with 2-4 images per row.
+
+**Link to individual reviews** — Don't duplicate content. The weekly review *references* individual trade reviews and adds the behavioral/weekly synthesis layer.
+
+**SmartTraderAI fields are structured** — These 9 questions + follow-ups are Christopher's submission format. Keep them consistent and clearly separated from the rest of the review.
+
+**Account status matters** — Prop firm eval accounts have phases, rules, and statuses. Track these explicitly so Christopher and coaches can see where each account stands.
+
+**No-fill days still get coverage** — A day with no trades is still part of the week's story. Note what was observed, why no trades were taken, or what was learned.
 
 ## After Creating the Review
 
