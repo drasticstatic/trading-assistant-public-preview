@@ -28,42 +28,76 @@
 
 ---
 
-## ⚡ What Happened — Week Narrative
+## 📈 Behavioral Arc — The Week in One View
 
-A week of deep split attention: significant community work (PIR Devine News launched and went live well beyond expectations), exploration of Claude Code capabilities with other developers, live coaching calls, and course study — with one trade on Thursday that ended as a loss.
+```
+Apr 14–16: No fills — monitored markets, placed overnight limit order Wed
+Apr 17:    Limit filled at open · MFE +$44.50 at 9 AM · held 8h unprotected · exit -$87
+Apr 18:    No fills — reviewed charts
+```
 
-**Monday–Wednesday (Apr 14–16):** No fills. Charts monitored. A SHORT limit order placed on M2K at 2770.70 during the Wednesday overnight session (~9:50 PM ET), targeting a reversal from a key overhead level. TP set at 2655.20, SL at 2857.10.
+**What is resolved:**
+- Position sizing discipline held: 1 micro contract — tested the idea without material damage
+- Sat on hands Mon–Wed and Fri — no overtrading despite market activity
+- Self-aware about reversal bias — ZTH coach Jesse's feedback is landing
 
-**Thursday Apr 17:** The limit filled at 8:52 AM ET. Both the TP and SL bracket orders were canceled at the exact moment of fill — trade ran unprotected. MFE touched 2761.80 by ~9:00 AM (best exit +$44.50), then reversed. Price spent 8 hours grinding higher while the position bled. A SELL MES was placed and immediately canceled at 11:52 AM — considered adding a correlated position, didn't act. Exit came at 16:59 at 2788.10: -$87. Duration: 8 hours 6 minutes.
+**What is the work:**
+- Pattern 8 (exit passivity): MFE reached within 8 minutes of fill, no exit, held 8 hours into a loss. Zero active exit decisions in any recent trade.
+- Pattern 9 echo: TP and SL both canceled at the moment of fill — trade ran unprotected all day. Exit came at 16:59 from time pressure alone.
+- Reversal bias: SHORT in an uptrend, looking for a move that didn't develop. Coach Jesse's point — the market is typically trending — is the direct lesson here.
 
-**Friday Apr 18:** No fills. Charts reviewed. M2K from today (Apr 20) shows the pre-market context going into the new week — exit level visible.
+**What the coaches should see:**
+Christopher identified his own reversal bias this week. The challenge is building a pre-entry filter that enforces it. Recommend: a 2-second check before any short entry — "is this trend broken, or just pausing?" If pausing, the short is off the table until confirmation. On exits: MFE was +$44.50 at 9 AM; final exit came 8 hours later at -$87. One mechanical rule — "if MFE exceeds 1R and retraces 50%, exit immediately" — converts this loss to a winner. No willpower needed, just the rule.
 
----
-
-## 🧠 Behavioral & Psychological Notes
-
-**Pattern 8 continues (exit passivity):** MFE hit within 8 minutes of fill, trade profitable early, no exit. Held 8+ hours into a loss. No active exit decision has been made in any recent trade — exits happen via time, hard stop, or resting order. This is the single highest-priority behavioral fix.
-
-**No protective orders for 8+ hours:** TP and SL both canceled at fill time. Whether this was a bracket configuration failure or a manual cancel, the result was a day-long unprotected position. Pattern 9 (order hygiene) echo.
-
-**Reversal bias:** Counter-trend SHORT in an uptrend. ZTH coach feedback this week directly addressed this — Christopher tends to look for reversals rather than continuations. The market was trending up; the SHORT was a reversal call that didn't develop.
-
-**Emotional state this week:** Anxious, ambivalent, frustrated. Deep fear around trading noted. Financial pressure (phone suspended, bank account at risk) is creating cognitive load that narrows the decision-making window in live situations.
-
-**What is working:**
-- Position sizing discipline: 1 micro contract — tested the idea without material damage.
-- Sitting on hands Mon–Wed, Fri — no overtrading despite market activity.
-- Self-aware about reversal bias — the coach's words are landing.
+**Broader context:**
+Deep financial pressure this week (phone suspended, bank account at risk, taxes owed). Significant community service work — PIR Devine News launched and performed well beyond expectations. Cognitive bandwidth was split. Sitting on hands Mon–Wed and Fri is a genuine strength under that load.
 
 ---
 
-## 📝 Notes for Coaches
+## 📎 Full Reviews + Pattern Tracker
 
-Christopher identified his own reversal bias this week, noting that ZTH coach Jesse's comment about the market typically trending is resonating. The challenge is translating that awareness into a pre-entry filter that enforces it. Recommend: a simple 2-second check before any short entry — "is this trend broken, or just pausing?" If the answer is "pausing," the short is off the table until confirmation.
+- [pattern_tracker.md](../../reviews/pattern_tracker.md)
+- [review_20260417_M2K-APEX_001.md](../../reviews/2026/04-Apr/review_20260417_M2K-APEX_001.md) — M2K SHORT Apr 17: unprotected 8h hold, -$87, Pattern 8+9
 
-On exits: the MFE on the Apr 17 trade was +$44.50 at 9 AM. Exit came 8 hours later at -$87. One hard rule — e.g., "if MFE exceeds 1R and then retraces 50%, exit immediately" — would have converted this loss to a winner. No amount of analysis will fix Pattern 8 without a mechanical rule.
+---
 
-Financial and life pressure is real this week. The ability to sit on hands Mon–Wed and Fri is a genuine strength even when the single trade taken didn't work.
+## Apr 14 — No fills
+
+No trades taken. Charts monitored.
+
+---
+
+## Apr 15 — No fills
+
+No trades taken. Charts monitored.
+
+---
+
+## Apr 16 — Overnight limit set
+
+No fills during the session. A SHORT limit order placed on M2K at 2770.70 during the overnight session (~9:50 PM ET), targeting a reversal from a key overhead level. TP set at 2655.20, SL at 2857.10.
+
+---
+
+## Apr 17 — "Eight hours, one exit that never came"
+
+The limit filled at 8:52 AM ET. Both TP and SL bracket orders were canceled at the exact moment of fill — trade ran unprotected from the start. MFE reached 2761.80 at ~9:00 AM (+$44.50 potential). Price then reversed and ground higher for the next 8 hours.
+
+At 11:52 AM a SELL MES order was placed and immediately canceled — considered adding a correlated position, didn't act. No exit decision was made at any point. Exit came at 16:59 at 2788.10: -$87. Duration: 8 hours 6 minutes.
+
+ZTH coach Jesse's feedback this week was direct: the market is typically trending. This trade was a counter-trend SHORT in an uptrend. The reversal idea briefly worked (9 AM MFE), then the trend resumed.
+
+---
+
+## Apr 18 — No fills
+
+No trades taken. M2K chart reviewed showing pre-market context and exit level from the prior day's trade visible heading into the new week.
+
+---
+
+## 📊 SmartTraderAI's Response to Christopher's Weekly Submission
+
+*[To be added after Christopher submits and receives SmartTraderAI response]*
 
 ---
 
@@ -83,7 +117,7 @@ Financial and life pressure is real this week. The ability to sit on hands Mon�
 
 <a id="smarttraderai-copy-paste"></a>
 
-## 🤖 SmartTraderAI Copy-Paste
+## 🤖 SmartTraderAI Weekly Copy-Paste Fields
 
 ---
 
