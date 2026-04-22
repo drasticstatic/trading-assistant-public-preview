@@ -194,5 +194,6 @@ Nine minutes later the trade closed at TP — +$1,037.50. The entire session con
 
 > See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260302_ES_002.md
 
-*Fortuna — Wealth Warden | Claude Code CLI*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Trade Review — ES TRADE · Mar 2, 2026 · 20260302_ES-APEX_002*
 *Trade 2 of 3 | A+ Trade | March 2, 2026*

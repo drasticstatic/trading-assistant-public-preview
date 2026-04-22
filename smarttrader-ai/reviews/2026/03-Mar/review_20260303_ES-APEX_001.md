@@ -142,5 +142,6 @@ The SL held. The loss was contained. But the behavioral pattern — urgency → 
 
 > See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260303_ES_001.md
 
-*Fortuna — Wealth Warden | Claude Code CLI*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Trade Review — ES LONG · Mar 3, 2026 · 20260303_ES-APEX_001*
 *March 3, 2026 | APEX-484839-05*

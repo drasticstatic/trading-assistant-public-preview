@@ -337,5 +337,5 @@ The bottleneck is not setup recognition or entry confidence — it is the absenc
 
 ---
 
-*🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | March 22, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Weekly Review · Mar 16–20, 2026*

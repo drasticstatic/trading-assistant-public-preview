@@ -408,5 +408,5 @@ Note: GC and SI are context instruments only for today.
 
 ---
 
-*Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | Feb 24, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Pre-Market Analysis · GC · Feb 24, 2026*

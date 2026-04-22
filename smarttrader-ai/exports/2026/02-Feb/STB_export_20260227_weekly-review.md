@@ -359,5 +359,5 @@ Pre-market with Fortuna before each session. ZTH structure watch + IT Foundation
 
 ---
 
-*Built by Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | Feb 27, 2026 — updated as week progresses*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Weekly Review · Feb 23–27, 2026*

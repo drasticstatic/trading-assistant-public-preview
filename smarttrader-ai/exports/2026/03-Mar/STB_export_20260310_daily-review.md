@@ -121,5 +121,5 @@ Two things — one positive, one to build. Positive: the Pattern 7 fix works und
 
 ---
 
-*Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | March 10, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Daily Review · Mar 10, 2026*

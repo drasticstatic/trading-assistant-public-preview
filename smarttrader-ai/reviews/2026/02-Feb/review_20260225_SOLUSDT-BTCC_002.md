@@ -221,6 +221,6 @@ Price at evening review (~19:35 ET): $89.1567
 
 > See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/02-Feb/review_20260225_SOL_002.md
 
-*🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | Feb 25, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Trade Review — SOLUSDT TRADE · Feb 25, 2026 · 20260225_SOLUSDT-BTCC_002*
 *Trade data sourced from BTCC transaction history | Screenshots taken 19:35–19:53 ET*

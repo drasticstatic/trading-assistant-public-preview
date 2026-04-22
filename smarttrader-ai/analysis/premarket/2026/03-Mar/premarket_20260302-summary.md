@@ -184,6 +184,7 @@ Volatile open likely due to ISM PMI. First candle may be whippy — do not enter
 
 ---
 
-*Fortuna — Wealth Warden | Claude Code CLI*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Pre-Market Summary · Mar 2, 2026*
 *Pre-market analysis built from ETH screenshots (Feb 27–Mar 2) + live session open data*
 *Last updated: 9:55 AM ET, March 2, 2026*

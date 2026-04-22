@@ -116,5 +116,5 @@ The SL movement was rationalized as structural alignment rather than fear-based,
 
 > See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260316_MNQ_001.md
 
-*Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | March 16, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Trade Review — MNQ TRADE · Mar 16, 2026 · 20260316_MNQ-APEX_001*

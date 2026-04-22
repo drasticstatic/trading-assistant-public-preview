@@ -613,6 +613,6 @@ Holiday weekend gap + CL extraordinary strength = elevated volatility, wider spr
 
 ---
 
-*Fortuna — Wealth Warden | Claude Code CLI*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
 *Pre-Market Summary · Apr 6, 2026 · Holiday Weekend Open*
 

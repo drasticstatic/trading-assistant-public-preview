@@ -17,6 +17,8 @@ that don't yet have a review file.
 ## Before Starting
 
 1. Confirm the CSV file location — typically `~/Downloads/` after export from TradeZella or Tradovate
+   - **TradeZella:** exported as `trades_YYYYMMDDHHmmss.csv` (e.g. `trades_20260421053241.csv`) — rename on copy
+   - **Tradovate:** exported as `Orders.csv` — rename on copy
 2. Identify the date range covered by the export
 3. Note the export type: TradeZella summary or Tradovate orders
 
@@ -93,9 +95,9 @@ git push origin main
 # Create import directory if needed
 mkdir -p data/imports/YYYY/MM-Mon/
 
-# Move CSV from Downloads
-mv ~/Downloads/tradezella_export.csv data/imports/YYYY/MM-Mon/tradezella_YYYYMMDD.csv
-mv ~/Downloads/tradovate_orders.csv data/imports/YYYY/MM-Mon/tradovate_orders_YYYYMMDD.csv
+# Move CSVs from Downloads (actual export filenames)
+mv ~/Downloads/trades_YYYYMMDDHHmmss.csv data/imports/YYYY/MM-Mon/tradezella_YYYYMMDD.csv
+mv ~/Downloads/Orders.csv data/imports/YYYY/MM-Mon/tradovate_orders_YYYYMMDD.csv
 
 # Stage and commit
 git add data/imports/ && \

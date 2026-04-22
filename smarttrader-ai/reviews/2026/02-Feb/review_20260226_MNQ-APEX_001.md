@@ -537,6 +537,6 @@ The only thing that changed it was the entry level adjustment.
 
 > See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/02-Feb/review_20260226_MNQ_001.md
 
-*🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | Feb 27, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Trade Review — MNQ TRADE · Feb 26, 2026 · 20260226_MNQ-APEX_001*
 *Trade data sourced from TradeZella CSV + Tradovate Orders | Session reviewed post-close*

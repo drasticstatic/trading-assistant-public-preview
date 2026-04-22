@@ -155,5 +155,6 @@ Behavioral: One A+ trade, one disciplined exit, one behavioral flag. Day grade: 
 
 ---
 
-*Fortuna — Wealth Warden | Claude Code CLI*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Daily Review · Mar 2, 2026*
 *Daily review — March 2, 2026 | TradeZella CSV: data/exports/tradezella_20260302.csv*
