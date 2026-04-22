@@ -17,26 +17,63 @@ style: |
   blockquote { border-left: 4px solid #4a90d9; padding-left: 1em; color: #b0c0d8; font-style: italic; }
   .subtitle { color: #8899aa; font-size: 0.8em; margin-top: 0.5em; }
   .credit { color: #7090a0; font-size: 0.75em; margin-top: 1em; }
-  section.small-table table { font-size: 0.65em; }
-  section.small-table th { padding: 4px 8px; }
-  section.small-table td { padding: 3px 8px; }
+  section.small-table table { font-size: 0.62em; line-height: 1.25; }
+  section.small-table th { padding: 3px 8px; }
+  section.small-table td { padding: 2px 8px; }
+  section.small-table h2 { margin-bottom: 0.2em; font-size: 1.2em; }
+  section.tiny-table table { font-size: 0.53em; line-height: 1.15; }
+  section.tiny-table th { padding: 2px 7px; background: #2a3a5a; color: #a8d8f8; }
+  section.tiny-table td { padding: 1px 7px; border: 1px solid #3a3a5a; background: #1e1e3a; color: #e8e8f0; }
+  section.tiny-table h2 { margin-bottom: 0.15em; font-size: 1.15em; }
+  section.tiny-table blockquote { font-size: 0.88em; margin-top: 0.3em; padding: 0.4em 0.8em; }
 ---
 
-# 🧠 How to Create Claude Code Skills
+<!-- _class: title-slide -->
 
-**7 Hacks for Skills That Actually Fire**
+<style scoped>
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.subtitle {
+  font-size: 0.88em;
+  opacity: 0.8;
+  margin-top: 1em;
+}
+.credit {
+  font-size: 0.77em;
+  margin-top: 0.8em;
+}
+a {
+  color: #0366d6;
+  text-decoration: none;
+}
+</style>
 
-<div class="subtitle">Fortuna × Christopher Wilson | trading-assistant | Apr 2026</div>
+# 🧠 Architecting Claude Code Skills for High-Impact
 
-<div class="credit">▶️ <a href="https://drasticstatic.github.io/trading-assistant-public-preview/setup/create-skill.marp.html">View rendered slides</a> · 📄 <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/create-skill.marp.md">View .md in repo</a></div>
+**How to Engineer & Optimize Precision Skills That Actually Fire Reliable Outputs**
+<br/>
+<div class="subtitle">Published by Fortuna × Christopher Wilson  | Apr 2026</div>
+<br/>
+<div class="credit">
+  ▶️ <a href="https://drasticstatic.github.io/trading-assistant-public-preview/setup/create-skill.marp.html">View rendered slides</a> · 📄 <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/create-skill.marp.md">View .md in repo</a>
+</div>
+<br/>
+<div class="credit">
+  🔧 <a href="https://makemyskill.com"><strong>makemyskill.com</strong></a> — refine your skill descriptions · Framework by <a href="https://ruben.substack.com/p/claude-skills">Ruben Hassid</a>
+</div>
 
-<div class="credit">🔧 <a href="https://makemyskill.com"><strong>makemyskill.com</strong></a> — refine your skill descriptions · Framework by <a href="https://ruben.substack.com/p/claude-skills">Ruben Hassid</a></div>
 
 ---
 
 ## What Is a Skill?
-
+<br/>
 A **skill** is a structured prompt file in `.claude/skills/` that gives Claude a repeatable, high-quality procedure for a specific task.
+<br/>
+<br/>
 
 > Think of it as a *saved workflow* — not a script, not a rule, but a detailed set of instructions that loads only when needed.
 
@@ -71,6 +108,7 @@ The `description` field controls **everything**.
 ---
 
 ## The 7 Hacks
+<br/>
 
 1. Debug with description echo
 2. **Negative triggers matter more than positive ones**
@@ -83,6 +121,7 @@ The `description` field controls **everything**.
 ---
 
 ## Hack #1 — Debug with Description Echo
+<br/>
 
 **Ask Claude:** "When would you use the [skill-name] skill?"
 
@@ -92,26 +131,29 @@ This instantly reveals:
 - What's **too vague** (fires on everything)
 - What's **too narrow** (never fires)
 - Whether the anti-trigger is **specific enough**
-
+<br/>
 > Run this before deploying any skill.
 
 ---
 
 ## Hack #2 — Negative Triggers First
+<br/>
 
 The **`Do NOT use for:`** line prevents skill hijacking.
 
 **Write it FIRST.** Before the positive triggers.
-
+<br/>
 | Bad ❌ | Good ✅ |
 |--------|---------|
 | "Do NOT use for non-trading tasks" | "Do NOT use for: weekly reviews (use /weekly-review), single-trade analysis, or when no fills occurred" |
+<div><br/>
 
 The anti-trigger should be **more specific** than the positive trigger.
 
 ---
 
 ## Hack #3 — Skills Stack
+<br/>
 
 **Three layers. Don't duplicate across them.**
 
@@ -121,6 +163,8 @@ The anti-trigger should be **more specific** than the positive trigger.
 | **Skills** | Process — how to do a task |
 | **Memory** | Voice, history, preferences |
 
+<div><br/>
+
 Skills handle *process*.
 CLAUDE.md handles *context and rules*.
 Memory handles *voice and history*.
@@ -128,16 +172,19 @@ Memory handles *voice and history*.
 ---
 
 ## Hack #4 — Build From Past Conversations
+<br/>
 
 > "The best skill prompts are reverse-engineered from prompts that already worked."
+<div><br/>
 
 **Don't start from scratch.** Find the conversation where Claude did the task well. Pull that prompt. Strip the one-time context. Generalize it.
-
+<div><br/>
 Your past sessions are the raw material.
 
 ---
 
 ## Hack #5 — Description Is Everything
+<br/>
 
 **Too vague** → skill hijacks conversations it shouldn't
 **Too broad** → same problem
@@ -147,18 +194,24 @@ Test both failure modes before finalizing:
 1. Try a trigger phrase → does it fire?
 2. Try a neighboring phrase → does it NOT fire?
 
+<div><br/>
+
 Use **[makemyskill.com](https://makemyskill.com)** to refine descriptions — paste the description, the longer the better.
 
 ---
 
 ## Hack #6 — Laziness Workaround
+<br/>
 
 If Claude cuts corners inside a skill:
 
 **Don't edit the skill file.**
 
 Add this to the **invocation prompt**:
+<div><br/>
+
 > "Take your time. Quality over speed. Don't skip steps."
+<div><br/>
 
 Editing the skill to force quality creates fragility.
 The invocation prompt is the right place to adjust intensity.
@@ -166,6 +219,7 @@ The invocation prompt is the right place to adjust intensity.
 ---
 
 ## Hack #7 — Skills Are Portable
+<br/>
 
 The `.md` skill format is an **open standard**.
 
@@ -173,12 +227,14 @@ The `.md` skill format is an **open standard**.
 - Works in VSCode extension
 - Designed to transfer across platforms
 - Can be shared with other Claude Code users
+<div><br/>
 
 > Build skills worth sharing.
 
 ---
 
 ## The makemyskill.com Workflow
+<br/>
 
 For skills you'll use every day:
 
@@ -187,6 +243,8 @@ For skills you'll use every day:
 3. Describe the skill — the **longer the better**
 4. Replace your description with the refined version
 5. Re-test with the debug trick
+<br/>
+
 
 Optional but recommended for: `/goodmorning`, `/trade-review`, `/premarket`
 
@@ -194,85 +252,122 @@ Optional but recommended for: `/goodmorning`, `/trade-review`, `/premarket`
 
 ---
 
-<!-- _class: small-table -->
+<!-- _class: tiny-table -->
 
 ## makemyskill.com — Quality Analysis
-
-We ran all 9 trading-assistant skills through the tool. Here's what improved:
+<div><br/>
 
 | Skill | Value Added | Verdict |
 |-------|-------------|---------|
-| `/premarket` | High — section templates, FCR/SMT definitions, Why/What Not/Pitfalls | ✅ Worth running |
-| `/trade-review` | High — Data Source Priorities, Common Patterns, Key Principles | ✅ Worth running |
-| `/create-skill` | High — Generation Workflow, Quality Checklist, Strong vs Weak examples | ✅ Worth running |
-| `/daily-review` | Medium — extra triggers, Common Scenarios, Quality Checklist | ✅ Worth running |
-| `/marp-deck` | Medium — theme rationale, example deck structure | ✅ Worth running |
-| `/goodmorning` | Medium — Why this matters per step, Edge Cases | ✅ Worth running |
-| `/weekly-review` | Low — expanded triggers + Key Principles only | ⚠️ Marginal |
-| `/goodnight` | Near zero — trigger phrases only + introduced a typo | ⏭️ Skip next time |
-| `/monthly-audit` | Near zero — confirmed solid, cosmetic header changes only | 💡 Quality signal |
+| `/premarket` | Section templates, FCR/SMT defs, Why/Pitfalls per section | ✅ Notably stronger — richer templates |
+| `/trade-review` | Data Source Priorities, Common Patterns, Core Principles | ✅ Significantly enhanced — key principles |
+| `/create-skill` | Generation Workflow, Checklist, Strong vs Weak examples | ✅ Adds workflow structure + examples |
+| `/daily-review` | Extra triggers, Common Scenarios, Checklist | ✅ Broader trigger coverage + checklist |
+| `/marp-deck` | Theme rationale, example deck structure | ✅ Adds theme reasoning + structure |
+| `/goodmorning` | Why this matters per step, Edge Cases | ✅ Adds step rationale + edge cases |
+| `/weekly-review` | Expanded triggers + Key Principles only | ⚠️ Marginal — limited additions |
+| `/goodnight` | Trigger phrases only + introduced a typo | ⏭️ Skip — degraded quality |
+| `/monthly-audit` | Confirmed solid, cosmetic changes only | 💡 Quality signal — already solid |
+| `/tcl-analysis` | Entry checklist, TCL vs. pullback criteria, failure modes | ✅ Adds precision — run it |
+| `/smog-analysis` | Reversal confirmation layers, SMT trap scenarios | ✅ Adds confirmation depth |
+| `/summarize` | Scope controls, output format options | ⚠️ Marginal — simple skill |
+| `/explain` | Audience-level targeting, output structure | ⚠️ Marginal — simple skill |
+| `/capture-agent-trades` | Data format examples, reconciliation edge cases | ✅ Adds format + edge cases |
+<div><br/>
 
-> **Key pattern:** The better the input skill, the less the tool improved it. A "near zero" result means your skill is already solid — not a failure.
-
-**Bonus:** The best unexpected output was `/marp-quick-reference.md` — a standalone Marp syntax cheatsheet nobody asked for.
+> **Better results:** Ask makemyskill.com directly — *"Improve and refine this skill:"* then paste the **full skill body**, not just the description. The better the input, the less it changes — near zero = your skill is already solid.
 
 ---
 
 ## The /create-skill Skill
-
+<br/>
 **Use it:** "create a skill for [task]" → Fortuna drafts the full file.
 
-**What it does:**
-- Writes description first (Do NOT use for → positive triggers)
-- Follows the 7 rules automatically
-- Runs the self-review before saving
-- Reminds you to test with the debug trick
-- Includes a makemyskill.com submission step
+**What it does:** Writes `Do NOT use for:` first → positive triggers → steps → checklist → Quick Commands. Runs self-review. Prompts you to test with the echo trick.
 
 **Generation workflow:**
 1. Describe what the skill should do
-2. Fortuna drafts → review the description with the echo test
-3. Submit description to [makemyskill.com](https://makemyskill.com) if sparse
-4. Save to `.claude/skills/` and register in MEMORY.md
-
-> Skills built with `/create-skill` are tracked in a roadmap in `setup/system-overview.md`.
+2. Fortuna drafts → test with the echo trick
+3. Paste full body into [makemyskill.com](https://makemyskill.com) — ask it to *"improve and refine"*
+4. Save to `.claude/skills/` · register in MEMORY.md
 
 ---
 
-<!-- _class: small-table -->
+<!-- _class: tiny-table -->
+
+<style scoped>
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+table {
+  font-size: 0.72em; /* Ensures tables stay small enough to fit */
+  width: 100%;
+}
+</style>
 
 ## Skills in This Repo
+<br/>
 
-| Skill | Trigger |
-|-------|---------|
-| `/trade-review` | "create review for this trade" |
-| `/daily-review` | "daily review for [date]" |
-| `/weekly-review` | "weekly review" |
-| `/premarket` | "create premarket" |
-| `/goodmorning` | "good morning" / "start session" |
-| `/goodnight` | "goodnight" / "end session" |
-| `/session-sync` | "sync everything" / "commit and push" |
-| `/level-brief` | "what are the levels" / "level brief" |
-| `/smt-scan` | "SMT scan" / "check the indices" |
-| `/eval-progress` | "eval status" / "how close am I to payout" |
-| `/open-orders` | "open orders" / "check all positions" |
-| `/pattern-review` | "pattern review" / "update pattern tracker" |
-| `/smog-analysis` | "SMOG analysis" / "run SMOG on this" |
-| `/monthly-audit` | "monthly audit" / "end of month" |
-| `/import-trades` | "import trades" / "process the CSV" |
-| `/tax-entry` | "log this for tax" / "add to tax log" |
-| `/create-skill` | "create a skill for X" |
-| `/startup` (global) | "startup" — any repo |
+<div class="grid-container">
+
+<div>
+<strong>📊 Reviews & Sessions</strong>
+
+<table>
+<tr><th>Skill</th><th>Trigger</th></tr>
+<tr><td><code>/trade-review</code></td><td>"create review for [trade]"</td></tr>
+<tr><td><code>/daily-review</code></td><td>"daily review for [date]"</td></tr>
+<tr><td><code>/weekly-review</code></td><td>"weekly review"</td></tr>
+<tr><td><code>/premarket</code></td><td>"create premarket"</td></tr>
+<tr><td><code>/goodmorning</code></td><td>"good morning"</td></tr>
+<tr><td><code>/goodnight</code></td><td>"goodnight" / "end session"</td></tr>
+<tr><td><code>/marp-deck</code></td><td>"create a deck for"</td></tr>
+<tr><td><code>/import-trades</code></td><td>"import trades"</td></tr>
+<tr><td><code>/create-skill</code></td><td>"create a skill for X"</td></tr>
+<tr><td><code>/startup</code> <em>(global)</em></td><td>"startup" — any repo</td></tr>
+</table>
+</div>
+
+<div>
+<strong>🔍 Analysis & Ops</strong>
+
+<table>
+<tr><th>Skill</th><th>Trigger</th></tr>
+<tr><td><code>/tcl-analysis</code></td><td>"TCL <em>(trend continuation)</em> eval"</td></tr>
+<tr><td><code>/smog-analysis</code></td><td>"SMOG <em>(reversal)</em> evaluation"</td></tr>
+<tr><td><code>/level-brief</code></td><td>"what are the levels"</td></tr>
+<tr><td><code>/smt-scan</code></td><td>"SMT scan"</td></tr>
+<tr><td><code>/eval-progress</code></td><td>"eval status"</td></tr>
+<tr><td><code>/pattern-review</code></td><td>"pattern review"</td></tr>
+<tr><td><code>/monthly-audit</code></td><td>"monthly audit"</td></tr>
+<tr><td><code>/session-sync</code></td><td>"sync everything"</td></tr>
+<tr><td><code>/summarize</code></td><td>"summarize this"</td></tr>
+<tr><td><code>/explain</code></td><td>"explain this"</td></tr>
+<tr><td><code>/capture-agent-trades</code></td><td>"capture agent trades"</td></tr>
+</table>
+</div>
+
+</div>
 
 ---
 
 ## Deploying to Other Repos
+<br/>
 
 ```bash
 # Copy a skill to a spoke repo
 cp .claude/skills/create-skill.md \
    /path/to/spoke-repo/.claude/skills/
 ```
+<div><br/>
 
 **Rules:**
 - Only copy skills **relevant** to that repo's workflow
@@ -282,6 +377,7 @@ cp .claude/skills/create-skill.md \
 ---
 
 ## Scripts in Skills — The Pattern
+<br/>
 
 Add a `## Quick Commands` section to every skill.
 
@@ -325,17 +421,45 @@ git add setup/*.marp.md setup/*.marp.html && \
 ---
 
 # Start Building
-
+<br/>
 > Every skill you create saves the next session from re-explaining the same process.
+> <div><br/>
 
 **First skill to build:** The one you just explained to Claude.
+<div><br/>
 
 Go back to that conversation. Find the prompt that worked. That's your skill body.
 
 ---
 
+<!-- _class: end-slide -->
+
+<style scoped>
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.credit {
+  font-size: 0.7em;
+  margin-top: 2em;
+  opacity: 0.8;
+}
+a {
+  text-decoration: none;
+}
+</style>
+
 *Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
 
-**[makemyskill.com](https://makemyskill.com)** — refine your skill descriptions
+### **[makemyskill.com](https://makemyskill.com)**
+**Refine your skill descriptions**
 
-<div class="credit">📂 <a href="https://github.com/drasticstatic/trading-assistant-public-preview">trading-assistant-public-preview</a> — public repo · Framework by <a href="https://ruben.substack.com/p/claude-skills">Ruben Hassid</a> — thank you 🙏</div>
+<div class="credit">
+
+📂 [trading-assistant-public-preview](https://github.com/drasticstatic/trading-assistant-public-preview) — public repo 
+Framework by [Ruben Hassid](https://ruben.substack.com/p/claude-skills) — thank you 🙏
+
+</div>
+
