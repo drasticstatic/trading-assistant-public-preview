@@ -107,9 +107,15 @@ At the very top, after subtitle lines, before first `---`:
 
 ## Required Footer
 
-Immediately before `*Fortuna — Wealth Warden*`:
+After `## 🎯 Forward Focus` content, end with:
 ```
+---
+
 > See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/YYYY/MM-Mon/review_YYYYMMDD_INSTRUMENT-PLATFORM_NNN.md
+
+---
+
+*Trade Review — Fortuna · [Date]*
 ```
 
 ## Data Source Priorities

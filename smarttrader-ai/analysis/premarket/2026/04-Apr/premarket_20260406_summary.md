@@ -4,7 +4,7 @@
 
 > **Note:** This summary was generated Saturday evening using weekend/overnight futures data via the newly activated TradingView MCP. FCR levels cannot be set until the 9:30 AM Monday first candle. Re-run `morning_brief` Monday pre-market for updated levels. Data reflects the first-ever live pull from `tradingview-mcp-jackson` — treat any gaps as calibration points.
 
-[Jump to SmartTraderAI Copy-Paste](#smarttraderai-copy-paste)
+[Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 
 ---
 
@@ -560,67 +560,59 @@ NQ is sitting in a 15-point EMA cluster (24,127–24,142). Multiple EMA layers c
 ---
 
 <a id="smarttraderai-copy-paste"></a>
-## 🤖 SmartTraderAI Copy-Paste
+
+## 🤖 SmartTraderAI Pre-Market Copy-Paste Fields
 
 ---
 
-**Q1: What is today's date and session context?**
+**What news releases today?**
+
+Monday April 6, 2026 — first trading day after Good Friday + Easter weekend (3-day market closure). CL (WTI crude) gapped +$11.94 (+11.9%) over the holiday weekend from ~$100.12 to $112.06 — extraordinary macro move. Equity indices showing broad weakness. Easter Monday: some international markets closed, reduced global liquidity early session. No confirmed high-impact US data releases at time of writing — verify economic calendar before open.
 
 ---
 
-Monday April 6, 2026 — first trading day after Good Friday + Easter weekend (3-day market closure). Weekend futures data captured Saturday evening via TradingView MCP (first live run). FCR levels set at 9:30 AM first candle.
+**What are the expected figures? What effect has this event had on the markets before?**
+
+CL gap +$11.94 is the dominant event. Weekend gaps of this magnitude on energy typically produce one of two behaviors: gap-continuation (bullish momentum carries) or gap-fade (price fills back toward Thursday's close). Monday opens after 3-day holiday weekends historically show elevated volatility and wider spreads. Equity index futures all showing gap-down from Thursday — all four below VWAP and below PDC.
 
 ---
 
-**Q2: What major news or macro events are in play?**
-
----
-
-CL (WTI crude) gapped +$11.94 (+11.9%) over the Easter weekend from Thursday's close of ~100.12 to 112.06. This magnitude of move suggests a significant macro catalyst — geopolitical event, OPEC+ action, or tariff-related energy impact. Equity indices are all showing weakness, diverging from crude strength. Easter Monday keeps some international markets closed — expect reduced global liquidity early session. Verify economic calendar before open.
-
----
-
-**Q3: What are the key figures and their expected effect?**
-
----
-
-No confirmed high-impact US data releases known at time of writing. CL gap is the dominant figure — +$11.94 overnight. Effect: elevated volatility at open, potential gap-fade vs. continuation decision on CL; equity index gap-down risk given 3 days of news accumulation. Watch for Monday open gap behavior on NQ/ES/YM to set the tone.
-
----
-
-**Q4: What is the HTF bias and key levels?**
-
----
+**List both your HTF bias and key levels**
 
 **HTF Bias: BEARISH (equities) / BULLISH (CL)**
 
-All four equity index futures below VWAP and below Thursday's close:
-- MNQ: 24,132 — VWAP 24,175 — Lower Band 1 support at 24,118
-- ES: 6,603 — VWAP 6,612 — Lower Band 1 support at 6,596
-- YM: 46,629 — VWAP 46,679 — EMAs 46,645-47 overhead resistance
-- RTY: 2,531 — VWAP 2,535 — EMAs 2,532-33 overhead resistance
+Equity levels:
+- MNQ: 24,132 — VWAP 24,175 — Lower Band 1 support 24,118
+- ES: 6,603 — VWAP 6,612 — Lower Band 1 support 6,596
+- YM: 46,629 — VWAP 46,679 — EMA resistance 46,645–47
+- RTY: 2,531 — VWAP 2,535 — EMA resistance 2,532–33
 
-CL: 112.06 — above VWAP (109.02) and above EMA stack (bullish) — extraordinary weekend gap.
-
----
-
-**Q5: What is the intraday bias and key levels to watch?**
+CL: 112.06 — above VWAP (109.02) — above full EMA stack — bullish structure.
 
 ---
 
-**Intraday bias: SHORT-leaning** into Monday open. Triple-index (NQ/ES/YM) all below VWAP and below PDC — Scenario A SHORT is primary watch if FCR LOW is displaced at 9:30.
+**List your Intraday bias and levels**
 
-**Scenario A SHORT:** NQ + ES + YM all displace BELOW 9:30 FCR LOW → valid Scenario A SHORT.
-**Scenario C risk:** Holiday weekend volatility may create mixed signals at open → no trade if indices don't confirm together.
-**Counter-trend LONG:** Requires all five layers (FCR, IT Foundation EMAs green, FVG above, SMT, Golden Pocket) — do not force against bearish HTF backdrop.
+**Intraday bias: SHORT-leaning (equities).** Triple-index (NQ/ES/YM) all below VWAP and below PDC — Scenario A SHORT is the primary watch if FCR LOW is displaced at 9:30.
 
-Key levels to set at open: MNQ FCR HIGH ray + FCR LOW ray. Wait for full 9:30–9:45 candle before reading displacement.
+- Scenario A SHORT: NQ + ES + YM all displace BELOW 9:30 FCR LOW → valid entry
+- Scenario C risk: holiday weekend volatility may create mixed signals → no trade if indices don't confirm together
+- Counter-trend LONG: requires all five layers — do not force against bearish HTF backdrop
 
----
-
-**Q6: What are your expectations for the session?**
+Key levels set at open: MNQ FCR HIGH ray + FCR LOW ray. Wait for full 9:30–9:45 candle before reading displacement.
 
 ---
 
-Holiday weekend gap + CL extraordinary strength = elevated volatility, wider spreads, potential fakeouts at open. Primary goal Monday: wait for clear Scenario A setup. If the open is choppy or indices split (Scenario C), sit out the first 30 minutes and look for ZTH setups after structure develops. APEX-06 profit gap is the priority — one clean A+ trade is worth more than two reactive B-grade fills. If no clear setup presents, protect capital and wait for next opportunity.
+**Expectations for the day?**
+
+Holiday weekend gap + CL extraordinary strength = elevated volatility, wider spreads, potential fakeouts. Primary goal: wait for clear Scenario A setup at 9:30 FCR. If open is choppy or indices split (Scenario C), sit out the first 30 minutes and look for ZTH setups after structure develops. APEX-06 profit gap is the priority — one clean A+ trade beats two reactive B-grade fills.
+
+---
+
+> Full pre-market summary: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/04-Apr/premarket_20260406_summary.md
+
+---
+
+*Fortuna — Wealth Warden | Claude Code CLI*
+*Pre-Market Summary · Apr 6, 2026 · Holiday Weekend Open*
 
