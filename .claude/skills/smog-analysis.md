@@ -1,88 +1,105 @@
 ---
 name: smog-analysis
 description: >
-  Use to run a SMOG framework analysis on a specific trade or setup — checking all six
-  entry criteria, evaluating the reversal quality, and grading the execution.
-  TRIGGER when: "SMOG analysis", "run SMOG on this", "SMOG check", "was that a SMOG setup",
-  "analyze this trade with SMOG", "SMOG grade", "SMOG 3.0 review".
-  Do NOT use for: TCL/trend continuation setups (use /tcl-analysis), general trade reviews
-  (use /trade-review), or non-Inevitrade strategies.
+  Run a SMOG (Smart Money OG) framework analysis on a specific trade or setup — checking all six entry criteria, evaluating reversal quality, and grading execution. Use for reversal trades on 1-minute timeframe targeting 1:4+ R:R. TRIGGER when: "SMOG analysis", "run SMOG on this", "SMOG check", "was that a SMOG setup", "analyze this trade with SMOG", "SMOG grade", "SMOG 3.0 review", "check SMOG criteria", "reversal setup analysis", "ADX reversal", "OG oscillator trade", "CHoCH setup", or any mention of SMOG framework, Inevitrade reversals, or Smart Money OG strategy. Do NOT use for TCL/trend continuation setups, general trade reviews without SMOG context, or non-Inevitrade strategies.
 ---
 
 # Skill: /smog-analysis
 
-Run a SMOG (Smart Money OG) framework analysis on a specific trade or setup.
-SMOG is a **reversal strategy** targeting 1:4+ R:R on the 1-minute timeframe.
-Full reference: `strategies/inevitrade/smog-reference.md`
+Analyze reversal trades using the SMOG (Smart Money OG) framework — a six-criteria system for 1-minute reversals targeting 1:4+ R:R. Full reference: `strategies/inevitrade/smog-reference.md`
 
-## Core Framework Reminder
+## What SMOG Is
 
-SMOG combines:
-- **ADX < 25** — weakening trend = reversal probability high
-- **OG Oscillator highlight** — buy/sell signal when ADX hits 25 or below
+A reversal strategy combining:
+- **ADX < 25** — weakening trend increases reversal probability
+- **OG Oscillator highlight** — buy/sell signal when ADX ≤ 25
 - **CHoCH or CISD** — structural reversal confirmation
-- **Fair Value Gap** — entry zone
-- **Fibonacci retracement** — 50%–61.8% golden pocket for entry
-- **SMOG 3.0 additions**: 15-min OG bias + Heikin Ashi trailing
+- **Fair Value Gap (FVG)** — entry zone
+- **Fibonacci 50–61.8%** — golden pocket alignment
+- **15-min OG bias** (SMOG 3.0) — higher timeframe confirmation
+
+SMOG works because it waits for trend exhaustion (ADX), confirms structural shift (CHoCH), and enters at high-probability zones (FVG + Fib). Skipping any criterion significantly reduces win rate.
 
 ## Before Starting
 
 1. Identify the trade: date, instrument, direction, entry/exit
-2. Read the trade data (CSV or Christopher's description)
-3. Read screenshots if available
-4. Read `strategies/inevitrade/smog-reference.md` if clarification needed on any criterion
+2. Read the trade data (CSV or Christopher's description) and screenshots
+3. Read `strategies/inevitrade/smog-reference.md` if any criterion is unclear
 
-## Analysis Steps
+## Analysis Workflow
 
 ### 1. Six-Criteria Checklist
 
-Work through each criterion and mark as met (✅), partial (⚠️), or not met (❌):
+Evaluate each criterion as met (✅), partial (⚠️ = 0.5), or not met (❌):
 
-| # | Criterion | Met? | Notes |
-|---|-----------|------|-------|
-| 1 | ADX < 25 on 1min or 5min | | |
-| 2 | OG Oscillator highlight present | | |
-| 3 | CHoCH or CISD confirmed | | |
-| 4 | Fair Value Gap present as entry zone | | |
-| 5 | Fibonacci golden pocket (50–61.8%) aligned | | |
-| 6 | *(SMOG 3.0)* 15-min OG bias confirms direction | | |
+| # | Criterion | Status | Notes |
+|---|-----------|--------|-------|
+| 1 | ADX < 25 on 1min or 5min | | Was ADX declining and below 25 at signal? |
+| 2 | OG Oscillator highlight present | | Green (buy) or red (sell) highlight visible? |
+| 3 | CHoCH or CISD confirmed | | Clear break of structure in reversal direction? |
+| 4 | Fair Value Gap as entry zone | | FVG present and used for entry? |
+| 5 | Fibonacci golden pocket (50–61.8%) | | Entry within or near golden pocket? |
+| 6 | 15-min OG bias confirms direction | | Higher timeframe OG oscillator aligned? |
 
-**Grade:** All 6 ✅ = A+ setup. 5 = A. 4 = B. 3 or fewer = should not have been taken.
+**Grading:**
+- 6/6 ✅ = **A+** (textbook setup)
+- 5/6 ✅ = **A** (strong setup, minor gap acceptable)
+- 4/6 ✅ = **B** (marginal — review what was missing)
+- ≤ 3/6 ✅ = **Should Not Trade** (insufficient confirmation)
 
-### 2. Trailing Method Review (SMOG 3.0)
+### 2. Execution Quality
 
-If a TP was active:
-- Was Heikin Ashi 15-min trailing applied?
-- Was the first red HA close respected as the exit signal?
-- Was the 4 PM hard stop honored?
+**Entry:**
+- At FVG zone — ideal, waited for pullback into gap
+- Below FVG — acceptable if still within golden pocket
+- Chased above FVG — poor, reduces R:R and increases risk
 
-### 3. Execution Assessment
+**Stop placement:** Should be beyond the CHoCH swing point. If SL was moved before structural invalidation → Pattern 7.
 
-- Entry: Was it at the FVG zone or chased above it?
-- Stop placement: Was it beyond the CHoCH level?
-- Target: Was the 1:4+ R:R target pre-defined before entry?
-- Outcome vs. potential: Did the exit match the setup's structure?
+**Target:** Was 1:4+ R:R defined before entry?
 
-### 4. Behavioral Notes
+### 3. Trailing Method (SMOG 3.0)
 
-Did any active patterns fire during this setup?
-- Pattern 7 (SL moved) — was the structural stop respected?
-- Pattern 8 (exit passivity) — was the HA trailing method used or was it held passively?
+- **Heikin Ashi 15-min trailing**: First red HA close = exit signal
+- **16:58 ET hard stop**: Exit by 16:58 ET at the latest — do not let the prop firm close the position
 
 ## Output Format
 
 ```
 SMOG Analysis — [Instrument] [Direction] [Date]
 
-Criteria: [X/6] ✅
+Criteria Met: [X/6] ✅
 [Checklist table]
 
 Setup Grade: [A+ / A / B / Should Not Trade]
-Entry quality: [At FVG / Below FVG / Chased]
+Entry Quality: [At FVG / Below FVG / Chased]
 Trailing: [HA method applied / Not applied / N/A]
+Outcome: [Win/Loss, R:R achieved]
 
-Key observation: [One sentence on the most important finding]
-Coaching note: [One specific improvement for next SMOG setup]
+Key Observation: [One sentence on most important finding]
+Coaching Note: [One specific improvement for next SMOG setup]
+```
+
+## Example
+
+```
+SMOG Analysis — NQ Short 2026-04-15
+
+Criteria Met: 5/6 ✅
+| 1 | ADX < 25       | ✅ | ADX at 22, declining               |
+| 2 | OG highlight   | ✅ | Red sell signal present             |
+| 3 | CHoCH          | ✅ | Clear lower high break              |
+| 4 | FVG            | ✅ | Entry at top of gap                 |
+| 5 | Fib 50–61.8%   | ⚠️ | 58% — within range but near edge   |
+| 6 | 15-min OG bias | ✅ | Bearish on higher TF                |
+
+Setup Grade: A
+Entry Quality: At FVG
+Trailing: HA method applied, exited on first red close
+Outcome: Win, 1:5.2 R:R
+
+Key Observation: Fibonacci entry near edge of golden pocket — tighter entry at 61.8% would have improved R:R to 1:6+.
+Coaching Note: Wait for deeper retracement into golden pocket when ADX is still declining.
 ```
 
 ## Quick Commands
@@ -92,5 +109,7 @@ Coaching note: [One specific improvement for next SMOG setup]
 # strategies/inevitrade/smog-reference.md
 
 # No commit required for analysis-only runs
-# If adding to a trade review: git add smarttrader-ai/reviews/ && git commit
+# If adding to a trade review:
+git add smarttrader-ai/reviews/ && git commit -m "Add SMOG analysis [date]"
+git push origin main
 ```

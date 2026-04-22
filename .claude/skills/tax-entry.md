@@ -1,11 +1,7 @@
 ---
 name: tax-entry
 description: >
-  Use to log a trade or document to the taxes working files for the current year.
-  TRIGGER when: "log this for tax", "add to tax log", "tax entry for this trade",
-  "record for taxes", "tax this trade", "add to taxes", "tax log [year]".
-  Do NOT use for: trade reviews (use /trade-review), P&L analysis, or when the
-  user is asking about tax strategy rather than logging a specific entry.
+  Log trades and documents to tax working files for the current year. Use this when the user says: 'log this for tax', 'add to tax log', 'tax entry for this trade', 'record for taxes', 'tax this trade', 'add to taxes', 'tax log [year]', 'file this for taxes', 'save for tax time', or mentions logging any taxable event (futures, crypto, stock trades, 1099s, platform statements). Also trigger when user pastes trade data or mentions tax documentation. Do NOT use for tax strategy discussions, P&L analysis, or trade reviews.
 ---
 
 # Skill: /tax-entry
@@ -55,8 +51,20 @@ Append to `taxes/YYYY/docs_YYYY.md`:
 
 ### Crypto Trades (BTCC, Coinbase, etc.)
 
-Crypto trades are taxable events in the US. Log the same fields as futures trades,
-plus add the USD value at time of trade for cost-basis purposes.
+Crypto is a taxable event in the US. Log the same fields as futures, and add USD value at time of trade for cost-basis:
+
+```markdown
+| Date | Instrument | Platform | Direction | Entry (USD) | Exit (USD) | Gross P&L | Fees | Net P&L | Notes |
+|------|-----------|----------|-----------|-------------|-----------|-----------|------|---------|-------|
+| 2026-04-15 | SOL/USDT | BTCC | Short | 142.30 | 141.85 | +$67.00 | $1.20 | +$65.80 | Intraday perp |
+```
+
+## Edge Cases
+
+- **Wash sales:** Log the trade normally. Add a note in the Notes column (e.g., "Potential wash sale — review at year-end"). Wash sale adjustments happen during tax prep, not at logging time.
+- **Multi-leg trades:** Log each leg as a separate row, or combine into one row with a note describing the structure. Consistency matters more than the exact format — pick one approach per year.
+- **Partial fills:** Log the final executed price and total P&L. If multiple fills across different prices, average them or log separately depending on what matches the 1099.
+- **Platform discrepancies:** If TradeZella and Tradovate show different fees or P&L, prefer the platform's official data (Tradovate for futures). Note the discrepancy.
 
 ## After Logging
 

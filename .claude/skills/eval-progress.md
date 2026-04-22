@@ -1,12 +1,7 @@
 ---
 name: eval-progress
 description: >
-  Use to get a live snapshot of prop firm eval account progress — balance, trailing floor,
-  gap to profit target, min days remaining, and daily-run-rate math. TRIGGER when:
-  "eval status", "where am I on the eval", "how's the account", "eval progress",
-  "how close am I to payout", "account check", "balance check", "floor check",
-  "how many days left", "daily run rate". Do NOT use for: full session startup
-  (use /goodmorning), premarket analysis, or non-prop-firm account checks.
+  Get a live snapshot of prop firm eval account progress — balance, trailing floor, gap to profit target, min days remaining, and daily-run-rate math. Use this whenever the user mentions: eval status, where am I on the eval, how's the account, eval progress, how close am I to payout, account check, balance check, floor check, how many days left, daily run rate, am I on pace, eval snapshot, account snapshot, prop firm progress, drawdown check, profit target status, or any question about current standing in a prop firm evaluation challenge. Do NOT use for: full session startup (use /goodmorning), premarket analysis, or non-prop-firm account checks.
 ---
 
 # Skill: /eval-progress
@@ -83,6 +78,13 @@ Overall: [One sentence — e.g., "On pace for APEX payout, TPT needs attention"]
 ## Output Format
 
 Compact table — designed to be read in 30 seconds. Not a full account report.
+
+## When NOT to Use
+
+- Full session startup (use /goodmorning instead — eval is checked there)
+- Premarket analysis or trade planning
+- Non-prop-firm account checks (Robinhood, BTCC)
+- Detailed trade-by-trade review
 
 ## Quick Commands
 
