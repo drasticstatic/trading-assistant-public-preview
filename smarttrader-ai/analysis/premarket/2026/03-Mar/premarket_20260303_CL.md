@@ -118,5 +118,6 @@ Is this overextended, or is there a pullback entry forming?
 
 ---
 
-*Fortuna — Wealth Warden | Claude Code CLI*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Pre-Market Analysis · CL · Mar 3, 2026*
 *CL instrument premarket — March 3, 2026 | Based on March 2 evening session (5:28 PM ET)*

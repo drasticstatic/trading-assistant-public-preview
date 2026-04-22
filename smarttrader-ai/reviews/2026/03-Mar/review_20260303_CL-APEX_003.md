@@ -161,5 +161,6 @@ The FOMO flag here is nuanced. The entry adjustment *lower* was not FOMO — it 
 
 > See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260303_CL_003.md
 
-*Fortuna — Wealth Warden | Claude Code CLI*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Trade Review — CL LONG · Mar 3, 2026 · 20260303_CL-APEX_003*
 *March 3, 2026 | APEX-484839-05*

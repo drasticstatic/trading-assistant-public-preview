@@ -214,5 +214,5 @@ Discipline: 10/10. Best session of the recovery arc.
 
 ---
 
-*Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | Feb 25, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Daily Review · Feb 25, 2026*

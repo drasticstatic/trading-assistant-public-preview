@@ -138,5 +138,5 @@ This is the same execution standard as Feb 25 — entry precision, no SL movemen
 
 > See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260316_RTY_002.md
 
-*Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | March 16, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Trade Review — RTY TRADE · Mar 16, 2026 · 20260316_RTY-APEX_002*

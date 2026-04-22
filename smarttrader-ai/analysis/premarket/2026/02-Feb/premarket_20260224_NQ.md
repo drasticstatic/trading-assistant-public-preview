@@ -359,5 +359,5 @@ SCENARIO C — Mixed signals or doji
 
 ---
 
-*Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | Feb 24, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Pre-Market Analysis · NQ · Feb 24, 2026*

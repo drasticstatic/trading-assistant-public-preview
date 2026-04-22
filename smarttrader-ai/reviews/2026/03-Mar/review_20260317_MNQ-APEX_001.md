@@ -139,5 +139,5 @@ TP at 24,935 filled at 08:42:56 ET on March 18 while he rested. The alarm was th
 
 > See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260317_MNQ_001.md
 
-*Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | March 18, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Trade Review — MNQ SHORT · Mar 17, 2026 · 20260317_MNQ-APEX_001*

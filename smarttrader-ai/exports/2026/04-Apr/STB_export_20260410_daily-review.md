@@ -100,7 +100,7 @@ ZTH's 2R win illustrated the full process loop in one session: first entry → B
 
 ---
 
-**Q3 — Results:**
+**What were your results for the day?**
 
 | Metric | Value |
 |--------|-------|
@@ -111,6 +111,8 @@ ZTH's 2R win illustrated the full process loop in one session: first entry → B
 | Pattern flags | Pre-entry hesitation (timing/fear) |
 | Process grade | N/A — no entries |
 
+> Full daily review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/04-Apr/STB_export_20260410_daily-review.md
+
 ---
 
 ## 🎯 Forward Focus
@@ -118,3 +120,8 @@ ZTH's 2R win illustrated the full process loop in one session: first entry → B
 1. **Pre-plan the re-entry.** Before the open, write down: if my first limit fills and stops at BE, what is the re-entry condition? Having it written removes one decision in the moment.
 2. **Set limits AT the level, not away from it.** If the read says 6,860 is support, the limit goes at 6,860 — not 6,840 "to be safe." Safe limits that don't fill aren't safe — they're missed trades.
 3. **Trust the coaches' process as the model.** ZTH BE → 2R is the template. The process works. The only variable is whether to follow it.
+
+---
+
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Daily Review · Apr 10, 2026 · CPI Friday — No Fills*

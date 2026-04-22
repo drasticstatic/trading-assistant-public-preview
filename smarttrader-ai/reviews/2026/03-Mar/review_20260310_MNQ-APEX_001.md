@@ -156,5 +156,5 @@ Status:     ⏳ Pattern identified Mar 10. Fix to implement next session.
 
 > See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260310_MNQ_001.md
 
-*Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | March 10, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Trade Review — MNQ TRADE · Mar 10, 2026 · 20260310_MNQ-APEX_001*

@@ -286,5 +286,5 @@ Session recovered after computer restart during live monitoring of Trade 002 (6,
 
 ---
 
-*Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | Feb 24–25, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Daily Review · Feb 24, 2026*

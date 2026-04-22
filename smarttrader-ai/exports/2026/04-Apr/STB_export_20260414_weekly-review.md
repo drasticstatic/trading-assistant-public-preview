@@ -207,5 +207,5 @@ Replay Apr 17 M2K — watch the 9 AM candle where MFE was reached. Mark the exac
 
 ---
 
-*🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | April 21, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Weekly Review · Apr 14–18, 2026*

@@ -446,5 +446,5 @@ CPI at 8:30 drives the first major move and sets the macro tone for the session.
 
 ---
 
-*Fortuna — Wealth Warden | Claude Code CLI*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
 *Pre-Market Summary · Apr 10, 2026 · London Open · CL1! Focus*

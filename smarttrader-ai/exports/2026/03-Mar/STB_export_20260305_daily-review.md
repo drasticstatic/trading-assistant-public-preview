@@ -107,5 +107,5 @@ APEX-06 and TPT accounts intact and preserved. Environment stable. Repo fully st
 
 ---
 
-*🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | March 5, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Daily Review · Mar 5, 2026*

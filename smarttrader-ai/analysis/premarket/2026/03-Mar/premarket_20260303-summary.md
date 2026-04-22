@@ -213,5 +213,6 @@ https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smar
 
 ---
 
-*Fortuna — Wealth Warden | Claude Code CLI*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Pre-Market Summary · Mar 3, 2026*
 *Pre-market built from STB market snapshot + March 2 session context | March 3, 2026*

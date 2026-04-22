@@ -276,4 +276,5 @@ Primarily a patience day ahead of FOMC tomorrow. If Scenario A SHORT fully confi
 
 > Full pre-market summary: https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260317_summary.md
 
-*Fortuna — Wealth Warden | Claude Code CLI* / *Anthropic claude-sonnet-4-6 | March 17, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Pre-Market Summary · Mar 17, 2026*

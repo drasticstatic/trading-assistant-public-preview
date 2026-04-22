@@ -239,5 +239,6 @@ All-time: -$20,733.64 net, 38.46% win rate, profit factor 0.39, Zella score 16.8
 
 ---
 
-*🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | April 3, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Monthly Review · Feb–Mar 2026*
+*Monthly Review · Feb & Mar 2026*

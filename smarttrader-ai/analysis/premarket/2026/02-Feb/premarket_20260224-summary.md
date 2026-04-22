@@ -210,5 +210,5 @@ Mental checklist going in: Do not revenge trade after yesterday's missed move (M
 
 ---
 
-*🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | Feb 24, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Pre-Market Summary · Feb 24, 2026*
