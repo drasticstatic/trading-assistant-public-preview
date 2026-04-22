@@ -163,16 +163,29 @@ The fix: inject a custom `og:image` meta tag into the HTML pointing to a slide 1
 marp setup/[name].marp.md --images png --allow-local-files
 ```
 
-**Inject og:image into the HTML** (run after generating the HTML):
+**Inject og:image + og:description into the HTML** (run after generating the HTML):
+
+Before running the sed command, write a `DESC` value specific to this deck's content.
+- Summarize what the deck covers in 1–2 sentences
+- Must be **at least 100 characters** (LinkedIn Inspector requirement)
+- No hardcoded numbers that limit scope (e.g. "7 hacks" → "hacks for…")
+- Match the tone of the deck title
+
 ```bash
-# Replace <head> with <head> + og:image meta tag
-DECK=setup/create-skill.marp
-IMG_URL="https://drasticstatic.github.io/trading-assistant-public-preview/setup/create-skill.marp.001.png"
-sed -i '' "s|<head>|<head>\n<meta property=\"og:image\" content=\"${IMG_URL}\">\n<meta property=\"og:title\" content=\"How to Create Claude Code Skills\">\n<link rel=\"apple-touch-icon\" href=\"/trading-assistant-public-preview/setup/favicon-claude-rainbow.svg\">|" ${DECK}.marp.html
+# Replace <head> with <head> + og meta tags
+DECK=[path/to/deck-name.marp]   # no .html extension
+IMG_URL="https://drasticstatic.github.io/trading-assistant-public-preview/[path]/[name].marp.001.png"
+TITLE="[Deck title matching the H1]"
+DESC="[Write a 100–200 char description summarizing this specific deck's content]"
+sed -i '' "s|<head>|<head>\n<meta property=\"og:image\" content=\"${IMG_URL}\">\n<meta property=\"og:title\" content=\"${TITLE}\">\n<meta property=\"og:description\" content=\"${DESC}\">\n<link rel=\"apple-touch-icon\" href=\"https://drasticstatic.github.io/apple-touch-icon.png\">|" ${DECK}.marp.html
 ```
 
-The rainbow Claude SVG favicon lives at `setup/favicon-claude-rainbow.svg` — use it for all
-non-trading-specific shareable pages in `setup/`.
+The `drasticstatic-rainbow` favicon is the domain-root asset for `drasticstatic.github.io` —
+served as `/apple-touch-icon.png` (and `/favicon.svg`) from that repo.
+Use the absolute URL `https://drasticstatic.github.io/apple-touch-icon.png` in pages across
+subpath repos (trading-assistant-public-preview, resume, etc.) that don't have their own
+specifically designed favicon. If a page already declares a custom favicon, leave it — don't
+override with the domain-root fallback.
 
 ## Quick Commands
 
