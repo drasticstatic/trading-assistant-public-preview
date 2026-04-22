@@ -153,4 +153,5 @@ The pre-rest cancel-all checklist is now non-negotiable (Pattern 9). A SL on an 
 
 ---
 
-*Daily Review — Fortuna · March 20, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Daily Review · March 20, 2026*

@@ -145,4 +145,5 @@ The loss was not just financial. Christopher has described this experience as on
 
 > See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260326_MGC-TPT_003.md
 
-*Trade Review — Fortuna · March 26–27, 2026 · MGC-TPT-003*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Trade Review — MGC SHORT · March 26–27, 2026 · 20260326_MGC-TPT_003*

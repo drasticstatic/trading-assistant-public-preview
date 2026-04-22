@@ -125,4 +125,5 @@ This is Pattern 8 in its clearest form — not a fast, emotional hold, but a sus
 
 > See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260325_SOLUSDT-BTCC_001.md
 
-*Trade Review — Fortuna · March 25–26, 2026 · SOLUSDT-BTCC-001*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Trade Review — SOLUSDT LONG · March 25–26, 2026 · 20260325_SOLUSDT-BTCC_001*

@@ -115,4 +115,5 @@ The stop was in place. The stop was respected. The account was protected. That i
 
 > See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260326_MCL-TPT_001.md
 
-*Trade Review — Fortuna · March 26, 2026 · MCL-TPT-001*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Trade Review — MCL LONG · March 26, 2026 · 20260326_MCL-TPT_001*

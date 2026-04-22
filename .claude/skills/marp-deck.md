@@ -151,21 +151,45 @@ Verify the output opens in a browser and all tables render with dark backgrounds
 - Template: `setup/create-skill.marp.md` — the canonical dark-theme template (public; `.claude/` is gitignored)
 - Framework: [makemyskill.com](https://makemyskill.com) by [Ruben Hassid](https://ruben.substack.com/p/claude-skills)
 
+## Slide 1 Preview Image (og:image for iMessage / social sharing)
+
+iOS iMessage link previews use `apple-touch-icon.png` from the domain root, which gets cached
+from whichever page on `drasticstatic.github.io` was crawled first — often dappu's icon.
+The fix: inject a custom `og:image` meta tag into the HTML pointing to a slide 1 PNG.
+
+**Generate slide 1 as PNG:**
+```bash
+# Generates [name].marp.001.png (plus .002.png etc — delete the others)
+marp setup/[name].marp.md --images png --allow-local-files
+```
+
+**Inject og:image into the HTML** (run after generating the HTML):
+```bash
+# Replace <head> with <head> + og:image meta tag
+DECK=setup/create-skill.marp
+IMG_URL="https://drasticstatic.github.io/trading-assistant-public-preview/setup/create-skill.marp.001.png"
+sed -i '' "s|<head>|<head>\n<meta property=\"og:image\" content=\"${IMG_URL}\">\n<meta property=\"og:title\" content=\"How to Create Claude Code Skills\">\n<link rel=\"apple-touch-icon\" href=\"/trading-assistant-public-preview/setup/favicon-claude-rainbow.svg\">|" ${DECK}.marp.html
+```
+
+The rainbow Claude SVG favicon lives at `setup/favicon-claude-rainbow.svg` — use it for all
+non-trading-specific shareable pages in `setup/`.
+
 ## Quick Commands
 
 ```bash
-# Generate HTML from any .marp.md file
-marp [input.marp.md] -o [output.html]
-
-# Skill deck (in setup/ for public sharing)
+# Generate HTML
 marp setup/[name].marp.md -o setup/[name].marp.html
 
-# Coach-share deck (in exports)
+# Generate slide PNGs (for og:image preview)
+marp setup/[name].marp.md --images png --allow-local-files
+# Keep only .001.png; delete the rest
+
+# Coach-share deck
 marp smarttrader-ai/exports/YYYY/MM-Mon/[name].marp.md \
      -o smarttrader-ai/exports/YYYY/MM-Mon/[name].marp.html
 
 # Commit Marp files
-git add setup/*.marp.md setup/*.marp.html && \
+git add setup/*.marp.md setup/*.marp.html setup/*.marp.001.png && \
   git commit -m "Add [topic] Marp deck [date]"
 git push origin main
 ```

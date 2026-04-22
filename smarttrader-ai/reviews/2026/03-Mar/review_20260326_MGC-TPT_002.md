@@ -129,4 +129,5 @@ Final result: **+$94 / +4.7 points / 2 contracts**. Duration: 47 minutes.
 
 > See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260326_MGC-TPT_002.md
 
-*Trade Review — Fortuna · March 26, 2026 · MGC-TPT-002*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Trade Review — MGC SHORT · March 26, 2026 · 20260326_MGC-TPT_002*

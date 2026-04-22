@@ -992,3 +992,8 @@ any session begins.
 <br/>
 
 > 📎 **Fortuna note (future exports):** The full Workflow Context section above appears in this first export only. From the next export onward, this reminder will appear here instead: *"Fortuna (Claude Code CLI Wealth Warden - Christopher's Trading Assistant) generates this file. See our first STB_export_20260221.md for full workflow context and pipeline introduction."*
+
+---
+
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*STB Period Review · Feb 2–17, 2026*

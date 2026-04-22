@@ -185,6 +185,7 @@ Five patterns active in this trade — two new, three recurrences:
 
 ---
 
-> See full trade review: [https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260320_RTY_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260320_RTY_001.md)
+> See full trade review: [https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260320_RTY-APEX_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260320_RTY-APEX_001.md)
 
-*Review #001 — Fortuna · March 20, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Trade Review — RTY LONG · March 20, 2026 · 20260320_RTY-APEX_001*

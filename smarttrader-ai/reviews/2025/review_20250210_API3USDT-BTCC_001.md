@@ -53,4 +53,5 @@ Not reviewed with coaches. Documented for tax record completeness (2025 short-te
 
 ---
 
-*Document maintained in [trading-assistant](https://github.com/drasticstatic/trading-assistant).*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Trade Review — API3USDT · Feb 10, 2025 · 20250210_API3USDT-BTCC_001*
