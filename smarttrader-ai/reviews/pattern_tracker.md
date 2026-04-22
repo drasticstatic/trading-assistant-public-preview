@@ -40,6 +40,7 @@
 | 021 | Mar 26 | MGC | Short | 4,410.6 | 4,405.9 (manual) | **+$94.00** | — | 48.45 | 0.5/5 | ✅ EMAs bearish · rejection off resistance · pivot sell | ❌ Moved through 38.7-pt adverse (Pattern 7 repeat) | No |
 | 022 | Apr 8 | SOLUSDT | Short | 81.92 | AutoLiq ~$86 | **~-$22 (BTCC)** | — | — | ⚠️ C | ⚠️ IT EMAs bearish · SHORT aligned · deadline-motivated entry (voucher expiry 11:30 PM) | ❌ None set — voucher | No |
 | 023 | Apr 17 | M2K | Short | 2,770.70 | 2,788.10 | **-$87.00** | Neg | -46.77 | 1/5 | ⚠️ OB + key level · reversal bias · FOMO component · overnight limit | ❌ Canceled at fill (Pattern 9) — unprotected 8h | No |
+| 024 | Apr 21 | MCL | Short | 91.11 | 89.70 | **+$141.00** | — | 56.85 | 2.5/5 | ❌ Last-minute · FOMO · not in plan · trading against trend · ZTH Pivot applied post-impulse | ❌ Variable — no firm SL (near-close entry accepted risk) | No |
 
 ---
 
@@ -70,10 +71,11 @@ Apr 8       ~-$22  █░░░░░░░░░░░░░░  BTCC voucher S
 Apr 14–16   $0.00  ────────────────  no fills — PIR community work · course study · live calls
 Apr 17      -$87   ██░░░░░░░░░░░░░  M2K SHORT overnight limit · 8h hold · no protective orders · Pattern 8
 Apr 18      $0.00  ────────────────  no fills
+Apr 21    +$141.00  ████████░░░░░░░  WIN ✅ MCL SHORT · ZTH Pivot · FOMO entry · Pattern 7 active · 43.25% exit efficiency
 
-Cumulative (Feb 23–Apr 17, USD futures/crypto): +$1,025.00 (USD futures) - $14.13 USDT - ~$22 USDT + $20.63 USDT = ~+$1,009.50
-  APEX-06: +$1,138 net (+$1,225 Mar 24 · -$87 Apr 17) · TPT: -$206 (Mar 26) · APEX-05: blown Mar 3 · BTCC net: ~-$15.50
-Note: APEX-06 active. TPT 50K active. Both eval accounts protected week of Apr 14.
+Cumulative (Feb 23–Apr 21, USD futures/crypto): +$1,166.00 (USD futures) - $14.13 USDT - ~$22 USDT + $20.63 USDT = ~+$1,150.50
+  APEX-06: +$1,279 net (+$1,225 Mar 24 · -$87 Apr 17 · +$141 Apr 21) · TPT: -$206 (Mar 26) · APEX-05: blown Mar 3 · BTCC net: ~-$15.50
+Note: APEX-06 active. TPT 50K active.
 ```
 
 ---
@@ -105,6 +107,7 @@ Note: APEX-06 active. TPT 50K active. Both eval accounts protected week of Apr 1
 | Mar 24 ES (T1) | Confident, excited, fearful, frustrated, happy, stressed, ambivalent, anxious, angry, calm | Partial | ✅ ZTH Pivot + SMT lower highs + IT OG sell + overnight structural entry | ✅ Placed, never threatened — cleanest Pattern 7 pass under max pressure |
 | Mar 26 MCL (T1) | Angry, ambivalent, fearful, frustrated, stressed | No | ✅ EMA bullish, OB + key level, pivot retracement (valid setup, news event) | ✅ Instant fill — stop hit before any Pattern 7 window existed |
 | Mar 26 MGC (T2) | Ambivalent, anxious, confident, fearful, frustrated, happy, neutral, stressed | No | ✅ EMAs bearish, rejection off resistance, pivot sell | ❌ Moved multiple times through 38.7-pt adverse — Pattern 7, fourth consecutive session | Unintentional fill → correct structural hold (HVN + Mar 8 low SMT) → AutoLiq |
+| Apr 21 MCL (T1) | Calm entering; fearful, anxious, happy in-trade | No | ❌ FOMO, not in plan, last-minute, trading against trend — ZTH Pivot label applied post-impulse | ❌ Variable SL; TP moved in-trade (Pattern 7) | First profitable active MCL exit (Pattern 8 partial improvement); 43.25% exit efficiency; correct index read |
 
 **Trend:**
 ```
@@ -459,7 +462,7 @@ Arc status: Pattern 7 — 6 consecutive sessions with SL modification. Critical 
 
 | Metric | Value |
 |--------|-------|
-| Total trade entries | 23 (21 futures + 2 crypto) |
+| Total trade entries | 25 (23 futures + 2 crypto) |
 | Monitoring sessions (no fill) | 1+ (Feb 27, Mar 11–15, Mar 18–19, Mar 23) |
 | Winners | 8 (+Mar 24 ES +$1,225 · +Mar 26 MGC T002 +$94) |
 | Losers | 15 (+Mar 25-26 BTCC -$14.13 · +Mar 26 MCL -$300 · +Mar 26-27 MGC -$1,794) |
@@ -514,6 +517,8 @@ Links to individual reviews:
 - [Mar 26 — MGC Short (+$94 · TPT · stop hunt survival)](2026/03-Mar/review_20260326_MGC-TPT_002.md)
 - [Mar 26–27 — MGC Short (-$1,794 · TPT · overnight · account blown)](2026/03-Mar/review_20260326_MGC-TPT_003.md)
 - [Apr 8 — SOL Short (~-$22 · BTCC voucher · AutoLiq)](2026/04-Apr/review_20260408_SOLUSDT-BTCC_001.md)
+- [Apr 17 — M2K Short (-$87 · APEX · overnight limit · Pattern 8)](2026/04-Apr/review_20260417_M2K-APEX_001.md)
+- [Apr 21 — MCL Short (+$141 · APEX · ZTH Pivot · Pattern 7 · 43% efficiency)](2026/04-Apr/review_20260421_MCL-APEX_001.md)
 
 ---
 
