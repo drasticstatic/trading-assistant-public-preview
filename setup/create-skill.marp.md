@@ -25,7 +25,9 @@ style: |
 
 <div class="subtitle">Fortuna × Christopher Wilson | trading-assistant | Apr 2026</div>
 
-<div class="credit">▶️ <a href="https://drasticstatic.github.io/trading-assistant-public-preview/setup/create-skill.marp.html">View rendered slides</a> · 📄 <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/create-skill.marp.md">View .md in repo</a> · <a href="https://ruben.substack.com/p/claude-skills">Framework by Ruben Hassid</a></div>
+<div class="credit">▶️ <a href="https://drasticstatic.github.io/trading-assistant-public-preview/setup/create-skill.marp.html">View rendered slides</a> · 📄 <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/create-skill.marp.md">View .md in repo</a></div>
+
+<div class="credit">🔧 <a href="https://makemyskill.com"><strong>makemyskill.com</strong></a> — refine your skill descriptions · Framework by <a href="https://ruben.substack.com/p/claude-skills">Ruben Hassid</a></div>
 
 ---
 
@@ -189,6 +191,49 @@ Optional but recommended for: `/goodmorning`, `/trade-review`, `/premarket`
 
 ---
 
+## makemyskill.com — Quality Analysis
+
+We ran all 9 trading-assistant skills through the tool. Here's what improved:
+
+| Skill | Value Added | Verdict |
+|-------|-------------|---------|
+| `/premarket` | High — section templates, FCR/SMT definitions, Why/What Not/Pitfalls | ✅ Worth running |
+| `/trade-review` | High — Data Source Priorities, Common Patterns, Key Principles | ✅ Worth running |
+| `/create-skill` | High — Generation Workflow, Quality Checklist, Strong vs Weak examples | ✅ Worth running |
+| `/daily-review` | Medium — extra triggers, Common Scenarios, Quality Checklist | ✅ Worth running |
+| `/marp-deck` | Medium — theme rationale, example deck structure | ✅ Worth running |
+| `/goodmorning` | Medium — Why this matters per step, Edge Cases | ✅ Worth running |
+| `/weekly-review` | Low — expanded triggers + Key Principles only | ⚠️ Marginal |
+| `/goodnight` | Near zero — trigger phrases only + introduced a typo | ⏭️ Skip next time |
+| `/monthly-audit` | Near zero — confirmed solid, cosmetic header changes only | 💡 Quality signal |
+
+> **Key pattern:** The better the input skill, the less the tool improved it. A "near zero" result means your skill is already solid — not a failure.
+
+**Bonus:** The best unexpected output was `/marp-quick-reference.md` — a standalone Marp syntax cheatsheet nobody asked for.
+
+---
+
+## The /create-skill Skill
+
+**Use it:** "create a skill for [task]" → Fortuna drafts the full file.
+
+**What it does:**
+- Writes description first (Do NOT use for → positive triggers)
+- Follows the 7 rules automatically
+- Runs the self-review before saving
+- Reminds you to test with the debug trick
+- Includes a makemyskill.com submission step
+
+**Generation workflow:**
+1. Describe what the skill should do
+2. Fortuna drafts → review the description with the echo test
+3. Submit description to [makemyskill.com](https://makemyskill.com) if sparse
+4. Save to `.claude/skills/` and register in MEMORY.md
+
+> Skills built with `/create-skill` are tracked in a roadmap in `setup/system-overview.md`.
+
+---
+
 ## Skills in This Repo
 
 | Skill | Trigger |
@@ -199,6 +244,16 @@ Optional but recommended for: `/goodmorning`, `/trade-review`, `/premarket`
 | `/premarket` | "create premarket" |
 | `/goodmorning` | "good morning" / "start session" |
 | `/goodnight` | "goodnight" / "end session" |
+| `/session-sync` | "sync everything" / "commit and push" |
+| `/level-brief` | "what are the levels" / "level brief" |
+| `/smt-scan` | "SMT scan" / "check the indices" |
+| `/eval-progress` | "eval status" / "how close am I to payout" |
+| `/open-orders` | "open orders" / "check all positions" |
+| `/pattern-review` | "pattern review" / "update pattern tracker" |
+| `/smog-analysis` | "SMOG analysis" / "run SMOG on this" |
+| `/monthly-audit` | "monthly audit" / "end of month" |
+| `/import-trades` | "import trades" / "process the CSV" |
+| `/tax-entry` | "log this for tax" / "add to tax log" |
 | `/create-skill` | "create a skill for X" |
 | `/startup` (global) | "startup" — any repo |
 
