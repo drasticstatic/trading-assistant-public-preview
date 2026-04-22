@@ -1,11 +1,7 @@
 ---
 name: smt-scan
 description: >
-  Use to scan NQ, ES, and YM for index divergences and produce a Scenario A/B/C verdict.
-  TRIGGER when: "SMT scan", "check the indices", "are they aligned", "SMT divergence",
-  "scenario check", "what's the scenario", "index divergence", "NQ vs ES", "triple index".
-  Do NOT use for: single-instrument analysis, crypto SMT (different workflow),
-  or when TradingView MCP is not connected.
+  Scan NQ, ES, and YM for index divergences and produce a Scenario A/B/C verdict. Use when the user mentions: SMT scan, check the indices, are they aligned, SMT divergence, scenario check, what's the scenario, index divergence, NQ vs ES, YM divergence, triple index check, are the indices confirming, check correlation, smart money divergence, intermarket analysis, or any request to assess alignment across equity index futures. Optionally compare BTC/ETH crypto as additional confluence. Requires TradingView MCP connection.
 ---
 
 # Skill: /smt-scan
@@ -70,6 +66,23 @@ Confidence: [High / Moderate / Low]
 ### 4. RTY Check (Optional)
 
 If RTY (M2K) is also in the layout, add it as a fourth confirmation. RTY often leads NQ on risk-off moves.
+
+### 5. Crypto Confluence (Optional)
+
+BTC and ETH often move in correlation with NQ, particularly on risk-on/risk-off macro moves. When equity index verdict is marginal (Scenario B or ambiguous), check crypto direction as an additional confluence layer:
+
+- **Confirming**: BTC/ETH trending same direction as NQ → adds conviction
+- **Diverging**: crypto moving opposite → warning flag; potential institutional rotation or hedging
+- Not a primary signal — use as context when the index picture isn't clear-cut
+
+Append to verdict block when used:
+
+```
+CRYPTO CONFLUENCE
+  BTC: [direction / brief note]
+  ETH: [direction / brief note]
+  Verdict: [Confirms / Diverges / Neutral]
+```
 
 ## Output Format
 

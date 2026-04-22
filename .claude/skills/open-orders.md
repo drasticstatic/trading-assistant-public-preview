@@ -1,11 +1,7 @@
 ---
 name: open-orders
 description: >
-  Use to pull a single-pane view of all open positions and working orders across connected
-  exchanges and prop firm accounts. TRIGGER when: "open orders", "check all positions",
-  "what's open", "any open trades", "positions check", "working orders", "what do I have on",
-  "check all accounts". Do NOT use for: trade reviews, eval progress math (use /eval-progress),
-  or when only checking a single exchange that doesn't require aggregation.
+  Pull a single-pane view of all open positions and working orders across connected exchanges and prop firm accounts. TRIGGER when: "open orders", "check all positions", "what's open", "any open trades", "positions check", "working orders", "what do I have on", "check all accounts", "show my positions", "position status", "what am I holding", "account status", "any fills", "check stops", "pre-rest check", before stepping away from desk. Do NOT use for: trade reviews, eval progress math (use /eval-progress), or single-exchange checks that don't need aggregation.
 ---
 
 # Skill: /open-orders
@@ -69,11 +65,39 @@ Pattern 9 check: [✅ All stops set / ⚠️ [account] missing SL on [instrument
 
 ### 5. Pattern 9 Flag
 
-If any open position is missing a SL or TP, flag it immediately — this is Pattern 9 (pre-rest order hygiene). Do not let Christopher step away without confirming all stops are live.
+If any open position is missing a SL or TP, flag it immediately — this is Pattern 9 (pre-rest order hygiene). Do not let Christopher step away without confirming all stops are live. If stops are missing, prompt to confirm whether they should be set or the position is intentionally unprotected.
 
-## Output Format
+## Example
 
-Single compact block. Designed to be read before stepping away from the desk or before a new entry.
+```
+Open Orders — 2:45 PM ET
+
+FUTURES (Tradovate)
+  APEX-06: MNQ long @ 18,245 · Current: 18,267 · P&L: $220 · SL: 18,210 · TP: 18,300
+  TPT: No positions
+
+CRYPTO (BTCC)
+  SOL/USDT: Short @ 142.30 · Current: 141.85 · P&L: $67 ⚠️ TP/SL: TP set, SL missing
+
+EQUITIES (Robinhood)
+  No positions
+
+Pattern 9 check: ⚠️ BTCC missing SL on SOL/USDT — confirm stop before stepping away
+```
+
+## When to Use
+
+- Before stepping away from the desk (lunch, end of session, break)
+- After entering a new position to confirm stops are live
+- When unsure if an order filled or a position is still open
+- Any time Christopher asks "what's open" or "check all accounts"
+
+## When NOT to Use
+
+- Trade reviews or performance analysis (use /trade-review)
+- Eval progress calculations (use /eval-progress)
+- Single-exchange checks that don't require cross-platform aggregation
+- Historical fills or closed positions (use `get_fills` or account history)
 
 ## Quick Commands
 
@@ -83,4 +107,5 @@ Single compact block. Designed to be read before stepping away from the desk or 
 # get_orders
 # get_fills    — recent fills if needed
 # robinhood_get_positions
+# robinhood_get_options_positions
 ```
