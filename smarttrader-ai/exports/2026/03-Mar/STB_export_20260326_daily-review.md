@@ -205,4 +205,5 @@ TPT 50K: -$206 net (-$300 MCL + $94 MGC). BTCC: -$14.13 (SOL long closed). GC ov
 
 ---
 
-*Daily Review — Fortuna · March 26, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Daily Review · March 26, 2026*

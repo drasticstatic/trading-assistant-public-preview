@@ -374,4 +374,5 @@ https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smar
 
 ---
 
-*Weekly Review — Fortuna · Week of March 23–27, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Weekly Review · Mar 23–27, 2026*

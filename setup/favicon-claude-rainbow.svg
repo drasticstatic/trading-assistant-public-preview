@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="rainbow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#FF6B6B"/>
+      <stop offset="20%"  stop-color="#FFB347"/>
+      <stop offset="40%"  stop-color="#FFE066"/>
+      <stop offset="55%"  stop-color="#6BFF9E"/>
+      <stop offset="70%"  stop-color="#6BB5FF"/>
+      <stop offset="85%"  stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#F472B6"/>
+    </linearGradient>
+    <clipPath id="circle-clip">
+      <circle cx="50" cy="50" r="46"/>
+    </clipPath>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="50" fill="#1a1a2e"/>
+  <!-- Rainbow ring -->
+  <circle cx="50" cy="50" r="46" fill="none" stroke="url(#rainbow)" stroke-width="6"/>
+  <!-- Claude C letterform — simplified arc with dot -->
+  <path d="M 68 32 A 26 26 0 1 0 68 68"
+        fill="none" stroke="url(#rainbow)" stroke-width="9"
+        stroke-linecap="round" clip-path="url(#circle-clip)"/>
+</svg>

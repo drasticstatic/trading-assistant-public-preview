@@ -129,4 +129,4 @@ New behavioral note: pre-entry directional whiplash — brief reversal thought a
 
 *Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
 *Trade Review — SOLUSDT TRADE · Apr 8, 2026 · 20260408_SOLUSDT-BTCC_001*
-*Pattern #022 · Apr 8, 2026 · BTCC SOLUSDT Voucher SHORT*
+*BTCC SOLUSDT Voucher SHORT*

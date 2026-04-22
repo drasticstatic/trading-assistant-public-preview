@@ -229,5 +229,5 @@ BEFORE MARKING LEVELS — ASK:
 
 ---
 
-*🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | Feb 23, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Level Marking Methodology · Feb 23, 2026*

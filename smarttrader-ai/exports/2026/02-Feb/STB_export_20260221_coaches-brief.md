@@ -214,4 +214,5 @@ Let's build it together. 🤝
 ---
 
 *📄 [Full document: STB_export_20260221.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/02-Feb/STB_export_20260221.md)*
-*Built with [Claude Code CLI](https://claude.ai/claude-code) by Anthropic — Fortuna (Wealth Warden Trading Assistant)*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*STB Coaches Brief · Feb 21, 2026*
