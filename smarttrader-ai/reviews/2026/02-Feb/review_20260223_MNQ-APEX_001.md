@@ -459,6 +459,6 @@ appears during setup evaluation — that's the stop sign.
 
 > See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/02-Feb/review_20260223_MNQ_001.md
 
-*🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | Feb 23, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Trade Review — MNQ TRADE · Feb 23, 2026 · 20260223_MNQ-APEX_001*
 *Trade data sourced from TradeZella export + Tradovate Orders.csv*

@@ -90,7 +90,7 @@ Narrative analysis for coaches. Include:
 - What went right (always include at least one)
 
 ### 8. `## 🔁 Pattern Tracker`
-- One line: "Trade #NNN logged."
+- One line: "Trade [file_id] logged." — use filename convention, e.g. `Trade 20260421_MCL-APEX_001 logged.`
 - Blockquote link: `> See full running tracker: [../../pattern_tracker.md](../../pattern_tracker.md)`
 - Brief note if a pattern evolved or a new one emerged
 
@@ -100,10 +100,14 @@ No links here. Final section before footer.
 
 ## Required Header Elements
 
-At the very top, after subtitle lines, before first `---`:
+At the very top:
 ```
+# Trade Review — [INSTRUMENT] [DIRECTION] | [Month DD, YYYY]
+### [file_id] · Account: [ACCOUNT] · [Month DD, YYYY]
+
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 ```
+Where `[file_id]` = `YYYYMMDD_INSTRUMENT-PLATFORM_NNN` — no global sequential number.
 
 ## Required Footer
 
@@ -115,8 +119,10 @@ After `## 🎯 Forward Focus` content, end with:
 
 ---
 
-*Trade Review — Fortuna · [Date]*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Trade Review — [INSTRUMENT] [DIRECTION] · [Month DD, YYYY] · [file_id]*
 ```
+Where `[file_id]` = `YYYYMMDD_INSTRUMENT-PLATFORM_NNN` (matches the filename without `review_` and `.md`).
 
 ## Data Source Priorities
 

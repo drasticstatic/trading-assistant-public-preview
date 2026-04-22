@@ -232,4 +232,5 @@ Post-FOMC macro downtrend in full continuation. Today is quadruple witching whic
 
 > Full pre-market summary: https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260320_summary.md
 
-*Fortuna — Wealth Warden | Claude Code CLI* / *Anthropic claude-sonnet-4-6 | March 20, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Pre-Market Summary · Mar 20, 2026*

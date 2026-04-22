@@ -113,5 +113,5 @@ Indices have been attempting to break key support for several sessions. In the h
 
 ---
 
-*Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | March 18, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Daily Review · Mar 18, 2026*

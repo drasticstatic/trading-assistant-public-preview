@@ -212,6 +212,6 @@ The deeper lesson: today's session was built under the highest external pressure
 
 ---
 
-*🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | March 6, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Daily Review · Mar 6, 2026 · For Coaches*
 *For coaches: pattern_tracker.md has full behavioral arc + statistical summary*

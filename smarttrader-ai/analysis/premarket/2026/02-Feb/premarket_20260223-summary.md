@@ -712,6 +712,6 @@ Mental state check (pre-session target): 7/10 minimum.
 
 ---
 
-*🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | Feb 23, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Pre-Market Summary · Feb 23, 2026*
 *Built on Claude Code CLI by Anthropic*

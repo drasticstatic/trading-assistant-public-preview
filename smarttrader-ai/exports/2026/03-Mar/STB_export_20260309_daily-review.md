@@ -136,5 +136,5 @@ No trades taken. $0. Accounts preserved. APEX-06 and TPT both intact.
 
 ---
 
-*Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | March 9, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Daily Review · Mar 9, 2026*

@@ -421,6 +421,6 @@ The similarity: The emotion preceded the wrong choice.
 
 > See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/02-Feb/review_20260224_MES_001.md
 
-*🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | Feb 24, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Trade Review — MES TRADE · Feb 24, 2026 · 20260224_MES-APEX_001*
 *Trade data sourced from TradeZella export + Tradovate Orders.csv*

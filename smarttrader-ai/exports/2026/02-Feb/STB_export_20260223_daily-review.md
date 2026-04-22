@@ -213,5 +213,5 @@ Adjustment for next session: 5/5 entries only for FCR,
 
 ---
 
-*Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | Feb 23, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Daily Review · Feb 23, 2026*

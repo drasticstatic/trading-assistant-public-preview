@@ -213,5 +213,5 @@ https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smar
 
 ---
 
-*🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | March 4, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Pre-Market Summary · Mar 4, 2026*

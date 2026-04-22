@@ -318,6 +318,6 @@ ES bearish bias established on the weekly close — the setup from Mar 4/6 (ZTH 
 
 ---
 
-*Built by Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | March 9, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Weekly Review · Mar 2–6, 2026*
 *For coaches: pattern_tracker.md has the full behavioral arc + statistical summary*

@@ -139,5 +139,5 @@ Watch specifically for ES vs NQ divergence:
 
 ---
 
-*Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | Feb 24, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Pre-Market Analysis · ES · Feb 24, 2026*

@@ -198,5 +198,5 @@ Simplicity. The ZTH coach's observation — that the IQ may be the obstacle — 
 
 ---
 
-*🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | April 3, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Weekly Review · Mar 31–Apr 4, 2026*

@@ -657,5 +657,5 @@ https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/anal
 
 ---
 
-*🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | Feb 25, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Pre-Market Summary · Feb 25, 2026*

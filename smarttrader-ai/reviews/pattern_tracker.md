@@ -17,30 +17,30 @@
 | # | Date | Instrument | Dir | Entry | Exit | P&L | R:R | Zella | Rating | Entry Filter | SL Respected | Stable |
 |---|------|-----------|-----|-------|------|-----|-----|-------|--------|--------------|--------------|--------|
 | — | Feb 13 | Multiple | — | — | — | 💥 Accounts blown | — | — | — | ❌ Rules broken | ❌ Stops moved | No |
-| 001 | Feb 23 | MNQ | Short | 24,879.50 | SL 24,929.75 | -$100.50 | 1.95 | -100 | 2/5 | ⚠️ B-grade (3/5 level) | ✅ Held | No |
-| 002 | Feb 24 | MES | Long | 6,867.25 | SL 6,860.25 | -$35.00 | 2.32 | — | — | ❌ Wrong scenario (EMAs vetoed) | ✅ Held | No |
-| 003 | Feb 25 | MNQ | Long | 25,278.75 | TP 25,420.00 | **+$565.00** | 2.34 | 100 | 4/5 | ✅ All 5 layers | ✅ Never threatened | **Yes** |
-| 004 | Feb 25 | SOL/USDT | Long | $87.4701 | $91.5556 | **+$20.63 USDT** | — | — | — | ✅ EMA crossover + FVG | ✅ | **Yes** |
-| 005 | Feb 26 | MNQ | Short | 25,000.5 | SL 25,093.5 | **-$558.00** | — | -100 | 1/5 | ❌ FOMO (25,000 vs planned 25,060) | ✅ Held | No |
-| 006 | Feb 27 | MNQ | Short (planned) | 25,000–25,060 zone | No fill | **$0** | — | N/A | N/A | ✅ Level held — entry not adjusted | N/A | Partial |
-| 007 | Mar 2 | YM | Long | 48,679 | 48,716 | **+$185.00** | 88.09 | — | — | ⚠️ FOMO scalp — no FCR, Scenario C | ✅ Respected (exited) | Partial |
-| 008 | Mar 2 | ES | Short | 6,876.50 | 6,855.75 | **+$1,037.50** | 94.05 | 5/5 | A+ | ✅ All layers — ISM spike + SMT + CISD | ✅ Never threatened | **Yes** |
-| 009 | Mar 2 | ES | Short (re-entry) | 6,868.25 | SL 6,883.50 | **-$762.50** | -35.47 | 0/5 | F | ❌ Re-entered in risky direction (above original short) | ❌ Moved (6,905→6,915.75) | No |
-| 010 | Mar 3 | ES | Long | 6,765.25 | SL 6,757.75 | **-$375.00** | -93.75 | 0/5 | F | ❌ Counter-trend long, red dominant, pre-FCR | ✅ Held | No |
-| 011 | Mar 3 | ES | Short | 6,757.25 | 6,786.25 (AutoLiq) | **-$1,450.00** | -84.06 | 2/5 | D | ⚠️ FCR midpoint entry (rays at open/close vs High/Low) | ❌ Cancelled → AutoLiq | No |
-| 012 | Mar 3 | CL | Long | 76.38 | 75.92 (AutoLiq) | **-$460.00** | -45.10 | 3/5 | B | ✅ Green dominant, pullback — SL in place | ✅ AutoLiq (8 ticks better than SL) | Yes |
-| 013 | Mar 10 | MNQ | Long | 25,023.75 | 25,005.75 (Apex hard close) | **-$108.00** | — | *pending* | B− | ✅ FCR LONG (15min) + 5/5 ZTH level + 1hr/5min FVG + HVN VRVP + OB below SL | ✅ Held (1-tick approach — Pattern 7 fix confirmed ✅) | Partial |
-| 014 | Mar 16 | MNQ | Short | 24,672.25 | 24,717.00 (SL hit) | **-$268.50** | — | — | 2/5 | ⚠️ B&R SHORT — FCR structural reference — SL adjusted in-trade to FCR ray | ❌ Adjusted in-trade | No |
-| 015 | Mar 16 | RTY | Short | 2,522.90 | 2,504.20 (TP hit) | **+$935.00** | 2.79 | 4/5 | A | ✅ SFP + ZTH KEY rejection + bearish FVG + OB confluence at TP | ✅ Placed pre-entry, never touched | **Yes** |
-| 016 | Mar 17–18 | MNQ | Short | 25,095.50 | 24,935.00 (TP hit) | **+$963.00** | — | 70.94 | 2.5/5 | ⚠️ Structural SHORT — SMT divergence — rushed bracket rebuild post-class | ❌ Moved wide (25,144→25,416, Asia session) | Partial |
-| 017 | Mar 20 | RTY | Long | 2,455.10 | 2,465.60 (AutoLiq 16:59) | **+$525.00** | N/A (SL canceled) | 78.94 | 2.5/5 | ⚠️ Unintentional fill — ZTH HVN Bounce + SFP (old projected limit) | ❌ SL canceled 17min post-fill | No |
-| 018 | Mar 24 | ES | Short | 6,673.00 | 6,648.50 (AutoLiq) | **+$1,225.00** | — | 74.24 | 3.5/5 | ✅ ZTH Pivot + SMT lower highs + IT OG sell · 36hr overnight limit fill | ✅ Placed, never threatened | Partial |
-| 019 | Mar 25–26 | SOL/USDT | Long | 92.4686 | 89.6435 (manual) | **-$14.13** | — | — | — | ⚠️ IT EMAs bullish · OPEN/CAUTION at entry · near swing high | ✅ N/A (voucher, no SL set) | No |
-| 020 | Mar 26 | MCL | Long | 89.9 | 88.4 (SL hit) | **-$300.00** | — | — | 0.5/5 | ✅ EMA bullish · OB + key level · pivot retracement (valid setup) | ✅ Respected — instant (Pattern 9 ✅) | No |
-| 021 | Mar 26 | MGC | Short | 4,410.6 | 4,405.9 (manual) | **+$94.00** | — | 48.45 | 0.5/5 | ✅ EMAs bearish · rejection off resistance · pivot sell | ❌ Moved through 38.7-pt adverse (Pattern 7 repeat) | No |
-| 022 | Apr 8 | SOLUSDT | Short | 81.92 | AutoLiq ~$86 | **~-$22 (BTCC)** | — | — | ⚠️ C | ⚠️ IT EMAs bearish · SHORT aligned · deadline-motivated entry (voucher expiry 11:30 PM) | ❌ None set — voucher | No |
-| 023 | Apr 17 | M2K | Short | 2,770.70 | 2,788.10 | **-$87.00** | Neg | -46.77 | 1/5 | ⚠️ OB + key level · reversal bias · FOMO component · overnight limit | ❌ Canceled at fill (Pattern 9) — unprotected 8h | No |
-| 024 | Apr 21 | MCL | Short | 91.11 | 89.70 | **+$141.00** | — | 56.85 | 2.5/5 | ❌ Last-minute · FOMO · not in plan · trading against trend · ZTH Pivot applied post-impulse | ❌ Variable — no firm SL (near-close entry accepted risk) | No |
+| 20260223_MNQ-APEX_001 | Feb 23 | MNQ | Short | 24,879.50 | SL 24,929.75 | -$100.50 | 1.95 | -100 | 2/5 | ⚠️ B-grade (3/5 level) | ✅ Held | No |
+| 20260224_MES-APEX_001 | Feb 24 | MES | Long | 6,867.25 | SL 6,860.25 | -$35.00 | 2.32 | — | — | ❌ Wrong scenario (EMAs vetoed) | ✅ Held | No |
+| 20260225_MNQ-APEX_001 | Feb 25 | MNQ | Long | 25,278.75 | TP 25,420.00 | **+$565.00** | 2.34 | 100 | 4/5 | ✅ All 5 layers | ✅ Never threatened | **Yes** |
+| 20260225_SOLUSDT-BTCC_002 | Feb 25 | SOL/USDT | Long | $87.4701 | $91.5556 | **+$20.63 USDT** | — | — | — | ✅ EMA crossover + FVG | ✅ | **Yes** |
+| 20260226_MNQ-APEX_001 | Feb 26 | MNQ | Short | 25,000.5 | SL 25,093.5 | **-$558.00** | — | -100 | 1/5 | ❌ FOMO (25,000 vs planned 25,060) | ✅ Held | No |
+| 20260227_MNQ-APEX_001 | Feb 27 | MNQ | Short (planned) | 25,000–25,060 zone | No fill | **$0** | — | N/A | N/A | ✅ Level held — entry not adjusted | N/A | Partial |
+| 20260302_YM-APEX_001 | Mar 2 | YM | Long | 48,679 | 48,716 | **+$185.00** | 88.09 | — | — | ⚠️ FOMO scalp — no FCR, Scenario C | ✅ Respected (exited) | Partial |
+| 20260302_ES-APEX_002 | Mar 2 | ES | Short | 6,876.50 | 6,855.75 | **+$1,037.50** | 94.05 | 5/5 | A+ | ✅ All layers — ISM spike + SMT + CISD | ✅ Never threatened | **Yes** |
+| 20260302_ES-APEX_003 | Mar 2 | ES | Short (re-entry) | 6,868.25 | SL 6,883.50 | **-$762.50** | -35.47 | 0/5 | F | ❌ Re-entered in risky direction (above original short) | ❌ Moved (6,905→6,915.75) | No |
+| 20260303_ES-APEX_001 | Mar 3 | ES | Long | 6,765.25 | SL 6,757.75 | **-$375.00** | -93.75 | 0/5 | F | ❌ Counter-trend long, red dominant, pre-FCR | ✅ Held | No |
+| 20260303_ES-APEX_002 | Mar 3 | ES | Short | 6,757.25 | 6,786.25 (AutoLiq) | **-$1,450.00** | -84.06 | 2/5 | D | ⚠️ FCR midpoint entry (rays at open/close vs High/Low) | ❌ Cancelled → AutoLiq | No |
+| 20260303_CL-APEX_003 | Mar 3 | CL | Long | 76.38 | 75.92 (AutoLiq) | **-$460.00** | -45.10 | 3/5 | B | ✅ Green dominant, pullback — SL in place | ✅ AutoLiq (8 ticks better than SL) | Yes |
+| 20260310_MNQ-APEX_001 | Mar 10 | MNQ | Long | 25,023.75 | 25,005.75 (Apex hard close) | **-$108.00** | — | *pending* | B− | ✅ FCR LONG (15min) + 5/5 ZTH level + 1hr/5min FVG + HVN VRVP + OB below SL | ✅ Held (1-tick approach — Pattern 7 fix confirmed ✅) | Partial |
+| 20260316_MNQ-APEX_001 | Mar 16 | MNQ | Short | 24,672.25 | 24,717.00 (SL hit) | **-$268.50** | — | — | 2/5 | ⚠️ B&R SHORT — FCR structural reference — SL adjusted in-trade to FCR ray | ❌ Adjusted in-trade | No |
+| 20260316_RTY-APEX_002 | Mar 16 | RTY | Short | 2,522.90 | 2,504.20 (TP hit) | **+$935.00** | 2.79 | 4/5 | A | ✅ SFP + ZTH KEY rejection + bearish FVG + OB confluence at TP | ✅ Placed pre-entry, never touched | **Yes** |
+| 20260317_MNQ-APEX_001 | Mar 17–18 | MNQ | Short | 25,095.50 | 24,935.00 (TP hit) | **+$963.00** | — | 70.94 | 2.5/5 | ⚠️ Structural SHORT — SMT divergence — rushed bracket rebuild post-class | ❌ Moved wide (25,144→25,416, Asia session) | Partial |
+| 20260320_RTY-APEX_001 | Mar 20 | RTY | Long | 2,455.10 | 2,465.60 (AutoLiq 16:59) | **+$525.00** | N/A (SL canceled) | 78.94 | 2.5/5 | ⚠️ Unintentional fill — ZTH HVN Bounce + SFP (old projected limit) | ❌ SL canceled 17min post-fill | No |
+| 20260324_ES-APEX_001 | Mar 24 | ES | Short | 6,673.00 | 6,648.50 (AutoLiq) | **+$1,225.00** | — | 74.24 | 3.5/5 | ✅ ZTH Pivot + SMT lower highs + IT OG sell · 36hr overnight limit fill | ✅ Placed, never threatened | Partial |
+| 20260325_SOLUSDT-BTCC_001 | Mar 25–26 | SOL/USDT | Long | 92.4686 | 89.6435 (manual) | **-$14.13** | — | — | — | ⚠️ IT EMAs bullish · OPEN/CAUTION at entry · near swing high | ✅ N/A (voucher, no SL set) | No |
+| 20260326_MCL-TPT_001 | Mar 26 | MCL | Long | 89.9 | 88.4 (SL hit) | **-$300.00** | — | — | 0.5/5 | ✅ EMA bullish · OB + key level · pivot retracement (valid setup) | ✅ Respected — instant (Pattern 9 ✅) | No |
+| 20260326_MGC-TPT_002 | Mar 26 | MGC | Short | 4,410.6 | 4,405.9 (manual) | **+$94.00** | — | 48.45 | 0.5/5 | ✅ EMAs bearish · rejection off resistance · pivot sell | ❌ Moved through 38.7-pt adverse (Pattern 7 repeat) | No |
+| 20260408_SOLUSDT-BTCC_001 | Apr 8 | SOLUSDT | Short | 81.92 | AutoLiq ~$86 | **~-$22 (BTCC)** | — | — | ⚠️ C | ⚠️ IT EMAs bearish · SHORT aligned · deadline-motivated entry (voucher expiry 11:30 PM) | ❌ None set — voucher | No |
+| 20260417_M2K-APEX_001 | Apr 17 | M2K | Short | 2,770.70 | 2,788.10 | **-$87.00** | Neg | -46.77 | 1/5 | ⚠️ OB + key level · reversal bias · FOMO component · overnight limit | ❌ Canceled at fill (Pattern 9) — unprotected 8h | No |
+| 20260421_MCL-APEX_001 | Apr 21 | MCL | Short | 91.11 | 89.70 | **+$141.00** | — | 56.85 | 2.5/5 | ❌ Last-minute · FOMO · not in plan · trading against trend · ZTH Pivot applied post-impulse | ❌ Variable — no firm SL (near-close entry accepted risk) | No |
 
 ---
 
@@ -522,6 +522,6 @@ Links to individual reviews:
 
 ---
 
-*🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | Feb 25, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Pattern Tracker · Established Feb 25, 2026 · Updated Apr 21, 2026*
 *Updated after each session — append, do not overwrite historical entries*

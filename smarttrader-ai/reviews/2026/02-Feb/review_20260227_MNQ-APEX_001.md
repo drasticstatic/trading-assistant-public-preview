@@ -345,6 +345,6 @@ $0 is the correct result when the setup's own criteria say no.
 
 > See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/02-Feb/review_20260227_MNQ_001.md
 
-*🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | Mar 1, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Trade Review — MNQ TRADE · Feb 27, 2026 · 20260227_MNQ-APEX_001*
 *Session notes from Christopher | Screenshots from Feb 27 ZTH session + Inevitrade afternoon session + Mar 1 current market*

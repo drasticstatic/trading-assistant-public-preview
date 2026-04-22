@@ -135,5 +135,5 @@ Surrender and rest are not the same as giving up. After moving the stop, journal
 
 ---
 
-*Fortuna — Wealth Warden | Claude Code CLI*
-*Anthropic claude-sonnet-4-6 | March 18, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Daily Review · Mar 17, 2026*

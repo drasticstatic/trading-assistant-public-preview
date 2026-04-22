@@ -17,6 +17,9 @@ style: |
   blockquote { border-left: 4px solid #4a90d9; padding-left: 1em; color: #b0c0d8; font-style: italic; }
   .subtitle { color: #8899aa; font-size: 0.8em; margin-top: 0.5em; }
   .credit { color: #7090a0; font-size: 0.75em; margin-top: 1em; }
+  section.small-table table { font-size: 0.65em; }
+  section.small-table th { padding: 4px 8px; }
+  section.small-table td { padding: 3px 8px; }
 ---
 
 # 🧠 How to Create Claude Code Skills
@@ -191,6 +194,8 @@ Optional but recommended for: `/goodmorning`, `/trade-review`, `/premarket`
 
 ---
 
+<!-- _class: small-table -->
+
 ## makemyskill.com — Quality Analysis
 
 We ran all 9 trading-assistant skills through the tool. Here's what improved:
@@ -233,6 +238,8 @@ We ran all 9 trading-assistant skills through the tool. Here's what improved:
 > Skills built with `/create-skill` are tracked in a roadmap in `setup/system-overview.md`.
 
 ---
+
+<!-- _class: small-table -->
 
 ## Skills in This Repo
 
@@ -327,8 +334,8 @@ Go back to that conversation. Find the prompt that worked. That's your skill bod
 
 ---
 
-*Fortuna × Claude Code CLI | trading-assistant | 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
 
 **[makemyskill.com](https://makemyskill.com)** — refine your skill descriptions
 
-<div class="credit">Framework by <a href="https://ruben.substack.com/p/claude-skills">Ruben Hassid</a> — thank you 🙏</div>
+<div class="credit">📂 <a href="https://github.com/drasticstatic/trading-assistant-public-preview">trading-assistant-public-preview</a> — public repo · Framework by <a href="https://ruben.substack.com/p/claude-skills">Ruben Hassid</a> — thank you 🙏</div>
