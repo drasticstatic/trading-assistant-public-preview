@@ -95,12 +95,6 @@ No trades taken. M2K chart reviewed showing pre-market context and exit level fr
 
 ---
 
-## 📊 SmartTraderAI's Response to Christopher's Weekly Submission
-
-*[To be added after Christopher submits and receives SmartTraderAI response]*
-
----
-
 ## 📸 Screenshots
 
 <table><tr>
@@ -115,91 +109,103 @@ No trades taken. M2K chart reviewed showing pre-market context and exit level fr
 
 ---
 
+<a id="smarttraderai-response"></a>
+
+## 📊 SmartTraderAI's Response to Christopher's Weekly Submission
+
+*[Stub — Christopher to submit the copy-paste fields to SmartTraderAI and return with the response for Fortuna to add here.]*
+
+---
+
 <a id="smarttraderai-copy-paste"></a>
 
 ## 🤖 SmartTraderAI Weekly Copy-Paste Fields
 
 ---
 
-**Week of:** Apr 14–18, 2026
+**What trade setups/tactics worked this week?**
+
+Overnight limit order placed at a structurally valid level on M2K. The entry concept — setting the limit at 2770.70 targeting a reversal from overhead — was sound. Sized at 1 micro contract: tested the idea without material damage. Sat on hands Monday through Wednesday and Friday with no impulsive entries despite market activity.
 
 ---
 
-**Q1: What did I trade this week and what were my results?**
+**What didn't work this week?**
 
-One trade: M2K SHORT Apr 17. Limit order set overnight at 2770.70, filled at the open 8:52 AM. MFE reached 2761.80 at 9 AM (+$44.50 potential). Both bracket orders (TP 2655.20, SL 2857.10) were canceled at fill — trade ran unprotected all day. Exited 16:59 at 2788.10. Net: **-$87**. Account APEX-484839-06 still active. Week was mostly off the charts due to community service work and coaching calls.
-
----
-
-**Q2: What setups did I honor and which did I skip?**
-
-Honored: sat on hands Monday through Wednesday and Friday — no impulsive entries despite market activity. Set one planned overnight limit and let it execute. Skipped: when the MFE came at 9 AM and the trade was in profit, I did not exit. That was the skip that mattered most.
+The exit. MFE reached 2761.80 at 9:00 AM — +$44.50 profit available within 8 minutes of fill. No exit decision was made. Both bracket orders (TP 2655.20, SL 2857.10) were canceled at fill — trade ran unprotected all day. Final exit came at 16:59 under time pressure: -$87. The reversal thesis was also wrong — the market was trending up; the SHORT was a counter-trend call that briefly worked then continued to trend.
 
 ---
 
-**Q3: What patterns repeated this week?**
+**What observable patterns did you see in the market this week?**
 
-Pattern 8 (exit passivity): MFE at 9 AM, trade profitable, no exit — held 8 hours into a loss. Pattern 9 echo: TP and SL both canceled at the moment of fill, trade unprotected all day. Reversal bias: SHORT in an uptrend, looking for a move that didn't develop. These are the same patterns from recent sessions.
-
----
-
-**Q4: What did I learn this week?**
-
-ZTH coach Jesse said the market is typically trending — that landed this week. I tend to look for reversals more than continuations. The Apr 17 trade is the clearest recent example. The market was trending up; the short was a reversal idea that briefly worked (9 AM) then continued to trend. If I can apply the same instincts to continuation trades, the results change materially.
+Trending upside price action throughout the week. The market was not in reversal mode — it was directional. ZTH coach Jesse said it directly: the market is typically trending. The Apr 17 M2K move confirmed it — brief wick down at the open, then 8 hours of grinding higher. The market told the truth from 9 AM forward.
 
 ---
 
-**Q5: Did I follow my rules?**
+**What observable patterns did you see in your trades this week?**
 
-Partially. Followed: stayed off the charts most of the week, sized correctly (1 micro). Broke: no SL/TP active on the live trade, no exit when MFE was reached, counter-trend entry without trend-break confirmation.
-
----
-
-**Q6: Trade management notes**
-
-The MFE on the Apr 17 trade was achieved within 8 minutes of fill. A mechanical exit rule — "if MFE reaches [X] points and retraces 50%, exit" — would have converted this loss to a winner. The bracket order cancellation at fill needs investigation: was this a TradingView bracket configuration issue or a manual cancel? Either way, the fix is the same: confirm TP and SL are live on the platform before walking away from any position.
+Pattern 8 (exit passivity): MFE visible at 9 AM, trade profitable, no exit — held 8 hours into a loss. Same pattern as Mar 10 (MNQ), Mar 25–26 (BTCC SOL), Apr 8 (BTCC SOL). Pattern 9 echo: protective orders not confirmed live before stepping away from the position. Reversal bias: looking for a short when the trend was clearly up.
 
 ---
 
-**Q7: Emotional and psychological notes**
+**What mistakes did you make this week?**
 
-Deep fear and frustration this week. Financial pressure (phone suspended, bank account at risk, taxes owed) is creating anxiety that narrows clarity. Trading from fear produces bad exits — or no exits. The flip side: Christopher is in the course, on live calls, studying. The groundwork is being laid. Gratitude for the process even when the process is hard.
-
----
-
-**Q8: What I want to work on**
-
-One thing: a non-negotiable exit rule for when MFE is reached and price reverses. Pattern 8 is the single biggest P&L leak right now. One mechanical rule fixes it. I want to have that rule written, understood, and committed to before Thursday's open next week.
+Did not exit when MFE was reached. Did not confirm TP and SL were live after fill. Entered counter-trend without confirming trend structure was broken — this was a pausing wick, not a reversal. The fix for all three is the same: one mechanical rule per scenario, applied in the moment without judgment.
 
 ---
 
-**Q9: How I plan to study**
+**What recurring problems are you seeing week over week?**
 
-Review the Apr 17 M2K chart on replay — watch where the 9 AM exit would have been. Mark the MFE level. Sit with what that moment looked like and what the rule would have triggered. Reinforce the ZTH coach insight: market is typically trending. Review one strong continuation trade setup before each session this week as the mental model to default to before considering reversals.
-
----
-
-**Did I respect my stop loss?** No — SL was canceled at fill; trade ran unprotected.
-
-**Did I respect my profit target?** No — TP was also canceled at fill; MFE was not captured.
+Pattern 8 is the defining recurring problem: zero active exit decisions across all recent trades. Exits happen via time pressure, resting TP, SL, or AutoLiq — never from a proactive read. This has appeared in every live trade over the past 6+ weeks. Order hygiene (Pattern 9) also reappeared. Reversal bias is a newly surfaced tendency that is likely long-standing.
 
 ---
 
-**Action steps for next week:**
+**What solutions are you implementing to fix those problems?**
 
-1. Write and commit to a mechanical MFE exit rule before trading again
-2. Confirm TP and SL are live on platform before walking away from any position
-3. Before any short entry: ask "is the trend broken or just pausing?" — if pausing, the short is off the table
-4. APEX-06: protect the account — no sizing up until profit gap is consistently closing
-
----
-
-**What I want to work on:** Mechanical exit execution — turning Pattern 8 into a rule that removes the decision from the moment.
+1. Write one mechanical exit rule before trading again: "If MFE exceeds 1R and retraces 50%, exit immediately — no evaluation, no waiting."
+2. Before stepping away from any open position: confirm TP and SL are live on the platform.
+3. Before any short entry: ask "is the trend broken or just pausing?" — if pausing, the short is off the table until structural confirmation.
 
 ---
 
-**How I plan to study:** Replay Apr 17 M2K — mark the MFE exit point. Study one continuation trade per session as the default lens before considering reversals.
+**Weekly Performance Questions (yes/no)**
+
+- Did you trade your plan? Partially — plan was conservative, but failed at exit execution
+- Did you follow your rules? No — SL/TP not active, no exit at MFE
+- Did you overtrade? No
+- Did you revenge trade? No
+- Did you hold a position too long? Yes — 8 hours
+- Did you exit too early? No
+- Did you move your stop loss? N/A — no stop was active
+- Did you add to a loser? No
+- Did you take profit too early? No — did not take profit at all
 
 ---
 
-**GitHub:** [pir-devine-news-public](https://github.com/drasticstatic/pir-devine-news-public) — community project launched this week. Not trading related but reflects the depth of service work alongside trading development.
+**This week my action steps are:**
+
+1. Write and commit the MFE exit rule before trading again — documented, not just intended
+2. Confirm TP and SL are live on platform after every fill before stepping away
+3. Before any short entry: 2-second check — "is this trend broken or pausing?" — if pausing, wait
+4. Protect APEX-06 — no sizing up until the profit gap is consistently closing
+5. Replay Apr 17 M2K — mark the 9 AM exit level, sit with what the rule would have triggered
+
+---
+
+**What I want to work on / improve / get better at:**
+
+One thing: a mechanical exit rule that removes the decision from the moment. Pattern 8 is the single biggest P&L leak. No willpower required — just a rule. Write it, commit to it, apply it.
+
+---
+
+**How I plan to study the market this week:**
+
+Replay Apr 17 M2K — watch the 9 AM candle where MFE was reached. Mark the exact level. Understand what the exit rule would have triggered and what that trade looks like as a winner. Study one continuation setup before each session this week as the default lens before considering any reversal trade.
+
+---
+
+> Full weekly review: https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/exports/2026/04-Apr/STB_export_20260414_weekly-review.md
+
+---
+
+*🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Anthropic claude-sonnet-4-6 | April 21, 2026*

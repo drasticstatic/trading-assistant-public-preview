@@ -60,12 +60,14 @@ Behavioral analysis, execution grades, pattern observations.
 Numbered learning points from the session.
 
 ### 8. `## 🤖 SmartTraderAI Post-Market Copy-Paste Fields`
-Anchor: `<a id="smarttraderai-copy-paste"></a>`
 
-**3 Questions (verbatim):**
-1. What actually happened?
-2. What did you learn?
-3. What were your results for the day?
+Anchor: `<a id="smarttraderai-copy-paste"></a>` on the line before the `## 🤖` heading.
+`---` immediately after the `## 🤖` heading and between every question — always.
+
+**3 Questions (verbatim — exact bold wording):**
+- **What actually happened?**
+- **What did you learn?**
+- **What were your results for the day?**
 
 In Q3 ("What were your results"), end with:
 ```
@@ -76,6 +78,14 @@ In Q3 ("What were your results"), end with:
 
 ### 9. `## 🎯 Forward Focus`
 1–3 priorities for the next session. No links here. Always the final section.
+
+### Footer
+Immediately after `## 🎯 Forward Focus` content:
+```
+---
+
+*Daily Review — Fortuna · [Date]*
+```
 
 ## Screenshot Path
 
@@ -106,7 +116,7 @@ In Trade Log, group by instrument or chronologically — whichever tells the cle
 
 ## Quality Checklist
 
-- [ ] All 9 sections present and in order
+- [ ] All 9 sections present and in order (+ footer)
 - [ ] Jump link at top works
 - [ ] Premarket link in Session Narrative (or noted as missing)
 - [ ] All individual trade review links work
