@@ -132,19 +132,19 @@ Full roadmap with descriptions: `setup/system-overview.md` → Skills Candidates
 
 | # | Skill | What It Does |
 |---|-------|-------------|
-| 1 | `/level-brief` | Read TradingView MCP pine_labels/lines → summarize key levels per instrument for the session |
-| 2 | `/smt-scan` | Cycle pane_focus NQ/ES/YM → identify index divergences → Scenario A/B/C verdict |
-| 3 | `/session-sync` | Commit + push + append AGENT_SYNC.md + create/update session log |
+| 1 | `/level-brief` | Read TradingView MCP pine_labels/lines → summarize key levels per instrument for the session ✅ Built |
+| 2 | `/smt-scan` | Cycle pane_focus NQ/ES/YM → identify index divergences → Scenario A/B/C verdict ✅ Built |
+| 3 | `/session-sync` | Commit + push + append AGENT_SYNC.md + create/update session log ✅ Built |
 | 4 | `/marp-deck` | Convert any review/briefing doc to Marp slide deck + generate HTML ✅ Built |
-| 5 | `/import-trades` | Run TradeZella → STB pipeline, verify output, flag missing reviews |
-| 6 | `/eval-progress` | Live account data → balance, floor, gap to target, daily-run-rate math |
-| 7 | `/open-orders` | Pull positions/orders from all connected exchanges → single status report |
-| 8 | `/pattern-review` | Read pattern_tracker.md → analyze trends → append dated review block with fix per pattern |
+| 5 | `/import-trades` | Run TradeZella → STB pipeline, verify output, flag missing reviews ✅ Built |
+| 6 | `/eval-progress` | Live account data → balance, floor, gap to target, daily-run-rate math ✅ Built |
+| 7 | `/open-orders` | Pull positions/orders from all connected exchanges → single status report ✅ Built |
+| 8 | `/pattern-review` | Read pattern_tracker.md → analyze trends → append dated review block with fix per pattern ✅ Built |
 | 9 | `/monthly-audit` | End-of-month Marp deck: P&L + behavioral arc + strategy/course progression for all coaching groups ✅ Built |
-| 10 | `/trade-recap` | One-paragraph narrative from just-closed trade; pulls fills, flags missing review |
-| 11 | `/tax-entry` | Append trade or document to `taxes/YYYY/` working files |
-| 12 | `/smog-analysis` | SMOG framework analysis for a specific trade or setup — ref `strategies/inevitrade/smog-reference.md` |
-| 13 | `/tcl-analysis` | TCL strategy analysis for a trade or setup — ref `strategies/inevitrade/tcl-reference.md` |
+| 10 | `/capture-agent-trades` | Future skill — capture and log trade data when Fortuna executes trades autonomously on Christopher's behalf 🔜 Planned |
+| 11 | `/tax-entry` | Append trade or document to `taxes/YYYY/` working files ✅ Built |
+| 12 | `/smog-analysis` | SMOG framework analysis for a specific trade or setup — ref `strategies/inevitrade/smog-reference.md` ✅ Built |
+| 13 | `/tcl-analysis` | TCL strategy analysis for a trade or setup — ref `strategies/inevitrade/tcl-reference.md` ✅ Built |
 
 ## Version Control Safety
 
