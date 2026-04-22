@@ -239,19 +239,19 @@ Skills to build next, in priority order. Run each description through [makemyski
 
 | # | Skill | Trigger | What It Does |
 |---|-------|---------|-------------|
-| 1 | `/level-brief` | "give me my levels", "level brief" | Read auto-levels output via TradingView MCP (pine_labels/lines/boxes) → summarize key levels per instrument, FCR rays, ZTH levels for the session |
-| 2 | `/smt-scan` | "SMT scan", "check SMT" | Cycle pane_focus across NQ/ES/YM → identify index divergences → output Scenario A/B/C verdict with reasoning |
-| 3 | `/session-sync` | "sync agents", "update agent-sync" | Commit staged work → push → append session block to AGENT_SYNC.md → create/update session log. Lighter than /goodnight — for mid-session syncs. |
-| 4 | `/marp-deck` | "create a deck for", "make slides from" | Convert any review/briefing doc into a dark-theme Marp slide deck + generate HTML ✅ *Built Apr 20* |
-| 5 | `/import-trades` | "import trades", "process the CSV" | Run the TradeZella → STB pipeline (`scripts/tradezella-sync.sh`), verify output, flag any missing trade reviews |
+| 1 | `/level-brief` | "give me my levels", "level brief" | Read auto-levels output via TradingView MCP (pine_labels/lines/boxes) → summarize key levels per instrument, FCR rays, ZTH levels for the session ✅ *Built* |
+| 2 | `/smt-scan` | "SMT scan", "check SMT" | Cycle pane_focus across NQ/ES/YM → identify index divergences → output Scenario A/B/C verdict with reasoning ✅ *Built* |
+| 3 | `/session-sync` | "sync agents", "update agent-sync" | Commit staged work → push → append session block to AGENT_SYNC.md → create/update session log ✅ *Built* |
+| 4 | `/marp-deck` | "create a deck for", "make slides from" | Convert any review/briefing doc into a dark-theme Marp slide deck + generate HTML ✅ *Built* |
+| 5 | `/import-trades` | "import trades", "process the CSV" | Run the TradeZella → STB pipeline, verify output, flag any missing trade reviews ✅ *Built* |
 | 6 | `/eval-progress` | "eval status", "where am I on the eval" | Pull live account data (get_account) → report balance, trailing floor, gap to target, min days remaining, daily-run-rate math |
-| 7 | `/open-orders` | "open orders", "check all positions" | Pull live positions/orders from all connected exchanges (Tradovate MCP + future BTCC/BitGet MCPs) → single-pane status report |
-| 8 | `/pattern-review` | "pattern review", "update pattern tracker" | Read pattern_tracker.md → analyze recent trades → identify frequency/P&L impact per pattern → append a dated review block to the tracker with one mechanical fix per active pattern |
-| 9 | `/monthly-audit` | "monthly audit", "end of month", "April audit" | End-of-month Marp deck: P&L summary, behavioral arc, strategy/course progression across all coaching groups (STB, ZTH, IT) — polished output for coach sharing ✅ *Built Apr 21* |
-| 10 | `/trade-recap` | "trade recap", "quick recap" | One-paragraph narrative of a just-closed trade — pulls fills from Tradovate, maps to nearest review file, flags missing documentation |
-| 11 | `/tax-entry` | "log this for tax", "add to tax log" | Append a trade or document to `taxes/YYYY/` working files — instrument, entry/exit, P&L, fees, holding period |
-| 12 | `/smog-analysis` | "SMOG analysis", "run SMOG on this" | SMOG framework analysis for a specific trade or setup — ref `strategies/inevitrade/smog-reference.md` |
-| 13 | `/tcl-analysis` | "TCL analysis", "run TCL on this" | TCL strategy analysis for a trade or setup — ref `strategies/inevitrade/tcl-reference.md` |
+| 7 | `/open-orders` | "open orders", "check all positions" | Pull live positions/orders from all connected exchanges → single-pane status report ✅ *Built* |
+| 8 | `/pattern-review` | "pattern review", "update pattern tracker" | Read pattern_tracker.md → analyze trends → append dated review block with one mechanical fix per active pattern ✅ *Built* |
+| 9 | `/monthly-audit` | "monthly audit", "end of month", "April audit" | End-of-month Marp deck: P&L summary, behavioral arc, strategy/course progression across all coaching groups ✅ *Built* |
+| 10 | `/capture-agent-trades` | "capture agent trade", "log agent fill" | Future skill — capture and log trade data when Fortuna executes trades autonomously on Christopher's behalf 🔜 *Planned* |
+| 11 | `/tax-entry` | "log this for tax", "add to tax log" | Append a trade or document to `taxes/YYYY/` working files ✅ *Built* |
+| 12 | `/smog-analysis` | "SMOG analysis", "run SMOG on this" | SMOG framework analysis for a specific trade or setup ✅ *Built* |
+| 13 | `/tcl-analysis` | "TCL analysis", "run TCL on this" | TCL strategy analysis for a trade or setup ✅ *Built* |
 | 14 | `/summarize` *(global)* | "summarize this", "tldr" | Distill a long document, PR, or conversation thread into bullets — context-adaptive |
 | 15 | `/explain` *(global)* | "explain this", "walk me through" | Explain a concept, file, or code at the right depth for Christopher's known expertise (calibrated from memory) |
 
