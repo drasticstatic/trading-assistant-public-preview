@@ -1,7 +1,7 @@
 # 🌅 Pre-Market Summary — Friday, Apr 10, 2026
 ### Fortuna | STB + ZTH + Inevitrade Session | London Open
 
-[Jump to 🤖 SmartTraderAI ↓](#smarttraderai-copy-paste)
+[Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 
 ---
 
@@ -404,37 +404,45 @@ Comparing current 4hr bar vs read 15min ago:
 
 <a id="smarttraderai-copy-paste"></a>
 
-## 🤖 SmartTraderAI Pre-Market Copy-Paste
+## 🤖 SmartTraderAI Pre-Market Copy-Paste Fields
 
 ---
 
-**Q1 — Today's date and session context:**
+**What news releases today?**
 
-Friday, April 10, 2026. London session open ~5:58 AM ET. On STB London call. CL1! on both chart panes (1hr + 5min). NQ/ES not captured to avoid disrupting chart during call.
-
----
-
-**Q2 — News / key events and expected effect:**
-
-CPI + Core CPI at 8:30 AM ET — dominant event. High-impact inflation print. CL and indices will react sharply. No entries 8:25–8:40 ET window. Wait for displacement and reset. Michigan Sentiment at 10 AM secondary. Global macro remains elevated volatility (tariff environment).
+Friday, April 10, 2026. London session open ~5:58 AM ET — on STB London call. CL1! on both chart panes (1hr + 5min). NQ/ES not captured to avoid disrupting chart during call. CPI + Core CPI at 8:30 AM ET — dominant event of the session. Michigan Sentiment at 10 AM secondary. Global macro remains elevated volatility (tariff environment).
 
 ---
 
-**Q3 — Higher timeframe bias + key levels:**
+**What are the expected figures? What effect has this event had on the markets before?**
 
-CL1! 1hr: Bearish IT Foundation EMA structure. Price below red EMA cluster. 3-week macro range $84.37–$117.63, currently at $98.57 (below midpoint $101). Resistance: $99.24 / $102.70. Support: $97.58 / $95.25. Macro swing low $84.37 key floor.
-
----
-
-**Q4 — Intraday bias + entry levels:**
-
-CL: Bearish bias HTF. Short setup: rejection at $99–99.24 + EMA cap → target $97.50. Long only on confirmed EMA reclaim + $99.50 1hr close. Compressing $98.11–$98.75 5min — coil. NQ: Pull independently before 9:30 — FCR setup at open. Triple-index SMT check needed for Scenario A/B.
+CPI is a high-impact inflation print. If CPI runs hot → CL sells, indices sell; if CPI cools → CL + indices bid. Historically: initial knee-jerk move at 8:30 is often reversed within 30 minutes — wait for displacement and reset before entering. No entries in the 8:25–8:40 ET window.
 
 ---
 
-**Q5 — Expectations for the session:**
+**List both your HTF bias and key levels**
 
-CPI drives the first major move. If inflation hot → CL sells, indices sell. If inflation cool → CL + indices bid. Post-CPI: look for FCR setup at 9:30 open once macro direction is confirmed. Friday = reduced size, protect APEX-06 and TPT evals. Pattern 7/8 locks active.
+CL1! 1hr: Bearish IT Foundation EMA structure. Price below red EMA cluster. 3-week macro range $84.37–$117.63, currently at $98.57 — below the midpoint ($101). HTF bias: BEARISH on CL.
+
+Key levels — CL: Resistance $99.24 / $102.70 · Support $97.58 / $95.25 · Macro floor $84.37.
+
+---
+
+**List your Intraday bias and levels**
+
+CL: Bearish bias. Short setup: rejection at $99–99.24 with EMA cap → target $97.50. Long only on confirmed EMA reclaim + $99.50 1hr close. 5min compression zone $98.11–$98.75 — coil building, directional break likely on CPI.
+
+NQ: Pull independently before 9:30 — FCR setup at open. Triple-index SMT check needed for Scenario A/B verdict.
+
+---
+
+**Expectations for the day?**
+
+CPI at 8:30 drives the first major move and sets the macro tone for the session. Post-CPI: look for FCR setup at 9:30 once macro direction confirms. Friday = reduced size — protect APEX-06 and TPT evals. Pattern 7/8 locks active — pre-plan TP and honor it.
+
+---
+
+> Full pre-market summary: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/04-Apr/premarket_20260410_summary.md
 
 ---
 

@@ -175,14 +175,32 @@ Detailed tracking goes in daily review.
 
 ### 11. `## 🤖 SmartTraderAI Pre-Market Copy-Paste Fields`
 
-Anchor: `<a id="smarttraderai-copy-paste"></a>` before `## 🤖` heading.
-`---` after the `## 🤖` heading and between every question.
+Jump link at top of file (exact format):
+```
+[Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
+```
 
-1. What is today's date, and what major news or events could impact the markets?
-2. What are the expected figures? What effect has this event had on markets before?
-3. What are the key higher-timeframe figures and their likely effect on price today?
-4. What is your intraday bias and at what price levels do you expect to trade from?
-5. What is your expectation for today's session based on the above?
+Anchor: `<a id="smarttraderai-copy-paste"></a>` on the line before `## 🤖` heading.
+`---` immediately after the `## 🤖` heading and between every question — always.
+
+**5 questions — use exact wording from FORTUNA_WORKFLOW.md:**
+
+1. What news releases today?
+2. What are the expected figures? What effect has this event had on the markets before?
+3. List both your HTF bias and key levels
+4. List your Intraday bias and levels
+5. Expectations for the day?
+
+After Q5, end with:
+```
+> Full pre-market summary: [public-preview URL to this file]
+```
+
+Footer (after final `---`):
+```
+*Fortuna — Wealth Warden | Claude Code CLI*
+*Pre-Market Summary · [Date] · [Session context]*
+```
 
 ## Key Concepts
 

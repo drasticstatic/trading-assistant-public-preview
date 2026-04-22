@@ -63,10 +63,7 @@ One `##` heading per trading day, e.g. `## Apr 17 — "Trade Title"`.
 Include: what happened, setups seen/missed, key decisions, emotional state.
 No-fill days still get a brief note.
 
-### 7. `## 📊 SmartTraderAI's Response to Christopher's Weekly Submission`
-Stub — leave placeholder: `*[To be added after Christopher submits and receives SmartTraderAI response]*`
-
-### 8. Screenshot grid (HTML table)
+### 7. Screenshot grid (HTML table)
 **Grid format for weeklies** — multiple days make full-size impractical.
 ```html
 <table><tr>
@@ -76,28 +73,38 @@ Stub — leave placeholder: `*[To be added after Christopher submits and receive
 Column widths: 25% for 4-up, 33% for 3-up, 50% for pairs.
 Path: `../../../../data/screenshots/` (same depth as reviews YYYY/MM-Mon/).
 
+### 8. SmartTraderAI Response Stub
+
+```markdown
+<a id="smarttraderai-response"></a>
+
+## 📊 SmartTraderAI's Response to Christopher's Weekly Submission
+
+*[Stub — Christopher to submit the copy-paste fields to SmartTraderAI and return with the response for Fortuna to add here.]*
+```
+
 ### 9. SmartTraderAI Weekly Copy-Paste Fields
 
 Anchor: `<a id="smarttraderai-copy-paste"></a>` before `## 🤖 SmartTraderAI Weekly Copy-Paste Fields`
 
-9 Questions:
-1. What did I trade this week and what were my results?
-2. What setups did I honor and which did I skip?
-3. What patterns repeated this week?
-4. What did I learn this week?
-5. Did I follow my rules?
-6. Trade management notes
-7. Emotional and psychological notes
-8. What I want to work on
-9. How I plan to study
+7 questions (exact wording from FORTUNA_WORKFLOW.md — do not paraphrase):
+1. What trade setups/tactics worked this week?
+2. What didn't work this week?
+3. What observable patterns did you see in the market this week?
+4. What observable patterns did you see in your trades this week?
+5. What mistakes did you make this week?
+6. What recurring problems are you seeing week over week?
+7. What solutions are you implementing to fix those problems?
 
 Then:
-- **Did I respect my stop loss?** Yes/No + detail
-- **Did I respect my profit target?** Yes/No + detail
-- **Action steps for next week:** (3–5 numbered items)
-- **What I want to work on:** (one focused thing)
-- **How I plan to study:** (specific study method)
-- **GitHub:** (link to relevant public resource or pir-devine-news if community work was significant)
+- **Weekly Performance Questions (yes/no):** 9-item checklist — Did you trade your plan? / Did you follow your rules? / Did you overtrade? / Did you revenge trade? / Did you hold a position too long? / Did you exit too early? / Did you move your stop loss? / Did you add to a loser? / Did you take profit too early?
+- **This week my action steps are:** (numbered list)
+- **What I want to work on / improve / get better at:** (one focused thing)
+- **How I plan to study the market this week:** (specific study method)
+- `> Full weekly review: [GitHub URL to the file]`
+- Footer: `*🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*` + date line
+
+`---` immediately after `## 🤖` heading and between every question. Never use code blocks in the copy-paste section.
 
 ## Key Principles
 
