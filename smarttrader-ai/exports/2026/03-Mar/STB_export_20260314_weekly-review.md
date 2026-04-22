@@ -342,3 +342,8 @@ Active exit decision-making — the same process discipline that now exists on e
 Pre-market analysis each morning with Fortuna covering HTF bias, key levels, and scenario planning. Attend all STB, ZTH and Inevitrade live sessions. Use the auto-levels indicator to streamline chart setup so more cognitive energy goes toward setup identification and trade management rather than manual chart prep. Review FCR displacement examples from prior sessions to sharpen pattern recognition on genuine vs. fake displacement.
 
 > Full weekly review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260314_weekly-review.md
+
+---
+
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Weekly Review · Mar 9–14, 2026*

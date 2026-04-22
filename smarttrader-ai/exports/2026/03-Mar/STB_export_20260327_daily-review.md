@@ -133,4 +133,5 @@ TPT 50K: -$1,794.00 (overnight MGC auto-liquidated). TPT 50K account BLOWN. APEX
 
 ---
 
-*Daily Review — Fortuna · March 27, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Daily Review · March 27, 2026*

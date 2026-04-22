@@ -433,7 +433,5 @@ Profile ✅ Inevitrade EMAs ✅**
 
 ---
 
-*🙏🏼 Fortuna — Wealth Warden*
-*Built on Claude Code CLI by Anthropic*
-*Model: claude-sonnet-4-6*
-*Originally created: Feb 22, 2026 | Generalized: Mar 4, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Chart Analysis Methodology · Originally Feb 22, 2026 | Generalized Mar 4, 2026*

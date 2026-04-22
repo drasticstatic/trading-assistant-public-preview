@@ -109,4 +109,5 @@ $0.00 futures P&L. BTCC SOL LONG open (not yet closed). APEX-06 eval standing: ~
 
 ---
 
-*Daily Review — Fortuna · March 25, 2026*
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Daily Review · March 25, 2026*
