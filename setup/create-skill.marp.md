@@ -354,7 +354,7 @@ Optional but recommended for: `/goodmorning`, `/trade-review`, `/premarket`
 | [/smt-scan](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/smt-scan.md) | Trimmed BTC/ETH crypto scope from description | ⚠️ Marginal — narrowed scope |
 | [/pattern-review](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/pattern-review.md) | Added output spec: frequency counts, P&L impact, mechanical fixes | ✅ Stronger output spec |
 | [/session-sync](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/session-sync.md) | No changes to description or body | 💡 Already solid — no changes |
-| [/import-trades](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/import-trades.md) | File mismatch in makemyskill dir — contains level-brief content | ⚠️ Re-run against correct file |
+| [/import-trades](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/import-trades.md) | Expanded triggers + validation sections; STB pipeline step added manually | ✅ Significantly enhanced |
 | [/level-brief](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/level-brief.md) | No changes to description or body | 💡 Already solid — no changes |
 | [/open-orders](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/open-orders.md) | Quote style change only; cosmetic heading rename | ⚠️ Marginal — cosmetic only |
 | [/tax-entry](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/tax-entry.md) | Condensed description; heading renamed | ⚠️ Marginal — condensed only |
