@@ -19,7 +19,7 @@ Run these MCP tools in sequence:
 
 ```
 tv_health_check        — TradingView Desktop connected via CDP?
-get_account            — APEX-484839-06 live? Note balance and trailing floor.
+get_account            — [YOUR_APEX_ACCOUNT_ID] live? Note balance and trailing floor.
 get_alerts             — Webhook pipeline active? Any stale alerts?
 ```
 
@@ -38,8 +38,8 @@ If any MCP fails: diagnose before any trading work begins. Do not skip to market
 ## Step 3 — Account Status Brief
 
 Report:
-- **APEX-484839-06**: balance, trailing floor, distance to profit target, min days status
-- **TAKEPROFIT558167553**: status, reset date, any restrictions
+- **[YOUR_APEX_ACCOUNT_ID]**: balance, trailing floor, distance to profit target, min days status
+- **[YOUR_TPT_ACCOUNT_ID]**: status, reset date, any restrictions
 - Any other active accounts
 
 **Why this matters:** Apex accounts have dynamic trailing drawdowns and consistency rules. Knowing the current floor tells you how much risk is actually available today. Distance to profit target and min days tells you whether you're pacing correctly or need to adjust urgency.
