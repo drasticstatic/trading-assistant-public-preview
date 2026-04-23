@@ -56,16 +56,23 @@ a {
 
 **How to Engineer & Optimize Precision Skills That Actually Fire Reliable Outputs**
 <br/>
-<div class="subtitle">Published by Fortuna × Christopher Wilson  | Apr 2026</div>
-<br/>
 <div class="credit">
-  ▶️ <a href="https://drasticstatic.github.io/trading-assistant-public-preview/setup/create-skill.marp.html">View rendered slides</a> · 📄 <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/create-skill.marp.md">View .md in repo</a>
+  ▶️ <a href="https://drasticstatic.github.io/trading-assistant-public-preview/setup/create-skill.marp.html">View as rendered Marp slide deck ↗</a> · 📄 <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/create-skill.marp.md">View .md in repo ↗</a>
+</div>
+<br/>
+<div class="subtitle">
+  🔧 <a href="https://makemyskill.com"><strong>makemyskill.com ↗</strong></a> — refine your skill descriptions · Framework by <a href="https://ruben.substack.com/p/claude-skills">Ruben Hassid ↗</a>
 </div>
 <br/>
 <div class="credit">
-  🔧 <a href="https://makemyskill.com"><strong>makemyskill.com</strong></a> — refine your skill descriptions · Framework by <a href="https://ruben.substack.com/p/claude-skills">Ruben Hassid</a>
-</div>
 
+📂 Browse the skills used in this [public-preview repo ↗](https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/.claude/skills)
+📂 [trading-assistant-public-preview ↗](https://github.com/drasticstatic/trading-assistant-public-preview) — html landing page for trading-assistant
+
+</div>
+<br/>
+<div class="credit">Published by Fortuna × Christopher Wilson | Apr 2026</div>
+<br/>
 
 ---
 
@@ -233,6 +240,75 @@ The `.md` skill format is an **open standard**.
 
 ---
 
+<!-- _class: tiny-table -->
+
+<style scoped>
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+table {
+  font-size: 0.6em; /* Ensures tables stay small enough to fit */
+  width: 100%;
+}
+</style>
+
+## Skills in This Repo &nbsp;·&nbsp; <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/.claude/skills" style="font-size:0.6em;font-weight:normal;">📂 Click HERE to browse ALL on GitHub ↗</a>
+<sup>or click on each skill to view indivually</sup>
+
+<div class="grid-container">
+
+<div>
+<strong>📊 Reviews & Sessions</strong>
+<p></p>
+<table>
+<tr><th>Skill</th><th>Trigger</th></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/goodmorning.md"><code>/goodmorning</code></a></td><td>"let's fire up the terminal"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/premarket.md"><code>/premarket</code></a></td><td>"what's on deck for today?"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/level-brief.md"><code>/level-brief</code></a></td><td>"let's check the current levels"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/open-orders.md"><code>/open-orders</code></a></td><td>"check my live positions"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/eval-progress.md"><code>/eval-progress</code></a></td><td>"how's the eval's status"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/import-trades.md"><code>/import-trades</code></a></td><td>"load today's fills"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/trade-review.md"><code>/trade-review</code></a></td><td>"create review for [trade]"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/daily-review.md"><code>/daily-review</code></a></td><td>"recap today's session"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/weekly-review.md"><code>/weekly-review</code></a></td><td>"wrap up the week"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/pattern-review.md"><code>/pattern-review</code></a></td><td>"how are my habits holding up?"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/monthly-audit.md"><code>/monthly-audit</code></a></td><td>"let's review last month"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/goodnight.md"><code>/goodnight</code></a></td><td>"calling it for today"</td></tr>
+</table>
+</div>
+
+<div>
+<strong>🔍 Analysis & Ops</strong>
+<p></p>
+<table>
+<tr><th>Skill</th><th>Trigger</th></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/smt-scan.md"><code>/smt-scan</code></a></td><td>"check for divergence"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/tcl-analysis.md"><code>/tcl-analysis</code></a></td><td>"TCL <em>(trend continuation)</em> eval"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/smog-analysis.md"><code>/smog-analysis</code></a></td><td>"SMOG <em>(reversal)</em> evaluation"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/tax-entry.md"><code>/tax-entry</code></a></td><td>"save this for taxes"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/session-sync.md"><code>/session-sync</code></a></td><td>"sync everything"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/marp-deck.md"><code>/marp-deck</code></a></td><td>"create a deck for"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/create-skill.md"><code>/create-skill</code></a></td><td>"build a new skill for..."</td></tr>
+<tr><td><code></code><em><small></small></em></td><td></td></tr>
+<tr><td><code>/startup</code> <em><sub>(global)</sub></em></td><td>"let's get oriented"</td></tr>
+<tr><td><code>/summarize</code> <em><sub>(roadmap)</sub></em></td><td>"give me the short version"</td></tr>
+<tr><td><code>/explain</code> <em><sub>(roadmap)</sub></em></td><td>"break this down"</td></tr>
+<tr><td><code>/capture-agent-trades</code> <em><sub>(roadmap)</sub></em></td><td>"log what the bot traded"</td></tr>
+</table>
+</div>
+
+</div>
+
+---
+
 ## The makemyskill.com Workflow
 <br/>
 
@@ -254,28 +330,39 @@ Optional but recommended for: `/goodmorning`, `/trade-review`, `/premarket`
 
 <!-- _class: tiny-table -->
 
+<style scoped>
+.brnote { border-left: 4px solid #4a90d9; padding: 0.3em 0.8em; color: #b0c0d8; font-style: italic; font-size: 0.72em; margin-top: 0.3em; }
+</style>
+
 ## makemyskill.com — Quality Analysis
-<div><br/>
+<div>
 
 | Skill | Value Added | Verdict |
 |-------|-------------|---------|
-| `/premarket` | Section templates, FCR/SMT defs, Why/Pitfalls per section | ✅ Notably stronger — richer templates |
-| `/trade-review` | Data Source Priorities, Common Patterns, Core Principles | ✅ Significantly enhanced — key principles |
-| `/create-skill` | Generation Workflow, Checklist, Strong vs Weak examples | ✅ Adds workflow structure + examples |
-| `/daily-review` | Extra triggers, Common Scenarios, Checklist | ✅ Broader trigger coverage + checklist |
-| `/marp-deck` | Theme rationale, example deck structure | ✅ Adds theme reasoning + structure |
-| `/goodmorning` | Why this matters per step, Edge Cases | ✅ Adds step rationale + edge cases |
-| `/weekly-review` | Expanded triggers + Key Principles only | ⚠️ Marginal — limited additions |
-| `/goodnight` | Trigger phrases only + introduced a typo | ⏭️ Skip — degraded quality |
-| `/monthly-audit` | Confirmed solid, cosmetic changes only | 💡 Quality signal — already solid |
-| `/tcl-analysis` | Entry checklist, TCL vs. pullback criteria, failure modes | ✅ Adds precision — run it |
-| `/smog-analysis` | Reversal confirmation layers, SMT trap scenarios | ✅ Adds confirmation depth |
-| `/summarize` | Scope controls, output format options | ⚠️ Marginal — simple skill |
-| `/explain` | Audience-level targeting, output structure | ⚠️ Marginal — simple skill |
-| `/capture-agent-trades` | Data format examples, reconciliation edge cases | ✅ Adds format + edge cases |
-<div><br/>
+| [/premarket](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/premarket.md) | Section templates, FCR/SMT defs, Why/Pitfalls per section | ✅ Notably stronger — richer templates |
+| [/trade-review](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/trade-review.md) | Data Source Priorities, Common Patterns, Core Principles | ✅ Significantly enhanced — key principles |
+| [/create-skill](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/create-skill.md) | Generation Workflow, Checklist, Strong vs Weak examples | ✅ Adds workflow structure + examples |
+| [/daily-review](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/daily-review.md) | Extra triggers, Common Scenarios, Checklist | ✅ Broader trigger coverage + checklist |
+| [/marp-deck](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/marp-deck.md) | Theme rationale, example deck structure | ✅ Adds theme reasoning + structure |
+| [/goodmorning](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/goodmorning.md) | Why this matters per step, Edge Cases | ✅ Adds step rationale + edge cases |
+| [/weekly-review](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/weekly-review.md) | Expanded triggers + Key Principles only | ⚠️ Marginal — limited additions |
+| [/goodnight](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/goodnight.md) | Trigger phrases only + introduced a typo | ⏭️ Skip — degraded quality |
+| [/monthly-audit](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/monthly-audit.md) | Confirmed solid, cosmetic changes only | 💡 Quality signal — already solid |
+| [/tcl-analysis](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/tcl-analysis.md) | Entry checklist, TCL vs. pullback criteria, failure modes | ✅ Adds precision — run it |
+| [/smog-analysis](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/smog-analysis.md) | Reversal confirmation layers, SMT trap scenarios | ✅ Adds confirmation depth |
+| [/eval-progress](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/eval-progress.md) | Reformatted description only; removed Do NOT use for clause | ⏭️ Skip — anti-trigger removed |
+| [/smt-scan](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/smt-scan.md) | Trimmed BTC/ETH crypto scope from description | ⚠️ Marginal — narrowed scope |
+| [/pattern-review](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/pattern-review.md) | Added output spec: frequency counts, P&L impact, mechanical fixes | ✅ Stronger output spec |
+| [/session-sync](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/session-sync.md) | No changes to description or body | 💡 Already solid — no changes |
+| [/import-trades](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/import-trades.md) | File mismatch in makemyskill dir — contains level-brief content | ⚠️ Re-run against correct file |
+| [/level-brief](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/level-brief.md) | No changes to description or body | 💡 Already solid — no changes |
+| [/open-orders](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/open-orders.md) | Quote style change only; cosmetic heading rename | ⚠️ Marginal — cosmetic only |
+| [/tax-entry](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/tax-entry.md) | Condensed description; heading renamed | ⚠️ Marginal — condensed only |
+| `/summarize` *(roadmap)* | Scope controls, output format options | ⚠️ Marginal — simple skill |
+| `/explain` *(roadmap)* | Audience-level targeting, output structure | ⚠️ Marginal — simple skill |
+| `/capture-agent-trades` *(roadmap)* | Data format examples, reconciliation edge cases | ✅ Adds format + edge cases |
 
-> **Better results:** Ask makemyskill.com directly — *"Improve and refine this skill:"* then paste the **full skill body**, not just the description. The better the input, the less it changes — near zero = your skill is already solid.
+<div class="brnote"><strong>For better results:</strong> Ask makemyskill.com directly — <em>"Improve and refine this skill:"</em> then paste the <strong>full skill body</strong>, not just the description. The better the input, the less it changes — near zero = your skill is already solid.</div>
 
 ---
 
@@ -290,72 +377,6 @@ Optional but recommended for: `/goodmorning`, `/trade-review`, `/premarket`
 2. Fortuna drafts → test with the echo trick
 3. Paste full body into [makemyskill.com](https://makemyskill.com) — ask it to *"improve and refine"*
 4. Save to `.claude/skills/` · register in MEMORY.md
-
----
-
-<!-- _class: tiny-table -->
-
-<style scoped>
-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  width: 100%;
-}
-table {
-  font-size: 0.72em; /* Ensures tables stay small enough to fit */
-  width: 100%;
-}
-</style>
-
-## Skills in This Repo &nbsp;·&nbsp; <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/.claude/skills" style="font-size:0.6em;font-weight:normal;">📂 Browse all on GitHub ↗</a>
-<br/>
-
-<div class="grid-container">
-
-<div>
-<strong>📊 Reviews & Sessions</strong>
-
-<table>
-<tr><th>Skill</th><th>Trigger</th></tr>
-<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/trade-review.md"><code>/trade-review</code></a></td><td>"create review for [trade]"</td></tr>
-<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/daily-review.md"><code>/daily-review</code></a></td><td>"daily review for [date]"</td></tr>
-<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/weekly-review.md"><code>/weekly-review</code></a></td><td>"weekly review"</td></tr>
-<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/premarket.md"><code>/premarket</code></a></td><td>"create premarket"</td></tr>
-<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/goodmorning.md"><code>/goodmorning</code></a></td><td>"good morning"</td></tr>
-<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/goodnight.md"><code>/goodnight</code></a></td><td>"goodnight" / "end session"</td></tr>
-<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/marp-deck.md"><code>/marp-deck</code></a></td><td>"create a deck for"</td></tr>
-<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/import-trades.md"><code>/import-trades</code></a></td><td>"import trades"</td></tr>
-<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/create-skill.md"><code>/create-skill</code></a></td><td>"create a skill for X"</td></tr>
-<tr><td><code>/startup</code> <em>(global)</em></td><td>"startup" — any repo</td></tr>
-</table>
-</div>
-
-<div>
-<strong>🔍 Analysis & Ops</strong>
-
-<table>
-<tr><th>Skill</th><th>Trigger</th></tr>
-<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/tcl-analysis.md"><code>/tcl-analysis</code></a></td><td>"TCL <em>(trend continuation)</em> eval"</td></tr>
-<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/smog-analysis.md"><code>/smog-analysis</code></a></td><td>"SMOG <em>(reversal)</em> evaluation"</td></tr>
-<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/level-brief.md"><code>/level-brief</code></a></td><td>"what are the levels"</td></tr>
-<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/smt-scan.md"><code>/smt-scan</code></a></td><td>"SMT scan"</td></tr>
-<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/eval-progress.md"><code>/eval-progress</code></a></td><td>"eval status"</td></tr>
-<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/pattern-review.md"><code>/pattern-review</code></a></td><td>"pattern review"</td></tr>
-<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/monthly-audit.md"><code>/monthly-audit</code></a></td><td>"monthly audit"</td></tr>
-<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/session-sync.md"><code>/session-sync</code></a></td><td>"sync everything"</td></tr>
-<tr><td><code>/summarize</code> <em>(roadmap)</em></td><td>"summarize this"</td></tr>
-<tr><td><code>/explain</code> <em>(roadmap)</em></td><td>"explain this"</td></tr>
-<tr><td><code>/capture-agent-trades</code> <em>(roadmap)</em></td><td>"capture agent trades"</td></tr>
-</table>
-</div>
-
-</div>
 
 ---
 
@@ -452,14 +473,18 @@ a {
 </style>
 
 *Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+<div class="credit">
+
+📂 [trading-assistant-public-preview](https://github.com/drasticstatic/trading-assistant-public-preview) — public repo
+
+</div>
+
 
 ### **[makemyskill.com](https://makemyskill.com)**
 **Refine your skill descriptions**
 
 <div class="credit">
 
-📂 [trading-assistant-public-preview](https://github.com/drasticstatic/trading-assistant-public-preview) — public repo 
 Framework by [Ruben Hassid](https://ruben.substack.com/p/claude-skills) — thank you 🙏
 
 </div>
-
