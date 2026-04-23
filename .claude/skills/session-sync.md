@@ -61,20 +61,24 @@ Format:
 - Commit: [short hash] — [message]
 ```
 
-### 5. Update AGENT_SYNC.md (If Needed)
+### 5. Update AGENT_SYNC.md (MANDATORY — every sync)
 
-Append to `AGENT-SYNC/AGENT_SYNC.md` under "Latest Updates" if other agents need to know:
-- Pine Script changes → Auggie
-- New skill or workflow change → Kavanah
-- Infrastructure issue or MCP change → both
+Append to `AGENT-SYNC/AGENT_SYNC.md` at every sync, even routine ones. This is the shared living context — any agent or Christopher should be able to open it and know exactly where things stand.
 
 Format:
 ```markdown
-### YYYY-MM-DD — Agent: [Auggie / Kavanah / Both]
-- [What changed and why it matters]
+## 📡 [Month Day], [Year] Session Summary (Fortuna)
+**Session type:** [live / analysis / infra / skills / cross-repo]
+- [What was accomplished]
+- [Key decision or outcome]
+- Commit: [short hash] — [message]
 ```
 
-Skip if the session was routine.
+Priority flags for other agents:
+- Pine Script changes → Auggie
+- New skill or workflow change → Kavanah
+- Infrastructure or MCP change → both
+- Routine sync → still write it, just keep it brief
 
 ### 6. Final Push (Logs and Sync)
 

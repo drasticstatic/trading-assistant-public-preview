@@ -46,14 +46,24 @@ Format:
 
 Keep entries concise — session logs are for scanning context quickly, not exhaustive detail.
 
-## Step 4 — AGENT_SYNC Update (If Needed)
+## Step 4 — AGENT_SYNC Update (MANDATORY — every session)
 
-If something happened that other agents (Auggie, Kavanah) need to know, append to `AGENT-SYNC/AGENT_SYNC.md` under "Latest Updates":
-- New indicator issue or Pine feedback → Auggie
-- Infrastructure change affecting workflows → both
-- Pattern discovery or rule change → Kavanah
+Append to `AGENT-SYNC/AGENT_SYNC.md` at every session close, even if the session was routine or no cross-agent handoff is needed. This keeps the shared context current so any agent or Christopher can open it at any time and know exactly where things stand.
 
-Skip this step if the session was routine.
+Format a dated section:
+```markdown
+## 📡 [Month Day], [Year] Session Summary (Fortuna)
+**Session type:** [live / observation / infra / skills / cross-repo]
+- [What was done or decided]
+- [Account/pattern status if changed]
+- [Any item another agent needs to know]
+```
+
+Priority flags:
+- New indicator issue or Pine feedback → note for Auggie
+- Infrastructure or MCP change → note for both
+- Pattern discovery or rule change → note for Kavanah
+- Routine session → still write it, just keep it brief
 
 ## Step 5 — Final Push
 
