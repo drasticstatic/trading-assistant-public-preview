@@ -23,7 +23,7 @@ Run `get_account` — this is the primary data source. Note:
 ### 1. Pull Account Data
 
 ```
-get_account  — APEX-484839-06 and TAKEPROFIT558167553
+get_account  — [YOUR_APEX_ACCOUNT_ID] and [YOUR_TPT_ACCOUNT_ID]
 ```
 
 If multiple accounts are active, run for each.
@@ -54,7 +54,7 @@ For each account, compute:
 ```
 Eval Progress — [Date]
 
-APEX-484839-06
+[YOUR_APEX_ACCOUNT_ID]
   Balance:        $X,XXX.XX
   P&L to date:    +$XXX.XX
   Gap to target:  $X,XXX.XX remaining
@@ -62,7 +62,7 @@ APEX-484839-06
   Min days:       ✅ Met / ❌ N of 7 complete
   Run rate needed: $XX.XX/day over N trading days
 
-TAKEPROFIT558167553
+[YOUR_TPT_ACCOUNT_ID]
   Status: [Active / Reset / Inactive]
   [Same metrics if active]
 

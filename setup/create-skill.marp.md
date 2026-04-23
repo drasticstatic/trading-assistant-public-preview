@@ -313,7 +313,7 @@ table {
 }
 </style>
 
-## Skills in This Repo
+## Skills in This Repo &nbsp;·&nbsp; <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/.claude/skills" style="font-size:0.6em;font-weight:normal;">📂 Browse all on GitHub ↗</a>
 <br/>
 
 <div class="grid-container">
@@ -323,15 +323,15 @@ table {
 
 <table>
 <tr><th>Skill</th><th>Trigger</th></tr>
-<tr><td><code>/trade-review</code></td><td>"create review for [trade]"</td></tr>
-<tr><td><code>/daily-review</code></td><td>"daily review for [date]"</td></tr>
-<tr><td><code>/weekly-review</code></td><td>"weekly review"</td></tr>
-<tr><td><code>/premarket</code></td><td>"create premarket"</td></tr>
-<tr><td><code>/goodmorning</code></td><td>"good morning"</td></tr>
-<tr><td><code>/goodnight</code></td><td>"goodnight" / "end session"</td></tr>
-<tr><td><code>/marp-deck</code></td><td>"create a deck for"</td></tr>
-<tr><td><code>/import-trades</code></td><td>"import trades"</td></tr>
-<tr><td><code>/create-skill</code></td><td>"create a skill for X"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/trade-review.md"><code>/trade-review</code></a></td><td>"create review for [trade]"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/daily-review.md"><code>/daily-review</code></a></td><td>"daily review for [date]"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/weekly-review.md"><code>/weekly-review</code></a></td><td>"weekly review"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/premarket.md"><code>/premarket</code></a></td><td>"create premarket"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/goodmorning.md"><code>/goodmorning</code></a></td><td>"good morning"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/goodnight.md"><code>/goodnight</code></a></td><td>"goodnight" / "end session"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/marp-deck.md"><code>/marp-deck</code></a></td><td>"create a deck for"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/import-trades.md"><code>/import-trades</code></a></td><td>"import trades"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/create-skill.md"><code>/create-skill</code></a></td><td>"create a skill for X"</td></tr>
 <tr><td><code>/startup</code> <em>(global)</em></td><td>"startup" — any repo</td></tr>
 </table>
 </div>
@@ -341,17 +341,17 @@ table {
 
 <table>
 <tr><th>Skill</th><th>Trigger</th></tr>
-<tr><td><code>/tcl-analysis</code></td><td>"TCL <em>(trend continuation)</em> eval"</td></tr>
-<tr><td><code>/smog-analysis</code></td><td>"SMOG <em>(reversal)</em> evaluation"</td></tr>
-<tr><td><code>/level-brief</code></td><td>"what are the levels"</td></tr>
-<tr><td><code>/smt-scan</code></td><td>"SMT scan"</td></tr>
-<tr><td><code>/eval-progress</code></td><td>"eval status"</td></tr>
-<tr><td><code>/pattern-review</code></td><td>"pattern review"</td></tr>
-<tr><td><code>/monthly-audit</code></td><td>"monthly audit"</td></tr>
-<tr><td><code>/session-sync</code></td><td>"sync everything"</td></tr>
-<tr><td><code>/summarize</code></td><td>"summarize this"</td></tr>
-<tr><td><code>/explain</code></td><td>"explain this"</td></tr>
-<tr><td><code>/capture-agent-trades</code></td><td>"capture agent trades"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/tcl-analysis.md"><code>/tcl-analysis</code></a></td><td>"TCL <em>(trend continuation)</em> eval"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/smog-analysis.md"><code>/smog-analysis</code></a></td><td>"SMOG <em>(reversal)</em> evaluation"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/level-brief.md"><code>/level-brief</code></a></td><td>"what are the levels"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/smt-scan.md"><code>/smt-scan</code></a></td><td>"SMT scan"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/eval-progress.md"><code>/eval-progress</code></a></td><td>"eval status"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/pattern-review.md"><code>/pattern-review</code></a></td><td>"pattern review"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/monthly-audit.md"><code>/monthly-audit</code></a></td><td>"monthly audit"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/session-sync.md"><code>/session-sync</code></a></td><td>"sync everything"</td></tr>
+<tr><td><code>/summarize</code> <em>(roadmap)</em></td><td>"summarize this"</td></tr>
+<tr><td><code>/explain</code> <em>(roadmap)</em></td><td>"explain this"</td></tr>
+<tr><td><code>/capture-agent-trades</code> <em>(roadmap)</em></td><td>"capture agent trades"</td></tr>
 </table>
 </div>
 
@@ -372,7 +372,7 @@ cp .claude/skills/create-skill.md \
 **Rules:**
 - Only copy skills **relevant** to that repo's workflow
 - Non-trading repos get `/create-skill` + `/startup` only
-- `.claude/` is **gitignored** everywhere — skills are local to each machine
+- `.claude/skills/` is **public** in trading-assistant-public-preview — real examples anyone can study
 
 ---
 
