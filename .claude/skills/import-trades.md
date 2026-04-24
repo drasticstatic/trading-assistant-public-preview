@@ -118,17 +118,41 @@ Action needed:
 - /trade-review for MES Apr 22
 ```
 
-### 6. Commit Import Files
+### 6. Locate Screenshots
+
+Before creating trade reviews, locate session screenshots using `git status` — uncommitted files in `data/screenshots/` are the new additions for this session:
 
 ```bash
-git add data/imports/ && git commit -m "Import trade data YYYYMMDD — [instruments]"
+git status data/screenshots/
+```
+
+Three naming conventions — match all:
+- **TradingView capture:** `RTY1!_2026-04-23_17-32-24_65d3a.png` (instrument + date + time + hash)
+- **macOS Sequoia screenshot tool:** `Screenshot 2026-04-23 at 17.32.24.png` (one word, spaces, dots in time)
+- **macOS Big Sur screenshot tool:** `Screen Shot 2026-04-23 at 17.32.24.png` (two words, spaces, dots in time)
+
+Match filenames to instruments and date. If no uncommitted screenshots found in `data/screenshots/`, ask Christopher before looking elsewhere.
+
+### 7. Create Trade Reviews
+
+For each trade missing a review, run `/trade-review` using the CSV data and screenshots located in Step 6.
+
+**One review per filled trade.** NNN numbering is day-sequential across all instruments:
+- First filled trade of the day → `_001`
+- Second filled trade (any instrument) → `_002`
+
+If two trades are closely related (same day, cross-instrument setup), note that in both reviews and create a daily review as well.
+
+### 8. Commit Import Files + Reviews
+
+```bash
+git add data/imports/ smarttrader-ai/reviews/ smarttrader-ai/exports/ data/screenshots/ && \
+  git commit -m "Import trade data YYYYMMDD — [instruments]"
 git push origin main
 ```
 
 ## After Running
 
-- **If missing reviews flagged:** Use `/trade-review` to build them
-- **If all reviews exist:** No further action required
 - Update `pattern_tracker.md` Running P&L if not current
 
 ## Common Issues

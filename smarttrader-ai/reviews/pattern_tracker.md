@@ -41,6 +41,8 @@
 | 20260408_SOLUSDT-BTCC_001 | Apr 8 | SOLUSDT | Short | 81.92 | AutoLiq ~$86 | **~-$22 (BTCC)** | — | — | ⚠️ C | ⚠️ IT EMAs bearish · SHORT aligned · deadline-motivated entry (voucher expiry 11:30 PM) | ❌ None set — voucher | No |
 | 20260417_M2K-APEX_001 | Apr 17 | M2K | Short | 2,770.70 | 2,788.10 | **-$87.00** | Neg | -46.77 | 1/5 | ⚠️ OB + key level · reversal bias · FOMO component · overnight limit | ❌ Canceled at fill (Pattern 9) — unprotected 8h | No |
 | 20260421_MCL-APEX_001 | Apr 21 | MCL | Short | 91.11 | 89.70 | **+$141.00** | — | 56.85 | 2.5/5 | ❌ Last-minute · FOMO · not in plan · trading against trend · ZTH Pivot applied post-impulse | ❌ Variable — no firm SL (near-close entry accepted risk) | No |
+| 20260423_RTY-APEX_001 | Apr 23 | RTY | Long | 2,781.1 | 2,778.3 (AutoLiq) | **-$140** | N/A | -8.70 | 2.5/5 | ⚠️ ZTH SFP + OB/FVG · manipulation sweep · multi-bracket swing approach | ❌ SL 2725.2 canceled 13:47 (Pattern 7) · AutoLiq exit (Pattern 8) | No |
+| 20260423_YM-APEX_002 | Apr 23 | YM | Long | 49,122 | 49,341 (TP) | **+$1,095** | 0.42R | 95.22 | 4.0/5 | ⚠️ ZTH SFP + OB/FVG · same sweep · TP modified from original sweep target (Pattern 7 soft) | ✅ SL 48,601 placed · canceled cleanly on TP fill | Yes |
 
 ---
 
@@ -72,10 +74,13 @@ Apr 14–16   $0.00  ────────────────  no fills 
 Apr 17      -$87   ██░░░░░░░░░░░░░  M2K SHORT overnight limit · 8h hold · no protective orders · Pattern 8
 Apr 18      $0.00  ────────────────  no fills
 Apr 21    +$141.00  ████████░░░░░░░  WIN ✅ MCL SHORT · ZTH Pivot · FOMO entry · Pattern 7 active · 43.25% exit efficiency
+Apr 23     -$140.00  ████░░░░░░░░░░░  loss · RTY LONG · ZTH SFP sweep · SL canceled (P7) · AutoLiq exit (P8)
+Apr 23   +$1,095.00  ████████████████ WIN ✅ YM LONG · ZTH SFP sweep · TP filled 11 min · Zella 95.22 · soft P7 (TP modified)
 
-Cumulative (Feb 23–Apr 21, USD futures/crypto): +$1,166.00 (USD futures) - $14.13 USDT - ~$22 USDT + $20.63 USDT = ~+$1,150.50
-  APEX-06: +$1,279 net (+$1,225 Mar 24 · -$87 Apr 17 · +$141 Apr 21) · TPT: -$206 (Mar 26) · APEX-05: blown Mar 3 · BTCC net: ~-$15.50
-Note: APEX-06 active. TPT 50K active.
+Cumulative (Feb 23–Apr 23, USD futures/crypto): +$2,121.00 (USD futures) - $14.13 USDT - ~$22 USDT + $20.63 USDT = ~+$2,105.50
+  APEX-06: +$2,234 net (+$1,225 Mar 24 · -$87 Apr 17 · +$141 Apr 21 · -$140 Apr 23 RTY · +$1,095 Apr 23 YM)
+  TPT: -$206 (Mar 26) · APEX-05: blown Mar 3 · BTCC net: ~-$15.50
+Note: APEX-06 active. TPT 50K active (reset Apr 1).
 ```
 
 ---
@@ -108,6 +113,8 @@ Note: APEX-06 active. TPT 50K active.
 | Mar 26 MCL (T1) | Angry, ambivalent, fearful, frustrated, stressed | No | ✅ EMA bullish, OB + key level, pivot retracement (valid setup, news event) | ✅ Instant fill — stop hit before any Pattern 7 window existed |
 | Mar 26 MGC (T2) | Ambivalent, anxious, confident, fearful, frustrated, happy, neutral, stressed | No | ✅ EMAs bearish, rejection off resistance, pivot sell | ❌ Moved multiple times through 38.7-pt adverse — Pattern 7, fourth consecutive session | Unintentional fill → correct structural hold (HVN + Mar 8 low SMT) → AutoLiq |
 | Apr 21 MCL (T1) | Calm entering; fearful, anxious, happy in-trade | No | ❌ FOMO, not in plan, last-minute, trading against trend — ZTH Pivot label applied post-impulse | ❌ Variable SL; TP moved in-trade (Pattern 7) | First profitable active MCL exit (Pattern 8 partial improvement); 43.25% exit efficiency; correct index read |
+| Apr 23 RTY (T1) | Anxious at entry; neutral at close | Partial | ⚠️ ZTH SFP + OB/FVG · manipulation sweep · patient pre-placed limit · valid structural thesis | ❌ SL 2725.2 canceled 38 min post-fill (Pattern 7) · AutoLiq exit 16:59 (Pattern 8) | Held through -$1,610 MAE without panic-close; both RTY+YM adverse simultaneously — composure held |
+| Apr 23 YM (T2) | Calm, excited, confident, neutral, happy | Yes | ⚠️ ZTH SFP + OB/FVG · same sweep window · 2.5hr wait from placement to fill | ✅ SL 48,601 placed; canceled cleanly on TP fill · TP modified down (soft Pattern 7) | Cleanest exit of recent arc — TP filled actively; Zella 95.22; cross-instrument TCL dynamic with RTY |
 
 **Trend:**
 ```
@@ -519,9 +526,11 @@ Links to individual reviews:
 - [Apr 8 — SOL Short (~-$22 · BTCC voucher · AutoLiq)](2026/04-Apr/review_20260408_SOLUSDT-BTCC_001.md)
 - [Apr 17 — M2K Short (-$87 · APEX · overnight limit · Pattern 8)](2026/04-Apr/review_20260417_M2K-APEX_001.md)
 - [Apr 21 — MCL Short (+$141 · APEX · ZTH Pivot · Pattern 7 · 43% efficiency)](2026/04-Apr/review_20260421_MCL-APEX_001.md)
+- [Apr 23 — RTY Long (-$140 · APEX · ZTH SFP sweep · Pattern 7+8 · AutoLiq)](2026/04-Apr/review_20260423_RTY-APEX_001.md)
+- [Apr 23 — YM Long (+$1,095 · APEX · ZTH SFP sweep · Zella 95.22 · TP filled)](2026/04-Apr/review_20260423_YM-APEX_002.md)
 
 ---
 
 *Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
-*Pattern Tracker · Established Feb 25, 2026 · Updated Apr 21, 2026*
+*Pattern Tracker · Established Feb 25, 2026 · Updated Apr 23, 2026*
 *Updated after each session — append, do not overwrite historical entries*
