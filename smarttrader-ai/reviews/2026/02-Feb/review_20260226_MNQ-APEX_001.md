@@ -520,8 +520,9 @@ The only thing that changed it was the entry level adjustment.
 
 ## 🔁 Pattern Tracker
 
-> Full progress tracker (all sessions, behavioral arc, compliance scores, statistical summary):
-> **[`pattern_tracker.md`](../../pattern_tracker.md)**
+Trade 20260226_MNQ-APEX_001 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
 
 *This trade's entry: Feb 26 MNQ Short — emotionally unstable ❌, FOMO entry (25,000 vs planned 25,060) ❌, SL respected ✅, directional read correct ✅, -$558. Pattern 5 identified: "Level Abandonment Under Pressure."*
 

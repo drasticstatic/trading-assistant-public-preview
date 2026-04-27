@@ -115,7 +115,7 @@ The "overtrade?" flag in Mistakes is also worth discussing. Christopher noted th
 
 Trade 20260423_YM-APEX_002 logged.
 
-> See full running tracker: [../../pattern_tracker.md](../../pattern_tracker.md)
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
 
 Pattern 8 absent here — this is the cleanest exit of the recent arc. TP hit actively, SL was in place and canceled cleanly on TP fill. The TP modification is a softer Pattern 7 expression — worth flagging but not the same severity as SL cancellation.
 

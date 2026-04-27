@@ -170,8 +170,9 @@ The original SL was placed at 6,811.00 (Stop Buy). At 11:25 AM, with the trade r
 
 **Trade 011** — SL cancelled under eval deadline pressure. FCR rays drawn at open/close instead of HIGH/LOW — structural entry misidentified. AutoLiq at 6,786.25. −$1,450. New Pattern 7 introduced.
 
-> Full progress tracker (all sessions, behavioral arc, compliance scores, statistical summary):
-> **[`pattern_tracker.md`](../../pattern_tracker.md)**
+Trade 20260303_ES-APEX_002 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
 
 ---
 

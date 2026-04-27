@@ -215,7 +215,9 @@ The object tree entry at 6880.5 — a much higher projection — was wicked to e
 | **Pattern 8** (exit passivity) | 🔴 **PRESENT** | AutoLiq exit. MFE $425 above actual exit. TP not reached. Zero active exit decisions across all recovery arc trades. This is the next pattern to address. |
 | **Pattern 9** (pre-rest order hygiene) | 🟡 **INTENTIONAL VARIANT** | Bracket fully in place (TP + SL). Deliberate rest decision, prayer said. Different from Mar 20 careless leave. Framework definition update needed — see Notes for Coaches. |
 
-> See full pattern tracker: [../../pattern_tracker.md](../../pattern_tracker.md)
+Trade 20260324_ES-APEX_001 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
 
 ---
 

@@ -121,7 +121,9 @@ Two exit opportunities then arose and were both passed: unrealized gain around 1
 
 ## 🔁 Pattern Tracker
 
-> See full arc: [pattern_tracker.md](../../pattern_tracker.md)
+Trade 20260310_MNQ-APEX_001 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
 
 - **Pattern 7 (SL cancellation):** ✅ Fix confirmed — 1-tick SL approach, urge to move, chose to step away instead. SL held.
 - **Pattern 8 (Exit passivity):** ⚠️ New pattern identified — see below.

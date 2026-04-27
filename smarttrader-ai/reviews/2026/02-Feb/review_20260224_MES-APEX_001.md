@@ -404,8 +404,9 @@ The similarity: The emotion preceded the wrong choice.
 
 ## 🔁 Pattern Tracker
 
-> Full progress tracker (all sessions, behavioral arc, compliance scores, statistical summary):
-> **[`pattern_tracker.md`](../../pattern_tracker.md)**
+Trade 20260224_MES-APEX_001 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
 
 *This trade's entry: Feb 24 MES — SL respected ✅, wrong scenario taken (EMAs vetoed, ignored), -$35.00. Next layer identified: entry filter.*
 

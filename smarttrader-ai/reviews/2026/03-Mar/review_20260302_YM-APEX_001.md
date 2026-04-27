@@ -122,8 +122,9 @@ The 88.09 Zella Score is surprisingly high for a D-grade trade — it reflects t
 - **Positive offset:** Quick exit, acknowledged in real time, no damage to session. This is the habit we want.
 - **Watch:** If opening FOMO scalps become a recurring pre-trade before each A+ setup, log as a separate pattern.
 
-> Full progress tracker (all sessions, behavioral arc, compliance scores, statistical summary):
-> **[`pattern_tracker.md`](../../pattern_tracker.md)**
+Trade 20260302_YM-APEX_001 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
 
 ---
 

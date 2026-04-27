@@ -179,8 +179,9 @@ Nine minutes later the trade closed at TP — +$1,037.50. The entire session con
 - **This is the counter-entry to Pattern 5:** Entry was set structurally, waited for confirmation, did not adjust. SL was placed and not moved. TP hit, trade closed.
 - **Benchmark for future reviews:** When behavior deviates, this trade is the reference.
 
-> Full progress tracker (all sessions, behavioral arc, compliance scores, statistical summary):
-> **[`pattern_tracker.md`](../../pattern_tracker.md)**
+Trade 20260302_ES-APEX_002 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
 
 ---
 

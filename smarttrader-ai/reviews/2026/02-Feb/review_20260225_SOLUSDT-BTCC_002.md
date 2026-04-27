@@ -204,8 +204,9 @@ Price at evening review (~19:35 ET): $89.1567
 
 ## 🔁 Pattern Tracker
 
-> Full progress tracker (all sessions, behavioral arc, compliance scores, statistical summary):
-> **[`pattern_tracker.md`](../../pattern_tracker.md)**
+Trade 20260225_SOLUSDT-BTCC_002 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
 
 *This trade's entry: Feb 25 SOL — emotionally stable ✅, IT Foundation EMA crossover + FVG pullback ✅, exited near HOD ✅, +$20.63 USDT. Framework portability confirmed across instruments.*
 

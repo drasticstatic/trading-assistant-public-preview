@@ -117,6 +117,10 @@ Final result: **+$94 / +4.7 points / 2 contracts**. Duration: 47 minutes.
 | **Pattern 7 — SL modification** | 🔴 Recurring | SL moved multiple times through 38.7-pt adverse move. Original stop would have hit. Win does not validate the behavior. |
 | **Pattern 8 — exit passivity** | ⚠️ Partial improvement | First manual close in recent recovery arc. MFE was $194; captured $94 (48.45%). Improvement over AutoLiq exits but best exit missed by 9 minutes. |
 
+Trade 20260326_MGC-TPT_002 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
+
 ---
 
 ## 🎯 9. Forward Focus
