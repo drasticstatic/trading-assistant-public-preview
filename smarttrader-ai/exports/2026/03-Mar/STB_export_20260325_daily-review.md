@@ -23,6 +23,8 @@
 
 ## 📖 Session Narrative
 
+[Pre-market summary →](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260325_summary.md)
+
 ### APEX-06 Minimum Days Achieved
 
 March 25 marks the completion of APEX-484839-06's **7-day minimum trading requirement**. The account entered the day with the final minimum trading day confirmed, bringing the eval to the phase where a payout request can be submitted once the profit target is met. The account P&L at this point stands at approximately **+$3,252** above starting balance, with trailing drawdown floor at ~$100,629.

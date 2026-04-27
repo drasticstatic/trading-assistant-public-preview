@@ -22,7 +22,9 @@
 
 ## 📖 Session Narrative
 
-No pre-market summary written today. Session began in the PM hours with an all-day structural read.
+[Pre-market summary →](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260317_summary.md)
+
+Session began in the PM hours with an all-day structural read.
 
 NQ/MNQ had already broken below its March 12 7:40 session high (5/5 level), while YM and RTY were still traveling to test their equivalent peaks — classic SMT divergence confirming short bias. RTY was sitting exactly at the March 12 7:40 peak — resistance confluence. The structural read was clean and correct all day.
 

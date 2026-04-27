@@ -22,6 +22,8 @@
 
 ## 📖 Session Narrative
 
+No formal pre-market plan on file for this session.
+
 Day began with the best possible alarm — the TP fill notification from last night's MNQ short. 24,935.00 hit at 08:42:56 ET while Christopher was asleep, completing the overnight carry documented in the March 17 review. +$963 and an extra $462 gap closed on APEX-06 against the March 24 deadline.
 
 The rest of March 18 was a full coaching + development session with no personal entries. The day had three primary threads:

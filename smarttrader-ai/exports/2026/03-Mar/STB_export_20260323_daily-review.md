@@ -209,7 +209,7 @@ $0.00 — no trades taken. APEX gap unchanged at ~$4,000. Deadline: March 24 (to
 
 ---
 
-> Full pre-market summary: https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260323_summary.md
+[Pre-market summary →](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260323_summary.md)
 
 ---
 

@@ -246,7 +246,7 @@ Patience as a strategy works — the limit order held for 36+ hours and filled a
 
 ---
 
-> Full pre-market summary: https://github.com/drasticstatic/trading-assistant/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260324_summary.md
+[Pre-market summary →](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260324_summary.md)
 
 ---
 

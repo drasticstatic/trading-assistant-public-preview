@@ -23,7 +23,7 @@
 
 ## 📖 Session Narrative
 
-No pre-market summary written today. Session began with active trading and the first live deployment of the auto-levels v2.6 Pine Script — FCR levels printing correctly on MNQ for the first time after the multi-session repair arc with Fortuna and Kavanah.
+No formal pre-market plan on file for this session. Session began with active trading and the first live deployment of the auto-levels v2.6 Pine Script — FCR levels printing correctly on MNQ for the first time after the multi-session repair arc with Fortuna and Kavanah.
 
 **Trade 1 — MNQ SHORT (10:46 ET, -$268.50):** Break & Retest short taken near the top of the morning range with FCR levels as structural context. Price moved 70 pts toward TP (MFE 24,602.25) but reversed. SL was adjusted mid-trade to align with the FCR long-from-here ray — a rationalization-based SL move that preceded the stop-out at 24,717.00. Frustration noted. Loss.
 
