@@ -23,6 +23,8 @@
 
 ## 📖 Session Narrative
 
+[Pre-market summary →](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260323_summary.md)
+
 ### Pre-Market (08:24–08:58 ET)
 
 Christopher entered the session with a firm macro bearish read across all four equity indices — confirmed by EMAs red and downward-sloping on NQ, ES, YM, and RTY. A notable pre-market pump had occurred simultaneously in crypto markets — a short-cover/liquidity bounce within the macro downtrend, not a reversal. The pre-market STB snapshot came in neutral (taken before the pump).
@@ -207,9 +209,7 @@ Deadline paralysis can manifest as blocked valid entries — not just forced bad
 
 $0.00 — no trades taken. APEX gap unchanged at ~$4,000. Deadline: March 24 (today). Two working limit orders (Sell ESM6, Sell MCLK6) carry forward into the next session — set intentionally overnight from structural levels.
 
----
-
-[Pre-market summary →](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260323_summary.md)
+> Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260323_daily-review.md
 
 ---
 

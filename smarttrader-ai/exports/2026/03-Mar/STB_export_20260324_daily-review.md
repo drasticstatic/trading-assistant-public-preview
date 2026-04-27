@@ -24,6 +24,8 @@
 
 ## 📖 Session Narrative
 
+[Pre-market summary →](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260324_summary.md)
+
 ### The Setup — Overnight Patience (02:30–12:00 ET)
 
 This trade was over 36 hours in the making. The sell limit on ESM6 at 6673.0 was originally set before Christopher rested on the night of March 23 — after the London STB coaching call, after an emotional breakdown under the weight of the eval deadline, after reading Jeremiah and saying a prayer. The orders were set with intention, not in haste.
@@ -244,9 +246,9 @@ Patience as a strategy works — the limit order held for 36+ hours and filled a
 
 +$1,225.00 on 1 ES contract (APEX-484839-06). Intentional overnight limit fill at 6673.0, AutoLiq close at 6648.5. 24.5 points, 32 minutes, 74.24% exit efficiency, 74.24 Zella Score, 3.5/5 trade rating. TP at 6588.75 not reached. MAE -$237.50, MFE +$1,650.00. APEX account balance ~$103,252.84. Eval gap updated pending Apex dashboard refresh.
 
----
-
-[Pre-market summary →](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260324_summary.md)
+> Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260324_daily-review.md
+> Full individual trade reviews:
+> - [review_20260324_ES-APEX_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/03-Mar/review_20260324_ES-APEX_001.md) — ES Short overnight +$1,225 · APEX-06
 
 ---
 

@@ -12,7 +12,7 @@
 
 ## 📖 Session Narrative
 
-> Pre-market plan: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260223-summary.md
+[Pre-market summary →](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260223-summary.md)
 
 Feb 23 opened with a triple-confirmation Scenario A SHORT across NQ, ES, and YM. Christopher entered MNQ short at 24,879.5 (a 3/5 ZTH level FVG zone). The SL was placed at 24,929.75 at the nearest 5/5 — just one tick above, which swept the stop at 10:21 AM for −$100.50. Price then reversed and reached full TP at 24,783.5 without him. Core lesson: 3/5 entry with a 5/5 stop = structural vulnerability to a 1-tick sweep. SL was not moved — second behavioral win of the arc. Attended Inevitrade Bootcamp Session 4A that evening; STB AI gave the session an A+ overall with five priority refinements for future sessions.
 

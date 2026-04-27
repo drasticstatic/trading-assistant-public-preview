@@ -7,7 +7,7 @@
 
 ## 📖 Session Narrative
 
-> Pre-market plan: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260224-summary.md
+[Pre-market summary →](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260224-summary.md)
 
 Feb 24 was a broad risk-off sell-off day. Pre-market analysis correctly flagged all three indices steeply red dominant — Scenario A SHORT was the primary thesis. Christopher took a counter-trend MES LONG anyway (Scenario B against the EMA veto), stopped out in 66 seconds for −$35. Then monitored a structured MES limit at 6,888 all afternoon — it never filled as price consolidated above it. Overnight SFP wick confirmed the 6,888 HVN as genuine support. SL was held on the executed trade — second consecutive session of SL discipline.
 
