@@ -20,7 +20,7 @@
 
 ## 📖 Session Narrative
 
-> Pre-market plan: see `premarket_20260319_summary.md` (written at ~15:00 ET — no formal morning session)
+[Pre-market summary →](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260319_summary.md) *(written ~15:00 ET — no formal morning session)*
 
 Christopher began the day making a deliberate choice: rest over trading. The morning involved personal and legal matters — unemployment filing (following correct procedure after being let go from prior employer), an attorney bill, and a PETITION FOR MODIFICATION OF AN EXISTING SUPPORT ORDER from domestic relations regarding child support arrears. Rather than trading through that stress, Christopher handled each item directly, called domestic relations to explain the situation, and cleared the space before coming to the desk. This sequence is exactly what the psychologist and coaches have been reinforcing.
 

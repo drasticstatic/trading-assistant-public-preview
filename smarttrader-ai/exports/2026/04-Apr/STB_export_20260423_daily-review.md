@@ -120,6 +120,7 @@ The entry methodology is working. Patient pre-placed limits at key ZTH SFP level
 Net +$955 (RTY -$140 · YM +$1,095). APEX-484839-06 active, profit target in progress. Two fills on pre-placed ZTH SFP limits — both valid structural entries. YM closed on active TP, RTY closed on AutoLiq. Pattern 7 and Pattern 8 both present on RTY; YM was the cleanest exit of the recent arc. Running P&L update: APEX-06 approximately +$2,234 cumulative since activation.
 
 > Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/04-Apr/STB_export_20260423_daily-review.md
+
 > Full individual trade reviews:
 > - [review_20260423_RTY-APEX_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/04-Apr/review_20260423_RTY-APEX_001.md) — RTY Long -$140 · AutoLiq · Pattern 7+8
 > - [review_20260423_YM-APEX_002.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/04-Apr/review_20260423_YM-APEX_002.md) — YM Long +$1,095 · TP filled · Zella 95.22

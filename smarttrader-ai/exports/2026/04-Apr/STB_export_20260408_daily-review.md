@@ -23,6 +23,8 @@
 
 ## 📖 Session Narrative
 
+No formal pre-market plan on file for this session.
+
 Late Wednesday night, with a BTCC voucher expiring at 11:30 PM ET, Christopher entered a SHORT on SOLUSDT at $81.92 with 20x leverage. The trade briefly moved in his favor — a profit window appeared — but no exit action was taken. Price reversed and auto-liquidated the position for approximately $20–$24 loss.
 
 The week was heavy before the trade opened. Financial pressure, competing priorities across trading, web3, and personal obligations, and a stretch of sessions without filled orders on the prop firms. The voucher trade was the only executable opportunity, and the deadline shaped the entry timing.

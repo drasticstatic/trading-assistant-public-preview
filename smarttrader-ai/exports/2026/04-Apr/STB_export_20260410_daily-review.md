@@ -22,7 +22,7 @@
 
 ## 📖 Session Narrative
 
-[Pre-market summary →](../../analysis/premarket/2026/04-Apr/premarket_20260410_summary.md)
+[Pre-market summary →](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/04-Apr/premarket_20260410_summary.md)
 
 Friday opened with CPI at 8:30 AM — the dominant catalyst of the week. Pre-market analysis showed a bullish lean across NQ/ES with IT Foundation EMAs green on all four timeframes, but a persistent YM divergence (YM trading 20 pts below PDC while NQ led). CL had a bearish EMA structure from the overnight session.
 
