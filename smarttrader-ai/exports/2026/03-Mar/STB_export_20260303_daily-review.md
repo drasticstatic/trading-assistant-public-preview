@@ -39,7 +39,7 @@
 
 ## 📖 Session Narrative
 
-> Pre-market plan: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260303-summary.md
+[Pre-market summary →](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260303-summary.md)
 
 March 3 was the second-to-last day of the APEX eval — a gap of ~$5,634 remained at open. The premarket brief correctly identified eval pressure as the primary behavioral risk. All three trades reflected that pressure in different ways.
 

@@ -8,7 +8,7 @@
 
 ## 📖 Session Narrative
 
-> Pre-market plan: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260304_summary.md
+[Pre-market summary →](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260304_summary.md)
 
 Today was a deliberate no-trade session following the Mar 3 account liquidation (APEX-05 blown, Patterns 6+7). The intent was to sit out the volatile open, attend all three coaching calls (STB, ZTH, Inevitrade), and build pattern recognition without capital at risk. That objective was fully achieved.
 

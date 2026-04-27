@@ -28,7 +28,7 @@
 
 ## 📖 Session Narrative
 
-> Pre-market plan: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260302-summary.md
+[Pre-market summary →](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260302-summary.md)
 
 Monday opened with a bearish ETH context (MES down −0.7% overnight, red dominant IT Foundation EMAs) that reversed bullish at the NY open. Christopher took a low-confluence YM long scalp at 9:52 AM for a quick +$185 — acknowledged it in real time as a feeling trade, exited in 2 minutes, and reset.
 

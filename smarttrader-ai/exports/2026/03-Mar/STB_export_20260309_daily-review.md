@@ -22,7 +22,7 @@
 
 ## 📖 Session Narrative
 
-> Pre-market plan: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260309_summary.md
+[Pre-market summary →](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260309_summary.md)
 
 Morning began with the STB live coaching session — Christopher observed but did not take personal trades, the correct call given no full pre-session analysis at the desk. Coaches had a short bias overall and actively watched long projections given key level action.
 
