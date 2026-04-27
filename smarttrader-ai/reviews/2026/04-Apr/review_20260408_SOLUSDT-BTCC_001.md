@@ -113,7 +113,9 @@ Pattern 8 (exit passivity) — recurred. Profit window present and conscious, no
 Pattern 9/10 echo — deadline pressure (voucher expiration) shaped entry timing.
 New behavioral note: pre-entry directional whiplash — brief reversal thought at execution; held original direction.
 
-> See full pattern arc: [../../pattern_tracker.md](../../pattern_tracker.md)
+Trade 20260408_SOLUSDT-BTCC_001 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
 
 ---
 

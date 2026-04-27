@@ -128,7 +128,7 @@ Post-exit orders (90.78 re-entry, 95.45 short) placed 15–24 minutes after clos
 
 Trade 20260421_MCL-APEX_001 logged.
 
-> See full running tracker: [../../pattern_tracker.md](../../pattern_tracker.md)
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
 
 First profitable MCL trade on APEX-06 with an active exit. The SL cancellation data from Tradovate reveals the full Pattern 7 mechanics — this is the first review where the CSV documents the exact SL-set-then-removed sequence in timestamps.
 

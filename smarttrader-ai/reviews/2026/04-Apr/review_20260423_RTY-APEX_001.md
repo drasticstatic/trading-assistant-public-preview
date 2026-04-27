@@ -123,7 +123,7 @@ The pattern of watching CL divergence as a "read" while holding a live position 
 
 Trade 20260423_RTY-APEX_001 logged.
 
-> See full running tracker: [../../pattern_tracker.md](../../pattern_tracker.md)
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
 
 Pattern 7 and Pattern 8 both active simultaneously on this trade. Pattern 7 expressed as SL cancellation 38 minutes post-fill ("swing trade idea" rationalization). Pattern 8 expressed as four hours of bracket activity with no final resting TP — AutoLiq as the default exit.
 

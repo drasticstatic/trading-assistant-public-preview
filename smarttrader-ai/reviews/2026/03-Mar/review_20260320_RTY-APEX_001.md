@@ -173,7 +173,9 @@ Five patterns active in this trade — two new, three recurrences:
 | **Hold conviction via structural read** | ✅ Positive | Once aware of position, used HVN + SMT divergence (RTY holding March 8 low) to justify hold. Structurally sound. |
 | **Fear paralysis on quality setups** | 🔴 Session theme | Could not execute intraday FCR/SMT setups despite correct read. Eval anxiety + witching volatility = paralysis. |
 
-> Full pattern tracker: [../../pattern_tracker.md](../../pattern_tracker.md)
+Trade 20260320_RTY-APEX_001 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
 
 ---
 

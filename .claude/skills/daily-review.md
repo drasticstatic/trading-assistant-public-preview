@@ -40,9 +40,11 @@ smarttrader-ai/exports/YYYY/MM-Mon/STB_export_YYYYMMDD_daily-review.md
 Key table: Date | Account | Session P&L | Instruments | Trade Count | Account Status
 
 ### 3. `## 📖 Session Narrative`
-Prose session arc. Pre-market link **here only**:
-`> Pre-market plan: [public-preview URL to premarket_YYYYMMDD_summary.md]`
-If no premarket exists, note the reason inline.
+Prose session arc. Pre-market link **here only** — use relative path, not public URL:
+```
+[Pre-market summary →](../../analysis/premarket/YYYY/MM-Mon/premarket_YYYYMMDD_summary.md)
+```
+If no premarket exists, note the reason inline: `No formal pre-market plan on file for this session.`
 
 ### 4. `## 📊 Trade Log`
 Trade table: # | Instrument | Dir | Entry | Exit | P&L | Grade | Review Link

@@ -101,7 +101,9 @@ The SL movement was rationalized as structural alignment rather than fear-based,
 
 ## 🔁 Pattern Tracker
 
-> See full arc: [pattern_tracker.md](../../pattern_tracker.md)
+Trade 20260316_MNQ-APEX_001 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
 
 - **SL adjustment mid-trade (variant):** ⚠️ SL moved to FCR structural level during live trade — not panic-removal, but still in-trade SL change leading to worse stop placement. Pattern 7 cousin. Christopher aware and frustrated — good signal.
 

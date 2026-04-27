@@ -185,8 +185,9 @@ The contrast to Trade 2 is stark. Trade 2: calm, committed, 9 minutes, 94 Zella.
 - **New pattern flagged — Re-entry in risky direction:** Third documented instance. Entered 8.25 pts worse than original in the risky direction. Rule: on re-entries, never enter in the risky direction from the original entry.
 - **Post-TP urgency:** Re-entry taken 19 minutes after T2's $1,037 TP. Same trigger observed previously — winning trade creates urgency to "catch the next move."
 
-> Full progress tracker (all sessions, behavioral arc, compliance scores, statistical summary):
-> **[`pattern_tracker.md`](../../pattern_tracker.md)**
+Trade 20260302_ES-APEX_003 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
 
 ---
 

@@ -91,7 +91,7 @@ Narrative analysis for coaches. Include:
 
 ### 8. `## 🔁 Pattern Tracker`
 - One line: "Trade [file_id] logged." — use filename convention, e.g. `Trade 20260421_MCL-APEX_001 logged.`
-- Blockquote link: `> See full running tracker: [../../pattern_tracker.md](../../pattern_tracker.md)`
+- Blockquote: `> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)`
 - Brief note if a pattern evolved or a new one emerged
 
 ### 9. `## 🎯 Forward Focus`

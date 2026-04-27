@@ -442,8 +442,9 @@ appears during setup evaluation — that's the stop sign.
 
 ## 🔁 Pattern Tracker
 
-> Full progress tracker (all sessions, behavioral arc, compliance scores, statistical summary):
-> **[`pattern_tracker.md`](../../pattern_tracker.md)**
+Trade 20260223_MNQ-APEX_001 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
 
 *This trade's entry: Feb 23 MNQ — SL respected ✅, B-grade entry (3/5 mitigated level, not 5/5), FOMO noted, -$100.50. Next layer identified: entry level quality filter.*
 

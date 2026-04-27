@@ -328,8 +328,9 @@ $0 is the correct result when the setup's own criteria say no.
 
 ## 🔁 Pattern Tracker
 
-> Full progress tracker (all sessions, behavioral arc, compliance scores, statistical summary):
-> **[`pattern_tracker.md`](../../pattern_tracker.md)**
+Trade 20260227_MNQ-APEX_001 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
 
 *This session: Feb 27 MNQ — no fill ⚪, Pattern 5 fix ✅, directional read correct ✅, SL discipline N/A (no trade), entry level held (structural zone not abandoned), $0. Behavioral arc: Pattern 5 introduced Feb 26 → fix applied Feb 27 within 24 hours.*
 
