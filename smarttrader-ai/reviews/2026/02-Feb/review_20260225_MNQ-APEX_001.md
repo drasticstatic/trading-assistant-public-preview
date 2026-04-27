@@ -400,8 +400,9 @@ Feb 25: Entry filter locked in. Five-layer confluence. Clean 2.34 R:R win.
 
 ## 🔁 Pattern Tracker
 
-> Full progress tracker (all sessions, behavioral arc, compliance scores, statistical summary):
-> **[`pattern_tracker.md`](../../pattern_tracker.md)**
+Trade 20260225_MNQ-APEX_001 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
 
 *This trade's entry: Feb 25 MNQ — emotionally stable ✅, all 5 confluence layers ✅, SL never threatened ✅, +$565.00. Recovery arc complete.*
 

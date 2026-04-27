@@ -146,8 +146,9 @@ The FOMO flag here is nuanced. The entry adjustment *lower* was not FOMO — it 
 
 **Trade 012** — CL Long, green dominant setup. Auto-liq exit at 75.92 (8 ticks better than SL of 75.84). SL respected via account protection. CL continued −2+ points post-close. $460 loss saved estimated $2,000–$3,000. TradingView freeze = accidental SL protection.
 
-> Full progress tracker (all sessions, behavioral arc, compliance scores, statistical summary):
-> **[`pattern_tracker.md`](../../pattern_tracker.md)**
+Trade 20260303_CL-APEX_003 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
 
 ---
 

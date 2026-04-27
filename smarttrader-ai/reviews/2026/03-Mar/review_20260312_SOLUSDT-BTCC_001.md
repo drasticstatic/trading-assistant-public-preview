@@ -114,6 +114,10 @@ The full 5-day context chart (see Mar 25 overview screenshot) confirms what happ
 | **Pattern 8 — Exit Passivity** | 🔴 Recurring | 20x position had no enforced exit; held 30+ hours through reversal |
 | Pattern 7 — SL Modification | ⚠️ Possible | No clear SL on primary position; may have been absent entirely |
 
+Trade 20260312_SOLUSDT-BTCC_001 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
+
 ---
 
 ## 🎯 9. Forward Focus

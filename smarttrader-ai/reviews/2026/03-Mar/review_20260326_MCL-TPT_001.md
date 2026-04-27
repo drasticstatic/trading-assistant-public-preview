@@ -103,6 +103,10 @@ The stop was in place. The stop was respected. The account was protected. That i
 | **Pattern 7 — SL modification** | ✅ N/A (no adverse development) | Trade was over in 4s — no window to modify. True Pattern 7 test still pending. |
 | **Pattern 9 — Pre-rest order hygiene** | ✅ Improvement | Stop was pre-placed. Account protected from full news-candle drop. |
 
+Trade 20260326_MCL-TPT_001 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
+
 ---
 
 ## 🎯 9. Forward Focus

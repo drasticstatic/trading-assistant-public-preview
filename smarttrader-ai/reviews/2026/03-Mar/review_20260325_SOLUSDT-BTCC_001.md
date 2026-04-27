@@ -113,6 +113,10 @@ This is Pattern 8 in its clearest form — not a fast, emotional hold, but a sus
 | **Pattern 8 — Exit Passivity** | 🔴 Recurring | ~20hr hold with no exit decision; internal signals repeatedly ignored |
 | **Pattern 9 — Pre-rest order hygiene** | 🔴 Echo | Stepped away from desk without SL or TP in place |
 
+Trade 20260325_SOLUSDT-BTCC_001 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
+
 ---
 
 ## 🎯 9. Forward Focus

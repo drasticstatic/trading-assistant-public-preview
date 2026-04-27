@@ -125,7 +125,9 @@ TP at 24,935 filled at 08:42:56 ET on March 18 while he rested. The alarm was th
 | Surrender/acceptance enabling outcome | ✅ Yes — ACIM + exhaustion + rest → TP filled |
 | FOMO / chasing | ✅ Yes — but entry was only slightly off from original plan |
 
-> See full pattern log: [../../pattern_tracker.md](../../pattern_tracker.md)
+Trade 20260317_MNQ-APEX_001 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
 
 ---
 

@@ -120,7 +120,9 @@ This is the same execution standard as Feb 25 — entry precision, no SL movemen
 
 ## 🔁 Pattern Tracker
 
-> See full arc: [pattern_tracker.md](../../pattern_tracker.md)
+Trade 20260316_RTY-APEX_002 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
 
 - **Pattern 7 fix — confirmed again:** SL placed, not touched, even as price wicked toward entry. Second clean confirmation (after Mar 10).
 - **TP discipline — confirmed:** Conservative TP set with structural rationale, left alone, hit. This is the exit process that was missing on Mar 10.

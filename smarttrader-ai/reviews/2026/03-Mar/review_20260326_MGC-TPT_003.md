@@ -133,6 +133,10 @@ The loss was not just financial. Christopher has described this experience as on
 | **Pattern 8 — exit passivity** | 🔴 Critical | 3 exit opportunities identified and bypassed — including 2 near break-even. Most significant P8 occurrence to date. |
 | **Pattern 10 — Eval pressure trade** | 🔴 NEW | Entered because "I had to take a trade to pass the eval anyway." External compliance motivation bypasses A+ entry filter. |
 
+Trade 20260326_MGC-TPT_003 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
+
 ---
 
 ## 🎯 9. Forward Focus

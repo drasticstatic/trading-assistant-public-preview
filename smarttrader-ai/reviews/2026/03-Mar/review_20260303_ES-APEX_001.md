@@ -127,8 +127,9 @@ The SL held. The loss was contained. But the behavioral pattern — urgency → 
 
 **Trade 010** — Wrong Scenario at the Open (Pattern 2 variant). Red dominant, Scenario B LONG vetoed, entered long anyway within 13 min of open. SL respected. −$375.
 
-> Full progress tracker (all sessions, behavioral arc, compliance scores, statistical summary):
-> **[`pattern_tracker.md`](../../pattern_tracker.md)**
+Trade 20260303_ES-APEX_001 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
 
 ---
 
