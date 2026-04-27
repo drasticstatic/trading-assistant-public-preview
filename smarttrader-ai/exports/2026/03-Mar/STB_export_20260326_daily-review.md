@@ -24,6 +24,8 @@
 
 ## 📖 Session Narrative
 
+No formal pre-market plan on file for this session.
+
 ### Pre-Session — BTCC SOL Closes at a Loss (01:44 ET)
 
 The SOL/USDT voucher position that opened on March 25 at 92.4686 was manually closed at **89.6435 at 01:44 ET** — a -$14.13 loss on a ~20-hour hold. Full behavioral notes are in:

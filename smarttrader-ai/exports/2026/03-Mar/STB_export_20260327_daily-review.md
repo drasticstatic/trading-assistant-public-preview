@@ -24,6 +24,8 @@
 
 ## 📖 Session Narrative
 
+No formal pre-market plan on file for this session.
+
 ### 10:55 EDT — The Close
 
 There was no active session on March 27. The only event was the auto-liquidation of the overnight MGC short at **10:55 EDT at a price of 4,499.7** — 89.7 points above the entry of 4,410.0.
