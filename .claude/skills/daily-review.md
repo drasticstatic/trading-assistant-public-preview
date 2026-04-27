@@ -66,7 +66,7 @@ Numbered learning points from the session.
 Anchor: `<a id="smarttraderai-copy-paste"></a>` on the line before the `## 🤖` heading.
 `---` immediately after the `## 🤖` heading and between every question — always.
 
-**All answers must be written in first-person** — Christopher is submitting this directly to SmartTraderAI. Write as "I entered...", "I held...", "My mistake was..." — never third-person about Christopher.
+**Write naturally — never third-person about Christopher.** He is submitting this directly to SmartTraderAI. Avoid "Christopher did X." Use first-person where a pronoun is genuinely needed ("I canceled my SL", "my mistake was..."), but omit it where the subject is naturally implied. Read each sentence — if it sounds natural without a pronoun, drop it.
 
 **3 Questions (verbatim — exact bold wording):**
 - **What actually happened?**

@@ -188,46 +188,46 @@ Week closes at 18:00 ET as futures reopen for the week of Apr 27. No crypto acti
 
 **What trade setups/tactics worked this week?**
 
-Pre-placing limit orders at ZTH SFP key levels and sitting on my hands until the manipulation sweep came to me. On April 23, both my RTY (2781.1) and YM (49122) limits filled during the same aggressive move lower and reversed sharply. Letting price come to my levels — rather than chasing — produced the two best entries of the week and the cleanest YM exit of my entire recovery arc. The cross-instrument approach (both indices at confluence ZTH levels simultaneously) amplified my conviction and confirmed the thesis. My MCL active exit on Apr 21 was small but it was the first time this arc I made the exit decision myself rather than letting the prop firm close it.
+Pre-placing limit orders at ZTH SFP key levels and sitting on hands until the manipulation sweep came to the levels. On April 23, both RTY (2781.1) and YM (49122) limits filled during the same aggressive move lower and reversed sharply. Letting price come to the orders — rather than chasing — produced the two best entries of the week and the cleanest YM exit of the recovery arc. The cross-instrument approach (both indices at confluence ZTH levels simultaneously) amplified conviction and confirmed the thesis. The MCL active exit on Apr 21 was small but marked the first time this arc the exit decision was made actively rather than letting the prop firm close it.
 
 ---
 
 **What didn't work this week?**
 
-My RTY exit on Apr 23 — same entry methodology as YM, completely different exit behavior. I canceled my SL 38 minutes after the fill, never placed a final resting TP, and AutoLiq at 16:59 was my exit. A +$350 MFE appeared and I took no action. My Apr 24 six-instrument bracket approach produced nothing and diffused my focus — too many instruments, too many bracket rebuilds, no clear primary conviction thesis for the day.
+The RTY exit on Apr 23 — same entry methodology as YM, completely different exit behavior. SL canceled 38 minutes after the fill, no resting TP ever placed, AutoLiq at 16:59 was the exit. A +$350 MFE appeared and passed with no action. The Apr 24 six-instrument bracket approach produced nothing and diffused focus — too many instruments, too many bracket rebuilds, no clear primary conviction thesis for the day.
 
 ---
 
 **What observable patterns did you see in the market this week?**
 
-April 23 was a textbook manipulation sweep session — aggressive move lower on both RTY and YM, sweeping to key ZTH SFP levels simultaneously, then a sharp reversal. I'm starting to see this "cross-instrument TCL" structure (both indices sweeping key levels in sync) as a recurring pattern worth flagging in my pre-market plan. I also saw CL divergence during my RTY hold — it gave me a directional read while the position was against me. April 24 saw continued volatility but none of my bracket levels were reached, which suggests the sweep on April 23 had already found its low for that cycle.
+April 23 was a textbook manipulation sweep session — aggressive move lower on both RTY and YM, sweeping to key ZTH SFP levels simultaneously, then a sharp reversal. Starting to see this "cross-instrument TCL" structure (both indices sweeping key levels in sync) as a recurring pattern worth flagging in the pre-market plan. CL divergence was visible during the RTY hold and gave a directional read while the position was against me. April 24 saw continued volatility but none of the bracket levels were reached, suggesting the sweep on April 23 had already found its low for that cycle.
 
 ---
 
 **What observable patterns did you see in your trades this week?**
 
-Pattern 7 (SL/TP modification) was present in multiple trades: I canceled my RTY SL in-trade, I moved my YM TP down under account pressure from the concurrent RTY loss, and I moved my MCL TP in-trade. Pattern 8 (exit passivity) was dominant on RTY — four hours of bracket activity with no final resting TP, my MFE came and went, and AutoLiq was my default exit. The YM trade was the clearest exception to both — I placed a TP and it filled actively. That contrast defines my week.
+Pattern 7 (SL/TP modification) was present across multiple trades: RTY SL canceled in-trade, YM TP moved down under account pressure from the concurrent RTY loss, MCL TP moved in-trade. Pattern 8 (exit passivity) was dominant on RTY — four hours of bracket activity with no final resting TP, MFE came and went, AutoLiq as the default exit. The YM trade was the clearest exception — TP placed and filled actively. That contrast defines the week.
 
 ---
 
 **What mistakes did you make this week?**
 
-1. RTY: I canceled my SL 38 minutes after the fill. I never placed a final resting TP. I let AutoLiq become my intended exit.
-2. YM: I moved my TP down from the original sweep target to 49341 under account-pressure from my concurrent RTY loss — I left 1.27R on the table.
-3. Apr 24: I set brackets across six instruments simultaneously without a clear primary thesis — I diffused my focus rather than having concentrated conviction.
-4. MCL Apr 21: I entered a last-minute trade that wasn't in my pre-session plan, against trend, with a FOMO element.
+1. RTY: Canceled SL 38 minutes after the fill. Never placed a final resting TP. Let AutoLiq become the intended exit.
+2. YM: Moved TP down from the original sweep target to 49341 under account pressure from the concurrent RTY loss — left 1.27R on the table.
+3. Apr 24: Set brackets across six instruments simultaneously without a clear primary thesis — diffused focus rather than concentrated conviction.
+4. MCL Apr 21: Entered a last-minute trade that wasn't in the pre-session plan, against trend, with a FOMO element.
 
 ---
 
 **What recurring problems are you seeing week over week?**
 
-AutoLiq is still functioning as my primary exit mechanism on losing trades. Every trade where I didn't have a pre-placed TP has ended via prop firm closure or AutoLiq. I haven't made an active exit decision on a losing trade in this entire arc. Pattern 7 (SL/TP modification) has shown up in some form in every trade this week. My entry side is improving consistently — my exit side is still the open problem.
+AutoLiq is still the primary exit mechanism on losing trades. Every trade without a pre-placed TP has ended via prop firm closure or AutoLiq. No active exit has been made on a losing trade in this entire arc. Pattern 7 (SL/TP modification) has shown up in some form in every trade this week. Entry side is improving consistently — exit side remains the open problem.
 
 ---
 
 **What solutions are you implementing to fix those problems?**
 
-My forward focus for next week: **every limit order I place must have a resting TP placed at the same time — before the fill, not after.** If my TP level changes, I cancel and replace. I will not enter with a limit order without a corresponding TP already in the book. This one mechanical rule is what converts my RTY trade from an AutoLiq into a defined outcome. I'm also committing to a personal hard exit time of 16:00 ET — any open position at 16:00 gets a hard limit or market exit. AutoLiq at 16:59 is the platform's rule; 16:00 is my rule.
+Forward focus for next week: **every limit order placed must have a resting TP placed at the same time — before the fill, not after.** If the TP level changes, cancel and replace. No limit orders without a corresponding TP already in the book. That one mechanical rule converts the RTY trade from AutoLiq into a defined outcome. Also committing to a personal hard exit time of 16:00 ET — any open position at 16:00 gets a hard limit or market exit. AutoLiq at 16:59 is the platform's rule; 16:00 is my rule.
 
 ---
 
@@ -247,21 +247,21 @@ My forward focus for next week: **every limit order I place must have a resting 
 
 **This week my action steps are:**
 
-1. Every limit entry order I place must be accompanied by a resting TP order placed simultaneously — no exceptions
-2. Set a personal 16:00 ET hard exit rule — any open position at 16:00 gets an active exit
-3. For cross-instrument sweep setups (RTY + YM or similar): pre-define the combined bracket in my pre-market plan, not in-session
+1. Every limit entry order placed must be accompanied by a resting TP simultaneously — no exceptions
+2. Personal 16:00 ET hard exit rule — any open position at 16:00 gets an active exit
+3. For cross-instrument sweep setups (RTY + YM or similar): pre-define the combined bracket in the pre-market plan, not in-session
 
 ---
 
 **What I want to work on / improve / get better at:**
 
-Exit execution. My entry methodology is proven — two clean ZTH SFP fills on Apr 23 confirm it. The gap between my entry quality and my exit quality is the only remaining problem. One habit: TP placed at order creation, always, without exception.
+Exit execution. The entry methodology is proven — two clean ZTH SFP fills on Apr 23 confirm it. The gap between entry quality and exit quality is the only remaining problem. One habit: TP placed at order creation, always, without exception.
 
 ---
 
 **How I plan to study the market this week:**
 
-I'll review my Apr 23 YM trade as my exit benchmark — what I did right (TP placed, filled actively, position closed). I'll use it as my pre-session anchor before each session this week. Before placing any limit order, I'll ask myself: "Is the TP in the book already?" If not, I'll add it before submitting. I'll also study the cross-instrument TCL structure — identifying RTY/YM or NQ/YM confluence zones in my pre-market brief each day.
+Review the Apr 23 YM trade as the exit benchmark — what went right (TP placed, filled actively, position closed). Use it as the pre-session anchor before each session this week. Before placing any limit order, ask: "Is the TP in the book already?" If not, add it before submitting. Also studying the cross-instrument TCL structure — identifying RTY/YM or NQ/YM confluence zones in the pre-market brief each day.
 
 ---
 
