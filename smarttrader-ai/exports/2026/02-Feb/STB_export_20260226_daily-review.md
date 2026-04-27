@@ -24,7 +24,7 @@
 
 ## 📖 Session Narrative
 
-> Pre-market plan: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260226-summary.md
+[Pre-market summary →](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260226-summary.md)
 
 Feb 26 was a textbook Scenario A SHORT day. The FCR confirmed bearish at 9:45 on NQ, ES, and YM simultaneously. RTY confirmed the bias with a lagging bounce (SMT divergence intact all day). STB coach entered short at 9:15 at an NQ order block using SMT divergence — the most advanced entry model, pre-FCR. He exited at 4.44R and expected a bounce before continuation.
 

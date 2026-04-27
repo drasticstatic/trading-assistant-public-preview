@@ -22,7 +22,7 @@
 
 ## 📖 Session Narrative
 
-> Pre-market plan: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260305-summary.md
+[Pre-market summary →](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260305-summary.md)
 
 March 5 was a deliberate step back from the markets — the right call following three consecutive high-pressure sessions (Mar 2 net +$460, Mar 3 blown account, Mar 4 observation). The session was designated architecture and education before it began.
 

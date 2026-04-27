@@ -7,7 +7,7 @@
 
 ## 📖 Session Narrative
 
-> Pre-market plan: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260225-summary.md
+[Pre-market summary →](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/02-Feb/premarket_20260225-summary.md)
 
 Feb 25 was the A+ session — two winners on two instruments using the same IT Foundation EMA crossover + FVG pullback framework. MNQ LONG filled in the FVG zone with five-layer confluence at 10:53 AM; TP hit at 25,418 at 4:25 PM for +$565.00. SOL LONG on BTCC via $20 voucher — entered at $87.47, exited at $91.56 near HOD for +$20.63 USDT. First double-green day of the recovery arc. All rules honored; entry filter and SL discipline both intact.
 

@@ -22,7 +22,7 @@
 
 ## 📖 Session Narrative
 
-> Pre-market plan: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260310_summary.md
+[Pre-market summary →](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/2026/03-Mar/premarket_20260310_summary.md)
 
 Day began with a ZTH coach 1-on-1 at 8 AM — ZTH indicator v2.3 (built overnight with Kavanah) verified accurate by the coach. A milestone. ZTH coach also caught a quick long win on GC off a pivot setup during the morning session.
 
