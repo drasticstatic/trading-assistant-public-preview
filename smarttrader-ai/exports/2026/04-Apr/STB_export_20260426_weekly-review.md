@@ -1,4 +1,4 @@
-# Weekly Review — Apr 21–25, 2026
+# Weekly Review — Apr 19–26, 2026
 ### STB SmartTraderAI Export | Fortuna | APEX-484839-06
 
 [Jump to SmartTraderAI copy-paste ↓](#smarttraderai-copy-paste)
@@ -7,14 +7,17 @@
 
 ## 📊 Week at a Glance
 
-| Date | Instrument | Dir | Entry | Exit | P&L | Notes |
-|------|-----------|-----|-------|------|-----|-------|
-| **Apr 21** | **MCL** | **SHORT** | **91.11** | **89.70** | **+$141** | ZTH Pivot · active exit · 43% efficiency |
-| Apr 22 | — | — | — | — | $0 | No fills — overnight RTY + MCL brackets set |
-| **Apr 23** | **RTY** | **LONG** | **2,781.1** | **2,778.3** | **-$140** | ZTH SFP sweep · AutoLiq exit · P7+P8 |
-| **Apr 23** | **YM** | **LONG** | **49,122** | **49,341** | **+$1,095** | ZTH SFP sweep · TP filled 11 min · Zella 95.22 |
-| Apr 24 | — | — | — | — | $0 | No fills — 6 instruments bracketed (RTY, YM, MCL, CL, NQ, ES) |
-| Apr 25 | — | — | — | — | $0 | No fills — limits set · APEX-06 renewal received |
+| Date | Day | Instrument | Dir | Entry | Exit | P&L | Notes |
+|------|-----|-----------|-----|-------|------|-----|-------|
+| Apr 19 | Sun | — | — | — | — | $0 | Week opens 18:00 ET · no crypto activity |
+| Apr 20 | Mon | — | — | — | — | $0 | No fills |
+| **Apr 21** | **Tue** | **MCL** | **SHORT** | **91.11** | **89.70** | **+$141** | ZTH Pivot · active exit · 43% efficiency |
+| Apr 22 | Wed | — | — | — | — | $0 | No fills — overnight RTY + MCL brackets set |
+| **Apr 23** | **Thu** | **RTY** | **LONG** | **2,781.1** | **2,778.3** | **-$140** | ZTH SFP sweep · AutoLiq exit · P7+P8 |
+| **Apr 23** | **Thu** | **YM** | **LONG** | **49,122** | **49,341** | **+$1,095** | ZTH SFP sweep · TP filled 11 min · Zella 95.22 |
+| Apr 24 | Fri | — | — | — | — | $0 | No fills — 6 instruments bracketed (RTY, YM, MCL, CL, NQ, ES) |
+| Apr 25 | Sat | — | — | — | — | $0 | No fills — limits set · APEX-06 renewal received |
+| Apr 26 | Sun | — | — | — | — | $0 | Week closes 18:00 ET · no crypto activity |
 
 **Week Net: +$1,096**
 
@@ -32,6 +35,8 @@
 ## 📈 Behavioral Arc — The Week in One View
 
 ```
+Apr 19: Week opens 18:00 ET — no activity
+Apr 20: No fills
 Apr 21: MCL SHORT · last-minute FOMO entry · first profitable active exit in recent arc
         ZTH Pivot applied · 43% exit efficiency · correct index read
 Apr 22: No fills — bracket orders set overnight, market didn't reach levels
@@ -43,6 +48,7 @@ Apr 23: MASSIVE sweep day · RTY + YM simultaneous ZTH SFP fills
 Apr 24: 6-instrument bracket approach — RTY, YM, MCL, CL, NQ, ES
         Multiple bracket rebuilds through session · no fills
 Apr 25: Limits set · no fills · APEX renewal confirmed
+Apr 26: Week closes 18:00 ET — no activity
 ```
 
 **What is resolved:**
@@ -79,7 +85,19 @@ APEX eval renewal on Friday is a reset of the clock, not a setback — another c
 
 ---
 
-## Apr 21 — "First Active Exit"
+## Apr 19 (Sun) — Week Opens
+
+Futures reopen 18:00 ET. No activity this evening. Brackets for the week beginning to form.
+
+---
+
+## Apr 20 (Mon) — No Fills
+
+No fills. Bracket approach continues — levels set, market did not reach.
+
+---
+
+## Apr 21 (Tue) — "First Active Exit"
 
 MCL SHORT entered at 91.11 near close of session — a last-minute trade with a FOMO component (not in the pre-session plan, ZTH Pivot label applied post-impulse). Entry motivation was marginal: last-minute, against trend, not in plan. However, the exit was the notable event: Christopher actively closed at 89.70 for +$141. This is the first profitable active exit in the recent recovery arc — where Christopher made the decision to close, not the prop firm. Exit efficiency was 43.25%, meaning meaningful profit was left on the table, but the behavior of actively exiting is the growth marker.
 
@@ -87,13 +105,13 @@ Pattern 7 was active (TP moved in-trade, variable SL). Entry quality was low. Th
 
 ---
 
-## Apr 22 — "Setting the Table"
+## Apr 22 (Wed) — "Setting the Table"
 
 No fills. Overnight bracket orders had been placed on RTY (entry ~2777.7) and MCL (multiple levels) — none reached. The market didn't deliver the sweep that would come the following day. This was correct process: orders placed, levels defined, sitting on hands. The bracketing approach was being refined in anticipation of a larger move.
 
 ---
 
-## Apr 23 — "The Sweep"
+## Apr 23 (Thu) — "The Sweep"
 
 The standout session of the week and one of the most significant of the recovery arc. Full narrative in the [daily review](STB_export_20260423_daily-review.md).
 
@@ -105,7 +123,7 @@ The cross-instrument dynamic — two indices sweeping to ZTH SFP levels simultan
 
 ---
 
-## Apr 24 — "Six Instruments, No Fill"
+## Apr 24 (Fri) — "Six Instruments, No Fill"
 
 The most expansive bracket day of the arc. Orders placed across RTY, YM, MCL, CL, NQ, and ES — multiple bracket rebuilds throughout the session, final cancel at 16:18 ET. No fills on any instrument.
 
@@ -121,11 +139,17 @@ The market held above the bracket levels on the equity indices. The discipline o
 
 ---
 
-## Apr 25 — "Renewal Day"
+## Apr 25 (Sat) — "Renewal Day"
 
 No fills. Limits set but market did not reach levels. The APEX-484839-06 eval cycle ended without hitting the profit target — however, a renewal was confirmed with a receipt received Friday morning, starting a new eval cycle. The entry methodology is validated; the profit target remains the goal.
 
 TPT 50K (reset Apr 1) is the active secondary account with a May 1 deadline and 5 minimum trading day requirement.
+
+---
+
+## Apr 26 (Sun) — Week Closes
+
+Week closes at 18:00 ET as futures reopen for the week of Apr 27. No crypto activity. Next week: TPT deadline May 1 — 5 minimum trading days required.
 
 ---
 
@@ -164,46 +188,46 @@ TPT 50K (reset Apr 1) is the active secondary account with a May 1 deadline and 
 
 **What trade setups/tactics worked this week?**
 
-Pre-placed limit orders at ZTH SFP key levels during the manipulation sweep on April 23 — both RTY (2781.1) and YM (49122) filled during the same aggressive move lower and reversed sharply. The patience of sitting on hands and letting price come to the orders (rather than chasing) produced the two best entries of the week and the cleanest YM exit of the entire recovery arc. The cross-instrument approach — identifying confluence on multiple indices simultaneously — amplified the conviction. The MCL active exit on Apr 21 was small but marked the first profitable exit in recent sessions where Christopher made the decision, not the prop firm.
+Pre-placing limit orders at ZTH SFP key levels and sitting on my hands until the manipulation sweep came to me. On April 23, both my RTY (2781.1) and YM (49122) limits filled during the same aggressive move lower and reversed sharply. Letting price come to my levels — rather than chasing — produced the two best entries of the week and the cleanest YM exit of my entire recovery arc. The cross-instrument approach (both indices at confluence ZTH levels simultaneously) amplified my conviction and confirmed the thesis. My MCL active exit on Apr 21 was small but it was the first time this arc I made the exit decision myself rather than letting the prop firm close it.
 
 ---
 
 **What didn't work this week?**
 
-The RTY exit on Apr 23 — same entry methodology as YM, completely different exit behavior. SL was canceled 38 minutes after the fill, no resting TP was ever placed, and AutoLiq at 16:59 was the exit mechanism. A +$350 MFE appeared and passed with no action. The Apr 24 six-instrument bracket approach produced nothing and diffused focus — too many instruments, too many bracket rebuilds, no primary conviction thesis.
+My RTY exit on Apr 23 — same entry methodology as YM, completely different exit behavior. I canceled my SL 38 minutes after the fill, never placed a final resting TP, and AutoLiq at 16:59 was my exit. A +$350 MFE appeared and I took no action. My Apr 24 six-instrument bracket approach produced nothing and diffused my focus — too many instruments, too many bracket rebuilds, no clear primary conviction thesis for the day.
 
 ---
 
 **What observable patterns did you see in the market this week?**
 
-April 23 was a textbook manipulation sweep session — aggressive move lower on both RTY and YM, sweeping to key ZTH SFP levels simultaneously, then a sharp reversal. This "cross-instrument TCL" structure (both indices sweeping key levels in sync) is a recurring pattern worth building a pre-market flag for. CL divergence was visible during the RTY hold — providing a directional read while the position was adverse. April 24 saw continued volatility with none of the bracket levels reached, suggesting the sweep had already found its low.
+April 23 was a textbook manipulation sweep session — aggressive move lower on both RTY and YM, sweeping to key ZTH SFP levels simultaneously, then a sharp reversal. I'm starting to see this "cross-instrument TCL" structure (both indices sweeping key levels in sync) as a recurring pattern worth flagging in my pre-market plan. I also saw CL divergence during my RTY hold — it gave me a directional read while the position was against me. April 24 saw continued volatility but none of my bracket levels were reached, which suggests the sweep on April 23 had already found its low for that cycle.
 
 ---
 
 **What observable patterns did you see in your trades this week?**
 
-Pattern 7 (SL/TP modification) was active across multiple trades: RTY SL canceled in-trade, YM TP modified downward under account pressure from the concurrent RTY loss, MCL TP moved in-trade. Pattern 8 (exit passivity) was dominant on RTY — four hours of bracket activity with no final resting TP, MFE seen and passed, AutoLiq as default exit. The YM trade was the clearest exception — TP placed and filled actively. That contrast defines the week.
+Pattern 7 (SL/TP modification) was present in multiple trades: I canceled my RTY SL in-trade, I moved my YM TP down under account pressure from the concurrent RTY loss, and I moved my MCL TP in-trade. Pattern 8 (exit passivity) was dominant on RTY — four hours of bracket activity with no final resting TP, my MFE came and went, and AutoLiq was my default exit. The YM trade was the clearest exception to both — I placed a TP and it filled actively. That contrast defines my week.
 
 ---
 
 **What mistakes did you make this week?**
 
-1. RTY: Canceled SL 38 minutes after fill. No final resting TP ever placed. AutoLiq became the intended exit.
-2. YM: Moved TP down from original sweep target to 49341 under account-pressure from concurrent RTY loss — left 1.27R of the trade on the table.
-3. Apr 24: Set brackets across six instruments simultaneously without a clear primary thesis — diffused focus rather than concentrated conviction.
-4. MCL Apr 21: Entered a last-minute trade not in the pre-session plan, against trend, with a FOMO component.
+1. RTY: I canceled my SL 38 minutes after the fill. I never placed a final resting TP. I let AutoLiq become my intended exit.
+2. YM: I moved my TP down from the original sweep target to 49341 under account-pressure from my concurrent RTY loss — I left 1.27R on the table.
+3. Apr 24: I set brackets across six instruments simultaneously without a clear primary thesis — I diffused my focus rather than having concentrated conviction.
+4. MCL Apr 21: I entered a last-minute trade that wasn't in my pre-session plan, against trend, with a FOMO element.
 
 ---
 
 **What recurring problems are you seeing week over week?**
 
-AutoLiq is still functioning as the primary exit mechanism for losing trades. Every trade where the exit was not a pre-placed TP has ended via prop firm closure (16:59 hard stop) or AutoLiq. No active exit has been made on a losing trade in the arc. Pattern 7 (SL/TP modification) has been present in some form in every trade this week. The entry side is improving consistently; the exit side remains the open problem.
+AutoLiq is still functioning as my primary exit mechanism on losing trades. Every trade where I didn't have a pre-placed TP has ended via prop firm closure or AutoLiq. I haven't made an active exit decision on a losing trade in this entire arc. Pattern 7 (SL/TP modification) has shown up in some form in every trade this week. My entry side is improving consistently — my exit side is still the open problem.
 
 ---
 
 **What solutions are you implementing to fix those problems?**
 
-Forward focus for next week: **every limit order placed must have a resting TP placed at the same time — before the fill, not after.** If the TP level changes, cancel and replace. Never enter with a limit order without a corresponding TP already in the book. This one mechanical rule converts the RTY trade from AutoLiq to a defined outcome. Additionally: define a personal hard exit time of 16:00 ET — any open position at 16:00 gets a hard limit or market exit. AutoLiq at 16:59 is the platform's rule; 16:00 is Christopher's rule.
+My forward focus for next week: **every limit order I place must have a resting TP placed at the same time — before the fill, not after.** If my TP level changes, I cancel and replace. I will not enter with a limit order without a corresponding TP already in the book. This one mechanical rule is what converts my RTY trade from an AutoLiq into a defined outcome. I'm also committing to a personal hard exit time of 16:00 ET — any open position at 16:00 gets a hard limit or market exit. AutoLiq at 16:59 is the platform's rule; 16:00 is my rule.
 
 ---
 
@@ -223,27 +247,27 @@ Forward focus for next week: **every limit order placed must have a resting TP p
 
 **This week my action steps are:**
 
-1. Every limit entry order placed must be accompanied by a resting TP order placed simultaneously — no exceptions
+1. Every limit entry order I place must be accompanied by a resting TP order placed simultaneously — no exceptions
 2. Set a personal 16:00 ET hard exit rule — any open position at 16:00 gets an active exit
-3. For cross-instrument sweep setups (RTY + YM or similar): pre-define the combined bracket in the pre-market plan, not in-session
+3. For cross-instrument sweep setups (RTY + YM or similar): pre-define the combined bracket in my pre-market plan, not in-session
 
 ---
 
 **What I want to work on / improve / get better at:**
 
-Exit execution. The entry methodology is proven — two clean ZTH SFP fills on Apr 23 confirm it. The gap between entry quality and exit quality is the only remaining problem. One habit: TP placed at order creation, always, without exception.
+Exit execution. My entry methodology is proven — two clean ZTH SFP fills on Apr 23 confirm it. The gap between my entry quality and my exit quality is the only remaining problem. One habit: TP placed at order creation, always, without exception.
 
 ---
 
 **How I plan to study the market this week:**
 
-Review the Apr 23 YM trade as the exit benchmark — what was done right (TP placed, filled actively, position closed). Use it as the pre-session anchor image. Before placing any limit order this week, ask: "Is the TP in the book already?" If no, add it before submitting. Study the cross-instrument TCL structure — identify RTY/YM or NQ/YM confluence zones in the pre-market brief each day.
+I'll review my Apr 23 YM trade as my exit benchmark — what I did right (TP placed, filled actively, position closed). I'll use it as my pre-session anchor before each session this week. Before placing any limit order, I'll ask myself: "Is the TP in the book already?" If not, I'll add it before submitting. I'll also study the cross-instrument TCL structure — identifying RTY/YM or NQ/YM confluence zones in my pre-market brief each day.
 
 ---
 
-> Full weekly review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/04-Apr/STB_export_20260421_weekly-review.md
+> Full weekly review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/04-Apr/STB_export_20260426_weekly-review.md
 
 ---
 
 *🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
-*Weekly Review · Week of April 21–25, 2026*
+*Weekly Review · Week of April 19–26, 2026*

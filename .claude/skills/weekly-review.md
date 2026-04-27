@@ -16,7 +16,7 @@ Build a complete weekly review following FORTUNA_WORKFLOW.md Section 5.
 
 ## Before Starting
 
-1. Identify the week (Mon–Fri dates) — ask if not provided
+1. Identify the week — the trading week runs **Sunday 18:00 ET → Sunday 18:00 ET** (futures reopen). Ask if not provided.
 2. Find all individual trade reviews for the week in `smarttrader-ai/reviews/YYYY/MM-Mon/`
 3. Read `smarttrader-ai/reviews/pattern_tracker.md` for cumulative P&L and pattern status
 4. Gather all screenshots from `data/screenshots/` for the week dates
@@ -27,7 +27,10 @@ Build a complete weekly review following FORTUNA_WORKFLOW.md Section 5.
 ```
 smarttrader-ai/exports/YYYY/MM-Mon/STB_export_YYYYMMDD_weekly-review.md
 ```
-Where `YYYYMMDD` is the **Monday** of the week.
+Where `YYYYMMDD` is the **closing Sunday** — the Sunday at 18:00 ET when the week ends and the next opens.
+Regardless of when the review is produced, it is always dated and named by its closing Sunday.
+Example: week of Apr 19–26 (Sun 18:00 → Sun 18:00) → `STB_export_20260426_weekly-review.md`
+The file lives in the month folder of that closing Sunday.
 
 ## Required Structure — In This Order
 
@@ -37,8 +40,9 @@ Where `YYYYMMDD` is the **Monday** of the week.
 ```
 
 ### 2. `## 📊 Week at a Glance`
-Trade table covering all 5 days (include no-fill days):
-`| Date | Instrument | Dir | Entry | Exit | P&L | Notes |`
+Trade table covering all 7 days (Sun through Sat, plus closing Sun — include no-fill days):
+`| Date | Day | Instrument | Dir | Entry | Exit | P&L | Notes |`
+Sun and Sat rows are typically empty for futures but included for crypto. Closing Sunday row covers the pre-18:00 window only.
 Week net P&L below table.
 
 ### 3. `## 🏦 Account Status`
@@ -86,6 +90,8 @@ Path: `../../../../data/screenshots/` (same depth as reviews YYYY/MM-Mon/).
 ### 9. SmartTraderAI Weekly Copy-Paste Fields
 
 Anchor: `<a id="smarttraderai-copy-paste"></a>` before `## 🤖 SmartTraderAI Weekly Copy-Paste Fields`
+
+**All answers must be written in first-person** — Christopher is submitting this directly to SmartTraderAI. Write as "I placed...", "I held...", "My mistake was..." — never third-person about Christopher.
 
 7 questions (exact wording from FORTUNA_WORKFLOW.md — do not paraphrase):
 1. What trade setups/tactics worked this week?

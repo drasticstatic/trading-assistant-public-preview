@@ -66,6 +66,8 @@ Numbered learning points from the session.
 Anchor: `<a id="smarttraderai-copy-paste"></a>` on the line before the `## 🤖` heading.
 `---` immediately after the `## 🤖` heading and between every question — always.
 
+**All answers must be written in first-person** — Christopher is submitting this directly to SmartTraderAI. Write as "I entered...", "I held...", "My mistake was..." — never third-person about Christopher.
+
 **3 Questions (verbatim — exact bold wording):**
 - **What actually happened?**
 - **What did you learn?**
