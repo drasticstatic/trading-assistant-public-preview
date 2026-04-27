@@ -91,7 +91,7 @@ Path: `../../../../data/screenshots/` (same depth as reviews YYYY/MM-Mon/).
 
 Anchor: `<a id="smarttraderai-copy-paste"></a>` before `## 🤖 SmartTraderAI Weekly Copy-Paste Fields`
 
-**All answers must be written in first-person** — Christopher is submitting this directly to SmartTraderAI. Write as "I placed...", "I held...", "My mistake was..." — never third-person about Christopher.
+**Write naturally — never third-person about Christopher.** He is submitting this directly to SmartTraderAI. Avoid "Christopher did X." Use first-person where a pronoun is genuinely needed ("I canceled my SL", "my mistake was..."), but omit it where the subject is naturally implied ("Pre-placed limits at key levels and sat on hands" not "I pre-placed limits"). Read each sentence — if it sounds natural without a pronoun, drop it.
 
 7 questions (exact wording from FORTUNA_WORKFLOW.md — do not paraphrase):
 1. What trade setups/tactics worked this week?
