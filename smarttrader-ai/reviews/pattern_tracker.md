@@ -553,6 +553,10 @@ All eval accounts since trading began. Sources: TPT control center PDFs, Tradova
 
 | Account | Type | Period | Outcome | Notes |
 |---------|------|--------|---------|-------|
+| APEX-484839-01 | 100K eval | ~Feb 2026 | ❌ Blown | Earliest account — blown within first few sessions (~Feb 9) |
+| APEX-484839-02 | 100K eval | ~Feb 2026 | ❌ Blown | Blow trade: ES long Feb 12 (-$3,000) |
+| APEX-484839-03 | 100K eval | ~Feb 2026 | ❌ Blown | Blown Feb 13 — NQ short -$3,080 (same trade as APEX-04; both accounts running simultaneously) |
+| APEX-484839-04 | 100K eval | ~Feb 2026 | ❌ Blown | Blown Feb 13 — NQ short -$3,080 (same trade as APEX-03; both accounts running simultaneously) |
 | APEX-484839-05 | 100K eval | ~Feb 2026 – Mar 3, 2026 | ❌ Blown | Patterns 6+7 on blow day (Mar 3 -$2,300) |
 | APEX-484839-06 | 100K eval | Mar 2026 – present | ✅ Active · renewed Apr 25 | Min days met Mar 24 · profit target still open · renewed cycle active |
 
@@ -569,7 +573,7 @@ All eval accounts since trading began. Sources: TPT control center PDFs, Tradova
 
 **TPT reset-3 current status (as of Apr 27):** 1 day counted (Apr 27 MGC +$22) · 4 days needed by May 1 · P&L at -$184 net across the full TPT history this reset (accounting for the Mar reset wipe)
 
-> Source PDFs: `data/imports/2026/02-Feb/TPT_2026_02-08-thru-02-12_redacted.pdf` · `data/imports/2026/02-Feb/TPT_2026_02-16_redacted.pdf` · `data/imports/2026/03-Mar/TPT_2026_03-25-thru-03-26_redacted.pdf`
+> Source PDFs: [TPT reset-0 (Feb 8–12)](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/imports/2026/02-Feb/TPT_2026_02-08-thru-02-12_redacted.pdf) · [TPT reset-1 (Feb 16)](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/imports/2026/02-Feb/TPT_2026_02-16_redacted.pdf) · [TPT reset-2 (Mar 25–26)](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/imports/2026/03-Mar/TPT_2026_03-25-thru-03-26_redacted.pdf)
 
 ---
 

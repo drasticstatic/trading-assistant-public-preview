@@ -184,9 +184,10 @@ Notes for Coaches whether move was disciplined or emotional.
 ## After Creating the Review
 
 1. Run `pngquant --quality=65-80 --speed=1 --skip-if-larger --ext .png --force data/screenshots/*.png` if new screenshots were added
-2. Update `smarttrader-ai/reviews/pattern_tracker.md` — add trade to log table, update Running P&L, update cumulative
-3. Update weekly review file if it already exists — add trade to Week at a Glance table
-4. Commit with message: "Add trade review #NNN — [INSTRUMENT] [DIR] [DATE] · [P&L]"
+2. **Run the STB TradeZella Automator** — open the Automator app that imports `tradezella_YYYYMMDD.csv` from Downloads into the STB Google Sheet. Confirm it ran without error before proceeding.
+3. Update `smarttrader-ai/reviews/pattern_tracker.md` — add trade to log table, update Running P&L, update cumulative
+4. Update weekly review file if it already exists — add trade to Week at a Glance table
+5. Commit with message: "Add trade review #NNN — [INSTRUMENT] [DIR] [DATE] · [P&L]"
 
 ## Quick Commands
 
