@@ -45,6 +45,10 @@
 
 | Account | Period | Status | Key Event |
 |---------|--------|--------|-----------|
+| APEX-484839-01 | ~Feb 2026 | ❌ Blown | Earliest account — blown within first few sessions (~Feb 9) |
+| APEX-484839-02 | ~Feb 2026 | ❌ Blown | Blow trade: ES long Feb 12 (-$3,000) |
+| APEX-484839-03 | ~Feb 2026 | ❌ Blown | Blown Feb 13 — NQ short -$3,080 (same trade as APEX-04; both running simultaneously) |
+| APEX-484839-04 | ~Feb 2026 | ❌ Blown | Blown Feb 13 — NQ short -$3,080 (same trade as APEX-03; both running simultaneously) |
 | APEX-484839-05 | ~Feb 2026 – Mar 3, 2026 | ❌ Blown | Mar 3: -$2,300 · Patterns 6+7 on 3 trades |
 | APEX-484839-06 | Mar 2, 2026 – present | ✅ Active | Min days met Mar 24 · profit target open |
 
@@ -85,7 +89,7 @@ Single trade, single day, account gone. The shortest TPT reset in the history.
 
 review_20260326_MGC-TPT_003.md documents the overnight MGC position that blew this reset.
 
-> Source PDFs archived at: `data/imports/2026/02-Feb/TPT_2026_02-08-thru-02-12_redacted.pdf` · `data/imports/2026/02-Feb/TPT_2026_02-16_redacted.pdf` · `data/imports/2026/03-Mar/TPT_2026_03-25-thru-03-26_redacted.pdf`
+> Source PDFs: [TPT reset-0 (Feb 8–12)](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/imports/2026/02-Feb/TPT_2026_02-08-thru-02-12_redacted.pdf) · [TPT reset-1 (Feb 16)](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/imports/2026/02-Feb/TPT_2026_02-16_redacted.pdf) · [TPT reset-2 (Mar 25–26)](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/imports/2026/03-Mar/TPT_2026_03-25-thru-03-26_redacted.pdf)
 
 ---
 
