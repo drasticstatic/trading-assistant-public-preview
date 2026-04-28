@@ -84,6 +84,10 @@ No TP was ever placed.
 
 The afternoon chart (18:38 ET screenshot) shows what the trade could have been: gold continued to recover through the day, reaching 4,615.8 by 13:00 ET — a +$688 potential on the same entry. Christopher then spent the rest of the session building brackets across YM, MCL, MGC, and RTY, none of which filled through the close.
 
+**Market order entry — a barrier crossed.** Both April 27 and April 28 entries were market orders, something Christopher had been reluctant to use despite watching his coaches execute this way routinely — some with mental stops rather than hard orders. Using market orders two sessions in a row represents a psychological shift worth noting: the fear of market fills is giving way to execution confidence, even if the exit discipline around those fills is still developing.
+
+**Post-trade brackets as swing ideas.** The orders placed after the MGC fill — MGC 4,525.0/4,724.8, YM, RTY, MCL — were intentional conservative swing trade ideas on micro contracts, placed without hard SL orders. These reflect active market engagement beyond the morning trade rather than bracket clutter.
+
 His own words: *"reverse of yesterday — initial trade and exhausted myself chasing the market up until 17:00 and continue into the evening hours wishing i could feel like i didn't have to spend 24-7 on the charts."*
 
 ---
@@ -123,6 +127,8 @@ The structural difference is one step: placing a TP immediately post-entry. On A
 
 The 2.03% exit efficiency is a hard number. The trade had $688 on the table by 13:00 ET. He captured $14. The gap is not about market knowledge — the measured move target was already on the chart at 08:29 ET (4,615–4,620). He knew where it was going. The exit was pure emotional override.
 
+One thing to acknowledge separately: two consecutive market order entries. Christopher has noted this was a psychological barrier — something he watched coaches do but had been reluctant to do himself, some of whom use mental stops rather than hard orders. Using market orders on consecutive days is an execution confidence shift worth reinforcing. The fear of market fills is easing. The next step is pairing that execution confidence with immediate TP placement — market in, TP next keystroke.
+
 The note about exhaustion is the most important signal in this review and it is not a trading note — it is a wellbeing note. Watching multiple instruments across a full session, rebuilding brackets that don't fill, carrying the weight of a deadline that resets the eval if missed — this is the environment where impulsive exits happen and where the work Christopher has done on his process gets eroded not by bad analysis but by fatigue. Staying at the desk from 08:00 through 17:00 and into the evening looking for fills that never came is a different kind of discipline problem than moving a stop. It is the front-end of the pattern.
 
 **Coaching recommendation:** The trade review for the entry is clear — market entry, no TP, scared out at first green tick. The coaching work is upstream of the trade. Christopher needs a session boundary — a defined window where he is at the desk and focused, and a defined time when the screen goes off regardless of fills. The exhaustion he described is the condition that produces 2.03% exit efficiency. Fix the container, and the exits will follow.
@@ -134,7 +140,7 @@ The note about exhaustion is the most important signal in this review and it is 
 - **Entry emotion:** Anxious, confident, fearful, frustrated, stressed
 - **In-trade emotion:** Fear — manual flatten at first green tick, 45 seconds in
 - **Emotionally Stable:** No
-- **What went right:** Entry near AM low; correct directional read; day 2/5 counted; accepted the result; journaled
+- **What went right:** Entry near AM low; correct directional read; day 2/5 counted; accepted the result; journaled; used market order execution (barrier crossed — coaches do this routinely); post-trade swing brackets placed intentionally across multiple instruments
 
 | Pattern | Status | This Trade |
 |---------|--------|-----------|

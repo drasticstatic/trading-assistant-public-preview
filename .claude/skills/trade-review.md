@@ -184,7 +184,12 @@ Notes for Coaches whether move was disciplined or emotional.
 ## After Creating the Review
 
 1. Run `pngquant --quality=65-80 --speed=1 --skip-if-larger --ext .png --force data/screenshots/*.png` if new screenshots were added
-2. **Run the STB TradeZella Automator** — open the Automator app that imports `tradezella_YYYYMMDD.csv` from Downloads into the STB Google Sheet. Confirm it ran without error before proceeding.
+2. **Run the STB TradeZella Automator** — push `tradezella_YYYYMMDD.csv` to the STB Google Sheet:
+   ```bash
+   bash ~/TradeZella_STB/automator_drop_handler.sh \
+     ~/ClaudeCodeCLI/trading-assistant/data/imports/YYYY/MM-Mon/tradezella_YYYYMMDD.csv
+   ```
+   No terminal output = Sheets mode (success notification goes to macOS notification center). Check the STB Google Sheet or macOS notifications to confirm the row landed. Spec: `specs/tradezella-automater.spec.md`
 3. Update `smarttrader-ai/reviews/pattern_tracker.md` — add trade to log table, update Running P&L, update cumulative
 4. Update weekly review file if it already exists — add trade to Week at a Glance table
 5. Commit with message: "Add trade review #NNN — [INSTRUMENT] [DIR] [DATE] · [P&L]"
@@ -194,6 +199,12 @@ Notes for Coaches whether move was disciplined or emotional.
 ```bash
 # Compress screenshots before committing
 pngquant --quality=65-80 --speed=1 --skip-if-larger --ext .png --force data/screenshots/*.png
+
+# Run TradeZella → STB Google Sheet pipeline
+bash ~/TradeZella_STB/automator_drop_handler.sh \
+  ~/ClaudeCodeCLI/trading-assistant/data/imports/YYYY/MM-Mon/tradezella_YYYYMMDD.csv
+# No terminal output = success. Check STB Google Sheet to confirm row landed.
+# macOS notification available but not currently configured — verify manually.
 
 # Stage and commit
 git add smarttrader-ai/reviews/ data/screenshots/ && \
