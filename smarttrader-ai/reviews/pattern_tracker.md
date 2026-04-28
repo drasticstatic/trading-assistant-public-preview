@@ -44,6 +44,7 @@
 | 20260423_RTY-APEX_001 | Apr 23 | RTY | Long | 2,781.1 | 2,778.3 (AutoLiq) | **-$140** | N/A | -8.70 | 2.5/5 | ⚠️ ZTH SFP + OB/FVG · manipulation sweep · multi-bracket swing approach | ❌ SL 2725.2 canceled 13:47 (Pattern 7) · AutoLiq exit (Pattern 8) | No |
 | 20260423_YM-APEX_002 | Apr 23 | YM | Long | 49,122 | 49,341 (TP) | **+$1,095** | 0.42R | 95.22 | 4.0/5 | ⚠️ ZTH SFP + OB/FVG · same sweep · TP modified from original sweep target (Pattern 7 soft) | ✅ SL 48,601 placed · canceled cleanly on TP fill | Yes |
 | 20260427_MGC-TPT_001 | Apr 27 | MGC | Long | 4,695.8 | 4,696.9 (TP) | **+$22** | N/A | 78.57 | 2.0/5 | ❌ FOMO · forced entry (TPT min day req) · counter-trend · not off a level · near market close | ✅ No SL defined (intentional) — TP placed 41s post-entry, filled before platform close | Yes |
+| 20260428_MGC-TPT_001 | Apr 28 | MGC | Long | 4,581.4 | 4,582.1 (manual) | **+$14** | N/A | *pending* | *pending* | ❌ FOMO · forced entry (TPT min day req) · market order after 4 canceled limits · AM selloff bounce | ❌ No TP placed — manual nervous flatten 45s post-entry; left the move | *pending* |
 
 ---
 
@@ -78,19 +79,20 @@ Apr 21    +$141.00  ████████░░░░░░░  WIN ✅ MCL S
 Apr 23     -$140.00  ████░░░░░░░░░░░  loss · RTY LONG · ZTH SFP sweep · SL canceled (P7) · AutoLiq exit (P8)
 Apr 23   +$1,095.00  ████████████████ WIN ✅ YM LONG · ZTH SFP sweep · TP filled 11 min · Zella 95.22 · soft P7 (TP modified)
 Apr 27      +$22.00  █░░░░░░░░░░░░░░  WIN ✅ MGC LONG · TPT · FOMO forced entry (min day req) · TP placed 41s post-entry · Pattern 8 not triggered
+Apr 28      +$14.00  █░░░░░░░░░░░░░░  WIN ✅ MGC LONG · TPT · FOMO forced entry (min day req) · market fill after 4 canceled limits · manual flatten 45s post-entry · no TP placed · left the move
 
 ```
 
-### 💰 Cumulative P&L by Account (Feb 23 – Apr 27, 2026)
+### 💰 Cumulative P&L by Account (Feb 23 – Apr 28, 2026)
 
 | Account | Platform | Status | P&L (this tracker period) |
 |---------|----------|--------|--------------------------|
 | APEX-484839-05 | Apex Trader Funding | ❌ Blown Mar 3 | See Feb–Mar monthly review |
 | APEX-484839-06 | Apex Trader Funding | ✅ Active · renewed Apr 25 | **+$2,234** (+$1,225 Mar 24 · -$87 Apr 17 · +$141 Apr 21 · -$140 Apr 23 RTY · +$1,095 Apr 23 YM) |
-| TPT reset-3 (558167553) | TakeProfitTrader 50K | ⚠️ Active · 1/5 days · deadline May 1 | **-$184** (Mar 26 -$206 · Apr 27 +$22) |
+| TPT reset-3 (558167553) | TakeProfitTrader 50K | ⚠️ Active · 2/5 days · deadline May 1 | **-$170** (Mar 26 -$206 · Apr 27 +$22 · Apr 28 +$14) |
 | BTCC (vouchers) | BTCC Crypto | ⚠️ Voucher only | **~-$15.50 USDT** (-$14.13 Mar 25-26 · -$22 Apr 8 · +$20.63 Feb 25) |
 
-**Combined USD futures (Feb 23–Apr 27): +$2,050 · BTCC: ~-$15.50 USDT · Overall: ~+$2,034**
+**Combined USD futures (Feb 23–Apr 28): +$2,064 · BTCC: ~-$15.50 USDT · Overall: ~+$2,048**
 
 > Full prop firm account roster → [see below](#prop-firm-roster)
 
