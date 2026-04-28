@@ -7,7 +7,7 @@
 
 ## ⚡ What Happened in One Paragraph
 
-With TPT reset-3 still needing 4 more minimum trading days by May 1 after securing day 1 on April 27, Christopher entered the April 28 session needing another fill. Gold sold off hard in the AM — a significant multi-point drop from the 4700+ area down toward the 4570–4580 zone, likely driven by macro/tariff news. After cycling through four MGC limit orders between 08:01 and 08:03 (all canceled as he adjusted levels), Christopher hit market at 08:04:14 ET, entering long at 4581.4 on 2 micro contracts. Forty-five seconds later — nervous, with the bounce beginning — he manually exited via market at 4582.1, capturing +$14 gross (+0.7 pts). The exit was a flatten button, not a resting TP. Price continued to recover above his exit. Day 2 of 5 for TPT secured; but the exit left the move on the table.
+With TPT reset-3 needing 4 more minimum trading days by May 1, Christopher entered April 28 needing a fill. Gold sold off hard in the AM — a sharp drop from the 4700+ zone to the mid-4570s, with macro volatility driving the move. After cycling through four MGC limit orders between 08:01 and 08:03 (all canceled as price moved), he hit market at 08:04:14 ET, entering long at 4,581.4 on 2 micro contracts — a ZTH Bounce off the AM selloff low. The trade dipped to a MAE of 4,578.0 (-$68) before reversing. At 08:04:59 — just 45 seconds post-entry — he manually flattened at 4,582.1 for +$14, scared out of the position by the initial dip. No TP had been placed. Price continued to recover, reaching 4,615.8 by 13:00 ET — a +$688 potential that went uncaptured. Exit efficiency: 2.03%. Day 2 of 5 for TPT secured; the session then extended into exhaustive bracket-building across multiple instruments through 17:00 ET with no additional fills.
 
 ---
 
@@ -21,24 +21,24 @@ With TPT reset-3 still needing 4 more minimum trading days by May 1 after securi
 | Contract | MGCM6 |
 | Direction | Long |
 | Entry Price | 4,581.4 |
-| Exit Price | 4,582.1 (manual market exit) |
+| Exit Price | 4,582.1 (manual market flatten) |
 | Qty | 2 |
 | Entry Time | 08:04:14 EDT |
 | Exit Time | 08:04:59 EDT |
 | Duration | 45 seconds |
-| Order Set | Market order — multiple limit attempts canceled (08:01–08:03) before market fill |
+| Order Set | Market order — 4 limit attempts canceled 08:01–08:03 before market fill |
 | Venue | TradingView |
-| TP Set / Result | None — manual flatten via "Exit" market order |
-| SL Set / Result | None |
-| MFE | *[PENDING — TradeZella CSV]* |
-| MAE | *[PENDING — TradeZella CSV]* |
-| Best Exit | *[PENDING — TradeZella CSV]* |
+| TP Set / Result | None — no TP placed; manual flatten out of nervousness |
+| SL Set / Result | None — not respected; bailed on trade idea |
+| MFE | +$36 · +1.8 pts · @4,583.2 |
+| MAE | -$68 · -3.4 pts · @4,578.0 |
+| Best Exit | +$688 · +34.4 pts · @4,615.8 (13:00 ET) |
 | Gross P&L | +$14.00 |
 | Net P&L | **+$14.00** |
 | Realized R:R | N/A — no SL defined |
-| Zella Score | *[PENDING — TradeZella CSV]* |
-| Rating | *[PENDING — TradeZella CSV]* |
-| Emotionally Stable | *[PENDING — TradeZella CSV]* |
+| Zella Score | 38.89 |
+| Rating | 1.5 / 5 |
+| Emotionally Stable | No |
 
 ---
 
@@ -74,61 +74,73 @@ With TPT reset-3 still needing 4 more minimum trading days by May 1 after securi
 
 ## 📖 Session Narrative
 
-April 28 was the second trading day of the TPT reset-3 eval week. With the April 27 MGC trade (+$22) counting as day 1 of 5, today needed to register another fill to stay on pace for the May 1 deadline. The eval parameters remain: profit target $53,000 (+$3,000 from $50K start), minimum balance $48,000, 5 minimum trading days.
+April 28 was day two of the TPT reset-3 eval week. With the April 27 trade counting as day 1 of 5, today's session opened with the same pressure — get a fill, count the day, protect the eval cycle with May 1 looming.
 
-Gold entered the session in a significant drawdown — the charts show a sharp multi-point selloff from the 4700+ zone down toward the high 4500s/low 4580s by the AM session. This was likely a continuation of macro volatility (tariff/trade war pressure on risk assets, gold acting as a hedge with unusual intraday swings). The drop is visible on both screenshots — a sustained red candle sequence from the overnight into the AM.
+Gold entered the AM session in a sharp selloff — a multi-point drop from the 4,710+ zone down toward the high-4,570s. The move is visible on all three screenshots: a sustained red candle sequence through the overnight and into the AM open. The likely driver was continued macro/tariff volatility. The second screenshot (08:29 ET) shows a measured move label ("2 R MMT 1") on the chart, suggesting Christopher had a structural target in mind — 4,615–4,620 zone — before he entered.
 
-Christopher placed bracket orders across YM, MGC, and MCL before the open and through the early AM. Four MGC limit orders were placed and canceled between 08:01 and 08:03 as he adjusted entry levels while the price moved rapidly. Facing the same pressure as April 27 — session not yet registering — he hit market at 08:04:14, entering long at 4,581.4.
+Four MGC limit orders were placed and canceled in the 3 minutes before the market fill as price moved rapidly through the levels. At 08:04:14, he hit market at 4,581.4. The thesis was sound — ZTH Bounce, bullish bias on the lower timeframe, support near the AM low. The trade dipped 3.4 points to 4,578.0 (MAE -$68) in the first seconds, then reversed and moved to 4,583.2 (MFE +$36). At 08:04:59 — 45 seconds in, at the first green tick — he flattened manually at 4,582.1 for +$14.
 
-The thesis was a bounce off the AM selloff low — ZTH Bounce playbook, same as April 27. But with no resting TP in the book and nerves from the rapid price movement, he manually flattened 45 seconds later at 4,582.1 for +$14. Price continued higher after the exit.
+No TP was ever placed.
 
-Post-trade, brackets remain live across YM, MGC, MCL, and RTY — the session is ongoing as of the time of this review.
+The afternoon chart (18:38 ET screenshot) shows what the trade could have been: gold continued to recover through the day, reaching 4,615.8 by 13:00 ET — a +$688 potential on the same entry. Christopher then spent the rest of the session building brackets across YM, MCL, MGC, and RTY, none of which filled through the close.
 
-No formal pre-market plan on file for this session.
+His own words: *"reverse of yesterday — initial trade and exhausted myself chasing the market up until 17:00 and continue into the evening hours wishing i could feel like i didn't have to spend 24-7 on the charts."*
 
 ---
 
 ## 📸 Screenshot Timeline
 
-**08:07 ET — MGC post-trade chart review (5-min)**
+**08:07 ET — MGC post-trade chart (5-min, entry zone)**
 ![MGC1! 2026-04-28 post-trade chart review](../../../../data/screenshots/MGC1!_2026-04-28_08-07-27_f549f.png)
 
-**08:29 ET — MGC wider context with measured move**
+**08:29 ET — MGC wider context with measured move target**
 ![MGC1! 2026-04-28 wider context](../../../../data/screenshots/MGC1!_2026-04-28_08-29-23_c0bf1.png)
+
+**18:38 ET — MGC end-of-day: full recovery context**
+![MGC1! 2026-04-28 end of day recovery](../../../../data/screenshots/MGC1!_2026-04-28_18-38-41_00abb.png)
 
 ---
 
 <a id="notes-for-coaches"></a>
 ## 📝 Notes for Coaches + SmartTraderAI
 
-> *[PENDING — TradeZella "Notes for Coaches" field]*
+> "reverse of yesterday - initial trade and exhausted myself chasing the market up until 17:00 and continue into the evening hours wishing i could feel like i didn't have to spend 24-7 on the charts"
 
-Two consecutive days, same instrument, same account, same pressure, same playbook — and two very different exit behaviors worth placing side by side.
+Place April 27 and April 28 side by side. Same instrument, same account, same pressure, same playbook.
 
-April 27: FOMO entry, TP placed 41 seconds post-entry, held through -$42 MAE, TP filled 70 seconds before platform close. Pattern 8 not triggered.
+| | Apr 27 | Apr 28 |
+|--|--------|--------|
+| Entry | Limit filled @ 4,695.8 | Market hit @ 4,581.4 |
+| TP placed? | Yes — 41s post-entry | No |
+| MAE | -$42 (-2.1 pts) | -$68 (-3.4 pts) |
+| Result | +$22 (TP filled) | +$14 (nervous flatten) |
+| Best exit potential | +$212 (post-session) | +$688 (13:00 ET same day) |
+| Exit efficiency | 10.38% | 2.03% |
+| Emotionally stable | Yes | No |
+| Zella score | 78.57 | 38.89 |
 
-April 28: FOMO entry, **no TP placed**, manual flatten 45 seconds after fill, +$14. Pattern 8 technically not triggered (he did exit manually), but the underlying pattern is present in a different form — instead of passivity, it was premature exit from nervousness. The exit wasn't passive; it was impulsive in the opposite direction.
+The structural difference is one step: placing a TP immediately post-entry. On April 27 Christopher did it. On April 28 he didn't. Everything else — entry quality, thesis, timing — is comparable. The TP is what made April 27 a held trade and April 28 a 45-second nervous scalp.
 
-The order execution table tells the story of the entry: four limit orders placed and canceled in the 3 minutes before the market fill. Christopher was watching a rapid selloff, tried to get filled at various levels, kept adjusting, and finally hit market. The 45-second hold suggests he was watching tick-by-tick and pulled the trigger on the first green movement.
+The 2.03% exit efficiency is a hard number. The trade had $688 on the table by 13:00 ET. He captured $14. The gap is not about market knowledge — the measured move target was already on the chart at 08:29 ET (4,615–4,620). He knew where it was going. The exit was pure emotional override.
 
-The April 27 coaching note highlighted that TP-in-41-seconds proved the exit habit was available even under pressure. April 28 shows what happens when that structure isn't applied — same nervousness, no resting target, manual flatten at the first relief tick. The $14 vs what the move offered is the concrete cost of skipping step 2 (place TP immediately post-entry).
+The note about exhaustion is the most important signal in this review and it is not a trading note — it is a wellbeing note. Watching multiple instruments across a full session, rebuilding brackets that don't fill, carrying the weight of a deadline that resets the eval if missed — this is the environment where impulsive exits happen and where the work Christopher has done on his process gets eroded not by bad analysis but by fatigue. Staying at the desk from 08:00 through 17:00 and into the evening looking for fills that never came is a different kind of discipline problem than moving a stop. It is the front-end of the pattern.
 
-**Coaching recommendation:** The two-trade comparison is the teachable moment. April 27 — TP placed, held through adverse move, filled at target. April 28 — no TP, nervous flatten, left the move. The only structural difference was whether a resting TP was placed. Reinforce: market entry → TP placed immediately → hands off. If it's worth entering, it's worth letting a TP work.
+**Coaching recommendation:** The trade review for the entry is clear — market entry, no TP, scared out at first green tick. The coaching work is upstream of the trade. Christopher needs a session boundary — a defined window where he is at the desk and focused, and a defined time when the screen goes off regardless of fills. The exhaustion he described is the condition that produces 2.03% exit efficiency. Fix the container, and the exits will follow.
 
 ---
 
 ## 🧠 Behavioral Notes
 
-- **Entry emotion:** *[PENDING — TradeZella CSV]* · Verbal: nervous, rushed
-- **In-trade emotion:** Nervous — manual flatten 45s post-entry
-- **Emotionally Stable:** *[PENDING — TradeZella CSV]*
-- **What went right:** Day 2 of 5 for TPT secured; entry near bottom of the AM selloff move; green result
+- **Entry emotion:** Anxious, confident, fearful, frustrated, stressed
+- **In-trade emotion:** Fear — manual flatten at first green tick, 45 seconds in
+- **Emotionally Stable:** No
+- **What went right:** Entry near AM low; correct directional read; day 2/5 counted; accepted the result; journaled
 
 | Pattern | Status | This Trade |
 |---------|--------|-----------|
-| Pattern 7 — SL/TP modification | ⚠️ Watch | No TP placed — premature manual exit out of nervousness; same intent as a P7 TP-move-down |
-| Pattern 8 — Exit passivity | ⚠️ Watch | Manual exit, not passive — but impulsive flatten vs resting TP; left the move |
-| Pattern 9 — Pre-rest order hygiene | ⚠️ Monitor | Post-trade brackets live (MGC, YM, MCL, RTY) — session ongoing |
+| Pattern 7 — SL/TP modification | ⚠️ Active | No TP placed; manual early exit = equivalent effect to a TP moved all the way to entry |
+| Pattern 8 — Exit passivity | ⚠️ Watch | Exit was active but premature — impulsive flatten vs resting TP; $688 left uncaptured |
+| Pattern 9 — Pre-rest order hygiene | ⚠️ Active | Post-trade brackets across 4 instruments — confirm all closed before stepping away |
 
 ---
 
@@ -138,15 +150,15 @@ Trade 20260428_MGC-TPT_001 logged.
 
 > See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)
 
-Two forced entries in two days on TPT. April 27 showed exit discipline can hold under pressure when a TP is placed. April 28 shows what it looks like without one — manual nervous flatten, same entry, fraction of the result. The contrast is the lesson.
+Two forced entries back-to-back on TPT. The exit behavior contrast is the clearest data point in the arc since Pattern 8 was identified: April 27 had a TP and captured $22. April 28 had no TP and captured 2.03% of the available move. The variable is the TP. The exhaustion note flags that session structure — not just order structure — is now part of the coaching picture.
 
 ---
 
 ## 🎯 Forward Focus
 
-1. **TP-first, always.** Market entry → TP placed before touching anything else → walk away. April 27 proved this works. April 28 shows the cost of skipping it. Apply this sequence to every entry this week regardless of pressure.
-2. **TPT: 3 more days by May 1 (Tue–Thu).** Two down. Prioritize getting a planned bracket filled rather than repeating a market-close or AM panic entry.
-3. **Review the post-trade brackets tonight.** MGC, YM, MCL, and RTY orders are live. Confirm each has a defined SL before stepping away from the desk — Pattern 9 risk.
+1. **TP first, always — before anything else.** Entry filled → TP placed → hands off the keyboard. Not when it feels right. Not after watching a few ticks. Immediately. April 27 proved it works. April 28 proved the cost of skipping it.
+2. **Define a session window and honor it.** Set a start time, set an end time, close the screen at the end time. Brackets can stay live. The exhaustion in today's notes is what kills exit discipline — protect the container first.
+3. **TPT: 3 days remaining by May 1 (Tue, Wed, Thu).** Two secured. Planned bracket entries only — avoid a third consecutive market-order forced fill.
 
 ---
 
