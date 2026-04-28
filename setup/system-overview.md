@@ -215,11 +215,12 @@ Claude Code skills are structured prompt files in `.claude/skills/` that give Fo
 | Skill | Trigger | Purpose |
 |-------|---------|---------|
 | `/trade-review` | "create review for [trade]" | 9-section individual trade review (FORTUNA_WORKFLOW template) |
-| `/daily-review` | "daily review for [date]" | STB daily export (9 sections + SmartTraderAI 3Qs) |
-| `/weekly-review` | "weekly review" | STB weekly export (behavioral arc + 9-question copy-paste) |
-| `/premarket` | "create premarket" | Pre-session analysis plan (10 sections + SmartTraderAI 5Qs) |
-| `/goodmorning` | "good morning" / "start session" | Live trading startup — MCP health checks + account brief |
-| `/goodnight` | "goodnight" / "end session" | Session close + commit + session log |
+| `/daily-review` | "daily review for [date]" / "recap today's session" | STB daily export (9 sections + SmartTraderAI 3Qs) |
+| `/weekly-review` | "weekly review" / "wrap up the week" | STB weekly export (behavioral arc + 9-question copy-paste) |
+| `/premarket` | "create premarket" / "what's on deck for today?" | Pre-session analysis plan (10 sections + SmartTraderAI 5Qs) |
+| `/goodmorning` | "good morning" / "start session" / "let's fire up the terminal" | Live trading startup — MCP health checks + account brief |
+| `/goodnight` | "goodnight" / "end session" / "calling it for today" | Session close + commit + session log |
+| `/import-trades` | "import trades" / "process the CSV" / "load today's fills" | Run the TradeZella → STB pipeline, verify output, flag any missing trade reviews |
 | `/create-skill` | "create a skill for X" | Design new skills; 7 hacks + makemyskill.com workflow |
 | `/marp-deck` | "create a deck for", "make slides from" | Convert any doc into a dark-theme Marp slide deck + generate HTML |
 
