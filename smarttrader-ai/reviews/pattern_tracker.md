@@ -44,7 +44,7 @@
 | 20260423_RTY-APEX_001 | Apr 23 | RTY | Long | 2,781.1 | 2,778.3 (AutoLiq) | **-$140** | N/A | -8.70 | 2.5/5 | ⚠️ ZTH SFP + OB/FVG · manipulation sweep · multi-bracket swing approach | ❌ SL 2725.2 canceled 13:47 (Pattern 7) · AutoLiq exit (Pattern 8) | No |
 | 20260423_YM-APEX_002 | Apr 23 | YM | Long | 49,122 | 49,341 (TP) | **+$1,095** | 0.42R | 95.22 | 4.0/5 | ⚠️ ZTH SFP + OB/FVG · same sweep · TP modified from original sweep target (Pattern 7 soft) | ✅ SL 48,601 placed · canceled cleanly on TP fill | Yes |
 | 20260427_MGC-TPT_001 | Apr 27 | MGC | Long | 4,695.8 | 4,696.9 (TP) | **+$22** | N/A | 78.57 | 2.0/5 | ❌ FOMO · forced entry (TPT min day req) · counter-trend · not off a level · near market close | ✅ No SL defined (intentional) — TP placed 41s post-entry, filled before platform close | Yes |
-| 20260428_MGC-TPT_001 | Apr 28 | MGC | Long | 4,581.4 | 4,582.1 (manual) | **+$14** | N/A | *pending* | *pending* | ❌ FOMO · forced entry (TPT min day req) · market order after 4 canceled limits · AM selloff bounce | ❌ No TP placed — manual nervous flatten 45s post-entry; left the move | *pending* |
+| 20260428_MGC-TPT_001 | Apr 28 | MGC | Long | 4,581.4 | 4,582.1 (manual) | **+$14** | N/A | 38.89 | 1.5/5 | ❌ FOMO · forced entry (TPT min day req) · market order after 4 canceled limits · AM selloff bounce | ❌ No TP placed — manual nervous flatten 45s post-entry · 2.03% exit efficiency · $688 left on table | No |
 
 ---
 
