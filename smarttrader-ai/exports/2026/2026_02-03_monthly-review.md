@@ -39,6 +39,56 @@
 
 ---
 
+## 🏦 Prop Firm Account History — Feb & Mar 2026
+
+### Apex Trader Funding
+
+| Account | Period | Status | Key Event |
+|---------|--------|--------|-----------|
+| APEX-484839-05 | ~Feb 2026 – Mar 3, 2026 | ❌ Blown | Mar 3: -$2,300 · Patterns 6+7 on 3 trades |
+| APEX-484839-06 | Mar 2, 2026 – present | ✅ Active | Min days met Mar 24 · profit target open |
+
+### TakeProfitTrader 50K — Full Reset History
+
+| Reset | Account ID | Active Period | Days Traded | Net P&L | Blow Event |
+|-------|-----------|---------------|-------------|---------|-----------|
+| reset-0 | TAKEPROFIT635000920 | Feb 8–13, 2026 | 5 of 5 | ~-$245 | Feb 13: -$2,012.50 — balance $49,755 breached $49,767.50 min |
+| reset-1 | TAKEPROFIT401190651 | Feb 16–17, 2026 | 1 | -$2,215 | Feb 17: -$2,215.00 — balance $47,785 breached $48,000 min |
+| reset-2 | TAKEPROFIT363712064 | Mar 25–27, 2026 | 2 | -$2,025 | Mar 27: -$1,817 overnight MGC position — account blown |
+
+**reset-0 daily breakdown (Feb 8–13):**
+
+| Date | Net P&L | Trades | Acct Bal |
+|------|---------|--------|----------|
+| Feb 9 | +$247.50 | 5 | $50,247.50 |
+| Feb 10 | +$310.00 | 3 | $50,557.50 |
+| Feb 11 | +$970.00 | 2 | $51,527.50 |
+| Feb 12 | +$240.00 | 2 | $51,767.50 |
+| Feb 13 | **-$2,012.50** | 4 | $49,755.00 ❌ |
+
+reset-0 reached a peak balance of $51,767.50 by Feb 12 — well above the $53,000 profit target trajectory — before the Feb 13 blow erased all gains and breached the minimum.
+
+**reset-1 daily breakdown (Feb 16–17):**
+
+| Date | Net P&L | Trades | Acct Bal |
+|------|---------|--------|----------|
+| Feb 17 | **-$2,215.00** | 1 | $47,785.00 ❌ |
+
+Single trade, single day, account gone. The shortest TPT reset in the history.
+
+**reset-2 daily breakdown (Mar 25–27):**
+
+| Date | Net P&L | Trades | Acct Bal |
+|------|---------|--------|----------|
+| Mar 26 | -$208.00 | 2 | $49,792.00 |
+| Mar 27 | **-$1,817.00** | 1 | $47,975.00 ❌ |
+
+review_20260326_MGC-TPT_003.md documents the overnight MGC position that blew this reset.
+
+> Source PDFs archived at: `data/imports/2026/02-Feb/TPT_2026_02-08-thru-02-12_redacted.pdf` · `data/imports/2026/02-Feb/TPT_2026_02-16_redacted.pdf` · `data/imports/2026/03-Mar/TPT_2026_03-25-thru-03-26_redacted.pdf`
+
+---
+
 ## 🗓️ February 2026 — The Collapse
 
 February began with accounts active and ended with nearly everything gone. -$20,200 across 17 trading days. This is the documented anchor of the recovery arc.
