@@ -95,55 +95,50 @@ The most useful public paths live under `smarttrader-ai/analysis`, `smarttrader-
 
 ```
 ~/ClaudeCodeCLI/trading-assistant/
-├── ClaudeCodeCLI_trading-assistant_start-instructions.md
+├── .claude/
+│   └── skills/                  # 🔒 Private — Fortuna skill procedures (/goodmorning, /trade-review, etc.)
+├── AGENT-SYNC/                  # 🔒 Private — cross-agent coordination (Fortuna ↔ Auggie ↔ Kavanah)
 ├── data/
 │   ├── imports/
-│   │   └── 2026/
-│   │       ├── 02-Feb/          # TradeZella + Tradovate CSV imports
-│   │       └── 03-Mar/
+│   │   └── YYYY/
+│   │       └── MM-Mon/          # TradeZella + Tradovate CSV imports (e.g. 2026/04-Apr/)
 │   ├── progression/
-│   │   ├── SmartTradingBlueprint/ # STB progression workspace (currently empty/tracked)
-│   │   └── inevitrade/            # Coaching progression notes + public reference material
-│   └── screenshots/             # Trade screenshots & annotated charts for session review
-├── logs/                        # session logs
+│   │   ├── SmartTradingBlueprint/
+│   │   └── inevitrade/          # Coaching progression notes + public reference material
+│   └── screenshots/             # Trade screenshots & annotated charts — embedded in reviews
+├── logs/                        # 🔒 Private — session logs (fortuna/, auggie/)
 ├── setup/
 │   ├── accounts/
-│   │   ├── crypto/
-│   │   │   ├── CEX/             ← Centralized Exchanges
-│   │   │   │   ├── BTCC/
-│   │   │   │   ├── Bybit/
-│   │   │   │   └── Phemex/
-│   │   │   └── DEX/             ← Decentralized Exchanges
-│   │   └── PropFirms/           # Prop firm rules, progression plan, Scaling SOP
-│   │       ├── apextrader/      ← Apex rules, statements
-│   │       ├── lucid/           ← Lucid rules, statements
-│   │       ├── takeprofittrader/ ← TPT rules, statements
-│   │       └── tradeify/        ← Tradeify rules, statements
-│   ├── AugmentArchitecture.md   # Deeper Augment/Intent architecture guide
+│   │   ├── crypto/CEX/          # BTCC, Bybit, Phemex
+│   │   ├── crypto/DEX/
+│   │   └── PropFirms/           # Apex, TPT, Lucid, Tradeify — rules, statements, progression
+│   ├── create-skill.marp.md     # Slide deck: architecting Claude Code skills
+│   ├── create-skill.marp.html   # Rendered HTML version
+│   ├── AugmentArchitecture.md   # Augment/Intent architecture guide
 │   └── system-overview.md       # High-level system map
 ├── smarttrader-ai/
-│   ├── analysis/
-│   │   ├── level-marking-methodology.md
-│   │   └── premarket/
-│   │       └── 2026/
-│   │           ├── 02-Feb/
-│   │           └── 03-Mar/
+│   ├── analysis/premarket/
+│   │   └── YYYY/MM-Mon/         # premarket_YYYYMMDD_summary.md per session
 │   ├── exports/
-│   │   ├── 2026/
-│   │   │   ├── 02-Feb/
-│   │   │   └── 03-Mar/
-│   │   └── chart-analysis-methodology.md
+│   │   └── YYYY/MM-Mon/         # STB_export_YYYYMMDD_daily-review.md · weekly-review.md
 │   └── reviews/
-│       ├── 2026/
-│       │   ├── 02-Feb/
-│       │   └── 03-Mar/
-│       └── pattern_tracker.md
-├── strategies/
-│   ├── inevitrade/              # IT SMC concept reference files
-│   ├── smarttradingblueprint/   # STB ICT concept reference files
-│   └── zerotohero/              # ZTH strategy reference files
-├── README.md
+│       ├── YYYY/MM-Mon/         # review_YYYYMMDD_[INSTRUMENT]-[PLATFORM]_NNN.md
+│       └── pattern_tracker.md   # Running P&L, behavioral pattern log, recovery arc
+├── specs/                       # 🔒 Private — workflow specs, external tool index, canonical references
+│   ├── FORTUNA_WORKFLOW.md      # Master session pipeline checklist
+│   ├── SMARTTRADERAI_EXPORT_SPEC.md  # Canonical copy-paste templates (pre-market / daily / weekly)
+│   ├── EXTERNAL_TOOLS.md        # External tool inventory: paths, GitHub, troubleshoot, new-machine setup
+│   ├── morning_brief_routine.md # TradingView indicator toggle sequences + entity IDs
+│   ├── tradingview-integration.spec.md
+│   ├── tradezella-automater.spec.md
+│   ├── tradovate-mcp.spec.md
+│   └── references/
+│       └── fortuna-rules.json   # Snapshot of ~/tradingview-mcp-jackson/rules.json (watchlist + strategy rules)
+├── strategies/                  # 🔒 Private — STB, ZTH, Inevitrade reference material
+└── README.md
 ```
+
+**🔒 Private directories** are excluded from the public preview sync via `gitexporter.config.json`.
 
 ## 🧠 WORKFLOW CONTEXT — WITH SMARTTRADERAI 🤖
 
@@ -214,7 +209,15 @@ Never shaming me. Always believing in my potential. Always pushing me toward the
 
 ### 🌅 Daily Session Start
 
-At the start of each session, Fortuna greets me and asks me to rate my mental state and energy level (1–10)&Informs me if there are any major news events or economic releases today I should be aware of.
+Each session opens with the `/goodmorning` skill — a structured startup routine:
+
+1. **System health** — TradingView Desktop CDP connection · Tradovate account live (balance + trailing floor) · webhook pipeline active
+2. **Context read** — `AGENT-SYNC/AGENT_SYNC.md` picks up where last session left off; any new agent prompts from Auggie or Kavanah
+3. **Account brief** — APEX balance, trailing floor, distance to profit target, min days status; TPT days completed, deadline, current standing
+4. **Session orientation** — day of week, economic calendar, macro context (CPI / FOMC / EIA?); premarket file check — offer to build with `/premarket` if missing
+5. **Behavioral reminder** — the one most active pattern and the specific mechanical rule to counteract it (Pattern 7: no SL moves · Pattern 8: active exit at MFE · Pattern 9: cancel all orders before stepping away)
+
+If any system check fails, Fortuna diagnoses before any market analysis begins. Flying blind is not an option.
 
 *Built with *[*Claude Code CLI*](https://code.claude.com/docs/en/overview)* by Anthropic + *[*Augment Code*](https://augmentcode.com)*.*
 
