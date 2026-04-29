@@ -93,7 +93,7 @@ Anchor: `<a id="smarttraderai-copy-paste"></a>` before `## 🤖 SmartTraderAI We
 
 **Write naturally — never third-person about Christopher.** He is submitting this directly to SmartTraderAI. Avoid "Christopher did X." Use first-person where a pronoun is genuinely needed ("I canceled my SL", "my mistake was..."), but omit it where the subject is naturally implied ("Pre-placed limits at key levels and sat on hands" not "I pre-placed limits"). Read each sentence — if it sounds natural without a pronoun, drop it.
 
-7 questions (exact wording from FORTUNA_WORKFLOW.md — do not paraphrase):
+7 questions (exact wording from `specs/SMARTTRADERAI_EXPORT_SPEC.md` — do not paraphrase):
 1. What trade setups/tactics worked this week?
 2. What didn't work this week?
 3. What observable patterns did you see in the market this week?
@@ -108,7 +108,7 @@ Then:
 - **What I want to work on / improve / get better at:** (one focused thing)
 - **How I plan to study the market this week:** (specific study method)
 - `> Full weekly review: [GitHub URL to the file]`
-- Footer: `*🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*` + date line
+- Footer: `*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*` + date line
 
 `---` immediately after `## 🤖` heading and between every question. Never use code blocks in the copy-paste section.
 
@@ -120,7 +120,7 @@ Then:
 
 **Link to individual reviews** — Don't duplicate content. The weekly review *references* individual trade reviews and adds the behavioral/weekly synthesis layer.
 
-**SmartTraderAI fields are structured** — These 9 questions + follow-ups are Christopher's submission format. Keep them consistent and clearly separated from the rest of the review.
+**SmartTraderAI fields are structured** — 7 narrative questions + 9 yes/no performance questions + 3 action steps. Keep them consistent and clearly separated. Full canonical wording: `specs/SMARTTRADERAI_EXPORT_SPEC.md`.
 
 **Account status matters** — Prop firm eval accounts have phases, rules, and statuses. Track these explicitly so Christopher and coaches can see where each account stands.
 
