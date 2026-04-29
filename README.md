@@ -96,7 +96,7 @@ The most useful public paths live under `smarttrader-ai/analysis`, `smarttrader-
 ```
 ~/ClaudeCodeCLI/trading-assistant/
 ├── .claude/
-│   └── skills/                  # 🔒 Private — Fortuna skill procedures (/goodmorning, /trade-review, etc.)
+│   └── skills/                  # 🌐 Public — Fortuna skill procedures (/goodmorning, /trade-review, etc.) — showcased in public preview
 ├── AGENT-SYNC/                  # 🔒 Private — cross-agent coordination (Fortuna ↔ Auggie ↔ Kavanah)
 ├── data/
 │   ├── imports/
@@ -138,7 +138,7 @@ The most useful public paths live under `smarttrader-ai/analysis`, `smarttrader-
 └── README.md
 ```
 
-**🔒 Private directories** are excluded from the public preview sync via `gitexporter.config.json`.
+**🔒 Private directories** are excluded from the public preview sync via `gitexporter.config.json` + `.github/workflows/sync-public.yml`.
 
 ## 🧠 WORKFLOW CONTEXT — WITH SMARTTRADERAI 🤖
 
@@ -213,7 +213,7 @@ Each session opens with the `/goodmorning` skill — a structured startup routin
 
 1. **System health** — TradingView Desktop CDP connection · Tradovate account live (balance + trailing floor) · webhook pipeline active
 2. **Context read** — `AGENT-SYNC/AGENT_SYNC.md` picks up where last session left off; any new agent prompts from Auggie or Kavanah
-3. **Account brief** — APEX balance, trailing floor, distance to profit target, min days status; TPT days completed, deadline, current standing
+3. **Account brief** — balance, trailing floor, distance to profit target, min days status per active eval; deadline and current standing for each
 4. **Session orientation** — day of week, economic calendar, macro context (CPI / FOMC / EIA?); premarket file check — offer to build with `/premarket` if missing
 5. **Behavioral reminder** — the one most active pattern and the specific mechanical rule to counteract it (Pattern 7: no SL moves · Pattern 8: active exit at MFE · Pattern 9: cancel all orders before stepping away)
 
