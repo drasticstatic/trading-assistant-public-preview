@@ -132,6 +132,11 @@ Then:
 2. Update `smarttrader-ai/reviews/pattern_tracker.md` if not already done
 3. Commit: "Add weekly review week of [Mon date]"
 
+## Related Specs
+
+- `specs/FORTUNA_WORKFLOW.md` — Section 5: weekly review structure, behavioral arc format, timing
+- `specs/SMARTTRADERAI_EXPORT_SPEC.md` — 9-question weekly format + yes/no checklist + action steps + study plan (canonical templates)
+
 ## Quick Commands
 
 ```bash

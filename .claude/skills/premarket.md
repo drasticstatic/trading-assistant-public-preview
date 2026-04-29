@@ -247,6 +247,12 @@ Path is 5 levels up from `analysis/premarket/YYYY/MM-Mon/`.
 2. Public-preview URL for this file (to reference in daily review Session Narrative):
    `https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/YYYY/MM-Mon/premarket_YYYYMMDD_summary.md`
 
+## Related Specs
+
+- `specs/FORTUNA_WORKFLOW.md` — Section 2: pre-market workflow, session startup sequence
+- `specs/SMARTTRADERAI_EXPORT_SPEC.md` — 5-question pre-market format (canonical templates — exact wording required)
+- `specs/morning_brief_routine.md` — TradingView layout reference (tab IDs, pane layout), indicator toggle sequence, 5-slot limit protocol
+
 ## Quick Commands
 
 ```bash

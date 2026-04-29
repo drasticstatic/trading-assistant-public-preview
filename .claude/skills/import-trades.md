@@ -173,6 +173,11 @@ git push origin main
 
 **`service_account.json` not found:** Must be in `~/TradeZella_STB/` alongside the script.
 
+## Related Specs
+
+- `specs/tradezella-automater.spec.md` — Full pipeline architecture; `automator_drop_handler.sh` is the current implementation; `tradezella_to_stb.py` handles conversion + Sheets push
+- `specs/SMARTTRADERAI_EXPORT_SPEC.md` — Output format for STB Google Sheet
+
 ## Quick Commands
 
 ```bash

@@ -81,6 +81,13 @@ Christopher can then ask for /premarket to go deeper, or begin trading.
 
 **Behavioral pattern conflict:** If Pattern 8 (hold too long) and Pattern 9 (forget stops) are both active, prioritize Pattern 9. A missing stop is more dangerous than a suboptimal exit.
 
+## Related Specs
+
+- `specs/FORTUNA_WORKFLOW.md` — Section 0: full session start checklist (MCP health, git pull, context read)
+- `specs/morning_brief_routine.md` — Full morning brief indicator sequence, tab/pane layout (Fortuna-Master `OiTA7dHv`), toggle protocol
+- `specs/tradingview-integration.spec.md` — TradingView MCP architecture; CDP connection, chart data pipe
+- `specs/tradovate-mcp.spec.md` — Tradovate MCP setup; account data endpoints
+
 ## Quick Commands
 
 These are reference commands — do not run them automatically:
