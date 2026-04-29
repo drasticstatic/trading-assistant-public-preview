@@ -34,7 +34,7 @@ Fortuna also generates structured coaching exports (daily pre-market reviews, po
 
 ### 🛠️ Auggie — Implementation Engine
 
-**Platform:** Augment Code (Claude Opus 4.6)
+**Platform:** Augment Code
 
 Auggie handles all infrastructure, code, and builds. This includes MCP server development (brokerage data access, webhook receivers), custom TradingView Pine Script indicators, Python automation scripts, and system architecture. Auggie built the Tradovate MCP server, the TradingView webhook pipeline, and maintains the technical infrastructure that powers the operation.
 
@@ -47,7 +47,7 @@ Kavanah coordinates spec-driven task execution across the workspace. When large-
 ## 🏗️ Architecture
 
 ```
-Christopher (Product Owner)
+Christopher (Founding Developer)
     ↓
 Fortuna (Claude Code CLI) — coaching, analysis, session intelligence
     ↕
@@ -96,45 +96,40 @@ The most useful public paths live under `smarttrader-ai/analysis`, `smarttrader-
 ```
 ~/ClaudeCodeCLI/trading-assistant/
 ├── .claude/
-│   └── skills/                  # 🌐 Public — Fortuna skill procedures (/goodmorning, /trade-review, etc.) — showcased in public preview
-├── AGENT-SYNC/                  # 🔒 Private — cross-agent coordination (Fortuna ↔ Auggie ↔ Kavanah)
+│   └── skills/                 # 🌐 Public — Fortuna skill procedures — showcased
+├── AGENT-SYNC/                 # 🔒 Private — cross-agent coordination
 ├── data/
-│   ├── imports/
+│   ├── imports/                # TradeZella + Tradovate CSV imports (e.g. 2026/04-Apr/)
 │   │   └── YYYY/
-│   │       └── MM-Mon/          # TradeZella + Tradovate CSV imports (e.g. 2026/04-Apr/)
-│   ├── progression/
+│   │       └── MM-Mon/
+│   ├── progression/            # Coaching progression notes + public reference material
 │   │   ├── SmartTradingBlueprint/
-│   │   └── inevitrade/          # Coaching progression notes + public reference material
-│   └── screenshots/             # Trade screenshots & annotated charts — embedded in reviews
-├── logs/                        # 🔒 Private — session logs (fortuna/, auggie/)
+│   │   └── inevitrade/
+│   └── screenshots/            # Trade screenshots & annotated charts — embedded in reviews
+├── logs/                       # 🔒 Private — session logs (fortuna/ ↔ auggie/ ↔ kavanah/)
 ├── setup/
 │   ├── accounts/
-│   │   ├── crypto/CEX/          # BTCC, Bybit, Phemex
+│   │   ├── crypto/CEX/         # BTCC, Bybit, Phemex
 │   │   ├── crypto/DEX/
-│   │   └── PropFirms/           # Apex, TPT, Lucid, Tradeify — rules, statements, progression
-│   ├── create-skill.marp.md     # Slide deck: architecting Claude Code skills
-│   ├── create-skill.marp.html   # Rendered HTML version
-│   ├── AugmentArchitecture.md   # Augment/Intent architecture guide
-│   └── system-overview.md       # High-level system map
+│   │   └── PropFirms/          # Apex, TPT, Lucid, Tradeify — rules, statements, progress
+│   ├── create-skill.marp.md    # Slide deck: architecting Claude Code skills
+│   ├── create-skill.marp.html  # Rendered HTML version
+│   ├── AugmentArchitecture.md  # Augment/Intent architecture guide
+│   └── system-overview.md      # High-level system map
 ├── smarttrader-ai/
 │   ├── analysis/premarket/
-│   │   └── YYYY/MM-Mon/         # premarket_YYYYMMDD_summary.md per session
+│   │   └── YYYY/MM-Mon/        # premarket_YYYYMMDD_summary.md per session
 │   ├── exports/
-│   │   └── YYYY/MM-Mon/         # STB_export_YYYYMMDD_daily-review.md · weekly-review.md
+│   │   └── YYYY/MM-Mon/        # STB_export_YYYYMMDD_daily-review.md · weekly-review.md
 │   └── reviews/
-│       ├── YYYY/MM-Mon/         # review_YYYYMMDD_[INSTRUMENT]-[PLATFORM]_NNN.md
-│       └── pattern_tracker.md   # Running P&L, behavioral pattern log, recovery arc
-├── specs/                       # 🔒 Private — workflow specs, external tool index, canonical references
-│   ├── FORTUNA_WORKFLOW.md      # Master session pipeline checklist
-│   ├── SMARTTRADERAI_EXPORT_SPEC.md  # Canonical copy-paste templates (pre-market / daily / weekly)
-│   ├── EXTERNAL_TOOLS.md        # External tool inventory: paths, GitHub, troubleshoot, new-machine setup
-│   ├── morning_brief_routine.md # TradingView indicator toggle sequences + entity IDs
-│   ├── tradingview-integration.spec.md
-│   ├── tradezella-automater.spec.md
-│   ├── tradovate-mcp.spec.md
+│       ├── YYYY/MM-Mon/        # review_YYYYMMDD_[INSTRUMENT]-[PLATFORM]_NNN.md
+│       └── pattern_tracker.md  # Running P&L, behavioral pattern log, recovery arc
+├── specs/                      # 🔒 Private — workflow, automation pipelines, routines...
+│   │       sequences, templates, canonical references, checklists, entity IDs, setup paths
+│   │                    external tool index, mcp integration inventory, troubleshooting...
 │   └── references/
-│       └── fortuna-rules.json   # Snapshot of ~/tradingview-mcp-jackson/rules.json (watchlist + strategy rules)
-├── strategies/                  # 🔒 Private — STB, ZTH, Inevitrade reference material
+│       └── fortuna-rules.json  # ~/tradingview-mcp-jackson/ (watchlist + strategy rules)
+├── strategies/                 # 🔒 Private — STB, ZTH, IT ; SMC, ICT reference material
 └── README.md
 ```
 
@@ -217,7 +212,7 @@ Each session opens with the `/goodmorning` skill — a structured startup routin
 4. **Session orientation** — day of week, economic calendar, macro context (CPI / FOMC / EIA?); premarket file check — offer to build with `/premarket` if missing
 5. **Behavioral reminder** — the one most active pattern and the specific mechanical rule to counteract it (Pattern 7: no SL moves · Pattern 8: active exit at MFE · Pattern 9: cancel all orders before stepping away)
 
-If any system check fails, Fortuna diagnoses before any market analysis begins. Flying blind is not an option.
+<br/>
 
 *Built with *[*Claude Code CLI*](https://code.claude.com/docs/en/overview)* by Anthropic + *[*Augment Code*](https://augmentcode.com)*.*
 
