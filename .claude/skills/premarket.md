@@ -183,7 +183,7 @@ Jump link at top of file (exact format):
 Anchor: `<a id="smarttraderai-copy-paste"></a>` on the line before `## 🤖` heading.
 `---` immediately after the `## 🤖` heading and between every question — always.
 
-**5 questions — use exact wording from FORTUNA_WORKFLOW.md:**
+**5 questions — use exact wording from `specs/SMARTTRADERAI_EXPORT_SPEC.md`:**
 
 1. What news releases today?
 2. What are the expected figures? What effect has this event had on the markets before?
