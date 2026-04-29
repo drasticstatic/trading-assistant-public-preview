@@ -441,6 +441,73 @@ git add setup/*.marp.md setup/*.marp.html && \
 
 ---
 
+## Specs + Skills — The Two-Layer System
+
+<style scoped>
+.brnote { border-left: 4px solid #4a90d9; padding: 0.3em 0.8em; color: #b0c0d8; font-style: italic; font-size: 0.72em; margin-top: 0.3em; }
+</style>
+
+**Two agents. Two jobs. Same workflow.**
+
+| Layer | Owner | Purpose |
+|-------|-------|---------|
+| **Specs** (`.md` in `specs/`) | Augment Intent | Living architecture — defines *what* the workflow is |
+| **Skills** (`.claude/skills/`) | Claude Code | Executable procedures — defines *how* to run it |
+
+<small>Skills without specs drift. Specs without skills stay theoretical.</small>
+
+- Specs answer: *"What should happen and why?"*
+- Skills answer: *"What do I actually do, step by step?"*
+
+<div class="brnote">Combining these tools means your architectural goals stay in sync with the actual code, preventing the "drift" that often occurs in AI-driven development</div>
+
+---
+
+## Living Specs — The 3C Rule
+
+<style scoped>
+.brnote { border-left: 4px solid #4a90d9; padding: 0.3em 0.8em; color: #b0c0d8; font-style: italic; font-size: 0.72em; margin-top: 0.3em; }
+</style>
+
+**The 3C Rule** (Gemini / Intent convention):
+- **Concise** — no padding, no vague prose
+- **Contextual** — why this rule exists, not just what it is
+- **Constrained** — explicit boundaries; what NOT to do
+
+<div>
+
+**Bidirectional update model:**
+
+| Direction | Action |
+|-----------|--------|
+| Spec changes | Update the skill's `## Related Specs` pointer |
+| Skill changes | Reflect back in the spec (naming, pipeline, format) |
+| Conflict found | Spec is source of truth — update the skill to match |
+
+<div class="brnote">When they contradict each other, the spec wins. Update the skill to match.</div>
+
+---
+
+## Keeping Them in Sync — The Pointer Pattern
+
+Add `## Related Specs` near the bottom of every skill (before Quick Commands):
+
+```markdown
+## Related Specs
+- `specs/FORTUNA_WORKFLOW.md` — canonical pipeline; this skill's steps live in Section X
+- `specs/SMARTTRADERAI_EXPORT_SPEC.md` — copy-paste format templates
+- `specs/tradezella-automater.spec.md` — full pipeline architecture
+```
+
+<div><br/>
+
+**What this buys you:**
+- Any agent opening the skill immediately knows where the authoritative source lives
+- Spec updates are easy to trace back to the skills they affect
+- Augment Intent and Claude Code stay coordinated across sessions without needing to re-derive context or enabling context engine
+
+---
+
 # Start Building
 <br/>
 > Every skill you create saves the next session from re-explaining the same process.

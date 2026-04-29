@@ -105,6 +105,10 @@ Session close is where context preservation happens. Skipping steps creates gaps
 
 A clean close makes tomorrow's session start instantly productive.
 
+## Related Specs
+
+- `specs/FORTUNA_WORKFLOW.md` — Session close checklist: commit sequence, session log format, AGENT_SYNC update protocol
+
 ## Quick Commands
 
 ```bash

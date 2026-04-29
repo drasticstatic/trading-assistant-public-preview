@@ -194,6 +194,12 @@ Notes for Coaches whether move was disciplined or emotional.
 4. Update weekly review file if it already exists — add trade to Week at a Glance table
 5. Commit with message: "Add trade review #NNN — [INSTRUMENT] [DIR] [DATE] · [P&L]"
 
+## Related Specs
+
+- `specs/FORTUNA_WORKFLOW.md` — canonical session pipeline; trade review steps live in the post-session section
+- `specs/tradezella-automater.spec.md` — full TradeZella → STB pipeline architecture; automator_drop_handler.sh is the current implementation
+- `specs/SMARTTRADERAI_EXPORT_SPEC.md` — canonical SmartTraderAI copy-paste format for all review types
+
 ## Quick Commands
 
 ```bash

@@ -136,6 +136,11 @@ In Trade Log, group by instrument or chronologically — whichever tells the cle
 2. Add premarket URL if not already in Session Narrative
 3. Commit: "Add daily review [date] — [net P&L or 'no fills']"
 
+## Related Specs
+
+- `specs/FORTUNA_WORKFLOW.md` — Section 4: daily review structure, section order, and post-session pipeline
+- `specs/SMARTTRADERAI_EXPORT_SPEC.md` — 3-question post-market format (canonical templates — single source of truth)
+
 ## Quick Commands
 
 ```bash
