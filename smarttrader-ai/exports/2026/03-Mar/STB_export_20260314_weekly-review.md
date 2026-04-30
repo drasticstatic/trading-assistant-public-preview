@@ -59,7 +59,7 @@ He did not spiral. He did not take revenge trades. He walked his dog, came back 
 ## 📎 Full Reviews + Pattern Tracker
 
 - [pattern_tracker.md](../pattern_tracker.md)
-- [review_20260310_MNQ_001.md](../../reviews/2026/03-Mar/review_20260310_MNQ_001.md) — Mar 10 · MNQ Long · -$108 · Pattern 7 fix confirmed · Pattern 8 identified
+- [review_20260310_MNQ_001.md](../../../reviews/2026/03-Mar/review_20260310_MNQ_001.md) — Mar 10 · MNQ Long · -$108 · Pattern 7 fix confirmed · Pattern 8 identified
 
 ---
 
@@ -99,7 +99,7 @@ MFE +85.75 pts at 14:30 — passed. Near break-even at 16:45 — passed. Apex ha
 Pattern 7 fix confirmed. Pattern 8 (exit passivity) identified and documented.
 
 > Full daily review: [STB_export_20260310_daily-review.md](STB_export_20260310_daily-review.md)
-> Full trade review: [review_20260310_MNQ_001.md](../../reviews/2026/03-Mar/review_20260310_MNQ_001.md)
+> Full trade review: [review_20260310_MNQ_001.md](../../../reviews/2026/03-Mar/review_20260310_MNQ_001.md)
 
 ---
 

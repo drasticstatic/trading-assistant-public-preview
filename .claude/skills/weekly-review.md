@@ -12,7 +12,8 @@ description: >
 
 # Skill: /weekly-review
 
-Build a complete weekly review following FORTUNA_WORKFLOW.md Section 5.
+Build a complete weekly review merging the full section depth from both the template and the
+Mar 23–27 review — the gold-standard reference at `smarttrader-ai/exports/2026/03-Mar/STB_export_20260327_weekly-review.md`.
 
 ## Before Starting
 
@@ -34,66 +35,169 @@ The file lives in the month folder of that closing Sunday.
 
 ## Required Structure — In This Order
 
-### 1. Jump link at top
+### 1. Jump links at top
+
 ```
-[Jump to SmartTraderAI copy-paste ↓](#smarttraderai-copy-paste)
+[Jump to 🕊️ Spiritual Lens ↓](#spiritual-lens) · [Jump to 📊 SmartTraderAI Response ↓](#smarttraderai-response) · [Jump to 🤖 Final STB Submission ↓](#smarttraderai-copy-paste)
 ```
 
 ### 2. `## 📊 Week at a Glance`
-Trade table covering all 7 days (Sun through Sat, plus closing Sun — include no-fill days):
-`| Date | Day | Instrument | Dir | Entry | Exit | P&L | Notes |`
-Sun and Sat rows are typically empty for futures but included for crypto. Closing Sunday row covers the pre-18:00 window only.
-Week net P&L below table.
 
-### 3. `## 🏦 Account Status`
-Table: Account | Platform | Status | Notes — for every active eval account.
+Trade table covering all 7 days (Sun through Sat — include no-fill days). Add a **Review** column with a relative link to each individual trade review. Use `—` for no-fill days.
 
-### 4. `## 📈 Behavioral Arc — The Week in One View`
-Code block showing the recovery arc for the week. Then:
-- **What is resolved** — patterns that improved or were corrected
-- **What is the work** — active patterns still present
-- **What the coaches should see** — key coaching insight from the week
-- **Broader context** — life context that shaped trading decisions
-
-### 5. `## 📎 Full Reviews + Pattern Tracker`
-Links to pattern tracker and every individual trade review for the week:
-```
-- [pattern_tracker.md](../../reviews/pattern_tracker.md)
-- [review_YYYYMMDD_INSTRUMENT_NNN.md](../../reviews/YYYY/MM-Mon/review_file.md) — one-line description
+```markdown
+| Day | Session | Trades | Instrument | P&L | Account | Review |
+|-----|---------|--------|-----------|-----|---------|--------|
+| Mon Apr 27 | RTH | 1 | MGC Long | +$22 | TPT | [001](../../../reviews/2026/04-Apr/review_20260427_MGC-TPT_001.md) |
+| Tue Apr 28 | RTH | 1 | MGC Long | +$14 | TPT | [001](../../../reviews/2026/04-Apr/review_20260428_MGC-TPT_001.md) |
+| Wed Apr 29 | RTH | 3 | RTY · YM · MCL | +$355 | TPT | [001](../../../reviews/2026/04-Apr/review_20260429_RTY-TPT_001.md) · [002](../../../reviews/2026/04-Apr/review_20260429_YM-TPT_002.md) · [003](../../../reviews/2026/04-Apr/review_20260429_MCL-TPT_003.md) |
+| Thu Apr 30 | Monitor | 0 | — | $0 | — | — |
+| **WEEK NET** | | | | **+$391** | | |
 ```
 
-### 6. Day-by-day sections
-One `##` heading per trading day, e.g. `## Apr 17 — "Trade Title"`.
-Include: what happened, setups seen/missed, key decisions, emotional state.
-No-fill days still get a brief note.
+**Correct relative path for review links:**
+`../../../reviews/YYYY/MM-Mon/review_YYYYMMDD_INSTRUMENT-PLATFORM_NNN.md`
+(3 levels up from `exports/YYYY/MM-Mon/` reaches `smarttrader-ai/`, then descend into `reviews/`)
 
-### 7. Screenshot grid (HTML table)
+Week net P&L as a totals row. Closing Sunday pre-18:00 can be included if relevant.
+
+Also include an **Account Status** table immediately after the trade table:
+
+```markdown
+| Account | Status at Week End | Notes |
+|---------|-------------------|-------|
+| APEX-484839-06 (100K) | ✅ Active | Min days met · profit target in progress |
+| TPT reset-3 50K | ⚠️ Active | 3/5 days · +$391 net · deadline May 1 |
+```
+
+### 3. `## 📈 Week Arc — The Full Picture`
+
+2–4 paragraph narrative arc of the week. Not a trade list — a story. Capture:
+- The defining moment(s) — what this week will be remembered for
+- The high and the low, and what each reveals
+- How the week connects to the recovery arc
+- Any life context that shaped the session (without dwelling)
+
+This section uses the language of a coach writing about a student, not a journalist reporting facts.
+
+### 4. `## 📊 Trade-by-Trade Summary`
+
+One `###` heading per filled trade (or per trading day if multiple fills same day). Format:
+```
+### Mon Apr 27 — MGC Long · TPT · +$22 ✅
+```
+
+For each: what happened, setup quality, behavioral notes, and inline link to the full review:
+```
+Full review: [review_20260427_MGC-TPT_001.md](../../../reviews/2026/04-Apr/review_20260427_MGC-TPT_001.md)
+```
+
+No-fill days still get a brief note (what was watched, why no trade, what was learned).
+
+### 5. `## 🧠 Behavioral Analysis — Week of [dates]`
+
+Two subsections:
+
+**### What held**
+Patterns that improved, rules followed, disciplines maintained. Be specific — cite the trade.
+
+**### What failed**
+Active patterns, rule violations, behavioral regressions. Be direct — one clear paragraph per issue.
+
+Optional third subsection if there's a cross-pattern insight:
+**### Convergence / Compound Failure** — when multiple patterns operated in the same trade.
+
+### 6. `## 📎 Full Reviews + Pattern Tracker`
+
+Navigation links for quick reference (coaches and future Fortuna sessions can jump directly):
+
+```markdown
+- [pattern_tracker.md](../../../reviews/pattern_tracker.md)
+- [review_YYYYMMDD_INSTRUMENT-PLATFORM_NNN.md](../../../reviews/YYYY/MM-Mon/review_file.md) — one-line description
+```
+
+**Path:** `../../../reviews/...` (3 levels up from `exports/YYYY/MM-Mon/`)
+
+### 7. `## 🕊️ Spiritual Lens`
+
+Anchor: `<a id="spiritual-lens"></a>` on the line before the heading.
+
+Personal reflection — the human dimension behind the week's trading. Christopher writes or contributes this. It can be:
+- A direct quote from his session journal
+- A reflection on what the week meant outside the P&L
+- Connection between trading discipline and broader life principles
+- What he is grateful for or learning to trust
+
+If Christopher hasn't provided material, include a brief placeholder:
+*[Spiritual Lens — Christopher to complete from session journal.]*
+
+This section is never omitted — even on a mechanical week, the human context matters to coaches and to the arc.
+
+### 8. `## 📊 Running Statistics — Updated Through [date]`
+
+Cumulative stats table updated through the last trade of the week:
+
+```markdown
+| Metric | Value |
+|--------|-------|
+| Total trade entries | N |
+| Winners | N |
+| Losers | N |
+| Win rate (futures) | % |
+| Avg winner | $N |
+| Avg loser | -$N |
+| Total P&L (futures) | $N |
+| Total P&L (crypto) | $N USDT |
+| SL respected | N/N |
+| Stops moved/canceled | N |
+| Eval accounts | N blown · N active |
+| Active patterns | Pattern 7 · Pattern 8 · [etc.] |
+| Best trade (week) | Instrument +$N (date) |
+| Worst trade (week) | Instrument -$N (date) |
+```
+
+Pull from `pattern_tracker.md` — do not fabricate numbers. If a stat is uncertain, note it.
+
+### 9. Screenshot grid (HTML table)
+
 **Grid format for weeklies** — multiple days make full-size impractical.
+
 ```html
 <table><tr>
 <td width="33%"><img src="../../../../data/screenshots/file.png" width="100%"><br><sub>Caption</sub></td>
+<td width="33%"><img src="../../../../data/screenshots/file.png" width="100%"><br><sub>Caption</sub></td>
+<td width="33%"><img src="../../../../data/screenshots/file.png" width="100%"><br><sub>Caption</sub></td>
 </tr></table>
 ```
+
 Column widths: 25% for 4-up, 33% for 3-up, 50% for pairs.
-Path: `../../../../data/screenshots/` (same depth as reviews YYYY/MM-Mon/).
+Path from `exports/YYYY/MM-Mon/`: `../../../../data/screenshots/` (same as reviews at same depth).
+Omit on no-trade / infra-only weeks.
 
-### 8. SmartTraderAI Response Stub
+### 10. SmartTraderAI Response
 
+Anchor and heading:
 ```markdown
 <a id="smarttraderai-response"></a>
 
 ## 📊 SmartTraderAI's Response to Christopher's Weekly Submission
+```
 
+If STB has responded: paste the full response here, preserving its section structure.
+If not yet: use the stub:
+```
 *[Stub — Christopher to submit the copy-paste fields to SmartTraderAI and return with the response for Fortuna to add here.]*
 ```
 
-### 9. SmartTraderAI Weekly Copy-Paste Fields
+### 11. SmartTraderAI Weekly Copy-Paste Fields
 
 Anchor: `<a id="smarttraderai-copy-paste"></a>` before `## 🤖 SmartTraderAI Weekly Copy-Paste Fields`
 
-**Write naturally — never third-person about Christopher.** He is submitting this directly to SmartTraderAI. Avoid "Christopher did X." Use first-person where a pronoun is genuinely needed ("I canceled my SL", "my mistake was..."), but omit it where the subject is naturally implied ("Pre-placed limits at key levels and sat on hands" not "I pre-placed limits"). Read each sentence — if it sounds natural without a pronoun, drop it.
+`---` immediately after `## 🤖` heading and between every question. Never use code blocks in the copy-paste section.
 
-7 questions (exact wording from `specs/SMARTTRADERAI_EXPORT_SPEC.md` — do not paraphrase):
+**Write naturally — never third-person about Christopher.** He is submitting this directly to SmartTraderAI. Avoid "Christopher did X." Use first-person where a pronoun is genuinely needed ("I canceled my SL", "my mistake was..."), but omit it where the subject is naturally implied. Read each sentence — if it sounds natural without a pronoun, drop it.
+
+**7 narrative questions** (exact wording from `specs/SMARTTRADERAI_EXPORT_SPEC.md` — do not paraphrase):
 1. What trade setups/tactics worked this week?
 2. What didn't work this week?
 3. What observable patterns did you see in the market this week?
@@ -103,39 +207,43 @@ Anchor: `<a id="smarttraderai-copy-paste"></a>` before `## 🤖 SmartTraderAI We
 7. What solutions are you implementing to fix those problems?
 
 Then:
-- **Weekly Performance Questions (yes/no):** 9-item checklist — Did you trade your plan? / Did you follow your rules? / Did you overtrade? / Did you revenge trade? / Did you hold a position too long? / Did you exit too early? / Did you move your stop loss? / Did you add to a loser? / Did you take profit too early?
-- **This week my action steps are:** (numbered list)
-- **What I want to work on / improve / get better at:** (one focused thing)
-- **How I plan to study the market this week:** (specific study method)
-- `> Full weekly review: [GitHub URL to the file]`
+- **Weekly Performance Questions (yes/no):** 9-item checklist:
+  Did you trade your plan? / Did you follow your rules? / Did you overtrade? / Did you revenge trade? / Did you hold a position too long? / Did you exit too early? / Did you move your stop loss? / Did you add to a loser? / Did you take profit too early?
+- **This week my action steps are:** (numbered list — specific, measurable, time-bound where possible)
+- **What I want to work on / improve / get better at:** (one focused thing — the single most important behavioral shift)
+- **How I plan to study the market this week:** (specific study method, not generic)
+- `> Full weekly review: [GitHub URL to the public preview file]`
 - Footer: `*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*` + date line
 
-`---` immediately after `## 🤖` heading and between every question. Never use code blocks in the copy-paste section.
+Full canonical wording for all questions: `specs/SMARTTRADERAI_EXPORT_SPEC.md`
 
 ## Key Principles
 
-**Behavioral Arc is central** — The "What is resolved / What is the work / What coaches should see / Broader context" structure is the heart of the review. This is where Christopher synthesizes the week's trading psychology and growth.
+**Depth over brevity.** The Mar 27 weekly review is the gold standard — it has 11 sections and each one earns its place. Do not abbreviate sections to save space. A thorough brief is preferred over a fast one (this applies to weeklies as much as morning briefs).
 
-**Grid format for screenshots** — Weeklies cover multiple days, so full-size images would be overwhelming. Use grid layout with 2-4 images per row.
+**Merge, never remove.** If a later review has a section the template didn't, the template grows — it does not stay thin.
 
-**Link to individual reviews** — Don't duplicate content. The weekly review *references* individual trade reviews and adds the behavioral/weekly synthesis layer.
+**Review links belong everywhere they're useful.** Week at a Glance table (Review column), Trade-by-Trade inline links, AND the dedicated `## 📎 Full Reviews` section — all three serve different navigation needs.
 
-**SmartTraderAI fields are structured** — 7 narrative questions + 9 yes/no performance questions + 3 action steps. Keep them consistent and clearly separated. Full canonical wording: `specs/SMARTTRADERAI_EXPORT_SPEC.md`.
+**Behavioral Arc is central** — Sections 3–5 (Week Arc, Trade-by-Trade, Behavioral Analysis) together tell the story coaches need. The stats and copy-paste fields are the formal submission layer on top of that story.
 
-**Account status matters** — Prop firm eval accounts have phases, rules, and statuses. Track these explicitly so Christopher and coaches can see where each account stands.
+**Spiritual Lens is never optional.** Even a stub is better than omitting it. The human dimension is part of the review.
+
+**Account status belongs in Week at a Glance** — immediately after the trade table so coaches see account standing before reading any narrative.
 
 **No-fill days still get coverage** — A day with no trades is still part of the week's story. Note what was observed, why no trades were taken, or what was learned.
 
 ## After Creating the Review
 
-1. Confirm all individual trade review links resolve correctly
+1. Confirm all individual trade review relative links resolve correctly (`../../../reviews/...`)
 2. Update `smarttrader-ai/reviews/pattern_tracker.md` if not already done
-3. Commit: "Add weekly review week of [Mon date]"
+3. Commit: `"Add weekly review week of [Mon date] — [net P&L or 'no fills']"`
+4. Push to origin main
 
 ## Related Specs
 
+- `specs/SMARTTRADERAI_EXPORT_SPEC.md` — 7 narrative questions + yes/no checklist + action steps + study plan (canonical templates)
 - `specs/FORTUNA_WORKFLOW.md` — Section 5: weekly review structure, behavioral arc format, timing
-- `specs/SMARTTRADERAI_EXPORT_SPEC.md` — 9-question weekly format + yes/no checklist + action steps + study plan (canonical templates)
 
 ## Quick Commands
 

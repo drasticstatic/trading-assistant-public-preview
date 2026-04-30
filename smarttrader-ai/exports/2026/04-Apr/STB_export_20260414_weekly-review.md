@@ -56,8 +56,8 @@ Deep financial pressure this week (phone suspended, bank account at risk, taxes 
 
 ## 📎 Full Reviews + Pattern Tracker
 
-- [pattern_tracker.md](../../reviews/pattern_tracker.md)
-- [review_20260417_M2K-APEX_001.md](../../reviews/2026/04-Apr/review_20260417_M2K-APEX_001.md) — M2K SHORT Apr 17: unprotected 8h hold, -$87, Pattern 8+9
+- [pattern_tracker.md](../../../reviews/pattern_tracker.md)
+- [review_20260417_M2K-APEX_001.md](../../../reviews/2026/04-Apr/review_20260417_M2K-APEX_001.md) — M2K SHORT Apr 17: unprotected 8h hold, -$87, Pattern 8+9
 
 ---
 

@@ -61,7 +61,7 @@ This response — choosing to stop, absorb, and process rather than revenge-trad
 
 ## 📸 Screenshots
 
-*No new screenshots taken on March 27. Charts documenting the overnight MGC position were captured on March 28 during post-trade reflection — see [review_20260326_MGC-TPT_003.md](../../reviews/2026/03-Mar/review_20260326_MGC-TPT_003.md).*
+*No new screenshots taken on March 27. Charts documenting the overnight MGC position were captured on March 28 during post-trade reflection — see [review_20260326_MGC-TPT_003.md](../../../reviews/2026/03-Mar/review_20260326_MGC-TPT_003.md).*
 
 ---
 
