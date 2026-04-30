@@ -40,14 +40,19 @@ For each account, compute:
 | Min days remaining | Target min days − Days traded |
 | Daily run rate needed | Gap to target ÷ Trading days remaining |
 
-**APEX-06 targets (100K account):**
-- Profit target: $6,000 (6%)
-- Max trailing drawdown: $2,500 (2.5%)
-- Min trading days: 7 (met Mar 25)
+**APEX-06 targets (100K account — renewed Apr 25, 2026):**
+- Profit target: $6,000 (6%) — still open
+- Max trailing drawdown: $2,500 (intraday trailing)
+- Min trading days: 7 — met Mar 25, 2026
+- Carry-over: confirmed — balance and progress survive renewal
+- Goal: hit target → funded/live activation
 
-**TPT targets (50K account):**
-- Profit target: $3,000 (6%)
-- Check reset date and current rules
+**TPT reset-3 targets (50K account — reset Apr 1, 2026):**
+- Profit target: $53K (+$3K from $50K starting balance)
+- Min balance: $48K (trailing floor)
+- Min trading days: 5
+- Subscription deadline: May 1, 2026
+- Carry-over on renewal: unconfirmed — check tpt-rules.md for latest
 
 ### 3. Deliver Status Report
 

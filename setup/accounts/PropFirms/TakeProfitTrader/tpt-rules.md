@@ -157,6 +157,12 @@ When reviewing any TPT trade, flag if:
 ---
 
 ## Notes / Open Items
-> 📝 Add your specific TPT account number(s) and current balance tracking here
+
+**Active account (as of Apr 30, 2026):** TAKEPROFIT558167553 (reset-3) — 50K eval, reset Apr 1, 2026.
+- Profit target: $53K (+$3K) · Min balance: $48K · Min days: 5 · Deadline: May 1, 2026
+
+**Subscription renewal / carry-over — UNCONFIRMED as of Apr 30, 2026:**
+Open question: does TPT carry balance and minimum trading days forward into the next billing cycle if the eval is not passed by the billing date? Christopher noted that the cost to reset ≈ the cost to renew. Apex carry-over is confirmed (balance, floor, and progress survive renewal). Whether TPT works the same way is not yet confirmed — verify directly with TPT support before making a decision based on assumption.
+
 > 📝 Add approved instruments list confirmation from support if any non-standard products are traded
 > 📝 Add account statement screenshots as accounts progress

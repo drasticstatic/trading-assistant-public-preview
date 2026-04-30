@@ -1,6 +1,6 @@
 # Apex Trader Funding vs TakeProfitTrader — Side-by-Side Comparison
 > **Audience:** Trading classmates evaluating prop firms  
-> **Last updated:** March 2026  
+> **Last updated:** April 2026  
 > **Lucid Futures Trading:** 🔜 Coming Soon — column will be added when rules are published
 
 ---
@@ -20,6 +20,7 @@
 | **Scaling in PA** | Tier-based (contracts + DLL grow) | Static contract limit |
 | **Inactivity rule (PA)** | 2 days ≥ $50 profit per rolling 30 days | — |
 | **Max simultaneous PAs** | 20 | — |
+| **Subscription renewal carry-over** | ✅ Confirmed — balance, floor, and progress carry into next cycle if account in good standing | ⚠️ Unconfirmed — not yet verified whether balance and min trading days carry forward; verify with TPT |
 
 ---
 
