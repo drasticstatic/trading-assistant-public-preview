@@ -24,20 +24,12 @@ MARKETS: MES (executed), ES (watched/paper), MNQ (no trade)
 
 ---
 
-## 📊 Trade Summary
+## 📊 Trade Log
 
-```
-Total Trades Executed: 1
-Winners: 0 | Losers: 1 | Breakeven: 0
-Net P&L: -$35.00
-
-Best Trade: N/A (only 1 trade taken)
-Worst Trade: MES LONG 6,867.25 — counter-trend vs red EMAs, SL hit 66 seconds.
-             -$35.00
-
-Limit Orders Monitored (not executed):
-  MES LONG 6,888 — never filled. Bearish resolution confirmed overnight.
-```
+| # | Instrument | Dir | Entry | Exit | P&L | Notes | Review |
+|---|-----------|-----|-------|------|-----|-------|--------|
+| 001 | MES | Long | 6,867.25 | 6,860.25 (SL) | **-$35.00** | Scenario B veto violated · red EMAs · 66 sec | [review_20260224_MES-APEX_001.md](../../../reviews/2026/02-Feb/review_20260224_MES-APEX_001.md) |
+| — | MES | Long limit | 6,888 | No fill | $0 | HVN support · SFP wick to 6,892 overnight · level not breached | — |
 
 ---
 
