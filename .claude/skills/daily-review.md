@@ -47,7 +47,15 @@ Prose session arc. Pre-market link **here only** — always use the public previ
 If no premarket file exists: `No formal pre-market plan on file for this session.`
 
 ### 4. `## 📊 Trade Log`
-Trade table: # | Instrument | Dir | Entry | Exit | P&L | Grade | Review Link
+Trade table: # | Instrument | Dir | Entry | Exit | P&L | Grade | Review
+
+Include a relative link to each individual trade review in the Review column.
+**Correct relative path:** daily reviews are at `smarttrader-ai/exports/YYYY/MM-Mon/` and individual reviews are at `smarttrader-ai/reviews/YYYY/MM-Mon/` — that is 3 directories up then into reviews:
+```
+[review_YYYYMMDD_INSTRUMENT-PLATFORM_NNN.md](../../../reviews/YYYY/MM-Mon/review_YYYYMMDD_INSTRUMENT-PLATFORM_NNN.md)
+```
+Note: `../` goes up one level. Three levels up from `exports/YYYY/MM-Mon/` reaches `smarttrader-ai/`, then `reviews/YYYY/MM-Mon/` descends into the correct folder.
+
 Or `## 📊 Trade Summary` + `## 📋 Trade Details` if two levels of detail are needed.
 On no-trade days: `No fills today. [Brief reason: infrastructure work, market conditions, etc.]`
 

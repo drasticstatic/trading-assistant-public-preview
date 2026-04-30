@@ -40,9 +40,9 @@ A thread connecting all three trades: **no mechanical stops were set on any posi
 
 | # | Instrument | Dir | Entry | Exit | Duration | P&L | Grade | Review |
 |---|-----------|-----|-------|------|----------|-----|-------|--------|
-| 001 | RTY (E-mini Russell 2000) | Short | 2,773.9 | 2,743.1 | ~4h 46m | **+$1,540** | 4/5 · Zella 85.56 | [review_20260429_RTY-TPT_001.md](../reviews/2026/04-Apr/review_20260429_RTY-TPT_001.md) |
-| 002 | YM (E-mini Dow) | Long | 49,036 | 48,795 | ~7h 15m | **−$1,205** | 2/5 · Zella −97.97 | [review_20260429_YM-TPT_002.md](../reviews/2026/04-Apr/review_20260429_YM-TPT_002.md) |
-| 003 | MCL (Micro Crude Light) | Short | 108.62 | 108.52 | 44 sec | **+$20** | 1.5/5 · Zella 71.43 | [review_20260429_MCL-TPT_003.md](../reviews/2026/04-Apr/review_20260429_MCL-TPT_003.md) |
+| 001 | RTY (E-mini Russell 2000) | Short | 2,773.9 | 2,743.1 | ~4h 46m | **+$1,540** | 4/5 · Zella 85.56 | [review_20260429_RTY-TPT_001.md](../../../reviews/2026/04-Apr/review_20260429_RTY-TPT_001.md) |
+| 002 | YM (E-mini Dow) | Long | 49,036 | 48,795 | ~7h 15m | **−$1,205** | 2/5 · Zella −97.97 | [review_20260429_YM-TPT_002.md](../../../reviews/2026/04-Apr/review_20260429_YM-TPT_002.md) |
+| 003 | MCL (Micro Crude Light) | Short | 108.62 | 108.52 | 44 sec | **+$20** | 1.5/5 · Zella 71.43 | [review_20260429_MCL-TPT_003.md](../../../reviews/2026/04-Apr/review_20260429_MCL-TPT_003.md) |
 
 ---
 
