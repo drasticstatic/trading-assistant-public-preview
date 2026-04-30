@@ -1,5 +1,5 @@
-# Weekly Review — Week of March 9–14, 2026
-#### Fortuna — Wealth Warden | Claude Code CLI
+# 📅 Weekly Review — Week of Mar 9–14, 2026
+### Observation + Infrastructure Week | No Fills
 
 [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 

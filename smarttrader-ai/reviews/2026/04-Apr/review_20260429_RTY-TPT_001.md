@@ -1,6 +1,8 @@
-# Trade Review — RTY SHORT · TPT 50K · Apr 29, 2026
+# 🔍 Trade Review — RTY Short · TPT 50K · Wed, Apr 29, 2026
+### 20260429_RTY-TPT_001 · +$1,540.00 · Active exit · Zella 85.56
+### Pattern 8 improvement — first self-directed exit of the arc
 
-**File:** `review_20260429_RTY-TPT_001.md` · Trade #001 of day
+[Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 
 ---
 

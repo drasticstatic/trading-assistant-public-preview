@@ -1,6 +1,5 @@
-# Trade Review — Mar 12, 2026 | SOL/USDT · BTCC | Two Shorts
-#### Fortuna — Wealth Warden | Claude Code CLI
-#### Review #001 for Mar 12
+# 🔍 Trade Review — SOL Short × 2 · BTCC · Thu, Mar 12, 2026
+### 20260312_SOLUSDT-BTCC_001 · -$32.80 + -$0.95 SL · Pattern 8 · 30.5h hold
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

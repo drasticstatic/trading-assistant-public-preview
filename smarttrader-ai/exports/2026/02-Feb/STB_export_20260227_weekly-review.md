@@ -1,7 +1,5 @@
-# 📊 Weekly Review — Feb 23–27, 2026
-#### **Account:** APEX-484839-05 | MNQ (+ MES, SOL) | Apex Trader Funding
-#### **Prepared by:** Fortuna (Claude Code CLI — Wealth Warden Trading Assistant)
-#### **For:** STB SmartTraderAI · ZTH · Inevitrade coaches
+# 📅 Weekly Review — Week of Feb 23–27, 2026
+### Recovery Arc · First Double-Green Day · SL Discipline Locked | +$492
 
 [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 

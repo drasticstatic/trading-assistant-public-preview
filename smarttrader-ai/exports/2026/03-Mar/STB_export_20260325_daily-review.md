@@ -1,6 +1,5 @@
-# Daily Review — March 25, 2026
-#### Fortuna — Wealth Warden | Claude Code CLI
-#### Session type: APEX-06 Min Days Complete · TPT 50K Day 1 · BTCC Voucher Entry
+# 🗓️ Daily Review — Wednesday, March 25, 2026
+### APEX-06 Min Days Met · TPT Day 1 · BTCC SOL Long (Overnight) | $0 Futures
 
 [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 

@@ -1,9 +1,5 @@
-# Trade Review — Mar 25–26, 2026 | SOL/USDT · BTCC Voucher | Long
-
-**Account:** BTCC Crypto Exchange (voucher trade)
-**Instrument:** SOLUSDT (20x Perp)
-**Session:** Pre-NY Open (entry) → Overnight (exit)
-**Review #:** 001 for Mar 25
+# 🔍 Trade Review — SOL Long · BTCC · Wed, Mar 25, 2026
+### 20260325_SOLUSDT-BTCC_001 · -$14.13 · Pattern 8+9 · 20h hold · no TP taken
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

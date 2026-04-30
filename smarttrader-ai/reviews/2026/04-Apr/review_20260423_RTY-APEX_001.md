@@ -1,5 +1,5 @@
-# Trade Review — RTY Long | April 23, 2026
-### 20260423_RTY-APEX_001 · Account: APEX-484839-06 · April 23, 2026
+# 🔍 Trade Review — RTY Long · APEX-06 · Thu, Apr 23, 2026
+### 20260423_RTY-APEX_001 · -$140.00 · ZTH SFP bracket · AutoLiq · Pattern 7+8
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

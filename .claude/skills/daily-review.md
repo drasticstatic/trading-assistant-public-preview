@@ -29,6 +29,36 @@ If any data is missing, note it and proceed with what's available. On no-trade d
 smarttrader-ai/exports/YYYY/MM-Mon/STB_export_YYYYMMDD_daily-review.md
 ```
 
+## Document Header
+
+```
+# 🗓️ Daily Review — [Full Weekday], [Month D, YYYY]
+### [Session description] | [Net P&L or "No Trades"]
+
+[Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
+
+---
+```
+
+**Rules:**
+- Emoji: always 🗓️
+- Full weekday spelled out: "Wednesday, April 29, 2026"
+- Subtitle: session-focused description — instruments traded, key event, session character
+- No "Fortuna — Wealth Warden", "STB Export", "Christopher Wilson", or "Claude Code CLI" in header — redundant, in footer
+- Jump link goes AFTER the title block, never before it
+
+**Examples:**
+```
+# 🗓️ Daily Review — Wednesday, April 29, 2026
+### RTY Short · YM Long · MCL Short | +$355
+
+# 🗓️ Daily Review — Thursday, April 23, 2026
+### ZTH SFP Bracket Day · RTY + YM Simultaneous Sweep | +$955
+
+# 🗓️ Daily Review — Thursday, March 5, 2026
+### Architecture + Education Day | No Trades
+```
+
 ## Required Sections — All 9, In This Order
 
 ### 1. Jump link at top

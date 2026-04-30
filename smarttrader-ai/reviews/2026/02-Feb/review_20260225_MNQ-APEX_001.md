@@ -1,6 +1,5 @@
-# 🔍 Trade Review — MNQ Long
-### Feb 25, 2026 | FCR + ZTH + IT Foundation | Fortuna
-*For coaches + SmartTraderAI — Session review*
+# 🔍 Trade Review — MNQ Long · APEX-05 · Wed, Feb 25, 2026
+### 20260225_MNQ-APEX_001 · +$565.00 · Five-layer confluence · 2.32 R:R
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

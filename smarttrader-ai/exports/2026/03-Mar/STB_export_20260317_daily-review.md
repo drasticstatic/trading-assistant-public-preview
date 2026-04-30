@@ -1,6 +1,5 @@
-# Daily Review — March 17–18, 2026
-#### Fortuna — Wealth Warden | Claude Code CLI
-#### Session type: PM + Overnight Asia/London | One trade carried overnight
+# 🗓️ Daily Review — Tuesday, March 17, 2026
+### MNQ Short Overnight · ZTH Pivot · TP Hit Mar 18 | +$963
 
 [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 

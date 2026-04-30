@@ -1,5 +1,5 @@
-# Trade Review — MCL SHORT | Apr 21, 2026
-### 20260421_MCL-APEX_001 · Account: APEX-484839-06 · Trade #001 of Apr 21
+# 🔍 Trade Review — MCL Short · APEX-06 · Mon, Apr 21, 2026
+### 20260421_MCL-APEX_001 · +$141.00 · ZTH Pivot · active TP fill · 43% exit efficiency
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

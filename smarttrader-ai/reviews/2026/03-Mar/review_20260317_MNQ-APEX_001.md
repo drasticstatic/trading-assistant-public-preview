@@ -1,9 +1,5 @@
-# Trade Review — MNQ Short | March 17–18, 2026 | #001
-
-**Account:** APEX-484839-06 (100K)
-**Instrument:** MNQM6 (Micro E-mini NASDAQ-100)
-**Side:** SHORT | **Qty:** 3 contracts
-**Status:** WIN ✅
+# 🔍 Trade Review — MNQ Short · APEX-06 · Tue, Mar 17, 2026
+### 20260317_MNQ-APEX_001 · +$963.00 · ZTH Pivot · Overnight · TP hit Mar 18
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

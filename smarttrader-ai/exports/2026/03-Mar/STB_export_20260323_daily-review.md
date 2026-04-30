@@ -1,6 +1,5 @@
-# Daily Review — March 23, 2026
-#### Fortuna — Wealth Warden | Claude Code CLI
-#### Session type: Post-Witching Monday · APEX Deadline Eve · $0 · Preservation
+# 🗓️ Daily Review — Monday, March 23, 2026
+### APEX Deadline Eve · Preservation | No Trades
 
 [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 

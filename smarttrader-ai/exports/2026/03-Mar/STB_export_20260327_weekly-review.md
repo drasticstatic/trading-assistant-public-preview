@@ -1,5 +1,5 @@
-# Weekly Review — Week of March 23–27, 2026
-#### Fortuna — Wealth Warden | Claude Code CLI
+# 📅 Weekly Review — Week of Mar 23–27, 2026
+### APEX-06 Deadline Met · TPT reset-2 Blown · ES Short +$1,225 | +$1,019
 
 [Jump to 🕊️ Spiritual Lens ↓](#spiritual-lens) · [Jump to 📊 SmartTraderAI Response ↓](#smarttraderai-response) · [Jump to 🤖 Final STB Submission ↓](#smarttraderai-copy-paste)
 

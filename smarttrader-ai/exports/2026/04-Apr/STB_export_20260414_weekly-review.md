@@ -1,5 +1,5 @@
-# Weekly Review — Apr 14–18, 2026
-### STB SmartTraderAI Export | Fortuna | APEX-484839-06
+# 📅 Weekly Review — Week of Apr 14–18, 2026
+### M2K Short Overnight · 8h Hold · Pattern 8 | -$87
 
 [Jump to SmartTraderAI copy-paste ↓](#smarttraderai-copy-paste)
 

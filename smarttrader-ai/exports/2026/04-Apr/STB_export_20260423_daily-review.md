@@ -1,9 +1,7 @@
+# 🗓️ Daily Review — Thursday, April 23, 2026
+### RTY Long · YM Long · ZTH SFP Bracket Day | +$955
+
 [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
-
----
-
-# Daily Review — April 23, 2026
-### STB Export · APEX-484839-06 · Net +$955
 
 ---
 

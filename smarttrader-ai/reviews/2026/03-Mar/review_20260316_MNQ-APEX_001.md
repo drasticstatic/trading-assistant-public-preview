@@ -1,5 +1,5 @@
-# Trade Review — March 16, 2026 | MNQ Short T1
-#### Fortuna — Wealth Warden | Claude Code CLI
+# 🔍 Trade Review — MNQ Short · APEX-06 · Mon, Mar 16, 2026
+### 20260316_MNQ-APEX_001 · -$268.50 · B&R setup · SL adjusted mid-trade
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

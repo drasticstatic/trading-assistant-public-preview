@@ -1,6 +1,5 @@
-# Daily Review — March 24, 2026
-#### Fortuna — Wealth Warden | Claude Code CLI
-#### Session type: APEX Deadline Day · First Intentional Overnight Limit Fill · +$1,225 ES Short
+# 🗓️ Daily Review — Tuesday, March 24, 2026
+### ES Short · APEX Deadline Day · Overnight Limit Fill | +$1,225
 
 [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 

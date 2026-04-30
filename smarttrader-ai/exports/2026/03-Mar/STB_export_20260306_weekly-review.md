@@ -1,7 +1,5 @@
-# 📊 Weekly Review — Mar 2–6, 2026
-#### Accounts: APEX-484839-05 (100K — blown Mar 3) · APEX-484839-06 (100K — active) · TakeProfitTrader 50K (active)
-#### Prepared by: Fortuna (Claude Code CLI — Wealth Warden Trading Assistant)
-#### For: STB SmartTraderAI · ZTH · Inevitrade coaches
+# 📅 Weekly Review — Week of Mar 2–6, 2026
+### APEX-05 Blown Mar 3 · APEX-06 Activated | -$1,825
 
 [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 

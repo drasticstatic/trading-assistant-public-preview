@@ -1,5 +1,5 @@
-# Daily Review — March 19, 2026
-### Post-FOMC · No Trades · Observation + Decompression Session
+# 🗓️ Daily Review — Thursday, March 19, 2026
+### Post-FOMC Observation + Decompression | No Trades
 
 [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 
