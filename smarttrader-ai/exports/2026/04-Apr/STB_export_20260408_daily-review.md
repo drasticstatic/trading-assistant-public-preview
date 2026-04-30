@@ -39,7 +39,7 @@ This did not affect the eval accounts. That protection held.
 
 | # | Instrument | Direction | Entry | Exit | P&L | Notes | Review |
 |---|-----------|-----------|-------|------|-----|-------|--------|
-| T1 | SOLUSDT (BTCC) | SHORT | $81.92 | Auto-liq ~$86 | ~-$22 | 20x · 6 contracts · voucher · Pattern 8 | [001](../../../reviews/2026/04-Apr/review_20260408_SOLUSDT-BTCC_001.md) |
+| T1 | SOLUSDT (BTCC) | SHORT | $81.92 | Auto-liq ~$86 | ~-$22 | 20x · 6 contracts · voucher · Pattern 8 | [review_20260408_SOLUSDT-BTCC_001.md](../../../reviews/2026/04-Apr/review_20260408_SOLUSDT-BTCC_001.md) |
 
 **Session net: ~-$22**
 **Eval accounts: $0 (not involved)**
