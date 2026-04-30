@@ -258,7 +258,7 @@ Discipline arc: Improving. Stop discipline is locking in. Entry filter is next.
 > Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/02-Feb/STB_export_20260224_daily-review.md
 
 > Full individual trade reviews:
-- [review_20260224_MES_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/02-Feb/review_20260224_MES_001.md) — MES Long T1 (executed, SL hit)
+- [review_20260224_MES-APEX_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/02-Feb/review_20260224_MES-APEX_001.md) — MES Long T1 (executed, SL hit)
 
 ---
 
