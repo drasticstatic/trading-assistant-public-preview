@@ -1,6 +1,5 @@
-# 📋 Daily Review — Feb 26, 2026
-### STB SmartTraderAI Export | Fortuna | For Coaches
-*Session summary + SmartTraderAI copy-paste fields*
+# 🗓️ Daily Review — Thursday, February 26, 2026
+### MNQ Short · Pattern 5 FOMO Entry | -$558
 
 [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 

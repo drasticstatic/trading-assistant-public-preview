@@ -1,6 +1,5 @@
-# 📋 Daily Review — Feb 27, 2026
-### STB SmartTraderAI Export | Fortuna | For Coaches
-*Session summary + SmartTraderAI copy-paste fields*
+# 🗓️ Daily Review — Friday, February 27, 2026
+### MNQ Short (Planned) · Entry Level Held | No Fill
 
 [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 

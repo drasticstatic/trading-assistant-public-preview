@@ -1,6 +1,5 @@
-# Daily Review — Tuesday, March 10, 2026
-#### Fortuna — Wealth Warden | Claude Code CLI
-#### Session type: RTH — Active
+# 🗓️ Daily Review — Tuesday, March 10, 2026
+### MNQ Long · 1 Tick From SL | -$108
 
 [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 

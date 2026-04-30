@@ -1,6 +1,5 @@
-# 🔍 Trade Review — SOLUSDT Long
-### Feb 25, 2026 | IT Foundation EMAs + FVG | Fortuna
-*For coaches + SmartTraderAI — Session review*
+# 🔍 Trade Review — SOL Long · BTCC · Wed, Feb 25, 2026
+### 20260225_SOLUSDT-BTCC_002 · +$20.63 USDT · IT Foundation EMA crossover
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

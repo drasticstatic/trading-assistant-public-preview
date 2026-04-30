@@ -1,6 +1,5 @@
-# Trade Review — Monday, March 2, 2026
-#### Christopher Wilson | Fortuna — Wealth Warden
-#### Trade 2 of 3 | ES Pivot Sell — A+ Trade | Account: APEX-484839-05
+# 🔍 Trade Review — ES Short · APEX-05 · Mon, Mar 2, 2026
+### 20260302_ES-APEX_002 · +$1,037.50 · A+ trade · Zella 94.05 · 9-minute hold
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

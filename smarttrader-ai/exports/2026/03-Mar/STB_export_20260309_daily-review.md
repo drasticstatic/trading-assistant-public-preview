@@ -1,6 +1,5 @@
-# Daily Review — Monday, March 9, 2026
-#### Fortuna — Wealth Warden | Claude Code CLI
-#### Session type: ETH/evening — soft monitoring approach
+# 🗓️ Daily Review — Monday, March 9, 2026
+### ETH Soft Monitoring | No Trades
 
 [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 

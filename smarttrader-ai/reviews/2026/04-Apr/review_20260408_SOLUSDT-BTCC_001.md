@@ -1,5 +1,5 @@
-# 📋 Trade Review — Apr 8, 2026 · SOLUSDT · BTCC · T1
-### Fortuna | Trading Assistant | Pattern #022
+# 🔍 Trade Review — SOL Short · BTCC · Wed, Apr 8, 2026
+### 20260408_SOLUSDT-BTCC_001 · ~-$22 · Pattern 8 · AutoLiq · Voucher deadline
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

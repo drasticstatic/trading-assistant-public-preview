@@ -1,6 +1,5 @@
-# Trade Review — Mar 26, 2026 | MCL · TPT 50K · Long
-#### Fortuna — Wealth Warden | Claude Code CLI
-#### Review #001 for Mar 26
+# 🔍 Trade Review — MCL Long · TPT 50K · Thu, Mar 26, 2026
+### 20260326_MCL-TPT_001 · -$300.00 · News candle stop hunt · 4 seconds · Pattern 9 ✅
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

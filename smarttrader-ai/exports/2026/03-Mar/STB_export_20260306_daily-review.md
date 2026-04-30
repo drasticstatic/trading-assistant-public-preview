@@ -1,6 +1,5 @@
-# 📋 Daily Review — March 6, 2026
-### STB SmartTraderAI Export | Fortuna | For Coaches
-*Session summary + SmartTraderAI copy-paste fields*
+# 🗓️ Daily Review — Friday, March 6, 2026
+### ES Limit (No Fill) · Observation | No Trades
 
 [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 

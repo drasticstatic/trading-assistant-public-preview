@@ -1,6 +1,5 @@
-# Trade Review — Mar 26, 2026 | MGC · TPT 50K · Short
-#### Fortuna — Wealth Warden | Claude Code CLI
-#### Review #002 for Mar 26
+# 🔍 Trade Review — MGC Short · TPT 50K · Thu, Mar 26, 2026
+### 20260326_MGC-TPT_002 · +$94.00 · Survived 38.7-pt stop hunt · Pattern 7 · Manual close
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

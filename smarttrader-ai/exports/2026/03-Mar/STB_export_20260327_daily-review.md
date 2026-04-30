@@ -1,6 +1,5 @@
-# Daily Review — March 27, 2026
-#### Fortuna — Wealth Warden | Claude Code CLI
-#### Session type: Overnight position closure · Account blown · Rest and reflection
+# 🗓️ Daily Review — Friday, March 27, 2026
+### MGC Overnight Closed · TPT reset-2 Blown · Rest and Reflection | No New Fills
 
 [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 

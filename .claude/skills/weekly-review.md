@@ -28,7 +28,32 @@ Mar 23–27 review — the gold-standard reference at `smarttrader-ai/exports/20
 ```
 smarttrader-ai/exports/YYYY/MM-Mon/STB_export_YYYYMMDD_weekly-review.md
 ```
-Where `YYYYMMDD` is the **closing Sunday** — the Sunday at 18:00 ET when the week ends and the next opens.
+Where `YYYYMMDD` is the **closing Sunday**
+
+## Document Header
+
+```
+# 📅 Weekly Review — Week of [Mon D–Sun D, YYYY]
+### [Brief arc description] | [Net P&L or "No Fills"]
+
+[Jump links]
+
+---
+```
+
+**Rules:**
+- Emoji: always 📅
+- Date range: Mon–Sun of the trading week (e.g., "Apr 27–May 3, 2026")
+- Subtitle: arc-focused — accounts active, defining theme, net P&L
+- No "Fortuna — Wealth Warden", "STB SmartTraderAI Export", "Prepared by: Fortuna...", or similar in header — all redundant
+- Jump links go AFTER the subtitle, never before the title
+
+**Example:**
+```
+# 📅 Weekly Review — Week of Apr 27–May 3, 2026
+### TPT reset-3 deadline week · ZTH Bracket method | +$391
+
+``` — the Sunday at 18:00 ET when the week ends and the next opens.
 Regardless of when the review is produced, it is always dated and named by its closing Sunday.
 Example: week of Apr 19–26 (Sun 18:00 → Sun 18:00) → `STB_export_20260426_weekly-review.md`
 The file lives in the month folder of that closing Sunday.

@@ -1,7 +1,7 @@
-# 📋 Daily Review — Apr 10, 2026
-### STB + ZTH + Inevitrade | Fortuna | CPI Friday — No Fills
+# 🗓️ Daily Review — Friday, April 10, 2026
+### CPI Friday · No Fills | No Trades
 
-[Jump to 🤖 SmartTraderAI ↓](#smarttraderai-copy-paste)
+[Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 
 ---
 

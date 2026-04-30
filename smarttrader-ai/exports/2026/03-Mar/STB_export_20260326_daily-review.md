@@ -1,6 +1,5 @@
-# Daily Review — March 26, 2026
-#### Fortuna — Wealth Warden | Claude Code CLI
-#### Session type: News Candle Stop Hunt · MCL -$300 · MGC +$94 · GC Open Overnight
+# 🗓️ Daily Review — Thursday, March 26, 2026
+### News Candle Stop Hunt · MCL -$300 · MGC +$94 · MGC-003 Overnight | -$206 TPT
 
 [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 

@@ -1,6 +1,5 @@
-# 🔍 Trade Review — MES Long
-### Feb 24, 2026 | FCR + ZTH | Fortuna
-*For coaches + SmartTraderAI — Session review*
+# 🔍 Trade Review — MES Long · APEX-05 · Tue, Feb 24, 2026
+### 20260224_MES-APEX_001 · -$35.00 · Scenario B veto violated · 66 seconds
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

@@ -1,5 +1,5 @@
-# Weekly Review — Apr 19–26, 2026
-### STB SmartTraderAI Export | Fortuna | APEX-484839-06
+# 📅 Weekly Review — Week of Apr 19–26, 2026
+### MCL Short Win · ZTH SFP Bracket Day · APEX Renewed | +$1,096
 
 [Jump to SmartTraderAI copy-paste ↓](#smarttraderai-copy-paste)
 
