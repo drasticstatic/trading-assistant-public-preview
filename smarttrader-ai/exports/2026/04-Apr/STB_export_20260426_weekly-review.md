@@ -78,10 +78,10 @@ APEX eval renewal on Friday is a reset of the clock, not a setback — another c
 
 ## 📎 Full Reviews + Pattern Tracker
 
-- [pattern_tracker.md](../../reviews/pattern_tracker.md)
-- [review_20260421_MCL-APEX_001.md](../../reviews/2026/04-Apr/review_20260421_MCL-APEX_001.md) — MCL SHORT Apr 21: ZTH Pivot · first profitable active exit · +$141
-- [review_20260423_RTY-APEX_001.md](../../reviews/2026/04-Apr/review_20260423_RTY-APEX_001.md) — RTY LONG Apr 23: ZTH SFP sweep · AutoLiq exit · P7+P8 · -$140
-- [review_20260423_YM-APEX_002.md](../../reviews/2026/04-Apr/review_20260423_YM-APEX_002.md) — YM LONG Apr 23: ZTH SFP sweep · TP filled 11 min · Zella 95.22 · +$1,095
+- [pattern_tracker.md](../../../reviews/pattern_tracker.md)
+- [review_20260421_MCL-APEX_001.md](../../../reviews/2026/04-Apr/review_20260421_MCL-APEX_001.md) — MCL SHORT Apr 21: ZTH Pivot · first profitable active exit · +$141
+- [review_20260423_RTY-APEX_001.md](../../../reviews/2026/04-Apr/review_20260423_RTY-APEX_001.md) — RTY LONG Apr 23: ZTH SFP sweep · AutoLiq exit · P7+P8 · -$140
+- [review_20260423_YM-APEX_002.md](../../../reviews/2026/04-Apr/review_20260423_YM-APEX_002.md) — YM LONG Apr 23: ZTH SFP sweep · TP filled 11 min · Zella 95.22 · +$1,095
 
 ---
 

@@ -44,8 +44,8 @@ The session net of +$955 extends the winning streak and adds meaningfully to the
 
 | # | Instrument | Dir | Entry | Exit | P&L | Grade | Review |
 |---|-----------|-----|-------|------|-----|-------|--------|
-| 001 | RTY (E-Mini Russell 2000) | Long | 2,781.1 | 2,778.3 (AutoLiq) | **-$140** | 2.5/5 · Zella -8.70 | [review_20260423_RTY-APEX_001.md](../reviews/2026/04-Apr/review_20260423_RTY-APEX_001.md) |
-| 002 | YM (E-Mini Dow $5) | Long | 49,122 | 49,341 (TP) | **+$1,095** | 4.0/5 · Zella 95.22 | [review_20260423_YM-APEX_002.md](../reviews/2026/04-Apr/review_20260423_YM-APEX_002.md) |
+| 001 | RTY (E-Mini Russell 2000) | Long | 2,781.1 | 2,778.3 (AutoLiq) | **-$140** | 2.5/5 · Zella -8.70 | [review_20260423_RTY-APEX_001.md](../../../reviews/2026/04-Apr/review_20260423_RTY-APEX_001.md) |
+| 002 | YM (E-Mini Dow $5) | Long | 49,122 | 49,341 (TP) | **+$1,095** | 4.0/5 · Zella 95.22 | [review_20260423_YM-APEX_002.md](../../../reviews/2026/04-Apr/review_20260423_YM-APEX_002.md) |
 
 ---
 

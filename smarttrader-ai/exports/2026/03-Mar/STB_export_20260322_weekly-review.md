@@ -64,10 +64,10 @@ Sat  — Rest. Writing this review. STB feedback received and analyzed.
 ## 📎 Full Reviews + Pattern Tracker
 
 - [pattern_tracker.md](../pattern_tracker.md)
-- [review_20260316_MNQ_001.md](../../reviews/2026/03-Mar/review_20260316_MNQ_001.md) — Mar 16 · MNQ Short · -$268.50 · SL adjusted · Pattern 7 echo
-- [review_20260316_RTY_002.md](../../reviews/2026/03-Mar/review_20260316_RTY_002.md) — Mar 16 · RTY Short · +$935 · A-grade · SL/TP clean
-- [review_20260317_MNQ_001.md](../../reviews/2026/03-Mar/review_20260317_MNQ_001.md) — Mar 17–18 · MNQ Short overnight · +$963 · SL moved wide
-- [review_20260320_RTY_001.md](../../reviews/2026/03-Mar/review_20260320_RTY_001.md) — Mar 20 · RTY Long · +$525 · Unintentional fill · Pattern 9
+- [review_20260316_MNQ_001.md](../../../reviews/2026/03-Mar/review_20260316_MNQ_001.md) — Mar 16 · MNQ Short · -$268.50 · SL adjusted · Pattern 7 echo
+- [review_20260316_RTY_002.md](../../../reviews/2026/03-Mar/review_20260316_RTY_002.md) — Mar 16 · RTY Short · +$935 · A-grade · SL/TP clean
+- [review_20260317_MNQ_001.md](../../../reviews/2026/03-Mar/review_20260317_MNQ_001.md) — Mar 17–18 · MNQ Short overnight · +$963 · SL moved wide
+- [review_20260320_RTY_001.md](../../../reviews/2026/03-Mar/review_20260320_RTY_001.md) — Mar 20 · RTY Long · +$525 · Unintentional fill · Pattern 9
 
 ---
 
@@ -108,7 +108,7 @@ After a web3 class ran long, Christopher rebuilt the bracket under time pressure
 The read was correct. The execution was not — rushed entry, SL modification, exit via resting limit rather than active decision. +$963 does not validate the process.
 
 > Full daily review: [STB_export_20260317_daily-review.md](STB_export_20260317_daily-review.md)
-> Full trade review: [review_20260317_MNQ_001.md](../../reviews/2026/03-Mar/review_20260317_MNQ_001.md)
+> Full trade review: [review_20260317_MNQ_001.md](../../../reviews/2026/03-Mar/review_20260317_MNQ_001.md)
 
 ---
 
@@ -136,7 +136,7 @@ Old projected bracket limit at 2,455.10 triggered while Christopher was resting 
 The structural read was correct. The pre-rest order hygiene was not. Pattern 9 confirmed — pre-rest order cancel checklist is a mandatory process step before this repeats.
 
 > Full daily review: [STB_export_20260320_daily-review.md](STB_export_20260320_daily-review.md)
-> Full trade review: [review_20260320_RTY_001.md](../../reviews/2026/03-Mar/review_20260320_RTY_001.md)
+> Full trade review: [review_20260320_RTY_001.md](../../../reviews/2026/03-Mar/review_20260320_RTY_001.md)
 
 ---
 
