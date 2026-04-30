@@ -543,6 +543,9 @@ Links to individual reviews:
 - [Apr 23 — RTY Long (-$140 · APEX · ZTH SFP sweep · Pattern 7+8 · AutoLiq)](2026/04-Apr/review_20260423_RTY-APEX_001.md)
 - [Apr 23 — YM Long (+$1,095 · APEX · ZTH SFP sweep · Zella 95.22 · TP filled)](2026/04-Apr/review_20260423_YM-APEX_002.md)
 - [Apr 27 — MGC Long (+$22 · TPT · FOMO forced entry · TP placed 41s post-entry · Pattern 8 not triggered)](2026/04-Apr/review_20260427_MGC-TPT_001.md)
+- [Apr 29 — RTY Short (+$1,540 · TPT · ZTH Pivot · active exit · Pattern 8 improvement · Zella 85.56)](2026/04-Apr/review_20260429_RTY-TPT_001.md)
+- [Apr 29 — YM Long (−$1,205 · TPT · counter-trend entry · Pattern 8 · Zella −97.97 · held all day)](2026/04-Apr/review_20260429_YM-TPT_002.md)
+- [Apr 29 — MCL Short (+$20 · TPT · revenge trade · 44 sec · no plan · Zella 71.43)](2026/04-Apr/review_20260429_MCL-TPT_003.md)
 
 ---
 
@@ -569,7 +572,7 @@ All eval accounts since trading began. Sources: TPT control center PDFs, Tradova
 | TPT reset-0 | TAKEPROFIT635000920 | Feb 8–13, 2026 | 5/5 | Feb 13: -$2,012.50 (min balance breach: $49,755 < $49,767.50) | ❌ Blown Feb 13 |
 | TPT reset-1 | TAKEPROFIT401190651 | Feb 16–17, 2026 | 1 | Feb 17: -$2,215.00 (balance $47,785 < $48,000 min) | ❌ Blown day 1 |
 | TPT reset-2 | TAKEPROFIT363712064 | Mar 25–27, 2026 | 2 | Mar 27: -$1,817.00 (overnight MGC · account blown) | ❌ Blown Mar 27 |
-| TPT reset-3 | TAKEPROFIT558167553 | Apr 1, 2026 – present | 1/5 (deadline May 1) | — | ⚠️ Active · +$22 net |
+| TPT reset-3 | TAKEPROFIT558167553 | Apr 1, 2026 – present | 3/5 (deadline May 1) | — | ⚠️ Active · +$391 net (Apr 27–29) |
 
 **TPT eval parameters (all resets):** Starting balance $50,000 · Profit target $53,000 (+$3,000) · Min balance $48,000 · Max 6 contracts · No positions past 17:00 ET · 5 minimum trading days
 
@@ -580,5 +583,5 @@ All eval accounts since trading began. Sources: TPT control center PDFs, Tradova
 ---
 
 *Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
-*Pattern Tracker · Established Feb 25, 2026 · Updated Apr 27, 2026*
+*Pattern Tracker · Established Feb 25, 2026 · Updated Apr 29, 2026*
 *Updated after each session — append, do not overwrite historical entries*
