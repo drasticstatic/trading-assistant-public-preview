@@ -49,25 +49,56 @@ The charts confirm a sustained bearish structure on RTY from the overnight sessi
 
 ---
 
-## 🧠 3. Behavioral Notes
+## 📋 3. Order Execution
+
+- Entry: market order (07:07 EDT, pre-market)
+- Exit: resting take profit / active exit at structure (11:53 EDT)
+- Consistency rule cut: mid-trade position reduction to stay within TPT daily cap
+- Additional buy order placed below exit for potential re-entry — not triggered
+
+---
+
+## 📖 4. Session Narrative
+
+April 29 opened with bearish structure across all four indices from the overnight session. RTY had rejected off a clear resistance shelf on the 1hr chart, EMA stack was bearish, and the IT Foundation EMAs were all sloping down. The pre-market short was placed at 2773.9 as a ZTH Pivot setup at resistance.
+
+The session tested patience early — there was a brief adverse excursion to 2776.6 (−$135 MAE) that prompted doubt and an early exit impulse. The impulse was resisted. From there, RTY moved steadily in the trade's favour through the late morning, ultimately reaching MFE of 2737.9 (+$1,800). The position was actively exited at 2743.1 at 11:53 EDT — a deliberate structural exit 2.8 points above MFE. Mid-trade, position size was reduced to comply with TPT's 50% consistency rule. Net result: +$1,540 on the reduced size, still comfortably above the original target.
+
+This trade stood in contrast to the rest of the day. RTY was the one where execution alignment was high: directional thesis confirmed, entry at structure, hold through doubt, active exit before profit eroded.
+
+---
+
+## 📸 5. Screenshot Timeline
+
+**20:00 ET — RTY 5-min overview: full day bearish structure**
+![RTY 5-min full day](../../../../data/screenshots/RTY1!_2026-04-29_20-00-25_007f8.png)
+
+**20:11 ET — RTY 1hr/longer timeframe: EMA stack + resistance rejection**
+![RTY 1hr structure](../../../../data/screenshots/RTY1!_2026-04-29_20-11-04_f252c.png)
+
+---
+
+<a id="notes-for-coaches"></a>
+
+## 📝 6. Notes for Coaches + SmartTraderAI
+
+RTY short entered pre-market at 2773.9 on ZTH Pivot + rejection off resistance setup. Bias confirmed downtrend. Held through early doubt, stayed within structure, made an active exit at 2743.1 — exiting a few points above MFE. Had to cut position during the trade to comply with TPT's consistency rule; still collected $1,540. No stop loss set (swing trade approach). Exit passivity was *not* a factor on this trade — active exit decision made. Pattern 8 improvement noted. This is the first self-directed, active exit in the documented recovery arc.
+
+---
+
+## 🧠 7. Behavioral Notes
 
 **This was a process win.** Not just a P&L win — a behavioral win. The Pattern 8 failure mode (exit passivity) has shown up in nearly every recent trade. Today on RTY, Christopher did the opposite: he *thought* about exiting early, stayed because the structure still supported the trade, then made an active exit decision at a reasonable location in price structure. That is exactly the muscle we have been trying to build.
 
 The $260 left on the table between actual exit ($1,540) and MFE ($1,800) is not a meaningful critique. Getting 70% exit efficiency on a nearly 5-hour trade that went through multiple swings is good work.
 
-One flag that cannot be ignored: **no stop was set.** The swing trade framing explains it contextually, but on a prop firm evaluation account with a $48,000 minimum balance floor, the absence of a mechanical stop on *any* trade introduces existential risk to the account. This applies even on winning trades — the risk was there regardless of the outcome. This will be addressed directly in all three reviews today because it appeared across every trade.
+One flag that cannot be ignored: **no stop was set.** The swing trade framing explains it contextually, but on a prop firm evaluation account with a $48,000 minimum balance floor, the absence of a mechanical stop on *any* trade introduces existential risk to the account. This applies even on winning trades — the risk was there regardless of the outcome.
 
 **Consistency rule:** Cutting the position to comply with TPT's consistency rule shows rule-awareness and self-regulation. The fact that the trade still collected more than intended after the cut is a bonus — not a reason to revisit the decision.
 
 ---
 
-## 📝 4. Notes for Coaches
-
-RTY short entered pre-market at 2773.9 on ZTH Pivot + rejection off resistance setup. Bias confirmed downtrend. Held through early doubt, stayed within structure, made an active exit at 2743.1 — exiting a few points above MFE. Had to cut position during the trade to comply with TPT's consistency rule; still collected $1,540. No stop loss set (swing trade approach). Exit passivity was *not* a factor on this trade — active exit decision made. Pattern 8 improvement noted.
-
----
-
-## 🔁 5. Pattern Tracker
+## 🔁 8. Pattern Tracker
 
 | Pattern | Status |
 |---------|--------|
@@ -78,26 +109,19 @@ RTY short entered pre-market at 2773.9 on ZTH Pivot + rejection off resistance s
 
 **Running P&L — TPT reset-3** (after this trade): RTY +$1,540 added to running total.
 
----
-
-## 📋 6. Order Execution
-
-- Entry: market order (07:07 EDT, pre-market)
-- Exit: resting take profit / active exit at structure (11:53 EDT)
-- Consistency rule cut: mid-trade position reduction to stay within TPT daily cap
-- Additional buy order placed below exit for potential re-entry — not triggered
+> See pattern tracker: [../../pattern_tracker.md](../../pattern_tracker.md)
 
 ---
 
-## 📸 7. Screenshot Timeline
+## 🎯 9. Forward Focus
 
-**20:00 ET — RTY 5-min overview: full day bearish structure**
-![RTY 5-min full day](../../../../data/screenshots/RTY1!_2026-04-29_20-00-25_007f8.png)
-
-**20:11 ET — RTY 1hr/longer timeframe: EMA stack + resistance rejection**
-![RTY 1hr structure](../../../../data/screenshots/RTY1!_2026-04-29_20-11-04_f252c.png)
+1. **Pattern 8 remediation is working — reinforce it.** The active exit reflex fired today. Do the same thing next time the exit thought arrives: act on it. The RTY exit is the model — structure-based, deliberate, not forced by time or loss.
+2. **Stop loss before anything else.** Every trade on a prop firm account needs a mechanical stop set at entry. The swing trade framing is not a reason to skip it — it is a reason to set a wider stop, not no stop.
+3. **Consistency rule awareness.** Cutting mid-trade to comply with the 50% cap was the right call. Know the running day P&L before entry so position sizing decisions are made before the trade opens, not during.
 
 ---
+
+> See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/04-Apr/review_20260429_RTY-TPT_001.md
 
 *Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
 *Account: TPT 50K reset-3 — TAKEPROFIT558167553*
