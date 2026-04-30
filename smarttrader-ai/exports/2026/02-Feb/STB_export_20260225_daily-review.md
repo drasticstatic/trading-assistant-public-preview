@@ -39,7 +39,7 @@ COACHES: Inevitrade call 11:00–13:00 ET (watching MNQ + SOL live)
 
 ## Trade 001 — MNQ LONG
 
-See full review: [review_20260225_MNQ_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/02-Feb/review_20260225_MNQ_001.md)
+See full review: [review_20260225_MNQ-APEX_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/02-Feb/review_20260225_MNQ-APEX_001.md)
 
 ### Summary
 
@@ -91,7 +91,7 @@ TP hit:   ~16:25–16:30 ET — price wicked into 25,418 beautifully
 
 ## Trade 002 — SOLUSDT LONG (BTCC)
 
-See full review: [review_20260225_SOL_002.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/02-Feb/review_20260225_SOL_002.md)
+See full review: [review_20260225_SOLUSDT-BTCC_002.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/02-Feb/review_20260225_SOLUSDT-BTCC_002.md)
 
 ### Summary
 
@@ -179,8 +179,8 @@ Discipline: 10/10. Best session of the recovery arc.
 > Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/02-Feb/STB_export_20260225_daily-review.md
 
 > Full individual trade reviews:
-- [review_20260225_MNQ_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/02-Feb/review_20260225_MNQ_001.md) — MNQ Long T1
-- [review_20260225_SOL_002.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/02-Feb/review_20260225_SOL_002.md) — SOL Long T2 (BTCC)
+- [review_20260225_MNQ-APEX_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/02-Feb/review_20260225_MNQ-APEX_001.md) — MNQ Long T1
+- [review_20260225_SOLUSDT-BTCC_002.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/02-Feb/review_20260225_SOLUSDT-BTCC_002.md) — SOL Long T2 (BTCC)
 
 ---
 
