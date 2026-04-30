@@ -35,10 +35,10 @@ Net result: **+$666.50**. First green day of March. First green day since the re
 
 ## 📊 Trade Log
 
-| # | Time ET | Instrument | Dir | Entry | Exit | P&L | Notes |
-|---|---------|-----------|-----|-------|------|-----|-------|
-| 1 | 10:46 | MNQH25 | ↓ Short | 24,672.25 | 24,717.00 | **-$268.50** | B&R · SL adjusted mid-trade |
-| 2 | 15:10 | RTYH25 | ↓ Short | 2,522.90 | 2,504.20 | **+$935.00** | SFP · ZTH · 97.91% efficiency |
+| # | Time ET | Instrument | Dir | Entry | Exit | P&L | Notes | Review |
+|---|---------|-----------|-----|-------|------|-----|-------|--------|
+| 1 | 10:46 | MNQH25 | ↓ Short | 24,672.25 | 24,717.00 | **-$268.50** | B&R · SL adjusted mid-trade | [review_20260316_MNQ-APEX_001.md](../../../reviews/2026/03-Mar/review_20260316_MNQ-APEX_001.md) |
+| 2 | 15:10 | RTYH25 | ↓ Short | 2,522.90 | 2,504.20 | **+$935.00** | SFP · ZTH · 97.91% efficiency | [review_20260316_RTY-APEX_002.md](../../../reviews/2026/03-Mar/review_20260316_RTY-APEX_002.md) |
 
 ---
 

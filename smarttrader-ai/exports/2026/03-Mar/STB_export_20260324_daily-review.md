@@ -66,9 +66,9 @@ Exit efficiency: 74.24% — captured $1,225 of the $1,650 MFE. Best possible exi
 
 ## 📊 Trade Log
 
-| # | Side | Instrument | Entry | Exit | Points | P&L | Grade | Notes |
-|---|------|-----------|-------|------|--------|-----|-------|-------|
-| 001 | Short | ES (ESM6) | 6,673.00 | 6,648.50 | +24.5 | **+$1,225.00** | 3.5/5 | Intentional overnight limit fill · AutoLiq exit · TP not reached · Pattern 8 |
+| # | Side | Instrument | Entry | Exit | Points | P&L | Grade | Notes | Review |
+|---|------|-----------|-------|------|--------|-----|-------|-------|--------|
+| 001 | Short | ES (ESM6) | 6,673.00 | 6,648.50 | +24.5 | **+$1,225.00** | 3.5/5 | Intentional overnight limit fill · AutoLiq exit · TP not reached · Pattern 8 | [review_20260324_ES-APEX_001.md](../../../reviews/2026/03-Mar/review_20260324_ES-APEX_001.md) |
 
 **MCLK6 order (not filled):** Sell 2x MCLK6 @ 95.98 — canceled when AutoLiq fired. Order was set as a companion to the ESM6 short. Did not fill.
 
