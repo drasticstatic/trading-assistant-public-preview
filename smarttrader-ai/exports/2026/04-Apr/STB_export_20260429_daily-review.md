@@ -136,5 +136,5 @@ Net +$355 for the session. Three trades on TPT 50K reset-3 (TAKEPROFIT558167553)
 
 ---
 
-*Daily Review — Fortuna · April 29, 2026*
 *Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Daily Review · April 29, 2026*
