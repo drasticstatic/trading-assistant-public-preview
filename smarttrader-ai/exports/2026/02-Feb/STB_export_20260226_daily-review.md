@@ -38,6 +38,14 @@ If Christopher had entered at 25,060 with SL at 25,139 (the first bounce high): 
 
 ---
 
+## 📊 Trade Log
+
+| # | Time ET | Instrument | Dir | Entry | Exit | P&L | Notes | Review |
+|---|---------|-----------|-----|-------|------|-----|-------|--------|
+| 1 | 13:37 | MNQ | ↓ Short | 25,000.5 | 25,093.5 (SL) | **-$558.00** | Scenario A · Pattern 5 entry FOMO · 3 contracts · planned entry 25,060 · Zella -100 | [review_20260226_MNQ-APEX_001.md](../../../reviews/2026/02-Feb/review_20260226_MNQ-APEX_001.md) |
+
+---
+
 ## 🧠 Behavioral Notes
 
 | Category | Assessment |
