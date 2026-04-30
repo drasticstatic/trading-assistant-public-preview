@@ -249,4 +249,13 @@ When reviewing any Apex trade on the new EOD or Intraday path, flag if:
 
 > ⚠️ The new payout caps are the most significant change. Legacy had uncapped payouts after the 6th; new rules close the PA after 6 payouts regardless of remaining profit.
 
+---
 
+## Notes / Open Items
+
+**Subscription renewal carry-over — confirmed for legacy accounts, unconfirmed for new accounts:**
+As of Mar 25, 2026 (sourced from Gemini consultation): Apex eval accounts in good standing do NOT reset on subscription renewal — balance, trailing floor, and progress carry forward into the next billing cycle. This was confirmed in the context of APEX-06, which is a **legacy account** (purchased during the 90% off sale before the new EOD/Intraday rule change).
+
+⚠️ Whether this carry-over policy applies the same way to **new-rules accounts** (EOD/Intraday paths) has not been independently verified. Apex's terms are subject to change at their discretion at any time. Verify directly with Apex support before assuming carry-over applies to any specific account.
+
+**APEX-06 current status (as of Apr 30, 2026):** Legacy 100K intraday eval — renewed Apr 25, 2026. Profit target ($6,000) still open. Account must remain above trailing floor to preserve the funded/live activation opportunity once target is hit.
