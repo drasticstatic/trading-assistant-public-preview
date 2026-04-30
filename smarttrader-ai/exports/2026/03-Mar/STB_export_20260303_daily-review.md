@@ -27,11 +27,11 @@
 
 ## 📊 Trade Log
 
-| # | Time | Instrument | Dir | Entry | Exit | P&L | Zella | SL |
-|---|------|-----------|-----|-------|------|-----|-------|----|
-| T1 | 09:43–09:44 | ES | Long | 6,765.25 | 6,757.75 | **−$375** | −93.75 | ✅ Respected |
-| T2 | 11:04–11:43 | ES | Short | 6,757.25 | 6,786.25 (AutoLiq) | **−$1,450** | −84.06 | ❌ Cancelled → AutoLiq |
-| T3 | 11:31–11:43 | CL | Long | 76.38 | 75.92 (AutoLiq) | **−$460** | −45.10 | ✅ Respected (AutoLiq) |
+| # | Time | Instrument | Dir | Entry | Exit | P&L | Zella | SL | Review |
+|---|------|-----------|-----|-------|------|-----|-------|----|--------|
+| T1 | 09:43–09:44 | ES | Long | 6,765.25 | 6,757.75 | **−$375** | −93.75 | ✅ Respected | [review_20260303_ES-APEX_001.md](../../../reviews/2026/03-Mar/review_20260303_ES-APEX_001.md) |
+| T2 | 11:04–11:43 | ES | Short | 6,757.25 | 6,786.25 (AutoLiq) | **−$1,450** | −84.06 | ❌ Cancelled → AutoLiq | [review_20260303_ES-APEX_002.md](../../../reviews/2026/03-Mar/review_20260303_ES-APEX_002.md) |
+| T3 | 11:31–11:43 | CL | Long | 76.38 | 75.92 (AutoLiq) | **−$460** | −45.10 | ✅ Respected (AutoLiq) | [review_20260303_CL-APEX_003.md](../../../reviews/2026/03-Mar/review_20260303_CL-APEX_003.md) |
 
 **Day total: −$2,285**
 

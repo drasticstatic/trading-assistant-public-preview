@@ -40,9 +40,9 @@ Two manual exit opportunities were recognized and passed: unrealized gains aroun
 
 ## 📊 Trade Log
 
-| # | Time | Instrument | Dir | Entry | Exit | P&L | Grade |
-|---|------|-----------|-----|-------|------|-----|-------|
-| 1 | 14:17 ET | MNQH6 | ↑ Long | 25,023.75 | 25,005.75 (AutoLiq) | **-$108.00** | B− · Zella -21.69 |
+| # | Time | Instrument | Dir | Entry | Exit | P&L | Grade | Review |
+|---|------|-----------|-----|-------|------|-----|-------|--------|
+| 1 | 14:17 ET | MNQH6 | ↑ Long | 25,023.75 | 25,005.75 (AutoLiq) | **-$108.00** | B− · Zella -21.69 | [review_20260310_MNQ-APEX_001.md](../../../reviews/2026/03-Mar/review_20260310_MNQ-APEX_001.md) |
 
 ---
 

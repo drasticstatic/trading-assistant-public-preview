@@ -38,9 +38,9 @@ TP filled at 24,935.00 at 08:42:56 ET March 18. The alarm was the fill notificat
 
 ## 📊 Trade Log
 
-| # | Time ET | Instrument | Dir | Entry | Exit | P&L | Notes |
-|---|---------|-----------|-----|-------|------|-----|-------|
-| 1 | 21:03 Mar 17 | MNQM6 | ↓ Short | 25,095.50 | 24,935.00 | **+$963.00** | ZTH Pivot · SMT divergence · carried overnight |
+| # | Time ET | Instrument | Dir | Entry | Exit | P&L | Notes | Review |
+|---|---------|-----------|-----|-------|------|-----|-------|--------|
+| 1 | 21:03 Mar 17 | MNQM6 | ↓ Short | 25,095.50 | 24,935.00 | **+$963.00** | ZTH Pivot · SMT divergence · carried overnight | [review_20260317_MNQ-APEX_001.md](../../../reviews/2026/03-Mar/review_20260317_MNQ-APEX_001.md) |
 
 ---
 

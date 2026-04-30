@@ -41,9 +41,9 @@ The session closed with Pine Script development continuing into the evening — 
 
 ## 📊 Trade Log
 
-| # | Side | Instrument | Entry | Exit | Points | P&L | Grade | Notes |
-|---|------|-----------|-------|------|--------|-----|-------|-------|
-| 001 | Long | RTY | 2,455.10 | 2,465.60 | +10.5 | **+$525** | 2.5/5 | Unintentional fill — old projected limit. MAE -$925. AutoLiq exit (intentional). |
+| # | Side | Instrument | Entry | Exit | Points | P&L | Grade | Notes | Review |
+|---|------|-----------|-------|------|--------|-----|-------|-------|--------|
+| 001 | Long | RTY | 2,455.10 | 2,465.60 | +10.5 | **+$525** | 2.5/5 | Unintentional fill — old projected limit. MAE -$925. AutoLiq exit (intentional). | [review_20260320_RTY-APEX_001.md](../../../reviews/2026/03-Mar/review_20260320_RTY-APEX_001.md) |
 
 ---
 

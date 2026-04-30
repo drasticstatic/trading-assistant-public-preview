@@ -50,7 +50,7 @@ Both moves swept stops below and above the respective setups before reversing to
 
 Entry and stop both filled within **4 seconds**. There was no time to react, modify, or second-guess. The stop worked exactly as it was supposed to: the loss was defined, capped, and executed. **Pattern 9 improvement** — the stop was in place before the fill. That is the win inside this loss.
 
-Full review: [review_20260326_MCL-TPT_001.md](review_20260326_MCL-TPT_001.md)
+Full review: [review_20260326_MCL-TPT_001.md](../../../reviews/2026/03-Mar/review_20260326_MCL-TPT_001.md)
 
 ### MGC — Survived the Stop Hunt (+$94)
 
@@ -60,7 +60,7 @@ By 16:50 ET, gold had retreated to 4,400.9 (the trade's MFE). Christopher manual
 
 The win offsets some of the MCL loss. Net TPT for the day: **-$206**.
 
-Full review: [review_20260326_MGC-TPT_002.md](review_20260326_MGC-TPT_002.md)
+Full review: [review_20260326_MGC-TPT_002.md](../../../reviews/2026/03-Mar/review_20260326_MGC-TPT_002.md)
 
 ### Evening — MGC Overnight Short Entry (Closed Mar 27 · Account Blown)
 
@@ -76,12 +76,12 @@ Full review: [review_20260326_MGC-TPT_003.md](review_20260326_MGC-TPT_003.md)
 
 ## 📊 Trade Log
 
-| # | Side | Instrument | Entry | Exit | Points | P&L | Grade | Notes |
-|---|------|-----------|-------|------|--------|-----|-------|-------|
-| 001 | Long | MCL (TPT) | 89.9 | 88.4 (SL) | -1.5 | **-$300.00** | 0.5/5 | News candle · stop respected · 4 seconds · Pattern 9 ✅ |
-| 002 | Short | MGC (TPT) | 4,410.6 | 4,405.9 (manual) | +4.7 | **+$94.00** | 0.5/5 | 38.7-pt MAE · stop moved (P7) · manual close (P8 partial) |
-| 003 | Short | MGC (TPT) | 4,410.0 | 4,499.7 (AutoLiq) | -89.7 | **-$1,794.00** | 1.0/5 | Overnight · eval pressure (P10 NEW) · SL moved 13h · 3 exit opps missed · ACCOUNT BLOWN |
-| — | Long | SOL/USDT (BTCC) | 92.4686 | 89.6435 | -2.83 | **-$14.13** | — | Closed 01:44 ET · 20hr hold · P8+P9 · see Mar 25 review |
+| # | Side | Instrument | Entry | Exit | Points | P&L | Grade | Notes | Review |
+|---|------|-----------|-------|------|--------|-----|-------|-------|--------|
+| 001 | Long | MCL (TPT) | 89.9 | 88.4 (SL) | -1.5 | **-$300.00** | 0.5/5 | News candle · stop respected · 4 seconds · Pattern 9 ✅ | [review_20260326_MCL-TPT_001.md](../../../reviews/2026/03-Mar/review_20260326_MCL-TPT_001.md) |
+| 002 | Short | MGC (TPT) | 4,410.6 | 4,405.9 (manual) | +4.7 | **+$94.00** | 0.5/5 | 38.7-pt MAE · stop moved (P7) · manual close (P8 partial) | [review_20260326_MGC-TPT_002.md](../../../reviews/2026/03-Mar/review_20260326_MGC-TPT_002.md) |
+| 003 | Short | MGC (TPT) | 4,410.0 | 4,499.7 (AutoLiq) | -89.7 | **-$1,794.00** | 1.0/5 | Overnight · eval pressure (P10 NEW) · SL moved 13h · 3 exit opps missed · ACCOUNT BLOWN | [review_20260326_MGC-TPT_003.md](../../../reviews/2026/03-Mar/review_20260326_MGC-TPT_003.md) |
+| — | Long | SOL/USDT (BTCC) | 92.4686 | 89.6435 | -2.83 | **-$14.13** | — | Closed 01:44 ET · 20hr hold · P8+P9 · see Mar 25 review | [review_20260325_SOLUSDT-BTCC_001.md](../../../reviews/2026/03-Mar/review_20260325_SOLUSDT-BTCC_001.md) |
 
 **TPT Net P&L (Day): -$206.00** | **TPT Overnight (closes Mar 27): -$1,794.00** | **BTCC P&L: -$14.13** | **APEX-06: $0.00 (no entries)**
 **⚠️ TPT 50K account BLOWN on Mar 27 · trade #003 auto-liquidated overnight**
