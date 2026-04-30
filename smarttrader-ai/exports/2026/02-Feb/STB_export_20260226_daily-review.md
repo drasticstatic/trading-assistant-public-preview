@@ -149,7 +149,7 @@ Pattern 5 — Level Abandonment Under Pressure — identified for the first time
 > Full daily-review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/02-Feb/STB_export_20260226_daily-review.md
 
 > Full individual trade reviews:
-- [review_20260226_MNQ_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/02-Feb/review_20260226_MNQ_001.md) — MNQ Short T1
+- [review_20260226_MNQ-APEX_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/2026/02-Feb/review_20260226_MNQ-APEX_001.md) — MNQ Short T1
 
 ---
 
