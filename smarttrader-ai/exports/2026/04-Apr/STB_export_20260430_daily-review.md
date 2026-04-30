@@ -11,7 +11,7 @@
 |-------|-------|
 | Date | April 30, 2026 |
 | Account | TPT 50K reset-3 — TAKEPROFIT558167553 |
-| Session P&L | **~−$2,000** (YM short AutoLiq) |
+| Session P&L | **−$2,000** (YM short AutoLiq — confirmed TradeZella) |
 | Instruments Watched | YM, RTY, NQ, ES, MCL, MGC (active resting orders across all) |
 | Trade Count | 1 filled — resting limit placed Apr 29 evening, filled pre-market |
 | Account Status | **TPT reset-3 blown** — AutoLiq triggered at minimum balance floor |
@@ -39,7 +39,7 @@ APEX-06 was not touched. Following the blow, the RTY short idea was moved to APE
 
 | # | Instrument | Dir | Entry | Exit | P&L | Notes | Review |
 |---|-----------|-----|-------|------|-----|-------|--------|
-| 001 | YM (E-mini Dow) | Short | 49,278 | 49,678 (AutoLiq) | **~−$2,000** | Resting limit from Apr 29 · No SL · SMT divergence against thesis | [review_20260430_YM-TPT_001.md](../../../reviews/2026/04-Apr/review_20260430_YM-TPT_001.md) |
+| 001 | YM (E-mini Dow) | Short | 49,278 | 49,678 (AutoLiq) | **−$2,000** | Resting limit from Apr 29 · No SL · MFE +$470 @ 09:00 ET · Zella −84.39 | [review_20260430_YM-TPT_001.md](../../../reviews/2026/04-Apr/review_20260430_YM-TPT_001.md) |
 
 **Session net: ~−$2,000**
 **APEX-06: $0 (not involved)**
@@ -53,6 +53,12 @@ APEX-06 was not touched. Following the blow, the RTY short idea was moved to APE
 
 **12:27 ET — YM broader view: full session move**
 ![YM session overview 12:27](../../../../data/screenshots/YM1!_2026-04-30_12-27-06_2d68e.png)
+
+**17:09 ET — YM RTH close: how the day played out from entry to AutoLiq and beyond**
+![YM RTH close 17:09](../../../../data/screenshots/YM1!_2026-04-30_17-09-25_d518a.png)
+
+**17:10 ET — RTY RTH close: structure heading into the 18:00 ET evening open**
+![RTY RTH close 17:10](../../../../data/screenshots/RTY1!_2026-04-30_17-10-28_7c8f9.png)
 
 ---
 
