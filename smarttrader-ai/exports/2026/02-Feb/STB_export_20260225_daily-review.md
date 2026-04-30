@@ -30,28 +30,10 @@ COACHES: Inevitrade call 11:00–13:00 ET (watching MNQ + SOL live)
 
 ## 📊 Trade Log
 
-```
-Total Trades Executed: 2
-Winners: 2 | Losers: 0 | Breakeven: 0
-
-Trade 001 — MNQ LONG
-  Entry:  FVG zone ~25,234–25,264
-  SL:     25,218.5
-  TP:     25,418 HIT ✅ (~16:25–16:30 ET)
-  R:R:    2.32
-  Result: WINNER
-
-Trade 002 — SOLUSDT LONG (BTCC, $20 voucher)
-  Entry:  $87.4701 at 12:04:57 ET
-  Exit:   $91.5556 at 14:36:26 ET
-  Profit: +20.63 USDT ✅
-  Result: WINNER
-
-Net session: Double green. Best discipline score of the recovery arc.
-SL respected: Yes — MNQ SL never threatened after fill.
-Revenge trading: None.
-Overtrading: None.
-```
+| # | Instrument | Dir | Entry | Exit | P&L | Notes | Review |
+|---|-----------|-----|-------|------|-----|-------|--------|
+| 001 | MNQ | Long | ~25,234–25,264 | 25,418 (TP) | **+$565.00** | Five-layer confluence · 2.32 R:R · IT EMA crossover | [review_20260225_MNQ-APEX_001.md](../../../reviews/2026/02-Feb/review_20260225_MNQ-APEX_001.md) |
+| 002 | SOLUSDT (BTCC) | Long | 87.47 | 91.56 | **+$20.63 USDT** | IT Foundation EMA · voucher · 2.5h hold | [review_20260225_SOLUSDT-BTCC_002.md](../../../reviews/2026/02-Feb/review_20260225_SOLUSDT-BTCC_002.md) |
 
 ---
 

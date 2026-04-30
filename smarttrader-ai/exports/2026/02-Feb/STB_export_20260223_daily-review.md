@@ -39,6 +39,14 @@ Feb 23 opened with a triple-confirmation Scenario A SHORT across NQ, ES, and YM.
 
 ---
 
+## 📊 Trade Log
+
+| # | Time ET | Instrument | Dir | Entry | Exit | P&L | Notes | Review |
+|---|---------|-----------|-----|-------|------|-----|-------|--------|
+| 1 | 10:08 | MNQ | ↓ Short | 24,879.5 | 24,929.75 (SL) | **-$100.50** | FCR Scenario A · 3/5 entry · SL swept 1 tick above 5/5 · 12m 50s | [review_20260223_MNQ-APEX_001.md](../../../reviews/2026/02-Feb/review_20260223_MNQ-APEX_001.md) |
+
+---
+
 ## 📈 NQ Follow-Up — Afternoon Session
 
 ![NQ Outcome](../../../../data/screenshots/NQ1!_2026-02-23_21-40-14_d6b2f.png)
