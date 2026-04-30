@@ -1,6 +1,5 @@
-# Daily Review — Monday, March 2, 2026
-#### Christopher Wilson | Fortuna — Wealth Warden
-#### Account: APEX-484839-05 | Instruments: YM (T1), ES (T2, T3)
+# 🗓️ Daily Review — Monday, March 2, 2026
+### YM Long · ES Short · ES Short Re-Entry | +$460
 
 [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 

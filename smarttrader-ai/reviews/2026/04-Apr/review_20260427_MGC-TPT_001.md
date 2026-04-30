@@ -1,5 +1,5 @@
-# Trade Review — MGC Long | April 27, 2026
-### 20260427_MGC-TPT_001 · Account: TAKEPROFIT558167553 · April 27, 2026
+# 🔍 Trade Review — MGC Long · TPT 50K · Mon, Apr 27, 2026
+### 20260427_MGC-TPT_001 · +$22.00 · ZTH Bounce · TP filled · Day 1 counted
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

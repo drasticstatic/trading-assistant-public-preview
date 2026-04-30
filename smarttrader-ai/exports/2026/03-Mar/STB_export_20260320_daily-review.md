@@ -1,6 +1,5 @@
-# Daily Review — March 20, 2026
-#### Fortuna — Wealth Warden | Claude Code CLI
-#### Session type: Quadruple Witching Friday · Unintentional Fill · +$525 RTY Long
+# 🗓️ Daily Review — Friday, March 20, 2026
+### RTY Long · Quadruple Witching · Unintentional Fill | +$525
 
 [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 

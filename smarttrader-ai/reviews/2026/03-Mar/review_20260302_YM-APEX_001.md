@@ -1,6 +1,5 @@
-# Trade Review — Monday, March 2, 2026
-#### Christopher Wilson | Fortuna — Wealth Warden
-#### Trade 1 of 3 | YM Long Scalp | Account: APEX-484839-05
+# 🔍 Trade Review — YM Long · APEX-05 · Mon, Mar 2, 2026
+### 20260302_YM-APEX_001 · +$185.00 · Feeling trade acknowledged in real-time
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

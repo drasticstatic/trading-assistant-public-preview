@@ -1,6 +1,5 @@
-# 🔍 Trade Review — MNQ Short
-### Feb 23, 2026 | FCR + ZTH | Fortuna
-*For coaches + SmartTraderAI — Session review*
+# 🔍 Trade Review — MNQ Short · APEX-05 · Mon, Feb 23, 2026
+### 20260223_MNQ-APEX_001 · -$100.50 · FCR Scenario A · SL swept 1 tick above 5/5
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

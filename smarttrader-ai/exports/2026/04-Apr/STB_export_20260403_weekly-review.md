@@ -1,5 +1,5 @@
-# Weekly Review — Week of March 30 – April 3, 2026
-#### Fortuna — Wealth Warden | Claude Code CLI
+# 📅 Weekly Review — Week of Mar 30 – Apr 3, 2026
+### Observation Week · Conservative Limit Orders · No Triggers | No Fills
 
 [Jump to 🕊️ Spiritual Lens ↓](#spiritual-lens) · [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 

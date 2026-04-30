@@ -1,6 +1,7 @@
-# Trade Review — MCL SHORT · TPT 50K · Apr 29, 2026
+# 🔍 Trade Review — MCL Short · TPT 50K · Wed, Apr 29, 2026
+### 20260429_MCL-TPT_003 · +$20.00 · Revenge trade · 44 seconds · Zella 71.43
 
-**File:** `review_20260429_MCL-TPT_003.md` · Trade #003 of day
+[Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 
 ---
 

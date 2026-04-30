@@ -1,6 +1,5 @@
 # 🗓️ Daily Review — Thursday, March 5, 2026
-#### Fortuna — Wealth Warden | Claude Code CLI
-#### Architecture + Education Day | No Trades
+### Architecture + Education Day | No Trades
 
 [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 

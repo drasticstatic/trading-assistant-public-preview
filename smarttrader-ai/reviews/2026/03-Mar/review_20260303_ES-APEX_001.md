@@ -1,6 +1,5 @@
-# Trade Review — ES Long | March 3, 2026 | T1
-#### Fortuna — Wealth Warden | Claude Code CLI
-#### Account: APEX-484839-05 | APEX 100K Legacy (BLOWN)
+# 🔍 Trade Review — ES Long · APEX-05 · Tue, Mar 3, 2026
+### 20260303_ES-APEX_001 · -$375.00 · SL respected · account blow day
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

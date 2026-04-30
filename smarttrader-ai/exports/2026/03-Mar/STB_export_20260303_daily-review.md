@@ -1,6 +1,5 @@
-# Daily Review — March 3, 2026
-#### Fortuna — Wealth Warden | Claude Code CLI
-#### Account: APEX-484839-05 | APEX 100K Legacy (BLOWN)
+# 🗓️ Daily Review — Tuesday, March 3, 2026
+### ES Long · ES Short (AutoLiq) · CL Long · APEX-05 Blown | -$2,285
 
 [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 

@@ -1,6 +1,5 @@
-# Trade Review — Mar 26–27, 2026 | MGC · TPT 50K · Short · Account Blown
-#### Fortuna — Wealth Warden | Claude Code CLI
-#### Review #003 for Mar 26 (closed Mar 27 · 10:55 EDT)
+# 🔍 Trade Review — MGC Short · TPT 50K · Thu, Mar 26, 2026
+### 20260326_MGC-TPT_003 · -$1,794.00 · Overnight · SL moved 13h · TPT reset-2 blown
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

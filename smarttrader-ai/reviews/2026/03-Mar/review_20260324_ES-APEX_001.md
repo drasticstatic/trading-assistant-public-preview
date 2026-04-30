@@ -1,5 +1,5 @@
-# Trade Review #001 — ES Short · March 24, 2026
-### APEX Deadline Day · 36-Hour Patience Trade · ZTH Pivot · +$1,225 · AutoLiq Exit
+# 🔍 Trade Review — ES Short · APEX-06 · Tue, Mar 24, 2026
+### 20260324_ES-APEX_001 · +$1,225.00 · Overnight limit fill · AutoLiq · Pattern 8
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

@@ -1,5 +1,5 @@
-# Trade Review #001 — RTY Long · March 20, 2026
-### Quadruple Witching Friday · Unintentional Fill · AutoLiq Exit
+# 🔍 Trade Review — RTY Long · APEX-06 · Fri, Mar 20, 2026
+### 20260320_RTY-APEX_001 · +$525.00 · Unintentional fill · AutoLiq exit
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

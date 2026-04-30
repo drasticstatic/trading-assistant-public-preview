@@ -1,5 +1,5 @@
-# Trade Review — March 10, 2026 | MNQ Long T1
-#### Fortuna — Wealth Warden | Claude Code CLI
+# 🔍 Trade Review — MNQ Long · APEX-06 · Tue, Mar 10, 2026
+### 20260310_MNQ-APEX_001 · -$108.00 · Pattern 7 fix confirmed · Zella -21.69
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

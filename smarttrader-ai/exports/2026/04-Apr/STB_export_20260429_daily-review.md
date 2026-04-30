@@ -1,9 +1,7 @@
+# 🗓️ Daily Review — Wednesday, April 29, 2026
+### RTY Short · YM Long · MCL Short | +$355
+
 [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
-
----
-
-# Daily Review — April 29, 2026
-### STB Export · TPT 50K reset-3 · Net +$355
 
 ---
 

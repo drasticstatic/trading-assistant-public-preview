@@ -1,7 +1,7 @@
-# 📋 Daily Review — Apr 8, 2026
-### STB SmartTraderAI Export | Fortuna | BTCC SOLUSDT Voucher Session
+# 🗓️ Daily Review — Wednesday, April 8, 2026
+### SOL Short · BTCC Voucher · AutoLiq | ~-$22
 
-[Jump to 🤖 SmartTraderAI ↓](#smarttraderai-copy-paste)
+[Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 
 ---
 

@@ -1,5 +1,5 @@
-# Weekly Review — Week of March 16–22, 2026
-#### Fortuna — Wealth Warden | Claude Code CLI
+# 📅 Weekly Review — Week of Mar 16–22, 2026
+### MNQ Short · RTY Short Win · Overnight MNQ +$963 | +$1,629.50
 
 [Jump to 🕊️ Spiritual Lens ↓](#spiritual-lens) · [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 

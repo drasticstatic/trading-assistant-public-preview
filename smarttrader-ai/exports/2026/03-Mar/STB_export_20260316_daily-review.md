@@ -1,6 +1,5 @@
-# Daily Review — Monday, March 16, 2026
-#### Fortuna — Wealth Warden | Claude Code CLI
-#### Session type: RTH — Active | First green day of March
+# 🗓️ Daily Review — Monday, March 16, 2026
+### MNQ Short · RTY Short · First Green Day of March | +$666.50
 
 [Jump to 🤖 SmartTraderAI Copy-Paste ↓](#smarttraderai-copy-paste)
 

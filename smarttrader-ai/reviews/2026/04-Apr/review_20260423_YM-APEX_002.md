@@ -1,5 +1,5 @@
-# Trade Review — YM Long | April 23, 2026
-### 20260423_YM-APEX_002 · Account: APEX-484839-06 · April 23, 2026
+# 🔍 Trade Review — YM Long · APEX-06 · Thu, Apr 23, 2026
+### 20260423_YM-APEX_002 · +$1,095.00 · ZTH SFP bracket · TP filled · Zella 95.22
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

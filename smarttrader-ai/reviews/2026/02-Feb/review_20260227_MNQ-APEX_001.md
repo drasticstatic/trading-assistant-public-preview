@@ -1,6 +1,5 @@
-# 🔍 Trade Review — MNQ Short (Planned — No Fill)
-### Feb 27, 2026 | Scenario A SHORT Continuation | Fortuna
-*For coaches + SmartTraderAI — Session review*
+# 🔍 Trade Review — MNQ Short · APEX-05 · Fri, Feb 27, 2026
+### 20260227_MNQ-APEX_001 · No Fill · Entry discipline held · Pattern 5 fix
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

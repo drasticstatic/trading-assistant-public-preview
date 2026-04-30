@@ -100,14 +100,34 @@ No links here. Final section before footer.
 
 ## Required Header Elements
 
-At the very top:
 ```
-# Trade Review — [INSTRUMENT] [DIRECTION] | [Month DD, YYYY]
-### [file_id] · Account: [ACCOUNT] · [Month DD, YYYY]
+# 🔍 Trade Review — [INSTRUMENT] [DIRECTION] · [ACCOUNT ABBREVIATED] · [Weekday, Mon D, YYYY]
+### [file_id] · [Net P&L] · [Key note 1]
+### [Key note 2 · Key note 3] (second line only when there is genuinely more to surface)
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
+
+---
 ```
-Where `[file_id]` = `YYYYMMDD_INSTRUMENT-PLATFORM_NNN` — no global sequential number.
+
+**Rules:**
+- Emoji: always 🔍
+- Account abbreviated: "TPT 50K", "APEX-06", "BTCC" — never the full account ID; abbreviated avoids confusion with trade direction
+- Weekday abbreviated: "Wed, Apr 29, 2026" — not "April 29, 2026"
+- Subtitle line 1: `[file_id]` + P&L + primary note (pattern tag, Zella score, or execution grade)
+- Subtitle line 2 (optional): additional notes — use when a second behavioral dimension or key context genuinely adds value
+- No "Fortuna — Wealth Warden", "Christopher Wilson", or "Claude Code CLI" in header — all appear in the footer
+- `[file_id]` = `YYYYMMDD_INSTRUMENT-PLATFORM_NNN` — no global sequential number
+
+**Examples:**
+```
+# 🔍 Trade Review — RTY Short · TPT 50K · Wed, Apr 29, 2026
+### 20260429_RTY-TPT_001 · +$1,540 · Active exit · Zella 85.56
+### Pattern 8 improvement — first self-directed exit of the arc
+
+# 🔍 Trade Review — MNQ Long · APEX-06 · Tue, Mar 10, 2026
+### 20260310_MNQ-APEX_001 · -$108.00 · Pattern 7 fix confirmed · Zella -21.69
+```
 
 ## Required Footer
 

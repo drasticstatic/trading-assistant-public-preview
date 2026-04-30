@@ -1,5 +1,5 @@
-# Trade Review — March 16, 2026 | RTY Short T2
-#### Fortuna — Wealth Warden | Claude Code CLI
+# 🔍 Trade Review — RTY Short · APEX-06 · Mon, Mar 16, 2026
+### 20260316_RTY-APEX_002 · +$935.00 · SFP · ZTH level · 97.91% exit efficiency
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 

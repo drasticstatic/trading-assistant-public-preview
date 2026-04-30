@@ -1,6 +1,5 @@
-# 🔍 Trade Review — MNQ Short
-### Feb 26, 2026 | Scenario A SHORT Continuation | Fortuna
-*For coaches + SmartTraderAI — Session review*
+# 🔍 Trade Review — MNQ Short · APEX-05 · Thu, Feb 26, 2026
+### 20260226_MNQ-APEX_001 · -$558.00 · Pattern 5 — entry FOMO · Zella -100
 
 [Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
 
