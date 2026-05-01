@@ -112,7 +112,7 @@ Weekly review: [STB_export_20260426_weekly-review.md](STB_export_20260426_weekly
 
 ### Week 5 (Apr 27 – May 3): -$1,609 — Pattern 8 Win + Fourth TPT Blow
 
-**The week's full narrative is in the weekly review:** [STB_export_20260503_weekly-review.md](../../../exports/2026/05-May/STB_export_20260503_weekly-review.md)
+**The week's full narrative is in the weekly review:** [STB_export_20260503_weekly-review.md](05-May/STB_export_20260503_weekly-review.md)
 
 Summary:
 - Apr 27: MGC +$22 (Day 1 TPT) — TP in 41s, exit discipline under pressure ✅
