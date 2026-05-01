@@ -1,6 +1,9 @@
-# Monthly Review — February + March 2026
-#### Fortuna — Wealth Warden | Claude Code CLI
+# 📅 Monthly Review — February + March 2026
+### Collapse to Recovery · Patterns Named · System Built | -$20,754
+
 *Combined review written April 3, 2026 — Good Friday. The quarter that changed everything.*
+
+[Jump to 🤖 SmartTraderAI Reflection ↓](#smarttraderai-reflection)
 
 ---
 
@@ -262,6 +265,8 @@ Every tool in this list was built during or immediately following the period doc
 Q2 intention: trust the sandbox. The toys are ready. Play.
 
 ---
+
+<a id="smarttraderai-reflection"></a>
 
 ## 🤖 SmartTraderAI Monthly Reflection Fields
 

@@ -1,31 +1,32 @@
 ---
 name: monthly-audit
 description: >
-  Use to build an end-of-month trading audit as a polished Marp slide deck for coach sharing.
-  TRIGGER when: "monthly audit", "end of month", "April audit", "month in review",
-  "monthly review", "monthly summary", "audit for [month]", "month-end review",
-  "close out [month]", "wrap up the month". Do NOT use for: weekly reviews (use /weekly-review),
-  daily reviews (use /daily-review), or mid-month check-ins.
+  Use to build an end-of-month trading review (standard markdown) + optional Marp slide deck
+  for coach sharing. TRIGGER when: "monthly audit", "end of month", "April audit",
+  "month in review", "monthly review", "monthly summary", "audit for [month]",
+  "month-end review", "close out [month]", "wrap up the month".
+  Do NOT use for: weekly reviews (use /weekly-review), daily reviews (use /daily-review),
+  or mid-month check-ins.
 ---
 
 # Skill: /monthly-audit
 
-Build a polished end-of-month audit as a Marp slide deck. Unlike daily and weekly reviews
-(standard markdown), the monthly audit is always Marp — it's a coach-facing synthesis document
-designed to be shared directly with STB, ZTH, and IT coaching groups as a complete picture of
-the month's development.
+Build a complete end-of-month review as a standard markdown document. The monthly review
+is a behavioral arc synthesis covering all weeks, account progression, pattern evolution,
+and the forward focus for the next month. An optional Marp deck can be generated for
+direct coach sharing.
 
 ## Overview
 
-Produces a `.marp.md` + `.marp.html` deck covering:
+Produces a standard markdown monthly review covering:
 - Month P&L and account progression
+- Week-by-week narrative arc (linked to weekly reviews)
 - Behavioral arc and pattern evolution
-- Strategy/course progression across all three coaching groups
 - Trade highlights (best, worst, most instructive)
 - Forward focus and coaching questions for next month
+- SmartTraderAI monthly reflection fields
 
-The deck gives each coach immediate context on how Christopher's development is progressing
-across all mentorships without requiring them to read individual trade reviews.
+Optionally: a `.marp.md` + `.marp.html` deck for coach-facing synthesis sharing.
 
 ## Before Starting
 
@@ -33,19 +34,58 @@ across all mentorships without requiring them to read individual trade reviews.
 2. **Read `smarttrader-ai/reviews/pattern_tracker.md`** — full month's P&L and pattern log
 3. **List all trade reviews** for the month in `smarttrader-ai/reviews/YYYY/MM-Mon/`
 4. **Check account status** via `get_account` (or from latest daily/weekly reviews)
-5. **Read weekly reviews** for the month if they exist — the behavioral arc lives there
+5. **Read weekly reviews** for the month — the behavioral arc lives there
 6. **Identify any coaching milestones** (new concept introduced, rule drilled, feedback received)
+7. **Confirm monthly screenshots exist** in `data/imports/YYYY/MM-Mon/` — SmartTrader_[Mon].png, TradeZella_[Mon].png
 
 ## File Paths
 
+**Standard markdown (primary):**
+```
+smarttrader-ai/exports/YYYY/YYYY_MM_monthly-review.md
+```
+The monthly review lives at the year root, not inside a month folder.
+Example: `smarttrader-ai/exports/2026/2026_04_monthly-review.md`
+
+**Marp deck (optional, for coach sharing):**
 ```
 smarttrader-ai/exports/YYYY/MM-Mon/monthly-audit_YYYYMM.marp.md
 smarttrader-ai/exports/YYYY/MM-Mon/monthly-audit_YYYYMM.marp.html
 ```
 
-Example: `smarttrader-ai/exports/2026/04-Apr/monthly-audit_202604.marp.md`
+**Screenshot paths from `YYYY/` root:** `../../../data/imports/YYYY/MM-Mon/filename.png` (3 levels up to repo root)
 
-## Slide Structure
+## Document Header
+
+```
+# 📅 Monthly Review — [Month YYYY]
+### [Arc theme · Account milestone] | [Net P&L or "No Fills"]
+
+[Jump to 🤖 SmartTraderAI Reflection ↓](#smarttraderai-reflection)
+
+---
+```
+
+**Rules:**
+- Emoji: always 📅
+- Month spelled out: "April 2026" — no abbreviations
+- Subtitle: arc-focused — one defining behavioral theme, account state, net P&L
+- No "Fortuna — Wealth Warden", "STB Export", or author info in header — redundant, in footer
+- Jump link goes AFTER the title block, never before it
+
+**Examples:**
+```
+# 📅 Monthly Review — April 2026
+### Pattern 8 Breakthrough · TPT reset-3 Blown · APEX-06 Active | -$622
+
+# 📅 Monthly Review — February + March 2026
+### Collapse to Recovery · Accounts Rebuilt · Patterns Named | -$20,754
+
+# 📅 Monthly Review — May 2026
+### First Funded Month · Stop Rule Locked · APEX-06 Payout | +$X,XXX
+```
+
+## Slide Structure (Marp deck — if produced)
 
 ### Slide 1 — Title
 
@@ -237,26 +277,24 @@ style: |
 
 ## After Creating
 
-1. Generate HTML:
+1. Confirm the `<a id="smarttraderai-reflection"></a>` anchor is present before `## 🤖 SmartTraderAI Monthly Reflection Fields`
+2. If also generating Marp deck: run HTML export:
    ```bash
    marp smarttrader-ai/exports/YYYY/MM-Mon/monthly-audit_YYYYMM.marp.md \
         -o smarttrader-ai/exports/YYYY/MM-Mon/monthly-audit_YYYYMM.marp.html
    ```
-2. Commit both files
-3. Share the HTML file directly with coaches (not a GitHub Pages link — exports/ is private)
+3. Commit: `"Add [Month YYYY] monthly review — [net P&L]"`
+4. Push to origin main
 
 ## Quick Commands
 
 ```bash
-# Generate HTML
+# Generate Marp HTML (if deck was built)
 marp smarttrader-ai/exports/YYYY/MM-Mon/monthly-audit_YYYYMM.marp.md \
      -o smarttrader-ai/exports/YYYY/MM-Mon/monthly-audit_YYYYMM.marp.html
 
-# Compress any screenshots before committing
-pngquant --quality=65-80 --speed=1 --skip-if-larger --ext .png --force data/screenshots/*.png
-
 # Stage and commit
-git add smarttrader-ai/exports/ data/screenshots/ && \
-  git commit -m "Add monthly audit [Month YYYY] — [net P&L]"
+git add smarttrader-ai/exports/ && \
+  git commit -m "Add monthly review [Month YYYY] — [net P&L]"
 git push origin main
 ```

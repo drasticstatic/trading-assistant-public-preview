@@ -1,6 +1,9 @@
-# Monthly Review — April 2026
-#### Fortuna — Wealth Warden | Claude Code CLI
+# 📅 Monthly Review — April 2026
+### Pattern 8 Breakthrough · TPT reset-3 Blown · APEX-06 Active | -$622
+
 *Written May 1, 2026 — The morning after the fourth TPT blow. May this month be the turning point.*
+
+[Jump to 🤖 SmartTraderAI Reflection ↓](#smarttraderai-reflection)
 
 ---
 
@@ -206,6 +209,8 @@ And: the behavioral growth in April is documented and real. Pattern 8 improvemen
 May begins with two accounts, a clearer behavioral picture, and one rule to apply above all others: stop before position.
 
 ---
+
+<a id="smarttraderai-reflection"></a>
 
 ## 🤖 SmartTraderAI Monthly Reflection Fields
 
