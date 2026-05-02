@@ -2,6 +2,7 @@
 
 > A live, multi-agent AI trading accountability system built on Claude Code CLI + Augment Code
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-lightgrey?style=flat)](https://github.com/drasticstatic/.github)
 [![Public Preview](https://img.shields.io/badge/%F0%9F%8C%90%20Public%20Preview-Available-brightgreen)](https://drasticstatic.github.io/trading-assistant-public-preview/) [![Synced via GitExporter](https://img.shields.io/badge/Synced%20via-GitExporter-blue)](https://github.com/drasticstatic/trading-assistant/blob/main/gitexporter.config.json) [![Built with Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code%20CLI-blueviolet)](https://code.claude.com/docs/en/overview) [![Built with Augment](https://img.shields.io/badge/Built%20with-Augment-0B0F19)](https://augmentcode.com) [![Status](https://img.shields.io/badge/Status-%F0%9F%94%A5%20Live-brightgreen)](https://code.claude.com/docs/en/cli-reference)
 
 > [🗺️ Wondering where to go next? 🧭 → Click HERE to find your way around 🔍](https://drasticstatic.github.io/trading-assistant-public-preview/)
