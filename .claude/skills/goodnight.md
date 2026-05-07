@@ -65,7 +65,21 @@ Priority flags:
 - Pattern discovery or rule change → note for Kavanah
 - Routine session → still write it, just keep it brief
 
-## Step 5 — Final Push
+## Step 5 — Backup Session JSONL (if small enough)
+
+```bash
+PROJ="$HOME/.claude/projects/-Users-christopherwilson-code-trading-assistant"
+LATEST=$(ls -t "$PROJ"/*.jsonl 2>/dev/null | head -1)
+SIZE=$(stat -f%z "$LATEST" 2>/dev/null)
+[ -n "$LATEST" ] && [ "$SIZE" -lt 20971520 ] && \
+  cp "$LATEST" AGENT-SYNC/app-data-claude/ && \
+  echo "✓ Backed up $(basename $LATEST)" || \
+  echo "⚠ JSONL too large (>20MB) or not found — stays at source only"
+```
+
+Only copies files under 20MB. Large historical files (screenshot-heavy) stay at source.
+
+## Step 6 — Final Push
 
 ```bash
 git add logs/ AGENT-SYNC/

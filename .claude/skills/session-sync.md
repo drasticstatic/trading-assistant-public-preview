@@ -80,7 +80,21 @@ Priority flags for other agents:
 - Infrastructure or MCP change → both
 - Routine sync → still write it, just keep it brief
 
-### 6. Final Push (Logs and Sync)
+### 6. Backup Session JSONL (if small enough)
+
+```bash
+PROJ="$HOME/.claude/projects/-Users-christopherwilson-code-trading-assistant"
+LATEST=$(ls -t "$PROJ"/*.jsonl 2>/dev/null | head -1)
+SIZE=$(stat -f%z "$LATEST" 2>/dev/null)
+[ -n "$LATEST" ] && [ "$SIZE" -lt 20971520 ] && \
+  cp "$LATEST" AGENT-SYNC/app-data-claude/ && \
+  echo "✓ Backed up $(basename $LATEST)" || \
+  echo "⚠ JSONL too large (>20MB) or not found — stays at source only"
+```
+
+Only copies files under 20MB. Large historical files (screenshot-heavy) stay at source.
+
+### 7. Final Push (Logs and Sync)
 
 ```bash
 git add logs/ AGENT-SYNC/
