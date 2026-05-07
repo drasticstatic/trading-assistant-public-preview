@@ -13,6 +13,24 @@ description: >
 
 Run the full trading session startup sequence. This is the live trading terminal routine — systems first, context second, orientation third.
 
+## Step 0 — Model Choice
+
+**For live trading sessions: always use Anthropic Claude [1].** NIM is never appropriate for live trading decisions, prop firm account work, or anything involving real money. No exceptions.
+
+The proxy option exists for exploratory research or non-trading work run from this repo. In a live session, proceed directly to Step 1.
+
+If you have a specific reason to use the proxy today (e.g. exploratory backtesting research, non-trading task):
+
+```bash
+curl -s http://localhost:8082/v1/models
+# 401 = proxy UP | Connection refused = proxy DOWN
+# Start if down: cd ~/code-forked/free-claude-code && nohup uv run free-claude-code > /tmp/fcc.log 2>&1 &
+# Launch: ANTHROPIC_BASE_URL=http://localhost:8082 ANTHROPIC_API_KEY=freecc claude
+# Auth conflict warning = harmless. Then /model → select NIM model.
+```
+
+---
+
 ## Step 1 — System Health
 
 Run these MCP tools in sequence:
