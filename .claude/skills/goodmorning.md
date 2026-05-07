@@ -15,19 +15,27 @@ Run the full trading session startup sequence. This is the live trading terminal
 
 ## Step 0 — Model Choice
 
-**For live trading sessions: always use Anthropic Claude [1].** NIM is never appropriate for live trading decisions, prop firm account work, or anything involving real money. No exceptions.
+**Live trading sessions always use Alfred-Anthropic.** No exceptions — no NIM, no free models for prop firm accounts, real money, or live session analysis.
 
-The proxy option exists for exploratory research or non-trading work run from this repo. In a live session, proceed directly to Step 1.
+Proceed directly to Step 1 unless you have a specific non-trading reason to use the proxy (e.g. exploratory backtesting research, strategy research with no live account action).
 
-If you have a specific reason to use the proxy today (e.g. exploratory backtesting research, non-trading task):
+### If using the proxy today (non-trading task only)
 
+Check proxy status:
 ```bash
 curl -s http://localhost:8082/v1/models
-# 401 = proxy UP | Connection refused = proxy DOWN
-# Start if down: cd ~/code-forked/free-claude-code && nohup uv run free-claude-code > /tmp/fcc.log 2>&1 &
-# Launch: ANTHROPIC_BASE_URL=http://localhost:8082 ANTHROPIC_API_KEY=freecc claude
-# Auth conflict warning = harmless. Then /model → select NIM model.
 ```
+**401** → Proxy UP ✅ · **Connection refused** → Start it:
+```bash
+cd ~/code-forked/free-claude-code && nohup uv run free-claude-code > /tmp/fcc.log 2>&1 &
+```
+Launch:
+```bash
+ANTHROPIC_BASE_URL=http://localhost:8082 ANTHROPIC_API_KEY=freecc claude
+```
+Auth conflict warning = harmless. Once inside: `/model` → select `anthropic/nvidia_nim/z-ai/glm4.7`.
+
+**Reminder:** Free models have no image support and smaller context windows. Full reference: `~/code/anthropas-argus-alfred/specs/alfred-workflow.md`
 
 ---
 
