@@ -8,6 +8,26 @@ description: >
 
 Run the full session close sequence. Leave nothing uncommitted. This skill ensures continuity between sessions by capturing context, committing work, and setting up tomorrow's focus.
 
+## Skill Map
+
+| | /startup | /goodmorning | /session-sync | /goodnight |
+|---|---|---|---|---|
+| Proxy / model check | ✅ | ✅ | ❌ | ❌ |
+| MCP system health | ❌ | ✅ | ❌ | ❌ |
+| Prop firm status | ❌ | ✅ | ❌ | ❌ |
+| Premarket brief | ❌ | ✅ always | ❌ | ❌ |
+| Level brief | ✅ | via premarket | ❌ | ❌ |
+| SMT scan | ✅ | ✅ | ❌ | ❌ |
+| Behavioral reminder | ❌ | ✅ | ❌ | ✅ |
+| Trade + daily reviews | ❌ | ❌ | ❌ | ✅ |
+| Pattern reminder | ❌ | ❌ | ❌ | ✅ |
+| Commit + push | ❌ | ❌ | ✅ | ✅ |
+| Session log | ❌ | ❌ | ✅ | ✅ |
+| AGENT_SYNC update | ❌ | ❌ | ✅ | ✅ |
+| Graph update | ❌ | ❌ | if changed | if changed |
+
+---
+
 ## Step 1 — Confirm Reviews Are Complete
 
 Check that the session is properly documented:
@@ -19,9 +39,15 @@ If reviews are incomplete, pause and complete them first. Session close requires
 
 ## Step 2 — Commit All Outstanding Work
 
+If code files changed this session, update the knowledge graph first (AST-only, no API cost):
+
+```bash
+graphify update .
+```
+
 Stage and commit everything in `smarttrader-ai/`, `data/`, and `logs/`:
 ```bash
-git add smarttrader-ai/ data/screenshots/ data/imports/ logs/
+git add smarttrader-ai/ data/screenshots/ data/imports/ logs/ graphify-out/
 git commit -m "Session close YYYYMMDD — [brief summary]"
 git push origin main
 ```

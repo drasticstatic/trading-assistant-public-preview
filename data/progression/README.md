@@ -4,6 +4,7 @@ These files are HTML surfaces — view them rendered at the links below, not as 
 
 | Page | Rendered Link |
 |------|--------------|
+| 🏦 Prop Firm Progression | [prop-firm-progression.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-progression.md) |
 | 📚 Resources | [resources.html](https://drasticstatic.github.io/trading-assistant-public-preview/data/progression/resources.html) |
 | 📚 Resources — Instruments | [resources.html#instruments](https://drasticstatic.github.io/trading-assistant-public-preview/data/progression/resources.html#instruments) |
 | 📘 STB Course Workbook | [SmartTradingBlueprint/course-workbook.html](https://drasticstatic.github.io/trading-assistant-public-preview/data/progression/SmartTradingBlueprint/course-workbook.html) |

@@ -1,7 +1,7 @@
 ---
 name: open-orders
 description: >
-  Pull a single-pane view of all open positions and working orders across connected exchanges and prop firm accounts. TRIGGER when: "open orders", "check all positions", "what's open", "any open trades", "positions check", "working orders", "what do I have on", "check all accounts", "show my positions", "position status", "what am I holding", "account status", "any fills", "check stops", "pre-rest check", before stepping away from desk. Do NOT use for: trade reviews, eval progress math (use /eval-progress), or single-exchange checks that don't need aggregation.
+  Pull a single-pane view of all open positions and working orders across connected exchanges and prop firm accounts. TRIGGER when: "open orders", "check all positions", "what's open", "any open trades", "positions check", "working orders", "what do I have on", "check all accounts", "show my positions", "position status", "what am I holding", "account status", "any fills", "check stops", "pre-rest check", before stepping away from desk. Do NOT use for: trade reviews, eval progress math (use /prop-firm-status), or single-exchange checks that don't need aggregation.
 ---
 
 # Skill: /open-orders
@@ -95,7 +95,7 @@ Pattern 9 check: ⚠️ BTCC missing SL on SOL/USDT — confirm stop before step
 ## When NOT to Use
 
 - Trade reviews or performance analysis (use /trade-review)
-- Eval progress calculations (use /eval-progress)
+- Eval progress calculations (use /prop-firm-status)
 - Single-exchange checks that don't require cross-platform aggregation
 - Historical fills or closed positions (use `get_fills` or account history)
 

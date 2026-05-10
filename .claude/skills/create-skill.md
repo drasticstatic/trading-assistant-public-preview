@@ -137,7 +137,7 @@ Full roadmap with descriptions: `setup/system-overview.md` → Skills Candidates
 | 3 | `/session-sync` | Commit + push + append AGENT_SYNC.md + create/update session log ✅ Built |
 | 4 | `/marp-deck` | Convert any review/briefing doc to Marp slide deck + generate HTML ✅ Built |
 | 5 | `/import-trades` | Run TradeZella → STB pipeline, verify output, flag missing reviews ✅ Built |
-| 6 | `/eval-progress` | Live account data → balance, floor, gap to target, daily-run-rate math ✅ Built |
+| 6 | `/prop-firm-status` | Live account data → balance, floor, gap to target, daily-run-rate math ✅ Built |
 | 7 | `/open-orders` | Pull positions/orders from all connected exchanges → single status report ✅ Built |
 | 8 | `/pattern-review` | Read pattern_tracker.md → analyze trends → append dated review block with fix per pattern ✅ Built |
 | 9 | `/monthly-audit` | End-of-month Marp deck: P&L + behavioral arc + strategy/course progression for all coaching groups ✅ Built |
