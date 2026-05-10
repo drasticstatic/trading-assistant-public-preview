@@ -245,7 +245,7 @@ Skills to build next, in priority order. Run each description through [makemyski
 | 3 | `/session-sync` | "sync agents", "update agent-sync" | Commit staged work → push → append session block to AGENT_SYNC.md → create/update session log ✅ *Built* |
 | 4 | `/marp-deck` | "create a deck for", "make slides from" | Convert any review/briefing doc into a dark-theme Marp slide deck + generate HTML ✅ *Built* |
 | 5 | `/import-trades` | "import trades", "process the CSV" | Run the TradeZella → STB pipeline, verify output, flag any missing trade reviews ✅ *Built* |
-| 6 | `/eval-progress` | "eval status", "where am I on the eval" | Pull live account data (get_account) → report balance, trailing floor, gap to target, min days remaining, daily-run-rate math |
+| 6 | `/prop-firm-status` | "eval status", "where am I on the eval" | Pull live account data (get_account) → report balance, trailing floor, gap to target, min days remaining, daily-run-rate math |
 | 7 | `/open-orders` | "open orders", "check all positions" | Pull live positions/orders from all connected exchanges → single-pane status report ✅ *Built* |
 | 8 | `/pattern-review` | "pattern review", "update pattern tracker" | Read pattern_tracker.md → analyze trends → append dated review block with one mechanical fix per active pattern ✅ *Built* |
 | 9 | `/monthly-audit` | "monthly audit", "end of month", "April audit" | End-of-month Marp deck: P&L summary, behavioral arc, strategy/course progression across all coaching groups ✅ *Built* |

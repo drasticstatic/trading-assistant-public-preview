@@ -8,21 +8,39 @@ description: >
 
 Execute the complete sync routine: stage all outstanding work, commit with a meaningful message, push to remote, update AGENT_SYNC.md for cross-agent handoffs, and create or append the session log. Mid-session or end-of-work sync without the full /goodnight review checklist.
 
-## Session Sync vs. /goodnight
+## Skill Map
 
-| /session-sync | /goodnight |
-|---------------|------------|
-| Quick sync — commit + push + log | Full close — reviews checklist, pattern reminder, sign-off |
-| Mid-session or stepping away | Done for the day |
-| No completeness review | Checks for missing trade/daily reviews |
+| | /startup | /goodmorning | /session-sync | /goodnight |
+|---|---|---|---|---|
+| Proxy / model check | ✅ | ✅ | ❌ | ❌ |
+| MCP system health | ❌ | ✅ | ❌ | ❌ |
+| Prop firm status | ❌ | ✅ | ❌ | ❌ |
+| Premarket brief | ❌ | ✅ always | ❌ | ❌ |
+| Level brief | ✅ | via premarket | ❌ | ❌ |
+| SMT scan | ✅ | ✅ | ❌ | ❌ |
+| Behavioral reminder | ❌ | ✅ | ❌ | ✅ |
+| Trade + daily reviews | ❌ | ❌ | ❌ | ✅ |
+| Pattern reminder | ❌ | ❌ | ❌ | ✅ |
+| Commit + push | ❌ | ❌ | ✅ | ✅ |
+| Session log | ❌ | ❌ | ✅ | ✅ |
+| AGENT_SYNC update | ❌ | ❌ | ✅ | ✅ |
+| Graph update | ❌ | ❌ | if changed | if changed |
 
 ## Workflow
 
 ### 1. Check Status and Stage Work
 
+If code files changed this session, update the knowledge graph first (AST-only, no API cost):
+
+```bash
+graphify update .
+```
+
+Then stage:
+
 ```bash
 git status
-git add smarttrader-ai/ data/screenshots/ data/imports/ logs/ AGENT-SYNC/
+git add smarttrader-ai/ data/screenshots/ data/imports/ logs/ AGENT-SYNC/ graphify-out/
 ```
 
 Never stage: `.env`, credential files, wallet files, or other sensitive data.

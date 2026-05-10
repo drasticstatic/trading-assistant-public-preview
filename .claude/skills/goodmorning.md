@@ -13,6 +13,26 @@ description: >
 
 Run the full trading session startup sequence. This is the live trading terminal routine — systems first, context second, orientation third.
 
+## Skill Map
+
+| | /startup | /goodmorning | /session-sync | /goodnight |
+|---|---|---|---|---|
+| Proxy / model check | ✅ | ✅ | ❌ | ❌ |
+| MCP system health | ❌ | ✅ | ❌ | ❌ |
+| Prop firm status | ❌ | ✅ | ❌ | ❌ |
+| Premarket brief | ❌ | ✅ always | ❌ | ❌ |
+| Level brief | ✅ | via premarket | ❌ | ❌ |
+| SMT scan | ✅ | ✅ | ❌ | ❌ |
+| Behavioral reminder | ❌ | ✅ | ❌ | ✅ |
+| Trade + daily reviews | ❌ | ❌ | ❌ | ✅ |
+| Pattern reminder | ❌ | ❌ | ❌ | ✅ |
+| Commit + push | ❌ | ❌ | ✅ | ✅ |
+| Session log | ❌ | ❌ | ✅ | ✅ |
+| AGENT_SYNC update | ❌ | ❌ | ✅ | ✅ |
+| Graph update | ❌ | ❌ | if changed | if changed |
+
+---
+
 ## Step 0 — Model Choice
 
 **Live trading sessions always use Alfred-Anthropic.** No exceptions — no NIM, no free models for prop firm accounts, real money, or live session analysis.
@@ -55,6 +75,8 @@ If any MCP fails: diagnose before any trading work begins. Do not skip to market
 
 ## Step 2 — Read Context
 
+If `graphify-out/GRAPH_REPORT.md` exists, read it first — god nodes show the repo's core abstractions and community structure at a glance before diving into individual files.
+
 - Read `AGENT-SYNC/AGENT_SYNC.md` — pick up where last session left off
 - Check for new agent prompts in `AGENT-SYNC/created-by-auggie/` and `AGENT-SYNC/created-by-kavanah/`
 - Note any active behavioral patterns from memory (Pattern 7, 8, 9, reversal bias)
@@ -63,10 +85,7 @@ If any MCP fails: diagnose before any trading work begins. Do not skip to market
 
 ## Step 3 — Account Status Brief
 
-Report:
-- **[YOUR_APEX_ACCOUNT_ID]**: balance, trailing floor, distance to profit target, min days status
-- **[YOUR_TPT_ACCOUNT_ID]**: status, reset date, any restrictions
-- Any other active accounts
+Run `/prop-firm-status` — pulls live account data, calculates gap to target, floor buffer, pace, and flags any risks. Update `prop-firm-progression.md` if status changed.
 
 **Why this matters:** Apex accounts have dynamic trailing drawdowns and consistency rules. Knowing the current floor tells you how much risk is actually available today. Distance to profit target and min days tells you whether you're pacing correctly or need to adjust urgency.
 
@@ -74,8 +93,7 @@ Report:
 
 - What day of the week is it? What is the macro context? (CPI week? FOMC? EIA Wednesday?)
 - Check economic calendar for today's events and times
-- If premarket file exists for today: summarize key levels and bias
-- If no premarket file: note the gap and offer to build one now with /premarket
+- Always run `/premarket` — generate from key levels, prior session structure, and economic calendar context even if screenshots are not available
 
 **Why this matters:** Trading the same setup on a quiet Tuesday vs. CPI Wednesday can have wildly different outcomes. Macro events compress volatility before release and expand it after. Knowing what's on the calendar prevents holding through a known catalyst or trading during a dead zone.
 

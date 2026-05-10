@@ -552,33 +552,7 @@ Links to individual reviews:
 <a id="prop-firm-roster"></a>
 ## 🏦 Prop Firm Account Roster
 
-All eval accounts since trading began. Sources: TPT control center PDFs, Tradovate account history, TradeZella import data.
-
-### Apex Trader Funding
-
-| Account | Type | Period | Outcome | Notes |
-|---------|------|--------|---------|-------|
-| APEX-484839-01 | 100K eval | ~Feb 2026 | ❌ Blown | Earliest account — blown within first few sessions (~Feb 9) |
-| APEX-484839-02 | 100K eval | ~Feb 2026 | ❌ Blown | Blow trade: ES long Feb 12 (-$3,000) |
-| APEX-484839-03 | 100K eval | ~Feb 2026 | ❌ Blown | Blown Feb 13 — NQ short -$3,080 (same trade as APEX-04; both accounts running simultaneously) |
-| APEX-484839-04 | 100K eval | ~Feb 2026 | ❌ Blown | Blown Feb 13 — NQ short -$3,080 (same trade as APEX-03; both accounts running simultaneously) |
-| APEX-484839-05 | 100K eval | ~Feb 2026 – Mar 3, 2026 | ❌ Blown | Patterns 6+7 on blow day (Mar 3 -$2,300) |
-| APEX-484839-06 | 100K eval | Mar 2026 – present | ✅ Active · renewed Apr 25 | Min days met Mar 24 · profit target still open · renewed cycle active |
-
-### TakeProfitTrader 50K
-
-| Account | ID | Period | Days Traded | Blow Day P&L | Outcome |
-|---------|-----|--------|-------------|-------------|---------|
-| TPT reset-0 | TAKEPROFIT635000920 | Feb 8–13, 2026 | 5/5 | Feb 13: -$2,012.50 (min balance breach: $49,755 < $49,767.50) | ❌ Blown Feb 13 |
-| TPT reset-1 | TAKEPROFIT401190651 | Feb 16–17, 2026 | 1 | Feb 17: -$2,215.00 (balance $47,785 < $48,000 min) | ❌ Blown day 1 |
-| TPT reset-2 | TAKEPROFIT363712064 | Mar 25–27, 2026 | 2 | Mar 27: -$1,817.00 (overnight MGC · account blown) | ❌ Blown Mar 27 |
-| TPT reset-3 | TAKEPROFIT558167553 | Apr 1, 2026 – present | 3/5 (deadline May 1) | — | ⚠️ Active · +$391 net (Apr 27–29) |
-
-**TPT eval parameters (all resets):** Starting balance $50,000 · Profit target $53,000 (+$3,000) · Min balance $48,000 · Max 6 contracts · No positions past 17:00 ET · 5 minimum trading days
-
-**TPT reset-3 current status (as of Apr 27):** 1 day counted (Apr 27 MGC +$22) · 4 days needed by May 1 · P&L at -$184 net across the full TPT history this reset (accounting for the Mar reset wipe)
-
-> Source PDFs: [TPT reset-0 (Feb 8–12)](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/imports/2026/02-Feb/TPT_2026_02-08-thru-02-12_redacted.pdf) · [TPT reset-1 (Feb 16)](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/imports/2026/02-Feb/TPT_2026_02-16_redacted.pdf) · [TPT reset-2 (Mar 25–26)](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/imports/2026/03-Mar/TPT_2026_03-25-thru-03-26_redacted.pdf)
+→ **[Full account roster + progression plan on GitHub](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-progression.md)**
 
 ---
 
