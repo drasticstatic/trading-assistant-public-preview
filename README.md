@@ -1,4 +1,4 @@
-# 💰 Trading Assistant — Three-Agent AI System
+# 💰 Trading Assistant — Multi-Agent AI System
 
 > A live, multi-agent AI trading accountability system built on Claude Code CLI + Augment Code
 
@@ -23,27 +23,37 @@ I generate ready-to-paste content for all three of SmartTraderAI's check-in form
 
 — *Fortuna (via Claude Code CLI)* 🙏🏼
 
-## 🤖 The Three Agents
+## 🤖 The Agent Ecosystem
 
 ### 🔮 Fortuna — Trading Coach & Session Intelligence
 
-**Platform:** Claude Code CLI (Anthropic)
+**Platform:** Claude Code CLI (Anthropic + NVIDIA NIM for eligible tasks)
 
 Fortuna is the primary user-facing agent — Christopher's dedicated trading assistant, accountability coach, and analyst. At the start of every session, Fortuna checks in on mental state, reviews news events, and sets goals. After each session, Fortuna analyzes trade data and screenshots, evaluates every trade against the correct strategy framework, flags rule violations, identifies behavioral patterns across sessions, and celebrates genuine process wins.
 
 Fortuna also generates structured coaching exports (daily pre-market reviews, post-market reviews, and weekly check-ins) and manages the automated TradeZella → SmartTraderAI data pipeline end-to-end.
 
+**NIM note:** Fortuna uses Anthropic by default for all live trading and analysis. NVIDIA NIM (free tier) is being tested for non-live tasks — draft reviews, research, routine housekeeping — to extend Claude quota for high-value work.
+
+### 🤖 Alfred — System Coordinator
+
+**Platform:** Claude Code CLI (Anthropic + NVIDIA NIM)
+
+Alfred handles cross-repo housekeeping, infrastructure, AGENT-SYNC maintenance, and session coordination tasks that would otherwise eat Fortuna's trading context. At session start, Fortuna checks `AGENT-SYNC/created-by-alfred/prompts/` for Alfred handoff briefs. Alfred and Fortuna run as separate sessions — handoff via HANDOFF.md + AGENT_SYNC.md updates.
+
 ### 🛠️ Auggie — Implementation Engine
 
-**Platform:** Augment Code
+**Platform:** Augment Code / Augment Intent *(currently on hiatus — Claude/Alfred covering builds as needed)*
 
-Auggie handles all infrastructure, code, and builds. This includes MCP server development (brokerage data access, webhook receivers), custom TradingView Pine Script indicators, Python automation scripts, and system architecture. Auggie built the Tradovate MCP server, the TradingView webhook pipeline, and maintains the technical infrastructure that powers the operation.
+Auggie handles code builds — MCP server development, custom TradingView Pine Script indicators, Python automation scripts, and system architecture.
+
+**Multi-model capability:** Augment Code and Augment Intent both support native login via Claude (Anthropic) or OpenAI (GPT models), as well as OpenCode as a standalone path — without routing through Intent's Augment login. In practice, sessions primarily run via Augment Intent + CLI, with Claude and OpenAI used interchangeably to cross-reference output and balance available quota.
 
 ### 📋 Kavanah — Strategic Orchestration
 
 **Platform:** Augment Intent (Agent Fleet)
 
-Kavanah coordinates spec-driven task execution across the workspace. When large-scale documentation, strategy reference builds, or multi-file restructuring is needed, Kavanah breaks the work into tasks, delegates to specialized sub-agents, tracks progress, and ensures everything stays in sync. Kavanah built the complete Inevitrade strategy reference library and manages cross-agent coordination.
+Kavanah coordinates spec-driven task execution. When large-scale documentation, strategy reference builds, or multi-file restructuring is needed, Kavanah breaks the work into tasks and delegates. Kavanah built the complete Inevitrade strategy reference library.
 
 ## 🏗️ Architecture
 
