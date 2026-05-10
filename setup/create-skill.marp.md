@@ -274,7 +274,7 @@ table {
 <tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/premarket.md"><code>/premarket</code></a></td><td>"what's on deck for today?"</td></tr>
 <tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/level-brief.md"><code>/level-brief</code></a></td><td>"let's check the current levels"</td></tr>
 <tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/open-orders.md"><code>/open-orders</code></a></td><td>"check my live positions"</td></tr>
-<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/eval-progress.md"><code>/eval-progress</code></a></td><td>"how's the eval's status"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/prop-firm-status.md"><code>/prop-firm-status</code></a></td><td>"how's the health of our prop firms?"</td></tr>
 <tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/import-trades.md"><code>/import-trades</code></a></td><td>"load today's fills"</td></tr>
 <tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/trade-review.md"><code>/trade-review</code></a></td><td>"create review for [trade]"</td></tr>
 <tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/daily-review.md"><code>/daily-review</code></a></td><td>"recap today's session"</td></tr>
@@ -294,11 +294,11 @@ table {
 <tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/tcl-analysis.md"><code>/tcl-analysis</code></a></td><td>"TCL <em>(trend continuation)</em> eval"</td></tr>
 <tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/smog-analysis.md"><code>/smog-analysis</code></a></td><td>"SMOG <em>(reversal)</em> evaluation"</td></tr>
 <tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/tax-entry.md"><code>/tax-entry</code></a></td><td>"save this for taxes"</td></tr>
-<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/session-sync.md"><code>/session-sync</code></a></td><td>"sync everything"</td></tr>
-<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/marp-deck.md"><code>/marp-deck</code></a></td><td>"create a deck for"</td></tr>
-<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/create-skill.md"><code>/create-skill</code></a></td><td>"build a new skill for..."</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/session-sync.md"><code>/session-sync</code></a> <em><sub>(global)</sub></em></td><td>"sync everything"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/startup.md"><code>/startup</code></a> <em><sub>(global)</sub></em></td><td>"initiate our session together"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/marp-deck.md"><code>/marp-deck</code></a> <em><sub>(global)</sub></em></td><td>"create a deck for"</td></tr>
+<tr><td><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/create-skill.md"><code>/create-skill</code></a> <em><sub>(global)</sub></em></td><td>"build a new skill for..."</td></tr>
 <tr><td><code></code><em><small></small></em></td><td></td></tr>
-<tr><td><code>/startup</code> <em><sub>(global)</sub></em></td><td>"let's get oriented"</td></tr>
 <tr><td><code>/summarize</code> <em><sub>(roadmap)</sub></em></td><td>"give me the short version"</td></tr>
 <tr><td><code>/explain</code> <em><sub>(roadmap)</sub></em></td><td>"break this down"</td></tr>
 <tr><td><code>/capture-agent-trades</code> <em><sub>(roadmap)</sub></em></td><td>"log what the bot traded"</td></tr>
@@ -350,7 +350,7 @@ Optional but recommended for: `/goodmorning`, `/trade-review`, `/premarket`
 | [/monthly-audit](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/monthly-audit.md) | Confirmed solid, cosmetic changes only | 💡 Quality signal — already solid |
 | [/tcl-analysis](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/tcl-analysis.md) | Entry checklist, TCL vs. pullback criteria, failure modes | ✅ Adds precision — run it |
 | [/smog-analysis](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/smog-analysis.md) | Reversal confirmation layers, SMT trap scenarios | ✅ Adds confirmation depth |
-| [/eval-progress](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/eval-progress.md) | Reformatted description only; removed Do NOT use for clause | ⏭️ Skip — anti-trigger removed |
+| [/prop-firm-status](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/prop-firm-status.md) | Trailing drawdown mechanics, tiered floor risk levels, consistency tracking | ✅ Significantly enhanced |
 | [/smt-scan](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/smt-scan.md) | Trimmed BTC/ETH crypto scope from description | ⚠️ Marginal — narrowed scope |
 | [/pattern-review](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/pattern-review.md) | Added output spec: frequency counts, P&L impact, mechanical fixes | ✅ Stronger output spec |
 | [/session-sync](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/.claude/skills/session-sync.md) | No changes to description or body | 💡 Already solid — no changes |
