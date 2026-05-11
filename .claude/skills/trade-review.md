@@ -43,6 +43,12 @@ smarttrader-ai/reviews/YYYY/MM-Mon/review_YYYYMMDD_[INSTRUMENT]-[PLATFORM]_[NNN]
 - `[NNN]` = trade number for that calendar day (001, 002, 003...) — not instrument-specific
 - Example: `review_20260417_M2K-APEX_001.md`
 
+## Section Header Rules
+
+- **No numbers in section headings.** Write `## ⚡ What Happened in One Paragraph` not `## ⚡ 1. What Happened`
+- Section names are fixed — do not paraphrase or abbreviate them
+- The Order Execution section uses a **table**, not bullet points. Include ALL orders — entries, exits, TPs, SLs, and **canceled orders**. Canceled orders give coaches a full picture of what Christopher was considering.
+
 ## Required Sections — All 9, In This Order
 
 ### 1. `## ⚡ What Happened in One Paragraph`
@@ -206,13 +212,15 @@ Notes for Coaches whether move was disciplined or emotional.
 1. Run `pngquant --quality=65-80 --speed=1 --skip-if-larger --ext .png --force data/screenshots/*.png` if new screenshots were added
 2. **Run the STB TradeZella Automator** — push `tradezella_YYYYMMDD.csv` to the STB Google Sheet:
    ```bash
-   bash ~/TradeZella_STB/automator_drop_handler.sh \
-     ~/ClaudeCodeCLI/trading-assistant/data/imports/YYYY/MM-Mon/tradezella_YYYYMMDD.csv
+   bash ~/code/TradeZella_STB/automator_drop_handler.sh \
+     ~/code/trading-assistant/data/imports/YYYY/MM-Mon/tradezella_YYYYMMDD.csv
    ```
    No terminal output = Sheets mode (success notification goes to macOS notification center). Check the STB Google Sheet or macOS notifications to confirm the row landed. Spec: `specs/tradezella-automater.spec.md`
 3. Update `smarttrader-ai/reviews/pattern_tracker.md` — add trade to log table, update Running P&L, update cumulative
-4. Update weekly review file if it already exists — add trade to Week at a Glance table
-5. Commit with message: "Add trade review #NNN — [INSTRUMENT] [DIR] [DATE] · [P&L]"
+4. **Run `/prop-firm-status`** — updates `setup/accounts/PropFirms/prop-firm-progression.md` with current account standing and outputs a brief to chat. Always run after any review that involves a filled trade on an active eval account or funded account.
+5. Update weekly review file if it already exists — add trade to Week at a Glance table
+6. Append to `logs/fortuna/YYYY/MM-Mon/session_YYYYMMDD.md` — note the review file created and the trade outcome
+7. Commit with message: "Add trade review — [INSTRUMENT]-[PLATFORM]_NNN · [DATE] · [P&L]"
 
 ## Related Specs
 

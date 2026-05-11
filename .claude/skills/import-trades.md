@@ -24,7 +24,7 @@ flag any trades missing a review file.
 3. Note the export type:
    - **TradeZella:** exported from Trade Log page — contains summary data with P&L
    - **Tradovate:** exported from ORDERS tab (not Performance) — contains order-level data
-4. Confirm `~/TradeZella_STB/` is set up (script + template + venv + service_account.json)
+4. Confirm `~/code/TradeZella_STB/` is set up (script + template + venv + service_account.json)
 
 ## File Naming and Location
 
@@ -39,13 +39,19 @@ Date in filename = the trade date (or last date in range for multi-day exports).
 
 ### 1. Push to SmartTraderAI Google Sheet (STB Conversion)
 
-**Recommended — Automator drag-and-drop:**
-Drag the `trades_*.csv` from Downloads onto the **TradeZella to STB** app on the Desktop.
-Result: trades append to the STB Google Sheet automatically ✅
-
-**Alternative — Terminal:**
+**Recommended — Automator shell script (after CSV is archived):**
 ```bash
-cd ~/TradeZella_STB
+bash ~/code/TradeZella_STB/automator_drop_handler.sh \
+  ~/code/trading-assistant/data/imports/YYYY/MM-Mon/tradezella_YYYYMMDD.csv
+```
+No terminal output = Sheets mode (success). macOS notification center confirms the row landed. Check the STB Google Sheet to verify.
+
+**Alternative — Automator drag-and-drop:**
+Drag the `trades_*.csv` from Downloads onto the **TradeZella to STB** app on the Desktop.
+
+**Alternative — Terminal (Python directly):**
+```bash
+cd ~/code/TradeZella_STB
 source venv/bin/activate
 python3 tradezella_to_stb.py ~/Downloads/trades_YYYYMMDDHHmmss.csv
 ```
@@ -54,6 +60,8 @@ The script accepts any `trades_*.csv` filename — no renaming needed before run
 
 > **If Google Sheet is not configured:** script falls back to creating
 > `STB_Import_Merged_YYYYMMDD.xlsx` — upload that manually to SmartTraderAI.
+
+**Non-pipeline imports (outside TradeZella scope):** TradeZella currently covers prop firm accounts and paper trading only. BTCC/Bybit voucher futures trades are documented via GitHub review journal and shared with coaches/SmartTraderAI directly — not tracked in TradeZella. This is intentional: coaches are focused on prop firm progress, and the voucher positions are not yet at a scale worth importing separately. Retroactive TradeZella + STB import for all BTCC futures trades is a pending task. Other platforms permanently outside this pipeline: Robinhood (stocks/options), Coinbase and DEX spot swaps, any investing accounts, and automated trading bots. For any trade outside the prop firm / paper trading scope, skip the automator and proceed to archive + cross-reference only.
 
 ### 2. Validate the CSV
 
@@ -88,9 +96,18 @@ Copy and rename to standard format:
 # TradeZella
 cp ~/Downloads/trades_*.csv data/imports/YYYY/MM-Mon/tradezella_YYYYMMDD.csv
 
-# Tradovate
+# Tradovate — single export
 cp ~/Downloads/Orders.csv data/imports/YYYY/MM-Mon/tradovate_orders_YYYYMMDD.csv
+
+# Tradovate — multiple exports (e.g. Orders.csv + Orders-2.csv from two different trade dates)
+# Name each file after the trade date it covers:
+cp ~/Downloads/Orders.csv   data/imports/YYYY/MM-Mon/tradovate_orders_20260506.csv
+cp ~/Downloads/Orders-2.csv data/imports/YYYY/MM-Mon/tradovate_orders_20260508.csv
+# If both cover the same date (e.g. split session), append a suffix:
+cp ~/Downloads/Orders-2.csv data/imports/YYYY/MM-Mon/tradovate_orders_YYYYMMDD_b.csv
 ```
+
+**Multiple exports edge case:** Tradovate resets the filename to `Orders.csv` each export. If you export multiple sessions, the Downloads folder accumulates `Orders.csv`, `Orders-2.csv`, `Orders-3.csv`, etc. Archive in the order they were exported — the earliest trade date gets the base name, each subsequent date gets its own `YYYYMMDD` name.
 
 ### 4. Cross-Reference Trade Reviews
 
@@ -171,7 +188,7 @@ git push origin main
 
 **SPREADSHEET_ID not set:** Edit `SPREADSHEET_ID` at the top of `tradezella_to_stb.py`.
 
-**`service_account.json` not found:** Must be in `~/TradeZella_STB/` alongside the script.
+**`service_account.json` not found:** Must be in `~/code/TradeZella_STB/` alongside the script.
 
 ## Related Specs
 
@@ -182,7 +199,7 @@ git push origin main
 
 ```bash
 # STB Google Sheet push (Terminal method)
-cd ~/TradeZella_STB && source venv/bin/activate
+cd ~/code/TradeZella_STB && source venv/bin/activate
 python3 tradezella_to_stb.py ~/Downloads/trades_*.csv
 
 # Archive CSV
