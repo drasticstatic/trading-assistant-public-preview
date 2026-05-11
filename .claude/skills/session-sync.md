@@ -69,7 +69,7 @@ git push origin main
 
 ### 4. Session Log — Create or Append
 
-Path: `logs/fortuna/YYYY/MM-Mon/session_YYYYMMDD.md`
+Path: `logs/fortuna/YYYY/MM-Mon/session_YYYYMMDD_{anthropic|nvidia}.md`
 
 Format:
 ```markdown
