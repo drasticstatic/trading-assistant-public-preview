@@ -5,7 +5,7 @@
 
 ---
 
-## ⚡ 1. What Happened
+## ⚡ What Happened in One Paragraph
 
 MCL short entered at 16:59:10 EDT — 50 seconds before market close. The position closed at 16:59:54 EDT. Duration: **44 seconds.**
 
@@ -17,7 +17,7 @@ The trade was profitable — +$20 — but the MFE was $28, so even on a 44-secon
 
 ---
 
-## 📊 2. Trade Data
+## 📊 Trade Data
 
 | Field | Value |
 |-------|-------|
@@ -50,7 +50,7 @@ The trade was profitable — +$20 — but the MFE was $28, so even on a 44-secon
 
 ---
 
-## 📋 3. Order Execution
+## 📋 Order Execution
 
 - Entry: market order at 16:59:10 EDT (50 seconds before session close)
 - No stop set
@@ -59,7 +59,7 @@ The trade was profitable — +$20 — but the MFE was $28, so even on a 44-secon
 
 ---
 
-## 📖 4. Session Narrative
+## 📖 Session Narrative
 
 By 16:59 EDT, the session's two primary trades had already closed — RTY +$1,540 and YM −$1,205 for a net day of +$335. The YM result carried emotional weight disproportionate to the dollar amount: the MFE had been visible and not acted on, and the multi-hour hold had ended in a loss that left a feeling of incompleteness.
 
@@ -69,7 +69,7 @@ The day ended green (+$355). The MCL trade did not break anything. But it was en
 
 ---
 
-## 📸 5. Screenshot Timeline
+## 📸 Screenshot Timeline
 
 **19:48 ET — MCL daily uptrend context and spike wick**
 ![MCL daily uptrend](../../../../data/screenshots/MCL1!_2026-04-29_19-48-41_bf532.png)
@@ -81,13 +81,13 @@ The day ended green (+$355). The MCL trade did not break anything. But it was en
 
 <a id="notes-for-coaches"></a>
 
-## 📝 6. Notes for Coaches + SmartTraderAI
+## 📝 Notes for Coaches + SmartTraderAI
 
 MCL short, 2 contracts, entered 16:59:10 EDT — 50 seconds before market close. Duration 44 seconds. Christopher self-identified as a revenge trade driven by frustration over YM exit passivity. No plan, no stop, chasing price. Profitable (+$20) but exit efficiency 9.52% — Pattern 8 present even at this scale. MFE $28, collected $20. MCL was in a strong uptrend all session — the short caught a momentary dip in an uptrending instrument. This was not a setup. It was an emotional release. Positive outcome does not change the assessment.
 
 ---
 
-## 🧠 7. Behavioral Notes
+## 🧠 Behavioral Notes
 
 This trade should not have been taken. Christopher knows this — he said so directly before asking for the reviews.
 
@@ -103,7 +103,7 @@ The right response to the YM frustration was not another trade. It was what Chri
 
 ---
 
-## 🔁 8. Pattern Tracker
+## 🔁 Pattern Tracker
 
 | Pattern | Status |
 |---------|--------|
@@ -117,7 +117,7 @@ The right response to the YM frustration was not another trade. It was what Chri
 
 ---
 
-## 🎯 9. Forward Focus
+## 🎯 Forward Focus
 
 1. **If the session has closed a trade and frustration is present — journal before the order panel.** The sequence that worked was: trade ends → walk the dog → journal → recover. The MCL entry happened before that recovery. Next time, force the journal open first.
 2. **A small win on a revenge trade is a warning, not a reward.** The +$20 will make this easier to repeat. Counter it consciously: the session result was +$355 because of RTY structure, not because of the 44-second MCL impulse.

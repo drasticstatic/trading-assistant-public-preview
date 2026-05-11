@@ -5,7 +5,7 @@
 
 ---
 
-## ⚡ 1. What Happened
+## ⚡ What Happened in One Paragraph
 
 At **16:11:45 EDT** Christopher entered **2 MCL LONG at 89.9** on the TPT 50K account. A stop was pre-placed at **88.4**. Both the entry and stop were filled within **4 seconds**.
 
@@ -17,7 +17,7 @@ The stop was in place. The stop was respected. The account was protected. That i
 
 ---
 
-## 📊 2. Trade Data
+## 📊 Trade Data
 
 | Field | Value |
 |-------|-------|
@@ -43,7 +43,7 @@ The stop was in place. The stop was respected. The account was protected. That i
 
 ---
 
-## 📋 3. Order Execution
+## 📋 Order Execution
 
 | Order | Time (ET) | Type | Price | Notes |
 |-------|-----------|------|-------|-------|
@@ -54,13 +54,13 @@ The stop was in place. The stop was respected. The account was protected. That i
 
 ---
 
-## 📖 4. Session Narrative
+## 📖 Session Narrative
 
 *[Stub — to be filled in. Describe the session arc: the Mar 26 afternoon context, the bullish EMA setup on crude, how this entry came in the final minutes of the regular session, and what the energy market was doing leading into the 16:11 news event.]*
 
 ---
 
-## 📸 5. Screenshot Timeline
+## 📸 Screenshot Timeline
 
 **16:11 ET — MCL 1-min: news candle spike · entry and stop both filled in 4 seconds**
 ![MCL 1-min — news candle stop-out](../../../../data/screenshots/MCL_Fri%2027%20Mar%20'26_01-27-41.png)
@@ -71,7 +71,7 @@ The stop was in place. The stop was respected. The account was protected. That i
 ---
 
 <a id="notes-for-coaches"></a>
-## 📝 6. Notes for Coaches + SmartTraderAI
+## 📝 Notes for Coaches + SmartTraderAI
 
 *TPT 50K account — Day 2 of 5 minimum trading days.*
 
@@ -83,7 +83,7 @@ The stop was in place. The stop was respected. The account was protected. That i
 
 ---
 
-## 🧠 7. Behavioral Notes
+## 🧠 Behavioral Notes
 
 **Pattern 9 — IMPROVEMENT confirmed.** The stop was IN PLACE before the position opened. This is the single most important behavioral takeaway from this trade. The March 20 pattern (fill occurs → SL not set or canceled → unprotected position runs -$925 MAE) did not repeat. The bracket was defined, the stop was live, and the account was protected. If the stop had not been placed, this news spike — which ran approximately $3 below entry — could have done catastrophic damage to the TPT 50K account. The SL saved the account.
 
@@ -95,7 +95,7 @@ The stop was in place. The stop was respected. The account was protected. That i
 
 ---
 
-## 🔁 8. Pattern Tracker
+## 🔁 Pattern Tracker
 
 | Pattern | Status | Notes |
 |---------|--------|-------|
@@ -108,7 +108,7 @@ Trade 20260326_MCL-TPT_001 logged.
 
 ---
 
-## 🎯 9. Forward Focus
+## 🎯 Forward Focus
 
 1. **Check the economic calendar before any entry near a session boundary.** The 16:00–16:15 ET window in the commodity complex is a documented news-event zone. A quick calendar scan before entering MCL or CL in the final 30 minutes of the regular session would have flagged this. Make it a standing step in the pre-entry checklist.
 2. **Pattern 9 is confirmed — carry it forward without exception.** The pre-placed stop that saved this account from a potential $3+ drop is now the standard. Stop in place before fill. No bracket placed without an SL defined. This is no longer aspirational; it is the minimum.

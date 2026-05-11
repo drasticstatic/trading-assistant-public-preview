@@ -45,6 +45,9 @@
 | 20260423_YM-APEX_002 | Apr 23 | YM | Long | 49,122 | 49,341 (TP) | **+$1,095** | 0.42R | 95.22 | 4.0/5 | ⚠️ ZTH SFP + OB/FVG · same sweep · TP modified from original sweep target (Pattern 7 soft) | ✅ SL 48,601 placed · canceled cleanly on TP fill | Yes |
 | 20260427_MGC-TPT_001 | Apr 27 | MGC | Long | 4,695.8 | 4,696.9 (TP) | **+$22** | N/A | 78.57 | 2.0/5 | ❌ FOMO · forced entry (TPT min day req) · counter-trend · not off a level · near market close | ✅ No SL defined (intentional) — TP placed 41s post-entry, filled before platform close | Yes |
 | 20260428_MGC-TPT_001 | Apr 28 | MGC | Long | 4,581.4 | 4,582.1 (manual) | **+$14** | N/A | 38.89 | 1.5/5 | ❌ FOMO · forced entry (TPT min day req) · market order after 4 canceled limits · AM selloff bounce | ❌ No TP placed — manual nervous flatten 45s post-entry · 2.03% exit efficiency · $688 left on table | No |
+| 20260502_SOLUSDT-BTCC_001 | ~May 2–6 | SOLUSDT | Short | Unknown | Liquidation | **Unknown (loss)** | N/A | — | — | ⚠️ Voucher SHORT · macro spike (tariff relief rally + CPI) overwhelmed margin · no SL set | ❌ None set — voucher · liquidated (insufficient margin) · Pattern 8 + 9 | No |
+| 20260506_RTY-APEX_001 | May 6 | RTY | Short | 2,898.3 | 2,891.1 (AutoLiq) | **+$360** | N/A | 18.85 | 3.5/5 | ⚠️ ZTH Pivot + Fib projections · FOMO · against uptrend bias · pre-market limit · 10h57m hold | ❌ None set · TP 2861.9 placed then canceled at MFE+4h · AutoLiq exit (Pattern 8) | No |
+| 20260508_RTY-APEX_001 | May 8 | RTY | Long | 2,854.1 | 2,868.1 (AutoLiq) | **+$700** | N/A | 64.81 | 3.5/5 | ⚠️ Coach analysis (STB K) · FOMO market order at 2am · trend continuation · not off specific level | ❌ None set · TP 2882.5 placed then canceled pre-RTH · AutoLiq exit (Pattern 8) | No |
 
 ---
 
@@ -80,19 +83,23 @@ Apr 23     -$140.00  ████░░░░░░░░░░░  loss · RTY 
 Apr 23   +$1,095.00  ████████████████ WIN ✅ YM LONG · ZTH SFP sweep · TP filled 11 min · Zella 95.22 · soft P7 (TP modified)
 Apr 27      +$22.00  █░░░░░░░░░░░░░░  WIN ✅ MGC LONG · TPT · FOMO forced entry (min day req) · TP placed 41s post-entry · Pattern 8 not triggered
 Apr 28      +$14.00  █░░░░░░░░░░░░░░  WIN ✅ MGC LONG · TPT · FOMO forced entry (min day req) · market fill after 4 canceled limits · manual flatten 45s post-entry · no TP placed · left the move
+May 2–6   unknown  ░░░░░░░░░░░░░░░  BTCC SOL SHORT · tariff relief + CPI rally · liquidated (insufficient margin) · P&L unknown (2FA blocked)
+May 6     +$360.00  ████████░░░░░░░  WIN ✅ RTY SHORT · APEX-06 · ZTH Pivot · FOMO pre-market limit · TP canceled at MFE · AutoLiq · 18.85% efficiency
+May 8     +$700.00  ████████████░░░  WIN ✅ RTY LONG · APEX-06 · 2am market order · coach analysis · TP canceled pre-RTH · AutoLiq · 64.81% efficiency
 
 ```
 
-### 💰 Cumulative P&L by Account (Feb 23 – Apr 28, 2026)
+### 💰 Cumulative P&L by Account (Feb 23 – May 8, 2026)
 
 | Account | Platform | Status | P&L (this tracker period) |
 |---------|----------|--------|--------------------------|
 | APEX-484839-05 | Apex Trader Funding | ❌ Blown Mar 3 | See Feb–Mar monthly review |
-| APEX-484839-06 | Apex Trader Funding | ✅ Active · renewed Apr 25 | **+$2,234** (+$1,225 Mar 24 · -$87 Apr 17 · +$141 Apr 21 · -$140 Apr 23 RTY · +$1,095 Apr 23 YM) |
-| TPT reset-3 (558167553) | TakeProfitTrader 50K | ⚠️ Active · 2/5 days · deadline May 1 | **-$170** (Mar 26 -$206 · Apr 27 +$22 · Apr 28 +$14) |
-| BTCC (vouchers) | BTCC Crypto | ⚠️ Voucher only | **~-$15.50 USDT** (-$14.13 Mar 25-26 · -$22 Apr 8 · +$20.63 Feb 25) |
+| APEX-484839-06 | Apex Trader Funding | ✅ Active · renewed Apr 25 | **+$3,294** (+$1,225 Mar 24 · -$87 Apr 17 · +$141 Apr 21 · -$140 Apr 23 RTY · +$1,095 Apr 23 YM · +$360 May 6 · +$700 May 8) |
+| TPT reset-3 (558167553) | TakeProfitTrader 50K | ❌ Blown Apr 30 | **-$170** (Mar 26 -$206 · Apr 27 +$22 · Apr 28 +$14) |
+| TPT reset-4 | TakeProfitTrader 50K | ✅ Active · renewed May 1 · 0/5 days | No fills yet |
+| BTCC (vouchers) | BTCC Crypto | ⚠️ Voucher only · 2FA blocked | **~-$15.50 USDT + unknown May 2–6 loss** (-$14.13 Mar 25-26 · -$22 Apr 8 · +$20.63 Feb 25 · May 2–6 unknown) |
 
-**Combined USD futures (Feb 23–Apr 28): +$2,064 · BTCC: ~-$15.50 USDT · Overall: ~+$2,048**
+**Combined USD futures (Feb 23–May 8): +$3,124 · BTCC: ~-$15.50 USDT + unknown · Overall: ~+$3,108 + BTCC unknown**
 
 > Full prop firm account roster → [see below](#prop-firm-roster)
 
@@ -129,6 +136,9 @@ Apr 28      +$14.00  █░░░░░░░░░░░░░░  WIN ✅ MGC 
 | Apr 23 RTY (T1) | Anxious at entry; neutral at close | Partial | ⚠️ ZTH SFP + OB/FVG · manipulation sweep · patient pre-placed limit · valid structural thesis | ❌ SL 2725.2 canceled 38 min post-fill (Pattern 7) · AutoLiq exit 16:59 (Pattern 8) | Held through -$1,610 MAE without panic-close; both RTY+YM adverse simultaneously — composure held |
 | Apr 23 YM (T2) | Calm, excited, confident, neutral, happy | Yes | ⚠️ ZTH SFP + OB/FVG · same sweep window · 2.5hr wait from placement to fill | ✅ SL 48,601 placed; canceled cleanly on TP fill · TP modified down (soft Pattern 7) | Cleanest exit of recent arc — TP filled actively; Zella 95.22; cross-instrument TCL dynamic with RTY |
 | Apr 27 MGC (T1) | Anxious, fearful, excited, stressed | Yes | ❌ FOMO · forced entry (TPT min day req) · counter-trend · not off a level | ✅ No SL (near-close, intentional) · TP placed 41s post-entry · held through -$42 MAE · filled at 16:58:50 (70s before platform close) | Pattern 8 not triggered — active exit on a FOMO trade; exit discipline holds even when entry discipline broke |
+| May 2–6 SOL BTCC | Unknown (no CSV — 2FA blocked) | Unknown | ⚠️ Voucher SHORT · macro risk week (tariff/CPI) · no SL | ❌ None set — liquidated by insufficient margin | Macro spike overwhelmed margin buffer; no mechanical stop; Pattern 8 + 9 structural |
+| May 6 RTY (T1) | Angry, excited, frustrated, greedy, stressed, anxious, ambivalent, fearful | No | ⚠️ ZTH Pivot + Fib projections — FOMO · against bias ("ignored uptrend") · pre-market limit | ❌ None set — no SL for 10h57m | TP placed at 2861.9 (0.2 pts from MFE) — canceled 4h after low; AutoLiq 16:59 — Pattern 8 direct: plan removed, involuntary close |
+| May 8 RTY (T2) | Stable pre-entry; frustrated, happy, anxious, ambivalent in-trade | No | ⚠️ Coach analysis (STB K) · market structure shift · not off a level · FOMO market order at 2am | ❌ None set — no SL for 14h47m | TP placed at 2882.5 — canceled pre-RTH before price tested; AutoLiq 16:59 — Pattern 8: plan removed preemptively |
 
 **Trend:**
 ```

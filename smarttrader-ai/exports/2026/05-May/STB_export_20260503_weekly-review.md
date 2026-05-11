@@ -378,9 +378,7 @@ The secondary work is extending the Pattern 8 improvement from RTY Apr 29 into e
 
 ---
 
-**GitHub review link:**
-
-https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/05-May/STB_export_20260503_weekly-review.md
+> Full weekly review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/05-May/STB_export_20260503_weekly-review.md
 
 ---
 

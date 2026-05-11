@@ -5,7 +5,7 @@
 
 ---
 
-## ⚡ 1. What Happened
+## ⚡ What Happened in One Paragraph
 
 Six seconds after the MCL entry was wiped out, Christopher entered **2 MGC SHORT at 4,410.6** at **16:11:51 EDT**. The same macro news event that had just wrecked the MCL long was also driving gold — but in the opposite direction: sharply **UP**, directly into the face of the short.
 
@@ -17,7 +17,7 @@ Final result: **+$94 / +4.7 points / 2 contracts**. Duration: 47 minutes.
 
 ---
 
-## 📊 2. Trade Data
+## 📊 Trade Data
 
 | Field | Value |
 |-------|-------|
@@ -48,7 +48,7 @@ Final result: **+$94 / +4.7 points / 2 contracts**. Duration: 47 minutes.
 
 ---
 
-## 📋 3. Order Execution
+## 📋 Order Execution
 
 | Order | Time (ET) | Type | Price | Notes |
 |-------|-----------|------|-------|-------|
@@ -60,13 +60,13 @@ Final result: **+$94 / +4.7 points / 2 contracts**. Duration: 47 minutes.
 
 ---
 
-## 📖 4. Session Narrative
+## 📖 Session Narrative
 
 *[Stub — to be filled in. Describe the session arc: how the MCL stop-out 6 seconds earlier set the emotional context for this immediate re-entry, the 47-minute hold through a 38-point adverse move, and what it felt like to close manually for a win after the whipsaw.]*
 
 ---
 
-## 📸 5. Screenshot Timeline
+## 📸 Screenshot Timeline
 
 **Mar 26, 16:11 ET — MGC 1-min: full day context · entry, adverse spike to 4,449, and recovery**
 ![MGC 1-min — full day](../../../../data/screenshots/MGC_Fri%2027%20Mar%20'26_01-25-33.png)
@@ -80,7 +80,7 @@ Final result: **+$94 / +4.7 points / 2 contracts**. Duration: 47 minutes.
 ---
 
 <a id="notes-for-coaches"></a>
-## 📝 6. Notes for Coaches + SmartTraderAI
+## 📝 Notes for Coaches + SmartTraderAI
 
 *TPT 50K account — Day 2 of 5 minimum trading days.*
 
@@ -95,7 +95,7 @@ Final result: **+$94 / +4.7 points / 2 contracts**. Duration: 47 minutes.
 
 ---
 
-## 🧠 7. Behavioral Notes
+## 🧠 Behavioral Notes
 
 **Pattern 7 — recurring.** The stop was moved to survive the adverse move. TradeZella notes it directly: *"essentially cancelled, not respected, original stop would have hit."* The original stop would have been at approximately 4,420–4,430; price ran to 4,449.3 — clearing that level entirely. Christopher moved the SL multiple times during the 38-point adverse move to keep the trade alive. The win makes this feel justified. It was not. The same behavior that produced wins in March 17 and March 20 is operating here again: rationalized SL modification during an adverse move, framed as "conviction" rather than recognized as Pattern 7. The outcome was +$94, but the process was a full Pattern 7 echo.
 
@@ -109,7 +109,7 @@ Final result: **+$94 / +4.7 points / 2 contracts**. Duration: 47 minutes.
 
 ---
 
-## 🔁 8. Pattern Tracker
+## 🔁 Pattern Tracker
 
 | Pattern | Status | Notes |
 |---------|--------|-------|
@@ -122,7 +122,7 @@ Trade 20260326_MGC-TPT_002 logged.
 
 ---
 
-## 🎯 9. Forward Focus
+## 🎯 Forward Focus
 
 1. **Write the structural SL before the bracket goes in — and commit to it in writing.** One sentence: "SL at X because [reason]. Will not be moved." A pre-trade commitment written in a clear state is harder to override than an in-trade impulse. If the structure changes, close the trade — don't move the stop.
 2. **Pre-commit the exit condition before entry.** The 16:50 window was real — the trade gave $194 and you captured $94. The 9-minute drift between MFE and actual exit is the cost of not having a written scratch condition. "If price is at X with Y minutes remaining, I close" needs to exist before the bracket is placed.

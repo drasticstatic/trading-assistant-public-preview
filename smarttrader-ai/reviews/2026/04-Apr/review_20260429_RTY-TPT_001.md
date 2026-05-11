@@ -6,7 +6,7 @@
 
 ---
 
-## ⚡ 1. What Happened
+## ⚡ What Happened in One Paragraph
 
 Short RTY entered pre-market at 07:07 EDT — ahead of the NY AM session open, before the broader indices had confirmed direction for the day. The entry was doubted almost immediately; Christopher considered exiting early, feeling the analysis might have been wrong. He stayed in. The trade ran in his favour for nearly 5 hours, printing one of his most efficient P&L outcomes to date.
 
@@ -16,7 +16,7 @@ The charts confirm a sustained bearish structure on RTY from the overnight sessi
 
 ---
 
-## 📊 2. Trade Data
+## 📊 Trade Data
 
 | Field | Value |
 |-------|-------|
@@ -49,7 +49,7 @@ The charts confirm a sustained bearish structure on RTY from the overnight sessi
 
 ---
 
-## 📋 3. Order Execution
+## 📋 Order Execution
 
 - Entry: market order (07:07 EDT, pre-market)
 - Exit: resting take profit / active exit at structure (11:53 EDT)
@@ -58,7 +58,7 @@ The charts confirm a sustained bearish structure on RTY from the overnight sessi
 
 ---
 
-## 📖 4. Session Narrative
+## 📖 Session Narrative
 
 April 29 opened with bearish structure across all four indices from the overnight session. RTY had rejected off a clear resistance shelf on the 1hr chart, EMA stack was bearish, and the IT Foundation EMAs were all sloping down. The pre-market short was placed at 2773.9 as a ZTH Pivot setup at resistance.
 
@@ -68,7 +68,7 @@ This trade stood in contrast to the rest of the day. RTY was the one where execu
 
 ---
 
-## 📸 5. Screenshot Timeline
+## 📸 Screenshot Timeline
 
 **20:00 ET — RTY 5-min overview: full day bearish structure**
 ![RTY 5-min full day](../../../../data/screenshots/RTY1!_2026-04-29_20-00-25_007f8.png)
@@ -80,13 +80,13 @@ This trade stood in contrast to the rest of the day. RTY was the one where execu
 
 <a id="notes-for-coaches"></a>
 
-## 📝 6. Notes for Coaches + SmartTraderAI
+## 📝 Notes for Coaches + SmartTraderAI
 
 RTY short entered pre-market at 2773.9 on ZTH Pivot + rejection off resistance setup. Bias confirmed downtrend. Held through early doubt, stayed within structure, made an active exit at 2743.1 — exiting a few points above MFE. Had to cut position during the trade to comply with TPT's consistency rule; still collected $1,540. No stop loss set (swing trade approach). Exit passivity was *not* a factor on this trade — active exit decision made. Pattern 8 improvement noted. This is the first self-directed, active exit in the documented recovery arc.
 
 ---
 
-## 🧠 7. Behavioral Notes
+## 🧠 Behavioral Notes
 
 **This was a process win.** Not just a P&L win — a behavioral win. The Pattern 8 failure mode (exit passivity) has shown up in nearly every recent trade. Today on RTY, Christopher did the opposite: he *thought* about exiting early, stayed because the structure still supported the trade, then made an active exit decision at a reasonable location in price structure. That is exactly the muscle we have been trying to build.
 
@@ -98,7 +98,7 @@ One flag that cannot be ignored: **no stop was set.** The swing trade framing ex
 
 ---
 
-## 🔁 8. Pattern Tracker
+## 🔁 Pattern Tracker
 
 | Pattern | Status |
 |---------|--------|
@@ -113,7 +113,7 @@ One flag that cannot be ignored: **no stop was set.** The swing trade framing ex
 
 ---
 
-## 🎯 9. Forward Focus
+## 🎯 Forward Focus
 
 1. **Pattern 8 remediation is working — reinforce it.** The active exit reflex fired today. Do the same thing next time the exit thought arrives: act on it. The RTY exit is the model — structure-based, deliberate, not forced by time or loss.
 2. **Stop loss before anything else.** Every trade on a prop firm account needs a mechanical stop set at entry. The swing trade framing is not a reason to skip it — it is a reason to set a wider stop, not no stop.
