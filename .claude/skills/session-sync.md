@@ -61,9 +61,22 @@ Examples:
 ### 3. Commit and Push
 
 ```bash
-git commit -m "[message]"
+git commit -m "$(cat <<'EOF'
+[type] [date] — [brief summary]
+
+- [detail line 1]
+- [detail line 2]
+
+Co-Authored-By: Fortuna · Claude · [model] <noreply@anthropic.com>
+EOF
+)"
 git push origin main
 ```
+
+Replace `[model]` with the model currently in use:
+- Fortuna-Anthropic (Sonnet): `Fortuna · Claude · claude-sonnet-4-6 <noreply@anthropic.com>`
+- Fortuna-Anthropic (Opus): `Fortuna · Claude · claude-opus-4-7 <noreply@anthropic.com>`
+- Fortuna-NIM (if testing): `Fortuna · Claude · NVIDIA NIM Z-AI GLM-4.7 <noreply@anthropic.com>`
 
 If push fails due to remote changes:
 ```bash
