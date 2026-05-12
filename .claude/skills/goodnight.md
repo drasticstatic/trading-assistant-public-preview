@@ -39,11 +39,15 @@ If reviews are incomplete, pause and complete them first. Session close requires
 
 ## Step 2 — Commit All Outstanding Work
 
-If code files changed this session, update the knowledge graph first (AST-only, no API cost):
+If code files changed this session, update the knowledge graph first:
 
 ```bash
 graphify update .
 ```
+
+`graphify update` is AST-only — **no API call, no cost, always safe to run.**
+
+`graphify extract .` (full re-extraction) requires an LLM API key. Only needed if the graph doesn't exist yet or the repo structure has changed significantly. If extraction hits the Gemini free-tier rate limit (429), **stop and ask Christopher** before switching to a paid API key — do not auto-run with a paid key.
 
 Stage and commit everything in `smarttrader-ai/`, `data/`, and `logs/`:
 ```bash
@@ -58,7 +62,7 @@ Include all review files, screenshots, CSVs, pattern_tracker updates, and any in
 
 ## Step 3 — Update Session Log
 
-Check `logs/fortuna/YYYY/MM-Mon/session_YYYYMMDD.md`:
+Check `logs/fortuna/YYYY/MM-Mon/session_YYYYMMDD_{anthropic|nvidia}.md`:
 - **If missing**: Create it with today's summary
 - **If exists**: Append today's summary
 
