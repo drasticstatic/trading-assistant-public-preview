@@ -17,9 +17,11 @@ My job is to track his discipline, flag rule violations, identify behavioural pa
 
 I generate ready-to-paste content for all three of SmartTraderAI's check-in formats directly from our session data:
 
-- 🌅 [**Daily Pre-market Summary**](smarttrader-ai/analysis/premarket/) — news releases, expected figures, HTF bias, key levels, intraday bias, and expectations for the day.
-- 📊 [**Daily Post-market Review**](smarttrader-ai/reviews/) — what actually happened, key lessons, trade results, P&L, and whether any gains were round-tripped.
-- 📅 [**Weekly Check-in**](smarttrader-ai/reviews/) — what worked, what didn't, observable market and trade patterns, mistakes made, recurring problems, solutions being implemented, yes/no performance questions and action steps for the coming week.
+- 🌅 [**Daily Pre-market Summary**](fortuna-exports/premarket-analysis/) — news releases, expected figures, HTF bias, key levels, intraday bias, and expectations for the day.
+- 📊 [**Daily Post-market Review**](fortuna-exports/overview-summaries/) — what actually happened, key lessons, trade results, P&L, and whether any gains were round-tripped.
+- 📅 [**Weekly Check-in**](fortuna-exports/overview-summaries/) — what worked, what didn't, observable market and trade patterns, mistakes made, recurring problems, solutions being implemented, yes/no performance questions and action steps for the coming week.
+
+*(Feb–Jun 2026 content lives in the legacy [`smarttrader-ai/`](smarttrader-ai/) directory — kept as a showcase, no longer receiving new files.)*
 
 — *Fortuna (via Claude Code CLI)* 🙏🏼
 
@@ -102,7 +104,7 @@ Kavanah (Augment Intent) — task orchestration, documentation, strategy refs
 
 If you're browsing the mirrored public-safe areas, start with the [public preview home](https://drasticstatic.github.io/trading-assistant-public-preview/), keep the recovery-friendly `404.html` nearby, or jump straight into `data/` and `setup/`.
 
-The most useful public paths live under `smarttrader-ai/analysis`, `smarttrader-ai/reviews`, and `smarttrader-ai/exports`, with deeper system docs in `setup/system-overview.md` and `setup/AugmentArchitecture.md`.
+The most useful public paths live under `fortuna-exports/premarket-analysis`, `fortuna-exports/trade-reviews`, and `fortuna-exports/overview-summaries` (the active journal), with deeper system docs in `setup/system-overview.md` and `setup/AugmentArchitecture.md`. Feb–Jun 2026 content is preserved under `smarttrader-ai/` as a legacy showcase.
 
 ```
 ~/ClaudeCodeCLI/trading-assistant/
@@ -115,26 +117,31 @@ The most useful public paths live under `smarttrader-ai/analysis`, `smarttrader-
 │   │       └── MM-Mon/
 │   ├── progression/            # Coaching progression notes + public reference material
 │   │   ├── SmartTradingBlueprint/
-│   │   └── inevitrade/
+│   │   ├── inevitrade/
+│   │   └── pattern_tracker.md  # Running P&L, behavioral pattern log, recovery arc
 │   └── screenshots/            # Trade screenshots & annotated charts — embedded in reviews
+├── fortuna-exports/            # Active journal (Jun 2026 →) — forked from smarttrader-ai/
+│   ├── premarket-analysis/
+│   │   └── YYYY/MM-Mon/        # premarket_YYYYMMDD_summary.md per session
+│   ├── trade-reviews/
+│   │   └── YYYY/MM-Mon/        # review_YYYYMMDD_[INSTRUMENT]-[PLATFORM]_NNN.md
+│   └── overview-summaries/
+│       └── YYYY/MM-Mon/        # export_YYYYMMDD_daily-review.md · weekly-review.md · monthly-review.md
 ├── logs/                       # 🔒 Private — session logs (fortuna/ ↔ auggie/ ↔ kavanah/)
 ├── setup/
 │   ├── accounts/
 │   │   ├── crypto/CEX/         # BTCC, Bybit, Phemex
 │   │   ├── crypto/DEX/
-│   │   └── PropFirms/          # Apex, TPT, Lucid, Tradeify — rules, statements, progress
+│   │   └── PropFirms/          # Apex, TPT, Lucid, Tradeify, TopOneFutures — rules, statements, progress
 │   ├── create-skill.marp.md    # Slide deck: architecting Claude Code skills
 │   ├── create-skill.marp.html  # Rendered HTML version
 │   ├── AugmentArchitecture.md  # Augment/Intent architecture guide
 │   └── system-overview.md      # High-level system map
-├── smarttrader-ai/
+├── smarttrader-ai/             # 🗃️ Legacy showcase (Feb–Jun 2026) — kept as-is, superseded by fortuna-exports/
 │   ├── analysis/premarket/
-│   │   └── YYYY/MM-Mon/        # premarket_YYYYMMDD_summary.md per session
-│   ├── exports/
-│   │   └── YYYY/MM-Mon/        # export_YYYYMMDD_daily-review.md · weekly-review.md (legacy STB_export_ prefix pre-Jun 2026)
+│   ├── exports/                 # STB_export_ prefix — coach-shared links, never renamed
 │   └── reviews/
-│       ├── YYYY/MM-Mon/        # review_YYYYMMDD_[INSTRUMENT]-[PLATFORM]_NNN.md
-│       └── pattern_tracker.md  # Running P&L, behavioral pattern log, recovery arc
+│       └── pattern_tracker.md  # Redirect stub → data/progression/pattern_tracker.md
 ├── specs/                      # 🔒 Private — workflow, automation pipelines, routines...
 │   │       sequences, templates, canonical references, checklists, entity IDs, setup paths
 │   │                    external tool index, mcp integration inventory, troubleshooting...
@@ -163,7 +170,7 @@ TradeZella Export (.csv)
         ↓
   STB Google Sheet (Bulk Import format)
         ↓
-  Fortuna Claude Code CLI reviews + exports → .md files in smarttrader-ai/exports/
+  Fortuna Claude Code CLI reviews + exports → .md files in fortuna-exports/overview-summaries/
         ↓
   SmartTraderAI ingests → session check-ins generated
 ```
