@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificates & Account Gallery — Christopher Wilson</title>
+  <meta name="description" content="Funded account certificates and prop firm account progression — Apex Trader Funding, TakeProfitTrader.">
+  <link rel="icon" href="../../setup/assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../setup/assets/favicon.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="../../setup/assets/favicon.png">
+  <style>
+    :root {
+      --bg-base:  #080c18;
+      --surface:  rgba(255,255,255,0.04);
+      --surface-soft: rgba(255,255,255,0.025);
+      --surface-raised: rgba(255,255,255,0.065);
+      --border:   rgba(255,255,255,0.09);
+      --text:     #dce6f4;
+      --muted:    #8899b0;
+      --dim:      rgba(255,255,255,0.28);
+      --blue:     #7ec8ff;
+      --purple:   #a78bfa;
+      --cyan:     #67e8f9;
+      --green:    #4ade80;
+      --gold:     #fbbf24;
+      --radius-xl: 22px;
+      --radius-lg: 16px;
+      --radius-md: 10px;
+      --shadow-md: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg-base);
+      color: var(--text);
+      min-height: 100vh;
+      font-size: 14px;
+      line-height: 1.65;
+      background-image:
+        radial-gradient(ellipse at 10% 5%, rgba(139,92,246,0.18) 0%, transparent 35%),
+        radial-gradient(ellipse at 85% 10%, rgba(56,189,248,0.14) 0%, transparent 30%),
+        radial-gradient(ellipse at 50% 80%, rgba(74,222,128,0.08) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { color: var(--cyan); }
+
+    /* ── NAV ── */
+    .nav {
+      display: flex; align-items: center; gap: .5rem; flex-wrap: wrap;
+      padding: .65rem 1.5rem;
+      background: rgba(8,12,24,0.8); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .nav-brand {
+      font-size: .82rem; font-weight: 700; letter-spacing: .02em;
+      background: linear-gradient(90deg, var(--purple), var(--blue));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-right: .4rem;
+    }
+    .nav-tag {
+      padding: .22rem .7rem; border: 1px solid var(--border); border-radius: 999px;
+      font-size: .76rem; color: var(--muted); transition: border-color .15s, color .15s;
+    }
+    .nav-tag:hover { border-color: var(--purple); color: var(--text); }
+    .nav-space { flex: 1; }
+
+    /* ── CONTENT ── */
+    .content { max-width: 1200px; margin: 0 auto; padding: 2.2rem 1.5rem 5rem; }
+
+    .header-eyebrow {
+      font-size: .72rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: .5rem;
+    }
+    .header-title {
+      font-size: clamp(1.6rem, 3.6vw, 2.3rem); font-weight: 800;
+      letter-spacing: -.03em; margin-bottom: .5rem; color: #fff;
+    }
+    .header-title span {
+      background: linear-gradient(120deg, var(--gold), var(--green));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .header-sub { font-size: .88rem; color: var(--muted); margin-bottom: 2rem; max-width: 640px; }
+
+    .sec-label {
+      font-size: .7rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: .14em; color: var(--purple); margin: 2.4rem 0 1rem;
+      display: flex; align-items: center; gap: .6rem;
+    }
+    .sec-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+    .sec-label:first-of-type { margin-top: 0; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.1rem;
+    }
+    .gallery-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color .15s, transform .15s;
+    }
+    .gallery-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .gallery-card img {
+      width: 100%; display: block; aspect-ratio: 16/10; object-fit: cover;
+      background: var(--surface-soft);
+    }
+    .gallery-card-body { padding: .9rem 1rem 1rem; }
+    .gallery-card-title { font-size: .88rem; font-weight: 700; color: var(--text); margin-bottom: .25rem; }
+    .gallery-card-meta { font-size: .74rem; color: var(--muted); display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; }
+    .badge {
+      display: inline-flex; align-items: center; gap: .3rem;
+      padding: .16rem .55rem; border-radius: 999px;
+      font-size: .7rem; font-weight: 700;
+      border: 1px solid rgba(74,222,128,.3); color: var(--green); background: rgba(74,222,128,.1);
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox-overlay {
+      display: none; position: fixed; inset: 0; z-index: 500;
+      background: rgba(0,0,0,.92);
+      align-items: center; justify-content: center; padding: 2rem;
+    }
+    .lightbox-overlay.open { display: flex; }
+    .lightbox-box {
+      max-width: min(1000px, 94vw); max-height: 92vh;
+      display: flex; flex-direction: column; align-items: center; gap: .8rem;
+    }
+    .lightbox-box img {
+      max-width: 100%; max-height: 78vh; border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+    }
+    .lightbox-caption { color: var(--muted); font-size: .82rem; text-align: center; }
+    .lightbox-close {
+      position: fixed; top: 1.2rem; right: 1.5rem;
+      background: none; border: 1px solid var(--border); border-radius: 999px;
+      width: 2.2rem; height: 2.2rem; color: var(--text); font-size: 1.1rem; cursor: pointer;
+    }
+    .lightbox-close:hover { border-color: var(--gold); color: var(--gold); }
+
+    .footer {
+      max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem;
+      border-top: 1px solid var(--border); font-size: .78rem; color: var(--dim);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="nav">
+    <span class="nav-brand">Gallery</span>
+    <a class="nav-tag" href="../../index.html">🏠 Home</a>
+    <a class="nav-tag" href="resources.html">📚 Resources</a>
+    <a class="nav-tag" href="portfolio.html">📊 Portfolio</a>
+    <a class="nav-tag" href="SmartTradingBlueprint/course-workbook.html">📘 STB</a>
+    <a class="nav-tag" href="inevitrade/inner-circle-workbook.html">📗 IT</a>
+    <div class="nav-space"></div>
+  </nav>
+
+  <!-- ── LIGHTBOX ── -->
+  <div class="lightbox-overlay" id="lightboxOverlay" onclick="if(event.target===this)closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <div class="lightbox-box">
+      <img id="lightboxImg" src="" alt="">
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+  </div>
+
+  <main class="content">
+    <p class="header-eyebrow">Progression · Evidence</p>
+    <h1 class="header-title">🏆 Certificates &amp; <span>Account Gallery</span></h1>
+    <p class="header-sub">Funded account certificates and prop firm account progression, captured as evidence alongside the trading journal. Click any image to view full-size.</p>
+
+    <div class="sec-label">Funded Account Certificates</div>
+    <div class="gallery-grid">
+
+      <div class="gallery-card" onclick="openLightbox('assets/gallery/certificate-apex-484839-06-100k.png', 'Apex Trader Funding — 100K Tradovate Account Certificate — Christopher Wilson, issued May 22, 2026')">
+        <img src="assets/gallery/certificate-apex-484839-06-100k.png" alt="Apex Trader Funding 100K account certificate">
+        <div class="gallery-card-body">
+          <div class="gallery-card-title">Apex Trader Funding — 100K</div>
+          <div class="gallery-card-meta">
+            <span class="badge">✅ Funded</span>
+            <span>APEX-484839-06 · Issued May 22, 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-card" onclick="openLightbox('assets/gallery/certificate-takeprofit861085464-50k.png', 'TakeProfitTrader — Professional Funded Trader Certificate — Christopher Wilson, issued May 30, 2026')">
+        <img src="assets/gallery/certificate-takeprofit861085464-50k.png" alt="TakeProfitTrader 50K funded certificate">
+        <div class="gallery-card-body">
+          <div class="gallery-card-title">TakeProfitTrader — 50K PRO</div>
+          <div class="gallery-card-meta">
+            <span class="badge">✅ Funded</span>
+            <span>TAKEPROFIT861085464 · Issued May 30, 2026</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="sec-label">Account Progression</div>
+    <div class="gallery-grid">
+
+      <div class="gallery-card" onclick="openLightbox('../imports/2026/05-May/APEX_2026_03-10-thru-05-14.png', 'Apex Trader Funding APEX-484839-06 — balance progression Mar 10 to May 14, 2026 — evaluation passed')">
+        <img src="../imports/2026/05-May/APEX_2026_03-10-thru-05-14.png" alt="Apex APEX-484839-06 balance chart, Mar 10 - May 14 2026">
+        <div class="gallery-card-body">
+          <div class="gallery-card-title">APEX-484839-06 — Evaluation Arc</div>
+          <div class="gallery-card-meta">
+            <span class="badge">✅ Passed</span>
+            <span>Mar 10 – May 14, 2026 · $100K → funded</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="margin-top:2.4rem;font-size:.78rem;color:var(--dim);">Source files: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/imports/2026/05-May" target="_blank" rel="noreferrer">data/imports/2026/05-May/</a> (original PDFs + statement export)</p>
+  </main>
+
+  <footer class="footer">
+    <p>Part of the <a href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer">Trading Assistant</a> public preview.</p>
+  </footer>
+
+  <script>
+    function openLightbox(src, caption) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightboxImg').alt = caption;
+      document.getElementById('lightboxCaption').textContent = caption;
+      document.getElementById('lightboxOverlay').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightboxOverlay').classList.remove('open');
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+
+</body>
+</html>
