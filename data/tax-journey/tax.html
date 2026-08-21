@@ -116,6 +116,32 @@
     }
     .header-badge.warn { border-color: rgba(248,113,113,.35); color: var(--red); }
     .header-badge.caution { border-color: rgba(251,191,36,.35); color: var(--gold); }
+    .disclaimer-trigger {
+      font-family: inherit; cursor: pointer; transition: box-shadow .2s, border-color .2s, background .2s;
+    }
+    .disclaimer-trigger:hover, .disclaimer-trigger:focus-visible {
+      border-color: rgba(248,113,113,.6); background: rgba(248,113,113,.1);
+      color: var(--red);
+      box-shadow: 0 0 0 3px rgba(248,113,113,.15), 0 0 18px rgba(248,113,113,.35);
+      outline: none;
+    }
+    .disclaimer-overlay {
+      display: none; position: fixed; inset: 0; z-index: 500;
+      background: rgba(0,0,0,.87); align-items: center; justify-content: center; padding: 1.2rem;
+    }
+    .disclaimer-overlay.open { display: flex; }
+    .disclaimer-modal {
+      background: #0e1422; border: 1px solid rgba(248,113,113,.3); border-radius: 14px;
+      padding: 1.6rem 1.8rem; width: min(480px, 94vw); position: relative;
+    }
+    .disclaimer-modal h3 { margin: 0 0 .6rem; font-size: 1rem; color: var(--red); }
+    .disclaimer-modal p { margin: 0; font-size: .85rem; line-height: 1.6; color: var(--muted); }
+    .disclaimer-modal p strong { color: var(--text); }
+    .disclaimer-close {
+      position: absolute; top: .8rem; right: 1rem;
+      background: none; border: none; color: var(--muted); font-size: 1.1rem; cursor: pointer;
+    }
+    .disclaimer-close:hover { color: var(--text); }
 
     /* ── CONTENT ── */
     .content { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
@@ -267,10 +293,19 @@
         <span class="header-badge caution">2025 Filed – In Progress</span>
         <span class="header-badge warn">2026 Not Filed – Tracking</span>
         <span class="header-badge">Updated: Apr 5, 2026</span>
-        <span class="header-badge">Working estimates — verify before filing</span>
+        <button class="header-badge disclaimer-trigger" onclick="document.getElementById('disclaimerOverlay').classList.add('open')">⚠ Working estimates — verify before filing</button>
       </div>
     </div>
   </header>
+
+  <!-- ── DISCLAIMER MODAL ── -->
+  <div class="disclaimer-overlay" id="disclaimerOverlay" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="disclaimer-modal">
+      <button class="disclaimer-close" onclick="document.getElementById('disclaimerOverlay').classList.remove('open')">✕</button>
+      <h3>⚠ Working Estimates</h3>
+      <p><strong>Not evidence, not financial or tax advice.</strong> This is a personal working tool, actively built and changed as reconstruction continues. Figures shown here are unverified working estimates, not filed or professionally reviewed numbers, and should not be relied upon as final or accurate at any given moment.</p>
+    </div>
+  </div>
 
   <main class="content">
 
