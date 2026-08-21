@@ -16,7 +16,7 @@ Build a complete daily review following FORTUNA_WORKFLOW.md Section 4.
 ## Before Starting
 
 1. Confirm the session date
-2. Find all individual trade reviews for the day in `smarttrader-ai/reviews/YYYY/MM-Mon/`
+2. Find all individual trade reviews for the day in `fortuna-exports/trade-reviews/YYYY/MM-Mon/` (or the legacy `smarttrader-ai/reviews/YYYY/MM-Mon/` for pre-Jun 2026 dates)
 3. Read the premarket summary if it exists (link it in Session Narrative)
 4. Gather all screenshots from `data/screenshots/` for the session date
 5. Check `data/imports/YYYY/MM-Mon/tradezella_YYYYMMDD.csv` for trade data
@@ -26,9 +26,9 @@ If any data is missing, note it and proceed with what's available. On no-trade d
 ## File Path
 
 ```
-smarttrader-ai/exports/YYYY/MM-Mon/export_YYYYMMDD_daily-review.md
+fortuna-exports/overview-summaries/YYYY/MM-Mon/export_YYYYMMDD_daily-review.md
 ```
-(Files before Jun 2026 use the legacy `STB_export_` prefix — never rename those, coaches have shared links to them.)
+(Files before Jun 2026 live under the legacy `smarttrader-ai/exports/` path with the `STB_export_` prefix — never move or rename those, coaches have shared links to them.)
 
 ## Document Header
 
@@ -73,7 +73,7 @@ Key table: Date | Account | Session P&L | Instruments | Trade Count | Account St
 ### 3. `## 📖 Session Narrative`
 Prose session arc. Pre-market link **here only** — always use the public preview GitHub URL so coaches can click through from the blob view:
 ```
-[Pre-market summary →](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/YYYY/MM-Mon/premarket_YYYYMMDD_summary.md)
+[Pre-market summary →](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/premarket-analysis/YYYY/MM-Mon/premarket_YYYYMMDD_summary.md)
 ```
 If no premarket file exists: `No formal pre-market plan on file for this session.`
 
@@ -81,11 +81,11 @@ If no premarket file exists: `No formal pre-market plan on file for this session
 Trade table: # | Instrument | Dir | Entry | Exit | P&L | Grade | Review
 
 Include a relative link to each individual trade review in the Review column.
-**Correct relative path:** daily reviews are at `smarttrader-ai/exports/YYYY/MM-Mon/` and individual reviews are at `smarttrader-ai/reviews/YYYY/MM-Mon/` — that is 3 directories up then into reviews:
+**Correct relative path (new files):** daily reviews are at `fortuna-exports/overview-summaries/YYYY/MM-Mon/` and individual reviews are at `fortuna-exports/trade-reviews/YYYY/MM-Mon/` — that is 3 directories up then into trade-reviews:
 ```
-[review_YYYYMMDD_INSTRUMENT-PLATFORM_NNN.md](../../../reviews/YYYY/MM-Mon/review_YYYYMMDD_INSTRUMENT-PLATFORM_NNN.md)
+[review_YYYYMMDD_INSTRUMENT-PLATFORM_NNN.md](../../../trade-reviews/YYYY/MM-Mon/review_YYYYMMDD_INSTRUMENT-PLATFORM_NNN.md)
 ```
-Note: `../` goes up one level. Three levels up from `exports/YYYY/MM-Mon/` reaches `smarttrader-ai/`, then `reviews/YYYY/MM-Mon/` descends into the correct folder.
+Note: `../` goes up one level. Three levels up from `overview-summaries/YYYY/MM-Mon/` reaches `fortuna-exports/`, then `trade-reviews/YYYY/MM-Mon/` descends into the correct folder. (Legacy files use `../../../reviews/...` from `smarttrader-ai/exports/YYYY/MM-Mon/` — same depth, different root.)
 
 Or `## 📊 Trade Summary` + `## 📋 Trade Details` if two levels of detail are needed.
 On no-trade days: `No fills today. [Brief reason: infrastructure work, market conditions, etc.]`
@@ -187,7 +187,7 @@ In Trade Log, group by instrument or chronologically — whichever tells the cle
 pngquant --quality=65-80 --speed=1 --skip-if-larger --ext .png --force data/screenshots/*.png
 
 # Stage and commit
-git add smarttrader-ai/exports/ smarttrader-ai/reviews/ data/screenshots/ && \
+git add fortuna-exports/overview-summaries/ fortuna-exports/trade-reviews/ data/screenshots/ && \
   git commit -m "Add daily review YYYYMMDD — [net P&L or 'no fills']"
 git push origin main
 ```

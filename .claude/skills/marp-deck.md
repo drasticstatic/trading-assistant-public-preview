@@ -27,7 +27,7 @@ Marp is installed at: `~/.nvm/versions/node/v22.12.0/bin/marp`
 ## Before Starting
 
 1. Confirm the source document exists and is complete — build it first if not
-2. Confirm the output location: `.claude/skills/` for skill decks, `smarttrader-ai/exports/` for coach-share decks
+2. Confirm the output location: `.claude/skills/` for skill decks, `fortuna-exports/overview-summaries/` for coach-share decks
 3. Read the source document to extract key content
 
 ## Step 1 — Identify Content Type
@@ -88,7 +88,7 @@ Examples:
 - `pattern-review_20260420.marp.md` → behavioral pattern deck for ZTH coach
 
 **Location:**
-- Coach-share decks: `smarttrader-ai/exports/YYYY/MM-Mon/`
+- Coach-share decks: `fortuna-exports/overview-summaries/YYYY/MM-Mon/`
 - Skill decks: `.claude/skills/`
 
 ## Step 4 — Generate HTML
@@ -198,8 +198,8 @@ marp setup/[name].marp.md --images png --allow-local-files
 # Keep only .001.png; delete the rest
 
 # Coach-share deck
-marp smarttrader-ai/exports/YYYY/MM-Mon/[name].marp.md \
-     -o smarttrader-ai/exports/YYYY/MM-Mon/[name].marp.html
+marp fortuna-exports/overview-summaries/YYYY/MM-Mon/[name].marp.md \
+     -o fortuna-exports/overview-summaries/YYYY/MM-Mon/[name].marp.html
 
 # Commit Marp files
 git add setup/*.marp.md setup/*.marp.html setup/*.marp.001.png && \

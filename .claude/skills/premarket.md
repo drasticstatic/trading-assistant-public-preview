@@ -26,9 +26,10 @@ Build a complete premarket summary following FORTUNA_WORKFLOW.md Section 2. Prem
 ## File Path
 
 ```
-smarttrader-ai/analysis/premarket/YYYY/MM-Mon/premarket_YYYYMMDD_summary.md
+fortuna-exports/premarket-analysis/YYYY/MM-Mon/premarket_YYYYMMDD_summary.md
 ```
 Add per-instrument files if warranted: `premarket_YYYYMMDD_[instrument].md`
+(Files before Jun 2026 live under the legacy `smarttrader-ai/analysis/premarket/` path — never move those.)
 
 ## Required Sections — In This Order
 
@@ -245,7 +246,7 @@ Path is 5 levels up from `analysis/premarket/YYYY/MM-Mon/`.
 
 1. Commit: "Add premarket summary [date]"
 2. Public-preview URL for this file (to reference in daily review Session Narrative):
-   `https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/analysis/premarket/YYYY/MM-Mon/premarket_YYYYMMDD_summary.md`
+   `https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/premarket-analysis/YYYY/MM-Mon/premarket_YYYYMMDD_summary.md`
 
 ## Related Specs
 
@@ -257,7 +258,7 @@ Path is 5 levels up from `analysis/premarket/YYYY/MM-Mon/`.
 
 ```bash
 # Stage and commit premarket file
-git add smarttrader-ai/analysis/premarket/ && \
+git add fortuna-exports/premarket-analysis/ && \
   git commit -m "Add premarket YYYYMMDD — [instrument(s)] [bias: long/short/neutral]"
 git push origin main
 ```

@@ -49,9 +49,9 @@ graphify update .
 
 `graphify extract .` (full re-extraction) requires an LLM API key. Only needed if the graph doesn't exist yet or the repo structure has changed significantly. If extraction hits the Gemini free-tier rate limit (429), **stop and ask Christopher** before switching to a paid API key — do not auto-run with a paid key.
 
-Stage and commit everything in `smarttrader-ai/`, `data/`, and `logs/`:
+Stage and commit everything in `fortuna-exports/`, `smarttrader-ai/` (legacy, rarely touched), `data/`, and `logs/`:
 ```bash
-git add smarttrader-ai/ data/screenshots/ data/imports/ logs/ graphify-out/
+git add fortuna-exports/ smarttrader-ai/ data/screenshots/ data/imports/ data/progression/pattern_tracker.md logs/ graphify-out/
 git commit -m "Session close YYYYMMDD — [brief summary]"
 git push origin main
 ```
@@ -160,7 +160,7 @@ A clean close makes tomorrow's session start instantly productive.
 pngquant --quality=65-80 --speed=1 --skip-if-larger --ext .png --force data/screenshots/*.png
 
 # Commit everything
-git add smarttrader-ai/ data/screenshots/ data/imports/ logs/ && \
+git add fortuna-exports/ smarttrader-ai/ data/screenshots/ data/imports/ data/progression/pattern_tracker.md logs/ && \
   git commit -m "Session close YYYYMMDD — [brief summary]"
 git push origin main
 

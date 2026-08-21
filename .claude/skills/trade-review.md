@@ -36,8 +36,9 @@ Transforms raw trade data (CSVs, screenshots, notes) into a structured 9-section
 ## File Naming
 
 ```
-smarttrader-ai/reviews/YYYY/MM-Mon/review_YYYYMMDD_[INSTRUMENT]-[PLATFORM]_[NNN].md
+fortuna-exports/trade-reviews/YYYY/MM-Mon/review_YYYYMMDD_[INSTRUMENT]-[PLATFORM]_[NNN].md
 ```
+(Files before Jun 2026 live under the legacy `smarttrader-ai/reviews/` path — never move those.)
 - `[INSTRUMENT]` = M2K, MNQ, ES, CL, SOLUSDT, etc.
 - `[PLATFORM]` = APEX, APEX06, TPT, BTCC — include when disambiguation matters
 - `[NNN]` = trade number for that calendar day (001, 002, 003...) — not instrument-specific
@@ -79,7 +80,7 @@ Link to premarket file if it exists: `> Pre-market plan: [public-preview URL]`
 ```
 - Embed ALL screenshots Christopher added for this session
 - URL-encode spaces: `%20` (e.g. `Screenshot%202026-04-17%20at%2015.33.22.png`)
-- Path: `../../../../data/screenshots/` (4 levels up from `reviews/YYYY/MM-Mon/`)
+- Path: `../../../../data/screenshots/` (4 levels up from `trade-reviews/YYYY/MM-Mon/` — same depth as the legacy `reviews/YYYY/MM-Mon/` path)
 - For unreferenced screenshots that belong to the session, add them here
 
 ### 6. `## 📝 Notes for Coaches + SmartTraderAI`
@@ -97,7 +98,7 @@ Narrative analysis for coaches. Include:
 
 ### 8. `## 🔁 Pattern Tracker`
 - One line: "Trade [file_id] logged." — use filename convention, e.g. `Trade 20260421_MCL-APEX_001 logged.`
-- Blockquote: `> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../pattern_tracker.md](../../pattern_tracker.md)`
+- Blockquote: `> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../../../data/progression/pattern_tracker.md](../../../../data/progression/pattern_tracker.md)`
 - Brief note if a pattern evolved or a new one emerged
 
 ### 9. `## 🎯 Forward Focus`
@@ -141,7 +142,7 @@ After `## 🎯 Forward Focus` content, end with:
 ```
 ---
 
-> See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/reviews/YYYY/MM-Mon/review_YYYYMMDD_INSTRUMENT-PLATFORM_NNN.md
+> See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/trade-reviews/YYYY/MM-Mon/review_YYYYMMDD_INSTRUMENT-PLATFORM_NNN.md
 
 ---
 
@@ -216,7 +217,7 @@ Notes for Coaches whether move was disciplined or emotional.
      ~/code/trading-assistant/data/imports/YYYY/MM-Mon/tradezella_YYYYMMDD.csv
    ```
    No terminal output = Sheets mode (success notification goes to macOS notification center). Check the STB Google Sheet or macOS notifications to confirm the row landed. Spec: `specs/tradezella-automater.spec.md`
-3. Update `smarttrader-ai/reviews/pattern_tracker.md` — add trade to log table, update Running P&L, update cumulative
+3. Update `data/progression/pattern_tracker.md` — add trade to log table, update Running P&L, update cumulative
 4. **Run `/prop-firm-status`** — updates `setup/accounts/PropFirms/prop-firm-progression.md` with current account standing and outputs a brief to chat. Always run after any review that involves a filled trade on an active eval account or funded account.
 5. Update weekly review file if it already exists — add trade to Week at a Glance table
 6. Append to `logs/fortuna/YYYY/MM-Mon/session_YYYYMMDD.md` — note the review file created and the trade outcome
@@ -241,7 +242,7 @@ bash ~/TradeZella_STB/automator_drop_handler.sh \
 # macOS notification available but not currently configured — verify manually.
 
 # Stage and commit
-git add smarttrader-ai/reviews/ data/screenshots/ && \
+git add fortuna-exports/trade-reviews/ data/progression/pattern_tracker.md data/screenshots/ && \
   git commit -m "Add trade review YYYYMMDD — [INSTRUMENT]-[PLATFORM]_NNN"
 git push origin main
 ```

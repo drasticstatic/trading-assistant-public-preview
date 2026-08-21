@@ -18,17 +18,17 @@ Mar 23–27 review — the gold-standard reference at `smarttrader-ai/exports/20
 ## Before Starting
 
 1. Identify the week — the trading week runs **Sunday 18:00 ET → Sunday 18:00 ET** (futures reopen). Ask if not provided.
-2. Find all individual trade reviews for the week in `smarttrader-ai/reviews/YYYY/MM-Mon/`
-3. Read `smarttrader-ai/reviews/pattern_tracker.md` for cumulative P&L and pattern status
+2. Find all individual trade reviews for the week in `fortuna-exports/trade-reviews/YYYY/MM-Mon/` (or the legacy `smarttrader-ai/reviews/YYYY/MM-Mon/` for pre-Jun 2026 weeks)
+3. Read `data/progression/pattern_tracker.md` for cumulative P&L and pattern status
 4. Gather all screenshots from `data/screenshots/` for the week dates
 5. Note account status for each active eval account
 
 ## File Path
 
 ```
-smarttrader-ai/exports/YYYY/MM-Mon/export_YYYYMMDD_weekly-review.md
+fortuna-exports/overview-summaries/YYYY/MM-Mon/export_YYYYMMDD_weekly-review.md
 ```
-Where `YYYYMMDD` is the **closing Sunday**. (Files before Jun 2026 use the legacy `STB_export_` prefix — never rename those, coaches have shared links to them.)
+Where `YYYYMMDD` is the **closing Sunday**. (Files before Jun 2026 live under the legacy `smarttrader-ai/exports/` path with the `STB_export_` prefix — never move or rename those, coaches have shared links to them.)
 
 ## Document Header
 
@@ -80,9 +80,11 @@ Trade table covering all 7 days (Sun through Sat — include no-fill days). Add 
 | **WEEK NET** | | | | **+$391** | | |
 ```
 
-**Correct relative path for review links:**
-`../../../reviews/YYYY/MM-Mon/review_YYYYMMDD_INSTRUMENT-PLATFORM_NNN.md`
-(3 levels up from `exports/YYYY/MM-Mon/` reaches `smarttrader-ai/`, then descend into `reviews/`)
+**Correct relative path for review links (new files):**
+`../../../trade-reviews/YYYY/MM-Mon/review_YYYYMMDD_INSTRUMENT-PLATFORM_NNN.md`
+(3 levels up from `overview-summaries/YYYY/MM-Mon/` reaches `fortuna-exports/`, then descend into `trade-reviews/`)
+
+Example below uses the legacy `smarttrader-ai/exports/` + `smarttrader-ai/reviews/` path pair (`../../../reviews/...`) — that pattern only applies to files before Jun 2026; do not use it for new reviews.
 
 Week net P&L as a totals row. Closing Sunday pre-18:00 can be included if relevant.
 
@@ -137,11 +139,11 @@ Optional third subsection if there's a cross-pattern insight:
 Navigation links for quick reference (coaches and future Fortuna sessions can jump directly):
 
 ```markdown
-- [pattern_tracker.md](../../../reviews/pattern_tracker.md)
-- [review_YYYYMMDD_INSTRUMENT-PLATFORM_NNN.md](../../../reviews/YYYY/MM-Mon/review_file.md) — one-line description
+- [pattern_tracker.md](../../../../data/progression/pattern_tracker.md)
+- [review_YYYYMMDD_INSTRUMENT-PLATFORM_NNN.md](../../../trade-reviews/YYYY/MM-Mon/review_file.md) — one-line description
 ```
 
-**Path:** `../../../reviews/...` (3 levels up from `exports/YYYY/MM-Mon/`)
+**Path (new files):** `../../../trade-reviews/...` (3 levels up from `overview-summaries/YYYY/MM-Mon/`); pattern_tracker.md is 4 levels up then into `data/progression/`.
 
 ### 7. `## 🕊️ Spiritual Lens`
 
@@ -261,7 +263,7 @@ Full canonical wording for all questions: `specs/SMARTTRADERAI_EXPORT_SPEC.md`
 ## After Creating the Review
 
 1. Confirm all individual trade review relative links resolve correctly (`../../../reviews/...`)
-2. Update `smarttrader-ai/reviews/pattern_tracker.md` if not already done
+2. Update `data/progression/pattern_tracker.md` if not already done
 3. Commit: `"Add weekly review week of [Mon date] — [net P&L or 'no fills']"`
 4. Push to origin main
 
@@ -277,7 +279,7 @@ Full canonical wording for all questions: `specs/SMARTTRADERAI_EXPORT_SPEC.md`
 pngquant --quality=65-80 --speed=1 --skip-if-larger --ext .png --force data/screenshots/*.png
 
 # Stage and commit
-git add smarttrader-ai/exports/ smarttrader-ai/reviews/ data/screenshots/ && \
+git add fortuna-exports/overview-summaries/ fortuna-exports/trade-reviews/ data/progression/pattern_tracker.md data/screenshots/ && \
   git commit -m "Add weekly review week of YYYYMMDD — [net P&L or 'no fills']"
 git push origin main
 ```
