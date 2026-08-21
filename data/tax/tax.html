@@ -136,6 +136,10 @@
     .stat-label { font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: .3rem; }
     .stat-val { font-size: 1.5rem; font-weight: 800; letter-spacing: -.03em; margin-bottom: .2rem; }
     .stat-sub { font-size: .72rem; color: var(--muted); }
+    .stat-warn {
+      margin-top: .5rem; padding-top: .45rem; border-top: 1px solid rgba(248,113,113,.18);
+      font-size: .7rem; color: var(--red); line-height: 1.4;
+    }
     .up { color: var(--green); }
     .dn { color: var(--red); }
     .gold { color: var(--gold); }
@@ -275,18 +279,21 @@
       <div class="stat-grid">
         <div class="stat inprogress">
           <div class="stat-label">2024 Filing</div>
-          <div class="stat-val gold">FILED – IN PROGRESS</div>
+          <div class="stat-val gold">IN PROGRESS</div>
           <div class="stat-sub">Est. net ~-$2,165 excl. CoinLedger · 1099 received ✅</div>
+          <div class="stat-warn">⚠ CoinLedger staking income not yet quantified — additional liability likely</div>
         </div>
         <div class="stat inprogress">
           <div class="stat-label">2025 Filing</div>
-          <div class="stat-val gold">FILED – IN PROGRESS</div>
+          <div class="stat-val gold">IN PROGRESS</div>
           <div class="stat-sub">Est. net ~-$190 excl. CoinLedger · 1099 received ✅</div>
+          <div class="stat-warn">⚠ CoinLedger staking income not yet quantified — additional liability likely</div>
         </div>
         <div class="stat notfiled">
           <div class="stat-label">2026 YTD</div>
-          <div class="stat-val dn">NOT FILED – TRACKING</div>
+          <div class="stat-val dn">TRACKING</div>
           <div class="stat-sub">Est. net +$1,089 · tracking live</div>
+          <div class="stat-warn">⚠ Tax on YTD gains not yet reserved or paid</div>
         </div>
         <div class="stat">
           <div class="stat-label">Robinhood Divs All-Time</div>
