@@ -26,9 +26,9 @@ Mar 23–27 review — the gold-standard reference at `smarttrader-ai/exports/20
 ## File Path
 
 ```
-smarttrader-ai/exports/YYYY/MM-Mon/STB_export_YYYYMMDD_weekly-review.md
+smarttrader-ai/exports/YYYY/MM-Mon/export_YYYYMMDD_weekly-review.md
 ```
-Where `YYYYMMDD` is the **closing Sunday**
+Where `YYYYMMDD` is the **closing Sunday**. (Files before Jun 2026 use the legacy `STB_export_` prefix — never rename those, coaches have shared links to them.)
 
 ## Document Header
 
@@ -55,7 +55,7 @@ Where `YYYYMMDD` is the **closing Sunday**
 
 ``` — the Sunday at 18:00 ET when the week ends and the next opens.
 Regardless of when the review is produced, it is always dated and named by its closing Sunday.
-Example: week of Apr 19–26 (Sun 18:00 → Sun 18:00) → `STB_export_20260426_weekly-review.md`
+Example (legacy naming, pre-Jun 2026): week of Apr 19–26 (Sun 18:00 → Sun 18:00) → `STB_export_20260426_weekly-review.md`. New files: `export_YYYYMMDD_weekly-review.md`.
 The file lives in the month folder of that closing Sunday.
 
 ## Required Structure — In This Order
