@@ -26,8 +26,9 @@ If any data is missing, note it and proceed with what's available. On no-trade d
 ## File Path
 
 ```
-smarttrader-ai/exports/YYYY/MM-Mon/STB_export_YYYYMMDD_daily-review.md
+smarttrader-ai/exports/YYYY/MM-Mon/export_YYYYMMDD_daily-review.md
 ```
+(Files before Jun 2026 use the legacy `STB_export_` prefix — never rename those, coaches have shared links to them.)
 
 ## Document Header
 

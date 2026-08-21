@@ -131,7 +131,7 @@ The most useful public paths live under `smarttrader-ai/analysis`, `smarttrader-
 │   ├── analysis/premarket/
 │   │   └── YYYY/MM-Mon/        # premarket_YYYYMMDD_summary.md per session
 │   ├── exports/
-│   │   └── YYYY/MM-Mon/        # STB_export_YYYYMMDD_daily-review.md · weekly-review.md
+│   │   └── YYYY/MM-Mon/        # export_YYYYMMDD_daily-review.md · weekly-review.md (legacy STB_export_ prefix pre-Jun 2026)
 │   └── reviews/
 │       ├── YYYY/MM-Mon/        # review_YYYYMMDD_[INSTRUMENT]-[PLATFORM]_NNN.md
 │       └── pattern_tracker.md  # Running P&L, behavioral pattern log, recovery arc

@@ -1731,108 +1731,175 @@ With all of our tools and resources under one roof, success in trading is within
 *📌 This is a living document maintained in the [trading-assistant public repo](https://github.com/drasticstatic/trading-assistant).*
 *Source: SmartTradingBlueprint Course | Feb 2026 Cohort*
 
-# Weeks 5–8 and bonus modules to be appended as Christopher progresses
+# 📚 Course Syllabus Reference — Weeks 1–8
 
-WK1 - This phase introduces the Smart Trading Blueprint program and lays the groundwork for a professional trading career. You’ll learn about how financial markets operate, what prop firms are, and the mindset required to thrive as a disciplined trader. The lessons guide you through setting up essential trading tools such as TradingView, your trading desk, and review systems for journaling and accountability. You’ll also explore foundational technical analysis concepts—market structure, ranges, and displacement—to build a clear understanding of price behavior. By the end of this week, you’ll be fully equipped with the tools, systems, and core knowledge to begin trading with structure and confidence.
+> **What this section is:** A week-by-week and lesson-by-lesson map of the full SmartTradingBlueprint curriculum, sourced from the course's own syllabus/lesson descriptions. It exists here as a **reference and roadmap** — so anyone landing on this teaching surface can see the full arc of the program — distinct from the Q&A sections above, which are Christopher's own worked responses and reflections tied to each lesson.
+>
+> Weeks 1–4 already have completed Q&A workbook sections earlier in this document; their syllabus descriptions are included below for completeness of the reference map. Weeks 5–8 are appended here ahead of their Q&A sections, which will be built out as Christopher progresses through the coursework.
+>
+> *Source: SmartTradingBlueprint Course syllabus | Feb 2026 Cohort*
 
-WK2- This phase dives deeper into the core principles of Smart Money Concepts (SMC) and advanced market structure analysis. Each lesson focuses on identifying institutional footprints such as manipulation blocks, order blocks, voids, breaker blocks, and balanced price ranges. You’ll learn how to read charts with precision, recognize areas of interest, and apply multi-confluence strategies for high-probability trade setups. By the end of this week, you’ll have a solid grasp of how institutional activity shapes liquidity and price movement—and how to use that insight to build a structured, disciplined trading plan.
+---
 
-WK3 - This phase focuses on liquidity—the foundation of smart trading—and teaches how to interpret market behavior through liquidity concepts, displacement, and bias formation. You’ll learn to identify liquidity pools, draw on liquidity at multiple timeframes, and recognize displacement as confirmation of structure and momentum. The lessons connect these ideas into actionable strategies for building a daily bias, trading intraday liquidity, and executing within the Market Maker Model (MMM). By the end of this week, you’ll understand how institutional players engineer liquidity and how to align your trades with these movements for higher precision and consistency.
+## 🗓️ Week 1 — Syllabus Overview
 
-WK4 - This phase brings together all previous concepts—market structure, liquidity, displacement, and bias—while introducing the critical element of timing. You’ll learn how to synchronize trade setups with specific times of day, trading sessions, and weekly cycles to maximize precision and consistency. The lessons break down session behaviors (Asian, London, New York, and Afternoon), explain time and price relationships, and demonstrate how to anticipate market reactions using efficiency and liquidity. You’ll also study high-probability models like the Smart Trading Life Cycle, session opens, and the Move of the Day, building the final foundation for professional-level execution and decision-making.
+> This phase introduces the Smart Trading Blueprint program and lays the groundwork for a professional trading career. You'll learn about how financial markets operate, what prop firms are, and the mindset required to thrive as a disciplined trader. The lessons guide you through setting up essential trading tools such as TradingView, your trading desk, and review systems for journaling and accountability. You'll also explore foundational technical analysis concepts—market structure, ranges, and displacement—to build a clear understanding of price behavior. By the end of this week, you'll be fully equipped with the tools, systems, and core knowledge to begin trading with structure and confidence.
 
-WK5 - This phase centers on understanding the cyclical nature of market delivery and mastering time-based precision in trading. You’ll learn how to identify transitions between expansion, retracement, and consolidation phases, and how to anticipate these shifts using time and price mathematics. The lessons cover advanced targeting methods like Jumpstart Targeting, NWOG/NDOG secrets, and the SGC 369 framework—each designed to refine your timing, entries, and exits with greater accuracy. By the end of this week, you’ll have the tools to simplify complex market structure, apply high-probability timing models, and execute trades with institutional precision across different sessions and cycles.
+---
 
-Changes in State of Delivery
-This lesson explains how to identify when the market is likely to change its state of delivery—specifically between expansion, retracement, consolidation, and reversal. It teaches traders how to recognize which market state they are in, how to anticipate transitions between them, and how to use measured moves and standard deviations to locate potential reversal or consolidation areas. The video also demonstrates practical examples using the ES (S&P 500 Futures) and NASDAQ charts to apply these concepts.
+## 🗓️ Week 2 — Syllabus Overview
 
-Time & Price Mathematics
-This lesson explains how to apply standard deviations not only to price but also to time-based levels for higher-probability trading setups. By combining time and price, traders can anticipate key manipulation points, project daily, weekly, and monthly ranges, and identify where the market is likely to peak or reverse. Examples include day and swing trading scenarios, showing how to integrate this concept for more precise entries, targets, and exits.
+> This phase dives deeper into the core principles of Smart Money Concepts (SMC) and advanced market structure analysis. Each lesson focuses on identifying institutional footprints such as manipulation blocks, order blocks, voids, breaker blocks, and balanced price ranges. You'll learn how to read charts with precision, recognize areas of interest, and apply multi-confluence strategies for high-probability trade setups. By the end of this week, you'll have a solid grasp of how institutional activity shapes liquidity and price movement—and how to use that insight to build a structured, disciplined trading plan.
 
-Jumpstart Targeting
-This training explains how to use standard deviations in price analysis through a method called Jumpstart Targeting. The instructor demonstrates how to identify and measure market structure shifts, fair value gaps (FVGs), and smart money footprints to project price expansion and potential reversal zones. Examples are provided to show when the strategy works effectively and when it does not.
+---
 
-NWOG & NDOG Secrets
-This training explains how to use New Week Opening Gaps (NWOG) and New Day Opening Gaps (NDOG) to identify market cycles, determine directional bias, and structure trades within the futures market. The instructor demonstrates how to apply these tools using ES, NQ, and YM charts, showing how gaps reveal phases of accumulation, manipulation, and distribution across different time ranges.
+## 🗓️ Week 3 — Syllabus Overview
 
-SGC 369
-This lesson introduces a time-based trading framework that pairs price with time to refine bias and execution. It explains how the Power of Three—accumulation, manipulation, and distribution—unfolds within specific quarters and 90-minute cycles of any defined range (day, session, week). Traders learn to anchor to the midnight and session opens, use time-based liquidity as trip wires, and focus mainly on Quarter 2 and Quarter 3 for entries confirmed by displacement and OTE retracements, aligning higher-time-frame bias with session timing and liquidity shifts.
+> This phase focuses on liquidity—the foundation of smart trading—and teaches how to interpret market behavior through liquidity concepts, displacement, and bias formation. You'll learn to identify liquidity pools, draw on liquidity at multiple timeframes, and recognize displacement as confirmation of structure and momentum. The lessons connect these ideas into actionable strategies for building a daily bias, trading intraday liquidity, and executing within the Market Maker Model (MMM). By the end of this week, you'll understand how institutional players engineer liquidity and how to align your trades with these movements for higher precision and consistency.
 
-Advanced Market Structure Simplified
-This lesson explains how to identify and trade advanced market structure using intermediate and long-term highs and lows. The instructor breaks down a traditionally complex concept into a practical, easy-to-use trading approach, focusing on patterns formed around fair value gaps (FVGs). Learners will discover how to recognize accumulation, identify shifts in structure, and execute trades using a three-point pattern that reflects market maker behavior.
+---
 
+## 🗓️ Week 4 — Syllabus Overview
 
-WK6 - This phase bridges technical trading with macroeconomic insight, teaching how large-scale financial movements influence daily trading decisions. You’ll learn to interpret correlations between major markets, analyze bond yields and interest rate projections, and use tools like Open Interest and Commitment of Traders (COT) data to identify institutional positioning. Each lesson deepens your ability to understand where smart money is flowing and how to align your trades with broader market sentiment. By the end of this week, you’ll integrate macro context with your technical edge to refine timing, bias, and execution across multiple asset classes.
+> This phase brings together all previous concepts—market structure, liquidity, displacement, and bias—while introducing the critical element of timing. You'll learn how to synchronize trade setups with specific times of day, trading sessions, and weekly cycles to maximize precision and consistency. The lessons break down session behaviors (Asian, London, New York, and Afternoon), explain time and price relationships, and demonstrate how to anticipate market reactions using efficiency and liquidity. You'll also study high-probability models like the Smart Trading Life Cycle, session opens, and the Move of the Day, building the final foundation for professional-level execution and decision-making.
 
-Breaks in the Macro
-This training lesson explains how to identify and interpret breaks in correlation between financial assets. It introduces SMT Divergence (Smart Money Technique divergence) and explores how correlated and inverse markets reveal manipulation or strength/weakness through price behavior. The video also covers practical applications across forex, indices, and commodities, emphasizing how to use multiple confluences to strengthen your trading bias and execution.
+---
 
-Fed Funding Rate Projections
-In this lesson, the instructor explains how to analyze bond markets to understand how large funds speculate on future Federal Reserve interest rate changes. By studying correlations between bond markets and the U.S. dollar, traders can predict macroeconomic shifts and form educated long-term, mid-term, and short-term market biases. The training demonstrates how to read ZB, ZN, ZF, and ZT charts to anticipate changes in interest rates and resulting bullish or bearish movements in the dollar.
+## 🗓️ Week 5 — Time & Price Precision
 
-Smart Open Interest
-This lesson explains the concept of open interest in futures trading and how it can be used to interpret market trends, track large commercial traders, and understand market strength. The instructor discusses how to use open interest in both trending and consolidating markets, its relationship to volume, and how it can be applied to different markets such as gold, Bitcoin, bonds, and indices. The video concludes with insights into market correlations, divergences, and a preview of the next session on Commitment of Traders (COT) reports.
+> This phase centers on understanding the cyclical nature of market delivery and mastering time-based precision in trading. You'll learn how to identify transitions between expansion, retracement, and consolidation phases, and how to anticipate these shifts using time and price mathematics. The lessons cover advanced targeting methods like Jumpstart Targeting, NWOG/NDOG secrets, and the SGC 369 framework—each designed to refine your timing, entries, and exits with greater accuracy. By the end of this week, you'll have the tools to simplify complex market structure, apply high-probability timing models, and execute trades with institutional precision across different sessions and cycles.
 
-Understanding Institutional, Retail, & Smart Money Interests
-This lesson explains how to use the Commitment of Traders (COT) data to understand positioning by commercials, large speculators, and small traders—and how that positioning can inform your trading bias. You’ll learn two practical ways to access COT: directly from the CFTC reports and visually on BarChart charts. The session covers who “commercials” are (primarily hedgers), why their activity matters, how to plot and read the COT lines, where it’s most reliable (FX and commodities), and how to apply it alongside structure, liquidity, and order-block concepts. The instructor emphasizes using COT as confluence—not a standalone system.
+### 📖 Lesson 5.1 — Changes in State of Delivery
 
+> This lesson explains how to identify when the market is likely to change its state of delivery—specifically between expansion, retracement, consolidation, and reversal. It teaches traders how to recognize which market state they are in, how to anticipate transitions between them, and how to use measured moves and standard deviations to locate potential reversal or consolidation areas. The video also demonstrates practical examples using the ES (S&P 500 Futures) and NASDAQ charts to apply these concepts.
 
-WK7 - This phase focuses on refining trade execution through advanced entry models that combine structure, liquidity, timing, and displacement. You’ll learn how to build a complete entry framework—from high-timeframe context to precise low-timeframe confirmations—using models like SMT, 2x, and NY/KZ entries. Each lesson breaks down how to identify displacement legs, optimal trade timing, and the “Move of the Day” or “Move of the Week” setups with institutional precision. By the end of this week, you’ll have mastered the logic and structure behind professional-grade entries, risk placement, and trade management—ready to execute consistently across market conditions.
+### 📖 Lesson 5.2 — Time & Price Mathematics
 
-Building a Foundation for Entry Models
-This lesson explains how to approach trade entries by building a complete framework before pressing the button. It emphasizes top-down analysis, recognizing whether the market is expanding or retracing, and reading price fractally across higher, medium, and lower timeframes. You’ll learn why displacement acts as your “GPS,” how to align timeframes, and when to expect different behaviors in retracements versus expansions.
+> This lesson explains how to apply standard deviations not only to price but also to time-based levels for higher-probability trading setups. By combining time and price, traders can anticipate key manipulation points, project daily, weekly, and monthly ranges, and identify where the market is likely to peak or reverse. Examples include day and swing trading scenarios, showing how to integrate this concept for more precise entries, targets, and exits.
 
-3x Entry Model
-This lesson details the 3X model, a structured way to enter trades by aligning a higher timeframe, a medium timeframe, and a lower timeframe. It explains how to determine whether the market is retracing or expanding, why displacement is essential for confirmation, and how to use footprints (e.g., fair value gaps, order blocks, breaker blocks, manipulation blocks) for precise entries. Clear rules are given for targets, partials, and stop placement, plus time-of-day guidance and multiple examples (EURUSD, GBPUSD) that show the framework in action.
+### 📖 Lesson 5.3 — Jumpstart Targeting
 
-SMM Entry Model
-This lesson teaches the Smart Liquidity Entry Model, a simple, mechanical way to trade liquidity raids by spotting a lack of displacement at key highs/lows and entering with confirmation. The model works intraday across asset classes (including Forex, indices, crypto, and commodities); the instructor notes it worked “surprisingly well on gold” intraday. You’ll learn the timeframe pairs, confirmation methods, risk targets, and session timing considerations that increase probability.
+> This training explains how to use standard deviations in price analysis through a method called Jumpstart Targeting. The instructor demonstrates how to identify and measure market structure shifts, fair value gaps (FVGs), and smart money footprints to project price expansion and potential reversal zones. Examples are provided to show when the strategy works effectively and when it does not.
 
-Catching the Move of the Day Entry Model
-This lesson explains a structured and time-based strategy to capture the main move of the day on Forex pairs containing either the Euro or the Pound. It focuses on entries formed between 12 a.m. and 4 a.m. EST, aligning market structure with liquidity manipulation and DXY bias confirmation. The strategy includes higher timeframe bias analysis, session timing, liquidity sweeps, displacement entries, and two trade management methods—Fixed 2R and Standard Deviation Targeting.
+### 📖 Lesson 5.4 — NWOG & NDOG Secrets
 
-NY FX Entry Model
-This lesson teaches a simple, mechanical New York session entry model designed for Forex pairs that include USD. The approach aligns higher-timeframe bias with London session behavior, checks the DXY for correlation, then uses an Optimal Trade Entry (OTE) retracement to enter. Risk is defined beneath the displacement leg, with a fixed 2R target to keep execution straightforward and consistent.
+> This training explains how to use New Week Opening Gaps (NWOG) and New Day Opening Gaps (NDOG) to identify market cycles, determine directional bias, and structure trades within the futures market. The instructor demonstrates how to apply these tools using ES, NQ, and YM charts, showing how gaps reveal phases of accumulation, manipulation, and distribution across different time ranges.
 
-Catching the Move of the Week Entry Model
-This lesson explains how to build a weekly directional bias and use the structure of the weekly candle to guide trade selection for both day traders and short-term swing traders. It covers why bias matters for psychology and execution, when the weekly high/low most often forms, and a practical framework for entries, stop placement, and targets using the 30-minute chart. The session also clarifies how “power of three” (accumulation → manipulation → distribution) appears within a weekly candle and how to align daily setups with the weekly narrative.
+### 📖 Lesson 5.5 — SGC 369
 
-Advanced Structure Entry Model
-This lesson explains how to apply advanced market structure principles to directly enter trades using a specific price action pattern. It builds upon concepts from the Advanced Market Structure Simplified module and focuses on identifying confirmation patterns, selecting entry models, managing trades mechanically, and using standard deviations for profit-taking.
+> This lesson introduces a time-based trading framework that pairs price with time to refine bias and execution. It explains how the Power of Three—accumulation, manipulation, and distribution—unfolds within specific quarters and 90-minute cycles of any defined range (day, session, week). Traders learn to anchor to the midnight and session opens, use time-based liquidity as trip wires, and focus mainly on Quarter 2 and Quarter 3 for entries confirmed by displacement and OTE retracements, aligning higher-time-frame bias with session timing and liquidity shifts.
 
-MMEM
-This lesson explains what Market Maker Models (MMMs) are and how to identify, interpret, and trade them effectively. The instructor covers their structure, the logic behind their formation, and multiple entry opportunities. It also emphasizes the importance of using MMMs both as entry tools and as higher-timeframe bias confirmation, with practical examples across various markets and timeframes.
+### 📖 Lesson 5.6 — Advanced Market Structure Simplified
 
-Time Based Entry Model
-This lesson presents a time- and price-based trading model that combines intraday and weekly frameworks. It focuses on the 7:30 AM New York time candle (on a 90-minute chart) for ES and NQ futures, using Fibonacci levels and weekly opening gaps to define high-probability zones after the 9:30 AM market open. The model identifies directional bias from early-week price action, confirming trades once rejection aligns with bias. Credited to ICT Concepts (Twitter), it emphasizes discipline, bias alignment, and risk management, and applies best to markets that close over weekends (not crypto).
+> This lesson explains how to identify and trade advanced market structure using intermediate and long-term highs and lows. The instructor breaks down a traditionally complex concept into a practical, easy-to-use trading approach, focusing on patterns formed around fair value gaps (FVGs). Learners will discover how to recognize accumulation, identify shifts in structure, and execute trades using a three-point pattern that reflects market maker behavior.
 
-*Bonus* Ghost Protocol Entry Model
-This lesson presents a simple, mechanical, ICT-based trade model the presenter created, with an average risk-to-reward of 5:1 and a win rate of ~65% (as stated in the video). You’ll learn a step-by-step framework to set bias (“draw on liquidity”), identify a displacement move that creates two fair value gaps (FVGs), plot standard-deviation projections for targets, and execute an entry using a three-bar swing point inside a fair value gap. The video also walks through five chart examples (Nasdaq, Bitcoin, EUR/USD, and a bullish Nasdaq continuation) to reinforce the rules.
+---
 
+## 🗓️ Week 6 — Macro Context & Institutional Positioning
 
-WK8 - This phase focuses on the psychological and risk management foundations that separate professional traders from the rest. You’ll learn how to manage position sizing, slippage, and drawdowns while mastering the principles of expectancy, probability, and emotional discipline. The lessons dive into developing mental resilience, journaling for performance optimization, and building a calloused yet focused mindset to stay consistent through market volatility. By the end of this week, you’ll understand how to protect capital, manage risk with confidence, and cultivate the mindset required for long-term trading success.
+> This phase bridges technical trading with macroeconomic insight, teaching how large-scale financial movements influence daily trading decisions. You'll learn to interpret correlations between major markets, analyze bond yields and interest rate projections, and use tools like Open Interest and Commitment of Traders (COT) data to identify institutional positioning. Each lesson deepens your ability to understand where smart money is flowing and how to align your trades with broader market sentiment. By the end of this week, you'll integrate macro context with your technical edge to refine timing, bias, and execution across multiple asset classes.
 
-Introduction to Risk Management
-This lesson introduces risk management as the foundation for long-term trading survival. It explains why professional traders focus on capital security, how to apply risk-to-reward correctly, and how position sizing supports steady account growth. You’ll learn core rules (e.g., max loss per trade and per day), how to balance risk-taking with caution, and why consistent execution matters more than chasing outsized wins.
+### 📖 Lesson 6.1 — Breaks in the Macro
 
-How to Size Positions
-This lesson explains how to size positions correctly so you never risk more than intended. It covers how much to risk on funded evaluations vs. live accounts, what stop loss and take profit orders are, and how to calculate position size from your stop distance. You’ll see how to read contract size (e.g., in MetaTrader), use TradingView’s long/short position tool, and compute risk for indices, futures, and Forex (pips).
+> This training lesson explains how to identify and interpret breaks in correlation between financial assets. It introduces SMT Divergence (Smart Money Technique divergence) and explores how correlated and inverse markets reveal manipulation or strength/weakness through price behavior. The video also covers practical applications across forex, indices, and commodities, emphasizing how to use multiple confluences to strengthen your trading bias and execution.
 
-Slippage + News
-This lesson explains slippage and news-driven liquidity—two crucial factors in risk management. It defines slippage, clarifies what liquidity means in practice, and shows how major news events can cause orders to fill far from your intended price. You’ll see when slippage risk is highest, why small stop losses amplify it, how to avoid risky periods, and a real example of a CPI release that caused extreme movement.
+### 📖 Lesson 6.2 — Fed Funding Rate Projections
 
-Defining & Executing an Edge
-This lesson explains what a trading edge is and how to quantify it using win rate and risk-to-reward. It introduces profit expectancy, reviews basic probability, and demonstrates why outcomes over small samples can be misleading. You’ll see two coin-flip examples that show how expectancy works in practice and learn why consistent execution over time is essential to realize your edge.
+> In this lesson, the instructor explains how to analyze bond markets to understand how large funds speculate on future Federal Reserve interest rate changes. By studying correlations between bond markets and the U.S. dollar, traders can predict macroeconomic shifts and form educated long-term, mid-term, and short-term market biases. The training demonstrates how to read ZB, ZN, ZF, and ZT charts to anticipate changes in interest rates and resulting bullish or bearish movements in the dollar.
 
-Chances Make Champions
-This lesson, Chances Made Champions, focuses on understanding and mastering risk management in trading. It explores the difference between understanding and accepting risk, the psychological impact of losses, and the mindset required to trade successfully. The class emphasizes embracing uncertainty, managing emotions, and trusting tested trading systems to achieve consistent performance in volatile markets.
+### 📖 Lesson 6.3 — Smart Open Interest
 
-Probabilistic Thinking
-This lesson covers the concept of probabilistic thinking and how it shapes the mindset of successful traders. It explains how to view trading as a game of probabilities rather than certainties, and how this perspective helps reduce emotional errors and fear. The video also discusses fear as the root of most trading mistakes and provides practical ways to overcome it through mindset, discipline, and self-awareness.
+> This lesson explains the concept of open interest in futures trading and how it can be used to interpret market trends, track large commercial traders, and understand market strength. The instructor discusses how to use open interest in both trending and consolidating markets, its relationship to volume, and how it can be applied to different markets such as gold, Bitcoin, bonds, and indices. The video concludes with insights into market correlations, divergences, and a preview of the next session on Commitment of Traders (COT) reports.
 
-A Calloused Mind
-This lesson focuses on developing mental toughness and resilience as essential traits for success in trading. It explains how emotional control, discipline, and a calloused mindset protect traders from the psychological challenges of volatile markets. The video also provides practical strategies and exercises to identify weaknesses, overcome self-limiting beliefs, and build a strong mental foundation for consistent trading performance.
+### 📖 Lesson 6.4 — Understanding Institutional, Retail, & Smart Money Interests
 
-Journaling & Optimization
-This video explains the correct way to journal trades using the trade archive system. It highlights the importance of recording all relevant details—not just entry and results—but also charts, emotions, and psychological notes. Proper journaling helps identify strengths and weaknesses, optimize trading models, and improve overall consistency and profitability.
+> This lesson explains how to use the Commitment of Traders (COT) data to understand positioning by commercials, large speculators, and small traders—and how that positioning can inform your trading bias. You'll learn two practical ways to access COT: directly from the CFTC reports and visually on BarChart charts. The session covers who "commercials" are (primarily hedgers), why their activity matters, how to plot and read the COT lines, where it's most reliable (FX and commodities), and how to apply it alongside structure, liquidity, and order-block concepts. The instructor emphasizes using COT as confluence—not a standalone system.
+
+---
+
+## 🗓️ Week 7 — Entry Models
+
+> This phase focuses on refining trade execution through advanced entry models that combine structure, liquidity, timing, and displacement. You'll learn how to build a complete entry framework—from high-timeframe context to precise low-timeframe confirmations—using models like SMT, 2x, and NY/KZ entries. Each lesson breaks down how to identify displacement legs, optimal trade timing, and the "Move of the Day" or "Move of the Week" setups with institutional precision. By the end of this week, you'll have mastered the logic and structure behind professional-grade entries, risk placement, and trade management—ready to execute consistently across market conditions.
+
+### 📖 Lesson 7.1 — Building a Foundation for Entry Models
+
+> This lesson explains how to approach trade entries by building a complete framework before pressing the button. It emphasizes top-down analysis, recognizing whether the market is expanding or retracing, and reading price fractally across higher, medium, and lower timeframes. You'll learn why displacement acts as your "GPS," how to align timeframes, and when to expect different behaviors in retracements versus expansions.
+
+### 📖 Lesson 7.2 — 3x Entry Model
+
+> This lesson details the 3X model, a structured way to enter trades by aligning a higher timeframe, a medium timeframe, and a lower timeframe. It explains how to determine whether the market is retracing or expanding, why displacement is essential for confirmation, and how to use footprints (e.g., fair value gaps, order blocks, breaker blocks, manipulation blocks) for precise entries. Clear rules are given for targets, partials, and stop placement, plus time-of-day guidance and multiple examples (EURUSD, GBPUSD) that show the framework in action.
+
+### 📖 Lesson 7.3 — SMM Entry Model
+
+> This lesson teaches the Smart Liquidity Entry Model, a simple, mechanical way to trade liquidity raids by spotting a lack of displacement at key highs/lows and entering with confirmation. The model works intraday across asset classes (including Forex, indices, crypto, and commodities); the instructor notes it worked "surprisingly well on gold" intraday. You'll learn the timeframe pairs, confirmation methods, risk targets, and session timing considerations that increase probability.
+
+### 📖 Lesson 7.4 — Catching the Move of the Day Entry Model
+
+> This lesson explains a structured and time-based strategy to capture the main move of the day on Forex pairs containing either the Euro or the Pound. It focuses on entries formed between 12 a.m. and 4 a.m. EST, aligning market structure with liquidity manipulation and DXY bias confirmation. The strategy includes higher timeframe bias analysis, session timing, liquidity sweeps, displacement entries, and two trade management methods—Fixed 2R and Standard Deviation Targeting.
+
+### 📖 Lesson 7.5 — NY FX Entry Model
+
+> This lesson teaches a simple, mechanical New York session entry model designed for Forex pairs that include USD. The approach aligns higher-timeframe bias with London session behavior, checks the DXY for correlation, then uses an Optimal Trade Entry (OTE) retracement to enter. Risk is defined beneath the displacement leg, with a fixed 2R target to keep execution straightforward and consistent.
+
+### 📖 Lesson 7.6 — Catching the Move of the Week Entry Model
+
+> This lesson explains how to build a weekly directional bias and use the structure of the weekly candle to guide trade selection for both day traders and short-term swing traders. It covers why bias matters for psychology and execution, when the weekly high/low most often forms, and a practical framework for entries, stop placement, and targets using the 30-minute chart. The session also clarifies how "power of three" (accumulation → manipulation → distribution) appears within a weekly candle and how to align daily setups with the weekly narrative.
+
+### 📖 Lesson 7.7 — Advanced Structure Entry Model
+
+> This lesson explains how to apply advanced market structure principles to directly enter trades using a specific price action pattern. It builds upon concepts from the Advanced Market Structure Simplified module and focuses on identifying confirmation patterns, selecting entry models, managing trades mechanically, and using standard deviations for profit-taking.
+
+### 📖 Lesson 7.8 — MMEM (Market Maker Entry Model)
+
+> This lesson explains what Market Maker Models (MMMs) are and how to identify, interpret, and trade them effectively. The instructor covers their structure, the logic behind their formation, and multiple entry opportunities. It also emphasizes the importance of using MMMs both as entry tools and as higher-timeframe bias confirmation, with practical examples across various markets and timeframes.
+
+### 📖 Lesson 7.9 — Time Based Entry Model
+
+> This lesson presents a time- and price-based trading model that combines intraday and weekly frameworks. It focuses on the 7:30 AM New York time candle (on a 90-minute chart) for ES and NQ futures, using Fibonacci levels and weekly opening gaps to define high-probability zones after the 9:30 AM market open. The model identifies directional bias from early-week price action, confirming trades once rejection aligns with bias. Credited to ICT Concepts (Twitter), it emphasizes discipline, bias alignment, and risk management, and applies best to markets that close over weekends (not crypto).
+
+### 📖 Lesson 7.10 — *Bonus:* Ghost Protocol Entry Model
+
+> This lesson presents a simple, mechanical, ICT-based trade model the presenter created, with an average risk-to-reward of 5:1 and a win rate of ~65% (as stated in the video). You'll learn a step-by-step framework to set bias ("draw on liquidity"), identify a displacement move that creates two fair value gaps (FVGs), plot standard-deviation projections for targets, and execute an entry using a three-bar swing point inside a fair value gap. The video also walks through five chart examples (Nasdaq, Bitcoin, EUR/USD, and a bullish Nasdaq continuation) to reinforce the rules.
+
+---
+
+## 🗓️ Week 8 — Risk Management & Trading Psychology
+
+> This phase focuses on the psychological and risk management foundations that separate professional traders from the rest. You'll learn how to manage position sizing, slippage, and drawdowns while mastering the principles of expectancy, probability, and emotional discipline. The lessons dive into developing mental resilience, journaling for performance optimization, and building a calloused yet focused mindset to stay consistent through market volatility. By the end of this week, you'll understand how to protect capital, manage risk with confidence, and cultivate the mindset required for long-term trading success.
+
+### 📖 Lesson 8.1 — Introduction to Risk Management
+
+> This lesson introduces risk management as the foundation for long-term trading survival. It explains why professional traders focus on capital security, how to apply risk-to-reward correctly, and how position sizing supports steady account growth. You'll learn core rules (e.g., max loss per trade and per day), how to balance risk-taking with caution, and why consistent execution matters more than chasing outsized wins.
+
+### 📖 Lesson 8.2 — How to Size Positions
+
+> This lesson explains how to size positions correctly so you never risk more than intended. It covers how much to risk on funded evaluations vs. live accounts, what stop loss and take profit orders are, and how to calculate position size from your stop distance. You'll see how to read contract size (e.g., in MetaTrader), use TradingView's long/short position tool, and compute risk for indices, futures, and Forex (pips).
+
+### 📖 Lesson 8.3 — Slippage + News
+
+> This lesson explains slippage and news-driven liquidity—two crucial factors in risk management. It defines slippage, clarifies what liquidity means in practice, and shows how major news events can cause orders to fill far from your intended price. You'll see when slippage risk is highest, why small stop losses amplify it, how to avoid risky periods, and a real example of a CPI release that caused extreme movement.
+
+### 📖 Lesson 8.4 — Defining & Executing an Edge
+
+> This lesson explains what a trading edge is and how to quantify it using win rate and risk-to-reward. It introduces profit expectancy, reviews basic probability, and demonstrates why outcomes over small samples can be misleading. You'll see two coin-flip examples that show how expectancy works in practice and learn why consistent execution over time is essential to realize your edge.
+
+### 📖 Lesson 8.5 — Chances Make Champions
+
+> This lesson, Chances Made Champions, focuses on understanding and mastering risk management in trading. It explores the difference between understanding and accepting risk, the psychological impact of losses, and the mindset required to trade successfully. The class emphasizes embracing uncertainty, managing emotions, and trusting tested trading systems to achieve consistent performance in volatile markets.
+
+### 📖 Lesson 8.6 — Probabilistic Thinking
+
+> This lesson covers the concept of probabilistic thinking and how it shapes the mindset of successful traders. It explains how to view trading as a game of probabilities rather than certainties, and how this perspective helps reduce emotional errors and fear. The video also discusses fear as the root of most trading mistakes and provides practical ways to overcome it through mindset, discipline, and self-awareness.
+
+### 📖 Lesson 8.7 — A Calloused Mind
+
+> This lesson focuses on developing mental toughness and resilience as essential traits for success in trading. It explains how emotional control, discipline, and a calloused mindset protect traders from the psychological challenges of volatile markets. The video also provides practical strategies and exercises to identify weaknesses, overcome self-limiting beliefs, and build a strong mental foundation for consistent trading performance.
+
+### 📖 Lesson 8.8 — Journaling & Optimization
+
+> This video explains the correct way to journal trades using the trade archive system. It highlights the importance of recording all relevant details—not just entry and results—but also charts, emotions, and psychological notes. Proper journaling helps identify strengths and weaknesses, optimize trading models, and improve overall consistency and profitability.
+
+---
+
+*Weeks 5–8 Q&A workbook sections (matching the format used for Weeks 1–4) to be appended as Christopher completes each week's coursework.*
 
