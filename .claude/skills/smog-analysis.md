@@ -110,6 +110,6 @@ Coaching Note: Wait for deeper retracement into golden pocket when ADX is still 
 
 # No commit required for analysis-only runs
 # If adding to a trade review:
-git add smarttrader-ai/reviews/ && git commit -m "Add SMOG analysis [date]"
+git add fortuna-exports/trade-reviews/ && git commit -m "Add SMOG analysis [date]"
 git push origin main
 ```

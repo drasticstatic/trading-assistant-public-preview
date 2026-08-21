@@ -44,7 +44,7 @@ Then stage:
 
 ```bash
 git status
-git add smarttrader-ai/ data/screenshots/ data/imports/ logs/ AGENT-SYNC/ graphify-out/
+git add fortuna-exports/ smarttrader-ai/ data/screenshots/ data/imports/ data/progression/pattern_tracker.md logs/ AGENT-SYNC/ graphify-out/
 ```
 
 Never stage: `.env`, credential files, wallet files, or other sensitive data.
@@ -158,7 +158,7 @@ git push origin main
 
 ```bash
 # Stage and commit all work
-git add smarttrader-ai/ data/screenshots/ data/imports/ logs/ && \
+git add fortuna-exports/ smarttrader-ai/ data/screenshots/ data/imports/ data/progression/pattern_tracker.md logs/ && \
   git commit -m "[type] [date] — [brief summary]"
 git push origin main
 

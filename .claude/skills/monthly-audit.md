@@ -31,8 +31,8 @@ Optionally: a `.marp.md` + `.marp.html` deck for coach-facing synthesis sharing.
 ## Before Starting
 
 1. **Confirm the month and year** — default to the just-completed month
-2. **Read `smarttrader-ai/reviews/pattern_tracker.md`** — full month's P&L and pattern log
-3. **List all trade reviews** for the month in `smarttrader-ai/reviews/YYYY/MM-Mon/`
+2. **Read `data/progression/pattern_tracker.md`** — full month's P&L and pattern log
+3. **List all trade reviews** for the month in `fortuna-exports/trade-reviews/YYYY/MM-Mon/` (or `smarttrader-ai/reviews/YYYY/MM-Mon/` for pre-Jun 2026 months)
 4. **Check account status** via `get_account` (or from latest daily/weekly reviews)
 5. **Read weekly reviews** for the month — the behavioral arc lives there
 6. **Identify any coaching milestones** (new concept introduced, rule drilled, feedback received)
@@ -42,15 +42,16 @@ Optionally: a `.marp.md` + `.marp.html` deck for coach-facing synthesis sharing.
 
 **Standard markdown (primary):**
 ```
-smarttrader-ai/exports/YYYY/YYYY_MM_monthly-review.md
+fortuna-exports/overview-summaries/YYYY/YYYY_MM_monthly-review.md
 ```
 The monthly review lives at the year root, not inside a month folder.
-Example: `smarttrader-ai/exports/2026/2026_04_monthly-review.md`
+Example: `fortuna-exports/overview-summaries/2026/2026_04_monthly-review.md`
+(Months before Jun 2026 live at the legacy `smarttrader-ai/exports/YYYY/YYYY_MM_monthly-review.md` path.)
 
 **Marp deck (optional, for coach sharing):**
 ```
-smarttrader-ai/exports/YYYY/MM-Mon/monthly-audit_YYYYMM.marp.md
-smarttrader-ai/exports/YYYY/MM-Mon/monthly-audit_YYYYMM.marp.html
+fortuna-exports/overview-summaries/YYYY/MM-Mon/monthly-audit_YYYYMM.marp.md
+fortuna-exports/overview-summaries/YYYY/MM-Mon/monthly-audit_YYYYMM.marp.html
 ```
 
 **Screenshot paths from `YYYY/` root:** `../../../data/imports/YYYY/MM-Mon/filename.png` (3 levels up to repo root)
@@ -280,8 +281,8 @@ style: |
 1. Confirm the `<a id="smarttraderai-reflection"></a>` anchor is present before `## 🤖 SmartTraderAI Monthly Reflection Fields`
 2. If also generating Marp deck: run HTML export:
    ```bash
-   marp smarttrader-ai/exports/YYYY/MM-Mon/monthly-audit_YYYYMM.marp.md \
-        -o smarttrader-ai/exports/YYYY/MM-Mon/monthly-audit_YYYYMM.marp.html
+   marp fortuna-exports/overview-summaries/YYYY/MM-Mon/monthly-audit_YYYYMM.marp.md \
+        -o fortuna-exports/overview-summaries/YYYY/MM-Mon/monthly-audit_YYYYMM.marp.html
    ```
 3. Commit: `"Add [Month YYYY] monthly review — [net P&L]"`
 4. Push to origin main
@@ -290,11 +291,11 @@ style: |
 
 ```bash
 # Generate Marp HTML (if deck was built)
-marp smarttrader-ai/exports/YYYY/MM-Mon/monthly-audit_YYYYMM.marp.md \
-     -o smarttrader-ai/exports/YYYY/MM-Mon/monthly-audit_YYYYMM.marp.html
+marp fortuna-exports/overview-summaries/YYYY/MM-Mon/monthly-audit_YYYYMM.marp.md \
+     -o fortuna-exports/overview-summaries/YYYY/MM-Mon/monthly-audit_YYYYMM.marp.html
 
 # Stage and commit
-git add smarttrader-ai/exports/ && \
+git add fortuna-exports/overview-summaries/ && \
   git commit -m "Add monthly review [Month YYYY] — [net P&L]"
 git push origin main
 ```

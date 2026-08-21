@@ -12,11 +12,11 @@ description: >
 
 # Skill: /pattern-review
 
-Read `smarttrader-ai/reviews/pattern_tracker.md`, analyze frequency and P&L impact of each active pattern, and append a dated review block with one mechanical fix per pattern. The output is actionable rules — not diagnosis.
+Read `data/progression/pattern_tracker.md`, analyze frequency and P&L impact of each active pattern, and append a dated review block with one mechanical fix per pattern. The output is actionable rules — not diagnosis.
 
 ## Before Starting
 
-1. Read `smarttrader-ai/reviews/pattern_tracker.md` in full
+1. Read `data/progression/pattern_tracker.md` in full
 2. Note the date range of trades — how many recent trades to analyze
 3. Identify which patterns are marked active vs. resolved
 
@@ -128,7 +128,7 @@ Patterns repeat because behavior is habitual. Vague reminders fail because they 
 ## After Running
 
 ```bash
-git add smarttrader-ai/reviews/pattern_tracker.md && \
+git add data/progression/pattern_tracker.md && \
   git commit -m "Pattern review [date] — [brief summary of trajectory]"
 git push origin main
 ```

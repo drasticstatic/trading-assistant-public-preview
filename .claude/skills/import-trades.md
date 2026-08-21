@@ -111,10 +111,10 @@ cp ~/Downloads/Orders-2.csv data/imports/YYYY/MM-Mon/tradovate_orders_YYYYMMDD_b
 
 ### 4. Cross-Reference Trade Reviews
 
-For each trade date in the CSV, check `smarttrader-ai/reviews/YYYY/MM-Mon/` for matching review files:
+For each trade date in the CSV, check `fortuna-exports/trade-reviews/YYYY/MM-Mon/` for matching review files (or `smarttrader-ai/reviews/YYYY/MM-Mon/` for pre-Jun 2026 dates):
 
 ```bash
-ls smarttrader-ai/reviews/YYYY/MM-Mon/
+ls fortuna-exports/trade-reviews/YYYY/MM-Mon/
 ```
 
 Expected pattern: `review_YYYYMMDD_[INSTRUMENT]-[PLATFORM]_[NNN].md`
@@ -163,14 +163,14 @@ If two trades are closely related (same day, cross-instrument setup), note that 
 ### 8. Commit Import Files + Reviews
 
 ```bash
-git add data/imports/ smarttrader-ai/reviews/ smarttrader-ai/exports/ data/screenshots/ && \
+git add data/imports/ fortuna-exports/trade-reviews/ fortuna-exports/overview-summaries/ data/screenshots/ && \
   git commit -m "Import trade data YYYYMMDD — [instruments]"
 git push origin main
 ```
 
 ## After Running
 
-- Update `pattern_tracker.md` Running P&L if not current
+- Update `data/progression/pattern_tracker.md` Running P&L if not current
 
 ## Common Issues
 
@@ -207,7 +207,7 @@ mkdir -p data/imports/YYYY/MM-Mon/
 cp ~/Downloads/trades_*.csv data/imports/YYYY/MM-Mon/tradezella_YYYYMMDD.csv
 
 # Cross-reference reviews
-ls smarttrader-ai/reviews/YYYY/MM-Mon/
+ls fortuna-exports/trade-reviews/YYYY/MM-Mon/
 
 # Commit
 git add data/imports/ && git commit -m "Import trade data YYYYMMDD — [instruments]"

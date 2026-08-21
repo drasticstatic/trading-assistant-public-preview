@@ -93,5 +93,5 @@ Coaching note: [One specific improvement for next TCL setup]
 # strategies/inevitrade/tc-reference.md  (TCL predecessor — TC1/TC2)
 
 # No commit required for analysis-only runs
-# If adding to a trade review: git add smarttrader-ai/reviews/ && git commit
+# If adding to a trade review: git add fortuna-exports/trade-reviews/ && git commit
 ```
