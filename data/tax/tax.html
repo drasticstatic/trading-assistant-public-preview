@@ -135,6 +135,7 @@
     }
     .stat-label { font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: .3rem; }
     .stat-val { font-size: 1.5rem; font-weight: 800; letter-spacing: -.03em; margin-bottom: .2rem; }
+    .stat-val.status { font-size: 1.1rem; white-space: nowrap; }
     .stat-sub { font-size: .72rem; color: var(--muted); }
     .stat-warn {
       margin-top: .5rem; padding-top: .45rem; border-top: 1px solid rgba(248,113,113,.18);
@@ -264,7 +265,7 @@
       <div class="header-meta">
         <span class="header-badge caution">2024 Filed – In Progress</span>
         <span class="header-badge caution">2025 Filed – In Progress</span>
-        <span class="header-badge warn">⚠ 2026 Not Filed – Tracking</span>
+        <span class="header-badge warn">2026 Not Filed – Tracking</span>
         <span class="header-badge">Updated: Apr 5, 2026</span>
         <span class="header-badge">Working estimates — verify before filing</span>
       </div>
@@ -279,21 +280,21 @@
       <div class="stat-grid">
         <div class="stat inprogress">
           <div class="stat-label">2024 Filing</div>
-          <div class="stat-val gold">IN PROGRESS</div>
+          <div class="stat-val gold status">IN PROGRESS</div>
           <div class="stat-sub">Est. net ~-$2,165 excl. CoinLedger · 1099 received ✅</div>
-          <div class="stat-warn">⚠ CoinLedger staking income not yet quantified — additional liability likely</div>
+          <div class="stat-warn">⚠ CoinLedger staking income + retirement-withdrawal tax liability not yet quantified</div>
         </div>
         <div class="stat inprogress">
           <div class="stat-label">2025 Filing</div>
-          <div class="stat-val gold">IN PROGRESS</div>
+          <div class="stat-val gold status">IN PROGRESS</div>
           <div class="stat-sub">Est. net ~-$190 excl. CoinLedger · 1099 received ✅</div>
-          <div class="stat-warn">⚠ CoinLedger staking income not yet quantified — additional liability likely</div>
+          <div class="stat-warn">⚠ CoinLedger staking income + retirement-withdrawal tax liability not yet quantified</div>
         </div>
         <div class="stat notfiled">
           <div class="stat-label">2026 YTD</div>
-          <div class="stat-val dn">TRACKING</div>
+          <div class="stat-val dn status">TRACKING</div>
           <div class="stat-sub">Est. net +$1,089 · tracking live</div>
-          <div class="stat-warn">⚠ Tax on YTD gains not yet reserved or paid</div>
+          <div class="stat-warn">⚠ Tax on YTD gains + retirement-withdrawal liability not yet reserved</div>
         </div>
         <div class="stat">
           <div class="stat-label">Robinhood Divs All-Time</div>
