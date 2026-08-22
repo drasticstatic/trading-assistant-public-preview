@@ -90,7 +90,7 @@
 
     /* ── SIDEBAR ── */
     .sidebar {
-      position:sticky; top:44px; height:calc(100vh - 44px); overflow-y:auto;
+      position:sticky; top:44px; max-height:calc(100vh - 44px); overflow-y:auto;
       padding:1.2rem .85rem 2rem; border-right:1px solid var(--border);
       background:var(--bg-alt); scrollbar-width:thin; scrollbar-color:var(--border) transparent;
       display:flex; flex-direction:column; gap:.15rem;
@@ -98,6 +98,15 @@
     .sidebar-title { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em;
       color:var(--subtle); padding:.2rem .4rem .6rem; margin-bottom:.2rem;
       border-bottom:1px solid var(--border); }
+    .sidebar-group { margin-top:.3rem; }
+    .sidebar-group summary {
+      list-style:none; cursor:pointer; display:flex; align-items:center; gap:.3rem;
+      font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em;
+      color:var(--muted); padding:.55rem .4rem .35rem;
+    }
+    .sidebar-group summary::-webkit-details-marker { display:none; }
+    .sidebar-group summary::before { content:"▸"; font-size:.65rem; transition:transform .15s; flex-shrink:0; }
+    .sidebar-group[open] summary::before { transform:rotate(90deg); }
     .sidebar-week { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em;
       color:var(--muted); padding:.55rem .4rem .2rem; margin-top:.3rem; }
     .sidebar-item {
@@ -376,62 +385,108 @@
       <span class="sidebar-progress">⚡</span>
     </a>
 
-    <div class="sidebar-week" style="color:var(--w1)">MARKET STRUCTURE FOUNDATIONS</div>
-    <a class="sidebar-item" href="#lesson-1-1"><span class="sidebar-dot" style="background:var(--w1)"></span>1.1 Candle + Structure<span class="sidebar-progress" id="sp-1-1"></span></a>
-    <a class="sidebar-item" href="#lesson-1-2"><span class="sidebar-dot" style="background:var(--w1)"></span>1.2 Premium &amp; Discount<span class="sidebar-progress" id="sp-1-2"></span></a>
-    <a class="sidebar-item" href="#lesson-1-3"><span class="sidebar-dot" style="background:var(--w1)"></span>1.3 Range Structure<span class="sidebar-progress" id="sp-1-3"></span></a>
-    <a class="sidebar-item" href="#lesson-1-4"><span class="sidebar-dot" style="background:var(--w1)"></span>1.4 Impulse Structure<span class="sidebar-progress" id="sp-1-4"></span></a>
-    <a class="sidebar-item" href="#lesson-1-5"><span class="sidebar-dot" style="background:var(--w1)"></span>1.5 Top-Down Structure<span class="sidebar-progress" id="sp-1-5"></span></a>
-    <a class="sidebar-item" href="#lesson-1-6"><span class="sidebar-dot" style="background:var(--w1)"></span>1.6 Displacement vs Manip.<span class="sidebar-progress" id="sp-1-6"></span></a>
-    <a class="sidebar-item" href="#week-1-review"><span class="sidebar-dot" style="background:var(--w1)"></span>Structure Review<span class="sidebar-progress" id="sp-w1r"></span></a>
+    <details class="sidebar-group" open>
+      <summary style="color:var(--w1)">MARKET STRUCTURE FOUNDATIONS</summary>
+      <a class="sidebar-item" href="#lesson-1-1"><span class="sidebar-dot" style="background:var(--w1)"></span>1.1 Candle + Structure<span class="sidebar-progress" id="sp-1-1"></span></a>
+      <a class="sidebar-item" href="#lesson-1-2"><span class="sidebar-dot" style="background:var(--w1)"></span>1.2 Premium &amp; Discount<span class="sidebar-progress" id="sp-1-2"></span></a>
+      <a class="sidebar-item" href="#lesson-1-3"><span class="sidebar-dot" style="background:var(--w1)"></span>1.3 Range Structure<span class="sidebar-progress" id="sp-1-3"></span></a>
+      <a class="sidebar-item" href="#lesson-1-4"><span class="sidebar-dot" style="background:var(--w1)"></span>1.4 Impulse Structure<span class="sidebar-progress" id="sp-1-4"></span></a>
+      <a class="sidebar-item" href="#lesson-1-5"><span class="sidebar-dot" style="background:var(--w1)"></span>1.5 Top-Down Structure<span class="sidebar-progress" id="sp-1-5"></span></a>
+      <a class="sidebar-item" href="#lesson-1-6"><span class="sidebar-dot" style="background:var(--w1)"></span>1.6 Displacement vs Manip.<span class="sidebar-progress" id="sp-1-6"></span></a>
+      <a class="sidebar-item" href="#week-1-review"><span class="sidebar-dot" style="background:var(--w1)"></span>Structure Review<span class="sidebar-progress" id="sp-w1r"></span></a>
+    </details>
 
-    <div class="sidebar-week" style="color:var(--w2)">MARKET BUILDING BLOCKS</div>
-    <a class="sidebar-item" href="#lesson-2-1"><span class="sidebar-dot" style="background:var(--w2)"></span>2.1 Areas of Interest<span class="sidebar-progress" id="sp-2-1"></span></a>
-    <a class="sidebar-item" href="#lesson-2-2"><span class="sidebar-dot" style="background:var(--w2)"></span>2.2 Manipulation Blocks<span class="sidebar-progress" id="sp-2-2"></span></a>
-    <a class="sidebar-item" href="#lesson-2-3"><span class="sidebar-dot" style="background:var(--w2)"></span>2.3 Order Blocks<span class="sidebar-progress" id="sp-2-3"></span></a>
-    <a class="sidebar-item" href="#lesson-2-4"><span class="sidebar-dot" style="background:var(--w2)"></span>2.4 FVGs &amp; Liquidity Voids<span class="sidebar-progress" id="sp-2-4"></span></a>
-    <a class="sidebar-item" href="#lesson-2-5"><span class="sidebar-dot" style="background:var(--w2)"></span>2.5 Breaker Blocks<span class="sidebar-progress" id="sp-2-5"></span></a>
-    <a class="sidebar-item" href="#lesson-2-6"><span class="sidebar-dot" style="background:var(--w2)"></span>2.6 Balanced Price Ranges<span class="sidebar-progress" id="sp-2-6"></span></a>
-    <a class="sidebar-item" href="#lesson-2-7"><span class="sidebar-dot" style="background:var(--w2)"></span>2.7 Wick Blocks<span class="sidebar-progress" id="sp-2-7"></span></a>
-    <a class="sidebar-item" href="#week-2-review"><span class="sidebar-dot" style="background:var(--w2)"></span>Blocks Review<span class="sidebar-progress" id="sp-w2r"></span></a>
+    <details class="sidebar-group" open>
+      <summary style="color:var(--w2)">MARKET BUILDING BLOCKS</summary>
+      <a class="sidebar-item" href="#lesson-2-1"><span class="sidebar-dot" style="background:var(--w2)"></span>2.1 Areas of Interest<span class="sidebar-progress" id="sp-2-1"></span></a>
+      <a class="sidebar-item" href="#lesson-2-2"><span class="sidebar-dot" style="background:var(--w2)"></span>2.2 Manipulation Blocks<span class="sidebar-progress" id="sp-2-2"></span></a>
+      <a class="sidebar-item" href="#lesson-2-3"><span class="sidebar-dot" style="background:var(--w2)"></span>2.3 Order Blocks<span class="sidebar-progress" id="sp-2-3"></span></a>
+      <a class="sidebar-item" href="#lesson-2-4"><span class="sidebar-dot" style="background:var(--w2)"></span>2.4 FVGs &amp; Liquidity Voids<span class="sidebar-progress" id="sp-2-4"></span></a>
+      <a class="sidebar-item" href="#lesson-2-5"><span class="sidebar-dot" style="background:var(--w2)"></span>2.5 Breaker Blocks<span class="sidebar-progress" id="sp-2-5"></span></a>
+      <a class="sidebar-item" href="#lesson-2-6"><span class="sidebar-dot" style="background:var(--w2)"></span>2.6 Balanced Price Ranges<span class="sidebar-progress" id="sp-2-6"></span></a>
+      <a class="sidebar-item" href="#lesson-2-7"><span class="sidebar-dot" style="background:var(--w2)"></span>2.7 Wick Blocks<span class="sidebar-progress" id="sp-2-7"></span></a>
+      <a class="sidebar-item" href="#week-2-review"><span class="sidebar-dot" style="background:var(--w2)"></span>Blocks Review<span class="sidebar-progress" id="sp-w2r"></span></a>
+    </details>
 
-    <div class="sidebar-week" style="color:var(--w3)">LIQUIDITY &amp; SMART PATTERNS</div>
-    <a class="sidebar-item" href="#lesson-3-1"><span class="sidebar-dot" style="background:var(--w3)"></span>3.1 What is Liquidity?<span class="sidebar-progress" id="sp-3-1"></span></a>
-    <a class="sidebar-item" href="#lesson-3-2"><span class="sidebar-dot" style="background:var(--w3)"></span>3.2 Draw on Liquidity<span class="sidebar-progress" id="sp-3-2"></span></a>
-    <a class="sidebar-item" href="#lesson-3-3"><span class="sidebar-dot" style="background:var(--w3)"></span>3.3 Understanding Displacement<span class="sidebar-progress" id="sp-3-3"></span></a>
-    <a class="sidebar-item" href="#lesson-3-4"><span class="sidebar-dot" style="background:var(--w3)"></span>3.4 Intraday Liquidity<span class="sidebar-progress" id="sp-3-4"></span></a>
-    <a class="sidebar-item" href="#lesson-3-5"><span class="sidebar-dot" style="background:var(--w3)"></span>3.5 Bias Based on Liquidity<span class="sidebar-progress" id="sp-3-5"></span></a>
-    <a class="sidebar-item" href="#lesson-3-6"><span class="sidebar-dot" style="background:var(--w3)"></span>3.6 Smart Trading Patterns<span class="sidebar-progress" id="sp-3-6"></span></a>
-    <a class="sidebar-item" href="#week-3-review"><span class="sidebar-dot" style="background:var(--w3)"></span>Liquidity Review<span class="sidebar-progress" id="sp-w3r"></span></a>
+    <details class="sidebar-group" open>
+      <summary style="color:var(--w3)">LIQUIDITY &amp; SMART PATTERNS</summary>
+      <a class="sidebar-item" href="#lesson-3-1"><span class="sidebar-dot" style="background:var(--w3)"></span>3.1 What is Liquidity?<span class="sidebar-progress" id="sp-3-1"></span></a>
+      <a class="sidebar-item" href="#lesson-3-2"><span class="sidebar-dot" style="background:var(--w3)"></span>3.2 Draw on Liquidity<span class="sidebar-progress" id="sp-3-2"></span></a>
+      <a class="sidebar-item" href="#lesson-3-3"><span class="sidebar-dot" style="background:var(--w3)"></span>3.3 Understanding Displacement<span class="sidebar-progress" id="sp-3-3"></span></a>
+      <a class="sidebar-item" href="#lesson-3-4"><span class="sidebar-dot" style="background:var(--w3)"></span>3.4 Intraday Liquidity<span class="sidebar-progress" id="sp-3-4"></span></a>
+      <a class="sidebar-item" href="#lesson-3-5"><span class="sidebar-dot" style="background:var(--w3)"></span>3.5 Bias Based on Liquidity<span class="sidebar-progress" id="sp-3-5"></span></a>
+      <a class="sidebar-item" href="#lesson-3-6"><span class="sidebar-dot" style="background:var(--w3)"></span>3.6 Smart Trading Patterns<span class="sidebar-progress" id="sp-3-6"></span></a>
+      <a class="sidebar-item" href="#week-3-review"><span class="sidebar-dot" style="background:var(--w3)"></span>Liquidity Review<span class="sidebar-progress" id="sp-w3r"></span></a>
+    </details>
 
-    <div class="sidebar-week" style="color:var(--w4)">TIME &amp; SESSIONS</div>
-    <a class="sidebar-item" href="#lesson-4-1"><span class="sidebar-dot" style="background:var(--w4)"></span>4.1 Time &amp; Price Relationship<span class="sidebar-progress" id="sp-4-1"></span></a>
-    <a class="sidebar-item" href="#lesson-4-2"><span class="sidebar-dot" style="background:var(--w4)"></span>4.2 Time Efficiency<span class="sidebar-progress" id="sp-4-2"></span></a>
-    <a class="sidebar-item" href="#lesson-4-3"><span class="sidebar-dot" style="background:var(--w4)"></span>4.3 Asian Session<span class="sidebar-progress" id="sp-4-3"></span></a>
-    <a class="sidebar-item" href="#lesson-4-4"><span class="sidebar-dot" style="background:var(--w4)"></span>4.4 London Session<span class="sidebar-progress" id="sp-4-4"></span></a>
-    <a class="sidebar-item" href="#lesson-4-5"><span class="sidebar-dot" style="background:var(--w4)"></span>4.5 NY Session<span class="sidebar-progress" id="sp-4-5"></span></a>
-    <a class="sidebar-item" href="#lesson-4-6"><span class="sidebar-dot" style="background:var(--w4)"></span>4.6 NY PM Session<span class="sidebar-progress" id="sp-4-6"></span></a>
-    <a class="sidebar-item" href="#lesson-4-7"><span class="sidebar-dot" style="background:var(--w4)"></span>4.7 Smart Trading Life Cycle<span class="sidebar-progress" id="sp-4-7"></span></a>
-    <a class="sidebar-item" href="#lesson-4-8"><span class="sidebar-dot" style="background:var(--w4)"></span>4.8 Opening Eyes to Precision<span class="sidebar-progress" id="sp-4-8"></span></a>
-    <a class="sidebar-item" href="#lesson-4-9"><span class="sidebar-dot" style="background:var(--w4)"></span>4.9 Catching the Wick (TGIF)<span class="sidebar-progress" id="sp-4-9"></span></a>
-    <a class="sidebar-item" href="#lesson-4-bonus"><span class="sidebar-dot" style="background:var(--w4)"></span>4.Bonus Weekly Opens<span class="sidebar-progress" id="sp-4-bonus"></span></a>
-    <a class="sidebar-item" href="#week-4-review"><span class="sidebar-dot" style="background:var(--w4)"></span>Time &amp; Sessions Review<span class="sidebar-progress" id="sp-w4r"></span></a>
-    <a class="sidebar-item" href="#bachelor-exam"><span class="sidebar-dot" style="background:var(--w4)"></span>🎓 Bachelor Exam<span class="sidebar-progress" id="sp-exam"></span></a>
+    <details class="sidebar-group" open>
+      <summary style="color:var(--w4)">TIME &amp; SESSIONS</summary>
+      <a class="sidebar-item" href="#lesson-4-1"><span class="sidebar-dot" style="background:var(--w4)"></span>4.1 Time &amp; Price Relationship<span class="sidebar-progress" id="sp-4-1"></span></a>
+      <a class="sidebar-item" href="#lesson-4-2"><span class="sidebar-dot" style="background:var(--w4)"></span>4.2 Time Efficiency<span class="sidebar-progress" id="sp-4-2"></span></a>
+      <a class="sidebar-item" href="#lesson-4-3"><span class="sidebar-dot" style="background:var(--w4)"></span>4.3 Asian Session<span class="sidebar-progress" id="sp-4-3"></span></a>
+      <a class="sidebar-item" href="#lesson-4-4"><span class="sidebar-dot" style="background:var(--w4)"></span>4.4 London Session<span class="sidebar-progress" id="sp-4-4"></span></a>
+      <a class="sidebar-item" href="#lesson-4-5"><span class="sidebar-dot" style="background:var(--w4)"></span>4.5 NY Session<span class="sidebar-progress" id="sp-4-5"></span></a>
+      <a class="sidebar-item" href="#lesson-4-6"><span class="sidebar-dot" style="background:var(--w4)"></span>4.6 NY PM Session<span class="sidebar-progress" id="sp-4-6"></span></a>
+      <a class="sidebar-item" href="#lesson-4-7"><span class="sidebar-dot" style="background:var(--w4)"></span>4.7 Smart Trading Life Cycle<span class="sidebar-progress" id="sp-4-7"></span></a>
+      <a class="sidebar-item" href="#lesson-4-8"><span class="sidebar-dot" style="background:var(--w4)"></span>4.8 Opening Eyes to Precision<span class="sidebar-progress" id="sp-4-8"></span></a>
+      <a class="sidebar-item" href="#lesson-4-9"><span class="sidebar-dot" style="background:var(--w4)"></span>4.9 Catching the Wick (TGIF)<span class="sidebar-progress" id="sp-4-9"></span></a>
+      <a class="sidebar-item" href="#lesson-4-bonus"><span class="sidebar-dot" style="background:var(--w4)"></span>4.Bonus Weekly Opens<span class="sidebar-progress" id="sp-4-bonus"></span></a>
+      <a class="sidebar-item" href="#week-4-review"><span class="sidebar-dot" style="background:var(--w4)"></span>Time &amp; Sessions Review<span class="sidebar-progress" id="sp-w4r"></span></a>
+    </details>
 
-    <div class="sidebar-week" style="color:var(--w5)">TIME &amp; PRICE PRECISION</div>
-    <a class="sidebar-item" href="#week-5"><span class="sidebar-dot" style="background:var(--w5)"></span>5.1–5.6 Time &amp; Price Precision<span class="sidebar-progress" style="color:var(--subtle)">…</span></a>
+    <details class="sidebar-group" open>
+      <summary style="color:var(--w5)">TIME &amp; PRICE PRECISION</summary>
+      <a class="sidebar-item" href="#lesson-5-1"><span class="sidebar-dot" style="background:var(--w5)"></span>5.1 State of Delivery<span class="sidebar-progress" id="sp-5-1"></span></a>
+      <a class="sidebar-item" href="#lesson-5-2"><span class="sidebar-dot" style="background:var(--w5)"></span>5.2 Time &amp; Price Math<span class="sidebar-progress" id="sp-5-2"></span></a>
+      <a class="sidebar-item" href="#lesson-5-3"><span class="sidebar-dot" style="background:var(--w5)"></span>5.3 Jumpstart Targeting<span class="sidebar-progress" id="sp-5-3"></span></a>
+      <a class="sidebar-item" href="#lesson-5-4"><span class="sidebar-dot" style="background:var(--w5)"></span>5.4 NWOG &amp; NDOG<span class="sidebar-progress" id="sp-5-4"></span></a>
+      <a class="sidebar-item" href="#lesson-5-5"><span class="sidebar-dot" style="background:var(--w5)"></span>5.5 SGC 369<span class="sidebar-progress" id="sp-5-5"></span></a>
+      <a class="sidebar-item" href="#lesson-5-6"><span class="sidebar-dot" style="background:var(--w5)"></span>5.6 Adv. Structure Simplified<span class="sidebar-progress" id="sp-5-6"></span></a>
+      <a class="sidebar-item" href="#week-5-review"><span class="sidebar-dot" style="background:var(--w5)"></span>Time &amp; Price Review<span class="sidebar-progress" id="sp-w5r"></span></a>
+    </details>
 
-    <div class="sidebar-week" style="color:var(--w6)">MACRO CONTEXT</div>
-    <a class="sidebar-item" href="#week-6"><span class="sidebar-dot" style="background:var(--w6)"></span>6.1–6.4 Macro Context<span class="sidebar-progress" style="color:var(--subtle)">…</span></a>
+    <details class="sidebar-group" open>
+      <summary style="color:var(--w6)">MACRO CONTEXT</summary>
+      <a class="sidebar-item" href="#lesson-6-1"><span class="sidebar-dot" style="background:var(--w6)"></span>6.1 Breaks in the Macro<span class="sidebar-progress" id="sp-6-1"></span></a>
+      <a class="sidebar-item" href="#lesson-6-2"><span class="sidebar-dot" style="background:var(--w6)"></span>6.2 Fed Funding Rate<span class="sidebar-progress" id="sp-6-2"></span></a>
+      <a class="sidebar-item" href="#lesson-6-3"><span class="sidebar-dot" style="background:var(--w6)"></span>6.3 Smart Open Interest<span class="sidebar-progress" id="sp-6-3"></span></a>
+      <a class="sidebar-item" href="#lesson-6-4"><span class="sidebar-dot" style="background:var(--w6)"></span>6.4 Institutional/Retail/Smart<span class="sidebar-progress" id="sp-6-4"></span></a>
+      <a class="sidebar-item" href="#week-6-review"><span class="sidebar-dot" style="background:var(--w6)"></span>Macro Context Review<span class="sidebar-progress" id="sp-w6r"></span></a>
+    </details>
 
-    <div class="sidebar-week" style="color:var(--w7)">ENTRY MODELS</div>
-    <a class="sidebar-item" href="#week-7"><span class="sidebar-dot" style="background:var(--w7)"></span>7.1–7.10 Entry Models<span class="sidebar-progress" style="color:var(--subtle)">…</span></a>
+    <details class="sidebar-group" open>
+      <summary style="color:var(--w7)">ENTRY MODELS</summary>
+      <a class="sidebar-item" href="#lesson-7-1"><span class="sidebar-dot" style="background:var(--w7)"></span>7.1 Foundation for Entries<span class="sidebar-progress" id="sp-7-1"></span></a>
+      <a class="sidebar-item" href="#lesson-7-2"><span class="sidebar-dot" style="background:var(--w7)"></span>7.2 3x Entry Model<span class="sidebar-progress" id="sp-7-2"></span></a>
+      <a class="sidebar-item" href="#lesson-7-3"><span class="sidebar-dot" style="background:var(--w7)"></span>7.3 SMM Entry Model<span class="sidebar-progress" id="sp-7-3"></span></a>
+      <a class="sidebar-item" href="#lesson-7-4"><span class="sidebar-dot" style="background:var(--w7)"></span>7.4 Move of the Day<span class="sidebar-progress" id="sp-7-4"></span></a>
+      <a class="sidebar-item" href="#lesson-7-5"><span class="sidebar-dot" style="background:var(--w7)"></span>7.5 NY FX Entry Model<span class="sidebar-progress" id="sp-7-5"></span></a>
+      <a class="sidebar-item" href="#lesson-7-6"><span class="sidebar-dot" style="background:var(--w7)"></span>7.6 Move of the Week<span class="sidebar-progress" id="sp-7-6"></span></a>
+      <a class="sidebar-item" href="#lesson-7-7"><span class="sidebar-dot" style="background:var(--w7)"></span>7.7 Adv. Structure Entry<span class="sidebar-progress" id="sp-7-7"></span></a>
+      <a class="sidebar-item" href="#lesson-7-8"><span class="sidebar-dot" style="background:var(--w7)"></span>7.8 MMEM<span class="sidebar-progress" id="sp-7-8"></span></a>
+      <a class="sidebar-item" href="#lesson-7-9"><span class="sidebar-dot" style="background:var(--w7)"></span>7.9 Time Based Entry<span class="sidebar-progress" id="sp-7-9"></span></a>
+      <a class="sidebar-item" href="#lesson-7-10"><span class="sidebar-dot" style="background:var(--w7)"></span>7.10 Ghost Protocol<span class="sidebar-progress" id="sp-7-10"></span></a>
+      <a class="sidebar-item" href="#week-7-review"><span class="sidebar-dot" style="background:var(--w7)"></span>Entry Models Review<span class="sidebar-progress" id="sp-w7r"></span></a>
+    </details>
 
-    <div class="sidebar-week" style="color:var(--w8)">RISK &amp; PSYCHOLOGY</div>
-    <a class="sidebar-item" href="#week-8"><span class="sidebar-dot" style="background:var(--w8)"></span>8.1–8.8 Risk &amp; Psychology<span class="sidebar-progress" style="color:var(--subtle)">…</span></a>
+    <details class="sidebar-group" open>
+      <summary style="color:var(--w8)">RISK &amp; PSYCHOLOGY</summary>
+      <a class="sidebar-item" href="#lesson-8-1"><span class="sidebar-dot" style="background:var(--w8)"></span>8.1 Intro to Risk Mgmt<span class="sidebar-progress" id="sp-8-1"></span></a>
+      <a class="sidebar-item" href="#lesson-8-2"><span class="sidebar-dot" style="background:var(--w8)"></span>8.2 Sizing Positions<span class="sidebar-progress" id="sp-8-2"></span></a>
+      <a class="sidebar-item" href="#lesson-8-3"><span class="sidebar-dot" style="background:var(--w8)"></span>8.3 Slippage + News<span class="sidebar-progress" id="sp-8-3"></span></a>
+      <a class="sidebar-item" href="#lesson-8-4"><span class="sidebar-dot" style="background:var(--w8)"></span>8.4 Defining an Edge<span class="sidebar-progress" id="sp-8-4"></span></a>
+      <a class="sidebar-item" href="#lesson-8-5"><span class="sidebar-dot" style="background:var(--w8)"></span>8.5 Chances Make Champions<span class="sidebar-progress" id="sp-8-5"></span></a>
+      <a class="sidebar-item" href="#lesson-8-6"><span class="sidebar-dot" style="background:var(--w8)"></span>8.6 Probabilistic Thinking<span class="sidebar-progress" id="sp-8-6"></span></a>
+      <a class="sidebar-item" href="#lesson-8-7"><span class="sidebar-dot" style="background:var(--w8)"></span>8.7 A Calloused Mind<span class="sidebar-progress" id="sp-8-7"></span></a>
+      <a class="sidebar-item" href="#lesson-8-8"><span class="sidebar-dot" style="background:var(--w8)"></span>8.8 Journaling &amp; Optimization<span class="sidebar-progress" id="sp-8-8"></span></a>
+      <a class="sidebar-item" href="#week-8-review"><span class="sidebar-dot" style="background:var(--w8)"></span>Risk &amp; Psychology Review<span class="sidebar-progress" id="sp-w8r"></span></a>
+      <a class="sidebar-item" href="#bachelor-exam"><span class="sidebar-dot" style="background:var(--w8)"></span>🎓 Bachelor Exam<span class="sidebar-progress" id="sp-exam"></span></a>
+    </details>
 
-    <div class="sidebar-week" style="color:var(--purple)">EXTRA</div>
-    <a class="sidebar-item" href="#extra-modules"><span class="sidebar-dot" style="background:var(--purple)"></span>✨ Extra Modules<span class="sidebar-progress" style="color:var(--subtle)">…</span></a>
+    <details class="sidebar-group" open>
+      <summary style="color:var(--purple)">EXTRA</summary>
+      <a class="sidebar-item" href="#extra-modules"><span class="sidebar-dot" style="background:var(--purple)"></span>✨ Extra Modules<span class="sidebar-progress" style="color:var(--subtle)">…</span></a>
+    </details>
 
     <a class="sidebar-back" href="../../../index.html">← Back to hub</a>
   </nav>
@@ -527,7 +582,7 @@
         <summary>
           <span class="class-badge">1.1</span>
           <span class="class-title-text">Reading a Candle + What is Market Structure</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -580,7 +635,7 @@
         <summary>
           <span class="class-badge">1.2</span>
           <span class="class-title-text">Premium &amp; Discount</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -655,7 +710,7 @@
         <summary>
           <span class="class-badge">1.3</span>
           <span class="class-title-text">Range Structure</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -744,7 +799,7 @@
         <summary>
           <span class="class-badge">1.4</span>
           <span class="class-title-text">Impulse Structure</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -815,7 +870,7 @@
         <summary>
           <span class="class-badge">1.5</span>
           <span class="class-title-text">Top-Down Structure</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -895,7 +950,7 @@
         <summary>
           <span class="class-badge">1.6</span>
           <span class="class-title-text">Displacement vs. Manipulation</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -992,9 +1047,9 @@
       <!-- ── Structure Review ── -->
       <details class="class-card" id="week-1-review">
         <summary>
-          <span class="class-badge" style="background:rgba(63,185,80,.12);color:var(--green)">W1 ✓</span>
+          <span class="class-badge" style="background:rgba(63,185,80,.12);color:var(--green)">Review</span>
           <span class="class-title-text">Structure Review</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -1066,7 +1121,7 @@
         <summary>
           <span class="class-badge">2.1</span>
           <span class="class-title-text">Areas of Interest / Footprints</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -1123,7 +1178,7 @@
         <summary>
           <span class="class-badge">2.2</span>
           <span class="class-title-text">Manipulation Blocks</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -1175,7 +1230,7 @@
         <summary>
           <span class="class-badge">2.3</span>
           <span class="class-title-text">Order Blocks</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -1234,7 +1289,7 @@
         <summary>
           <span class="class-badge">2.4</span>
           <span class="class-title-text">Fair Value Gaps &amp; Liquidity Voids</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -1304,7 +1359,7 @@
         <summary>
           <span class="class-badge">2.5</span>
           <span class="class-title-text">Breaker Blocks</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -1374,7 +1429,7 @@
         <summary>
           <span class="class-badge">2.6</span>
           <span class="class-title-text">Balanced Price Ranges</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -1431,7 +1486,7 @@
         <summary>
           <span class="class-badge">2.7</span>
           <span class="class-title-text">Wick Blocks (Rejection Blocks)</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -1494,9 +1549,9 @@
       <!-- ── Blocks Review ── -->
       <details class="class-card" id="week-2-review">
         <summary>
-          <span class="class-badge" style="background:rgba(63,185,80,.12);color:var(--green)">W2 ✓</span>
+          <span class="class-badge" style="background:rgba(63,185,80,.12);color:var(--green)">Review</span>
           <span class="class-title-text">Blocks Review</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -1556,7 +1611,7 @@
         <summary>
           <span class="class-badge">3.1</span>
           <span class="class-title-text">What is Liquidity?</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -1610,7 +1665,7 @@
         <summary>
           <span class="class-badge">3.2</span>
           <span class="class-title-text">Draw on Liquidity</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -1672,7 +1727,7 @@
         <summary>
           <span class="class-badge">3.3</span>
           <span class="class-title-text">Understanding Displacement</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -1730,7 +1785,7 @@
         <summary>
           <span class="class-badge">3.4</span>
           <span class="class-title-text">Intraday Liquidity</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -1779,7 +1834,7 @@
         <summary>
           <span class="class-badge">3.5</span>
           <span class="class-title-text">Forming a Bias Based on Liquidity</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -1834,7 +1889,7 @@
         <summary>
           <span class="class-badge">3.6</span>
           <span class="class-title-text">Smart Trading Patterns</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -1893,9 +1948,9 @@
       <!-- ── Liquidity Review ── -->
       <details class="class-card" id="week-3-review">
         <summary>
-          <span class="class-badge" style="background:rgba(63,185,80,.12);color:var(--green)">W3 ✓</span>
+          <span class="class-badge" style="background:rgba(63,185,80,.12);color:var(--green)">Review</span>
           <span class="class-title-text">Liquidity Review</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -1948,7 +2003,7 @@
         <summary>
           <span class="class-badge" style="background:rgba(227,179,65,.15);color:var(--w4)">4.1</span>
           <span class="class-title-text">Time &amp; Price Relationship</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -2004,7 +2059,7 @@
         <summary>
           <span class="class-badge" style="background:rgba(227,179,65,.15);color:var(--w4)">4.2</span>
           <span class="class-title-text">Time Efficiency</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -2052,7 +2107,7 @@
         <summary>
           <span class="class-badge" style="background:rgba(227,179,65,.15);color:var(--w4)">4.3</span>
           <span class="class-title-text">Asian Session</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -2106,7 +2161,7 @@
         <summary>
           <span class="class-badge" style="background:rgba(227,179,65,.15);color:var(--w4)">4.4</span>
           <span class="class-title-text">London Session</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -2160,7 +2215,7 @@
         <summary>
           <span class="class-badge" style="background:rgba(227,179,65,.15);color:var(--w4)">4.5</span>
           <span class="class-title-text">NY Session</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -2188,7 +2243,7 @@
         <summary>
           <span class="class-badge" style="background:rgba(227,179,65,.15);color:var(--w4)">4.6</span>
           <span class="class-title-text">NY PM Session</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -2216,7 +2271,7 @@
         <summary>
           <span class="class-badge" style="background:rgba(227,179,65,.15);color:var(--w4)">4.7</span>
           <span class="class-title-text">Smart Trading Life Cycle</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -2281,7 +2336,7 @@
         <summary>
           <span class="class-badge" style="background:rgba(227,179,65,.15);color:var(--w4)">4.8</span>
           <span class="class-title-text">Opening Your Eyes to Precision</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -2319,7 +2374,7 @@
         <summary>
           <span class="class-badge" style="background:rgba(227,179,65,.15);color:var(--w4)">4.9</span>
           <span class="class-title-text">Catching the Wick to Close (TGIF)</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -2347,7 +2402,7 @@
         <summary>
           <span class="class-badge" style="background:rgba(227,179,65,.25);color:var(--w4)">Bonus</span>
           <span class="class-title-text">Weekly Opens</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -2365,9 +2420,9 @@
       <!-- ── Time & Sessions Review ── -->
       <details class="class-card" id="week-4-review">
         <summary>
-          <span class="class-badge" style="background:rgba(63,185,80,.12);color:var(--green)">W4 ✓</span>
+          <span class="class-badge" style="background:rgba(63,185,80,.12);color:var(--green)">Review</span>
           <span class="class-title-text">Time &amp; Sessions Review</span>
-          <span class="class-status partial">In Progress</span>
+          <span class="class-status complete">✓ Complete</span>
           <span class="acc-icon">▾</span>
         </summary>
         <div class="class-body">
@@ -2401,6 +2456,803 @@
         </div>
       </details>
 
+    </section>
+
+
+    <!-- ════════════════════════════════════════ WEEK 5 -->
+    <section class="week-block" id="week-5">
+      <div class="week-banner">
+        <div class="week-number w5">5</div>
+        <div class="week-info">
+          <h2>Time &amp; Price Precision</h2>
+          <p>State of Delivery · Time &amp; Price Math · Jumpstart Targeting · NWOG/NDOG · SGC 369 · Advanced Structure</p>
+        </div>
+        <span class="week-stat">6 Lessons + Review</span>
+      </div>
+
+      <!-- ── Lesson 5.1 ── -->
+      <details class="class-card" id="lesson-5-1">
+        <summary>
+          <span class="class-badge">5.1</span>
+          <span class="class-title-text">Changes in State of Delivery</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">What is the "state of delivery," and why does identifying a change in it matter?</div>
+              <div class="qa-a">Price is always in one of four states: <strong>expansion</strong> (a strong directional move, usually after displacement), <strong>retracement</strong> (a controlled pullback within an expansion), <strong>consolidation</strong> (a range, building energy for the next expansion), or <strong>reversal</strong> (a full change of the higher-timeframe direction). Most losing trades come from misreading which state price is in — shorting into what looks like a top but is actually a retracement inside an ongoing uptrend, for example. Correctly identifying the state tells you whether to expect continuation or exhaustion from the current move.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">How do measured moves and standard deviations help locate a transition?</div>
+              <div class="qa-a">A <strong>measured move</strong> projects the size of a prior expansion leg forward from a new point of origin — if the first leg of a move ran 40 points, a similar continuation leg is a reasonable first target. <strong>Standard deviation extensions</strong> (1x, 1.5x, 2x, 2.5x the original range) mark statistically likely exhaustion zones. When price reaches a 2x–2.5x extension after already displacing hard, the odds of a state change (expansion → retracement or reversal) rise sharply — that is where you tighten management or start looking for confirmation of the next phase rather than chasing the move.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">Practical application — what should this change about pre-market prep?</div>
+              <div class="qa-a">Before the session, mark where price sits relative to its recent expansion: has it already run a full measured move, or is it early in a fresh leg? A + B: if HTF is in consolidation, wait for the range break (expansion) before committing directional bias. If HTF has already expanded 2x its typical range, be more cautious about fresh entries in the same direction — the higher-probability trade may be the retracement or the reversal, not the continuation.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 5.2 ── -->
+      <details class="class-card" id="lesson-5-2">
+        <summary>
+          <span class="class-badge">5.2</span>
+          <span class="class-title-text">Time &amp; Price Mathematics</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">Why apply standard deviations to time, not just price?</div>
+              <div class="qa-a">Institutional algorithms don't only target price levels — they target time windows too. Applying the same 1x/2x/3x deviation logic to the duration of a move (not just its size) helps anticipate <em>when</em> a reversal or consolidation is statistically likely, not just <em>where</em>. A move that has run for 3x its typical duration is "time-extended" the same way a move that has run 3x its typical range is "price-extended" — both are exhaustion signals.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">How does this combine with price projection for daily/weekly/monthly ranges?</div>
+              <div class="qa-a">Pairing time and price gives a two-dimensional target: not just "price likely reaches X" but "price likely reaches X by Y time." This is especially useful for session-based trading — if the statistical daily range has already been consumed by 10:30 AM ET, the probability of a fresh directional leg before the close drops, and afternoon setups should be sized/graded accordingly.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 5.3 ── -->
+      <details class="class-card" id="lesson-5-3">
+        <summary>
+          <span class="class-badge">5.3</span>
+          <span class="class-title-text">Jumpstart Targeting</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">What does Jumpstart Targeting actually project, and from what starting point?</div>
+              <div class="qa-a">It anchors standard deviation projections to a market structure shift (MSS) or the FVG left by the displacement that confirmed it — rather than an arbitrary swing high/low. Because the anchor is tied to genuine institutional footprint (the FVG + the structure break), the resulting targets tend to align with where smart money actually built the move from, not just where price happened to reverse.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">When does this method underperform?</div>
+              <div class="qa-a">In choppy, low-displacement conditions — when structure shifts happen without a clean FVG or with immediate retracement through the anchor — the projections lose reliability, because the anchor itself is unstable. This is a strong-trend tool; in Scenario C (mixed/no-trade) conditions it should be weighted lightly or skipped.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 5.4 ── -->
+      <details class="class-card" id="lesson-5-4">
+        <summary>
+          <span class="class-badge">5.4</span>
+          <span class="class-title-text">NWOG &amp; NDOG Secrets</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">What are NWOG/NDOG, and why do futures markets produce them?</div>
+              <div class="qa-a">A <strong>New Week Opening Gap</strong> is the imbalance between Friday's close and Sunday's futures reopen; a <strong>New Day Opening Gap</strong> is the same phenomenon between one session's close and the next day's open. Because futures trade nearly 24 hours but still carry weekend/overnight closures, these gaps are genuine unfilled price imbalance — not noise. Price frequently returns to fill (or "rebalance") these gaps before continuing its dominant direction, similar to how an FVG gets revisited.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">How are NWOG/NDOG used for bias and targets?</div>
+              <div class="qa-a">If price is trading below an unfilled bullish NWOG, that gap becomes a magnet/target for long bias. Conversely, an unfilled NDOG above current price during a downtrend can act as resistance — a place where sellers re-engage once price rebalances into it. Christopher's <code>auto-levels</code> Pine indicator already plots opening-price rays (including NWOG/NDOG-adjacent levels) automatically, so this concept has a direct tooling hook rather than requiring manual gap-marking every session.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 5.5 ── -->
+      <details class="class-card" id="lesson-5-5">
+        <summary>
+          <span class="class-badge">5.5</span>
+          <span class="class-title-text">SGC 369</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">What does the "369" in SGC 369 refer to, and how does it structure a session?</div>
+              <div class="qa-a">It divides any defined range (day, session, or week) into successive 90-minute quarters following the Power of Three (Accumulation → Manipulation → Distribution). Traders anchor bias formation to the midnight or session open, treat time-based liquidity levels (prior day/session highs and lows) as "trip wires" that confirm which quarter's narrative is playing out, and focus execution mainly on Quarter 2 and Quarter 3 — where manipulation has typically completed and distribution (the real move) begins.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">Why weight Q2/Q3 over Q1/Q4 for entries?</div>
+              <div class="qa-a">Q1 is where the false move (manipulation) most often occurs — entering here risks getting caught on the wrong side of a stop run. Q4 is often the tail end of distribution where risk/reward has already compressed. Q2 and Q3 are where displacement confirms the real direction (post-manipulation) and where the bulk of the range is still ahead — the best combination of confirmation and remaining room to target.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 5.6 ── -->
+      <details class="class-card" id="lesson-5-6">
+        <summary>
+          <span class="class-badge">5.6</span>
+          <span class="class-title-text">Advanced Market Structure Simplified</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">How does this build on the basic market structure from Week 1?</div>
+              <div class="qa-a">Week 1 covered structure at a single timeframe — higher highs/lows vs. lower highs/lows. This lesson layers in <strong>intermediate-term</strong> and <strong>long-term</strong> swing points simultaneously, so structure is read fractally rather than flatly. The three-point confirmation pattern (built around an FVG) gives a mechanical way to spot when a shorter-term move is actually the early stage of a larger structural shift, versus just noise inside an established range.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">What makes this "simplified" compared to traditional advanced-structure teaching?</div>
+              <div class="qa-a">Rather than requiring the trader to hold multiple nested structure maps in their head at once, the three-point pattern gives a single, repeatable visual trigger: accumulation → shift → confirmation via FVG. It trades the concept of market-maker behavior (accumulate, then reprice) without needing a full independent structural map for every timeframe simultaneously.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Section 5 Reflection ── -->
+      <details class="class-card" id="week-5-review">
+        <summary>
+          <span class="class-badge" style="background:rgba(240,136,62,.12);color:var(--w5)">Review</span>
+          <span class="class-title-text">Time &amp; Price Precision Review</span>
+          <span class="class-status pending">Pending</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="callout warn" style="margin-bottom:1rem">
+            <span class="callout-icon">📋</span>
+            <span>Complete this review after working through all six Time &amp; Price Precision lessons above — personal takeaways and a trading-career example, matching the format used in Weeks 1–4.</span>
+          </div>
+          <div class="sec-header"><span class="sec-chip chip-reflect">Review &amp; Reflection</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">Write 3 key takeaways from this section's teachings.</div>
+              <div class="qa-a pending">Your reflection here.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">Write about a time in your trading career relating to these teachings.</div>
+              <div class="qa-a pending">Your reflection here.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ════════════════════════════════════════ WEEK 6 -->
+    <section class="week-block" id="week-6">
+      <div class="week-banner">
+        <div class="week-number w6">6</div>
+        <div class="week-info">
+          <h2>Macro Context &amp; Institutional Positioning</h2>
+          <p>Breaks in the Macro · Fed Funding Rate Projections · Smart Open Interest · COT Data</p>
+        </div>
+        <span class="week-stat">4 Lessons + Review</span>
+      </div>
+
+      <!-- ── Lesson 6.1 ── -->
+      <details class="class-card" id="lesson-6-1">
+        <summary>
+          <span class="class-badge">6.1</span>
+          <span class="class-title-text">Breaks in the Macro</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">What is SMT Divergence, and why does it matter beyond a single instrument?</div>
+              <div class="qa-a"><strong>SMT (Smart Money Technique) Divergence</strong> occurs when two normally correlated instruments fail to confirm each other — one makes a new high/low while the other doesn't. This "break in correlation" is a footprint of institutional selectivity: smart money is accumulating or distributing in one instrument but not the other, revealing which one is the "real" move and which is the trap. Christopher's own triple-index framework (NQ/ES/YM) and the CL/XBR energy pair are direct applications of this exact concept — it's already built into his daily bias process, not a new tool.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">How is this used practically across asset classes (forex, indices, commodities)?</div>
+              <div class="qa-a">In forex, correlated pairs (e.g., EUR/USD and GBP/USD) or an instrument against DXY can reveal divergence. In indices, the NQ/ES/YM triple-index read is the primary application. In commodities, correlated pairs like Gold/Silver or the CL/XBR crude oil pair serve the same function. The core skill transfers: identify a normally-correlated pair, watch for one to sweep a level the other doesn't confirm, and treat the non-confirming instrument's direction as the higher-conviction read.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 6.2 ── -->
+      <details class="class-card" id="lesson-6-2">
+        <summary>
+          <span class="class-badge">6.2</span>
+          <span class="class-title-text">Fed Funding Rate Projections</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">Why do bond futures (ZB, ZN, ZF, ZT) reveal rate expectations before the Fed announces anything?</div>
+              <div class="qa-a">Bond prices move inversely to yield, and yield reflects the market's forward expectation of interest rates. Because large funds position in bonds ahead of anticipated Fed decisions, sustained directional moves in ZB/ZN/ZF/ZT (long vs. short duration instruments) can telegraph whether the market is pricing in a hike, a cut, or a hold — often well before the FOMC statement itself. This is forward-looking positioning data, not a lagging indicator.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">How does this connect to trading the dollar (DXY) and correlated instruments?</div>
+              <div class="qa-a">Rate expectations are one of the primary drivers of USD strength/weakness. If bond markets are pricing in higher-for-longer rates, that's typically dollar-bullish; anticipated cuts are typically dollar-bearish. Since DXY strength/weakness flows through to Gold, crude oil, and index futures (via risk sentiment), reading bond-market rate expectations gives an early macro bias layer that sits above the intraday SMT/structure read — a top-down macro filter on top of a top-down technical one.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 6.3 ── -->
+      <details class="class-card" id="lesson-6-3">
+        <summary>
+          <span class="class-badge">6.3</span>
+          <span class="class-title-text">Smart Open Interest</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">What does open interest actually measure, and how does it differ from volume?</div>
+              <div class="qa-a"><strong>Open interest</strong> is the total number of outstanding (not-yet-closed) futures contracts — it measures how much capital/commitment is still "live" in the market. <strong>Volume</strong> measures how many contracts changed hands in a period, regardless of whether those trades opened new positions or closed existing ones. Rising price + rising OI = new money entering in that direction (a healthy trend). Rising price + falling OI = existing shorts covering, not fresh buying — a weaker, more exhaustion-prone move.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">How does this read differently in trending vs. consolidating markets?</div>
+              <div class="qa-a">In a trend, watch whether OI is climbing alongside price — confirmation that large commercial traders are committing fresh capital, not just short-covering. In consolidation, elevated but flat OI often signals both sides are locked in and waiting for a catalyst — a coiled-spring setup where the eventual breakout (in either direction) is likely to be sharp once one side capitulates.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 6.4 ── -->
+      <details class="class-card" id="lesson-6-4">
+        <summary>
+          <span class="class-badge">6.4</span>
+          <span class="class-title-text">Understanding Institutional, Retail, &amp; Smart Money Interests</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">Who are "commercials" in COT data, and why does their positioning matter more than retail's?</div>
+              <div class="qa-a">Commercials are primarily <strong>hedgers</strong> — producers, refiners, and large institutions using futures to manage real business risk (e.g., an oil producer hedging future production). Because they trade on fundamental exposure rather than short-term speculation, sustained shifts in commercial positioning tend to reflect genuine changes in supply/demand fundamentals rather than sentiment swings — making them a higher-signal read than retail sentiment, which tends to cluster at extremes (over-bullish at tops, over-bearish at bottoms).</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">How is COT data accessed and where is it most reliable?</div>
+              <div class="qa-a">Two practical routes: directly from the weekly CFTC Commitment of Traders reports, or visually plotted on BarChart. It's most reliable in FX and commodities, where commercial hedging activity is large relative to speculative flow. The instructor's guidance is to use it as <strong>confluence</strong> — one more data point layered onto structure, liquidity, and order-block reads — not as a standalone trading system, since COT data is reported weekly and inherently lags real-time price action.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Section 6 Reflection ── -->
+      <details class="class-card" id="week-6-review">
+        <summary>
+          <span class="class-badge" style="background:rgba(88,166,255,.12);color:var(--w6)">Review</span>
+          <span class="class-title-text">Macro Context Review</span>
+          <span class="class-status pending">Pending</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="callout warn" style="margin-bottom:1rem">
+            <span class="callout-icon">📋</span>
+            <span>Complete this review after working through all four Macro Context lessons above.</span>
+          </div>
+          <div class="sec-header"><span class="sec-chip chip-reflect">Review &amp; Reflection</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">Write 3 key takeaways from this section's teachings.</div>
+              <div class="qa-a pending">Your reflection here.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">Write about a time in your trading career relating to these teachings.</div>
+              <div class="qa-a pending">Your reflection here.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ════════════════════════════════════════ WEEK 7 -->
+    <section class="week-block" id="week-7">
+      <div class="week-banner">
+        <div class="week-number w7">7</div>
+        <div class="week-info">
+          <h2>Entry Models</h2>
+          <p>3x · SMM · Move of the Day/Week · NY FX · Advanced Structure · MMEM · Time Based · Ghost Protocol</p>
+        </div>
+        <span class="week-stat">10 Lessons + Review</span>
+      </div>
+
+      <!-- ── Lesson 7.1 ── -->
+      <details class="class-card" id="lesson-7-1">
+        <summary>
+          <span class="class-badge">7.1</span>
+          <span class="class-title-text">Building a Foundation for Entry Models</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">Why does entry-model selection start with top-down context rather than a signal on the entry timeframe?</div>
+              <div class="qa-a">Every entry model in this section shares the same underlying discipline: HTF context first, LTF precision second. Reading price fractally — daily/weekly bias, then medium-timeframe structure, then the lower-timeframe trigger — prevents the common error of finding a technically valid setup on the 1-minute chart that contradicts the actual institutional direction. Displacement is described as the "GPS" because it is the one signal that confirms real order flow commitment at every layer of that fractal read, distinguishing genuine continuation from noise.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">What should change in trading behavior depending on whether the HTF is expanding or retracing?</div>
+              <div class="qa-a">In expansion, entries should be taken in the direction of the displacement, on pullbacks into the FVG it left behind — chasing the raw move itself is lower-probability. In retracement, the higher-probability read is patience: wait for the retracement to complete (often into a discount/premium zone) and for a fresh displacement to confirm the resumption of the HTF direction before entering. Conflating the two — trading a retracement like it's a fresh expansion — is a recurring source of premature entries.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 7.2 ── -->
+      <details class="class-card" id="lesson-7-2">
+        <summary>
+          <span class="class-badge">7.2</span>
+          <span class="class-title-text">3x Entry Model</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">What are the three timeframes in the "3x" model, and what job does each one do?</div>
+              <div class="qa-a">A higher timeframe sets directional bias, a medium timeframe confirms whether price is retracing or expanding within that bias, and a lower timeframe supplies the precise entry trigger via a footprint (FVG, order block, breaker block, or manipulation block). The model's discipline is sequencing: bias is never overridden by a lower-timeframe signal — the LTF only fires an entry once the higher two timeframes already agree.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">How does the model define risk and targets mechanically?</div>
+              <div class="qa-a">Stops sit beyond the footprint that triggered entry (e.g., beyond the order block or FVG), keeping risk tightly defined and directly tied to the invalidation point of the setup rather than an arbitrary distance. Targets and partials follow standard deviation projections or the next liquidity pool on the HTF, with time-of-day guidance layered on top — the same entry pattern carries different odds depending on session (e.g., NY AM open vs. lunch chop).</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 7.3 ── -->
+      <details class="class-card" id="lesson-7-3">
+        <summary>
+          <span class="class-badge">7.3</span>
+          <span class="class-title-text">SMM Entry Model</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">What signal defines a valid SMM (liquidity raid) entry?</div>
+              <div class="qa-a">The core trigger is a <strong>lack of displacement</strong> at a key high or low — price sweeps the level (taking out resting liquidity) but fails to continue with conviction, signaling the sweep was a stop run rather than genuine directional intent. Confirmation (a rejection candle, a shift back through the level) is what turns the raid into an entry, not the sweep itself — entering on the sweep alone is premature and exposed to the raid actually being real continuation.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">Why does this model generalize well across asset classes, including crypto?</div>
+              <div class="qa-a">Liquidity raids are a function of market structure and order-book mechanics, not any single asset's specific characteristics — anywhere resting stops cluster above/below obvious highs/lows, the same raid-and-reject pattern can appear. This is consistent with why it reportedly performed well on gold intraday despite gold not being the model's original target market — the underlying mechanic (liquidity, not asset-specific behavior) is what's being traded.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 7.4 ── -->
+      <details class="class-card" id="lesson-7-4">
+        <summary>
+          <span class="class-badge">7.4</span>
+          <span class="class-title-text">Catching the Move of the Day Entry Model</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">Why does this model specifically target the 12–4 a.m. EST window on EUR/GBP pairs?</div>
+              <div class="qa-a">This window sits inside the Asian/early-London session, ahead of London's main volume — a lower-liquidity period prone to manipulation moves that get reversed once London opens in force. Entries formed here, confirmed by DXY bias alignment, are positioned to catch the "real" move of the day once broader session volume confirms direction — effectively front-running the higher-liquidity session using the lower-liquidity session's manipulation as the tell.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">What are the two trade-management options, and when would each apply?</div>
+              <div class="qa-a"><strong>Fixed 2R</strong> is the mechanical, lower-maintenance option — a clean, repeatable exit that doesn't require monitoring price action closely. <strong>Standard Deviation Targeting</strong> extends the trade further when the move is confirmed strong, aiming for a larger multiple by trailing to the next projected level rather than capping the win at 2R. The choice depends on conviction: a marginal setup favors the fixed exit; a high-conviction setup with clean displacement favors letting the SD targeting run.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 7.5 ── -->
+      <details class="class-card" id="lesson-7-5">
+        <summary>
+          <span class="class-badge">7.5</span>
+          <span class="class-title-text">NY FX Entry Model</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">Why check DXY correlation before taking a USD-paired FX entry?</div>
+              <div class="qa-a">Any USD pair is, by definition, half-driven by dollar strength/weakness. Confirming that DXY is moving in the direction implied by the trade (weak DXY supporting a long on a USD-quote pair, for example) is a correlation check that filters out setups where the pair's own structure looks valid but the dollar itself is telling a contradictory story — reducing false signals caused by ignoring the other half of the pair.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">What is an OTE retracement, and why use it as the entry trigger here?</div>
+              <div class="qa-a"><strong>OTE (Optimal Trade Entry)</strong> is the 61.8%–79% Fibonacci retracement zone of a displacement leg — the statistically favorable area where price often completes its pullback before resuming. Using it as the entry point (with risk defined beneath the displacement leg and a fixed 2R target) keeps the model mechanical and removes discretion about "how much pullback is enough" — the zone itself is the answer.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 7.6 ── -->
+      <details class="class-card" id="lesson-7-6">
+        <summary>
+          <span class="class-badge">7.6</span>
+          <span class="class-title-text">Catching the Move of the Week Entry Model</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">Why does weekly bias matter for both day traders and swing traders?</div>
+              <div class="qa-a">The weekly candle's developing structure sets the dominant directional bias for the entire week — even an intraday scalp trade taken against the weekly bias is fighting the larger current. For day traders, this means filtering daily setups through "does this align with the weekly narrative?" For swing traders, the weekly structure often <em>is</em> the trade itself, held across multiple sessions rather than closed same-day.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">How does Power of Three (accumulation → manipulation → distribution) show up across a full weekly candle?</div>
+              <div class="qa-a">Early-week price action (typically Sunday night through Monday/Tuesday) often represents accumulation and manipulation — false moves that sweep liquidity in one direction before the "real" weekly move (distribution) unfolds mid-to-late week. Recognizing which phase the week is in — by watching where the weekly high/low most often forms — lets a trader align daily setups with the correct phase rather than treating every day as an independent, un-contextualized session.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 7.7 ── -->
+      <details class="class-card" id="lesson-7-7">
+        <summary>
+          <span class="class-badge">7.7</span>
+          <span class="class-title-text">Advanced Structure Entry Model</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">How does this differ from the 5.6 "Advanced Market Structure Simplified" concept?</div>
+              <div class="qa-a">Lesson 5.6 taught the structural pattern itself — recognizing a three-point confirmation via FVG across intermediate/long-term swings. This lesson takes that same pattern and converts it directly into an entry trigger: once the three-point confirmation completes, that becomes the signal to enter, with standard deviation projections used for profit-taking. It's the practical execution layer built on top of the earlier structural-recognition skill.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 7.8 ── -->
+      <details class="class-card" id="lesson-7-8">
+        <summary>
+          <span class="class-badge">7.8</span>
+          <span class="class-title-text">MMEM (Market Maker Entry Model)</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">How does this build on the Market Maker Model concept from the Week 3 pattern work?</div>
+              <div class="qa-a">The Week 3 material (Smart Trading Patterns / Market Maker Model) introduced MMM as the underlying pattern — order pairing, the Smart Money Reversal phase, timeframe alignment. This lesson formalizes it as a repeatable entry framework: multiple distinct entry opportunities exist within a single MMM formation (not just one), and the model doubles as both an entry tool and an HTF bias-confirmation tool depending on which phase of the pattern price is in when it's identified.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 7.9 ── -->
+      <details class="class-card" id="lesson-7-9">
+        <summary>
+          <span class="class-badge">7.9</span>
+          <span class="class-title-text">Time Based Entry Model</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">Why the 7:30 AM NY candle specifically, and why does the model only apply to markets that close over weekends?</div>
+              <div class="qa-a">The 7:30 AM candle (on a 90-minute chart) sits just ahead of the 9:30 AM cash open for ES/NQ — early enough to establish directional bias from early-week price action, timed to confirm just as the main session's liquidity arrives. It's credited to ICT Concepts and explicitly does not apply to markets like crypto that trade continuously — the model depends on the weekly opening-gap mechanic (see Lesson 5.4, NWOG/NDOG), which requires an actual weekend close to generate the gap it's built around.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">How do Fibonacci levels and weekly opening gaps combine here?</div>
+              <div class="qa-a">The weekly opening gap gives a reference zone; Fibonacci levels drawn from the early-week range refine that zone into a specific high-probability entry area. Confirmation comes once rejection at that combined zone aligns with the bias already established from early-week price action — three independent signals (gap, Fib zone, and rejection) converging rather than relying on any single one.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 7.10 ── -->
+      <details class="class-card" id="lesson-7-10">
+        <summary>
+          <span class="class-badge">7.10</span>
+          <span class="class-title-text"><em>Bonus:</em> Ghost Protocol Entry Model</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">What is the mechanical entry trigger, step by step?</div>
+              <div class="qa-a">First, set bias via "draw on liquidity" (identify the nearest untapped pool). Second, identify a displacement move that leaves behind two fair value gaps rather than one — a stronger signal of institutional commitment than a single-FVG move. Third, plot standard-deviation projections from that displacement for targets. Fourth, enter on a three-bar swing point forming inside one of the two fair value gaps — a specific, repeatable pattern rather than a discretionary "it looks good here" entry.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">What should the stated ~5:1 R:R and ~65% win rate mean for position sizing and expectancy?</div>
+              <div class="qa-a">Per the Week 8 expectancy math (Lesson 8.4), a ~65% win rate at ~5:1 R:R produces a strongly positive expectancy per trade — well above breakeven even accounting for normal variance across a small sample. That said, stated win rates from a single presenter's chart examples should be treated as an upper bound until verified against a trader's own forward-tested sample; the model's edge should be confirmed in Christopher's own journal data before being weighted heavily in live sizing decisions.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Section 7 Reflection ── -->
+      <details class="class-card" id="week-7-review">
+        <summary>
+          <span class="class-badge" style="background:rgba(86,211,100,.12);color:var(--w7)">Review</span>
+          <span class="class-title-text">Entry Models Review</span>
+          <span class="class-status pending">Pending</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="callout warn" style="margin-bottom:1rem">
+            <span class="callout-icon">📋</span>
+            <span>Complete this review after working through all ten Entry Models lessons above.</span>
+          </div>
+          <div class="sec-header"><span class="sec-chip chip-reflect">Review &amp; Reflection</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">Write 3 key takeaways from this section's teachings.</div>
+              <div class="qa-a pending">Your reflection here.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">Write about a time in your trading career relating to these teachings.</div>
+              <div class="qa-a pending">Your reflection here.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ════════════════════════════════════════ WEEK 8 -->
+    <section class="week-block" id="week-8">
+      <div class="week-banner">
+        <div class="week-number w8">8</div>
+        <div class="week-info">
+          <h2>Risk Management &amp; Trading Psychology</h2>
+          <p>Risk Fundamentals · Position Sizing · Slippage &amp; News · Edge &amp; Expectancy · Mindset · Journaling</p>
+        </div>
+        <span class="week-stat">8 Lessons + Review</span>
+      </div>
+
+      <!-- ── Lesson 8.1 ── -->
+      <details class="class-card" id="lesson-8-1">
+        <summary>
+          <span class="class-badge">8.1</span>
+          <span class="class-title-text">Introduction to Risk Management</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">Why is risk management "the foundation" rather than just one input among many?</div>
+              <div class="qa-a">Every strategy, entry model, and edge covered in Weeks 1–7 is worthless without capital to deploy it — a trader can be right about direction and still lose the account to poor sizing or an unmanaged bad day. Applying risk-to-reward correctly and respecting max-loss-per-trade/per-day rules is what converts a statistically positive edge into an actually survivable one over hundreds of trades. This is the layer that determines whether the account is still open next month, independent of how good any individual setup was.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">Recovery Arc note — where has this shown up directly in Christopher's own trading?</div>
+              <div class="qa-a">The recovery arc documented in <code>pattern_tracker.md</code> shows this lesson in concrete terms: four account blows traced to the same root cause — no mechanical stop, or a resting order that AutoLiq'd instead of a discretionary exit (Feb 13, Mar 27, Apr 30 TPT reset-3). The theoretical risk rules in this lesson (max loss per trade/day) map directly onto Pattern 7 (SL modification) and Pattern 9 (pre-rest order hygiene) in the active pattern log — this isn't abstract material, it's the exact mechanism behind the recurring losses.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 8.2 ── -->
+      <details class="class-card" id="lesson-8-2">
+        <summary>
+          <span class="class-badge">8.2</span>
+          <span class="class-title-text">How to Size Positions</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">Why does position sizing differ between an evaluation account and a live funded account?</div>
+              <div class="qa-a">On an evaluation, the cost of a blown account is the reset fee — real but bounded. On a live funded account, the cost is the funded status itself plus real profit share already earned. Prop firm rules (max drawdown, daily loss limits) impose a hard ceiling either way, but sizing on a funded account should generally be more conservative relative to the account's trailing floor, since there is more at stake per mistake and firms scrutinize funded-account risk management more closely than eval-phase behavior.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">What's the mechanical process for calculating size from stop distance?</div>
+              <div class="qa-a">Determine dollar risk per trade (a fixed percentage of account or a fixed dollar figure under the firm's daily/max drawdown), measure the stop distance in points/ticks from entry to invalidation, then divide the dollar risk by (stop distance × dollar-per-tick for that contract) to get contract count. This keeps every trade's risk consistent regardless of how wide or tight the particular setup's stop happens to be — a wide stop means fewer contracts, a tight stop means more, but dollar risk stays constant.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 8.3 ── -->
+      <details class="class-card" id="lesson-8-3">
+        <summary>
+          <span class="class-badge">8.3</span>
+          <span class="class-title-text">Slippage + News</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">Why is slippage risk highest around news, and why do small stops make it worse?</div>
+              <div class="qa-a">Around high-impact news (CPI, FOMC, NFP), liquidity providers widen spreads or briefly withdraw, so market orders can fill significantly away from the last quoted price — the gap between expected and actual fill is slippage. A small stop loss (measured in just a few ticks) is especially exposed: a slippage event that would be a rounding error against a wide stop can blow straight through a tight one, turning a planned small loss into a much larger one. This directly informs the CL EIA-window rule already in the trading framework (Wednesdays 10:15–10:45 AM ET, no new CL entries) — that's this exact lesson applied as a hard rule.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">What's the practical takeaway for managing open risk into a news release?</div>
+              <div class="qa-a">Either close/reduce the position ahead of a scheduled high-impact release, or accept that the stop may not fill at the intended price and size accordingly (smaller size, wider mental buffer for the actual realized loss). Holding a full-size position with a tight stop directly into a known news catalyst is treating a known risk as if it were unknown.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 8.4 ── -->
+      <details class="class-card" id="lesson-8-4">
+        <summary>
+          <span class="class-badge">8.4</span>
+          <span class="class-title-text">Defining &amp; Executing an Edge</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">What is profit expectancy, in plain terms?</div>
+              <div class="qa-a">Expectancy = (Win Rate × Avg Win) − (Loss Rate × Avg Loss). A strategy with a 40% win rate and a 3:1 average win:loss ratio has positive expectancy despite losing more often than it wins — <code>(0.40 × 3) − (0.60 × 1) = 0.60</code> per unit risked. This is why "win rate" alone is a misleading way to judge a strategy; a high win rate with poor R:R can still be a losing system, and a low win rate with strong R:R can be a strongly winning one.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">Why can outcomes over a small sample mislead, and how does the coin-flip example illustrate it?</div>
+              <div class="qa-a">Even a fair 50/50 coin flip can produce streaks of 5+ heads or tails in a row purely by chance — a run of losses (or wins) over 10–20 trades doesn't necessarily mean the edge has changed, it may simply be normal variance. The practical danger is abandoning a genuinely positive-expectancy strategy after a losing streak that was statistically unremarkable, or over-trusting a strategy after a lucky winning streak that wasn't actually skill. Edge should be evaluated over a large enough sample (typically 50-100+ trades) before drawing conclusions.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 8.5 ── -->
+      <details class="class-card" id="lesson-8-5">
+        <summary>
+          <span class="class-badge">8.5</span>
+          <span class="class-title-text">Chances Make Champions</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">What's the distinction between "understanding" risk and "accepting" it?</div>
+              <div class="qa-a">Understanding risk is intellectual — knowing the math of position sizing and expectancy (Lessons 8.2, 8.4). Accepting risk is emotional/behavioral — actually letting a properly-sized stop loss get hit without interference, because the loss was already priced into the plan before the trade was entered. Pattern 7 (SL modification) in the pattern log is a textbook case of understanding risk without yet fully accepting it: the math says the stop is correct, but the emotional discomfort of the loss triggers moving it anyway.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">Why does "trusting tested systems" matter more after a loss than after a win?</div>
+              <div class="qa-a">After a loss, the emotional pull is to second-guess the system that just produced a losing outcome — even though a single loss inside a positive-expectancy system is expected, not a signal the system is broken. Trusting the tested process specifically in the moments right after a loss (rather than abandoning or tweaking it reactively) is what separates a trader executing a real edge from one making decisions off recency bias.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 8.6 ── -->
+      <details class="class-card" id="lesson-8-6">
+        <summary>
+          <span class="class-badge">8.6</span>
+          <span class="class-title-text">Probabilistic Thinking</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">How does viewing trading as "probabilities, not certainties" reduce emotional errors?</div>
+              <div class="qa-a">If every individual trade is treated as a coin flip with a favorable but not guaranteed outcome, a loss stops being a personal failure or a sign something is "wrong" — it's simply one outcome inside a distribution that was already expected to include losses. This reframing directly reduces the emotional charge behind revenge trading, since there's no perceived injustice to correct — just the next trade in the sequence, executed the same way regardless of the last outcome.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">Why is fear identified as "the root of most trading mistakes"?</div>
+              <div class="qa-a">Fear of loss drives premature exits (cutting winners short), fear of missing out drives chasing (entering after the good entry has passed), and fear of being wrong drives hesitation (missing valid entries while waiting for more confirmation than the plan requires). Nearly every named behavioral pattern in the trading framework — SL modification, exit passivity, FOMO entries — traces back to one of these fear responses overriding the plan built during calmer, non-live-trade analysis.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 8.7 ── -->
+      <details class="class-card" id="lesson-8-7">
+        <summary>
+          <span class="class-badge">8.7</span>
+          <span class="class-title-text">A Calloused Mind</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">What does "calloused" mean here, as distinct from "numb" or "indifferent"?</div>
+              <div class="qa-a">A callous forms from repeated exposure and becomes protective without eliminating sensation entirely — the goal is a trader who has been through enough losses and drawdowns to no longer be destabilized by them emotionally, while still caring enough to learn from each one. This differs from indifference (not caring about outcomes at all, which erodes discipline just as much as over-caring does) — the target is resilience, not detachment.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">Recovery Arc note — how does the documented arc reflect building this?</div>
+              <div class="qa-a">Four blown accounts across Feb–Apr, each traced to the same root pattern, followed by continued trading rather than quitting the framework — the Feb 13 → Apr 30 stretch in the pattern log is exactly this lesson in practice. The Apr 21 first-profitable-active-exit and Apr 23/29 A+ graded sessions show the resilience compounding: each setback didn't reset the learning, it fed into refining Pattern 7/8/9 recognition. That is what "building a calloused mind" produces in a real account history, not just a mindset.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Lesson 8.8 ── -->
+      <details class="class-card" id="lesson-8-8">
+        <summary>
+          <span class="class-badge">8.8</span>
+          <span class="class-title-text">Journaling &amp; Optimization</span>
+          <span class="class-status partial">In Progress</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="sec-header"><span class="sec-chip chip-concepts">Core Concepts</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">Why does correct journaling require more than entry/exit/result?</div>
+              <div class="qa-a">Entry, exit, and P&amp;L tell you <em>what</em> happened; charts, emotional state, and psychological notes tell you <em>why</em> it happened and whether it's likely to repeat. Two trades can have an identical entry/exit/result on paper but represent completely different behavioral realities — one a disciplined execution of the plan, one a lucky outcome from an undisciplined entry. Only the fuller record (screenshots, emotional notes) distinguishes them, which is exactly why a pattern-tracking system is worth maintaining separately from raw P&amp;L.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">How does this connect to the fortuna-exports/ + pattern_tracker.md system already built?</div>
+              <div class="qa-a">This lesson describes, almost exactly, the system already in daily use: full-size screenshot timelines embedded in every trade review, behavioral notes sections naming specific patterns, and a running pattern_tracker.md tracking cumulative P&amp;L alongside behavioral trend — not just outcomes. The "trade archive system" taught here is philosophically the same discipline already operating in <code>fortuna-exports/trade-reviews/</code>; this lesson is validation of a workflow that predates formally studying the lesson, not a new process to adopt.</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ── Section 8 Reflection ── -->
+      <details class="class-card" id="week-8-review">
+        <summary>
+          <span class="class-badge" style="background:rgba(210,168,255,.12);color:var(--w8)">Review</span>
+          <span class="class-title-text">Risk &amp; Psychology Review</span>
+          <span class="class-status pending">Pending</span>
+          <span class="acc-icon">▾</span>
+        </summary>
+        <div class="class-body">
+          <div class="callout warn" style="margin-bottom:1rem">
+            <span class="callout-icon">📋</span>
+            <span>Complete this review after working through all eight Risk &amp; Psychology lessons above.</span>
+          </div>
+          <div class="sec-header"><span class="sec-chip chip-reflect">Review &amp; Reflection</span></div>
+          <div class="qa-grid">
+            <div class="qa-row">
+              <div class="qa-q">Write 3 key takeaways from this section's teachings.</div>
+              <div class="qa-a pending">Your reflection here.</div>
+            </div>
+            <div class="qa-row">
+              <div class="qa-q">Write about a time in your trading career relating to these teachings.</div>
+              <div class="qa-a pending">Your reflection here.</div>
+            </div>
+          </div>
+        </div>
+      </details>
     </section>
 
     <!-- ════════════════════════════════════════ BACHELOR EXAM -->
@@ -2466,226 +3318,6 @@
               <div class="qa-a pending">Personal reflection.</div>
             </div>
           </div>
-        </div>
-      </details>
-    </section>
-
-    <!-- ════════════════════════════════════════ WEEK 5 -->
-    <section class="week-block" id="week-5">
-      <div class="week-banner">
-        <div class="week-number w5">5</div>
-        <div class="week-info">
-          <h2>Time &amp; Price Precision</h2>
-          <p>State of Delivery · Time &amp; Price Math · Jumpstart Targeting · NWOG/NDOG · SGC 369 · Advanced Structure</p>
-        </div>
-        <span class="week-stat">6 Lessons · Syllabus Reference</span>
-      </div>
-
-      <details class="class-card" id="w5-syllabus">
-        <summary>
-          <span class="class-badge" style="background:rgba(240,136,62,.12);color:var(--w5)">W5</span>
-          <span class="class-title-text">Syllabus Reference — Q&amp;A pending</span>
-          <span class="class-status pending">Pending</span>
-          <span class="acc-icon">▾</span>
-        </summary>
-        <div class="class-body">
-          <div class="sec-header"><span class="sec-chip chip-concepts">Lesson Map</span></div>
-          <div class="qa-grid">
-            <div class="qa-row">
-              <div class="qa-q">5.1 — Changes in State of Delivery</div>
-              <div class="qa-a">Identifying when the market is likely to change its state of delivery — between expansion, retracement, consolidation, and reversal — using measured moves and standard deviations to locate potential reversal or consolidation areas. Examples via ES and NASDAQ charts.</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">5.2 — Time &amp; Price Mathematics</div>
-              <div class="qa-a">Applying standard deviations to both price and time-based levels for higher-probability setups — anticipating key manipulation points and projecting daily, weekly, and monthly ranges.</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">5.3 — Jumpstart Targeting</div>
-              <div class="qa-a">Using standard deviations in price analysis to identify and measure market structure shifts, fair value gaps (FVGs), and smart money footprints to project price expansion and reversal zones.</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">5.4 — NWOG &amp; NDOG Secrets</div>
-              <div class="qa-a">Using New Week/New Day Opening Gaps to identify market cycles, determine directional bias, and structure trades within the futures market (ES, NQ, YM) — gaps reveal accumulation, manipulation, and distribution phases.</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">5.5 — SGC 369</div>
-              <div class="qa-a">A time-based framework pairing price with time to refine bias and execution — Power of Three (accumulation, manipulation, distribution) within specific quarters and 90-minute cycles, anchored to midnight and session opens.</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">5.6 — Advanced Market Structure Simplified</div>
-              <div class="qa-a">Identifying and trading advanced market structure using intermediate and long-term highs and lows — recognizing accumulation and structure shifts via a three-point pattern reflecting market maker behavior.</div>
-            </div>
-          </div>
-          <p style="margin-top:.9rem;font-size:.78rem;color:var(--muted);font-style:italic;">📝 Full Q&amp;A workbook responses to be added as this section is completed — matching the format used above.</p>
-        </div>
-      </details>
-    </section>
-
-    <!-- ════════════════════════════════════════ WEEK 6 -->
-    <section class="week-block" id="week-6">
-      <div class="week-banner">
-        <div class="week-number w6">6</div>
-        <div class="week-info">
-          <h2>Macro Context &amp; Institutional Positioning</h2>
-          <p>Breaks in the Macro · Fed Funding Rate Projections · Smart Open Interest · COT Data</p>
-        </div>
-        <span class="week-stat">4 Lessons · Syllabus Reference</span>
-      </div>
-
-      <details class="class-card" id="w6-syllabus">
-        <summary>
-          <span class="class-badge" style="background:rgba(88,166,255,.12);color:var(--w6)">W6</span>
-          <span class="class-title-text">Syllabus Reference — Q&amp;A pending</span>
-          <span class="class-status pending">Pending</span>
-          <span class="acc-icon">▾</span>
-        </summary>
-        <div class="class-body">
-          <div class="sec-header"><span class="sec-chip chip-concepts">Lesson Map</span></div>
-          <div class="qa-grid">
-            <div class="qa-row">
-              <div class="qa-q">6.1 — Breaks in the Macro</div>
-              <div class="qa-a">Identifying and interpreting breaks in correlation between financial assets — SMT Divergence (Smart Money Technique) and how correlated/inverse markets reveal manipulation or strength/weakness across forex, indices, and commodities.</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">6.2 — Fed Funding Rate Projections</div>
-              <div class="qa-a">Analyzing bond markets to understand how large funds speculate on future Fed rate changes — reading ZB, ZN, ZF, and ZT charts to anticipate rate changes and resulting dollar movements.</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">6.3 — Smart Open Interest</div>
-              <div class="qa-a">Using open interest to interpret market trends, track large commercial traders, and understand market strength — applied to gold, Bitcoin, bonds, and indices, plus its relationship to volume.</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">6.4 — Understanding Institutional, Retail, &amp; Smart Money Interests</div>
-              <div class="qa-a">Using Commitment of Traders (COT) data to understand positioning by commercials, large speculators, and small traders — accessed via CFTC reports and BarChart, used as confluence (most reliable in FX and commodities).</div>
-            </div>
-          </div>
-          <p style="margin-top:.9rem;font-size:.78rem;color:var(--muted);font-style:italic;">📝 Full Q&amp;A workbook responses to be added as this section is completed — matching the format used above.</p>
-        </div>
-      </details>
-    </section>
-
-    <!-- ════════════════════════════════════════ WEEK 7 -->
-    <section class="week-block" id="week-7">
-      <div class="week-banner">
-        <div class="week-number w7">7</div>
-        <div class="week-info">
-          <h2>Entry Models</h2>
-          <p>3x · SMM · Move of the Day/Week · NY FX · Advanced Structure · MMEM · Time Based · Ghost Protocol</p>
-        </div>
-        <span class="week-stat">10 Lessons · Syllabus Reference</span>
-      </div>
-
-      <details class="class-card" id="w7-syllabus">
-        <summary>
-          <span class="class-badge" style="background:rgba(86,211,100,.12);color:var(--w7)">W7</span>
-          <span class="class-title-text">Syllabus Reference — Q&amp;A pending</span>
-          <span class="class-status pending">Pending</span>
-          <span class="acc-icon">▾</span>
-        </summary>
-        <div class="class-body">
-          <div class="sec-header"><span class="sec-chip chip-concepts">Lesson Map</span></div>
-          <div class="qa-grid">
-            <div class="qa-row">
-              <div class="qa-q">7.1 — Building a Foundation for Entry Models</div>
-              <div class="qa-a">Building a complete entry framework before pressing the button — top-down analysis, reading price fractally across higher/medium/lower timeframes, and displacement as the timing "GPS."</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">7.2 — 3x Entry Model</div>
-              <div class="qa-a">A structured entry aligning higher/medium/lower timeframes — determining retracement vs. expansion, using footprints (FVGs, order blocks, breaker blocks, manipulation blocks) for precise entries with defined targets, partials, and stop rules.</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">7.3 — SMM Entry Model</div>
-              <div class="qa-a">The Smart Liquidity Entry Model — a mechanical way to trade liquidity raids by spotting a lack of displacement at key highs/lows and entering with confirmation, intraday across asset classes.</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">7.4 — Catching the Move of the Day Entry Model</div>
-              <div class="qa-a">A time-based strategy to capture the day's main move on EUR/GBP pairs — entries formed 12–4 a.m. EST, aligning structure with liquidity manipulation and DXY bias confirmation.</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">7.5 — NY FX Entry Model</div>
-              <div class="qa-a">A mechanical New York session entry for USD-paired forex — aligning higher-timeframe bias with London session behavior, DXY correlation, and an OTE retracement entry with fixed 2R target.</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">7.6 — Catching the Move of the Week Entry Model</div>
-              <div class="qa-a">Building a weekly directional bias and using the weekly candle's structure to guide trade selection — when the weekly high/low most often forms, and aligning daily setups with the weekly narrative.</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">7.7 — Advanced Structure Entry Model</div>
-              <div class="qa-a">Applying advanced market structure principles to directly enter trades using a specific price action pattern — building on the Advanced Market Structure Simplified module.</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">7.8 — MMEM (Market Maker Entry Model)</div>
-              <div class="qa-a">Identifying, interpreting, and trading Market Maker Models (MMMs) — structure, formation logic, and multiple entry opportunities, used both for entries and higher-timeframe bias confirmation.</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">7.9 — Time Based Entry Model</div>
-              <div class="qa-a">A time- and price-based model focused on the 7:30 AM NY candle (90-min chart) for ES/NQ, using Fibonacci levels and weekly opening gaps to define high-probability zones after the 9:30 AM open. Credited to ICT Concepts.</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">7.10 — <em>Bonus:</em> Ghost Protocol Entry Model</div>
-              <div class="qa-a">A mechanical ICT-based model with a stated ~5:1 avg. R:R and ~65% win rate — setting bias via draw-on-liquidity, identifying a displacement move creating two FVGs, and entering on a three-bar swing point inside a fair value gap.</div>
-            </div>
-          </div>
-          <p style="margin-top:.9rem;font-size:.78rem;color:var(--muted);font-style:italic;">📝 Full Q&amp;A workbook responses to be added as this section is completed — matching the format used above.</p>
-        </div>
-      </details>
-    </section>
-
-    <!-- ════════════════════════════════════════ WEEK 8 -->
-    <section class="week-block" id="week-8">
-      <div class="week-banner">
-        <div class="week-number w8">8</div>
-        <div class="week-info">
-          <h2>Risk Management &amp; Trading Psychology</h2>
-          <p>Risk Fundamentals · Position Sizing · Slippage &amp; News · Edge &amp; Expectancy · Mindset · Journaling</p>
-        </div>
-        <span class="week-stat">8 Lessons · Syllabus Reference</span>
-      </div>
-
-      <details class="class-card" id="w8-syllabus">
-        <summary>
-          <span class="class-badge" style="background:rgba(210,168,255,.12);color:var(--w8)">W8</span>
-          <span class="class-title-text">Syllabus Reference — Q&amp;A pending</span>
-          <span class="class-status pending">Pending</span>
-          <span class="acc-icon">▾</span>
-        </summary>
-        <div class="class-body">
-          <div class="sec-header"><span class="sec-chip chip-concepts">Lesson Map</span></div>
-          <div class="qa-grid">
-            <div class="qa-row">
-              <div class="qa-q">8.1 — Introduction to Risk Management</div>
-              <div class="qa-a">Risk management as the foundation for long-term trading survival — capital security, applying risk-to-reward correctly, position sizing for steady account growth, and core rules (max loss per trade/day).</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">8.2 — How to Size Positions</div>
-              <div class="qa-a">Sizing positions correctly for evaluations vs. live accounts — stop loss/take profit orders, calculating size from stop distance, reading contract size, and computing risk for indices, futures, and forex pips.</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">8.3 — Slippage + News</div>
-              <div class="qa-a">Slippage and news-driven liquidity — what liquidity means in practice, how major news events cause fills far from intended price, when slippage risk is highest, and a real CPI-release example.</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">8.4 — Defining &amp; Executing an Edge</div>
-              <div class="qa-a">Quantifying a trading edge via win rate and risk-to-reward — profit expectancy, basic probability, and why outcomes over small samples can mislead (two coin-flip examples).</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">8.5 — Chances Make Champions</div>
-              <div class="qa-a">Understanding vs. accepting risk, the psychological impact of losses, and the mindset required to trade successfully — embracing uncertainty and trusting tested systems.</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">8.6 — Probabilistic Thinking</div>
-              <div class="qa-a">Viewing trading as a game of probabilities rather than certainties — how this reduces emotional errors and fear, and fear as the root of most trading mistakes.</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">8.7 — A Calloused Mind</div>
-              <div class="qa-a">Developing mental toughness and resilience — emotional control, discipline, and practical strategies to identify weaknesses and overcome self-limiting beliefs.</div>
-            </div>
-            <div class="qa-row">
-              <div class="qa-q">8.8 — Journaling &amp; Optimization</div>
-              <div class="qa-a">Journaling trades correctly using the trade archive system — recording charts, emotions, and psychological notes (not just entry/results) to identify strengths, weaknesses, and optimize models.</div>
-            </div>
-          </div>
-          <p style="margin-top:.9rem;font-size:.78rem;color:var(--muted);font-style:italic;">📝 Full Q&amp;A workbook responses to be added as this section is completed — matching the format used above.</p>
         </div>
       </details>
     </section>
@@ -2823,6 +3455,38 @@
       { id: 'lesson-4-9', sp: 'sp-4-9' },
       { id: 'lesson-4-bonus', sp: 'sp-4-bonus' },
       { id: 'week-4-review', sp: 'sp-w4r' },
+      { id: 'lesson-5-1', sp: 'sp-5-1' },
+      { id: 'lesson-5-2', sp: 'sp-5-2' },
+      { id: 'lesson-5-3', sp: 'sp-5-3' },
+      { id: 'lesson-5-4', sp: 'sp-5-4' },
+      { id: 'lesson-5-5', sp: 'sp-5-5' },
+      { id: 'lesson-5-6', sp: 'sp-5-6' },
+      { id: 'week-5-review', sp: 'sp-w5r' },
+      { id: 'lesson-6-1', sp: 'sp-6-1' },
+      { id: 'lesson-6-2', sp: 'sp-6-2' },
+      { id: 'lesson-6-3', sp: 'sp-6-3' },
+      { id: 'lesson-6-4', sp: 'sp-6-4' },
+      { id: 'week-6-review', sp: 'sp-w6r' },
+      { id: 'lesson-7-1', sp: 'sp-7-1' },
+      { id: 'lesson-7-2', sp: 'sp-7-2' },
+      { id: 'lesson-7-3', sp: 'sp-7-3' },
+      { id: 'lesson-7-4', sp: 'sp-7-4' },
+      { id: 'lesson-7-5', sp: 'sp-7-5' },
+      { id: 'lesson-7-6', sp: 'sp-7-6' },
+      { id: 'lesson-7-7', sp: 'sp-7-7' },
+      { id: 'lesson-7-8', sp: 'sp-7-8' },
+      { id: 'lesson-7-9', sp: 'sp-7-9' },
+      { id: 'lesson-7-10', sp: 'sp-7-10' },
+      { id: 'week-7-review', sp: 'sp-w7r' },
+      { id: 'lesson-8-1', sp: 'sp-8-1' },
+      { id: 'lesson-8-2', sp: 'sp-8-2' },
+      { id: 'lesson-8-3', sp: 'sp-8-3' },
+      { id: 'lesson-8-4', sp: 'sp-8-4' },
+      { id: 'lesson-8-5', sp: 'sp-8-5' },
+      { id: 'lesson-8-6', sp: 'sp-8-6' },
+      { id: 'lesson-8-7', sp: 'sp-8-7' },
+      { id: 'lesson-8-8', sp: 'sp-8-8' },
+      { id: 'week-8-review', sp: 'sp-w8r' },
       { id: 'exam-w1-4', sp: 'sp-exam' },
     ];
     lessons.forEach(({ id, sp }) => {
