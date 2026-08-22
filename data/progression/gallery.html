@@ -123,6 +123,48 @@
       border: 1px solid rgba(74,222,128,.3); color: var(--green); background: rgba(74,222,128,.1);
     }
 
+    /* ── CAROUSEL ── */
+    .carousel {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .carousel-viewport {
+      position: relative;
+      aspect-ratio: 16/10;
+      background: var(--surface-soft);
+      cursor: pointer;
+    }
+    .carousel-viewport img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: contain;
+      background: var(--surface-soft);
+    }
+    .carousel-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(8,12,24,.72); border: 1px solid var(--border);
+      color: var(--text); width: 2.4rem; height: 2.4rem; border-radius: 999px;
+      cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center;
+      transition: border-color .15s, background .15s;
+      z-index: 2;
+    }
+    .carousel-arrow:hover { border-color: var(--gold); background: rgba(8,12,24,.9); }
+    .carousel-arrow.prev { left: .8rem; }
+    .carousel-arrow.next { right: .8rem; }
+    .carousel-body { padding: .9rem 1rem 1rem; }
+    .carousel-title { font-size: .92rem; font-weight: 700; color: var(--text); margin-bottom: .25rem; }
+    .carousel-meta { font-size: .74rem; color: var(--muted); display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; margin-bottom: .7rem; }
+    .carousel-dots { display: flex; gap: .4rem; flex-wrap: wrap; }
+    .carousel-dot {
+      width: .5rem; height: .5rem; border-radius: 999px; background: var(--border);
+      border: none; cursor: pointer; padding: 0; transition: background .15s, transform .15s;
+    }
+    .carousel-dot:hover { transform: scale(1.2); }
+    .carousel-dot.active { background: var(--gold); }
+    .carousel-counter { font-size: .72rem; color: var(--dim); margin-left: auto; }
+
     /* ── LIGHTBOX ── */
     .lightbox-overlay {
       display: none; position: fixed; inset: 0; z-index: 500;
@@ -208,82 +250,41 @@
     </div>
 
     <div class="sec-label">Account Progression</div>
-    <div class="gallery-grid">
-
-      <div class="gallery-card" onclick="openLightbox('../imports/2026/05-May/APEX_2026_03-10-thru-05-14.png', 'Apex Trader Funding APEX-484839-06 — balance progression Mar 10 to May 14, 2026 — evaluation passed')">
-        <img src="../imports/2026/05-May/APEX_2026_03-10-thru-05-14.png" alt="Apex APEX-484839-06 balance chart, Mar 10 - May 14 2026">
-        <div class="gallery-card-body">
-          <div class="gallery-card-title">APEX-484839-06 — Evaluation Arc</div>
-          <div class="gallery-card-meta">
-            <span class="badge">✅ Passed</span>
-            <span>Mar 10 – May 14, 2026 · $100K → funded</span>
-          </div>
+    <div class="carousel" id="progressionCarousel">
+      <div class="carousel-viewport" onclick="openLightbox(progressionSlides[progressionIndex].src, progressionSlides[progressionIndex].caption)">
+        <button class="carousel-arrow prev" onclick="event.stopPropagation(); carouselNav(progressionState, -1)">‹</button>
+        <img id="progressionImg" src="" alt="">
+        <button class="carousel-arrow next" onclick="event.stopPropagation(); carouselNav(progressionState, 1)">›</button>
+      </div>
+      <div class="carousel-body">
+        <div class="carousel-title" id="progressionTitle"></div>
+        <div class="carousel-meta" id="progressionMeta"></div>
+        <div style="display:flex;align-items:center;">
+          <div class="carousel-dots" id="progressionDots"></div>
+          <span class="carousel-counter" id="progressionCounter"></span>
         </div>
       </div>
-
-      <div class="gallery-card" onclick="openLightbox('assets/gallery/tpt/tpt-2026-02-08-thru-02-12-1.png', 'TakeProfitTrader-635000920 — Control Center, Feb 8–12, 2026 — eventually blown (EOD drawdown)')">
-        <img src="assets/gallery/tpt/tpt-2026-02-08-thru-02-12-1.png" alt="TPT 50K account control center, Feb 8-12 2026">
-        <div class="gallery-card-body">
-          <div class="gallery-card-title">TPT 50K — Feb 8–12, 2026</div>
-          <div class="gallery-card-meta">
-            <span class="badge" style="border-color:rgba(248,113,113,.3);color:#f87171;background:rgba(248,113,113,.1);">❌ Blown</span>
-            <span>TAKEPROFIT635000920</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="gallery-card" onclick="openLightbox('assets/gallery/tpt/tpt-2026-02-16-1.png', 'TakeProfitTrader — Control Center, Feb 16, 2026')">
-        <img src="assets/gallery/tpt/tpt-2026-02-16-1.png" alt="TPT 50K account control center, Feb 16 2026">
-        <div class="gallery-card-body">
-          <div class="gallery-card-title">TPT 50K — Feb 16, 2026</div>
-          <div class="gallery-card-meta">
-            <span class="badge" style="border-color:rgba(248,113,113,.3);color:#f87171;background:rgba(248,113,113,.1);">❌ Blown</span>
-            <span>Single trading day — see p.2 for journal</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="gallery-card" onclick="openLightbox('assets/gallery/tpt/tpt-2026-03-25-thru-03-26-1.png', 'TakeProfitTrader — Control Center, Mar 25–26, 2026')">
-        <img src="assets/gallery/tpt/tpt-2026-03-25-thru-03-26-1.png" alt="TPT account control center, Mar 25-26 2026">
-        <div class="gallery-card-body">
-          <div class="gallery-card-title">TPT 50K — Mar 25–26, 2026</div>
-          <div class="gallery-card-meta">
-            <span class="badge" style="border-color:rgba(248,113,113,.3);color:#f87171;background:rgba(248,113,113,.1);">❌ Blown</span>
-            <span>TAKEPROFIT363712064</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="gallery-card" onclick="openLightbox('assets/gallery/tpt/tpt-2026-04-26-thru-04-29-1.png', 'TakeProfitTrader — Control Center, Apr 26–29, 2026')">
-        <img src="assets/gallery/tpt/tpt-2026-04-26-thru-04-29-1.png" alt="TPT account control center, Apr 26-29 2026">
-        <div class="gallery-card-body">
-          <div class="gallery-card-title">TPT 50K — Apr 26–29, 2026</div>
-          <div class="gallery-card-meta">
-            <span class="badge" style="border-color:rgba(248,113,113,.3);color:#f87171;background:rgba(248,113,113,.1);">❌ Blown</span>
-            <span>TAKEPROFIT558167553</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="gallery-card" onclick="openLightbox('assets/gallery/tpt/tpt-2026-05-19-thru-05-28.png', 'TakeProfitTrader-861085464 — Control Center, May 19–28, 2026 — evaluation passed, $53,083')">
-        <img src="assets/gallery/tpt/tpt-2026-05-19-thru-05-28.png" alt="TPT 50K account control center, May 19-28 2026, passed">
-        <div class="gallery-card-body">
-          <div class="gallery-card-title">TPT 50K — May 19–28, 2026</div>
-          <div class="gallery-card-meta">
-            <span class="badge">✅ Passed</span>
-            <span>TAKEPROFIT861085464 · $53,083</span>
-          </div>
-        </div>
-      </div>
-
     </div>
 
     <p style="margin-top:1rem;font-size:.78rem;color:var(--dim);">Source files: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/imports" target="_blank" rel="noreferrer">data/imports/</a> (original PDFs + statement exports, by month)</p>
 
     <div class="sec-label">Trading Calendars — Red/Green Day View</div>
-    <p style="font-size:.82rem;color:var(--muted);margin:-.5rem 0 1rem;max-width:640px;">TradeZella's monthly calendar view — win/loss by trading day, week totals, and days traded. August is in progress; the placeholder reflects real data as of the capture date.</p>
-    <div class="gallery-grid" id="calendarGrid">
-      <!-- populated by script from calendarMonths -->
+    <p style="font-size:.82rem;color:var(--muted);margin:-.5rem 0 .9rem;max-width:640px;">TradeZella's monthly calendar view — win/loss by trading day, week totals, and days traded. August is in progress; the placeholder reflects real data as of the capture date.</p>
+    <div class="carousel" id="calendarCarousel">
+      <div class="carousel-viewport" onclick="openLightbox(calendarMonths[calendarIndex].src, calendarCaption(calendarMonths[calendarIndex]))">
+        <button class="carousel-arrow prev" onclick="event.stopPropagation(); carouselNav(calendarState, -1)">‹</button>
+        <img id="calendarImg" src="" alt="">
+        <button class="carousel-arrow next" onclick="event.stopPropagation(); carouselNav(calendarState, 1)">›</button>
+      </div>
+      <div class="carousel-body">
+        <div class="carousel-title" id="calendarTitle"></div>
+        <div class="carousel-meta" id="calendarMeta"></div>
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:.6rem;">
+          <div class="carousel-dots" id="calendarDots"></div>
+          <span class="carousel-counter" id="calendarCounter"></span>
+          <a href="#" onclick="openStatsModal(); return false;" style="display:inline-flex;align-items:center;gap:.35rem;color:var(--gold);font-weight:700;font-size:.78rem;padding:.3rem .75rem;border:1px solid rgba(251,191,36,.3);border-radius:999px;background:rgba(251,191,36,.08);margin-left:auto;">📊 Extended TradeZella Stats ↗</a>
+        </div>
+      </div>
     </div>
 
     <div class="sec-label">Account Ledger <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--dim);font-size:.85em;">— mostly a graveyard, and that's the point</span></div>
@@ -307,10 +308,6 @@
       </div>
 
     </div>
-
-    <p style="margin-top:1rem;font-size:.8rem;">
-      <a href="#" onclick="openStatsModal(); return false;" style="display:inline-flex;align-items:center;gap:.35rem;color:var(--gold);font-weight:700;">📊 View extended TradeZella stats (all-time report, win/loss detail) ↗</a>
-    </p>
   </main>
 
   <!-- ── STATS MODAL ── -->
@@ -349,7 +346,48 @@
       if (e.key === 'ArrowRight' && document.getElementById('statsOverlay').classList.contains('open')) statsNav(1);
     });
 
-    // ── TRADING CALENDARS ──
+    // ── GENERIC CAROUSEL ──
+    function buildCarousel(state) {
+      const item = state.items[state.index];
+      document.getElementById(state.prefix + 'Img').src = item.src;
+      document.getElementById(state.prefix + 'Img').alt = item.title;
+      document.getElementById(state.prefix + 'Title').innerHTML = item.title;
+      document.getElementById(state.prefix + 'Meta').innerHTML = item.meta;
+      document.getElementById(state.prefix + 'Counter').textContent = `${state.index + 1} / ${state.items.length}`;
+      const dots = document.getElementById(state.prefix + 'Dots');
+      dots.innerHTML = '';
+      state.items.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === state.index ? ' active' : '');
+        dot.onclick = (e) => { e.stopPropagation(); state.index = i; buildCarousel(state); };
+        dots.appendChild(dot);
+      });
+    }
+    function carouselNav(state, delta) {
+      state.index = (state.index + delta + state.items.length) % state.items.length;
+      buildCarousel(state);
+    }
+
+    // ── ACCOUNT PROGRESSION CAROUSEL ──
+    const progressionSlides = [
+      { src: '../imports/2026/05-May/APEX_2026_03-10-thru-05-14.png', caption: 'Apex Trader Funding APEX-484839-06 — balance progression Mar 10 to May 14, 2026 — evaluation passed',
+        title: 'APEX-484839-06 — Evaluation Arc', meta: '<span class="badge">✅ Passed</span><span>Mar 10 – May 14, 2026 · $100K → funded</span>' },
+      { src: 'assets/gallery/tpt/tpt-2026-02-08-thru-02-12-1.png', caption: 'TakeProfitTrader-635000920 — Control Center, Feb 8–12, 2026 — eventually blown (EOD drawdown)',
+        title: 'TPT 50K — Feb 8–12, 2026', meta: '<span class="badge" style="border-color:rgba(248,113,113,.3);color:#f87171;background:rgba(248,113,113,.1);">❌ Blown</span><span>TAKEPROFIT635000920</span>' },
+      { src: 'assets/gallery/tpt/tpt-2026-02-16-1.png', caption: 'TakeProfitTrader — Control Center, Feb 16, 2026',
+        title: 'TPT 50K — Feb 16, 2026', meta: '<span class="badge" style="border-color:rgba(248,113,113,.3);color:#f87171;background:rgba(248,113,113,.1);">❌ Blown</span><span>Single trading day — see p.2 for journal</span>' },
+      { src: 'assets/gallery/tpt/tpt-2026-03-25-thru-03-26-1.png', caption: 'TakeProfitTrader — Control Center, Mar 25–26, 2026',
+        title: 'TPT 50K — Mar 25–26, 2026', meta: '<span class="badge" style="border-color:rgba(248,113,113,.3);color:#f87171;background:rgba(248,113,113,.1);">❌ Blown</span><span>TAKEPROFIT363712064</span>' },
+      { src: 'assets/gallery/tpt/tpt-2026-04-26-thru-04-29-1.png', caption: 'TakeProfitTrader — Control Center, Apr 26–29, 2026',
+        title: 'TPT 50K — Apr 26–29, 2026', meta: '<span class="badge" style="border-color:rgba(248,113,113,.3);color:#f87171;background:rgba(248,113,113,.1);">❌ Blown</span><span>TAKEPROFIT558167553</span>' },
+      { src: 'assets/gallery/tpt/tpt-2026-05-19-thru-05-28.png', caption: 'TakeProfitTrader-861085464 — Control Center, May 19–28, 2026 — evaluation passed, $53,083',
+        title: 'TPT 50K — May 19–28, 2026', meta: '<span class="badge">✅ Passed</span><span>TAKEPROFIT861085464 · $53,083</span>' },
+    ];
+    let progressionIndex = 0;
+    const progressionState = { prefix: 'progression', items: progressionSlides, get index() { return progressionIndex; }, set index(v) { progressionIndex = v; } };
+    buildCarousel(progressionState);
+
+    // ── TRADING CALENDARS CAROUSEL ──
     const calendarMonths = [
       { src: '../imports/2026/02-Feb/TradeZellaCalendar_Feb.png', label: 'February 2026', note: '-$20.2K net · 18 days traded' },
       { src: '../imports/2026/03-Mar/TradeZellaCalendar_Mar.png', label: 'March 2026', note: '' },
@@ -358,23 +396,15 @@
       { src: '../imports/2026/06-Jun/TradeZellaCalendar_Jun.png', label: 'June 2026', note: '' },
       { src: '../imports/2026/07-Jul/TradeZellaCalendar_Jul.png', label: 'July 2026', note: '' },
       { src: '../imports/2026/08-Aug/TradeZellaCalendar_Aug.png', label: 'August 2026', note: '-$4.71K net so far · in progress', inProgress: true },
-    ];
-    const calendarGrid = document.getElementById('calendarGrid');
-    calendarMonths.forEach(m => {
-      const card = document.createElement('div');
-      card.className = 'gallery-card';
-      card.onclick = () => openLightbox(m.src, `TradeZella Calendar — ${m.label}${m.note ? ' — ' + m.note : ''}`);
-      card.innerHTML = `
-        <img src="${m.src}" alt="TradeZella calendar, ${m.label}" loading="lazy">
-        <div class="gallery-card-body">
-          <div class="gallery-card-title">${m.label}</div>
-          <div class="gallery-card-meta">
-            ${m.inProgress ? '<span class="badge" style="border-color:rgba(227,179,65,.3);color:var(--gold);background:rgba(227,179,65,.1);">⏳ In Progress</span>' : ''}
-            <span>${m.note || 'Red/green day view'}</span>
-          </div>
-        </div>`;
-      calendarGrid.appendChild(card);
-    });
+    ].map(m => ({
+      src: m.src,
+      title: m.label,
+      meta: (m.inProgress ? '<span class="badge" style="border-color:rgba(227,179,65,.3);color:var(--gold);background:rgba(227,179,65,.1);">⏳ In Progress</span>' : '') + `<span>${m.note || 'Red/green day view'}</span>`,
+    }));
+    function calendarCaption(item) { return `TradeZella Calendar — ${item.title}`; }
+    let calendarIndex = 6; // default to most recent (August)
+    const calendarState = { prefix: 'calendar', items: calendarMonths, get index() { return calendarIndex; }, set index(v) { calendarIndex = v; } };
+    buildCarousel(calendarState);
 
     // ── STATS MODAL (extended TradeZella report carousel) ──
     const statsImages = [
