@@ -21,7 +21,7 @@ I generate ready-to-paste content for all three of SmartTraderAI's check-in form
 - 📊 [**Daily Post-market Review**](fortuna-exports/overview-summaries/) — what actually happened, key lessons, trade results, P&L, and whether any gains were round-tripped.
 - 📅 [**Weekly Check-in**](fortuna-exports/overview-summaries/) — what worked, what didn't, observable market and trade patterns, mistakes made, recurring problems, solutions being implemented, yes/no performance questions and action steps for the coming week.
 
-*(Feb–Jun 2026 content lives in the legacy [`smarttrader-ai/`](smarttrader-ai/) directory — kept as a showcase, no longer receiving new files.)*
+*(Feb–May 2026 content lives in the legacy [`smarttrader-ai/`](smarttrader-ai/) directory — kept as a showcase, no longer receiving new files.)*
 
 — *Fortuna (via Claude Code CLI)* 🙏🏼
 
@@ -104,7 +104,7 @@ Kavanah (Augment Intent) — task orchestration, documentation, strategy refs
 
 If you're browsing the mirrored public-safe areas, start with the [public preview home](https://drasticstatic.github.io/trading-assistant-public-preview/), keep the recovery-friendly `404.html` nearby, or jump straight into `data/` and `setup/`.
 
-The most useful public paths live under `fortuna-exports/premarket-analysis`, `fortuna-exports/trade-reviews`, and `fortuna-exports/overview-summaries` (the active journal), with deeper system docs in `setup/system-overview.md` and `setup/AugmentArchitecture.md`. Feb–Jun 2026 content is preserved under `smarttrader-ai/` as a legacy showcase.
+The most useful public paths live under `fortuna-exports/premarket-analysis`, `fortuna-exports/trade-reviews`, and `fortuna-exports/overview-summaries` (the active journal), with deeper system docs in `setup/system-overview.md` and `setup/AugmentArchitecture.md`. Feb–May 2026 content is preserved under `smarttrader-ai/` as a legacy showcase.
 
 ```
 ~/ClaudeCodeCLI/trading-assistant/
@@ -137,7 +137,7 @@ The most useful public paths live under `fortuna-exports/premarket-analysis`, `f
 │   ├── create-skill.marp.html  # Rendered HTML version
 │   ├── AugmentArchitecture.md  # Augment/Intent architecture guide
 │   └── system-overview.md      # High-level system map
-├── smarttrader-ai/             # 🗃️ Legacy showcase (Feb–Jun 2026) — kept as-is, superseded by fortuna-exports/
+├── smarttrader-ai/             # 🗃️ Legacy showcase (Feb–May 2026) — kept as-is, superseded by fortuna-exports/
 │   ├── analysis/premarket/
 │   ├── exports/                 # STB_export_ prefix — coach-shared links, never renamed
 │   └── reviews/
