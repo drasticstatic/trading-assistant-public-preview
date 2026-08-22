@@ -3,11 +3,11 @@
 > A live, multi-agent AI trading accountability system built on Claude Code CLI + Augment Code
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-lightgrey?style=flat)](https://github.com/drasticstatic/.github)
-[![Public Preview](https://img.shields.io/badge/%F0%9F%8C%90%20Public%20Preview-Available-brightgreen)](https://drasticstatic.github.io/trading-assistant-public-preview/) [![Synced via GitExporter](https://img.shields.io/badge/Synced%20via-GitExporter-blue)](https://github.com/open-condo-software/gitexporter) [![Built with Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code%20CLI-blueviolet)](https://code.claude.com/docs/en/overview) [![Built with Augment](https://img.shields.io/badge/Built%20with-Augment-0B0F19)](https://augmentcode.com) [![Status](https://img.shields.io/badge/Status-%F0%9F%94%A5%20Live-brightgreen)](https://drasticstatic.github.io/trading-assistant-public-preview/) [![Sync](https://github.com/drasticstatic/trading-assistant/actions/workflows/sync-public.yml/badge.svg)](https://github.com/drasticstatic/trading-assistant/actions/workflows/sync-public.yml)
+[![Public Preview](https://img.shields.io/badge/%F0%9F%8C%90%20Public%20Preview-Available-brightgreen)](https://drasticstatic.github.io/trading-assistant-public-preview/) [![Synced via GitHub Actions](https://img.shields.io/badge/Synced%20via-GitHub%20Actions-blue)](https://github.com/open-condo-software/gitexporter) [![Built with Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code%20CLI-blueviolet)](https://code.claude.com/docs/en/overview) [![Built with Augment](https://img.shields.io/badge/Built%20with-Augment-0B0F19)](https://augmentcode.com) [![Status](https://img.shields.io/badge/Status-%F0%9F%94%A5%20Live-brightgreen)](https://drasticstatic.github.io/trading-assistant-public-preview/) [![Sync](https://github.com/drasticstatic/trading-assistant/actions/workflows/sync-public.yml/badge.svg)](https://github.com/drasticstatic/trading-assistant/actions/workflows/sync-public.yml)
 
 > [🗺️Wondering where to go next?🧭Click HERE to find your way around 🔍](https://drasticstatic.github.io/trading-assistant-public-preview/)&nbsp;<big>·&·</big>&nbsp; [👀View Sample Marp Deck📰](https://drasticstatic.github.io/trading-assistant-public-preview/setup/trading-palette-sample.marp.html)
 
-> 🔒 Note for visitors: This repository is partially mirrored to a public preview via an automated GitExporter pipeline. The public version includes this README and session export files. Strategy reference files are excluded — they contain proprietary content from paid mentorship programs (ZeroToHero, Inevitrade, SmartTradingBlueprint) and are not mine to share publicly.
+> 🔒 Note for visitors: This repository is partially mirrored to a public preview via an automated GitHub Actions pipeline (GitExporter-inspired — GitExporter itself hit an unfixable native-dependency build issue, so this is a from-scratch, dependency-free replacement following the same denylist concept). The public version includes this README and session export files. Strategy reference files are excluded — they contain proprietary content from paid mentorship programs (ZeroToHero, Inevitrade, SmartTradingBlueprint) and are not mine to share publicly.
 
 👋 Hi! I'm Fortuna — an AI assistant built by Anthropic, and I've been set up as Christopher's dedicated wealth warden, trading assistant, accountability coach, success manager and analyst for his futures and crypto futures operation.
 
@@ -98,7 +98,7 @@ Kavanah (Augment Intent) — task orchestration, documentation, strategy refs
 - **Webhook Pipeline** — TradingView alerts → tunnel → local server → AI receives live chart events
 - **TradeZella Pipeline** — Automated CSV export → Python conversion → Google Sheets → coaching platform
 - **Public Pages** — `portfolio.html` (live P&L, recovery arc, web3 balance viewer) · `resources.html` (glossary, coaching cards) · `auto-levels.pine_changelog.html`
-- **Multi-Repo Sync** — GitExporter mirrors public-safe content; two clones on `main` with push/pull sync
+- **Multi-Repo Sync** — GitHub Actions pipeline (GitExporter-inspired) mirrors public-safe content; two clones on `main` with push/pull sync
 
 ## 🗂️ Repo Structure
 
