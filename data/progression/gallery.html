@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Certificates & Account Gallery — Christopher Wilson</title>
-  <meta name="description" content="Funded account certificates and prop firm account progression — Apex Trader Funding, TakeProfitTrader.">
+  <meta name="description" content="Funded account certificates and prop firm account progression — Apex Trader Funding, TakeProfitTrader, TopOneFutures.">
   <link rel="icon" href="../../setup/assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../../setup/assets/favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="../../setup/assets/favicon.png">
@@ -94,6 +94,7 @@
     }
     .sec-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
     .sec-label:first-of-type { margin-top: 0; }
+    .sec-sub { font-size: .82rem; color: var(--muted); margin: -.5rem 0 1rem; max-width: 640px; }
 
     .gallery-grid {
       display: grid;
@@ -123,70 +124,120 @@
       border: 1px solid rgba(74,222,128,.3); color: var(--green); background: rgba(74,222,128,.1);
     }
 
-    /* ── CAROUSEL ── */
+    /* ── RIBBON (Account Progression — multiple thumbnails at once, true aspect ratio) ── */
+    .ribbon {
+      display: flex; gap: .9rem; overflow-x: auto; padding: .3rem .15rem 1rem;
+      scroll-snap-type: x proximity;
+      scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+    }
+    .ribbon-item {
+      flex: 0 0 auto; scroll-snap-align: start;
+      border: 1px solid var(--border); border-radius: var(--radius-md);
+      background: var(--surface); overflow: hidden; cursor: pointer;
+      transition: border-color .15s, transform .15s;
+      display: flex; flex-direction: column;
+    }
+    .ribbon-item:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .ribbon-item img { height: 190px; width: auto; display: block; background: var(--surface-soft); }
+    .ribbon-item-body { padding: .55rem .7rem; }
+    .ribbon-item-title { font-size: .78rem; font-weight: 700; color: var(--text); white-space: nowrap; margin-bottom: .3rem; }
+    .ribbon-item-meta { font-size: .68rem; color: var(--muted); display: flex; gap: .35rem; align-items: center; flex-wrap: wrap; }
+
+    /* ── CAROUSEL (Trading Calendars — one at a time, thumbstrip + centered controls) ── */
     .carousel {
-      position: relative;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 1rem 1rem 1.2rem;
     }
+    .carousel-thumbstrip {
+      display: flex; gap: .5rem; overflow-x: auto; padding-bottom: .8rem; margin-bottom: .9rem;
+      border-bottom: 1px solid var(--border);
+      scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+    }
+    .carousel-thumb {
+      flex: 0 0 auto; width: 68px; height: 46px; border-radius: 6px; overflow: hidden;
+      border: 2px solid transparent; cursor: pointer; opacity: .5;
+      transition: opacity .15s, border-color .15s; background: var(--surface-soft);
+    }
+    .carousel-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .carousel-thumb:hover { opacity: .85; }
+    .carousel-thumb.active { opacity: 1; border-color: var(--gold); }
     .carousel-viewport {
-      position: relative;
-      aspect-ratio: 16/10;
-      background: var(--surface-soft);
-      cursor: pointer;
+      position: relative; aspect-ratio: 16/10; background: var(--surface-soft);
+      cursor: pointer; border-radius: var(--radius-md); overflow: hidden;
     }
-    .carousel-viewport img {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%; object-fit: contain;
-      background: var(--surface-soft);
+    .carousel-viewport img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+    .carousel-body { padding-top: 1rem; }
+    .carousel-title { font-size: .92rem; font-weight: 700; color: var(--text); margin-bottom: .2rem; text-align: center; }
+    .carousel-meta { font-size: .74rem; color: var(--muted); display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; margin-bottom: .9rem; }
+    .carousel-controls { display: flex; align-items: center; justify-content: center; gap: .55rem; flex-wrap: wrap; }
+    .carousel-nav-btn, .carousel-play-btn {
+      background: var(--surface-soft); border: 1px solid var(--border); color: var(--text);
+      width: 2.15rem; height: 2.15rem; border-radius: 999px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; font-size: 1rem;
+      transition: border-color .15s, background .15s; flex-shrink: 0;
     }
-    .carousel-arrow {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      background: rgba(8,12,24,.72); border: 1px solid var(--border);
-      color: var(--text); width: 2.4rem; height: 2.4rem; border-radius: 999px;
-      cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center;
-      transition: border-color .15s, background .15s;
-      z-index: 2;
-    }
-    .carousel-arrow:hover { border-color: var(--gold); background: rgba(8,12,24,.9); }
-    .carousel-arrow.prev { left: .8rem; }
-    .carousel-arrow.next { right: .8rem; }
-    .carousel-body { padding: .9rem 1rem 1rem; }
-    .carousel-title { font-size: .92rem; font-weight: 700; color: var(--text); margin-bottom: .25rem; }
-    .carousel-meta { font-size: .74rem; color: var(--muted); display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; margin-bottom: .7rem; }
-    .carousel-dots { display: flex; gap: .4rem; flex-wrap: wrap; }
+    .carousel-nav-btn:hover, .carousel-play-btn:hover { border-color: var(--gold); background: rgba(251,191,36,.08); }
+    .carousel-dots { display: flex; gap: .4rem; align-items: center; }
     .carousel-dot {
       width: .5rem; height: .5rem; border-radius: 999px; background: var(--border);
       border: none; cursor: pointer; padding: 0; transition: background .15s, transform .15s;
     }
     .carousel-dot:hover { transform: scale(1.2); }
     .carousel-dot.active { background: var(--gold); }
-    .carousel-counter { font-size: .72rem; color: var(--dim); margin-left: auto; }
+    .carousel-counter { font-size: .74rem; color: var(--dim); min-width: 2.8rem; text-align: center; }
+    .carousel-pills { display: flex; justify-content: center; margin-top: 1rem; }
 
-    /* ── LIGHTBOX ── */
+    /* ── PLACEHOLDER CARD (Prop Firm Spending) ── */
+    .placeholder-card {
+      border: 1px dashed var(--border); border-radius: var(--radius-lg); padding: 1.8rem 1.5rem;
+      text-align: center; color: var(--muted); background: var(--surface-soft);
+    }
+    .placeholder-icon { font-size: 1.8rem; margin-bottom: .7rem; opacity: .55; }
+    .placeholder-card p { max-width: 480px; margin: 0 auto; font-size: .84rem; }
+    .pill-disabled {
+      display: inline-flex; align-items: center; gap: .35rem; margin-top: 1.1rem;
+      padding: .32rem .8rem; border: 1px solid var(--border); border-radius: 999px;
+      font-size: .78rem; font-weight: 700; color: var(--dim); background: rgba(255,255,255,.02);
+      cursor: not-allowed;
+    }
+
+    /* ── LIGHTBOX (near-fullscreen in-page modal, optional multi-item nav) ── */
     .lightbox-overlay {
       display: none; position: fixed; inset: 0; z-index: 500;
-      background: rgba(0,0,0,.92);
-      align-items: center; justify-content: center; padding: 2rem;
+      background: rgba(0,0,0,.94);
+      align-items: center; justify-content: center; padding: 1.2rem;
     }
     .lightbox-overlay.open { display: flex; }
     .lightbox-box {
-      max-width: min(1000px, 94vw); max-height: 92vh;
-      display: flex; flex-direction: column; align-items: center; gap: .8rem;
+      max-width: 98vw; max-height: 98vh;
+      display: flex; flex-direction: column; align-items: center; gap: .5rem;
     }
     .lightbox-box img {
-      max-width: 100%; max-height: 78vh; border-radius: var(--radius-md);
-      box-shadow: var(--shadow-md);
+      max-width: 98vw; max-height: 92vh; width: auto; height: auto;
+      border-radius: var(--radius-md); box-shadow: var(--shadow-md);
     }
-    .lightbox-caption { color: var(--muted); font-size: .82rem; text-align: center; }
+    .lightbox-caption { color: var(--muted); font-size: .85rem; text-align: center; max-width: 90vw; }
     .lightbox-close {
-      position: fixed; top: 1.2rem; right: 1.5rem;
+      position: fixed; top: 1.2rem; right: 1.5rem; z-index: 502;
       background: none; border: 1px solid var(--border); border-radius: 999px;
-      width: 2.2rem; height: 2.2rem; color: var(--text); font-size: 1.1rem; cursor: pointer;
+      width: 2.3rem; height: 2.3rem; color: var(--text); font-size: 1.1rem; cursor: pointer;
     }
     .lightbox-close:hover { border-color: var(--gold); color: var(--gold); }
+    .lightbox-nav-btn {
+      position: fixed; top: 50%; transform: translateY(-50%); z-index: 501;
+      background: rgba(8,12,24,.72); border: 1px solid var(--border); color: var(--text);
+      width: 3rem; height: 3rem; border-radius: 999px; cursor: pointer; font-size: 1.4rem;
+      display: none; align-items: center; justify-content: center;
+      transition: border-color .15s, background .15s;
+    }
+    .lightbox-nav-btn:hover { border-color: var(--gold); background: rgba(8,12,24,.9); }
+    .lightbox-nav-btn.prev { left: 1.2rem; }
+    .lightbox-nav-btn.next { right: 1.2rem; }
+    .lightbox-counter {
+      position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%); z-index: 501;
+      font-size: .78rem; color: var(--dim); background: rgba(8,12,24,.7);
+      padding: .3rem .85rem; border-radius: 999px; display: none;
+    }
 
     .footer {
       max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem;
@@ -211,10 +262,13 @@
   <!-- ── LIGHTBOX ── -->
   <div class="lightbox-overlay" id="lightboxOverlay" onclick="if(event.target===this)closeLightbox()">
     <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <button class="lightbox-nav-btn prev" id="lightboxPrev" onclick="lightboxStep(-1)">‹</button>
     <div class="lightbox-box">
       <img id="lightboxImg" src="" alt="">
       <p class="lightbox-caption" id="lightboxCaption"></p>
     </div>
+    <button class="lightbox-nav-btn next" id="lightboxNext" onclick="lightboxStep(1)">›</button>
+    <span class="lightbox-counter" id="lightboxCounter"></span>
   </div>
 
   <main class="content">
@@ -223,171 +277,230 @@
     <p class="header-sub">Funded account certificates and prop firm account progression, captured as evidence alongside the trading journal. Click any image to view full-size.</p>
 
     <div class="sec-label">Funded Account Certificates</div>
-    <div class="gallery-grid">
-
-      <div class="gallery-card" onclick="openLightbox('assets/gallery/certificate-apex-484839-06-100k.png', 'Apex Trader Funding — 100K Tradovate Account Certificate — Christopher Wilson, issued May 22, 2026')">
-        <img src="assets/gallery/certificate-apex-484839-06-100k.png" alt="Apex Trader Funding 100K account certificate">
-        <div class="gallery-card-body">
-          <div class="gallery-card-title">Apex Trader Funding — 100K</div>
-          <div class="gallery-card-meta">
-            <span class="badge">✅ Funded</span>
-            <span>APEX-484839-06 · Issued May 22, 2026</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="gallery-card" onclick="openLightbox('assets/gallery/certificate-takeprofit861085464-50k.png', 'TakeProfitTrader — Professional Funded Trader Certificate — Christopher Wilson, issued May 30, 2026')">
-        <img src="assets/gallery/certificate-takeprofit861085464-50k.png" alt="TakeProfitTrader 50K funded certificate">
-        <div class="gallery-card-body">
-          <div class="gallery-card-title">TakeProfitTrader — 50K PRO</div>
-          <div class="gallery-card-meta">
-            <span class="badge">✅ Funded</span>
-            <span>TAKEPROFIT861085464 · Issued May 30, 2026</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
+    <div class="gallery-grid" id="certGrid"></div>
 
     <div class="sec-label">Account Progression</div>
-    <div class="carousel" id="progressionCarousel">
-      <div class="carousel-viewport" onclick="openLightbox(progressionSlides[progressionIndex].src, progressionSlides[progressionIndex].caption)">
-        <button class="carousel-arrow prev" onclick="event.stopPropagation(); carouselNav(progressionState, -1)">‹</button>
-        <img id="progressionImg" src="" alt="">
-        <button class="carousel-arrow next" onclick="event.stopPropagation(); carouselNav(progressionState, 1)">›</button>
-      </div>
-      <div class="carousel-body">
-        <div class="carousel-title" id="progressionTitle"></div>
-        <div class="carousel-meta" id="progressionMeta"></div>
-        <div style="display:flex;align-items:center;">
-          <div class="carousel-dots" id="progressionDots"></div>
-          <span class="carousel-counter" id="progressionCounter"></span>
-        </div>
-      </div>
-    </div>
-
-    <p style="margin-top:1rem;font-size:.78rem;color:var(--dim);">Source files: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/imports" target="_blank" rel="noreferrer">data/imports/</a> (original PDFs + statement exports, by month)</p>
+    <div class="ribbon" id="progressionRibbon"></div>
+    <p style="margin-top:.3rem;font-size:.78rem;color:var(--dim);">Source files: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/imports" target="_blank" rel="noreferrer">data/imports/</a> (original PDFs + statement exports, by month)</p>
 
     <div class="sec-label">Trading Calendars — Red/Green Day View</div>
-    <p style="font-size:.82rem;color:var(--muted);margin:-.5rem 0 .9rem;max-width:640px;">TradeZella's monthly calendar view — win/loss by trading day, week totals, and days traded. August is in progress; the placeholder reflects real data as of the capture date.</p>
-    <div class="carousel" id="calendarCarousel">
-      <div class="carousel-viewport" onclick="openLightbox(calendarMonths[calendarIndex].src, calendarCaption(calendarMonths[calendarIndex]))">
-        <button class="carousel-arrow prev" onclick="event.stopPropagation(); carouselNav(calendarState, -1)">‹</button>
+    <p class="sec-sub">TradeZella's monthly calendar view — win/loss by trading day, week totals, and days traded. August is in progress; the placeholder reflects real data as of the capture date.</p>
+    <div class="carousel">
+      <div class="carousel-thumbstrip" id="calendarThumbstrip"></div>
+      <div class="carousel-viewport" onclick="carouselOpenLightbox(calendarState)">
         <img id="calendarImg" src="" alt="">
-        <button class="carousel-arrow next" onclick="event.stopPropagation(); carouselNav(calendarState, 1)">›</button>
       </div>
       <div class="carousel-body">
         <div class="carousel-title" id="calendarTitle"></div>
         <div class="carousel-meta" id="calendarMeta"></div>
-        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:.6rem;">
+        <div class="carousel-controls">
+          <button class="carousel-nav-btn" onclick="carouselNav(calendarState, -1)">‹</button>
           <div class="carousel-dots" id="calendarDots"></div>
           <span class="carousel-counter" id="calendarCounter"></span>
-          <a href="#" onclick="openStatsModal(); return false;" style="display:inline-flex;align-items:center;gap:.35rem;color:var(--gold);font-weight:700;font-size:.78rem;padding:.3rem .75rem;border:1px solid rgba(251,191,36,.3);border-radius:999px;background:rgba(251,191,36,.08);margin-left:auto;">📊 Extended TradeZella Stats ↗</a>
+          <button class="carousel-play-btn" id="calendarPlayBtn" onclick="toggleAutoplay(calendarState)">▶</button>
+          <button class="carousel-nav-btn" onclick="carouselNav(calendarState, 1)">›</button>
+        </div>
+        <div class="carousel-pills">
+          <a href="#" onclick="openStatsModal(); return false;" style="display:inline-flex;align-items:center;gap:.35rem;color:var(--gold);font-weight:700;font-size:.78rem;padding:.32rem .8rem;border:1px solid rgba(251,191,36,.3);border-radius:999px;background:rgba(251,191,36,.08);">📊 Extended TradeZella Stats ↗</a>
         </div>
       </div>
     </div>
 
     <div class="sec-label">Account Ledger <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--dim);font-size:.85em;">— mostly a graveyard, and that's the point</span></div>
-    <p style="font-size:.82rem;color:var(--muted);margin:-.5rem 0 1rem;max-width:640px;">TradeZella's full account list — every eval, reset, blow, and pass in one table. The record speaks for itself.</p>
-    <div class="gallery-grid">
+    <p class="sec-sub">TradeZella's full account list — every eval, reset, blow, and pass in one table. The record speaks for itself.</p>
+    <div class="gallery-grid" id="ledgerGrid"></div>
 
-      <div class="gallery-card" onclick="openLightbox('../imports/2026/04-Apr/TradeZella_Apr-accounts.png', 'TradeZella account ledger, snapshot as of April 2026')">
-        <img src="../imports/2026/04-Apr/TradeZella_Apr-accounts.png" alt="TradeZella account ledger, April 2026 snapshot">
-        <div class="gallery-card-body">
-          <div class="gallery-card-title">Account Ledger — April 2026</div>
-          <div class="gallery-card-meta"><span>Snapshot through late April</span></div>
-        </div>
-      </div>
-
-      <div class="gallery-card" onclick="openLightbox('../imports/2026/08-Aug/TradeZella_Aug-accounts.png', 'TradeZella account ledger, snapshot as of August 2026 — includes TopOneFutures Elite Access accounts')">
-        <img src="../imports/2026/08-Aug/TradeZella_Aug-accounts.png" alt="TradeZella account ledger, August 2026 snapshot">
-        <div class="gallery-card-body">
-          <div class="gallery-card-title">Account Ledger — August 2026 (Current)</div>
-          <div class="gallery-card-meta"><span>Full history — Apex, TPT, TopOneFutures</span></div>
-        </div>
-      </div>
-
+    <div class="sec-label">Prop Firm Spending <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--dim);font-size:.85em;">— the other graveyard, once the numbers are in</span></div>
+    <p class="sec-sub">What each eval, reset, and activation fee actually cost across Apex, TPT, and TopOneFutures — tracked informally today via TradeZella and cross-referenced against PropFirmMatchTV coverage, not yet aggregated into one figure here.</p>
+    <div class="placeholder-card">
+      <div class="placeholder-icon">📊</div>
+      <p>Total prop firm spend isn't aggregated yet — costs are scattered across receipts, promos (BOGO, 50% off), and multiple platforms. This section will hold the real number once that data is pulled together.</p>
+      <span class="pill-disabled" title="Coming soon — data not yet aggregated">📊 Extended PropFirm Stats ↗</span>
     </div>
   </main>
-
-  <!-- ── STATS MODAL ── -->
-  <div class="lightbox-overlay" id="statsOverlay" onclick="if(event.target===this)closeStatsModal()">
-    <button class="lightbox-close" onclick="closeStatsModal()">✕</button>
-    <div class="lightbox-box" style="max-width:min(1100px,94vw);">
-      <div id="statsCarousel" style="display:flex;flex-direction:column;align-items:center;gap:.8rem;width:100%;">
-        <img id="statsImg" src="" alt="" style="max-width:100%;max-height:72vh;border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,.4);">
-        <p class="lightbox-caption" id="statsCaption"></p>
-        <div style="display:flex;gap:.6rem;align-items:center;">
-          <button onclick="statsNav(-1)" style="background:none;border:1px solid var(--border);border-radius:999px;padding:.4rem .9rem;color:var(--text);cursor:pointer;">← Prev</button>
-          <span id="statsCounter" style="font-size:.78rem;color:var(--muted);"></span>
-          <button onclick="statsNav(1)" style="background:none;border:1px solid var(--border);border-radius:999px;padding:.4rem .9rem;color:var(--text);cursor:pointer;">Next →</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <footer class="footer">
     <p>Part of the <a href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer">Trading Assistant</a> public preview.</p>
   </footer>
 
   <script>
-    function openLightbox(src, caption) {
+    // ═══════════════════════════════════════════════════════
+    // LIGHTBOX — near-fullscreen in-page modal, optional multi-item nav
+    // ═══════════════════════════════════════════════════════
+    let lightboxNav = null;
+
+    function openLightbox(src, caption, nav) {
       document.getElementById('lightboxImg').src = src;
       document.getElementById('lightboxImg').alt = caption;
       document.getElementById('lightboxCaption').textContent = caption;
+      lightboxNav = nav || null;
+      const showNav = !!lightboxNav;
+      document.getElementById('lightboxPrev').style.display = showNav ? 'flex' : 'none';
+      document.getElementById('lightboxNext').style.display = showNav ? 'flex' : 'none';
+      document.getElementById('lightboxCounter').style.display = showNav ? 'block' : 'none';
+      if (showNav) updateLightboxCounter();
       document.getElementById('lightboxOverlay').classList.add('open');
     }
     function closeLightbox() {
       document.getElementById('lightboxOverlay').classList.remove('open');
+      lightboxNav = null;
+    }
+    function updateLightboxCounter() {
+      if (!lightboxNav) return;
+      document.getElementById('lightboxCounter').textContent = `${lightboxNav.index + 1} / ${lightboxNav.items.length}`;
+    }
+    function lightboxStep(delta) {
+      if (!lightboxNav) return;
+      lightboxNav.index = (lightboxNav.index + delta + lightboxNav.items.length) % lightboxNav.items.length;
+      const item = lightboxNav.items[lightboxNav.index];
+      document.getElementById('lightboxImg').src = item.src;
+      document.getElementById('lightboxImg').alt = item.caption;
+      document.getElementById('lightboxCaption').textContent = item.caption;
+      updateLightboxCounter();
     }
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') { closeLightbox(); closeStatsModal(); }
-      if (e.key === 'ArrowLeft' && document.getElementById('statsOverlay').classList.contains('open')) statsNav(-1);
-      if (e.key === 'ArrowRight' && document.getElementById('statsOverlay').classList.contains('open')) statsNav(1);
+      if (!document.getElementById('lightboxOverlay').classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') lightboxStep(-1);
+      if (e.key === 'ArrowRight') lightboxStep(1);
     });
 
-    // ── GENERIC CAROUSEL ──
-    function buildCarousel(state) {
+    // ═══════════════════════════════════════════════════════
+    // RIBBON — multiple thumbnails shown at once, true aspect ratio
+    // ═══════════════════════════════════════════════════════
+    function renderRibbon(containerId, items) {
+      const el = document.getElementById(containerId);
+      items.forEach((item, i) => {
+        const div = document.createElement('div');
+        div.className = 'ribbon-item';
+        div.onclick = () => openLightbox(item.src, item.caption, { items, index: i });
+        div.innerHTML = `
+          <img src="${item.src}" alt="${item.title}" loading="lazy">
+          <div class="ribbon-item-body">
+            <div class="ribbon-item-title">${item.title}</div>
+            <div class="ribbon-item-meta">${item.meta}</div>
+          </div>`;
+        el.appendChild(div);
+      });
+    }
+
+    // ═══════════════════════════════════════════════════════
+    // CAROUSEL — one image at a time, thumbstrip + centered controls + autoplay
+    // ═══════════════════════════════════════════════════════
+    function createCarousel(prefix, items, startIndex) {
+      const state = { prefix, items, index: startIndex || 0, timer: null, playing: false };
+      const thumbstrip = document.getElementById(prefix + 'Thumbstrip');
+      items.forEach((item, i) => {
+        const t = document.createElement('div');
+        t.className = 'carousel-thumb';
+        t.onclick = () => { pauseCarousel(state); state.index = i; renderCarousel(state); };
+        t.innerHTML = `<img src="${item.src}" alt="${item.title}" loading="lazy">`;
+        thumbstrip.appendChild(t);
+      });
+      const dots = document.getElementById(prefix + 'Dots');
+      items.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'carousel-dot';
+        d.onclick = () => { pauseCarousel(state); state.index = i; renderCarousel(state); };
+        dots.appendChild(d);
+      });
+      renderCarousel(state);
+      return state;
+    }
+    function renderCarousel(state) {
       const item = state.items[state.index];
       document.getElementById(state.prefix + 'Img').src = item.src;
       document.getElementById(state.prefix + 'Img').alt = item.title;
-      document.getElementById(state.prefix + 'Title').innerHTML = item.title;
+      document.getElementById(state.prefix + 'Title').textContent = item.title;
       document.getElementById(state.prefix + 'Meta').innerHTML = item.meta;
       document.getElementById(state.prefix + 'Counter').textContent = `${state.index + 1} / ${state.items.length}`;
-      const dots = document.getElementById(state.prefix + 'Dots');
-      dots.innerHTML = '';
-      state.items.forEach((_, i) => {
-        const dot = document.createElement('button');
-        dot.className = 'carousel-dot' + (i === state.index ? ' active' : '');
-        dot.onclick = (e) => { e.stopPropagation(); state.index = i; buildCarousel(state); };
-        dots.appendChild(dot);
-      });
+      document.querySelectorAll(`#${state.prefix}Dots .carousel-dot`).forEach((d, i) => d.classList.toggle('active', i === state.index));
+      document.querySelectorAll(`#${state.prefix}Thumbstrip .carousel-thumb`).forEach((t, i) => t.classList.toggle('active', i === state.index));
     }
     function carouselNav(state, delta) {
+      pauseCarousel(state);
       state.index = (state.index + delta + state.items.length) % state.items.length;
-      buildCarousel(state);
+      renderCarousel(state);
+    }
+    function carouselOpenLightbox(state) {
+      const item = state.items[state.index];
+      openLightbox(item.src, item.caption, { items: state.items, index: state.index });
+    }
+    function toggleAutoplay(state) {
+      if (state.playing) pauseCarousel(state);
+      else playCarousel(state);
+    }
+    function playCarousel(state) {
+      state.playing = true;
+      document.getElementById(state.prefix + 'PlayBtn').textContent = '⏸';
+      state.timer = setInterval(() => {
+        state.index = (state.index + 1) % state.items.length;
+        renderCarousel(state);
+      }, 3500);
+    }
+    function pauseCarousel(state) {
+      state.playing = false;
+      clearInterval(state.timer);
+      document.getElementById(state.prefix + 'PlayBtn').textContent = '▶';
     }
 
-    // ── ACCOUNT PROGRESSION CAROUSEL ──
-    const progressionSlides = [
-      { src: '../imports/2026/05-May/APEX_2026_03-10-thru-05-14.png', caption: 'Apex Trader Funding APEX-484839-06 — balance progression Mar 10 to May 14, 2026 — evaluation passed',
-        title: 'APEX-484839-06 — Evaluation Arc', meta: '<span class="badge">✅ Passed</span><span>Mar 10 – May 14, 2026 · $100K → funded</span>' },
-      { src: 'assets/gallery/tpt/tpt-2026-02-08-thru-02-12-1.png', caption: 'TakeProfitTrader-635000920 — Control Center, Feb 8–12, 2026 — eventually blown (EOD drawdown)',
-        title: 'TPT 50K — Feb 8–12, 2026', meta: '<span class="badge" style="border-color:rgba(248,113,113,.3);color:#f87171;background:rgba(248,113,113,.1);">❌ Blown</span><span>TAKEPROFIT635000920</span>' },
-      { src: 'assets/gallery/tpt/tpt-2026-02-16-1.png', caption: 'TakeProfitTrader — Control Center, Feb 16, 2026',
-        title: 'TPT 50K — Feb 16, 2026', meta: '<span class="badge" style="border-color:rgba(248,113,113,.3);color:#f87171;background:rgba(248,113,113,.1);">❌ Blown</span><span>Single trading day — see p.2 for journal</span>' },
-      { src: 'assets/gallery/tpt/tpt-2026-03-25-thru-03-26-1.png', caption: 'TakeProfitTrader — Control Center, Mar 25–26, 2026',
-        title: 'TPT 50K — Mar 25–26, 2026', meta: '<span class="badge" style="border-color:rgba(248,113,113,.3);color:#f87171;background:rgba(248,113,113,.1);">❌ Blown</span><span>TAKEPROFIT363712064</span>' },
-      { src: 'assets/gallery/tpt/tpt-2026-04-26-thru-04-29-1.png', caption: 'TakeProfitTrader — Control Center, Apr 26–29, 2026',
-        title: 'TPT 50K — Apr 26–29, 2026', meta: '<span class="badge" style="border-color:rgba(248,113,113,.3);color:#f87171;background:rgba(248,113,113,.1);">❌ Blown</span><span>TAKEPROFIT558167553</span>' },
-      { src: 'assets/gallery/tpt/tpt-2026-05-19-thru-05-28.png', caption: 'TakeProfitTrader-861085464 — Control Center, May 19–28, 2026 — evaluation passed, $53,083',
-        title: 'TPT 50K — May 19–28, 2026', meta: '<span class="badge">✅ Passed</span><span>TAKEPROFIT861085464 · $53,083</span>' },
-    ];
-    let progressionIndex = 0;
-    const progressionState = { prefix: 'progression', items: progressionSlides, get index() { return progressionIndex; }, set index(v) { progressionIndex = v; } };
-    buildCarousel(progressionState);
+    // ═══════════════════════════════════════════════════════
+    // DATA
+    // ═══════════════════════════════════════════════════════
 
-    // ── TRADING CALENDARS CAROUSEL ──
+    // ── Funded Account Certificates ──
+    const certItems = [
+      { src: 'assets/gallery/certificate-apex-484839-06-100k.png', title: 'Apex Trader Funding — 100K',
+        caption: 'Apex Trader Funding — 100K Tradovate Account Certificate — Christopher Wilson, issued May 22, 2026',
+        meta: '<span class="badge">✅ Funded</span><span>APEX-484839-06 · Issued May 22, 2026</span>' },
+      { src: 'assets/gallery/certificate-takeprofit861085464-50k.png', title: 'TakeProfitTrader — 50K PRO',
+        caption: 'TakeProfitTrader — Professional Funded Trader Certificate — Christopher Wilson, issued May 30, 2026',
+        meta: '<span class="badge">✅ Funded</span><span>TAKEPROFIT861085464 · Issued May 30, 2026</span>' },
+    ];
+    const certGrid = document.getElementById('certGrid');
+    certItems.forEach((item, i) => {
+      const card = document.createElement('div');
+      card.className = 'gallery-card';
+      card.onclick = () => openLightbox(item.src, item.caption, { items: certItems, index: i });
+      card.innerHTML = `
+        <img src="${item.src}" alt="${item.title}">
+        <div class="gallery-card-body">
+          <div class="gallery-card-title">${item.title}</div>
+          <div class="gallery-card-meta">${item.meta}</div>
+        </div>`;
+      certGrid.appendChild(card);
+    });
+
+    // ── Account Progression (ribbon) ──
+    const progressionSlides = [
+      { src: '../imports/2026/05-May/APEX_2026_03-10-thru-05-14.png',
+        title: 'APEX-484839-06 — Evaluation Arc',
+        caption: 'Apex Trader Funding APEX-484839-06 — balance progression Mar 10 to May 14, 2026 — evaluation passed',
+        meta: '<span class="badge">✅ Passed</span><span>Mar 10–May 14 · $100K → funded</span>' },
+      { src: 'assets/gallery/tpt/tpt-2026-02-08-thru-02-12-1.png',
+        title: 'TPT 50K — Feb 8–12, 2026',
+        caption: 'TakeProfitTrader-635000920 — Control Center, Feb 8–12, 2026 — eventually blown (EOD drawdown)',
+        meta: '<span class="badge" style="border-color:rgba(248,113,113,.3);color:#f87171;background:rgba(248,113,113,.1);">❌ Blown</span><span>TAKEPROFIT635000920</span>' },
+      { src: 'assets/gallery/tpt/tpt-2026-02-16-1.png',
+        title: 'TPT 50K — Feb 16, 2026',
+        caption: 'TakeProfitTrader — Control Center, Feb 16, 2026',
+        meta: '<span class="badge" style="border-color:rgba(248,113,113,.3);color:#f87171;background:rgba(248,113,113,.1);">❌ Blown</span><span>Single trading day</span>' },
+      { src: 'assets/gallery/tpt/tpt-2026-03-25-thru-03-26-1.png',
+        title: 'TPT 50K — Mar 25–26, 2026',
+        caption: 'TakeProfitTrader — Control Center, Mar 25–26, 2026',
+        meta: '<span class="badge" style="border-color:rgba(248,113,113,.3);color:#f87171;background:rgba(248,113,113,.1);">❌ Blown</span><span>TAKEPROFIT363712064</span>' },
+      { src: 'assets/gallery/tpt/tpt-2026-04-26-thru-04-29-1.png',
+        title: 'TPT 50K — Apr 26–29, 2026',
+        caption: 'TakeProfitTrader — Control Center, Apr 26–29, 2026',
+        meta: '<span class="badge" style="border-color:rgba(248,113,113,.3);color:#f87171;background:rgba(248,113,113,.1);">❌ Blown</span><span>TAKEPROFIT558167553</span>' },
+      { src: 'assets/gallery/tpt/tpt-2026-05-19-thru-05-28.png',
+        title: 'TPT 50K — May 19–28, 2026',
+        caption: 'TakeProfitTrader-861085464 — Control Center, May 19–28, 2026 — evaluation passed, $53,083',
+        meta: '<span class="badge">✅ Passed</span><span>TAKEPROFIT861085464 · $53,083</span>' },
+    ];
+    renderRibbon('progressionRibbon', progressionSlides);
+
+    // ── Trading Calendars (carousel) ──
     const calendarMonths = [
       { src: '../imports/2026/02-Feb/TradeZellaCalendar_Feb.png', label: 'February 2026', note: '-$20.2K net · 18 days traded' },
       { src: '../imports/2026/03-Mar/TradeZellaCalendar_Mar.png', label: 'March 2026', note: '' },
@@ -399,14 +512,33 @@
     ].map(m => ({
       src: m.src,
       title: m.label,
+      caption: `TradeZella Calendar — ${m.label}${m.note ? ' — ' + m.note : ''}`,
       meta: (m.inProgress ? '<span class="badge" style="border-color:rgba(227,179,65,.3);color:var(--gold);background:rgba(227,179,65,.1);">⏳ In Progress</span>' : '') + `<span>${m.note || 'Red/green day view'}</span>`,
     }));
-    function calendarCaption(item) { return `TradeZella Calendar — ${item.title}`; }
-    let calendarIndex = 6; // default to most recent (August)
-    const calendarState = { prefix: 'calendar', items: calendarMonths, get index() { return calendarIndex; }, set index(v) { calendarIndex = v; } };
-    buildCarousel(calendarState);
+    const calendarState = createCarousel('calendar', calendarMonths, 6); // default to most recent (August)
 
-    // ── STATS MODAL (extended TradeZella report carousel) ──
+    // ── Account Ledger (grid) ──
+    const ledgerItems = [
+      { src: '../imports/2026/04-Apr/TradeZella_Apr-accounts.png', title: 'Account Ledger — April 2026',
+        caption: 'TradeZella account ledger, snapshot as of April 2026', meta: '<span>Snapshot through late April</span>' },
+      { src: '../imports/2026/08-Aug/TradeZella_Aug-accounts.png', title: 'Account Ledger — August 2026 (Current)',
+        caption: 'TradeZella account ledger, snapshot as of August 2026 — includes TopOneFutures Elite Access accounts', meta: '<span>Full history — Apex, TPT, TopOneFutures</span>' },
+    ];
+    const ledgerGrid = document.getElementById('ledgerGrid');
+    ledgerItems.forEach((item, i) => {
+      const card = document.createElement('div');
+      card.className = 'gallery-card';
+      card.onclick = () => openLightbox(item.src, item.caption, { items: ledgerItems, index: i });
+      card.innerHTML = `
+        <img src="${item.src}" alt="${item.title}">
+        <div class="gallery-card-body">
+          <div class="gallery-card-title">${item.title}</div>
+          <div class="gallery-card-meta">${item.meta}</div>
+        </div>`;
+      ledgerGrid.appendChild(card);
+    });
+
+    // ── Extended TradeZella Stats (opens via lightbox nav) ──
     const statsImages = [
       { src: '../imports/2026/08-Aug/stats/TradeZella_Aug.png', caption: 'All-time overview — Net P&L, Zella Score, daily/cumulative P&L, August calendar, progress tracker' },
       { src: '../imports/2026/08-Aug/stats/Screenshot 2026-08-22 at 00.16.55.png', caption: 'Win % / Avg Win / Avg Loss trend — all-time report' },
@@ -414,25 +546,8 @@
       { src: '../imports/2026/08-Aug/stats/Screenshot 2026-08-22 at 00.17.29.png', caption: 'Trade time performance — P&L by exit time of day' },
       { src: '../imports/2026/08-Aug/stats/Screenshot 2026-08-22 at 00.17.39.png', caption: 'Trade duration performance — P&L by hold time' },
     ];
-    let statsIndex = 0;
-    function renderStats() {
-      const item = statsImages[statsIndex];
-      document.getElementById('statsImg').src = item.src;
-      document.getElementById('statsImg').alt = item.caption;
-      document.getElementById('statsCaption').textContent = item.caption;
-      document.getElementById('statsCounter').textContent = `${statsIndex + 1} / ${statsImages.length}`;
-    }
     function openStatsModal() {
-      statsIndex = 0;
-      renderStats();
-      document.getElementById('statsOverlay').classList.add('open');
-    }
-    function closeStatsModal() {
-      document.getElementById('statsOverlay').classList.remove('open');
-    }
-    function statsNav(delta) {
-      statsIndex = (statsIndex + delta + statsImages.length) % statsImages.length;
-      renderStats();
+      openLightbox(statsImages[0].src, statsImages[0].caption, { items: statsImages, index: 0 });
     }
   </script>
 
