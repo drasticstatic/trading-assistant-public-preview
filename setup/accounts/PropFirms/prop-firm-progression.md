@@ -67,7 +67,7 @@ Opening accounts before readiness = unnecessary fees + more rules to track + mor
 
 | Platform | Firm | Strategy | Status |
 |----------|------|----------|--------|
-| Tradovate | Apex Trader Funding | ZeroToHero + STB | ✅ Funded — renewed Apr 25, 2026 |
+| Tradovate | Apex Trader Funding | ZeroToHero + STB | ⚠️ Funded account (PA-01) blown ~Jun 11 · new 50K Legacy evals in progress (07/09/10) |
 | Tradovate | Take Profit Trader | ZeroToHero + STB | ✅ Funded — reset-4 (TAKEPROFIT917806711) passed eval Aug 2026 |
 | TopOneFutures | Elite ACCESS ×2 (BOGO) | ZeroToHero + STB | ✅ Funded — both eval passed Aug 28, 2026 |
 | Lucid | LucidFlex | Inevitrade + STB | Planned — Phase 2 |
@@ -88,9 +88,12 @@ All accounts since trading began. Sources: TPT control center PDFs, Tradovate ac
 | APEX-484839-03 | 100K eval | ~Feb 2026 | ❌ Blown | Blown Feb 13 — NQ short -$3,080 (same trade as APEX-04; both accounts running simultaneously) |
 | APEX-484839-04 | 100K eval | ~Feb 2026 | ❌ Blown | Blown Feb 13 — NQ short -$3,080 (same trade as APEX-03; both accounts running simultaneously) |
 | APEX-484839-05 | 100K eval | ~Feb 2026 – Mar 3, 2026 | ❌ Blown | Patterns 6+7 on blow day (Mar 3 -$2,300) |
-| APEX-484839-06 | 100K eval | Mar 2026 – present | ✅ Active · renewed Apr 25 | Min days met Mar 24 · profit target still open · renewed cycle active |
+| APEX-484839-06 | 100K eval | Mar 10 – May 14, 2026 | ✅ Eval passed | Funded as PA-APEX-484839-01 (see below) |
+| PA-APEX-484839-01 | 100K funded (Legacy, PA/payout-eligible) | May 14 – ~Jun 11, 2026 | ❌ Blown | MAE violations logged May 28 (33-49% of daily drawdown threshold, multiple pings same trade). Final day Jun 11: -$1,562.40. Balance chart: `data/imports/2026/06-Jun/APEX_2026_05-27-thru-06-11.png` |
 
 **Apex eval parameters (100K):** Profit target $6,000 (6%) · Max trailing drawdown $2,500 (intraday) · Min trading days 7 · Carry-over confirmed on renewal
+
+> **Correction:** earlier drafts of this roster (and of `pattern_tracker.md`) described APEX-484839-06 as still active/renewed — that was stale. The Aug 2026 asset backlog confirms it passed its eval May 14 and was funded as PA-APEX-484839-01, which has since blown (~Jun 11). The relationship between this blow and the subsequent APEX-07/09/10 50K Legacy evals below (same Jun-Aug window) is likely direct (a re-buy after the funded blow) but not yet fully confirmed — full reconciliation is pending the Phase 1 trade-review backlog pass.
 
 ### Apex Trader Funding — Legacy 50K (separate line from the numbered 100K series above)
 
