@@ -496,10 +496,17 @@ May 1 – Aug 27 ────────────  ⏳ GAP — detailed trad
                                backlog (225 screenshots + Tradovate/BTCC CSVs from the iCloud staging folders)
                                is processed. This is a known, deliberate gap, not a missed session.
 
-Aug 2026  ████████████████░░  ✅ THREE EVALS PASSED — TPT reset-4 + both TopOneFutures Elite ACCESS accounts
-                               TAKEPROFIT917806711 funded (certificate issued late Aug 2026).
-                               TOF189562 + TOF189563 both funded — Sim Funded Trader certificate issued Aug 28,
-                               instantly tradeable, EOD drawdown type.
+Aug 5   ░░░░░░░░░░░░░░░░░░░░  🔴 APEX Legacy-484839-09 (50K FULL eval) BLOWN — -$2,398
+
+Aug 19  ░░░░░░░░░░░░░░░░░░░░  🔴 APEX Legacy-484839-10 (50K FULL eval) BLOWN — -$1,214.25
+                               Two Apex Legacy evals blown same month three evals were passed elsewhere —
+                               both tracks were running in parallel, not sequential.
+
+Aug 28  ████████████████░░  ✅ THREE EVALS PASSED IN ONE MORNING
+                               TAKEPROFIT917806711 (TPT reset-4) passed 10:35 AM — +$3,154.85
+                               TOF189562 (TopOne Elite ACCESS #1) passed 10:40 AM — +$3,116.25 → funded as TOF197288
+                               TOF189563 (TopOne Elite ACCESS #2) passed 10:42 AM — +$3,106.75 → funded as TOF197292
+                               TPT certificate issued Aug 29; TopOne certificate (covers both accounts) issued Aug 28.
                                Christopher: eval execution on both fronts was "messy"/"sloppy" — manual
                                copy-trading attempts via market/limit orders — but profit targets were secured
                                regardless. Full roster: setup/accounts/PropFirms/prop-firm-progression.md
