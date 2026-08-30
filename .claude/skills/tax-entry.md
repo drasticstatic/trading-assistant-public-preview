@@ -71,6 +71,12 @@ Crypto is a taxable event in the US. Log the same fields as futures, and add USD
 1. Commit the updated tax file
 2. If a new document was added, also commit the PDF or screenshot if applicable
 
+## Related Account/Asset Inventory
+
+For the full account and wallet inventory (TradFi + DeFi) referenced when logging crypto or cross-platform events, see:
+- `specs/wallet-addresses.md`
+- `specs/crypto-asset-management.md`
+
 ## Quick Commands
 
 ```bash
