@@ -97,15 +97,16 @@ All accounts since trading began. Sources: TPT control center PDFs, Tradovate ac
 
 ### Apex Trader Funding — Legacy 50K (separate line from the numbered 100K series above)
 
-A second, smaller Apex Legacy track Christopher runs in parallel with APEX-484839-06 — confirmed via the Aug 2026 TradeZella account ledger. Numbers 07/08 in this series are not yet confirmed in the data reviewed so far.
+A second, smaller Apex Legacy track Christopher runs in parallel with APEX-484839-06 — confirmed via the Aug 2026 TradeZella account ledger and, for 07/08, via the Phase 1 CSV trade-ledger reconstruction. The chain runs continuously: each account opened right after the previous one blew.
 
 | Account | Type | Period | Outcome | Notes |
 |---------|------|--------|---------|-------|
-| APEX-484839-07 | 50K, "No Activation Fee Intraday Trailing" | Jun 10 – Jul 10, 2026 | ⚠️ Outcome unconfirmed | Ended Jul 10 at $49,233.29, below the $50K start, after a declining last few sessions (-$857, -$833) — not confirmed blown or active from the balance chart alone (`APEX_2026_06-12-thru-07-10.png`). Different drawdown type (Intraday Trailing) from 09/10 below. |
-| APEX Legacy-484839-09 | 50K FULL eval | ~Jul–Aug 5, 2026 | ❌ Blown Aug 5 | -$2,400.68 final day, -$2,398 closed P&L per TradeZella ledger (reset:7) |
-| APEX Legacy-484839-10 | 50K FULL eval | ~Aug 6–19, 2026 | ❌ Blown Aug 19 | -$1,214.25 closed P&L (TradeZella reset:8) — balance chart in `data/imports/2026/08-Aug/APEX_2026_08-05-thru-08-19.png` |
+| APEX-484839-07 | 50K, "No Activation Fee Intraday Trailing" | Jun 12 – Jul 10, 2026 | ❌ Blown Jul 10 | Confirmed via CSV trade ledger (17 trades, net -$826.75) — final trades 13:37:39, MYM -$88 and MNQ -$763 closing simultaneously (AutoLiq signature). Previously listed as "outcome unconfirmed" from the balance chart alone; resolved by the Phase 1 fill-level data. |
+| APEX-484839-08 | 50K eval | Jul 21 – Aug 4, 2026 | ❌ Blown Aug 4 | Confirmed via CSV trade ledger (16 trades, net -$656.50) — final sequence three MYM shorts closing within 5 seconds (06:30:05-06:30:10) for -$24/-$32/-$126, AutoLiq signature. No screenshot on file for this account; found entirely from the CSV data. |
+| APEX Legacy-484839-09 | 50K FULL eval | ~Jul–Aug 5, 2026 | ❌ Blown Aug 5 | -$2,400.68 final day, -$2,398 closed P&L per TradeZella ledger (reset:7) — matches CSV ledger exactly (1 trade captured, -$2,398) |
+| APEX Legacy-484839-10 | 50K FULL eval | Aug 5–19, 2026 | ❌ Blown Aug 19 | -$1,214.25 per TradeZella ledger (reset:8); CSV ledger reconstructs -$1,213.75 over 68 trades (matches to the cent, minor variance likely a fee not captured in order-fill data) — balance chart in `data/imports/2026/08-Aug/APEX_2026_08-05-thru-08-19.png` |
 
-> Account 08 in this series is referenced by the reset:7/reset:8 numbering but not yet confirmed against a screenshot — flagged for the Phase 1 trade-review backlog pass rather than guessed here.
+> Source for 07/08: `fortuna-exports/master_trade_ledger_2026-05-14_to_2026-08-28.csv`, reconstructed via FIFO fill-matching from Tradovate order-export CSVs in `_csv-2B-filed/`, cross-validated against every confirmed reference figure in this file (exact or near-exact match throughout).
 
 ### TakeProfitTrader 50K
 
@@ -115,11 +116,12 @@ A second, smaller Apex Legacy track Christopher runs in parallel with APEX-48483
 | TPT reset-1 | TAKEPROFIT401190651 | Feb 16–17, 2026 | 1 | ❌ Blown day 1 |
 | TPT reset-2 | TAKEPROFIT363712064 | Mar 25–27, 2026 | 2 | ❌ Blown Mar 27 — overnight MGC |
 | TPT reset-3 | TAKEPROFIT558167553 | Apr 1–30, 2026 | 4/5 | ❌ Blown Apr 30 — YM no-SL resting limit AutoLiq, -$2,000 |
-| TPT reset-4 | TAKEPROFIT917806711 | May 1 – present | 5+ | ✅ Eval passed Aug 28, 2026 10:35 AM (+$3,154.85), funded — certificate issued Aug 29, 2026 (TradeZella internal label: reset:6) |
+| TPT reset-4 | TAKEPROFIT917806711 | May 1 – present | 5+ | ✅ Eval passed Aug 28, 2026 10:35 AM (+$3,154.85), funded — certificate issued Aug 29, 2026 (TradeZella internal label: reset:6). CSV ledger only captures its Aug 21-28 fills (25 trades, net +$3,156.25, matches to $1.40) — no CSV coverage exists for its earlier Jun 2-Jul 9 activity, which is documented only via the statement-PDF screenshots in the gallery ribbon. |
+| TAKEPROFIT718652247 | TAKEPROFIT718652247 | Jun 12–Jul 10, 2026 | 18 | ❌ Blown Jul 10 — found via the Phase 1 CSV trade-ledger reconstruction, previously untracked. Net -$954.25; final trades (16:55:02) MES -$15, MYM -$214, MNQ -$779 all closing at the same timestamp (AutoLiq signature). Runs the exact same Jun 12–Jul 10 window as APEX-484839-07 above — a parallel eval attempt, not sequential. Not yet placed in the reset-N sequence. |
 
 **TPT eval parameters (all resets):** Starting balance $50,000 · Profit target $53,000 (+$3,000) · Min balance $48,000 · Max 6 contracts · No positions past 17:00 ET · 5 minimum trading days
 
-> **Roster gap:** TAKEPROFIT861085464 (TPT 50K PRO, certificate issued May 30, 2026, referenced in `data/progression/gallery.html`) does not fit cleanly into the reset-0→4 sequence above by date and is not yet reconciled here — Christopher confirmed this account has since blown too. Full placement pending the Phase 1 trade-review backlog pass.
+**TAKEPROFIT861085464 roster gap — resolved:** it's the eval account (passed ~May 29, 2026, +$3,108.50 over 6 trades in the CSV ledger — matches the certificate's "$53,083" closely) that funded into **TAKEPROFITPRO311919544** (the PRO account, confirmed via CSV ledger: 13 trades, Jun 3–11, 2026, net +$25.50 — barely positive, then no further fills captured after Jun 11; not confirmed blown, just stopped appearing in the CSV data around the same time PA-APEX-484839-01 blew).
 
 > Source PDFs: [TPT reset-0 (Feb 8–12)](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/imports/2026/02-Feb/TPT_2026_02-08-thru-02-12_redacted.pdf) · [TPT reset-1 (Feb 16)](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/imports/2026/02-Feb/TPT_2026_02-16_redacted.pdf) · [TPT reset-2 (Mar 25–26)](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/imports/2026/03-Mar/TPT_2026_03-25-thru-03-26_redacted.pdf) · [TPT reset-4 (Aug 20–27)](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/imports/2026/08-Aug/TPT_2026_08-20-thru-08-27_redacted.pdf)
 
