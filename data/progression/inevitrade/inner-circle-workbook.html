@@ -88,11 +88,13 @@
     .layout { display:grid; grid-template-columns:240px minmax(0,1fr); min-height:calc(100vh - 44px); margin-top:44px; }
 
     /* ── SIDEBAR ── */
-    /* Grows to the page's full natural length (no internal scroll/cap).
-       "Back to hub" is a separate position:fixed bar (.sidebar-back-fixed)
-       pinned to the viewport so it stays visible regardless of sidebar length. */
+    /* Scrolls independently of the page (sticky, bounded height, internal
+       overflow) on both desktop and mobile. "Back to hub" is a separate
+       position:fixed bar (.sidebar-back-fixed) pinned to the viewport so
+       it stays visible regardless of sidebar scroll position. */
     .sidebar {
       align-self:start;
+      position:sticky; top:44px; max-height:calc(100vh - 44px); overflow-y:auto;
       padding:1.2rem .85rem 4.2rem; border-right:1px solid var(--border);
       background:var(--bg-alt);
       display:flex; flex-direction:column; gap:.2rem;
@@ -110,8 +112,16 @@
     }
     .sidebar-group summary:hover { border-color:var(--blue); background:rgba(124,194,255,.06); }
     .sidebar-group summary::-webkit-details-marker { display:none; }
-    .sidebar-group summary::before { content:"▸"; font-size:.72rem; transition:transform .15s; flex-shrink:0; }
-    .sidebar-group[open] summary::before { transform:rotate(90deg); }
+    .sidebar-group summary::before {
+      content:"▸"; font-size:1rem; transition:transform .15s; flex-shrink:0;
+      color:var(--blue); animation:chevronPulse 2.4s ease-in-out infinite;
+    }
+    .sidebar-group[open] summary::before { transform:rotate(90deg); animation:none; }
+    @keyframes chevronPulse {
+      0%, 100% { transform:translateX(0) scale(1); opacity:.75; }
+      50% { transform:translateX(2px) scale(1.18); opacity:1; }
+    }
+    @media (prefers-reduced-motion:reduce) { .sidebar-group summary::before { animation:none; } }
     .sidebar-group .sidebar-item { margin-top:.15rem; }
     .sidebar-week { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em;
       color:var(--muted); padding:.55rem .4rem .2rem; margin-top:.3rem; }
@@ -125,13 +135,14 @@
     .sidebar-dot { width:7px; height:7px; border-radius:999px; flex-shrink:0; }
     .sidebar-progress { font-size:.68rem; margin-left:auto; color:var(--subtle); }
     .sidebar-back-fixed {
-      position:fixed; left:0; bottom:0; width:240px; z-index:60;
+      position:fixed; left:0; bottom:0; width:240px; z-index:191;
       display:flex; align-items:center; gap:.4rem; padding:.85rem;
       border-top:1px solid var(--border); border-right:1px solid var(--border);
       background:var(--bg-alt); font-size:.78rem; color:var(--muted); cursor:pointer;
     }
     .sidebar-back-fixed:hover { color:var(--blue); text-decoration:none; background:rgba(124,194,255,.06); }
-    @media (max-width:860px) { .sidebar-back-fixed { display:none; } }
+    /* Stays visible on mobile too — z-index above .sidebar.open (190) so it's reachable over the drawer */
+    @media (max-width:860px) { .sidebar-back-fixed { display:flex; } }
     .layout.no-sidebar .sidebar-back-fixed { display:none; }
 
     /* ── MAIN ── */
