@@ -488,6 +488,14 @@ Apr 30  ░░░░░░░░░░░░░░░░░░░░  🔴 TPT r
                                YM no-SL resting limit AutoLiq, -$2,000 — 4th account blow, same root
                                cause across all four: no mechanical stop in place. TPT reset-4 opened.
 
+May 14  ████████████████████  ✅ APEX-484839-06 (100K eval) PASSED — funded as PA-APEX-484839-01
+
+Jun 11  ░░░░░░░░░░░░░░░░░░░░  🔴 PA-APEX-484839-01 (funded, Legacy 100K) BLOWN
+                               MAE violations flagged May 28 (multiple pings, same trade — 33-49%
+                               of the daily drawdown threshold). Final day -$1,562.40. New 50K
+                               Legacy evals (07, 09, 10) opened in the weeks after — see
+                               setup/accounts/PropFirms/prop-firm-progression.md for the full chain.
+
 May 1 – Aug 27 ────────────  ⏳ GAP — detailed trade log entries pending
                                TPT reset-4 (TAKEPROFIT917806711) traded through this window; two
                                TopOneFutures Elite ACCESS evals (TOF189562, TOF189563) opened and run.
