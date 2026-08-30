@@ -22,6 +22,7 @@
       --purple:   #a78bfa;
       --cyan:     #67e8f9;
       --green:    #4ade80;
+      --red:      #f87171;
       --gold:     #fbbf24;
       --radius-xl: 22px;
       --radius-lg: 16px;
@@ -94,7 +95,8 @@
     }
     .sec-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
     .sec-label:first-of-type { margin-top: 0; }
-    .sec-sub { font-size: .82rem; color: var(--muted); margin: -.5rem 0 1rem; max-width: 640px; }
+    .sec-sub { font-size: .82rem; color: var(--muted); margin: -.5rem 0 1rem; max-width: 680px; }
+    .sec-tag { font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--dim); font-size: .85em; }
 
     .gallery-grid {
       display: grid;
@@ -123,13 +125,42 @@
       font-size: .7rem; font-weight: 700;
       border: 1px solid rgba(74,222,128,.3); color: var(--green); background: rgba(74,222,128,.1);
     }
+    .badge-blown {
+      border-color: rgba(248,113,113,.3); color: var(--red); background: rgba(248,113,113,.1);
+    }
+    .badge-warn {
+      border-color: rgba(251,191,36,.3); color: var(--gold); background: rgba(251,191,36,.1);
+    }
+
+    /* ── MARQUEE (Certificates — auto-scrolling strip, pause on hover) ── */
+    .marquee-wrap {
+      overflow: hidden; position: relative;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+    }
+    .marquee-track {
+      display: flex; gap: 1.1rem; width: max-content;
+      animation: marquee-scroll 38s linear infinite;
+    }
+    .marquee-wrap:hover .marquee-track, .marquee-wrap:focus-within .marquee-track { animation-play-state: paused; }
+    @keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .marquee-item {
+      flex: 0 0 auto; width: 300px;
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      overflow: hidden; cursor: pointer; transition: border-color .15s, transform .15s;
+    }
+    .marquee-item:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .marquee-item img { width: 100%; display: block; aspect-ratio: 16/10.5; object-fit: cover; background: var(--surface-soft); }
 
     /* ── RIBBON (Account Progression — multiple thumbnails at once, true aspect ratio) ── */
     .ribbon {
-      display: flex; gap: .9rem; overflow-x: auto; padding: .3rem .15rem 1rem;
+      display: flex; gap: .9rem; overflow-x: auto; padding: .3rem .15rem 1.1rem;
       scroll-snap-type: x proximity;
-      scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+      scrollbar-width: auto; scrollbar-color: var(--gold) rgba(255,255,255,.07);
     }
+    .ribbon::-webkit-scrollbar { height: 10px; }
+    .ribbon::-webkit-scrollbar-track { background: rgba(255,255,255,.06); border-radius: 999px; }
+    .ribbon::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 999px; }
     .ribbon-item {
       flex: 0 0 auto; scroll-snap-align: start;
       border: 1px solid var(--border); border-radius: var(--radius-md);
@@ -143,7 +174,7 @@
     .ribbon-item-title { font-size: .78rem; font-weight: 700; color: var(--text); white-space: nowrap; margin-bottom: .3rem; }
     .ribbon-item-meta { font-size: .68rem; color: var(--muted); display: flex; gap: .35rem; align-items: center; flex-wrap: wrap; }
 
-    /* ── CAROUSEL (Trading Calendars — one at a time, thumbstrip + centered controls) ── */
+    /* ── CAROUSEL (Legacy TradeZella Calendars — one at a time, thumbstrip + centered controls) ── */
     .carousel {
       background: var(--surface); border: 1px solid var(--border);
       border-radius: var(--radius-lg); padding: 1rem 1rem 1.2rem;
@@ -185,23 +216,74 @@
     .carousel-dot:hover { transform: scale(1.2); }
     .carousel-dot.active { background: var(--gold); }
     .carousel-counter { font-size: .74rem; color: var(--dim); min-width: 2.8rem; text-align: center; }
-    .carousel-pills { display: flex; justify-content: center; margin-top: 1rem; }
+    .carousel-pills { display: flex; justify-content: center; margin-top: 1rem; gap: .6rem; flex-wrap: wrap; }
 
-    /* ── PLACEHOLDER CARD (Prop Firm Spending) ── */
+    .pill-cta {
+      display: inline-flex; align-items: center; gap: .35rem;
+      color: var(--gold); font-weight: 700; font-size: .78rem;
+      padding: .32rem .8rem; border: 1px solid rgba(251,191,36,.3); border-radius: 999px;
+      background: rgba(251,191,36,.08); cursor: pointer;
+      transition: border-color .15s, background .15s;
+    }
+    .pill-cta:hover { border-color: var(--gold); background: rgba(251,191,36,.15); color: var(--gold); }
+    .pill-cta.alt { color: var(--cyan); border-color: rgba(103,232,249,.3); background: rgba(103,232,249,.08); }
+    .pill-cta.alt:hover { border-color: var(--cyan); background: rgba(103,232,249,.15); }
+
+    /* ── METRICS STRIP (Trading Calendar & Metrics v1) ── */
+    .metrics-strip {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(126px, 1fr));
+      gap: .8rem; margin: 1rem 0 1.3rem;
+    }
+    .metric-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md);
+      padding: .8rem 1rem;
+    }
+    .metric-label { font-size: .64rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: .35rem; }
+    .metric-value { font-size: 1.15rem; font-weight: 800; color: var(--text); }
+    .metric-value.pos { color: var(--green); }
+    .metric-value.neg { color: var(--red); }
+
+    /* ── HEATMAP (day-strip, aggregated net P&L per day) ── */
+    .heatmap-strip {
+      display: flex; gap: 4px; overflow-x: auto; padding: .4rem .15rem 1rem;
+      scrollbar-width: auto; scrollbar-color: var(--gold) rgba(255,255,255,.07);
+    }
+    .heatmap-strip::-webkit-scrollbar { height: 8px; }
+    .heatmap-strip::-webkit-scrollbar-track { background: rgba(255,255,255,.06); border-radius: 999px; }
+    .heatmap-strip::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 999px; }
+    .heatmap-cell {
+      flex: 0 0 auto; width: 30px; height: 30px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .58rem; font-weight: 800; color: rgba(0,0,0,.55); cursor: default;
+    }
+
+    /* ── CSV TABLE (Prop Firm Ledger) ── */
+    .csv-table-wrap {
+      overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-md);
+      background: var(--surface);
+    }
+    .csv-table { width: 100%; border-collapse: collapse; font-size: .76rem; white-space: nowrap; }
+    .csv-table th {
+      text-align: left; padding: .6rem .8rem; background: var(--surface-raised);
+      color: var(--muted); text-transform: uppercase; font-size: .64rem; letter-spacing: .06em;
+      position: sticky; top: 0;
+    }
+    .csv-table td { padding: .55rem .8rem; border-top: 1px solid var(--border); color: var(--text); }
+    .csv-table tr:hover td { background: rgba(255,255,255,.03); }
+    .csv-table-note { font-size: .78rem; color: var(--muted); padding: 1rem; }
+
+    .toggle-panel { display: none; margin-top: 1.1rem; }
+    .toggle-panel.open { display: block; }
+
+    /* ── PLACEHOLDER CARD ── */
     .placeholder-card {
       border: 1px dashed var(--border); border-radius: var(--radius-lg); padding: 1.8rem 1.5rem;
       text-align: center; color: var(--muted); background: var(--surface-soft);
     }
     .placeholder-icon { font-size: 1.8rem; margin-bottom: .7rem; opacity: .55; }
     .placeholder-card p { max-width: 480px; margin: 0 auto; font-size: .84rem; }
-    .pill-disabled {
-      display: inline-flex; align-items: center; gap: .35rem; margin-top: 1.1rem;
-      padding: .32rem .8rem; border: 1px solid var(--border); border-radius: 999px;
-      font-size: .78rem; font-weight: 700; color: var(--dim); background: rgba(255,255,255,.02);
-      cursor: not-allowed;
-    }
 
-    /* ── LIGHTBOX (near-fullscreen in-page modal, optional multi-item nav) ── */
+    /* ── LIGHTBOX (near-fullscreen in-page modal, optional multi-item nav, scroll-lock, PDF fit/scroll toggle) ── */
     .lightbox-overlay {
       display: none; position: fixed; inset: 0; z-index: 500;
       background: rgba(0,0,0,.94);
@@ -213,12 +295,21 @@
       display: flex; flex-direction: column; align-items: center; gap: .5rem;
     }
     .lightbox-box img {
-      max-width: 98vw; max-height: 92vh; width: auto; height: auto;
+      max-width: 98vw; max-height: 88vh; width: auto; height: auto;
       border-radius: var(--radius-md); box-shadow: var(--shadow-md);
+      cursor: zoom-in;
+    }
+    .lightbox-box.scroll-mode { max-height: 88vh; overflow-y: auto; align-items: stretch; border-radius: var(--radius-md); }
+    .lightbox-box.scroll-mode img {
+      max-width: 92vw; max-height: none; width: auto; height: auto;
+      cursor: zoom-out; margin: 0 auto;
+    }
+    .lightbox-scrollable-hint {
+      font-size: .68rem; color: var(--dim); text-align: center;
     }
     .lightbox-caption { color: var(--muted); font-size: .85rem; text-align: center; max-width: 90vw; }
     .lightbox-close {
-      position: fixed; top: 1.2rem; right: 1.5rem; z-index: 502;
+      position: fixed; top: 1.2rem; right: 1.5rem; z-index: 503;
       background: none; border: 1px solid var(--border); border-radius: 999px;
       width: 2.3rem; height: 2.3rem; color: var(--text); font-size: 1.1rem; cursor: pointer;
     }
@@ -233,8 +324,9 @@
     .lightbox-nav-btn:hover { border-color: var(--gold); background: rgba(8,12,24,.9); }
     .lightbox-nav-btn.prev { left: 1.2rem; }
     .lightbox-nav-btn.next { right: 1.2rem; }
+    /* Counter sits near the close button (top-right), never over the bottom caption */
     .lightbox-counter {
-      position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%); z-index: 501;
+      position: fixed; top: 1.2rem; right: 4.4rem; z-index: 502;
       font-size: .78rem; color: var(--dim); background: rgba(8,12,24,.7);
       padding: .3rem .85rem; border-radius: 999px; display: none;
     }
@@ -263,9 +355,10 @@
   <div class="lightbox-overlay" id="lightboxOverlay" onclick="if(event.target===this)closeLightbox()">
     <button class="lightbox-close" onclick="closeLightbox()">✕</button>
     <button class="lightbox-nav-btn prev" id="lightboxPrev" onclick="lightboxStep(-1)">‹</button>
-    <div class="lightbox-box">
-      <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-box" id="lightboxBox">
+      <img id="lightboxImg" src="" alt="" onclick="handleLightboxImgClick()">
       <p class="lightbox-caption" id="lightboxCaption"></p>
+      <p class="lightbox-scrollable-hint" id="lightboxScrollHint" style="display:none;">Click the image to toggle fit view ↔ full-width scroll view</p>
     </div>
     <button class="lightbox-nav-btn next" id="lightboxNext" onclick="lightboxStep(1)">›</button>
     <span class="lightbox-counter" id="lightboxCounter"></span>
@@ -277,14 +370,33 @@
     <p class="header-sub">Funded account certificates and prop firm account progression, captured as evidence alongside the trading journal. Click any image to view full-size.</p>
 
     <div class="sec-label">Funded Account Certificates</div>
-    <div class="gallery-grid" id="certGrid"></div>
+    <div class="marquee-wrap">
+      <div class="marquee-track" id="certTrack"></div>
+    </div>
+
+    <div class="sec-label">📅 Trading Calendar &amp; Metrics <span class="sec-tag">v1 — built from Fortuna's own trade-review data, not TradeZella</span></div>
+    <p class="sec-sub">The start of a homegrown replacement for the TradeZella calendar/stats — driven directly by <code>pattern_tracker.md</code>'s Trade Log so it grows as the <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/fortuna-exports/trade-reviews" target="_blank" rel="noreferrer">trade-review backlog</a> is processed. Currently reflects 27 logged futures trades, Feb 23 – May 8, 2026 — a known partial window, not the full history yet.</p>
+    <div class="metrics-strip" id="metricsStrip"></div>
+    <div class="heatmap-strip" id="heatmapStrip"></div>
+    <p style="margin-top:.2rem;font-size:.72rem;color:var(--dim);">Green = net win day · red = net loss day · intensity scales with size. Hover a cell for the date and net P&amp;L.</p>
 
     <div class="sec-label">Account Progression</div>
+    <p class="sec-sub">Every eval and funded account's balance progression, newest first. TPT statement images (portrait) support a fit ↔ scroll toggle — click once to open full-page, click the image again for a scrollable full-width view.</p>
     <div class="ribbon" id="progressionRibbon"></div>
     <p style="margin-top:.3rem;font-size:.78rem;color:var(--dim);">Source files: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/imports" target="_blank" rel="noreferrer">data/imports/</a> (original PDFs + statement exports, by month)</p>
 
-    <div class="sec-label">Trading Calendars — Red/Green Day View</div>
-    <p class="sec-sub">TradeZella's monthly calendar view — win/loss by trading day, week totals, and days traded. August is in progress; the placeholder reflects real data as of the capture date.</p>
+    <div class="sec-label">Account Ledger <span class="sec-tag">what once looked like a graveyard is a resurrection project</span></div>
+    <p class="sec-sub">Every eval, reset, blow, and pass across Apex, TPT, and TopOneFutures — now sourced from a clean CSV going forward instead of cross-referencing screenshots by hand. Christopher fills in cost columns from receipts as they come in.</p>
+    <div class="csv-table-wrap" id="ledgerTableWrap"><p class="csv-table-note">Loading ledger…</p></div>
+    <div class="carousel-pills">
+      <a href="#" class="pill-cta" onclick="toggleLegacyLedger(); return false;" id="legacyLedgerPill">🗄️ Legacy TradeZella Ledger ↗</a>
+    </div>
+    <div class="toggle-panel" id="legacyLedgerPanel">
+      <div class="gallery-grid" id="ledgerGrid"></div>
+    </div>
+
+    <div class="sec-label">🗄️ Legacy TradeZella Archive <span class="sec-tag">how this started — and letting go of it, moving forward</span></div>
+    <p class="sec-sub">TradeZella got the habit started: drag-and-drop calendars, Zella Score, AI reviews. This section keeps that record intact — including the paper-trading era, on purpose, as an origin story — while the sections above take over for everything going forward. See also: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews" target="_blank" rel="noreferrer">monthly reviews</a> for the fuller written record behind these screenshots.</p>
     <div class="carousel">
       <div class="carousel-thumbstrip" id="calendarThumbstrip"></div>
       <div class="carousel-viewport" onclick="carouselOpenLightbox(calendarState)">
@@ -301,21 +413,10 @@
           <button class="carousel-nav-btn" onclick="carouselNav(calendarState, 1)">›</button>
         </div>
         <div class="carousel-pills">
-          <a href="#" onclick="openStatsModal(); return false;" style="display:inline-flex;align-items:center;gap:.35rem;color:var(--gold);font-weight:700;font-size:.78rem;padding:.32rem .8rem;border:1px solid rgba(251,191,36,.3);border-radius:999px;background:rgba(251,191,36,.08);">📊 Extended TradeZella Stats ↗</a>
+          <a href="#" class="pill-cta" onclick="openStatsModal('post'); return false;">📊 Extended TradeZella Stats ↗</a>
+          <a href="#" class="pill-cta alt" onclick="openStatsModal('pre'); return false;">🌱 Origin Story — Paper Trading Era ↗</a>
         </div>
       </div>
-    </div>
-
-    <div class="sec-label">Account Ledger <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--dim);font-size:.85em;">— mostly a graveyard, and that's the point</span></div>
-    <p class="sec-sub">TradeZella's full account list — every eval, reset, blow, and pass in one table. The record speaks for itself.</p>
-    <div class="gallery-grid" id="ledgerGrid"></div>
-
-    <div class="sec-label">Prop Firm Spending <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--dim);font-size:.85em;">— the other graveyard, once the numbers are in</span></div>
-    <p class="sec-sub">What each eval, reset, and activation fee actually cost across Apex, TPT, and TopOneFutures — tracked informally today via TradeZella and cross-referenced against PropFirmMatchTV coverage, not yet aggregated into one figure here.</p>
-    <div class="placeholder-card">
-      <div class="placeholder-icon">📊</div>
-      <p>Total prop firm spend isn't aggregated yet — costs are scattered across receipts, promos (BOGO, 50% off), and multiple platforms. This section will hold the real number once that data is pulled together.</p>
-      <span class="pill-disabled" title="Coming soon — data not yet aggregated">📊 Extended PropFirm Stats ↗</span>
     </div>
   </main>
 
@@ -325,11 +426,26 @@
 
   <script>
     // ═══════════════════════════════════════════════════════
-    // LIGHTBOX — near-fullscreen in-page modal, optional multi-item nav
+    // SCROLL LOCK — preserves exact scroll position behind the lightbox
+    // ═══════════════════════════════════════════════════════
+    function lockScroll() {
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+    }
+    function unlockScroll() {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    }
+
+    // ═══════════════════════════════════════════════════════
+    // LIGHTBOX — near-fullscreen in-page modal, optional multi-item nav,
+    // optional fit ↔ scroll toggle for tall portrait PDF-derived images
     // ═══════════════════════════════════════════════════════
     let lightboxNav = null;
+    let lightboxScrollable = false;
 
-    function openLightbox(src, caption, nav) {
+    function openLightbox(src, caption, nav, opts) {
+      opts = opts || {};
       document.getElementById('lightboxImg').src = src;
       document.getElementById('lightboxImg').alt = caption;
       document.getElementById('lightboxCaption').textContent = caption;
@@ -339,11 +455,23 @@
       document.getElementById('lightboxNext').style.display = showNav ? 'flex' : 'none';
       document.getElementById('lightboxCounter').style.display = showNav ? 'block' : 'none';
       if (showNav) updateLightboxCounter();
+      setScrollable(!!opts.scrollable, !!opts.defaultScroll);
       document.getElementById('lightboxOverlay').classList.add('open');
+      lockScroll();
     }
     function closeLightbox() {
       document.getElementById('lightboxOverlay').classList.remove('open');
       lightboxNav = null;
+      unlockScroll();
+    }
+    function setScrollable(scrollable, defaultScroll) {
+      lightboxScrollable = scrollable;
+      document.getElementById('lightboxScrollHint').style.display = scrollable ? 'block' : 'none';
+      document.getElementById('lightboxBox').classList.toggle('scroll-mode', scrollable && defaultScroll);
+    }
+    function handleLightboxImgClick() {
+      if (!lightboxScrollable) return;
+      document.getElementById('lightboxBox').classList.toggle('scroll-mode');
     }
     function updateLightboxCounter() {
       if (!lightboxNav) return;
@@ -356,6 +484,7 @@
       document.getElementById('lightboxImg').src = item.src;
       document.getElementById('lightboxImg').alt = item.caption;
       document.getElementById('lightboxCaption').textContent = item.caption;
+      setScrollable(!!item.scrollable, !!item.defaultScroll);
       updateLightboxCounter();
     }
     document.addEventListener('keydown', (e) => {
@@ -366,6 +495,27 @@
     });
 
     // ═══════════════════════════════════════════════════════
+    // MARQUEE — auto-scrolling certificate strip, pauses on hover
+    // ═══════════════════════════════════════════════════════
+    function renderMarquee(containerId, items) {
+      const el = document.getElementById(containerId);
+      const doubled = items.concat(items); // duplicate set for seamless loop
+      doubled.forEach((item, i) => {
+        const idx = i % items.length;
+        const div = document.createElement('div');
+        div.className = 'marquee-item';
+        div.onclick = () => openLightbox(item.src, item.caption, { items, index: idx });
+        div.innerHTML = `
+          <img src="${item.src}" alt="${item.title}" loading="lazy">
+          <div class="gallery-card-body">
+            <div class="gallery-card-title">${item.title}</div>
+            <div class="gallery-card-meta">${item.meta}</div>
+          </div>`;
+        el.appendChild(div);
+      });
+    }
+
+    // ═══════════════════════════════════════════════════════
     // RIBBON — multiple thumbnails shown at once, true aspect ratio
     // ═══════════════════════════════════════════════════════
     function renderRibbon(containerId, items) {
@@ -373,7 +523,7 @@
       items.forEach((item, i) => {
         const div = document.createElement('div');
         div.className = 'ribbon-item';
-        div.onclick = () => openLightbox(item.src, item.caption, { items, index: i });
+        div.onclick = () => openLightbox(item.src, item.caption, { items, index: i }, { scrollable: !!item.scrollable, defaultScroll: !!item.defaultScroll });
         div.innerHTML = `
           <img src="${item.src}" alt="${item.title}" loading="lazy">
           <div class="ribbon-item-body">
@@ -444,63 +594,100 @@
       document.getElementById(state.prefix + 'PlayBtn').textContent = '▶';
     }
 
+    function toggleLegacyLedger() {
+      document.getElementById('legacyLedgerPanel').classList.toggle('open');
+    }
+
     // ═══════════════════════════════════════════════════════
     // DATA
     // ═══════════════════════════════════════════════════════
 
-    // ── Funded Account Certificates ──
+    // ── Funded Account Certificates (marquee) ──
     const certItems = [
       { src: 'assets/gallery/certificate-apex-484839-06-100k.png', title: 'Apex Trader Funding — 100K',
-        caption: 'Apex Trader Funding — 100K Tradovate Account Certificate — Christopher Wilson, issued May 22, 2026',
-        meta: '<span class="badge">✅ Funded</span><span>APEX-484839-06 · Issued May 22, 2026</span>' },
+        caption: 'Apex Trader Funding — 100K Tradovate Account Certificate — Christopher Wilson, issued May 22, 2026. Funded as PA-APEX-484839-01, since blown (~Jun 11, 2026).',
+        meta: '<span class="badge">✅ Funded</span><span class="badge badge-blown">❌ Blown</span><span>APEX-484839-06 → PA-01</span>' },
       { src: 'assets/gallery/certificate-takeprofit861085464-50k.png', title: 'TakeProfitTrader — 50K PRO',
-        caption: 'TakeProfitTrader — Professional Funded Trader Certificate — Christopher Wilson, issued May 30, 2026',
-        meta: '<span class="badge">✅ Funded</span><span>TAKEPROFIT861085464 · Issued May 30, 2026</span>' },
+        caption: 'TakeProfitTrader — Professional Funded Trader Certificate — Christopher Wilson, issued May 30, 2026. Since blown.',
+        meta: '<span class="badge">✅ Funded</span><span class="badge badge-blown">❌ Blown</span><span>TAKEPROFIT861085464</span>' },
+      { src: 'assets/gallery/certificate-takeprofit917806711-50k.png', title: 'TakeProfitTrader — 50K PRO',
+        caption: 'TakeProfitTrader — Professional Funded Trader Certificate — Christopher Wilson, issued Aug 29, 2026 (reset-4)',
+        meta: '<span class="badge">✅ Funded</span><span>TAKEPROFIT917806711</span>' },
+      { src: 'assets/gallery/certificate-toponefutures-tof189562-tof189563-eliteaccess.jpg', title: 'TopOneFutures — Elite ACCESS ×2',
+        caption: 'TopOneFutures — Sim Funded Trader Certificate — Christopher Wilson, issued Aug 28, 2026 — covers both BOGO Elite ACCESS accounts (TOF189562 & TOF189563), funded as TOF197288 & TOF197292',
+        meta: '<span class="badge">✅ Funded ×2</span><span>TOF189562 · TOF189563</span>' },
     ];
-    const certGrid = document.getElementById('certGrid');
-    certItems.forEach((item, i) => {
-      const card = document.createElement('div');
-      card.className = 'gallery-card';
-      card.onclick = () => openLightbox(item.src, item.caption, { items: certItems, index: i });
-      card.innerHTML = `
-        <img src="${item.src}" alt="${item.title}">
-        <div class="gallery-card-body">
-          <div class="gallery-card-title">${item.title}</div>
-          <div class="gallery-card-meta">${item.meta}</div>
-        </div>`;
-      certGrid.appendChild(card);
-    });
+    renderMarquee('certTrack', certItems);
 
-    // ── Account Progression (ribbon) ──
+    // ── Account Progression (ribbon, newest → oldest) ──
     const progressionSlides = [
-      { src: '../imports/2026/05-May/APEX_2026_03-10-thru-05-14.png',
-        title: 'APEX-484839-06 — Evaluation Arc',
-        caption: 'Apex Trader Funding APEX-484839-06 — balance progression Mar 10 to May 14, 2026 — evaluation passed',
+      { src: '../imports/2026/08-Aug/TOF189562stats.png', title: 'TopOneFutures TOF189562 — Eval Passed',
+        caption: 'TopOneFutures TOF189562 — Elite ACCESS eval passed Aug 28, 2026, 10:40 AM — +$3,116.25, 96% win rate, 26 trades — funded as TOF197288',
+        meta: '<span class="badge">✅ Passed</span><span>Aug 28, 2026</span>' },
+      { src: '../imports/2026/08-Aug/TOF189563stats.png', title: 'TopOneFutures TOF189563 — Eval Passed',
+        caption: 'TopOneFutures TOF189563 — Elite ACCESS eval passed Aug 28, 2026, 10:42 AM — +$3,106.75, 100% win rate, 25 trades — funded as TOF197292',
+        meta: '<span class="badge">✅ Passed</span><span>Aug 28, 2026</span>' },
+      { src: 'assets/gallery/tpt/tpt-2026-08-20-thru-08-27-1.png', title: 'TPT 50K — Aug 20–27, 2026 (reset-4)',
+        caption: 'TakeProfitTrader-917806711 (reset-4) — Control Center, Aug 20–27, 2026 — eval passed Aug 28, +$3,154.85',
+        meta: '<span class="badge">✅ Passed</span><span>TAKEPROFIT917806711</span>', scrollable: true },
+      { src: '../imports/2026/08-Aug/APEX_2026_08-05-thru-08-19.png', title: 'APEX Legacy-10 — Aug 5–19, 2026',
+        caption: 'APEX-484839-10 (Legacy 50K FULL) — balance chart, Aug 5–19, 2026 — blown, -$1,214.25',
+        meta: '<span class="badge badge-blown">❌ Blown</span><span>50K FULL</span>' },
+      { src: '../imports/2026/08-Aug/APEX_2026_08-04-thru-08-05.png', title: 'APEX Legacy-09 — final days',
+        caption: 'APEX-484839-09 (Legacy 50K Tradovate) — balance chart, Aug 4–5, 2026 — blown, -$2,400.68',
+        meta: '<span class="badge badge-blown">❌ Blown</span><span>50K</span>' },
+      { src: '../imports/2026/07-Jul/APEX_2026_07-20-thru-08-04.png', title: 'APEX Legacy-09 — Jul 20–Aug 4, 2026',
+        caption: 'APEX-484839-09 — balance progression, Jul 20–Aug 4, 2026, leading into the Aug 5 blow',
+        meta: '<span>50K</span>' },
+      { src: '../imports/2026/06-Jun/APEX_2026_06-12-thru-07-10.png', title: 'APEX-07 — Jun 10–Jul 10, 2026',
+        caption: 'APEX-484839-07 (50K, No Activation Fee Intraday Trailing) — balance chart, Jun 10–Jul 10, 2026 — ended $49,233.29, outcome unconfirmed',
+        meta: '<span class="badge badge-warn">⚠️ Unconfirmed</span><span>Intraday Trailing</span>' },
+      { src: 'assets/gallery/tpt/tpt-2026-06-11-thru-07-09-1.png', title: 'TPT 50K — Jun 11–Jul 9, 2026 (reset-4)',
+        caption: 'TakeProfitTrader-917806711 (reset-4) — Control Center, Jun 11–Jul 9, 2026 — building toward the Aug 28 pass',
+        meta: '<span>TAKEPROFIT917806711</span>', scrollable: true },
+      { src: '../imports/2026/06-Jun/APEX_2026_05-27-thru-06-11.png', title: 'PA-APEX-484839-01 — May 27–Jun 11, 2026',
+        caption: 'PA-APEX-484839-01 (funded, Legacy 100K, from the APEX-06 eval pass) — balance chart, May 27–Jun 11, 2026 — MAE violations May 28, blown Jun 11 (-$1,562.40)',
+        meta: '<span class="badge badge-blown">❌ Blown</span><span>Funded from APEX-06</span>' },
+      { src: 'assets/gallery/tpt/tpt-2026-06-02-thru-06-10-1.png', title: 'TPT 50K — Jun 2–10, 2026 (reset-4)',
+        caption: 'TakeProfitTrader-917806711 (reset-4) — Control Center, Jun 2–10, 2026 — early days of this account',
+        meta: '<span>TAKEPROFIT917806711</span>', scrollable: true },
+      { src: 'assets/gallery/tpt/tpt-2026-05-19-thru-05-28.png', title: 'TPT 50K PRO — May 19–28, 2026',
+        caption: 'TakeProfitTrader-861085464 — Control Center, May 19–28, 2026 — evaluation passed, $53,083 — since blown',
+        meta: '<span class="badge">✅ Passed</span><span class="badge badge-blown">❌ Blown</span><span>TAKEPROFIT861085464</span>' },
+      { src: '../imports/2026/05-May/APEX_2026_03-10-thru-05-14.png', title: 'APEX-484839-06 — Evaluation Arc',
+        caption: 'Apex Trader Funding APEX-484839-06 — balance progression Mar 10 to May 14, 2026 — evaluation passed, funded as PA-APEX-484839-01',
         meta: '<span class="badge">✅ Passed</span><span>Mar 10–May 14 · $100K → funded</span>' },
-      { src: 'assets/gallery/tpt/tpt-2026-02-08-thru-02-12-1.png',
-        title: 'TPT 50K — Feb 8–12, 2026',
-        caption: 'TakeProfitTrader-635000920 — Control Center, Feb 8–12, 2026 — eventually blown (EOD drawdown)',
-        meta: '<span class="badge" style="border-color:rgba(248,113,113,.3);color:#f87171;background:rgba(248,113,113,.1);">❌ Blown</span><span>TAKEPROFIT635000920</span>' },
-      { src: 'assets/gallery/tpt/tpt-2026-02-16-1.png',
-        title: 'TPT 50K — Feb 16, 2026',
-        caption: 'TakeProfitTrader — Control Center, Feb 16, 2026',
-        meta: '<span class="badge" style="border-color:rgba(248,113,113,.3);color:#f87171;background:rgba(248,113,113,.1);">❌ Blown</span><span>Single trading day</span>' },
-      { src: 'assets/gallery/tpt/tpt-2026-03-25-thru-03-26-1.png',
-        title: 'TPT 50K — Mar 25–26, 2026',
-        caption: 'TakeProfitTrader — Control Center, Mar 25–26, 2026',
-        meta: '<span class="badge" style="border-color:rgba(248,113,113,.3);color:#f87171;background:rgba(248,113,113,.1);">❌ Blown</span><span>TAKEPROFIT363712064</span>' },
-      { src: 'assets/gallery/tpt/tpt-2026-04-26-thru-04-29-1.png',
-        title: 'TPT 50K — Apr 26–29, 2026',
-        caption: 'TakeProfitTrader — Control Center, Apr 26–29, 2026',
-        meta: '<span class="badge" style="border-color:rgba(248,113,113,.3);color:#f87171;background:rgba(248,113,113,.1);">❌ Blown</span><span>TAKEPROFIT558167553</span>' },
-      { src: 'assets/gallery/tpt/tpt-2026-05-19-thru-05-28.png',
-        title: 'TPT 50K — May 19–28, 2026',
-        caption: 'TakeProfitTrader-861085464 — Control Center, May 19–28, 2026 — evaluation passed, $53,083',
-        meta: '<span class="badge">✅ Passed</span><span>TAKEPROFIT861085464 · $53,083</span>' },
+      { src: 'assets/gallery/tpt/tpt-2026-04-26-thru-04-29-1.png', title: 'TPT 50K — Apr 26–29, 2026 (reset-3)',
+        caption: 'TakeProfitTrader-558167553 (reset-3) — Control Center, Apr 26–29, 2026 — blown Apr 30, YM no-SL AutoLiq -$2,000',
+        meta: '<span class="badge badge-blown">❌ Blown</span><span>TAKEPROFIT558167553</span>' },
+      { src: 'assets/gallery/tpt/tpt-2026-03-25-thru-03-26-1.png', title: 'TPT 50K — Mar 25–26, 2026 (reset-2)',
+        caption: 'TakeProfitTrader-363712064 (reset-2) — Control Center, Mar 25–26, 2026 — blown, overnight MGC',
+        meta: '<span class="badge badge-blown">❌ Blown</span><span>TAKEPROFIT363712064</span>' },
+      { src: '../imports/2026/03-Mar/APEX_2026_02-17-thru-03-03.png', title: 'APEX-484839-05 — Feb 17–Mar 3, 2026',
+        caption: 'APEX-484839-05 (Legacy 100K) — balance chart, Feb 17–Mar 3, 2026 — blown Mar 3, Patterns 6+7 (-$2,294.54)',
+        meta: '<span class="badge badge-blown">❌ Blown</span><span>100K</span>' },
+      { src: 'assets/gallery/tpt/tpt-2026-02-16-1.png', title: 'TPT 50K — Feb 16, 2026 (reset-1)',
+        caption: 'TakeProfitTrader-401190651 (reset-1) — Control Center, Feb 16, 2026 — blown day 1',
+        meta: '<span class="badge badge-blown">❌ Blown</span><span>Single trading day</span>' },
+      { src: '../imports/2026/02-Feb/APEX_2026_02-13_2.png', title: 'APEX-484839-04 — Feb 13, 2026',
+        caption: 'APEX-484839-04 (Legacy 100K) — balance chart, Feb 13, 2026 — blown, -$998.10',
+        meta: '<span class="badge badge-blown">❌ Blown</span><span>100K</span>' },
+      { src: '../imports/2026/02-Feb/APEX_2026_02-13.png', title: 'APEX-484839-03 — Feb 13, 2026',
+        caption: 'APEX-484839-03 (Legacy 100K) — balance chart, Feb 13, 2026 — blown, -$3,008.10',
+        meta: '<span class="badge badge-blown">❌ Blown</span><span>100K</span>' },
+      { src: 'assets/gallery/tpt/tpt-2026-02-08-thru-02-12-1.png', title: 'TPT 50K — Feb 8–12, 2026 (reset-0)',
+        caption: 'TakeProfitTrader-635000920 (reset-0) — Control Center, Feb 8–12, 2026 — eventually blown (EOD drawdown)',
+        meta: '<span class="badge badge-blown">❌ Blown</span><span>TAKEPROFIT635000920</span>' },
+      { src: '../imports/2026/02-Feb/APEX_2026_02-10-thru-02-12.png', title: 'APEX-484839-02 — Feb 10–12, 2026',
+        caption: 'APEX-484839-02 (Legacy 100K) — balance chart, Feb 10–12, 2026 — blown, -$1,945.62',
+        meta: '<span class="badge badge-blown">❌ Blown</span><span>100K</span>' },
+      { src: '../imports/2026/02-Feb/APEX_2026_02-09.png', title: 'APEX-484839-01 — Feb 9, 2026',
+        caption: 'APEX-484839-01 (Legacy 100K Static) — balance chart, Feb 9, 2026 — the earliest account, blown -$627.90',
+        meta: '<span class="badge badge-blown">❌ Blown</span><span>Earliest account</span>' },
     ];
     renderRibbon('progressionRibbon', progressionSlides);
 
-    // ── Trading Calendars (carousel) ──
+    // ── Trading Calendars (legacy carousel) ──
     const calendarMonths = [
       { src: '../imports/2026/02-Feb/TradeZellaCalendar_Feb.png', label: 'February 2026', note: '-$20.2K net · 18 days traded' },
       { src: '../imports/2026/03-Mar/TradeZellaCalendar_Mar.png', label: 'March 2026', note: '' },
@@ -508,21 +695,21 @@
       { src: '../imports/2026/05-May/TradeZellaCalendar_May.png', label: 'May 2026', note: '' },
       { src: '../imports/2026/06-Jun/TradeZellaCalendar_Jun.png', label: 'June 2026', note: '' },
       { src: '../imports/2026/07-Jul/TradeZellaCalendar_Jul.png', label: 'July 2026', note: '' },
-      { src: '../imports/2026/08-Aug/TradeZellaCalendar_Aug.png', label: 'August 2026', note: '-$4.71K net so far · in progress', inProgress: true },
+      { src: '../imports/2026/08-Aug/TradeZellaCalendar_Aug-thru29th.png', label: 'August 2026', note: '$5.03K net · 20 days traded' },
     ].map(m => ({
       src: m.src,
       title: m.label,
       caption: `TradeZella Calendar — ${m.label}${m.note ? ' — ' + m.note : ''}`,
-      meta: (m.inProgress ? '<span class="badge" style="border-color:rgba(227,179,65,.3);color:var(--gold);background:rgba(227,179,65,.1);">⏳ In Progress</span>' : '') + `<span>${m.note || 'Red/green day view'}</span>`,
+      meta: `<span>${m.note || 'Red/green day view'}</span>`,
     }));
     const calendarState = createCarousel('calendar', calendarMonths, 6); // default to most recent (August)
 
-    // ── Account Ledger (grid) ──
+    // ── Account Ledger (legacy TradeZella screenshots, toggled) ──
     const ledgerItems = [
       { src: '../imports/2026/04-Apr/TradeZella_Apr-accounts.png', title: 'Account Ledger — April 2026',
         caption: 'TradeZella account ledger, snapshot as of April 2026', meta: '<span>Snapshot through late April</span>' },
-      { src: '../imports/2026/08-Aug/TradeZella_Aug-accounts.png', title: 'Account Ledger — August 2026 (Current)',
-        caption: 'TradeZella account ledger, snapshot as of August 2026 — includes TopOneFutures Elite Access accounts', meta: '<span>Full history — Apex, TPT, TopOneFutures</span>' },
+      { src: '../imports/2026/08-Aug/TradeZella_Aug-accounts-updated.png', title: 'Account Ledger — August 2026 (Current)',
+        caption: 'TradeZella account ledger, snapshot as of August 2026 — Apex Legacy, TPT, and TopOneFutures Elite Access accounts', meta: '<span>Full history — Apex, TPT, TopOneFutures</span>' },
     ];
     const ledgerGrid = document.getElementById('ledgerGrid');
     ledgerItems.forEach((item, i) => {
@@ -538,17 +725,162 @@
       ledgerGrid.appendChild(card);
     });
 
-    // ── Extended TradeZella Stats (opens via lightbox nav) ──
-    const statsImages = [
-      { src: '../imports/2026/08-Aug/stats/TradeZella_Aug.png', caption: 'All-time overview — Net P&L, Zella Score, daily/cumulative P&L, August calendar, progress tracker' },
-      { src: '../imports/2026/08-Aug/stats/Screenshot 2026-08-22 at 00.16.55.png', caption: 'Win % / Avg Win / Avg Loss trend — all-time report' },
-      { src: '../imports/2026/08-Aug/stats/Screenshot 2026-08-22 at 00.17.08.png', caption: 'Trade time performance — P&L by entry time of day' },
-      { src: '../imports/2026/08-Aug/stats/Screenshot 2026-08-22 at 00.17.29.png', caption: 'Trade time performance — P&L by exit time of day' },
-      { src: '../imports/2026/08-Aug/stats/Screenshot 2026-08-22 at 00.17.39.png', caption: 'Trade duration performance — P&L by hold time' },
+    // ── Extended TradeZella Stats — post-paper-trading (default, "going forward") ──
+    const statsImagesPost = [
+      { src: '../imports/2026/08-Aug/stats_post-paper-trading/TradeZella_Aug-post-paper.png', caption: 'All-time overview, real accounts only — Net P&L -$1,119.55 · Trade expectancy -$4.39 · Profit factor 0.98 · Win% 60% · Avg win/loss 0.65 ($308/-$473)' },
+      { src: '../imports/2026/08-Aug/stats_post-paper-trading/Screenshot 2026-08-29 at 18.38.43.png', caption: 'Win%/Avg Win/Avg Loss report + trade time/duration performance — real accounts only' },
+      { src: '../imports/2026/08-Aug/stats_post-paper-trading/Screenshot 2026-08-29 at 18.39.00.png', caption: 'Trade time performance — exit time — real accounts only' },
     ];
-    function openStatsModal() {
-      openLightbox(statsImages[0].src, statsImages[0].caption, { items: statsImages, index: 0 });
+    // ── Extended TradeZella Stats — pre-paper-trading (origin story, includes the paper-trading intro) ──
+    const statsImagesPre = [
+      { src: '../imports/2026/08-Aug/stats-pre-paper-trading/TradeZella_Aug-pre-paper.png', caption: 'All-time overview, including the paper-trading intro — Net P&L, Zella Score, daily/cumulative P&L, August calendar, progress tracker' },
+      { src: '../imports/2026/08-Aug/stats-pre-paper-trading/Screenshot 2026-08-22 at 00.16.55.png', caption: 'Win % / Avg Win / Avg Loss trend — all-time report, including paper trading' },
+      { src: '../imports/2026/08-Aug/stats-pre-paper-trading/Screenshot 2026-08-22 at 00.17.08.png', caption: 'Trade time performance — P&L by entry time of day, including paper trading' },
+      { src: '../imports/2026/08-Aug/stats-pre-paper-trading/Screenshot 2026-08-22 at 00.17.29.png', caption: 'Trade time performance — P&L by exit time of day, including paper trading' },
+      { src: '../imports/2026/08-Aug/stats-pre-paper-trading/Screenshot 2026-08-22 at 00.17.39.png', caption: 'Trade duration performance — P&L by hold time, including paper trading' },
+    ];
+    function openStatsModal(which) {
+      const set = which === 'pre' ? statsImagesPre : statsImagesPost;
+      openLightbox(set[0].src, set[0].caption, { items: set, index: 0 });
     }
+
+    // ═══════════════════════════════════════════════════════
+    // TRADING CALENDAR & METRICS v1 — sourced from pattern_tracker.md's Trade Log
+    // ═══════════════════════════════════════════════════════
+    const loggedTrades = [
+      { date: '2026-02-23', instrument: 'MNQ', pnl: -100.50 },
+      { date: '2026-02-24', instrument: 'MES', pnl: -35.00 },
+      { date: '2026-02-25', instrument: 'MNQ', pnl: 565.00 },
+      { date: '2026-02-26', instrument: 'MNQ', pnl: -558.00 },
+      { date: '2026-02-27', instrument: 'MNQ', pnl: 0 },
+      { date: '2026-03-02', instrument: 'YM', pnl: 185.00 },
+      { date: '2026-03-02', instrument: 'ES', pnl: 1037.50 },
+      { date: '2026-03-02', instrument: 'ES', pnl: -762.50 },
+      { date: '2026-03-03', instrument: 'ES', pnl: -375.00 },
+      { date: '2026-03-03', instrument: 'ES', pnl: -1450.00 },
+      { date: '2026-03-03', instrument: 'CL', pnl: -460.00 },
+      { date: '2026-03-10', instrument: 'MNQ', pnl: -108.00 },
+      { date: '2026-03-16', instrument: 'MNQ', pnl: -268.50 },
+      { date: '2026-03-16', instrument: 'RTY', pnl: 935.00 },
+      { date: '2026-03-17', instrument: 'MNQ', pnl: 963.00 },
+      { date: '2026-03-20', instrument: 'RTY', pnl: 525.00 },
+      { date: '2026-03-24', instrument: 'ES', pnl: 1225.00 },
+      { date: '2026-03-26', instrument: 'MCL', pnl: -300.00 },
+      { date: '2026-03-26', instrument: 'MGC', pnl: 94.00 },
+      { date: '2026-04-17', instrument: 'M2K', pnl: -87.00 },
+      { date: '2026-04-21', instrument: 'MCL', pnl: 141.00 },
+      { date: '2026-04-23', instrument: 'RTY', pnl: -140.00 },
+      { date: '2026-04-23', instrument: 'YM', pnl: 1095.00 },
+      { date: '2026-04-27', instrument: 'MGC', pnl: 22.00 },
+      { date: '2026-04-28', instrument: 'MGC', pnl: 14.00 },
+      { date: '2026-05-06', instrument: 'RTY', pnl: 360.00 },
+      { date: '2026-05-08', instrument: 'RTY', pnl: 700.00 },
+    ];
+
+    function computeMetrics(trades) {
+      const wins = trades.filter(t => t.pnl > 0);
+      const losses = trades.filter(t => t.pnl < 0);
+      const net = trades.reduce((s, t) => s + t.pnl, 0);
+      const grossWin = wins.reduce((s, t) => s + t.pnl, 0);
+      const grossLoss = Math.abs(losses.reduce((s, t) => s + t.pnl, 0));
+      const winRate = trades.length ? (wins.length / trades.length * 100) : 0;
+      const avgWin = wins.length ? grossWin / wins.length : 0;
+      const avgLoss = losses.length ? grossLoss / losses.length : 0;
+      const profitFactor = grossLoss ? grossWin / grossLoss : null;
+      const expectancy = trades.length ? net / trades.length : 0;
+      return { net, winRate, avgWin, avgLoss, profitFactor, expectancy, count: trades.length };
+    }
+    function fmtMoney(n) {
+      const sign = n < 0 ? '-' : '+';
+      return `${sign}$${Math.abs(n).toFixed(2)}`;
+    }
+    function renderMetrics(trades) {
+      const m = computeMetrics(trades);
+      const cards = [
+        { label: 'Net P&L', value: fmtMoney(m.net), cls: m.net >= 0 ? 'pos' : 'neg' },
+        { label: 'Trades Logged', value: m.count, cls: '' },
+        { label: 'Win Rate', value: m.winRate.toFixed(1) + '%', cls: '' },
+        { label: 'Trade Expectancy', value: fmtMoney(m.expectancy), cls: m.expectancy >= 0 ? 'pos' : 'neg' },
+        { label: 'Profit Factor', value: m.profitFactor === null ? '—' : m.profitFactor.toFixed(2), cls: '' },
+        { label: 'Avg Win / Avg Loss', value: `$${m.avgWin.toFixed(0)} / -$${m.avgLoss.toFixed(0)}`, cls: '' },
+      ];
+      const el = document.getElementById('metricsStrip');
+      cards.forEach(c => {
+        const div = document.createElement('div');
+        div.className = 'metric-card';
+        div.innerHTML = `<div class="metric-label">${c.label}</div><div class="metric-value ${c.cls}">${c.value}</div>`;
+        el.appendChild(div);
+      });
+    }
+    function aggregateByDate(trades) {
+      const map = {};
+      trades.forEach(t => { map[t.date] = (map[t.date] || 0) + t.pnl; });
+      return Object.keys(map).sort().map(date => ({ date, pnl: map[date] }));
+    }
+    function renderHeatmap(trades) {
+      const days = aggregateByDate(trades);
+      const maxAbs = Math.max(1, ...days.map(d => Math.abs(d.pnl)));
+      const el = document.getElementById('heatmapStrip');
+      days.forEach(d => {
+        const intensity = Math.min(1, Math.abs(d.pnl) / maxAbs);
+        const isWin = d.pnl > 0;
+        const isFlat = d.pnl === 0;
+        const color = isFlat ? 'rgba(255,255,255,0.12)' : (isWin
+          ? `rgba(74,222,128,${0.25 + intensity * 0.65})`
+          : `rgba(248,113,113,${0.25 + intensity * 0.65})`);
+        const cell = document.createElement('div');
+        cell.className = 'heatmap-cell';
+        cell.style.background = color;
+        cell.title = `${d.date} — ${fmtMoney(d.pnl)}`;
+        const day = d.date.slice(8, 10);
+        cell.textContent = day;
+        el.appendChild(cell);
+      });
+    }
+    renderMetrics(loggedTrades);
+    renderHeatmap(loggedTrades);
+
+    // ═══════════════════════════════════════════════════════
+    // PROP FIRM LEDGER — loaded from assets/prop-firm-ledger.csv
+    // ═══════════════════════════════════════════════════════
+    const ledgerColumns = ['Firm', 'Account #', 'Paid', 'Coupon', 'Date', 'Phase', 'Size', 'Drawdown', 'Reset/Renew', 'Outcome', 'Paid Via', 'Notes'];
+    function parseCSVLine(line) {
+      const out = []; let cur = ''; let inQ = false;
+      for (let i = 0; i < line.length; i++) {
+        const c = line[i];
+        if (c === '"') { inQ = !inQ; continue; }
+        if (c === ',' && !inQ) { out.push(cur); cur = ''; continue; }
+        cur += c;
+      }
+      out.push(cur);
+      return out;
+    }
+    function outcomeBadge(outcome) {
+      const o = (outcome || '').toLowerCase();
+      if (o === 'passed' || o === 'active') return `<span class="badge">✅ ${outcome}</span>`;
+      if (o === 'blown') return `<span class="badge badge-blown">❌ ${outcome}</span>`;
+      return `<span class="badge badge-warn">⚠️ ${outcome || '—'}</span>`;
+    }
+    function renderLedgerTable(text) {
+      const lines = text.trim().split('\n');
+      const rows = lines.slice(1).map(parseCSVLine);
+      let html = '<table class="csv-table"><thead><tr>' + ledgerColumns.map(h => `<th>${h}</th>`).join('') + '</tr></thead><tbody>';
+      rows.forEach(r => {
+        html += '<tr>' + r.map((c, i) => {
+          if (i === ledgerColumns.length - 3) return `<td>${outcomeBadge(c)}</td>`; // Outcome column
+          return `<td>${c || '—'}</td>`;
+        }).join('') + '</tr>';
+      });
+      html += '</tbody></table>';
+      document.getElementById('ledgerTableWrap').innerHTML = html;
+    }
+    fetch('assets/prop-firm-ledger.csv')
+      .then(res => { if (!res.ok) throw new Error('fetch failed'); return res.text(); })
+      .then(renderLedgerTable)
+      .catch(() => {
+        document.getElementById('ledgerTableWrap').innerHTML =
+          '<p class="csv-table-note">Live table requires viewing this page over HTTP (e.g. GitHub Pages) — a local file:// preview can\'t fetch the CSV. <a href="assets/prop-firm-ledger.csv">View the raw CSV</a> instead.</p>';
+      });
   </script>
 
 </body>
