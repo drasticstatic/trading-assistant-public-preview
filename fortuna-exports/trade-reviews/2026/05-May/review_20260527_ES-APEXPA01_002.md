@@ -1,0 +1,124 @@
+# 🔍 Trade Review — ES Long · APEX PA-01 · Wed, May 27, 2026
+### 20260527_ES-APEXPA01_002 · +$1,137.50 · Backlog reconstruction — technical record only
+### Reconstructed from Tradovate/BTCC order-fill CSVs — journal/psychology data pending
+
+[Jump to 📝 Notes for Coaches ↓](#notes-for-coaches)
+
+---
+
+## ⚡ What Happened in One Paragraph
+
+On Wednesday, May 27, 2026, a long ES position (1 contract) on APEX PA-01 entered at 7,519.25 and exited at 7,542.00 after 1h 22m, closing a gain of $1,137.50. This review was generated from the Aug 2026 trade-review backlog pass — reconstructed directly from Tradovate order-fill CSV exports (or BTCC's transaction history for crypto), not from a same-day TradeZella export or session notes, since neither exists for this trade. Narrative context, emotional state, and coaching notes are marked pending below until Christopher provides journal/Apple Notes/Littlebird data for this period.
+
+---
+
+## 📊 Trade Data
+
+| Field | Value |
+|---|---|
+| Account | PA-APEX-484839-01 |
+| Platform | APEX PA-01 |
+| Instrument | ES |
+| Contract | ESM6 |
+| Direction | Long |
+| Entry Price | 7,519.2500 |
+| Exit Price | 7,542.0000 |
+| Qty | 1 |
+| Entry Time | 13:08:11 ET |
+| Exit Time | 14:30:16 ET |
+| Duration | 1h 22m |
+| Venue | Tradovate |
+| TP Set/Result | — (not reconstructed from fill data) |
+| SL Set/Result | — (not reconstructed from fill data) |
+| MFE | — (requires tick data, not available) |
+| MAE | — (requires tick data, not available) |
+| Gross P&L | $1,137.50 |
+| Net P&L | $1,137.50 (commissions not separately captured in this data source) |
+| Realized R:R | — |
+| Zella Score | — (no TradeZella export for this date) |
+| Rating | — |
+| Emotionally Stable | — (pending journal data) |
+
+---
+
+## 📋 Order Execution
+
+| Time (ET) | Order | Instrument | Price | Status |
+|---|---|---|---|---|
+| — | — | — | — | *No additional order context reconstructed for this trade — only the matched entry/exit fills are confirmed.* |
+
+---
+
+## 📖 Session Narrative
+
+*Pending journal data.* This trade was reconstructed purely from order-fill CSVs as part of the Aug 2026 backlog-processing pass — no same-day premarket plan, session notes, or TradeZella narrative exists for it yet. Once Christopher provides the corresponding Apple Notes/Littlebird/journal entries for this period, this section should be filled in with the broader session context: what was happening across other instruments, the setup thesis, and how the trade actually unfolded relative to plan.
+
+---
+
+## 📸 Screenshot Timeline
+
+**06:43:16 ET — ES chart capture**
+![ES chart](../../../../data/screenshots/ES1!_2026-05-27_06-43-16_4eed7.png)
+
+**08:22:26 ET — ES chart capture**
+![ES chart](../../../../data/screenshots/ES1!_2026-05-27_08-22-26_eb035.png)
+
+**09:07:15 ET — ES chart capture**
+![ES chart](../../../../data/screenshots/ES1!_2026-05-27_09-07-15_da0c7.png)
+
+**09:38:23 ET — ES chart capture**
+![ES chart](../../../../data/screenshots/ES1!_2026-05-27_09-38-23_5378c.png)
+
+**09:42:19 ET — ES chart capture**
+![ES chart](../../../../data/screenshots/ES1!_2026-05-27_09-42-19_beed6.png)
+
+*Screenshots matched by date + instrument from TradingView-tagged filenames in `_Screenshots-2B-filed/`, copied into `data/screenshots/` — not yet individually verified against this specific trade window (a date+instrument match, not a confirmed frame-by-frame match).*
+
+---
+
+<a id="notes-for-coaches"></a>
+
+## 📝 Notes for Coaches + SmartTraderAI
+
+*Pending journal data.* No TradeZella "Notes for Coaches" field exists for this trade (no TradeZella export covers this date). Once narrative/journal data is available, this section should cover: what the setup intended vs. what happened, and one concrete coaching recommendation per issue identified.
+
+---
+
+## 🧠 Behavioral Notes
+
+*Pending journal data — no TradeZella emotion/stability tags exist for this trade.* Pattern Tracker status (from the order data alone, not psychology):
+
+| Pattern | Status |
+|---|---|
+| Pattern 7 (SL modification) | — not reconstructed; see Order Execution above for any SL-type orders visible in the matched window |
+| Pattern 8 (exit passivity) | — cannot be determined from fill data alone without knowing if a TP/SL closed the trade vs. a manual exit |
+| Pattern 9 (pre-rest order hygiene) | — not reconstructed |
+
+**What went right:** trade closed with a defined P&L rather than an open-ended hold — full assessment pending journal data.
+
+---
+
+## 🔁 Pattern Tracker
+
+Trade 20260527_ES-APEXPA01_002 logged.
+
+> See full running progress tracker (all sessions, behavioral arc, compliance scores, statistical summary): [../../../../data/progression/pattern_tracker.md](../../../../data/progression/pattern_tracker.md)
+
+This trade is part of the bulk Aug 2026 backlog-reconstruction pass — see the ["Trade Log — May 14 – Aug 28, 2026" continuation section](../../../../data/progression/pattern_tracker.md#trade-log-continued) for the full technical record this review is drawn from.
+
+---
+
+## 🎯 Forward Focus
+
+1. Cross-reference this trade against journal/Apple Notes/Littlebird data once provided, and fill in the pending narrative, behavioral, and coaching sections above.
+2. If a TradingView screenshot is confirmed to match this specific trade window, move it into `data/screenshots/` and update the Screenshot Timeline embed path accordingly.
+3. Roll this trade's outcome into the relevant account's status in `setup/accounts/PropFirms/prop-firm-progression.md` if not already reflected there.
+
+---
+
+> See full trade review: https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/trade-reviews/2026/05-May/review_20260527_ES-APEXPA01_002.md
+
+---
+
+*Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
+*Trade Review — ES Long · May 27, 2026 · 20260527_ES-APEXPA01_002*

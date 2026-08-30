@@ -12,7 +12,7 @@ This is the active home for everything Fortuna generates going forward — pre-m
 | [`trade-reviews/`](trade-reviews/) | Individual trade reviews — one file per trade (replaces `smarttrader-ai/reviews/`) |
 | [`overview-summaries/`](overview-summaries/) | Daily, weekly, and monthly review exports (replaces `smarttrader-ai/exports/`) |
 
-> **Status (Aug 2026):** all three subdirectories are currently empty — content lands here as the `_csv-2B-filed`/`_Screenshots-2B-filed` backlog is processed into trade reviews. See each subdirectory's README for the structure that will populate.
+> **Status (Aug 2026):** `trade-reviews/` now holds 247 reviews from the Phase 1 backlog pass (May 14 – Aug 28, 2026). `premarket-analysis/` and `overview-summaries/` are still empty — content lands there as the backlog continues to be processed. See each subdirectory's README for details.
 
 ## 📄 What Lives at This Level
 
