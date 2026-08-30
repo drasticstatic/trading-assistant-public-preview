@@ -1,0 +1,21 @@
+firm,account_number,amount_paid,coupon_used,date,phase,account_size,drawdown_type,reset_renewed_repurchased,outcome,payment_method,notes
+Apex Trader Funding,APEX-484839-01,,,,eval,100000,Legacy Static,new,blown,,Earliest account; blown Feb 9 2026 (-$627.90)
+Apex Trader Funding,APEX-484839-02,,,,eval,100000,Legacy,new,blown,,Blown Feb 12 2026 (-$1945.62)
+Apex Trader Funding,APEX-484839-03,,,,eval,100000,Legacy,new,blown,,Blown Feb 13 2026 (-$3008.10)
+Apex Trader Funding,APEX-484839-04,,,,eval,100000,Legacy,new,blown,,Blown Feb 13 2026 (-$998.10); same session as -03
+Apex Trader Funding,APEX-484839-05,,,,eval,100000,Legacy,reset,blown,,Blown Mar 3 2026 (-$2294.54); Patterns 6+7
+Apex Trader Funding,APEX-484839-06,,,,eval,100000,Legacy,reset,passed,,Passed May 14 2026; funded as PA-APEX-484839-01
+Apex Trader Funding,PA-APEX-484839-01,,,,funded,100000,Legacy,new,blown,,Funded from APEX-06 pass; MAE violations May 28; blown ~Jun 11 2026 (-$1562.40)
+Apex Trader Funding,APEX-484839-07,,,,eval,50000,Intraday Trailing (No Activation Fee),reset,unconfirmed,,Jun 10 - Jul 10 2026; ended below start; outcome not yet confirmed
+Apex Trader Funding,APEX-484839-09,,,,eval,50000,Legacy FULL,reset,blown,,Blown Aug 5 2026 (-$2398)
+Apex Trader Funding,APEX-484839-10,,,,eval,50000,Legacy FULL,reset,blown,,Blown Aug 19 2026 (-$1214.25)
+TakeProfitTrader,TAKEPROFIT635000920,,,,eval,50000,EOD,new,blown,,"reset-0; blown Feb 13 2026, min balance breach"
+TakeProfitTrader,TAKEPROFIT401190651,,,,eval,50000,EOD,reset,blown,,reset-1; blown day 1 (Feb 16-17 2026)
+TakeProfitTrader,TAKEPROFIT363712064,,,,eval,50000,EOD,reset,blown,,reset-2; blown Mar 27 2026 overnight MGC
+TakeProfitTrader,TAKEPROFIT861085464,,,,funded,50000,EOD,reset,blown,,"TPT 50K PRO; certificate issued May 30 2026; confirmed blown since; exact reset-sequence placement unresolved"
+TakeProfitTrader,TAKEPROFIT558167553,,,,eval,50000,EOD,reset,blown,,reset-3; blown Apr 30 2026, YM no-SL resting limit AutoLiq -$2000
+TakeProfitTrader,TAKEPROFIT917806711,,,,eval,50000,EOD,reset,passed,,"reset-4; passed Aug 28 2026 10:35AM (+$3154.85); certificate issued Aug 29 2026"
+TopOneFutures,TOF189562,,,,eval,50000,EliteAccess-EOD,new,passed,,Eval passed Aug 28 2026 10:40AM (+$3116.25); funded as TOF197288
+TopOneFutures,TOF189563,,,,eval,50000,EliteAccess-EOD,new,passed,,Eval passed Aug 28 2026 10:42AM (+$3106.75); funded as TOF197292
+TopOneFutures,TOF197288,,,,funded,50000,EOD,new,active,,"{FUNDED|sim} funded from TOF189562; +$183 as of Aug 29 5:46PM"
+TopOneFutures,TOF197292,,,,funded,50000,EOD,new,active,,"{FUNDED|sim} funded from TOF189563; +$183 as of Aug 29 5:48PM"
