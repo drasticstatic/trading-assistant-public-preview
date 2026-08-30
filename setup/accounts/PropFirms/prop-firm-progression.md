@@ -92,6 +92,15 @@ All accounts since trading began. Sources: TPT control center PDFs, Tradovate ac
 
 **Apex eval parameters (100K):** Profit target $6,000 (6%) · Max trailing drawdown $2,500 (intraday) · Min trading days 7 · Carry-over confirmed on renewal
 
+### Apex Trader Funding — Legacy 50K (separate line from the numbered 100K series above)
+
+A second, smaller Apex Legacy track Christopher runs in parallel with APEX-484839-06 — confirmed via the Aug 2026 TradeZella account ledger. Numbers 07/08 in this series are not yet confirmed in the data reviewed so far.
+
+| Account | Type | Period | Outcome | Notes |
+|---------|------|--------|---------|-------|
+| APEX Legacy-484839-09 | 50K FULL eval | ~Jul–Aug 5, 2026 | ❌ Blown Aug 5 | -$2,398 closed P&L (TradeZella reset:7) |
+| APEX Legacy-484839-10 | 50K FULL eval | ~Aug 6–19, 2026 | ❌ Blown Aug 19 | -$1,214.25 closed P&L (TradeZella reset:8) — balance chart in `data/imports/2026/08-Aug/APEX_2026_08-05-thru-08-19.png` |
+
 ### TakeProfitTrader 50K
 
 | Account | ID | Period | Days Traded | Outcome |
@@ -100,7 +109,7 @@ All accounts since trading began. Sources: TPT control center PDFs, Tradovate ac
 | TPT reset-1 | TAKEPROFIT401190651 | Feb 16–17, 2026 | 1 | ❌ Blown day 1 |
 | TPT reset-2 | TAKEPROFIT363712064 | Mar 25–27, 2026 | 2 | ❌ Blown Mar 27 — overnight MGC |
 | TPT reset-3 | TAKEPROFIT558167553 | Apr 1–30, 2026 | 4/5 | ❌ Blown Apr 30 — YM no-SL resting limit AutoLiq, -$2,000 |
-| TPT reset-4 | TAKEPROFIT917806711 | May 1 – present | 5+ | ✅ Eval passed, funded — certificate issued late Aug 2026 |
+| TPT reset-4 | TAKEPROFIT917806711 | May 1 – present | 5+ | ✅ Eval passed Aug 28, 2026 10:35 AM (+$3,154.85), funded — certificate issued Aug 29, 2026 (TradeZella internal label: reset:6) |
 
 **TPT eval parameters (all resets):** Starting balance $50,000 · Profit target $53,000 (+$3,000) · Min balance $48,000 · Max 6 contracts · No positions past 17:00 ET · 5 minimum trading days
 
@@ -110,12 +119,14 @@ All accounts since trading began. Sources: TPT control center PDFs, Tradovate ac
 
 ### TopOneFutures — Elite ACCESS (BOGO)
 
-| Account | ID | Period | Outcome |
-|---------|-----|--------|---------|
-| TOF Elite ACCESS #1 | TOF189562 | 2026 – present | ✅ Eval passed, funded (Sim Funded Trader) — instantly tradeable, certificate issued Aug 28, 2026 |
-| TOF Elite ACCESS #2 | TOF189563 | 2026 – present | ✅ Eval passed, funded (Sim Funded Trader) — instantly tradeable, certificate issued Aug 28, 2026 |
+TopOneFutures issues a new account ID when an eval converts to funded — the eval ID and the funded ID are two different numbers for the same BOGO slot.
 
-Both accounts use EOD (end-of-day) drawdown type, believed structurally similar to Apex Legacy. Full rule detail: [`topone-rules.md`](TopOneFutures/topone-rules.md).
+| Slot | Eval ID | Eval Outcome | Funded ID | Funded Status |
+|------|---------|-------------|-----------|----------------|
+| Elite ACCESS #1 | TOF189562 | ✅ Passed Aug 28, 2026 10:40 AM — +$3,116.25 | TOF197288 | {FUNDED\|sim} 50K EOD — +$183 as of Aug 29, 5:46 PM |
+| Elite ACCESS #2 | TOF189563 | ✅ Passed Aug 28, 2026 10:42 AM — +$3,106.75 | TOF197292 | {FUNDED\|sim} 50K EOD — +$183 as of Aug 29, 5:48 PM |
+
+Certificate issued Aug 28, 2026 references the eval IDs (TOF189562 & TOF189563) since it marks the eval pass, not the funded-account handoff. Both use EOD (end-of-day) drawdown type, believed structurally similar to Apex Legacy. Full rule detail: [`topone-rules.md`](TopOneFutures/topone-rules.md).
 
 ---
 
