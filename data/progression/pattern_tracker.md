@@ -6,7 +6,7 @@
 ---
 
 **Jump to section:**
-[📊 Trade Log](#trade-log) · [💰 Running P&L](#running-pnl) · [🧠 Behavioral Progression](#behavioral-progression) · [📋 Compliance Scores](#compliance-scores) · [🔍 Entry Filter Stack](#entry-filter-stack) · [⏱️ Session Durations](#session-durations) · [👥 Coach Interaction Log](#coach-interaction-log) · [🔁 Key Patterns](#key-patterns) · [📈 Recovery Arc Timeline](#recovery-arc-timeline) · [📉 Statistical Summary](#statistical-summary) · [📎 Individual Reviews](#individual-reviews) · [🏦 Prop Firm Roster](#prop-firm-roster)
+[📊 Trade Log](#trade-log) · [📊 Trade Log (May-Aug cont.)](#trade-log-continued) · [💰 Running P&L](#running-pnl) · [🧠 Behavioral Progression](#behavioral-progression) · [📋 Compliance Scores](#compliance-scores) · [🔍 Entry Filter Stack](#entry-filter-stack) · [⏱️ Session Durations](#session-durations) · [👥 Coach Interaction Log](#coach-interaction-log) · [🔁 Key Patterns](#key-patterns) · [📈 Recovery Arc Timeline](#recovery-arc-timeline) · [📉 Statistical Summary](#statistical-summary) · [📎 Individual Reviews](#individual-reviews) · [🏦 Prop Firm Roster](#prop-firm-roster)
 
 ---
 
@@ -48,6 +48,262 @@
 | 20260502_SOLUSDT-BTCC_001 | ~May 2–6 | SOLUSDT | Short | Unknown | Liquidation | **Unknown (loss)** | N/A | — | — | ⚠️ Voucher SHORT · macro spike (tariff relief rally + CPI) overwhelmed margin · no SL set | ❌ None set — voucher · liquidated (insufficient margin) · Pattern 8 + 9 | No |
 | 20260506_RTY-APEX_001 | May 6 | RTY | Short | 2,898.3 | 2,891.1 (AutoLiq) | **+$360** | N/A | 18.85 | 3.5/5 | ⚠️ ZTH Pivot + Fib projections · FOMO · against uptrend bias · pre-market limit · 10h57m hold | ❌ None set · TP 2861.9 placed then canceled at MFE+4h · AutoLiq exit (Pattern 8) | No |
 | 20260508_RTY-APEX_001 | May 8 | RTY | Long | 2,854.1 | 2,868.1 (AutoLiq) | **+$700** | N/A | 64.81 | 3.5/5 | ⚠️ Coach analysis (STB K) · FOMO market order at 2am · trend continuation · not off specific level | ❌ None set · TP 2882.5 placed then canceled pre-RTH · AutoLiq exit (Pattern 8) | No |
+
+<a id="trade-log-continued"></a>
+
+## 📊 Trade Log — May 14 – Aug 28, 2026 (technical record, CSV-derived)
+
+*Continuation of the Trade Log above, covering the trade-review backlog processed from the iCloud CSV staging folder (`_csv-2B-filed/`). Behavioral/psychology columns (R:R, Zella, Rating, Entry Filter grade, SL Respected, Stable) are marked pending — narrative journal data for this window hasn't been provided yet; Christopher will sanity-check once it is. Source: [`fortuna-exports/master_trade_ledger_2026-05-14_to_2026-08-28.csv`](../../fortuna-exports/master_trade_ledger_2026-05-14_to_2026-08-28.csv) — 247 trades reconstructed via FIFO fill-matching from Tradovate order exports + BTCC transaction history, cross-validated against confirmed TradeZella/certificate P&L figures (exact match on every account checked). Two commissions-only variances of ~$0.50–$1.40 remain versus platform-reported totals on two accounts — immaterial, not investigated further.*
+
+| # | Date | Instrument | Dir | Entry | Exit | P&L | R:R | Zella | Rating | Entry Filter | SL Respected | Stable |
+|---|------|-----------|-----|-------|------|-----|-----|-------|--------|--------------|--------------|--------|
+| 20260514_RTY-APEX_001 | May 14 | RTY | Short | 2,877.70 | 2,863.10 | **+$730.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260520_RTY-TPT_001 | May 20 | RTY | Short | 2,810.80 | 2,818.60 | **-$390.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260520_YM-TPT_002 | May 20 | YM | Short | 50,001.00 | 50,046.00 | **-$225.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260521_RTY-TPT_001 | May 21 | RTY | Long | 2,813.40 | 2,843.50 | **+$1,505.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260526_RTY-TPT_001 | May 26 | RTY | Long | 2,908.50 | 2,925.80 | **+$865.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260527_ES-TPT_001 | May 27 | ES | Short | 7,563.00 | 7,535.00 | **+$1,400.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260527_ES-APEX_002 | May 27 | ES | Long | 7,519.25 | 7,542.00 | **+$1,137.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260528_ES-APEX_001 | May 28 | ES | Short | 7,561.50 | 7,588.50 | **-$1,350.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260529_M2K-TPT_001 | May 29 | M2K | Long | 2,929.70 | 2,920.40 | **-$46.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260602_M2K-APEX_001 | Jun 2 | M2K | Short | 2,931.70 | 2,935.90 | **-$63.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260603_MYM-TPTPRO_001 | Jun 3 | MYM | Short | 51,368.00 | 50,799.00 | **+$569.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260604_MYM-TPTPRO_001 | Jun 4 | MYM | Short | 51,063.00 | 51,667.00 | **-$604.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260604_MYM-APEX_002 | Jun 4 | MYM | Short | 51,063.00 | 51,670.00 | **-$607.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260605_MYM-APEX_001 | Jun 5 | MYM | Short | 51,753.00 | 50,796.00 | **+$957.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260609_MYM-TPTPRO_001 | Jun 9 | MYM | Short | 50,773.00 | 50,857.00 | **-$42.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260609_MYM-TPTPRO_002 | Jun 9 | MYM | Short | 50,888.00 | 50,857.00 | **+$31.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260609_M2K-TPTPRO_003 | Jun 9 | M2K | Short | 2,906.10 | 2,866.20 | **+$399.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260609_M2K-TPTPRO_004 | Jun 9 | M2K | Short | 2,924.70 | 2,866.20 | **+$877.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260609_M2K-APEX_005 | Jun 9 | M2K | Short | 2,906.10 | 2,866.00 | **+$401.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260609_M2K-APEX_006 | Jun 9 | M2K | Short | 2,924.70 | 2,866.00 | **+$880.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260609_MYM-APEX_007 | Jun 9 | MYM | Short | 50,773.00 | 50,858.00 | **-$42.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260609_MYM-APEX_008 | Jun 9 | MYM | Short | 50,888.00 | 50,858.00 | **+$30.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260610_M2K-TPTPRO_001 | Jun 10 | M2K | Short | 2,900.00 | 2,832.40 | **+$338.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260610_M2K-APEX_002 | Jun 10 | M2K | Short | 2,900.00 | 2,832.20 | **+$339.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260611_MYM-TPTPRO_001 | Jun 11 | MYM | Short | 50,392.00 | 50,808.00 | **-$208.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260611_MYM-TPTPRO_002 | Jun 11 | MYM | Short | 50,454.00 | 50,808.00 | **-$177.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260611_MYM-TPTPRO_003 | Jun 11 | MYM | Short | 50,522.00 | 50,808.00 | **-$286.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260611_M2K-TPTPRO_004 | Jun 11 | M2K | Short | 2,870.00 | 2,913.90 | **-$439.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260611_M2K-TPTPRO_005 | Jun 11 | M2K | Short | 2,878.00 | 2,913.90 | **-$179.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260611_M2K-TPTPRO_006 | Jun 11 | M2K | Short | 2,897.00 | 2,913.90 | **-$253.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260611_M2K-APEX_007 | Jun 11 | M2K | Short | 2,870.00 | 2,913.80 | **-$438.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260611_M2K-APEX_008 | Jun 11 | M2K | Short | 2,878.00 | 2,913.80 | **-$179.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260611_M2K-APEX_009 | Jun 11 | M2K | Short | 2,897.00 | 2,913.80 | **-$252.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260611_MYM-APEX_010 | Jun 11 | MYM | Short | 50,392.00 | 50,814.00 | **-$211.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260611_MYM-APEX_011 | Jun 11 | MYM | Short | 50,454.00 | 50,814.00 | **-$180.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260611_MYM-APEX_012 | Jun 11 | MYM | Short | 50,522.00 | 50,814.00 | **-$292.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260612_MYM-TPT_001 | Jun 12 | MYM | Long | 51,254.00 | 51,228.00 | **-$13.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260612_MYM-APEX_002 | Jun 12 | MYM | Long | 51,258.00 | 51,239.00 | **-$9.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260615_MES-TPT_001 | Jun 15 | MES | Long | 7,627.50 | 7,626.25 | **-$6.25** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260615_MES-APEX_002 | Jun 15 | MES | Long | 7,627.50 | 7,624.75 | **-$13.75** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260616_M2K-TPT_001 | Jun 16 | M2K | Short | 2,962.50 | 2,961.80 | **+$3.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260616_M2K-APEX_002 | Jun 16 | M2K | Short | 2,962.10 | 2,962.10 | **$0.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260617_MYM-TPT_001 | Jun 17 | MYM | Short | 52,035.00 | 52,049.00 | **-$7.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260617_MYM-APEX_002 | Jun 17 | MYM | Short | 52,032.00 | 52,044.00 | **-$6.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260618_MYM-APEX_001 | Jun 18 | MYM | Long | 52,220.00 | 52,371.00 | **+$75.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260618_MYM-TPT_002 | Jun 18 | MYM | Long | 52,220.00 | 52,371.00 | **+$75.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260618_MNQ-TPT_003 | Jun 18 | MNQ | Short | 30,593.25 | 30,527.00 | **+$132.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260618_MNQ-APEX_004 | Jun 18 | MNQ | Short | 30,589.75 | 30,522.50 | **+$134.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260624_M2K-TPT_001 | Jun 24 | M2K | Short | 3,033.30 | 3,023.10 | **+$102.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260624_M2K-APEX_002 | Jun 24 | M2K | Short | 3,033.30 | 3,023.40 | **+$99.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260630_MNQ-TPT_001 | Jun 30 | MNQ | Short | 30,489.75 | 30,491.50 | **-$3.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260630_MNQ-APEX_002 | Jun 30 | MNQ | Short | 30,492.75 | 30,497.50 | **-$9.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260702_M2K-TPT_001 | Jul 2 | M2K | Short | 3,034.70 | 3,025.00 | **+$97.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260702_M2K-APEX_002 | Jul 2 | M2K | Short | 3,034.70 | 3,025.00 | **+$97.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260702_M2K-TPT_003 | Jul 2 | M2K | Short | 3,032.70 | 3,038.50 | **-$58.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260702_M2K-APEX_004 | Jul 2 | M2K | Short | 3,032.70 | 3,038.50 | **-$58.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260702_MNQ-APEX_005 | Jul 2 | MNQ | Short | 30,112.25 | 29,994.00 | **+$473.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260702_MNQ-TPT_006 | Jul 2 | MNQ | Short | 30,112.25 | 29,994.00 | **+$473.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260703_MCL-TPT_001 | Jul 3 | MCL | Short | 68.87 | 68.71 | **+$64.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260703_MCL-APEX_002 | Jul 3 | MCL | Short | 68.87 | 68.76 | **+$44.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260706_MCL-TPT_001 | Jul 6 | MCL | Short | 68.98 | 68.63 | **+$105.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260706_MCL-APEX_002 | Jul 6 | MCL | Short | 68.98 | 68.62 | **+$108.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260707_MCL-APEX_001 | Jul 7 | MCL | Short | 70.11 | 72.18 | **-$828.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260707_MCL-TPT_002 | Jul 7 | MCL | Short | 70.11 | 72.18 | **-$828.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260709_MGC-TPT_001 | Jul 9 | MGC | Short | 4,125.00 | 4,133.30 | **-$83.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260709_MGC-APEX_002 | Jul 9 | MGC | Short | 4,125.00 | 4,133.20 | **-$82.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260710_MYM-APEX_001 | Jul 10 | MYM | Short | 52,881.00 | 52,925.00 | **-$88.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260710_MNQ-APEX_002 | Jul 10 | MNQ | Short | 29,871.00 | 30,061.75 | **-$763.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260710_MES-TPT_003 | Jul 10 | MES | Short | 7,626.50 | 7,628.00 | **-$15.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260710_MYM-TPT_004 | Jul 10 | MYM | Short | 52,881.00 | 52,988.00 | **-$214.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260710_MNQ-TPT_005 | Jul 10 | MNQ | Short | 29,871.00 | 30,065.75 | **-$779.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260721_M2K-APEX_001 | Jul 21 | M2K | Short | 2,957.60 | 2,995.20 | **-$940.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260723_MNQ-APEX_001 | Jul 23 | MNQ | Short | 29,089.25 | 28,753.75 | **+$671.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260723_M2K-APEX_002 | Jul 23 | M2K | Long | 2,940.20 | 2,949.00 | **+$220.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260723_MCL-APEX_003 | Jul 23 | MCL | Short | 90.55 | 92.40 | **-$185.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260724_MCL-APEX_001 | Jul 24 | MCL | Short | 92.19 | 89.70 | **+$747.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260724_MCL-APEX_002 | Jul 24 | MCL | Short | 89.98 | 90.52 | **-$216.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260724_SOLUSDT-BTCC_003 | Jul 24 | SOLUSDT | Long | — | 73.91 | **+$25.09** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260730_MCL-APEX_001 | Jul 30 | MCL | Short | 85.22 | 83.94 | **+$256.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260730_MCL-APEX_002 | Jul 30 | MCL | Short | 84.81 | 83.94 | **+$174.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260731_M2K-APEX_001 | Jul 31 | M2K | Long | 2,910.10 | 2,929.90 | **+$495.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260731_MCL-APEX_002 | Jul 31 | MCL | Short | 83.66 | 86.35 | **-$807.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260803_MYM-APEX_001 | Aug 3 | MYM | Short | 52,929.00 | 53,393.00 | **-$928.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260804_MYM-APEX_001 | Aug 4 | MYM | Long | 53,374.00 | 53,385.00 | **+$5.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260804_MYM-APEX_002 | Aug 4 | MYM | Long | 53,388.00 | 53,454.00 | **+$33.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260804_MYM-APEX_003 | Aug 4 | MYM | Short | 53,454.00 | 53,502.00 | **-$24.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260804_MYM-APEX_004 | Aug 4 | MYM | Short | 53,438.00 | 53,502.00 | **-$32.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260804_MYM-APEX_005 | Aug 4 | MYM | Short | 53,318.00 | 53,570.00 | **-$126.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260805_MGC-APEX_001 | Aug 5 | MGC | Short | 4,187.50 | 4,307.40 | **-$2,398.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260805_MGC-APEX_002 | Aug 5 | MGC | Short | 4,304.70 | 4,307.60 | **-$29.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260806_M2K-APEX_001 | Aug 6 | M2K | Long | 3,026.38 | 3,039.80 | **+$335.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260806_MGC-APEX_002 | Aug 6 | MGC | Long | 4,320.20 | 4,299.20 | **-$210.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260807_MGC-APEX_001 | Aug 7 | MGC | Short | 4,337.70 | 4,400.90 | **-$632.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260807_MGC-APEX_002 | Aug 7 | MGC | Short | 4,404.10 | 4,400.90 | **+$32.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260807_M2K-APEX_003 | Aug 7 | M2K | Short | 3,029.00 | 3,041.70 | **-$317.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260807_MCL-APEX_004 | Aug 7 | MCL | Short | 77.45 | 77.10 | **+$105.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260810_MGC-APEX_001 | Aug 10 | MGC | Short | 4,409.50 | 4,388.70 | **+$208.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260810_M2K-APEX_002 | Aug 10 | M2K | Short | 3,035.10 | 3,029.00 | **+$91.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260810_MYM-APEX_003 | Aug 10 | MYM | Short | 54,034.00 | 54,006.00 | **+$84.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260810_SOLUSDT-BTCC_004 | Aug 10 | SOLUSDT | Short | — | 76.88 | **+$7.40** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260810_M2K-APEX_005 | Aug 10 | M2K | Long | 3,020.70 | 3,025.80 | **+$178.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260810_MCL-APEX_006 | Aug 10 | MCL | Short | 78.65 | 82.32 | **-$1,101.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260811_MYM-APEX_001 | Aug 11 | MYM | Long | 54,023.00 | 54,169.00 | **+$438.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260811_MNQ-APEX_002 | Aug 11 | MNQ | Long | 29,687.25 | 29,780.00 | **+$371.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260811_MGC-APEX_003 | Aug 11 | MGC | Long | 4,431.40 | 4,427.10 | **-$43.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260811_M2K-APEX_004 | Aug 11 | M2K | Long | 3,039.70 | 3,035.10 | **-$115.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260811_MYM-APEX_005 | Aug 11 | MYM | Long | 54,061.00 | 53,898.00 | **-$489.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260812_MGC-APEX_001 | Aug 12 | MGC | Long | 4,459.00 | 4,476.70 | **+$177.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260812_MCL-APEX_002 | Aug 12 | MCL | Short | 83.99 | 83.15 | **+$252.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260812_M2K-APEX_003 | Aug 12 | M2K | Long | 3,039.90 | 3,044.00 | **+$102.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260812_MCL-APEX_004 | Aug 12 | MCL | Long | 82.74 | 83.11 | **+$111.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260812_MGC-APEX_005 | Aug 12 | MGC | Short | 4,470.90 | 4,466.00 | **+$49.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260812_M2K-APEX_006 | Aug 12 | M2K | Short | 3,041.30 | 3,037.60 | **+$92.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260812_M2K-APEX_007 | Aug 12 | M2K | Short | 3,054.10 | 3,043.30 | **+$270.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260812_M2K-APEX_008 | Aug 12 | M2K | Long | 3,046.10 | 3,058.10 | **+$300.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260812_MGC-APEX_009 | Aug 12 | MGC | Short | 4,498.10 | 4,468.80 | **+$293.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260812_MCL-APEX_010 | Aug 12 | MCL | Short | 83.51 | 82.60 | **+$273.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260812_MYM-APEX_011 | Aug 12 | MYM | Long | 53,951.00 | 53,862.00 | **-$267.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260812_MES-APEX_012 | Aug 12 | MES | Long | 7,765.00 | 7,766.50 | **+$15.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260813_MCL-APEX_001 | Aug 13 | MCL | Long | 81.24 | 82.17 | **+$372.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260813_MYM-APEX_002 | Aug 13 | MYM | Long | 53,801.00 | 53,900.00 | **+$297.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260813_M2K-APEX_003 | Aug 13 | M2K | Short | 3,055.20 | 3,060.60 | **-$135.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260813_M2K-APEX_004 | Aug 13 | M2K | Short | 3,068.80 | 3,060.60 | **+$328.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260813_MCL-APEX_005 | Aug 13 | MCL | Short | 82.29 | 81.20 | **+$218.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260813_MGC-APEX_006 | Aug 13 | MGC | Long | 4,458.30 | 4,407.30 | **-$510.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260813_MGC-APEX_007 | Aug 13 | MGC | Long | 4,446.10 | 4,407.30 | **-$388.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260813_MES-APEX_008 | Aug 13 | MES | Long | 7,824.00 | 7,823.75 | **-$3.75** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260813_MES-APEX_009 | Aug 13 | MES | Short | 7,823.75 | 7,823.00 | **+$11.25** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260814_MCL-APEX_001 | Aug 14 | MCL | Long | 81.26 | 81.80 | **+$108.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260814_MYM-APEX_002 | Aug 14 | MYM | Short | 53,943.00 | 53,926.00 | **+$34.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260814_MGC-APEX_003 | Aug 14 | MGC | Long | 4,399.90 | 4,404.30 | **+$44.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260814_MCL-APEX_004 | Aug 14 | MCL | Short | 81.97 | 81.27 | **+$210.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260814_M2K-APEX_005 | Aug 14 | M2K | Long | 3,052.30 | 3,056.90 | **+$115.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260814_MGC-APEX_006 | Aug 14 | MGC | Short | 4,426.50 | 4,431.70 | **-$104.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260814_M2K-APEX_007 | Aug 14 | M2K | Short | 3,068.70 | 3,071.70 | **-$75.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260814_MYM-APEX_008 | Aug 14 | MYM | Long | 53,886.00 | 53,784.00 | **-$306.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260814_MES-APEX_009 | Aug 14 | MES | Long | 7,811.25 | 7,802.25 | **-$135.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260814_MES-APEX_010 | Aug 14 | MES | Long | 7,803.25 | 7,802.25 | **-$15.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260817_MGC-APEX_001 | Aug 17 | MGC | Long | 4,445.00 | 4,450.10 | **+$51.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260817_MGC-APEX_002 | Aug 17 | MGC | Long | 4,476.30 | 4,478.60 | **+$23.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260817_MCL-APEX_003 | Aug 17 | MCL | Short | 82.59 | 82.17 | **+$84.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260817_MNQ-APEX_004 | Aug 17 | MNQ | Long | 30,208.50 | 30,237.25 | **+$115.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260817_M2K-APEX_005 | Aug 17 | M2K | Long | 3,065.20 | 3,063.80 | **-$49.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260817_MCL-APEX_006 | Aug 17 | MCL | Short | 83.31 | 84.95 | **-$492.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260817_MNQ-APEX_007 | Aug 17 | MNQ | Long | 30,235.25 | 30,071.00 | **-$657.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260817_MNQ-APEX_008 | Aug 17 | MNQ | Long | 30,152.75 | 30,071.00 | **-$327.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260818_M2K-APEX_001 | Aug 18 | M2K | Long | 3,050.40 | 3,050.60 | **+$7.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260818_MYM-APEX_002 | Aug 18 | MYM | Short | 53,508.00 | 53,466.00 | **+$105.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260818_M2K-APEX_003 | Aug 18 | M2K | Short | 3,055.70 | 3,054.30 | **+$49.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260818_MES-APEX_004 | Aug 18 | MES | Long | 7,724.75 | 7,736.50 | **+$176.25** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260818_MYM-APEX_005 | Aug 18 | MYM | Short | 53,549.00 | 53,334.00 | **+$537.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260818_MGC-APEX_006 | Aug 18 | MGC | Long | 4,433.40 | 4,450.00 | **+$166.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260818_MGC-APEX_007 | Aug 18 | MGC | Long | 4,422.40 | 4,388.70 | **-$674.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260818_M2K-APEX_008 | Aug 18 | M2K | Long | 3,050.40 | 3,026.00 | **-$610.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260818_MES-APEX_009 | Aug 18 | MES | Long | 7,724.00 | 7,713.00 | **-$165.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260818_MCL-APEX_010 | Aug 18 | MCL | Short | 84.31 | 84.42 | **-$22.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260819_M2K-APEX_001 | Aug 19 | M2K | Long | 3,027.80 | 3,025.90 | **-$38.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260819_MCL-APEX_002 | Aug 19 | MCL | Short | 84.47 | 85.14 | **-$134.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260819_SOLUSDT-BTCC_003 | Aug 19 | SOLUSDT | Short | — | 78.74 | **+$15.95** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260821_M2K-TPT_001 | Aug 21 | M2K | Short | 3,021.40 | 3,020.60 | **+$12.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260821_M2K-TOF_002 | Aug 21 | M2K | Short | 3,021.80 | 3,022.10 | **-$6.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_M2K-TOF_001 | Aug 24 | M2K | Short | 3,025.00 | 3,024.50 | **+$5.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_M2K-TOF_002 | Aug 24 | M2K | Short | 3,024.50 | 3,021.30 | **+$16.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_M2K-TOF_003 | Aug 24 | M2K | Short | 3,024.50 | 3,021.30 | **+$16.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_M2K-TOF_004 | Aug 24 | M2K | Short | 3,024.50 | 3,021.30 | **+$16.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_M2K-TOF_005 | Aug 24 | M2K | Short | 3,024.50 | 3,021.30 | **+$16.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_MYM-TPT_006 | Aug 24 | MYM | Long | 53,229.00 | 53,454.00 | **+$562.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_MYM-TOF_007 | Aug 24 | MYM | Long | 53,229.00 | 53,454.00 | **+$112.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_MYM-TOF_008 | Aug 24 | MYM | Long | 53,229.00 | 53,454.00 | **+$450.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_MYM-TOF_009 | Aug 24 | MYM | Long | 53,229.00 | 53,454.00 | **+$112.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_MYM-TOF_010 | Aug 24 | MYM | Long | 53,229.00 | 53,454.00 | **+$450.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_M2K-TPT_011 | Aug 24 | M2K | Long | 2,998.60 | 3,003.00 | **+$154.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_M2K-TOF_012 | Aug 24 | M2K | Long | 2,998.60 | 3,003.00 | **+$22.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_M2K-TOF_013 | Aug 24 | M2K | Long | 2,998.60 | 3,003.00 | **+$22.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_M2K-TOF_014 | Aug 24 | M2K | Long | 2,998.60 | 3,003.00 | **+$22.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_M2K-TOF_015 | Aug 24 | M2K | Long | 2,998.60 | 3,003.00 | **+$22.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_M2K-TOF_016 | Aug 24 | M2K | Long | 2,998.60 | 3,003.00 | **+$22.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_M2K-TOF_017 | Aug 24 | M2K | Long | 2,998.60 | 3,003.00 | **+$22.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_M2K-TOF_018 | Aug 24 | M2K | Long | 2,998.60 | 3,003.00 | **+$22.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_M2K-TOF_019 | Aug 24 | M2K | Long | 2,998.60 | 3,003.00 | **+$22.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_M2K-TOF_020 | Aug 24 | M2K | Long | 2,998.60 | 3,003.00 | **+$22.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_M2K-TOF_021 | Aug 24 | M2K | Long | 2,998.60 | 3,003.00 | **+$22.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_M2K-TOF_022 | Aug 24 | M2K | Long | 2,998.60 | 3,003.00 | **+$22.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_M2K-TOF_023 | Aug 24 | M2K | Long | 2,998.60 | 3,003.00 | **+$22.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_M2K-TOF_024 | Aug 24 | M2K | Long | 2,998.60 | 3,003.00 | **+$22.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260824_M2K-TOF_025 | Aug 24 | M2K | Long | 2,998.60 | 3,003.00 | **+$22.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260825_MYM-TPT_001 | Aug 25 | MYM | Long | 53,481.00 | 53,688.00 | **+$621.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260825_MYM-TOF_002 | Aug 25 | MYM | Long | 53,481.00 | 53,673.00 | **+$96.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260825_MYM-TOF_003 | Aug 25 | MYM | Long | 53,481.00 | 53,673.00 | **+$192.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260825_MYM-TOF_004 | Aug 25 | MYM | Long | 53,481.00 | 53,673.00 | **+$96.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260825_MYM-TOF_005 | Aug 25 | MYM | Long | 53,481.00 | 53,673.00 | **+$96.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260825_MYM-TOF_006 | Aug 25 | MYM | Long | 53,481.00 | 53,673.00 | **+$192.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260825_MYM-TOF_007 | Aug 25 | MYM | Long | 53,481.00 | 53,673.00 | **+$96.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260825_MYM-TOF_008 | Aug 25 | MYM | Long | 53,481.00 | 53,719.00 | **+$119.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260825_MYM-TOF_009 | Aug 25 | MYM | Long | 53,481.00 | 53,719.00 | **+$119.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260825_MYM-TOF_010 | Aug 25 | MYM | Long | 53,481.00 | 53,719.00 | **+$119.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260825_MYM-TOF_011 | Aug 25 | MYM | Long | 53,481.00 | 53,719.00 | **+$119.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260826_MYM-TPT_001 | Aug 26 | MYM | Long | 53,685.00 | 53,739.00 | **+$135.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260826_M2K-TPT_002 | Aug 26 | M2K | Long | 3,004.40 | 3,012.20 | **+$312.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260826_MYM-TOF_003 | Aug 26 | MYM | Long | 53,687.00 | 53,739.00 | **+$130.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260826_MYM-TOF_004 | Aug 26 | MYM | Long | 53,687.00 | 53,739.00 | **+$130.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260826_M2K-TOF_005 | Aug 26 | M2K | Long | 3,004.40 | 3,012.20 | **+$39.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260826_M2K-TOF_006 | Aug 26 | M2K | Long | 3,004.40 | 3,012.20 | **+$39.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260826_M2K-TOF_007 | Aug 26 | M2K | Long | 3,004.40 | 3,012.20 | **+$156.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260826_M2K-TOF_008 | Aug 26 | M2K | Long | 3,004.40 | 3,012.20 | **+$39.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260826_M2K-TOF_009 | Aug 26 | M2K | Long | 3,004.40 | 3,012.20 | **+$39.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260826_M2K-TOF_010 | Aug 26 | M2K | Long | 3,004.40 | 3,012.20 | **+$39.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260826_M2K-TOF_011 | Aug 26 | M2K | Long | 3,004.40 | 3,012.20 | **+$39.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260826_M2K-TOF_012 | Aug 26 | M2K | Long | 3,004.40 | 3,012.20 | **+$39.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260826_M2K-TOF_013 | Aug 26 | M2K | Long | 3,004.40 | 3,012.20 | **+$195.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260826_M2K-TPT_014 | Aug 26 | M2K | Short | 3,019.50 | 3,013.30 | **+$248.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260826_MYM-TPT_015 | Aug 26 | MYM | Short | 53,673.00 | 53,712.00 | **-$97.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260826_MYM-TOF_016 | Aug 26 | MYM | Short | 53,673.00 | 53,662.00 | **+$27.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260826_M2K-TOF_017 | Aug 26 | M2K | Short | 3,019.50 | 3,012.40 | **+$284.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260826_MYM-TOF_018 | Aug 26 | MYM | Short | 53,673.00 | 53,663.00 | **+$25.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260826_M2K-TOF_019 | Aug 26 | M2K | Short | 3,019.50 | 3,012.40 | **+$284.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260827_MYM-TPT_001 | Aug 27 | MYM | Long | 53,695.00 | 53,608.00 | **-$217.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260827_MYM-TPT_002 | Aug 27 | MYM | Short | 53,601.00 | 53,639.00 | **-$95.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260827_MNQ-TPT_003 | Aug 27 | MNQ | Short | 29,645.00 | 29,539.00 | **+$424.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260827_MNQ-TOF_004 | Aug 27 | MNQ | Short | 29,645.00 | 29,539.00 | **+$424.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260827_MNQ-TOF_005 | Aug 27 | MNQ | Short | 29,645.00 | 29,539.00 | **+$424.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260827_MYM-TPT_006 | Aug 27 | MYM | Long | 53,639.00 | 53,630.00 | **-$22.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260827_MES-TPT_007 | Aug 27 | MES | Short | 7,751.75 | 7,728.00 | **+$356.25** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260827_MGC-TPT_008 | Aug 27 | MGC | Long | 4,675.80 | 4,660.80 | **-$150.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260827_MYM-TPT_009 | Aug 27 | MYM | Long | 53,608.00 | 53,598.00 | **-$25.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260827_MNQ-TPT_010 | Aug 27 | MNQ | Short | 29,642.00 | 29,625.00 | **+$34.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260827_MCL-TPT_011 | Aug 27 | MCL | Short | 84.04 | 83.51 | **+$106.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260827_MGC-TPT_012 | Aug 27 | MGC | Long | 4,663.60 | 4,653.80 | **-$98.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260827_MES-TOF_013 | Aug 27 | MES | Short | 7,751.75 | 7,728.00 | **+$356.25** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260827_MES-TOF_014 | Aug 27 | MES | Short | 7,751.75 | 7,728.00 | **+$356.25** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260827_MCL-TOF_015 | Aug 27 | MCL | Short | 84.04 | 83.67 | **+$74.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260827_MCL-TOF_016 | Aug 27 | MCL | Short | 84.04 | 83.68 | **+$72.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260827_MYM-TPT_017 | Aug 27 | MYM | Long | 53,702.00 | 53,707.00 | **+$10.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260828_MYM-TPT_001 | Aug 28 | MYM | Short | 53,685.00 | 53,657.00 | **+$56.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260828_MCL-TPT_002 | Aug 28 | MCL | Short | 83.42 | 82.71 | **+$142.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260828_M2K-TPT_003 | Aug 28 | M2K | Short | 3,022.30 | 3,017.20 | **+$178.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260828_MCL-TOF_004 | Aug 28 | MCL | Short | 83.42 | 82.78 | **+$64.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260828_MCL-TOF_005 | Aug 28 | MCL | Short | 83.42 | 82.78 | **+$64.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260828_MGC-TOF_006 | Aug 28 | MGC | Short | 4,662.90 | 4,656.30 | **+$66.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260828_MCL-TOF_007 | Aug 28 | MCL | Short | 83.42 | 83.03 | **+$39.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260828_MCL-TOF_008 | Aug 28 | MCL | Short | 83.42 | 83.03 | **+$39.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260828_M2K-TOF_009 | Aug 28 | M2K | Short | 3,020.00 | 3,011.30 | **+$261.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260828_MGC-TPT_010 | Aug 28 | MGC | Short | 4,652.00 | 4,633.20 | **+$188.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260828_MYM-TOF_011 | Aug 28 | MYM | Short | 53,687.00 | 53,591.00 | **+$192.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260828_MYM-TPT_012 | Aug 28 | MYM | Short | 53,697.00 | 53,571.00 | **+$315.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260828_M2K-TPT_013 | Aug 28 | M2K | Short | 2,994.80 | 2,994.30 | **+$7.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260828_M2K-TOF_014 | Aug 28 | M2K | Long | 2,986.10 | 2,977.10 | **-$270.00** | — | — | — | ⏳ Pending journal data | — | — |
 
 ---
 
@@ -496,13 +752,28 @@ Jun 11  ░░░░░░░░░░░░░░░░░░░░  🔴 PA-AP
                                Legacy evals (07, 09, 10) opened in the weeks after — see
                                setup/accounts/PropFirms/prop-firm-progression.md for the full chain.
 
-May 1 – Aug 27 ────────────  ⏳ GAP — detailed trade log entries pending
-                               TPT reset-4 (TAKEPROFIT917806711) traded through this window; two
-                               TopOneFutures Elite ACCESS evals (TOF189562, TOF189563) opened and run.
-                               Journal/psychology data for this period has not yet been given to Fortuna —
-                               trade-by-trade rows will be appended here as the fortuna-exports/trade-reviews/
-                               backlog (225 screenshots + Tradovate/BTCC CSVs from the iCloud staging folders)
-                               is processed. This is a known, deliberate gap, not a missed session.
+Jun 3–11  ██████████████░░░░  ✅ TAKEPROFITPRO311919544 — funded PRO account from the 861085464 pass
+                               Resolves a roster gap flagged earlier this session: TAKEPROFIT861085464
+                               (eval passed ~May 29, +$3,108.50) was funded as TAKEPROFITPRO311919544.
+                               Traded Jun 3–11, net +$25.50 over 13 trades — barely positive, then no
+                               further fills in the CSV data after Jun 11 (same day PA-APEX-484839-01
+                               blew; coincidence, not causally linked as far as the data shows).
+
+Jul 10  ░░░░░░░░░░░░░░░░░░░░  🔴 TWO ACCOUNTS BLOWN SAME DAY, SAME SIGNATURE
+                               APEX-484839-07 (50K Intraday Trailing eval, previously "outcome
+                               unconfirmed"): final trades 13:37:39 — MYM -$88 and MNQ -$763 closing
+                               simultaneously (AutoLiq signature). Net -$826.75 over 17 trades, Jun 12–Jul 10.
+                               TAKEPROFIT718652247 (a previously untracked TPT eval account, same Jun 12–Jul 10
+                               window): final trades 16:55:02 — MES -$15, MYM -$214, MNQ -$779 all closing
+                               at the same timestamp (AutoLiq signature). Net -$954.25 over 18 trades.
+                               Both accounts confirmed blown from the CSV fill pattern, not a screenshot.
+
+Aug 4   ░░░░░░░░░░░░░░░░░░░░  🔴 APEX-484839-08 (50K eval) BLOWN
+                               Jul 21–Aug 4, net -$656.50 over 16 trades. Final sequence: three MYM shorts
+                               closing within 5 seconds of each other (06:30:05–06:30:10) for -$24/-$32/-$126 —
+                               AutoLiq signature. Completes the Apex Legacy chain: 07 (blown Jul 10) → 08
+                               (blown Aug 4) → 09 (blown Aug 5) → 10 (blown Aug 19), each opened right after
+                               the previous one blew.
 
 Aug 5   ░░░░░░░░░░░░░░░░░░░░  🔴 APEX Legacy-484839-09 (50K FULL eval) BLOWN — -$2,398
 
