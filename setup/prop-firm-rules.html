@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prop Firm Rules &amp; Pre-Flight Checklist — Trading Assistant</title>
+  <meta name="description" content="Quick visual comparison of prop firm rules (Apex, TakeProfitTrader, TopOneFutures, Tradeify, Lucid) and a daily pre-flight checklist.">
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+  <style>
+    :root {
+      --bg: #09111d; --bg-alt: #0d1625;
+      --surface: rgba(11, 19, 32, 0.86); --surface-soft: rgba(148, 163, 184, 0.08);
+      --border: rgba(148, 163, 184, 0.2); --border-strong: rgba(148, 163, 184, 0.34);
+      --text: #e7edf6; --muted: #a9b6c8; --subtle: #8191a7;
+      --blue: #7cc2ff; --cyan: #6ee7f9; --green: #49d17d; --gold: #f3c969;
+      --orange: #ff9f67; --violet: #b693ff; --rose: #ff9dc1;
+      --radius-xl: 22px; --radius-lg: 16px; --radius-md: 10px;
+      --shadow: 0 20px 48px rgba(2, 8, 20, 0.34);
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #edf3fb; --bg-alt: #f8fbff; --surface: rgba(255,255,255,0.92); --surface-soft: rgba(37,99,235,0.05);
+        --border: rgba(71,85,105,0.18); --border-strong: rgba(71,85,105,0.28);
+        --text: #162032; --muted: #56667d; --subtle: #6b7c93;
+        --blue: #1864db; --cyan: #0f9db6; --green: #1f8f56; --gold: #b7791f; --orange: #d96a25; --violet: #7851db; --rose: #c93c7d;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+      color: var(--text); font-size: 14px; line-height: 1.65; min-height: 100vh;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { color: var(--cyan); }
+    .nav {
+      display: flex; align-items: center; gap: .5rem; flex-wrap: wrap;
+      padding: .65rem 1.5rem; background: rgba(9,17,29,0.85); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10;
+    }
+    .nav-brand { font-size: .82rem; font-weight: 700; color: var(--gold); margin-right: .4rem; }
+    .nav-tag { padding: .22rem .7rem; border: 1px solid var(--border); border-radius: 999px; font-size: .76rem; color: var(--muted); }
+    .nav-tag:hover { border-color: var(--blue); color: var(--text); text-decoration: none; }
+    .content { max-width: 1180px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+    .eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
+    h1 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: .6rem; }
+    h1 span { background: linear-gradient(120deg, var(--gold), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .lede { color: var(--muted); font-size: .9rem; max-width: 720px; margin-bottom: 2rem; }
+    .sec-label {
+      font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em;
+      color: var(--violet); margin: 2.2rem 0 1rem; display: flex; align-items: center; gap: .6rem;
+    }
+    .sec-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+    .sec-label:first-of-type { margin-top: 0; }
+    .sec-sub { font-size: .82rem; color: var(--muted); margin: -.6rem 0 1rem; max-width: 720px; }
+    .panel { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow); overflow: hidden; }
+    .tbl-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: .8rem; white-space: nowrap; }
+    th { text-align: left; padding: .65rem .9rem; background: var(--surface-soft); color: var(--muted); text-transform: uppercase; font-size: .66rem; letter-spacing: .06em; border-bottom: 1px solid var(--border); }
+    td { padding: .6rem .9rem; border-top: 1px solid var(--border); }
+    tr:hover td { background: rgba(255,255,255,.02); }
+    .firm-col { font-weight: 700; color: var(--text); }
+    .ref-tag { font-size: .68rem; color: var(--subtle); font-weight: 400; }
+    .badge { display: inline-flex; align-items: center; padding: .12rem .5rem; border-radius: 999px; font-size: .68rem; font-weight: 700; }
+    .badge.good { background: rgba(73,209,125,.12); color: var(--green); }
+    .badge.warn { background: rgba(243,201,105,.12); color: var(--gold); }
+    .badge.bad { background: rgba(255,159,199,.14); color: var(--rose); }
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: .55rem; padding: 1.2rem 1.4rem; }
+    .checklist li { display: flex; align-items: flex-start; gap: .6rem; font-size: .85rem; }
+    .checklist input[type="checkbox"] { margin-top: .2rem; accent-color: var(--gold); flex-shrink: 0; }
+    .checklist .sub { color: var(--subtle); font-size: .76rem; display: block; margin-top: .1rem; }
+    .doc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .8rem; }
+    .doc-card { border: 1px solid var(--border); border-radius: var(--radius-md); padding: .9rem 1rem; background: var(--surface); }
+    .doc-card .fname { font-weight: 700; font-size: .84rem; margin-bottom: .2rem; }
+    .doc-card .fmeta { font-size: .74rem; color: var(--muted); }
+    .footer { max-width: 1180px; margin: 0 auto; padding: 2rem 1.5rem; border-top: 1px solid var(--border); font-size: .78rem; color: var(--subtle); text-align: center; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <span class="nav-brand">✈️ Pre-Flight Checklist</span>
+    <a class="nav-tag" href="../index.html">🏠 Home</a>
+    <a class="nav-tag" href="../data/progression/resources.html">📚 Resources</a>
+    <a class="nav-tag" href="../data/progression/gallery.html">🏆 Gallery</a>
+    <a class="nav-tag" href="accounts/PropFirms/prop-firm-progression.md">🏦 Account Roster</a>
+  </nav>
+
+  <main class="content">
+    <p class="eyebrow">Setup · Prop Firm Reference</p>
+    <h1>✈️ Prop Firm Rules &amp; <span>Pre-Flight Checklist</span></h1>
+    <p class="lede">A quick visual comparison across every prop firm Christopher trades or tracks, plus a daily pre-flight checklist before the market opens. Figures shown are the 50K-tier headline numbers — always verify current rules against the full reference docs linked at the bottom, since prop firm rules change frequently.</p>
+
+    <div class="sec-label">50K Evaluation — Quick Comparison</div>
+    <p class="sec-sub">Apex has three paths on file (Legacy, New EOD, New Intraday) since Christopher's original accounts predate the new rules. Lucid is reference/awareness only — no account held.</p>
+    <div class="panel">
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Firm / Path</th><th>Profit Target</th><th>Max Drawdown</th><th>Daily Loss Limit</th>
+              <th>Min Trading Days</th><th>Consistency (Eval)</th><th>Max Contracts</th><th>Time Limit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="firm-col">Apex — Legacy <span class="ref-tag">(Christopher's current)</span></td>
+              <td>$3,000</td><td>$2,500 trailing</td><td><span class="badge good">None</span></td>
+              <td>7 days</td><td><span class="badge good">Not applied</span></td><td>10</td><td>Unlimited (sub)</td>
+            </tr>
+            <tr>
+              <td class="firm-col">Apex — New EOD</td>
+              <td>$3,000</td><td>$2,000 EOD</td><td>$1,000</td>
+              <td><span class="badge good">None</span></td><td><span class="badge good">Not applied</span></td><td>6</td><td>30 days</td>
+            </tr>
+            <tr>
+              <td class="firm-col">Apex — New Intraday</td>
+              <td>$3,000</td><td>$2,000 trailing</td><td><span class="badge good">None</span></td>
+              <td><span class="badge good">None</span></td><td><span class="badge good">Not applied</span></td><td>6</td><td>30 days</td>
+            </tr>
+            <tr>
+              <td class="firm-col">TakeProfitTrader</td>
+              <td>$3,000</td><td>$2,000 EOD trailing</td><td><span class="badge good">Removed (all plans)</span></td>
+              <td>5 days</td><td><span class="badge warn">50%</span></td><td>6 (60 micros)</td><td><span class="badge good">No limit</span></td>
+            </tr>
+            <tr>
+              <td class="firm-col">TopOneFutures — Elite ACCESS</td>
+              <td>$3,000 (6%)</td><td>$2,000 EOD trailing</td><td><span class="badge good">None (eval)</span></td>
+              <td><span class="badge good">1 profitable day</span></td><td><span class="badge good">Not applied</span></td><td>—</td><td>30 days</td>
+            </tr>
+            <tr>
+              <td class="firm-col">Tradeify — Select Challenge</td>
+              <td>$3,000</td><td>$2,000 EOD</td><td>$1,250</td>
+              <td><span class="badge good">None (3-day eval)</span></td><td><span class="badge warn">35%</span></td><td>4</td><td>—</td>
+            </tr>
+            <tr>
+              <td class="firm-col">Lucid <span class="ref-tag">(reference only)</span></td>
+              <td>$3,000</td><td>$2,000</td><td>Optional (choose at purchase)</td>
+              <td><span class="badge good">None</span></td><td><span class="badge bad">50%</span></td><td>4 mini / 40 micros</td><td><span class="badge good">Unlimited (one-time fee)</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="sec-label">Daily Close Deadlines — Know Which Account You're In</div>
+    <p class="sec-sub">Every firm enforces its own cutoff differently — some are hard account-failure triggers, others are soft auto-flatten. Confirm before assuming the same habit transfers across accounts.</p>
+    <div class="panel">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Firm</th><th>Close Deadline</th><th>Enforcement</th></tr></thead>
+          <tbody>
+            <tr><td class="firm-col">Apex (all paths)</td><td>~4:59 PM ET</td><td><span class="badge bad">Hard — account forfeiture</span></td></tr>
+            <tr><td class="firm-col">TakeProfitTrader</td><td>5:00 PM ET</td><td><span class="badge bad">Hard — account failure</span></td></tr>
+            <tr><td class="firm-col">TopOneFutures</td><td>4:10 PM ET</td><td><span class="badge warn">Force-closed daily (no overnight holds, any account type)</span></td></tr>
+            <tr><td class="firm-col">Lucid</td><td>4:45 PM ET</td><td><span class="badge good">Soft — auto-flatten, non-punitive</span></td></tr>
+            <tr><td class="firm-col">Tradeify</td><td><span class="ref-tag">Not specified in current docs — verify live</span></td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="sec-label">✈️ Daily Pre-Flight Checklist</div>
+    <p class="sec-sub">Run through before the open — especially on multi-account days.</p>
+    <div class="panel">
+      <ul class="checklist">
+        <li><input type="checkbox"><span>Confirm which account(s) are active today and their exact close deadline<span class="sub">Apex ~4:59 PM ET · TPT 5:00 PM ET · TopOneFutures 4:10 PM ET · Lucid 4:45 PM ET</span></span></li>
+        <li><input type="checkbox"><span>SL placed and never moved — Pattern 7 discipline check<span class="sub">See <a href="../data/progression/pattern_tracker.md">pattern_tracker.md</a> for the full pattern history</span></span></li>
+        <li><input type="checkbox"><span>No opposing/hedged positions across accounts<span class="sub">Apex, TPT, and TopOneFutures all treat cross-account hedging as an instant, all-accounts-involved violation</span></span></li>
+        <li><input type="checkbox"><span>Daily Loss Limit checked, if the account has one<span class="sub">Apex EOD/PA, Tradeify, some Lucid configs — TPT and Apex Intraday have none</span></span></li>
+        <li><input type="checkbox"><span>Consistency rule tracked if trading toward a payout<span class="sub">TPT/Lucid eval 50% · Tradeify 35% · TopOneFutures funded 40%</span></span></li>
+        <li><input type="checkbox"><span>Cancel all resting/projected orders before stepping away<span class="sub">Pattern 9 — unintentional fills from stale limit orders</span></span></li>
+        <li><input type="checkbox"><span>Personal hard-exit time set before the firm's deadline becomes the exit mechanism<span class="sub">Pattern 8 — never let the prop firm's forced close be the trade management plan</span></span></li>
+      </ul>
+    </div>
+
+    <div class="sec-label">Full Rule Reference</div>
+    <div class="doc-grid">
+      <div class="doc-card"><div class="fname">🅰️ Apex — New Rules</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/ApexTrader/apex-rules.md" target="_blank" rel="noreferrer">apex-rules.md ↗</a></div></div>
+      <div class="doc-card"><div class="fname">🅰️ Apex — Legacy Rules</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/ApexTrader/apex-rules_legacy.md" target="_blank" rel="noreferrer">apex-rules_legacy.md ↗</a></div></div>
+      <div class="doc-card"><div class="fname">⚖️ Apex vs TPT</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/apex-vs-tpt-comparison.md" target="_blank" rel="noreferrer">apex-vs-tpt-comparison.md ↗</a></div></div>
+      <div class="doc-card"><div class="fname">⚖️ Apex Legacy vs New</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/apex-legacy-vs-new-comparison.md" target="_blank" rel="noreferrer">apex-legacy-vs-new-comparison.md ↗</a></div></div>
+      <div class="doc-card"><div class="fname">💰 TakeProfitTrader</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TakeProfitTrader/tpt-rules.md" target="_blank" rel="noreferrer">tpt-rules.md ↗</a></div></div>
+      <div class="doc-card"><div class="fname">🥇 TopOneFutures</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TopOneFutures/topone-rules.md" target="_blank" rel="noreferrer">topone-rules.md ↗</a></div></div>
+      <div class="doc-card"><div class="fname">📈 Tradeify</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Tradeify/tradeify-rules.md" target="_blank" rel="noreferrer">tradeify-rules.md ↗</a></div></div>
+      <div class="doc-card"><div class="fname">💧 Lucid <span class="ref-tag">(reference)</span></div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-rules.md" target="_blank" rel="noreferrer">lucid-rules.md ↗</a></div></div>
+      <div class="doc-card"><div class="fname">🏦 Account Roster</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-progression.md" target="_blank" rel="noreferrer">prop-firm-progression.md ↗</a></div></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Part of the <a href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer">Trading Assistant</a> public preview. Educational reference — always verify current rules directly with each firm.</p>
+  </footer>
+
+</body>
+</html>
