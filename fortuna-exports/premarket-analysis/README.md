@@ -29,6 +29,8 @@ Each summary covers:
 - `⏱️ Live Updates` — brief session notes
 - `🤖 Copy-Paste` — coaching-platform copy-paste format
 
+> **Status (Aug 2026):** empty — no premarket summaries landed here yet. Historical summaries (Feb–Apr 2026) remain at [`smarttrader-ai/analysis/premarket/`](../../smarttrader-ai/analysis/premarket/).
+
 ---
 
 *Part of the [Trading Assistant](https://github.com/drasticstatic/trading-assistant-public-preview) public preview.*

@@ -31,4 +31,56 @@ Files before Jun 2026 use the legacy `STB_export_` prefix — never rename those
 
 ---
 
+## 🔗 Browse (coaching exports)
+
+
+**2026/02-Feb/** (8 files)
+- [STB_export_20260221.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/02-Feb/STB_export_20260221.md)
+- [STB_export_20260221_coaches-brief.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/02-Feb/STB_export_20260221_coaches-brief.md)
+- [STB_export_20260223_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/02-Feb/STB_export_20260223_daily-review.md)
+- [STB_export_20260224_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/02-Feb/STB_export_20260224_daily-review.md)
+- [STB_export_20260225_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/02-Feb/STB_export_20260225_daily-review.md)
+- [STB_export_20260226_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/02-Feb/STB_export_20260226_daily-review.md)
+- [STB_export_20260227_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/02-Feb/STB_export_20260227_daily-review.md)
+- [STB_export_20260227_weekly-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/02-Feb/STB_export_20260227_weekly-review.md)
+
+**2026/03-Mar/** (21 files)
+- [STB_export_20260302_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260302_daily-review.md)
+- [STB_export_20260303_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260303_daily-review.md)
+- [STB_export_20260304_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260304_daily-review.md)
+- [STB_export_20260305_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260305_daily-review.md)
+- [STB_export_20260306_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260306_daily-review.md)
+- [STB_export_20260306_weekly-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260306_weekly-review.md)
+- [STB_export_20260309_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260309_daily-review.md)
+- [STB_export_20260310_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260310_daily-review.md)
+- [STB_export_20260314_weekly-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260314_weekly-review.md)
+- [STB_export_20260316_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260316_daily-review.md)
+- [STB_export_20260317_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260317_daily-review.md)
+- [STB_export_20260318_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260318_daily-review.md)
+- [STB_export_20260319_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260319_daily-review.md)
+- [STB_export_20260320_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260320_daily-review.md)
+- [STB_export_20260322_weekly-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260322_weekly-review.md)
+- [STB_export_20260323_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260323_daily-review.md)
+- [STB_export_20260324_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260324_daily-review.md)
+- [STB_export_20260325_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260325_daily-review.md)
+- [STB_export_20260326_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260326_daily-review.md)
+- [STB_export_20260327_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260327_daily-review.md)
+- [STB_export_20260327_weekly-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/03-Mar/STB_export_20260327_weekly-review.md)
+
+**2026/04-Apr/** (8 files)
+- [STB_export_20260403_weekly-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/04-Apr/STB_export_20260403_weekly-review.md)
+- [STB_export_20260408_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/04-Apr/STB_export_20260408_daily-review.md)
+- [STB_export_20260410_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/04-Apr/STB_export_20260410_daily-review.md)
+- [STB_export_20260414_weekly-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/04-Apr/STB_export_20260414_weekly-review.md)
+- [STB_export_20260423_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/04-Apr/STB_export_20260423_daily-review.md)
+- [STB_export_20260426_weekly-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/04-Apr/STB_export_20260426_weekly-review.md)
+- [STB_export_20260429_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/04-Apr/STB_export_20260429_daily-review.md)
+- [STB_export_20260430_daily-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/04-Apr/STB_export_20260430_daily-review.md)
+
+**2026/05-May/** (2 files)
+- [STB_export_20260503_weekly-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/05-May/STB_export_20260503_weekly-review.md)
+- [STB_export_20260511_weekly-review.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/smarttrader-ai/exports/2026/05-May/STB_export_20260511_weekly-review.md)
+
+---
+
 *Part of the [Trading Assistant](https://github.com/drasticstatic/trading-assistant-public-preview) public preview.*

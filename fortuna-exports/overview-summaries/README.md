@@ -31,6 +31,8 @@ overview-summaries/
 ### Monthly Review
 - Full month arc, aggregate P&L, pattern trend analysis across the month's weekly/daily reviews
 
+> **Status (Aug 2026):** empty — no overview summaries landed here yet. `data/progression/gallery.html`'s new Trading Calendar & Metrics section is already set up to cross-link here once content exists. Historical exports (Feb–May 2026) remain at [`smarttrader-ai/exports/`](../../smarttrader-ai/exports/).
+
 ---
 
 *Part of the [Trading Assistant](https://github.com/drasticstatic/trading-assistant-public-preview) public preview.*
