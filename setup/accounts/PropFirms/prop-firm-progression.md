@@ -98,8 +98,11 @@ A second, smaller Apex Legacy track Christopher runs in parallel with APEX-48483
 
 | Account | Type | Period | Outcome | Notes |
 |---------|------|--------|---------|-------|
-| APEX Legacy-484839-09 | 50K FULL eval | ~Jul–Aug 5, 2026 | ❌ Blown Aug 5 | -$2,398 closed P&L (TradeZella reset:7) |
+| APEX-484839-07 | 50K, "No Activation Fee Intraday Trailing" | Jun 10 – Jul 10, 2026 | ⚠️ Outcome unconfirmed | Ended Jul 10 at $49,233.29, below the $50K start, after a declining last few sessions (-$857, -$833) — not confirmed blown or active from the balance chart alone (`APEX_2026_06-12-thru-07-10.png`). Different drawdown type (Intraday Trailing) from 09/10 below. |
+| APEX Legacy-484839-09 | 50K FULL eval | ~Jul–Aug 5, 2026 | ❌ Blown Aug 5 | -$2,400.68 final day, -$2,398 closed P&L per TradeZella ledger (reset:7) |
 | APEX Legacy-484839-10 | 50K FULL eval | ~Aug 6–19, 2026 | ❌ Blown Aug 19 | -$1,214.25 closed P&L (TradeZella reset:8) — balance chart in `data/imports/2026/08-Aug/APEX_2026_08-05-thru-08-19.png` |
+
+> Account 08 in this series is referenced by the reset:7/reset:8 numbering but not yet confirmed against a screenshot — flagged for the Phase 1 trade-review backlog pass rather than guessed here.
 
 ### TakeProfitTrader 50K
 
