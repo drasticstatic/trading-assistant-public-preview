@@ -19,12 +19,22 @@ flag any trades missing a review file.
 
 ## Before Starting
 
-1. Confirm CSV location — typically `~/Downloads/trades_YYYYMMDDHHmmss.csv` after export
+1. **Confirm CSV location — check the iCloud staging folder first:**
+   `~/Library/Mobile Documents/com~apple~CloudDocs/Trading/_csv-2B-filed/`
+   This is the primary source going forward (Christopher drops fresh exports here so nothing is lost to a local failure before it reaches GitHub). Includes Tradovate `Orders-N.csv` dumps and BTCC transaction-history CSVs.
+   **Fallback:** `~/Downloads/trades_YYYYMMDDHHmmss.csv` — check here if the file isn't in the iCloud folder (older workflow, still valid if that's where something landed).
 2. Identify the date range and instruments covered
 3. Note the export type:
    - **TradeZella:** exported from Trade Log page — contains summary data with P&L
    - **Tradovate:** exported from ORDERS tab (not Performance) — contains order-level data
+   - **TopOneFutures:** own CSV schema (Ticket/Symbol/Side/Open-Close Price/Time/P&L/Lots/Commissions) — see the TopOne eval-pass edge case below before archiving
+   - **BTCC:** normally "Trade History" export; if the download doesn't work, Christopher may hand over a browser-copy-paste routed through Apple Numbers (a `.numbers` file with a `.csv` sibling — read the `.csv`)
 4. Confirm `~/code/TradeZella_STB/` is set up (script + template + venv + service_account.json)
+5. **After a successful import, rename (do not delete) the source file(s) out of the staging folder** — TradeZella will duplicate on re-import if the same file is left in place next pass.
+
+### TopOne eval-pass edge case
+
+TopOneFutures revokes Tradovate access instantly the moment an eval is passed, so there's no way to re-pull a Tradovate-format export after a pass — only TopOne's own CSV schema is available. Reshape it to match Tradovate's `Orders-N.csv` column layout before archiving/importing, so the rest of this pipeline (STB push, TradeZella ingestion) works unchanged. Verify the conversion via P&L reconciliation math (contract multiplier × points = P&L) before trusting the output — this is how the Orders-102/103 conversion was verified.
 
 ## File Naming and Location
 
@@ -90,24 +100,31 @@ Confirm `data/imports/YYYY/MM-Mon/` exists. Create if needed:
 mkdir -p data/imports/YYYY/MM-Mon/
 ```
 
-Copy and rename to standard format:
+Copy and rename to standard format — source is the iCloud staging folder (`_csv-2B-filed/`), falling back to `~/Downloads/` if not found there:
 
 ```bash
+ICLOUD_CSV=~/"Library/Mobile Documents/com~apple~CloudDocs/Trading/_csv-2B-filed"
+
 # TradeZella
-cp ~/Downloads/trades_*.csv data/imports/YYYY/MM-Mon/tradezella_YYYYMMDD.csv
+cp "$ICLOUD_CSV"/trades_*.csv data/imports/YYYY/MM-Mon/tradezella_YYYYMMDD.csv
 
 # Tradovate — single export
-cp ~/Downloads/Orders.csv data/imports/YYYY/MM-Mon/tradovate_orders_YYYYMMDD.csv
+cp "$ICLOUD_CSV"/Orders.csv data/imports/YYYY/MM-Mon/tradovate_orders_YYYYMMDD.csv
 
 # Tradovate — multiple exports (e.g. Orders.csv + Orders-2.csv from two different trade dates)
 # Name each file after the trade date it covers:
-cp ~/Downloads/Orders.csv   data/imports/YYYY/MM-Mon/tradovate_orders_20260506.csv
-cp ~/Downloads/Orders-2.csv data/imports/YYYY/MM-Mon/tradovate_orders_20260508.csv
+cp "$ICLOUD_CSV"/Orders.csv   data/imports/YYYY/MM-Mon/tradovate_orders_20260506.csv
+cp "$ICLOUD_CSV"/Orders-2.csv data/imports/YYYY/MM-Mon/tradovate_orders_20260508.csv
 # If both cover the same date (e.g. split session), append a suffix:
-cp ~/Downloads/Orders-2.csv data/imports/YYYY/MM-Mon/tradovate_orders_YYYYMMDD_b.csv
+cp "$ICLOUD_CSV"/Orders-2.csv data/imports/YYYY/MM-Mon/tradovate_orders_YYYYMMDD_b.csv
+
+# Fallback if not found in iCloud staging:
+cp ~/Downloads/trades_*.csv data/imports/YYYY/MM-Mon/tradezella_YYYYMMDD.csv
 ```
 
-**Multiple exports edge case:** Tradovate resets the filename to `Orders.csv` each export. If you export multiple sessions, the Downloads folder accumulates `Orders.csv`, `Orders-2.csv`, `Orders-3.csv`, etc. Archive in the order they were exported — the earliest trade date gets the base name, each subsequent date gets its own `YYYYMMDD` name.
+**Multiple exports edge case:** Tradovate resets the filename to `Orders.csv` each export. If you export multiple sessions, the staging folder accumulates `Orders.csv`, `Orders-2.csv`, `Orders-3.csv`, etc. Archive in the order they were exported — the earliest trade date gets the base name, each subsequent date gets its own `YYYYMMDD` name.
+
+**After archiving, rename the source file(s) in the staging folder** (don't delete — just move them out of the active `_csv-2B-filed/` path, e.g. into a `_filed/` subfolder or with a `.done` suffix) so a later import pass doesn't re-ingest and duplicate them in TradeZella.
 
 ### 4. Cross-Reference Trade Reviews
 
@@ -137,8 +154,12 @@ Action needed:
 
 ### 6. Locate Screenshots
 
-Before creating trade reviews, locate session screenshots using `git status` — uncommitted files in `data/screenshots/` are the new additions for this session:
+**Primary source — check the iCloud staging folder first:**
+```bash
+ls ~/"Library/Mobile Documents/com~apple~CloudDocs/Trading/_Screenshots-2B-filed"
+```
 
+**Fallback — uncommitted files in `data/screenshots/`** (older workflow, or a screenshot dropped straight into the repo):
 ```bash
 git status data/screenshots/
 ```
@@ -148,7 +169,9 @@ Three naming conventions — match all:
 - **macOS Sequoia screenshot tool:** `Screenshot 2026-04-23 at 17.32.24.png` (one word, spaces, dots in time)
 - **macOS Big Sur screenshot tool:** `Screen Shot 2026-04-23 at 17.32.24.png` (two words, spaces, dots in time)
 
-Match filenames to instruments and date. If no uncommitted screenshots found in `data/screenshots/`, ask Christopher before looking elsewhere.
+Match filenames to instruments and date. **Note:** some TradingView captures show more than one pane/instrument in a single screenshot — the same file may legitimately belong in more than one trade review (e.g. an SMT-confirmation shot covering both the traded instrument and its confirming pair). Don't assume one screenshot maps to exactly one review.
+
+If nothing is found in either location, ask Christopher before looking elsewhere. After screenshots are embedded in reviews and committed, rename (don't delete) the source files out of `_Screenshots-2B-filed/` the same way CSVs are handled in Step 3.
 
 ### 7. Create Trade Reviews
 
@@ -198,13 +221,16 @@ git push origin main
 ## Quick Commands
 
 ```bash
+ICLOUD_CSV=~/"Library/Mobile Documents/com~apple~CloudDocs/Trading/_csv-2B-filed"
+ICLOUD_SCREENSHOTS=~/"Library/Mobile Documents/com~apple~CloudDocs/Trading/_Screenshots-2B-filed"
+
 # STB Google Sheet push (Terminal method)
 cd ~/code/TradeZella_STB && source venv/bin/activate
-python3 tradezella_to_stb.py ~/Downloads/trades_*.csv
+python3 tradezella_to_stb.py "$ICLOUD_CSV"/trades_*.csv
 
-# Archive CSV
+# Archive CSV (iCloud staging is primary; ~/Downloads/ is the fallback)
 mkdir -p data/imports/YYYY/MM-Mon/
-cp ~/Downloads/trades_*.csv data/imports/YYYY/MM-Mon/tradezella_YYYYMMDD.csv
+cp "$ICLOUD_CSV"/trades_*.csv data/imports/YYYY/MM-Mon/tradezella_YYYYMMDD.csv
 
 # Cross-reference reviews
 ls fortuna-exports/trade-reviews/YYYY/MM-Mon/
