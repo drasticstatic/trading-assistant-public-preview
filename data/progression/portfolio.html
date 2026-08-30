@@ -310,6 +310,14 @@
     .callout.warn { background: rgba(251,191,36,.05); border-color: rgba(251,191,36,.25); color: #c8973c; }
     .callout.info { background: rgba(126,200,255,.05); border-color: rgba(126,200,255,.2); color: var(--muted); }
 
+    /* ── EXPORT BUTTONS ── */
+    .export-btn {
+      font-family: inherit; font-size: .82rem; font-weight: 700; cursor: pointer;
+      padding: .5rem 1rem; border-radius: 999px; border: 1px solid rgba(251,191,36,.3);
+      background: rgba(251,191,36,.08); color: var(--gold, #fbbf24); transition: all .15s;
+    }
+    .export-btn:hover { border-color: rgba(251,191,36,.6); background: rgba(251,191,36,.15); }
+
     /* ── ACCORDION ── */
     details.acc {
       background: var(--surface);
@@ -469,6 +477,10 @@
     <!-- ── OVERVIEW STATS ── -->
     <section class="section" id="overview">
       <div class="sec-label">Overview</div>
+      <div class="btn-row" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1rem;">
+        <button class="export-btn" onclick="exportAccountsCSV('propfirm')">📥 Export Prop Firm Accounts (CSV)</button>
+        <button class="export-btn" onclick="exportAccountsCSV('live')">📥 Export Live Accounts (CSV)</button>
+      </div>
       <div class="stat-grid">
         <div class="stat neutral">
           <div class="stat-label">2026 YTD</div>
@@ -1179,6 +1191,50 @@
   </footer>
 
 <script>
+// ═══════════════════════════════════════════════════════════════════════════
+//  ACCOUNT CSV EXPORT — kept as two distinct scopes (prop firm vs live/personal)
+//  per Christopher's ask, not a single flat file. Update these arrays as
+//  account status changes; see prop-firm-progression.md and
+//  data/progression/assets/prop-firm-ledger.csv for the canonical roster.
+// ═══════════════════════════════════════════════════════════════════════════
+const EXPORT_ACCOUNTS = {
+  propfirm: [
+    { firm: 'Apex Trader Funding', account: 'APEX-484839-06', type: '100K eval', status: 'Passed -> funded as PA-APEX-484839-01' },
+    { firm: 'Apex Trader Funding', account: 'PA-APEX-484839-01', type: '100K funded', status: 'Blown ~Jun 11, 2026' },
+    { firm: 'Apex Trader Funding', account: 'APEX-484839-07', type: '50K Intraday Trailing eval', status: 'Outcome unconfirmed' },
+    { firm: 'Apex Trader Funding', account: 'APEX-484839-09', type: '50K Legacy FULL eval', status: 'Blown Aug 5, 2026' },
+    { firm: 'Apex Trader Funding', account: 'APEX-484839-10', type: '50K Legacy FULL eval', status: 'Blown Aug 19, 2026' },
+    { firm: 'TakeProfitTrader', account: 'TAKEPROFIT861085464', type: '50K PRO funded', status: 'Blown' },
+    { firm: 'TakeProfitTrader', account: 'TAKEPROFIT917806711', type: '50K eval (reset-4)', status: 'Passed Aug 28, 2026' },
+    { firm: 'TopOneFutures', account: 'TOF189562 -> TOF197288', type: '50K Elite ACCESS eval -> funded', status: 'Passed Aug 28, 2026' },
+    { firm: 'TopOneFutures', account: 'TOF189563 -> TOF197292', type: '50K Elite ACCESS eval -> funded', status: 'Passed Aug 28, 2026' },
+  ],
+  live: [
+    { platform: 'BTCC', account: 'Crypto perpetuals (SOL/USDT, ETH copy-trade)', type: 'Live/voucher', status: 'See portfolio.html #crypto for current balance' },
+    { platform: 'PocketOption', account: 'Binary options', type: 'Live', status: 'See portfolio.html #pocketoption' },
+    { platform: 'CoinLedger', account: 'On-chain aggregation', type: 'Live', status: 'See portfolio.html #onchain' },
+    { platform: 'Robinhood', account: 'Equities', type: 'Live (partially liquidated 2026)', status: 'See portfolio.html #robinhood' },
+    { platform: 'Acorns', account: 'Invest/IRA', type: 'Live (being disbursed)', status: 'No MCP yet — see portfolio.html #acorns' },
+    { platform: 'Web3 wallets', account: 'See WALLET_CONFIG below', type: 'On-chain, read-only', status: 'See portfolio.html #live-balances' },
+  ],
+};
+function exportAccountsCSV(scope) {
+  const rows = EXPORT_ACCOUNTS[scope];
+  if (!rows || !rows.length) return;
+  const headers = Object.keys(rows[0]);
+  const escape = (v) => `"${String(v).replace(/"/g, '""')}"`;
+  const lines = [headers.join(','), ...rows.map(r => headers.map(h => escape(r[h] ?? '')).join(','))];
+  const blob = new Blob([lines.join('\n')], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `portfolio-${scope}-accounts-${new Date().toISOString().slice(0, 10)}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
 // ═══════════════════════════════════════════════════════════════════════════
 //  LIVE WALLET CONFIG — add your public addresses here
 //  These are READ-ONLY public blockchain addresses. Never put private keys here.
