@@ -119,6 +119,8 @@ A second, smaller Apex Legacy track Christopher runs in parallel with APEX-48483
 
 **TPT eval parameters (all resets):** Starting balance $50,000 · Profit target $53,000 (+$3,000) · Min balance $48,000 · Max 6 contracts · No positions past 17:00 ET · 5 minimum trading days
 
+> **Roster gap:** TAKEPROFIT861085464 (TPT 50K PRO, certificate issued May 30, 2026, referenced in `data/progression/gallery.html`) does not fit cleanly into the reset-0→4 sequence above by date and is not yet reconciled here — Christopher confirmed this account has since blown too. Full placement pending the Phase 1 trade-review backlog pass.
+
 > Source PDFs: [TPT reset-0 (Feb 8–12)](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/imports/2026/02-Feb/TPT_2026_02-08-thru-02-12_redacted.pdf) · [TPT reset-1 (Feb 16)](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/imports/2026/02-Feb/TPT_2026_02-16_redacted.pdf) · [TPT reset-2 (Mar 25–26)](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/imports/2026/03-Mar/TPT_2026_03-25-thru-03-26_redacted.pdf) · [TPT reset-4 (Aug 20–27)](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/imports/2026/08-Aug/TPT_2026_08-20-thru-08-27_redacted.pdf)
 
 > Note: eval passage for reset-3→reset-4 and this TopOneFutures round involved manual copy-trading attempts via market/limit orders that Christopher describes as "messy" execution-wise — profit targets were still secured. Detailed trade-by-trade entries for this period will land in `pattern_tracker.md` as the [fortuna-exports/trade-reviews/](../../../fortuna-exports/trade-reviews/) backlog is processed.
