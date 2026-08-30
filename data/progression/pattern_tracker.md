@@ -483,6 +483,26 @@ Arc status: Pattern 7 — 6 consecutive sessions with SL modification. Critical 
             Pattern 9 — MCL pre-placed stop remains the arc's clearest protection example. Hold this standard.
             Pattern 10 — NEW: eval/pressure trade. Entry motivated by compliance, not pure A+ signal.
             Account standing: APEX-06 active (min days met, profit target remaining). TPT BLOWN. BTCC $0.
+
+Apr 30  ░░░░░░░░░░░░░░░░░░░░  🔴 TPT reset-3 (TAKEPROFIT558167553) BLOWN
+                               YM no-SL resting limit AutoLiq, -$2,000 — 4th account blow, same root
+                               cause across all four: no mechanical stop in place. TPT reset-4 opened.
+
+May 1 – Aug 27 ────────────  ⏳ GAP — detailed trade log entries pending
+                               TPT reset-4 (TAKEPROFIT917806711) traded through this window; two
+                               TopOneFutures Elite ACCESS evals (TOF189562, TOF189563) opened and run.
+                               Journal/psychology data for this period has not yet been given to Fortuna —
+                               trade-by-trade rows will be appended here as the fortuna-exports/trade-reviews/
+                               backlog (225 screenshots + Tradovate/BTCC CSVs from the iCloud staging folders)
+                               is processed. This is a known, deliberate gap, not a missed session.
+
+Aug 2026  ████████████████░░  ✅ THREE EVALS PASSED — TPT reset-4 + both TopOneFutures Elite ACCESS accounts
+                               TAKEPROFIT917806711 funded (certificate issued late Aug 2026).
+                               TOF189562 + TOF189563 both funded — Sim Funded Trader certificate issued Aug 28,
+                               instantly tradeable, EOD drawdown type.
+                               Christopher: eval execution on both fronts was "messy"/"sloppy" — manual
+                               copy-trading attempts via market/limit orders — but profit targets were secured
+                               regardless. Full roster: setup/accounts/PropFirms/prop-firm-progression.md
 ```
 
 ---
@@ -567,5 +587,5 @@ Links to individual reviews:
 ---
 
 *Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
-*Pattern Tracker · Established Feb 25, 2026 · Updated Apr 29, 2026*
+*Pattern Tracker · Established Feb 25, 2026 · Updated Aug 30, 2026*
 *Updated after each session — append, do not overwrite historical entries*

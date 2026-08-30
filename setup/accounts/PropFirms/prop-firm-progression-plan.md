@@ -1,5 +1,5 @@
 # Prop Firm Progression Plan
-> Last updated: February 2026
+> Last updated: February 2026 — original phase-by-phase plan. For the live account roster and current status, see [prop-firm-progression.md](prop-firm-progression.md).
 
 ---
 
