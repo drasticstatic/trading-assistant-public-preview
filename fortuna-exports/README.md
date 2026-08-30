@@ -8,9 +8,11 @@ This is the active home for everything Fortuna generates going forward — pre-m
 
 | Directory | Contents |
 |-----------|----------|
-| `premarket-analysis/` | Pre-session prep — bias, levels, news, expectations (replaces `smarttrader-ai/analysis/premarket/`) |
-| `trade-reviews/` | Individual trade reviews — one file per trade (replaces `smarttrader-ai/reviews/`) |
-| `overview-summaries/` | Daily, weekly, and monthly review exports (replaces `smarttrader-ai/exports/`) |
+| [`premarket-analysis/`](premarket-analysis/) | Pre-session prep — bias, levels, news, expectations (replaces `smarttrader-ai/analysis/premarket/`) |
+| [`trade-reviews/`](trade-reviews/) | Individual trade reviews — one file per trade (replaces `smarttrader-ai/reviews/`) |
+| [`overview-summaries/`](overview-summaries/) | Daily, weekly, and monthly review exports (replaces `smarttrader-ai/exports/`) |
+
+> **Status (Aug 2026):** all three subdirectories are currently empty — content lands here as the `_csv-2B-filed`/`_Screenshots-2B-filed` backlog is processed into trade reviews. See each subdirectory's README for the structure that will populate.
 
 ## 📄 What Lives at This Level
 

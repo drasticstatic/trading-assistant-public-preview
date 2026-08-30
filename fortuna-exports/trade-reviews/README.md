@@ -15,6 +15,8 @@ trade-reviews/
 
 *NNN = day-sequential number, resets each date (001, 002, 003...)*
 
+> **Status (Aug 2026):** empty — no reviews landed here yet. New reviews go here going forward as the `_csv-2B-filed`/`_Screenshots-2B-filed` staging backlog is processed; historical reviews (Feb–May 2026) remain at [`smarttrader-ai/reviews/`](../../smarttrader-ai/reviews/).
+
 ## 📋 Review Sections (Standard)
 
 1. ⚡ What Happened
