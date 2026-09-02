@@ -1,0 +1,22 @@
+firm,account_number,amount_paid,coupon_used,date,date_funded,date_purchased_renewed,phase,account_size,drawdown_type,account_type,reset_renewed_repurchased,outcome,payment_method,notes
+Apex Trader Funding,APEX-484839-01,,,,,,eval,100000,Legacy Static,Legacy 100K Static,new,blown,,Earliest account; blown Feb 9 2026 (-$627.90)
+Apex Trader Funding,APEX-484839-02,,,,,,eval,100000,Legacy,Legacy 100K,new,blown,,Blown Feb 12 2026 (-$1945.62)
+Apex Trader Funding,APEX-484839-03,,,,,,eval,100000,Legacy,Legacy 100K,new,blown,,Blown Feb 13 2026 (-$3008.10)
+Apex Trader Funding,APEX-484839-04,,,,,,eval,100000,Legacy,Legacy 100K,new,blown,,Blown Feb 13 2026 (-$998.10); same session as -03
+Apex Trader Funding,APEX-484839-05,,,,,,eval,100000,Legacy,Legacy 100K,reset,blown,,Blown Mar 3 2026 (-$2294.54); Patterns 6+7
+Apex Trader Funding,APEX-484839-06,,,,,,eval,100000,Legacy,Legacy 100K,reset,passed,,Passed May 14 2026; funded as PA-APEX-484839-01
+Apex Trader Funding,PA-APEX-484839-01,,,,2026-05-14,,funded,100000,Legacy,Legacy 100K,new,blown,,Funded from APEX-06 pass; MAE violations May 28; blown ~Jun 11 2026 (-$1562.40)
+Apex Trader Funding,APEX-484839-07,,,,,,eval,50000,Intraday Trailing (No Activation Fee),Intraday Trailing 50K,reset,blown,,"Jun 10 - Jul 10 2026; confirmed blown Jul 10 via CSV fill-level data (AutoLiq signature) — previously listed unconfirmed"
+Apex Trader Funding,APEX-484839-08,,,,,,eval,50000,Intraday Trailing (No Activation Fee),Intraday Trailing 50K,reset,blown,,"Jul 21 - Aug 4 2026; blown Aug 4 2026 (-$656.50), confirmed via CSV fill-level data (AutoLiq signature); no screenshot on file"
+Apex Trader Funding,APEX-484839-09,,,,,,eval,50000,Legacy FULL,Legacy 50K,reset,blown,,Blown Aug 5 2026 (-$2398)
+Apex Trader Funding,APEX-484839-10,,,,,,eval,50000,Legacy FULL,Legacy 50K,reset,blown,,Blown Aug 19 2026 (-$1214.25)
+TakeProfitTrader,TAKEPROFIT635000920,,,,,,eval,50000,EOD,TPT EOD,new,blown,,"reset-0; blown Feb 13 2026, min balance breach"
+TakeProfitTrader,TAKEPROFIT401190651,,,,,,eval,50000,EOD,TPT EOD,reset,blown,,reset-1; blown day 1 (Feb 16-17 2026)
+TakeProfitTrader,TAKEPROFIT363712064,,,,,,eval,50000,EOD,TPT EOD,reset,blown,,reset-2; blown Mar 27 2026 overnight MGC
+TakeProfitTrader,TAKEPROFIT861085464,,,,2026-05-30,,funded,50000,EOD,TPT EOD PRO,reset,blown,,"TPT 50K PRO; certificate issued May 30 2026; confirmed blown since; exact reset-sequence placement unresolved"
+TakeProfitTrader,TAKEPROFIT558167553,,,,,,eval,50000,EOD,TPT EOD,reset,blown,,reset-3; blown Apr 30 2026, YM no-SL resting limit AutoLiq -$2000
+TakeProfitTrader,TAKEPROFIT917806711,,,,,,eval,50000,EOD,TPT EOD,reset,passed,,"reset-4; passed Aug 28 2026 10:35AM (+$3154.85); certificate issued Aug 29 2026"
+TopOneFutures,TOF189562,39.00,MATCH,2026-08-20,,2026-08-20,eval,50000,EliteAccess-EOD,TopOne EliteACCESS Eval,new,passed,,"Eval passed Aug 28 2026 10:40AM (+$3116.25); funded as TOF197288. BOGO order #523330+#523331 w/ TOF189563 — $39 total covers both accounts via coupon MATCH (79% off)"
+TopOneFutures,TOF189563,0.00,MATCH,2026-08-20,,2026-08-20,eval,50000,EliteAccess-EOD,TopOne EliteACCESS Eval,new,passed,,"Eval passed Aug 28 2026 10:42AM (+$3106.75); funded as TOF197292. FREE account in the TOF189562 BOGO order (order #523331) via coupon MATCH"
+TopOneFutures,TOF197288,189.00,,2026-08-28,2026-08-28,,funded,50000,EOD,TopOne EliteACCESS Funded,new,active,,"{FUNDED|sim} funded from TOF189562; +$183 as of Aug 29 5:46PM. Activation Fee ACCESS, order #535387"
+TopOneFutures,TOF197292,189.00,,2026-08-28,2026-08-28,,funded,50000,EOD,TopOne EliteACCESS Funded,new,active,,"{FUNDED|sim} funded from TOF189563; +$183 as of Aug 29 5:48PM. Activation Fee ACCESS, order #535407"

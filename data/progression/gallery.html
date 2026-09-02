@@ -134,6 +134,9 @@
     .badge-reset {
       border-color: rgba(167,139,250,.35); color: var(--purple); background: rgba(167,139,250,.1);
     }
+    .badge-phase {
+      border-color: rgba(126,200,255,.3); color: var(--blue); background: rgba(126,200,255,.1);
+    }
 
     /* ── MARQUEE (Certificates — mouse-scrollable strip, JS ping-pong autoplay) ── */
     .marquee-wrap {
@@ -312,18 +315,33 @@
     }
 
     /* ── CSV TABLE (Prop Firm Ledger) ── */
+    .ledger-filters { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: .7rem; }
+    .ledger-filters select {
+      background: var(--surface); border: 1px solid var(--border); color: var(--text);
+      border-radius: 999px; padding: .3rem .7rem; font-size: .74rem; cursor: pointer;
+    }
     .csv-table-wrap {
-      overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-md);
+      overflow-x: auto; overflow-y: auto; max-height: 480px;
+      border: 1px solid var(--border); border-radius: var(--radius-md);
       background: var(--surface);
     }
     .csv-table { width: 100%; border-collapse: collapse; font-size: .76rem; white-space: nowrap; }
     .csv-table th {
       text-align: left; padding: .6rem .8rem; background: var(--surface-raised);
       color: var(--muted); text-transform: uppercase; font-size: .64rem; letter-spacing: .06em;
-      position: sticky; top: 0;
+      position: sticky; top: 0; z-index: 1;
     }
     .csv-table td { padding: .55rem .8rem; border-top: 1px solid var(--border); color: var(--text); }
-    .csv-table tr:hover td { background: rgba(255,255,255,.03); }
+    .csv-table tbody tr:not(.ledger-detail-row) { cursor: pointer; }
+    .csv-table tbody tr:not(.ledger-detail-row):hover td { background: rgba(255,255,255,.03); }
+    .csv-table tfoot td {
+      padding: .6rem .8rem; border-top: 2px solid var(--border); font-weight: 800; color: var(--text);
+      background: var(--surface-raised); position: sticky; bottom: 0;
+    }
+    .ledger-detail-row td {
+      padding: .6rem .8rem; background: var(--surface-soft); color: var(--muted);
+      font-size: .74rem; white-space: normal;
+    }
     .csv-table-note { font-size: .78rem; color: var(--muted); padding: 1rem; }
 
     .toggle-panel { display: none; margin-top: 1.1rem; }
@@ -453,10 +471,12 @@
     <p class="sec-sub">Huge thanks to <a href="https://propfirmmatch.com/futures" target="_blank" rel="noreferrer">PropFirmMatchTV</a> — an on-stream duck race win turned into a LucidFlex eval account, which is how Lucid entered the roster at all. Copy trading is being set up through <a href="https://tradecopia.com" target="_blank" rel="noreferrer">TradeCopia</a> so eval and funded accounts can mirror a single manually-traded source instead of everything being hand-executed one account at a time. Full plan: see the copy-trading documentation (Phase 10).</p>
 
     <div class="sec-label">Account Ledger <span class="sec-tag">what once looked like a graveyard is a resurrection project</span></div>
-    <p class="sec-sub">Every eval, reset, blow, and pass across Apex, TPT, and TopOneFutures — now sourced from a clean CSV going forward instead of cross-referencing screenshots by hand. Christopher fills in cost columns from receipts as they come in.</p>
+    <p class="sec-sub">Every eval, reset, blow, and pass across Apex, TPT, and TopOneFutures — now sourced from a clean CSV going forward instead of cross-referencing screenshots by hand. Christopher fills in cost columns from receipts as they come in. Click a row for its payment method and notes.</p>
+    <div class="ledger-filters" id="ledgerFilters"></div>
     <div class="csv-table-wrap" id="ledgerTableWrap"><p class="csv-table-note">Loading ledger…</p></div>
     <div class="carousel-pills">
       <a href="#" class="pill-cta" onclick="toggleLegacyLedger(); return false;" id="legacyLedgerPill">🗄️ Legacy TradeZella Ledger ↗</a>
+      <a href="#" class="pill-cta alt" onclick="exportLedgerCSV(); return false;">📥 Export Ledger (CSV)</a>
     </div>
     <div class="toggle-panel" id="legacyLedgerPanel">
       <div class="gallery-grid" id="ledgerGrid"></div>
@@ -796,8 +816,12 @@
     const ledgerItems = [
       { src: '../imports/2026/04-Apr/TradeZella_Apr-accounts.png', title: 'Account Ledger — April 2026',
         caption: 'TradeZella account ledger, snapshot as of April 2026', meta: '<span>Snapshot through late April</span>' },
-      { src: '../imports/2026/08-Aug/TradeZella_Aug-accounts-updated.png', title: 'Account Ledger — August 2026 (Current)',
+      { src: '../imports/2026/08-Aug/TradeZella_Aug-accounts.png', title: 'Account Ledger — August 2026',
+        caption: 'TradeZella account ledger, snapshot as of August 2026', meta: '<span>August snapshot</span>' },
+      { src: '../imports/2026/08-Aug/TradeZella_Aug-accounts-updated.png', title: 'Account Ledger — August 2026 (Updated)',
         caption: 'TradeZella account ledger, snapshot as of August 2026 — Apex Legacy, TPT, and TopOneFutures Elite Access accounts', meta: '<span>Full history — Apex, TPT, TopOneFutures</span>' },
+      { src: '../imports/2026/08-Aug/TradeZella_Aug-accounts-updated-from first eval passed to now.png', title: 'Account Ledger — August 2026 (Current)',
+        caption: 'TradeZella account ledger, updated from first eval passed through the current triple-eval-pass milestone', meta: '<span>Most current snapshot</span>' },
     ];
     const ledgerGrid = document.getElementById('ledgerGrid');
     ledgerItems.forEach((item, i) => {
@@ -1253,9 +1277,14 @@
     renderCalMonth();
 
     // ═══════════════════════════════════════════════════════
-    // PROP FIRM LEDGER — loaded from assets/prop-firm-ledger.csv
+    // PROP FIRM LEDGER — loaded from assets/prop-firm-account-ledger.csv
     // ═══════════════════════════════════════════════════════
-    const ledgerColumns = ['Firm', 'Account #', 'Paid', 'Coupon', 'Date', 'Phase', 'Size', 'Drawdown', 'Reset/Renew', 'Outcome', 'Paid Via', 'Notes'];
+    const LEDGER_FIELDS = ['firm', 'account_number', 'amount_paid', 'coupon_used', 'date', 'date_funded', 'date_purchased_renewed', 'phase', 'account_size', 'drawdown_type', 'account_type', 'reset_renewed_repurchased', 'outcome', 'payment_method', 'notes'];
+    // Visible table columns (Paid Via + Notes move to the per-row accordion detail instead)
+    const ledgerColumns = ['Firm', 'Account #', 'Paid', 'Coupon', 'Date', 'Date Funded', 'Purchased/Renewed', 'Phase', 'Size', 'Drawdown', 'Type', 'Recourse', 'Outcome'];
+    let ledgerRows = []; // array of field->value objects, parsed once
+    let ledgerFilterState = { firm: 'all', outcome: 'all', phase: 'all' };
+
     function parseCSVLine(line) {
       const out = []; let cur = ''; let inQ = false;
       for (let i = 0; i < line.length; i++) {
@@ -1273,25 +1302,108 @@
       if (o === 'blown') return `<span class="badge badge-blown">❌ ${outcome}</span>`;
       return `<span class="badge badge-warn">⚠️ ${outcome || '—'}</span>`;
     }
-    function renderLedgerTable(text) {
-      const lines = text.trim().split('\n');
-      const rows = lines.slice(1).map(parseCSVLine);
+    function phaseBadge(phase) {
+      const p = (phase || '').toLowerCase();
+      const emoji = p === 'funded' ? '💰' : '📝';
+      return phase ? `<span class="badge badge-phase">${emoji} ${phase}</span>` : '—';
+    }
+    function formatSize(sizeStr) {
+      const n = parseInt(sizeStr, 10);
+      if (!n) return sizeStr || '—';
+      return n >= 1000 ? `${Math.round(n / 1000)}K` : String(n);
+    }
+    function fundedFromNote(notes) {
+      const m = (notes || '').match(/funded from ([A-Za-z0-9\-]+)/i);
+      return m ? m[1] : null;
+    }
+    function renderLedgerFilters() {
+      const firms = ['all', ...new Set(ledgerRows.map(r => r.firm))];
+      const outcomes = ['all', ...new Set(ledgerRows.map(r => r.outcome))];
+      const phases = ['all', ...new Set(ledgerRows.map(r => r.phase))];
+      function selectHtml(key, values, label) {
+        return `<select onchange="ledgerFilterState.${key}=this.value; renderLedgerRows();">` +
+          values.map(v => `<option value="${v}">${label}: ${v === 'all' ? 'All' : v}</option>`).join('') +
+          `</select>`;
+      }
+      document.getElementById('ledgerFilters').innerHTML =
+        selectHtml('firm', firms, 'Firm') + selectHtml('outcome', outcomes, 'Outcome') + selectHtml('phase', phases, 'Phase');
+    }
+    function filteredLedgerRows() {
+      return ledgerRows.filter(r =>
+        (ledgerFilterState.firm === 'all' || r.firm === ledgerFilterState.firm) &&
+        (ledgerFilterState.outcome === 'all' || r.outcome === ledgerFilterState.outcome) &&
+        (ledgerFilterState.phase === 'all' || r.phase === ledgerFilterState.phase)
+      );
+    }
+    function toggleLedgerDetail(idx) {
+      const row = document.getElementById(`ledgerDetail${idx}`);
+      if (row) row.style.display = row.style.display === 'table-row' ? 'none' : 'table-row';
+    }
+    function renderLedgerRows() {
+      const rows = filteredLedgerRows();
       let html = '<table class="csv-table"><thead><tr>' + ledgerColumns.map(h => `<th>${h}</th>`).join('') + '</tr></thead><tbody>';
-      rows.forEach(r => {
-        html += '<tr>' + r.map((c, i) => {
-          if (i === ledgerColumns.length - 3) return `<td>${outcomeBadge(c)}</td>`; // Outcome column
-          return `<td>${c || '—'}</td>`;
-        }).join('') + '</tr>';
+      let totalPaid = 0;
+      rows.forEach((r, idx) => {
+        const amt = parseFloat(r.amount_paid);
+        if (!isNaN(amt)) totalPaid += amt;
+        const fundedFrom = fundedFromNote(r.notes);
+        html += `<tr onclick="toggleLedgerDetail(${idx})">` +
+          `<td>${r.firm || '—'}</td>` +
+          `<td>${r.account_number || '—'}${fundedFrom ? `<br><span style="color:var(--dim);font-size:.68rem;">↳ funded from ${fundedFrom}</span>` : ''}</td>` +
+          `<td>${amt ? '$' + amt.toFixed(2) : '—'}</td>` +
+          `<td>${r.coupon_used || '—'}</td>` +
+          `<td>${r.date || '—'}</td>` +
+          `<td>${r.date_funded || '—'}</td>` +
+          `<td>${r.date_purchased_renewed || '—'}</td>` +
+          `<td>${phaseBadge(r.phase)}</td>` +
+          `<td>${formatSize(r.account_size)}</td>` +
+          `<td>${r.drawdown_type || '—'}</td>` +
+          `<td>${r.account_type || '—'}</td>` +
+          `<td>${r.reset_renewed_repurchased || '—'}</td>` +
+          `<td>${outcomeBadge(r.outcome)}</td>` +
+          `</tr>` +
+          `<tr class="ledger-detail-row" id="ledgerDetail${idx}" style="display:none;">` +
+          `<td colspan="${ledgerColumns.length}"><strong>Paid Via:</strong> ${r.payment_method || '—'} &nbsp; · &nbsp; <strong>Notes:</strong> ${r.notes || '—'}</td>` +
+          `</tr>`;
       });
-      html += '</tbody></table>';
+      html += '</tbody><tfoot><tr>' +
+        `<td colspan="2">Totals (${rows.length} row${rows.length === 1 ? '' : 's'})</td>` +
+        `<td>$${totalPaid.toFixed(2)}</td>` +
+        `<td colspan="${ledgerColumns.length - 3}"></td>` +
+        '</tr></tfoot></table>';
       document.getElementById('ledgerTableWrap').innerHTML = html;
     }
-    fetch('assets/prop-firm-ledger.csv')
+    function exportLedgerCSV() {
+      const rows = filteredLedgerRows();
+      const header = LEDGER_FIELDS.join(',');
+      const body = rows.map(r => LEDGER_FIELDS.map(f => {
+        const v = (r[f] || '').toString();
+        return v.includes(',') ? `"${v}"` : v;
+      }).join(',')).join('\n');
+      const blob = new Blob([header + '\n' + body], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'prop-firm-account-ledger-export.csv';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+    fetch('assets/prop-firm-account-ledger.csv')
       .then(res => { if (!res.ok) throw new Error('fetch failed'); return res.text(); })
-      .then(renderLedgerTable)
+      .then(text => {
+        const lines = text.trim().split('\n');
+        const rawRows = lines.slice(1).map(parseCSVLine);
+        ledgerRows = rawRows.map(cells => {
+          const obj = {};
+          LEDGER_FIELDS.forEach((f, i) => obj[f] = cells[i] || '');
+          return obj;
+        });
+        renderLedgerFilters();
+        renderLedgerRows();
+      })
       .catch(() => {
         document.getElementById('ledgerTableWrap').innerHTML =
-          '<p class="csv-table-note">Live table requires viewing this page over HTTP (e.g. GitHub Pages) — a local file:// preview can\'t fetch the CSV. <a href="assets/prop-firm-ledger.csv">View the raw CSV</a> instead.</p>';
+          '<p class="csv-table-note">Live table requires viewing this page over HTTP (e.g. GitHub Pages) — a local file:// preview can\'t fetch the CSV. <a href="assets/prop-firm-account-ledger.csv">View the raw CSV</a> instead.</p>';
       });
   </script>
 
