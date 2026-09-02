@@ -248,6 +248,55 @@
     .metric-value.pos { color: var(--green); }
     .metric-value.neg { color: var(--red); }
 
+    /* ── CALENDAR (real month grid, partitioned win/loss day cells) ── */
+    .cal-nav {
+      display: flex; align-items: center; justify-content: center; gap: .8rem;
+      margin: .2rem 0 .8rem;
+    }
+    .cal-month-label { font-size: .88rem; font-weight: 700; color: var(--text); min-width: 9rem; text-align: center; }
+    .cal-grid {
+      display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px;
+      margin-bottom: .4rem;
+    }
+    .cal-dow {
+      font-size: .62rem; text-transform: uppercase; letter-spacing: .06em;
+      color: var(--muted); text-align: center; padding-bottom: .2rem;
+    }
+    .cal-cell {
+      aspect-ratio: 1; border-radius: 8px; border: 1px solid var(--border);
+      background: var(--surface-soft); display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: .2rem; cursor: default;
+      position: relative;
+    }
+    .cal-cell.has-trades { cursor: pointer; transition: border-color .15s, transform .15s; }
+    .cal-cell.has-trades:hover { border-color: var(--gold); transform: translateY(-1px); }
+    .cal-cell.empty { border: none; background: none; }
+    .cal-cell-daynum { font-size: .68rem; color: var(--dim); font-weight: 700; }
+    .cal-cell.has-trades .cal-cell-daynum { color: var(--text); }
+    .cal-dots { display: flex; gap: 2px; flex-wrap: wrap; justify-content: center; max-width: 85%; }
+    .cal-dot { width: 5px; height: 5px; border-radius: 999px; flex: 0 0 auto; }
+    .cal-dot.win { background: var(--green); }
+    .cal-dot.loss { background: var(--red); }
+    .cal-net { font-size: .56rem; font-weight: 800; }
+    .cal-net.pos { color: var(--green); }
+    .cal-net.neg { color: var(--red); }
+
+    /* ── DAY DETAIL PANEL (shared by calendar grid + heatmap-strip clicks) ── */
+    .day-panel {
+      display: none; margin: .7rem 0 1.2rem; padding: .9rem 1rem;
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md);
+    }
+    .day-panel.open { display: block; }
+    .day-panel-title { font-size: .84rem; font-weight: 700; color: var(--text); margin-bottom: .5rem; }
+    .day-panel-trade {
+      display: flex; justify-content: space-between; gap: .8rem; font-size: .78rem;
+      padding: .3rem 0; border-top: 1px solid var(--border);
+    }
+    .day-panel-trade:first-of-type { border-top: none; }
+    .day-panel-pnl.pos { color: var(--green); font-weight: 700; }
+    .day-panel-pnl.neg { color: var(--red); font-weight: 700; }
+    .day-panel-note { font-size: .72rem; color: var(--dim); margin-top: .6rem; }
+
     /* ── HEATMAP (day-strip, aggregated net P&L per day) ── */
     .heatmap-strip {
       display: flex; gap: 4px; overflow-x: auto; padding: .4rem .15rem 1rem;
@@ -382,13 +431,26 @@
     <div class="sec-label">📅 Trading Calendar &amp; Metrics <span class="sec-tag">v1 — built from Fortuna's own trade-review data, not TradeZella</span></div>
     <p class="sec-sub">A homegrown replacement for the TradeZella calendar/stats — driven directly by <code>pattern_tracker.md</code>'s Trade Log so it grows as the <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/fortuna-exports/trade-reviews" target="_blank" rel="noreferrer">trade-review backlog</a> is processed. Currently reflects 277 logged futures trades, Feb 23 – Sep 1, 2026, across every prop firm account — reconstructed from Tradovate order-fill CSVs for the May–Sep window (see <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/master_trade_ledger_2026-05-14_to_2026-09-01.csv" target="_blank" rel="noreferrer">master_trade_ledger</a>). A short May 9–13 gap remains where no CSV export exists.</p>
     <div class="metrics-strip" id="metricsStrip"></div>
+
+    <div class="cal-nav">
+      <button class="carousel-nav-btn" onclick="calNav(-1)">‹</button>
+      <span class="cal-month-label" id="calMonthLabel"></span>
+      <button class="carousel-nav-btn" onclick="calNav(1)">›</button>
+    </div>
+    <div class="cal-grid" id="calGrid"></div>
+    <div class="day-panel" id="dayPanel"></div>
+
+    <p style="margin-top:.4rem;font-size:.78rem;color:var(--muted);">Also viewable as a scrollable day-strip across the full backlog:</p>
     <div class="heatmap-strip" id="heatmapStrip"></div>
-    <p style="margin-top:.2rem;font-size:.72rem;color:var(--dim);">Green = net win day · red = net loss day · intensity scales with size. Hover a cell for the date and net P&amp;L.</p>
+    <p style="margin-top:.2rem;font-size:.72rem;color:var(--dim);">Green = net win day · red = net loss day · intensity scales with size. Click a cell for that day's trades, or hover for a quick date + net P&amp;L preview.</p>
 
     <div class="sec-label">Account Progression</div>
     <p class="sec-sub">Every eval and funded account's balance progression, newest first. TPT statement images (portrait) support a fit ↔ scroll toggle — click once to open full-page, click the image again for a scrollable full-width view.</p>
     <div class="ribbon" id="progressionRibbon"></div>
     <p style="margin-top:.3rem;font-size:.78rem;color:var(--dim);">Source files: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/imports" target="_blank" rel="noreferrer">data/imports/</a> (original PDFs + statement exports, by month)</p>
+
+    <div class="sec-label">🦆 Copy Trading</div>
+    <p class="sec-sub">Huge thanks to <a href="https://propfirmmatch.com/futures" target="_blank" rel="noreferrer">PropFirmMatchTV</a> — an on-stream duck race win turned into a LucidFlex eval account, which is how Lucid entered the roster at all. Copy trading is being set up through <a href="https://tradecopia.com" target="_blank" rel="noreferrer">TradeCopia</a> so eval and funded accounts can mirror a single manually-traded source instead of everything being hand-executed one account at a time. Full plan: see the copy-trading documentation (Phase 10).</p>
 
     <div class="sec-label">Account Ledger <span class="sec-tag">what once looked like a graveyard is a resurrection project</span></div>
     <p class="sec-sub">Every eval, reset, blow, and pass across Apex, TPT, and TopOneFutures — now sourced from a clean CSV going forward instead of cross-referencing screenshots by hand. Christopher fills in cost columns from receipts as they come in.</p>
@@ -401,7 +463,7 @@
     </div>
 
     <div class="sec-label">🗄️ Legacy TradeZella Archive <span class="sec-tag">how this started — and letting go of it, moving forward</span></div>
-    <p class="sec-sub">TradeZella got the habit started: drag-and-drop calendars, Zella Score, AI reviews. This section keeps that record intact — including the paper-trading era, on purpose, as an origin story — while the sections above take over for everything going forward. See also: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews" target="_blank" rel="noreferrer">monthly reviews</a> for the fuller written record behind these screenshots.</p>
+    <p class="sec-sub">TradeZella got the habit started: drag-and-drop calendars, Zella Score, AI reviews. This section keeps that record intact — including the paper-trading intro, on purpose, as part of the origin story — while the sections above take over for everything going forward. See also: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews" target="_blank" rel="noreferrer">monthly reviews</a> for the fuller written record behind these screenshots.</p>
     <div class="carousel">
       <div class="carousel-thumbstrip" id="calendarThumbstrip"></div>
       <div class="carousel-viewport" onclick="carouselOpenLightbox(calendarState)">
@@ -419,7 +481,7 @@
         </div>
         <div class="carousel-pills">
           <a href="#" class="pill-cta" onclick="openStatsModal('post'); return false;">📊 Extended TradeZella Stats ↗</a>
-          <a href="#" class="pill-cta alt" onclick="openStatsModal('pre'); return false;">🌱 Origin Story — Paper Trading Era ↗</a>
+          <a href="#" class="pill-cta alt" onclick="openStatsModal('pre'); return false;">🌱 + Paper Trading Origin – Intro Story Included ↗</a>
         </div>
       </div>
     </div>
@@ -1107,14 +1169,88 @@
         const cell = document.createElement('div');
         cell.className = 'heatmap-cell';
         cell.style.background = color;
+        cell.style.cursor = 'pointer';
         cell.title = `${d.date} — ${fmtMoney(d.pnl)}`;
         const day = d.date.slice(8, 10);
         cell.textContent = day;
+        cell.onclick = () => showDayPanel(d.date);
         el.appendChild(cell);
       });
     }
     renderMetrics(loggedTrades);
     renderHeatmap(loggedTrades);
+
+    // ═══════════════════════════════════════════════════════
+    // CALENDAR — real month grid, partitioned win/loss day cells + day-click panel
+    // ═══════════════════════════════════════════════════════
+    function aggregateByDateDetailed(trades) {
+      const map = {};
+      trades.forEach(t => {
+        if (!map[t.date]) map[t.date] = { date: t.date, net: 0, wins: 0, losses: 0, trades: [] };
+        map[t.date].net += t.pnl;
+        if (t.pnl > 0) map[t.date].wins++; else if (t.pnl < 0) map[t.date].losses++;
+        map[t.date].trades.push(t);
+      });
+      return map;
+    }
+    const dayDetail = aggregateByDateDetailed(loggedTrades);
+    const calMonths = Object.keys(dayDetail).map(d => d.slice(0, 7)).filter((v, i, a) => a.indexOf(v) === i).sort();
+    let calMonthIndex = calMonths.length - 1; // default to most recent month
+
+    function calNav(delta) {
+      calMonthIndex = Math.max(0, Math.min(calMonths.length - 1, calMonthIndex + delta));
+      renderCalMonth();
+    }
+    function renderCalMonth() {
+      const ym = calMonths[calMonthIndex];
+      const [year, month] = ym.split('-').map(Number);
+      const monthLabel = new Date(year, month - 1, 1).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+      document.getElementById('calMonthLabel').textContent = monthLabel;
+      const grid = document.getElementById('calGrid');
+      grid.innerHTML = '';
+      ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].forEach(dow => {
+        const d = document.createElement('div');
+        d.className = 'cal-dow';
+        d.textContent = dow;
+        grid.appendChild(d);
+      });
+      const firstDow = new Date(year, month - 1, 1).getDay();
+      const daysInMonth = new Date(year, month, 0).getDate();
+      for (let i = 0; i < firstDow; i++) {
+        const d = document.createElement('div');
+        d.className = 'cal-cell empty';
+        grid.appendChild(d);
+      }
+      for (let day = 1; day <= daysInMonth; day++) {
+        const dateStr = `${ym}-${String(day).padStart(2, '0')}`;
+        const info = dayDetail[dateStr];
+        const cell = document.createElement('div');
+        cell.className = 'cal-cell' + (info ? ' has-trades' : '');
+        const dots = info ? Array.from({ length: Math.min(info.wins, 5) }, () => '<span class="cal-dot win"></span>').join('')
+          + Array.from({ length: Math.min(info.losses, 5) }, () => '<span class="cal-dot loss"></span>').join('') : '';
+        cell.innerHTML = `<span class="cal-cell-daynum">${day}</span>` +
+          (info ? `<span class="cal-dots">${dots}</span><span class="cal-net ${info.net >= 0 ? 'pos' : 'neg'}">${fmtMoney(info.net)}</span>` : '');
+        if (info) cell.onclick = () => showDayPanel(dateStr);
+        grid.appendChild(cell);
+      }
+    }
+    // TODO(Phase 6): once weekly-stub files with daily anchors exist, replace this
+    // inline panel with a link to the matching day's anchor in the weekly stub.
+    function showDayPanel(dateStr) {
+      const info = dayDetail[dateStr];
+      const panel = document.getElementById('dayPanel');
+      if (!info) { panel.classList.remove('open'); return; }
+      const label = new Date(dateStr + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+      let html = `<div class="day-panel-title">${label} — Net ${fmtMoney(info.net)} (${info.wins}W / ${info.losses}L)</div>`;
+      info.trades.forEach(t => {
+        html += `<div class="day-panel-trade"><span>${t.instrument}</span><span class="day-panel-pnl ${t.pnl >= 0 ? 'pos' : 'neg'}">${fmtMoney(t.pnl)}</span></div>`;
+      });
+      html += `<div class="day-panel-note">Full trade reviews: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/fortuna-exports/trade-reviews" target="_blank" rel="noreferrer">fortuna-exports/trade-reviews</a></div>`;
+      panel.innerHTML = html;
+      panel.classList.add('open');
+      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    renderCalMonth();
 
     // ═══════════════════════════════════════════════════════
     // PROP FIRM LEDGER — loaded from assets/prop-firm-ledger.csv
