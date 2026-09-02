@@ -84,6 +84,22 @@
     }
     .pill-btn:hover { border-color:var(--blue); color:var(--text); transform:translateY(-1px); }
 
+    /* ── MOBILE KEBAB MENU ── */
+    .kebab-wrap { display:none; position:relative; }
+    .kebab-menu {
+      display:none; position:absolute; top:calc(100% + .5rem); right:0; z-index:160;
+      min-width:190px; padding:.4rem; border:1px solid var(--border-strong); border-radius:14px;
+      background:var(--surface-strong); box-shadow:var(--shadow); flex-direction:column; gap:.15rem;
+    }
+    .kebab-menu.is-open { display:flex; }
+    .kebab-item {
+      display:flex; align-items:center; gap:.55rem; width:100%;
+      padding:.55rem .65rem; border:none; border-radius:9px; background:transparent;
+      color:var(--text); font-size:.84rem; text-align:left; cursor:pointer;
+      font-family:inherit; text-decoration:none; transition:background .12s;
+    }
+    .kebab-item:hover { background:rgba(124,194,255,.1); text-decoration:none; }
+
     /* ── LAYOUT ── */
     .layout { display:grid; grid-template-columns:240px minmax(0,1fr); min-height:calc(100vh - 44px); margin-top:44px; }
 
@@ -353,6 +369,8 @@
         z-index:190; box-shadow:4px 0 24px rgba(2,6,23,.3); }
       .main { padding:1.25rem 1rem 3rem; }
       .topbar-actions .tb-hide-mobile { display: none !important; }
+      .topbar-actions #themeBtn { display: none !important; }
+      .kebab-wrap { display:inline-flex; }
     }
     @media (max-width:560px) {
       .wh-title { font-size:1.35rem; }
@@ -385,6 +403,17 @@
     <a class="pill-btn tb-hide-mobile" href="../SmartTradingBlueprint/course-workbook.html">📘 STB →</a>
     <button class="pill-btn tb-hide-mobile" onclick="window.print()">🖨</button>
     <button class="pill-btn" onclick="toggleTheme()" id="themeBtn">☀️</button>
+    <div class="kebab-wrap">
+      <button class="pill-btn" onclick="toggleKebab()" id="kebabBtn" aria-haspopup="true" aria-expanded="false" aria-label="More actions">⋮</button>
+      <div class="kebab-menu" id="kebabMenu" role="menu">
+        <button class="kebab-item" role="menuitem" onclick="toggleTheme()" id="kebabThemeBtn">☀️ Light Mode</button>
+        <button class="kebab-item" role="menuitem" onclick="expandAll(); closeKebab();">⊞ Expand All</button>
+        <button class="kebab-item" role="menuitem" onclick="collapseAll(); closeKebab();">⊟ Collapse All</button>
+        <a class="kebab-item" role="menuitem" href="../resources.html">📚 Resources</a>
+        <a class="kebab-item" role="menuitem" href="../SmartTradingBlueprint/course-workbook.html">📘 STB Workbook →</a>
+        <button class="kebab-item" role="menuitem" onclick="window.print(); closeKebab();">🖨 Print</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -564,7 +593,7 @@
       <div class="week-banner">
         <div class="week-number w1">1</div>
         <div class="week-info">
-          <h2>Setup, Market Fit &amp; Personalization</h2>
+          <h2>🧠 Setup, Market Fit &amp; Personalization</h2>
           <p>Onboarding · Mindset · Market Principles</p>
         </div>
         <span class="week-stat">3 classes</span>
@@ -817,7 +846,7 @@
       <div class="week-banner">
         <div class="week-number w2">2</div>
         <div class="week-info">
-          <h2>Market Principles, Models &amp; Confluences</h2>
+          <h2>🔩 Market Principles, Models &amp; Confluences</h2>
           <p>SMOG · TCL · Confluences &amp; Advanced Edges</p>
         </div>
         <span class="week-stat">3 classes</span>
@@ -992,7 +1021,7 @@
       <div class="week-banner">
         <div class="week-number w3">3</div>
         <div class="week-info">
-          <h2>Journaling, Data Edge &amp; Scaling Plan</h2>
+          <h2>📝 Journaling, Data Edge &amp; Scaling Plan</h2>
           <p>Data Collection · Backtesting · Paladin Protocol</p>
         </div>
         <span class="week-stat">3 classes</span>
@@ -1105,7 +1134,7 @@
       <div class="week-banner">
         <div class="week-number w4">4</div>
         <div class="week-info">
-          <h2>Live Trading, Investing &amp; Continuity</h2>
+          <h2>🧭 Live Trading, Investing &amp; Continuity</h2>
           <p>Execution Workflow · Wealth Building · 90-Day Roadmap</p>
         </div>
         <span class="week-stat">3 classes</span>
@@ -1252,12 +1281,37 @@
 <script>
   const html = document.documentElement;
   const btn = document.getElementById('themeBtn');
-  try { if (localStorage.getItem('theme') === 'light') { html.classList.add('light'); btn.textContent = '🌙'; } } catch(e) {}
+  const kebabThemeBtn = document.getElementById('kebabThemeBtn');
+  function syncKebabTheme(light) {
+    if (kebabThemeBtn) kebabThemeBtn.textContent = light ? '🌙 Dark Mode' : '☀️ Light Mode';
+  }
+  try { if (localStorage.getItem('theme') === 'light') { html.classList.add('light'); btn.textContent = '🌙'; syncKebabTheme(true); } } catch(e) {}
   function toggleTheme() {
     const light = html.classList.toggle('light');
     btn.textContent = light ? '🌙' : '☀️';
+    syncKebabTheme(light);
     try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch(e) {}
   }
+
+  function toggleKebab() {
+    const menu = document.getElementById('kebabMenu');
+    const kbtn = document.getElementById('kebabBtn');
+    const isOpen = menu.classList.toggle('is-open');
+    kbtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+  function closeKebab() {
+    const menu = document.getElementById('kebabMenu');
+    const kbtn = document.getElementById('kebabBtn');
+    menu.classList.remove('is-open');
+    kbtn.setAttribute('aria-expanded', 'false');
+  }
+  document.addEventListener('click', function(e) {
+    const wrap = document.querySelector('.kebab-wrap');
+    if (wrap && !wrap.contains(e.target)) closeKebab();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeKebab();
+  });
 
   function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
