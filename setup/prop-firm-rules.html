@@ -9,6 +9,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="assets/favicon.png">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.js" defer></script>
   <style>
     :root {
       --bg: #09111d; --bg-alt: #0d1625;
@@ -37,6 +38,16 @@
     @media (prefers-reduced-motion: reduce) {
       * { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
     }
+    .lucide { width: 1em; height: 1em; vertical-align: -.15em; stroke-width: 2.25; display: inline-block; flex-shrink: 0; }
+    /* ── Parallax ambient background — separate layer from body so content
+       scrolls normally while the gradient glow drifts slower underneath. ── */
+    .bg-parallax {
+      position: fixed; inset: -10vh -10vw; z-index: -1; pointer-events: none;
+      background:
+        radial-gradient(ellipse 900px 500px at 15% -10%, rgba(167,139,250,0.14), transparent 60%),
+        radial-gradient(ellipse 900px 500px at 100% 10%, rgba(103,232,249,0.10), transparent 60%);
+      will-change: transform;
+    }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
@@ -49,8 +60,8 @@
       padding: .65rem 1.5rem; background: rgba(9,17,29,0.85); backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10;
     }
-    .nav-brand { font-size: .82rem; font-weight: 700; color: var(--gold); margin-right: .4rem; }
-    .nav-tag { padding: .22rem .7rem; border: 1px solid var(--border); border-radius: 999px; font-size: .76rem; color: var(--muted); }
+    .nav-brand { font-size: .82rem; font-weight: 700; color: var(--gold); margin-right: .4rem; display: inline-flex; align-items: center; gap: .35rem; }
+    .nav-tag { padding: .22rem .7rem; border: 1px solid var(--border); border-radius: 999px; font-size: .76rem; color: var(--muted); display: inline-flex; align-items: center; gap: .3rem; }
     .nav-tag:hover { border-color: var(--blue); color: var(--text); text-decoration: none; }
     .content { max-width: 1180px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
     .eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
@@ -64,6 +75,8 @@
     .hero-in { animation: riseIn .6s var(--spring) both; }
     .hero-in.d1 { animation-delay: .05s; }
     .hero-in.d2 { animation-delay: .14s; }
+    /* Sticky nav is ~52px tall — keep anchor-scrolled section titles clear of it. */
+    [id] { scroll-margin-top: 76px; }
     .sec-label {
       font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em;
       color: var(--violet); margin: 2.2rem 0 1rem; display: flex; align-items: center; gap: .6rem;
@@ -91,6 +104,15 @@
     }
     .tbl-wrap { overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; font-size: .8rem; white-space: nowrap; }
+    /* ── Always-visible tables (no horizontal scroll) — the 50K Quick
+       Comparison table specifically; every other table stays scrollable. ── */
+    .tbl-wrap-full { overflow-x: visible; }
+    .tbl-wrap-full table { white-space: normal; table-layout: fixed; }
+    .tbl-wrap-full th, .tbl-wrap-full td { word-break: break-word; }
+    @media (max-width: 900px) {
+      .tbl-wrap-full table { font-size: .72rem; }
+      .tbl-wrap-full th, .tbl-wrap-full td { padding: .45rem .5rem; }
+    }
     th { text-align: left; padding: .65rem .9rem; background: var(--surface-soft); color: var(--muted); text-transform: uppercase; font-size: .66rem; letter-spacing: .06em; border-bottom: 1px solid var(--border); }
     td { padding: .6rem .9rem; border-top: 1px solid var(--border); }
     tr:hover td { background: rgba(255,255,255,.02); }
@@ -107,7 +129,7 @@
     .doc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .8rem; --accent: var(--blue); }
     .doc-card { padding: .9rem 1rem; }
     .doc-card:hover { transform: translateY(-2px); border-color: rgba(124,194,255,.4); }
-    .doc-card .fname { font-weight: 700; font-size: .84rem; margin-bottom: .2rem; }
+    .doc-card .fname { font-weight: 700; font-size: .84rem; margin-bottom: .2rem; display: flex; align-items: center; gap: .35rem; }
     .doc-card .fmeta { font-size: .74rem; color: var(--muted); }
 
     /* ── Spec-card grid (Lucid + digitized Apex/TPT tier cards) ── */
@@ -126,7 +148,7 @@
     .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; --accent: var(--rose); }
     .news-card { padding: 1rem 1.15rem; }
     .news-card:hover { transform: translateY(-2px); border-color: rgba(255,157,193,.4); }
-    .news-card h4 { font-size: .86rem; font-weight: 800; margin-bottom: .5rem; }
+    .news-card h4 { font-size: .86rem; font-weight: 800; margin-bottom: .5rem; display: flex; align-items: center; gap: .35rem; }
     .news-card ul { list-style: none; display: flex; flex-direction: column; gap: .4rem; font-size: .78rem; color: var(--muted); }
     .news-card li::before { content: "· "; color: var(--subtle); }
     .news-card li strong { color: var(--text); }
@@ -163,6 +185,12 @@
       transition: border-color .2s, color .2s;
     }
     .spec-modal-close:hover { border-color: var(--gold); color: var(--gold); }
+    .spec-modal-subhead {
+      font-size: .74rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em;
+      color: var(--cyan); margin: 1.6rem 0 .8rem; display: flex; align-items: center; gap: .5rem;
+    }
+    .spec-modal-subhead::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+    .spec-modal-subhead:first-of-type { margin-top: 0; }
 
     .footer { max-width: 1180px; margin: 0 auto 2rem; padding: 1.2rem 1.5rem; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); font-size: .8rem; color: var(--subtle); text-align: center; }
     .footer p { margin: 0; }
@@ -171,24 +199,26 @@
 </head>
 <body>
 
+  <div class="bg-parallax" id="bgParallax"></div>
+
   <nav class="nav">
-    <span class="nav-brand">✈️ Pre-Flight Checklist</span>
-    <a class="nav-tag" href="../index.html">🏠 Home</a>
-    <a class="nav-tag" href="../data/progression/resources.html">📚 Resources</a>
-    <a class="nav-tag" href="../data/progression/gallery.html">🏆 Gallery</a>
-    <a class="nav-tag" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-progression.md" target="_blank" rel="noreferrer">🏦 Account Roster</a>
-    <a class="nav-tag" href="community.html">🙏 Community</a>
+    <span class="nav-brand"><i data-lucide="plane"></i> Pre-Flight Checklist</span>
+    <a class="nav-tag" href="../index.html"><i data-lucide="home"></i> Home</a>
+    <a class="nav-tag" href="../data/progression/resources.html"><i data-lucide="book-open"></i> Resources</a>
+    <a class="nav-tag" href="../data/progression/gallery.html"><i data-lucide="trophy"></i> Gallery</a>
+    <a class="nav-tag" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-progression.md" target="_blank" rel="noreferrer"><i data-lucide="landmark"></i> Account Roster</a>
+    <a class="nav-tag" href="community.html"><i data-lucide="hand-heart"></i> Community</a>
   </nav>
 
   <main class="content">
     <p class="eyebrow hero-in">Setup · Prop Firm Reference</p>
-    <h1 class="hero-in d1">✈️ Prop Firm Rules &amp; <span>Pre-Flight Checklist</span></h1>
+    <h1 class="hero-in d1"><i data-lucide="plane"></i> Prop Firm Rules &amp; <span>Pre-Flight Checklist</span></h1>
     <p class="lede hero-in d2">A quick visual comparison across every prop firm Christopher trades or tracks, plus a daily pre-flight checklist before the market opens. Figures shown are the 50K-tier headline numbers — always verify current rules against the full reference docs linked at the bottom, since prop firm rules change frequently.</p>
 
-    <div class="sec-label">50K Evaluation — Quick Comparison</div>
+    <div class="sec-label"><i data-lucide="bar-chart-3"></i> 50K Evaluation — Quick Comparison</div>
     <p class="sec-sub">Apex has three paths on file (Legacy, New EOD, New Intraday) since Christopher's original accounts predate the new rules. Lucid is reference/awareness only — no account held.</p>
     <div class="panel">
-      <div class="tbl-wrap">
+      <div class="tbl-wrap tbl-wrap-full">
         <table>
           <thead>
             <tr>
@@ -238,42 +268,39 @@
     </div>
 
     <p style="margin-top:-.6rem;">
-      <button type="button" class="pill-trigger" onclick="openSpecModal('lucidSpecModal')">💧 View Full Lucid 50K Spec Cards (Daily / Direct / Flex / Pro) ↗</button>
+      <button type="button" class="pill-trigger" onclick="openSpecModal('specModal')"><i data-lucide="layout-grid"></i> View Full Spec Cards — Lucid (25K + 50K) + Apex + TPT ↗</button>
     </p>
 
-    <div class="sec-label">📐 Account Size Tiers — 50K vs 100K</div>
-    <p class="sec-sub">Beyond the 50K headline numbers above, Apex and TPT scale contracts/targets/fees at 100K. Reference only — Christopher currently holds Apex Legacy 50K/100K accounts.</p>
-    <p>
-      <button type="button" class="pill-trigger" onclick="openSpecModal('tierSpecModal')">📊 View Full Apex / TPT Tier Cards (50K vs 100K) ↗</button>
-    </p>
+    <div class="sec-label"><i data-lucide="ruler"></i> Account Size Tiers — 50K vs 100K</div>
+    <p class="sec-sub">Beyond the 50K headline numbers above, Apex and TPT scale contracts/targets/fees at 100K. Reference only — Christopher currently holds Apex Legacy 50K/100K accounts. Full tier cards are in the same spec-card modal above.</p>
 
-    <div class="sec-label">💳 Reset Economics</div>
+    <div class="sec-label"><i data-lucide="credit-card"></i> Reset Economics</div>
     <p class="sec-sub">Cost-of-staying-in numbers, for the accounts Christopher actually runs.</p>
     <div class="panel" style="padding: 1rem 1.2rem;">
       <p style="font-size:.84rem; margin-bottom:.6rem;"><strong>TakeProfitTrader:</strong> a reset costs $649, capped at 3 resets total. Pricier than starting a fresh instant-funded account elsewhere once you're past reset #1-2 — but Christopher values staying with TPT despite the account-count ceiling, so a reset is still the default move over starting over cold.</p>
       <p style="font-size:.84rem;"><strong>Apex Legacy renewal nuance:</strong> renewing a Legacy account rolls existing profits into the next 30-day cycle rather than zeroing them out. New Apex products (EOD/Intraday) don't carry this — missing the 30-day profit target on those simply fails the account, no renewal-with-profits-intact option.</p>
     </div>
 
-    <div class="sec-label">🔁 Copy-Trading Policy — What's Actually Allowed</div>
+    <div class="sec-label"><i data-lucide="repeat"></i> Copy-Trading Policy — What's Actually Allowed</div>
     <p class="sec-sub">The short version across every firm on file: copying <em>your own</em> trade decision from one of your own accounts to another is generally fine; mirroring someone else's signals/calls is not.</p>
     <div class="panel" style="padding: 1rem 1.2rem;">
       <p style="font-size:.84rem; margin-bottom:.5rem;"><strong>TopOneFutures</strong> explicitly allows copy trading <em>between your own accounts across firms</em>, as long as the trade decision originates on the TOF account itself — mirroring someone else's signals (Discord/Telegram calls, group trading) is prohibited. See <a href="https://help.toponefutures.com/en/articles/11680891-copy-trading-policy" target="_blank" rel="noreferrer">TOF's Copy Trading Policy ↗</a> and the fuller prohibited-practices list in <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TopOneFutures/topone-rules.md" target="_blank" rel="noreferrer">topone-rules.md ↗</a>.</p>
       <p style="font-size:.84rem;">This is the same rule the TradeCopia copy-trading setup leans on: Top1 Elite ACCESS stays the manual, decision-originating account; Lucid and the renewed Apex Legacy evals copy-trade <em>from</em> it. See <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-Scaling-SOP-%26-Implementation.md" target="_blank" rel="noreferrer">the Scaling SOP doc ↗</a> for the full TradeCopia writeup.</p>
     </div>
 
-    <div class="sec-label">🛑 FOMC / CPI / NFP — News Blackout Rules by Firm</div>
+    <div class="sec-label"><i data-lucide="octagon-alert"></i> FOMC / CPI / NFP — News Blackout Rules by Firm</div>
     <p class="sec-sub">Rules diverge sharply by firm — some fully permit news trading, others carry a hard 1-2 minute blackout window. Know which account is live before a red-folder release.</p>
     <div class="news-grid">
       <div class="news-card glass">
-        <h4>💰 TakeProfitTrader PRO / PRO+</h4>
+        <h4><i data-lucide="banknote"></i> TakeProfitTrader PRO / PRO+</h4>
         <ul><li><strong>Forbidden</strong> 1 minute before, during, and 1 minute after FOMC / CPI / NFP</li></ul>
       </div>
       <div class="news-card glass">
-        <h4>🥇 TopOneFutures</h4>
+        <h4><i data-lucide="medal"></i> TopOneFutures</h4>
         <ul><li><strong>Forbidden only if a position is modified</strong> 2 minutes before/during/after — holding through untouched is fine</li></ul>
       </div>
       <div class="news-card glass">
-        <h4>🅰️ Apex Trader Funding</h4>
+        <h4><i data-lucide="landmark"></i> Apex Trader Funding</h4>
         <ul>
           <li>News-event trading is <strong>allowed</strong> as part of a normal strategy</li>
           <li><strong>Prohibited:</strong> pure gambling, "chasing the market," or opposing bracket orders placed to luck into a news breakout</li>
@@ -281,7 +308,7 @@
         </ul>
       </div>
       <div class="news-card glass">
-        <h4>💧 Lucid Trading</h4>
+        <h4><i data-lucide="droplet"></i> Lucid Trading</h4>
         <ul>
           <li><strong>LucidFlex / Pro / Direct:</strong> news trading fully allowed — enter/exit freely around major releases, no penalty</li>
           <li><strong>LucidDaily:</strong> trading red-folder (high-impact) news is a <strong>hard breach</strong>, not allowed on this variant</li>
@@ -290,7 +317,7 @@
       </div>
     </div>
 
-    <div class="sec-label">Daily Close Deadlines — Know Which Account You're In</div>
+    <div class="sec-label"><i data-lucide="clock"></i> Daily Close Deadlines — Know Which Account You're In</div>
     <p class="sec-sub">Every firm sets an automatic cutoff to protect both the firm and the trader — a safety net, not a trap. Enforcement style differs though: some auto-flatten cleanly, others carry the <em>possibility</em> of account failure if the close coincides with a slippage/gap event. Confirm which bucket today's account is in before assuming the same habit transfers across accounts.</p>
     <div class="panel">
       <div class="tbl-wrap">
@@ -308,7 +335,7 @@
     </div>
     <p class="sec-sub" style="margin-top:.7rem;">TakeProfitTrader updated this policy — previously, holding a position past 5:00 PM ET was an instant liquidation + failed account; now TPT auto-closes any open position at 4:55 PM ET and the account simply stays active for the next session. See <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TakeProfitTrader/Rule%20update%20-%205pm.png" target="_blank" rel="noreferrer">TPT's rule-update notice ↗</a>.</p>
 
-    <div class="sec-label">✈️ Daily Pre-Flight Checklist</div>
+    <div class="sec-label"><i data-lucide="plane"></i> Daily Pre-Flight Checklist</div>
     <p class="sec-sub">Run through before the open — especially on multi-account days.</p>
     <div class="panel">
       <ul class="checklist">
@@ -323,27 +350,96 @@
       </ul>
     </div>
 
-    <div class="sec-label">Full Rule Reference</div>
+    <div class="sec-label"><i data-lucide="scroll-text"></i> Full Rule Reference</div>
     <div class="doc-grid">
-      <div class="doc-card glass"><div class="fname">🅰️ Apex — New Rules</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/ApexTrader/apex-rules.md" target="_blank" rel="noreferrer">apex-rules.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname">🅰️ Apex — Legacy Rules</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/ApexTrader/apex-rules_legacy.md" target="_blank" rel="noreferrer">apex-rules_legacy.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname">⚖️ Apex vs TPT</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/apex-vs-tpt-comparison.md" target="_blank" rel="noreferrer">apex-vs-tpt-comparison.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname">⚖️ Apex Legacy vs New</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/apex-legacy-vs-new-comparison.md" target="_blank" rel="noreferrer">apex-legacy-vs-new-comparison.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname">💰 TakeProfitTrader</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TakeProfitTrader/tpt-rules.md" target="_blank" rel="noreferrer">tpt-rules.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname">🥇 TopOneFutures</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TopOneFutures/topone-rules.md" target="_blank" rel="noreferrer">topone-rules.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname">📈 Tradeify</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Tradeify/tradeify-rules.md" target="_blank" rel="noreferrer">tradeify-rules.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname">💧 Lucid <span class="ref-tag">(reference)</span></div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-rules.md" target="_blank" rel="noreferrer">lucid-rules.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname">⚖️ Lucid — Flex vs Daily vs Pro</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-account-types-comparison.md" target="_blank" rel="noreferrer">lucid-account-types-comparison.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname">🏦 Account Roster</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-progression.md" target="_blank" rel="noreferrer">prop-firm-progression.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i data-lucide="landmark"></i> Apex — New Rules</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/ApexTrader/apex-rules.md" target="_blank" rel="noreferrer">apex-rules.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i data-lucide="landmark"></i> Apex — Legacy Rules</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/ApexTrader/apex-rules_legacy.md" target="_blank" rel="noreferrer">apex-rules_legacy.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i data-lucide="scale"></i> Apex vs TPT</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/apex-vs-tpt-comparison.md" target="_blank" rel="noreferrer">apex-vs-tpt-comparison.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i data-lucide="scale"></i> Apex Legacy vs New</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/apex-legacy-vs-new-comparison.md" target="_blank" rel="noreferrer">apex-legacy-vs-new-comparison.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i data-lucide="banknote"></i> TakeProfitTrader</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TakeProfitTrader/tpt-rules.md" target="_blank" rel="noreferrer">tpt-rules.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i data-lucide="medal"></i> TopOneFutures</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TopOneFutures/topone-rules.md" target="_blank" rel="noreferrer">topone-rules.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i data-lucide="trending-up"></i> Tradeify</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Tradeify/tradeify-rules.md" target="_blank" rel="noreferrer">tradeify-rules.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i data-lucide="droplet"></i> Lucid <span class="ref-tag">(reference)</span></div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-rules.md" target="_blank" rel="noreferrer">lucid-rules.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i data-lucide="scale"></i> Lucid — Flex vs Daily vs Pro</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-account-types-comparison.md" target="_blank" rel="noreferrer">lucid-account-types-comparison.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i data-lucide="landmark"></i> Account Roster</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-progression.md" target="_blank" rel="noreferrer">prop-firm-progression.md ↗</a></div></div>
     </div>
   </main>
 
   <!-- ── SPEC-CARD MODALS (HTML content, not image lightboxes — opened via .pill-trigger buttons) ── -->
-  <div class="spec-modal-overlay" id="lucidSpecModal" onclick="if(event.target===this)closeSpecModal('lucidSpecModal')">
+  <div class="spec-modal-overlay" id="specModal" onclick="if(event.target===this)closeSpecModal('specModal')">
     <div class="spec-modal-box">
-      <button class="spec-modal-close" onclick="closeSpecModal('lucidSpecModal')">✕</button>
-      <div class="spec-modal-title">💧 Lucid — Full 50K Spec Cards <span class="ref-tag">(reference only)</span></div>
-      <p class="spec-modal-sub">Lucid runs four distinct 50K products, each with its own eval → funded path (Direct skips the eval entirely). Real figures transcribed from Lucid's own pricing pages. Full comparison: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-account-types-comparison.md" target="_blank" rel="noreferrer">lucid-account-types-comparison.md ↗</a>.</p>
+      <button class="spec-modal-close" onclick="closeSpecModal('specModal')">✕</button>
+      <div class="spec-modal-title"><i data-lucide="layout-grid"></i> Full Spec Cards — Lucid, Apex &amp; TPT <span class="ref-tag">(Lucid reference only)</span></div>
+      <p class="spec-modal-sub">Everything from the pill above, in one place. Lucid figures transcribed from their own pricing pages — full comparison: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-account-types-comparison.md" target="_blank" rel="noreferrer">lucid-account-types-comparison.md ↗</a>. Apex/TPT digitized from their pricing-page screenshots (transcribed, not embedded as images) — Apex's TradingView/Tradovate/Browser/Mobile/Mac compatibility, Tradovate License, NinjaTrader Platform ($75 value), and Real-Time Data Fees ($55 value) are identical and included across all three Apex tiers below, omitted per-card to keep these scannable.</p>
+
+      <div class="spec-modal-subhead"><i data-lucide="droplet"></i> Lucid — 25K <span class="ref-tag">(the incoming free-account size)</span></div>
+      <div class="spec-grid">
+        <div class="spec-card glass">
+          <h4>25K Daily</h4>
+          <div class="spec-price">Standard eval → funded path</div>
+          <div class="spec-block">
+            <div class="spec-block-label">Eval</div>
+            <div class="spec-row"><span>Profit Target</span><span>$1,250</span></div>
+            <div class="spec-row"><span>Max Loss Limit</span><span>$1,000</span></div>
+            <div class="spec-row"><span>Drawdown Type</span><span>EOD or Intraday (chosen at purchase)</span></div>
+            <div class="spec-row"><span>Consistency</span><span>50%</span></div>
+            <div class="spec-row"><span>Max Size</span><span>2 mini / 20 micros</span></div>
+          </div>
+          <div class="spec-block">
+            <div class="spec-block-label">Funded</div>
+            <div class="spec-row"><span>Max Loss Limit</span><span>$1,000</span></div>
+            <div class="spec-row"><span>DLL (if on)</span><span>$600</span></div>
+            <div class="spec-row"><span>Drawdown Type</span><span>Intraday (always, funded)</span></div>
+            <div class="spec-row"><span>Buffer Balance</span><span>$26,100</span></div>
+            <div class="spec-row"><span>Max Daily Profit (live trigger)</span><span>$6,000</span></div>
+          </div>
+        </div>
+
+        <div class="spec-card glass">
+          <h4>25K Flex</h4>
+          <div class="spec-price">Same eval table as Daily/Pro</div>
+          <div class="spec-block">
+            <div class="spec-block-label">Eval</div>
+            <div class="spec-row"><span>Profit Target</span><span>$1,250</span></div>
+            <div class="spec-row"><span>Max Loss Limit</span><span>$1,000</span></div>
+            <div class="spec-row"><span>Daily Loss Limit</span><span>Optional (on/off)</span></div>
+            <div class="spec-row"><span>Consistency</span><span>50%</span></div>
+            <div class="spec-row"><span>Max Size</span><span>2 mini / 20 micros</span></div>
+          </div>
+          <div class="spec-block">
+            <div class="spec-block-label">Funded</div>
+            <div class="spec-row"><span>Max Loss Limit</span><span>$1,000</span></div>
+            <div class="spec-row"><span>Drawdown Type</span><span>EOD</span></div>
+            <div class="spec-row"><span>Consistency</span><span><span class="badge good">None</span></span></div>
+            <div class="spec-row"><span>Min Days of Profit</span><span>5 days of $100+</span></div>
+            <div class="spec-row"><span>Flat Payout Cap</span><span>$1,000</span></div>
+            <div class="spec-row"><span>Scaling Plan</span><span>Yes</span></div>
+          </div>
+        </div>
+
+        <div class="spec-card glass">
+          <h4>25K Pro</h4>
+          <div class="spec-price">No DLL by default, even before customization</div>
+          <div class="spec-block">
+            <div class="spec-block-label">Eval</div>
+            <div class="spec-row"><span>Profit Target</span><span>$1,250</span></div>
+            <div class="spec-row"><span>Max Loss Limit</span><span>$1,000</span></div>
+            <div class="spec-row"><span>Daily Loss Limit</span><span><span class="badge good">None</span> by default</span></div>
+            <div class="spec-row"><span>Max Size</span><span>2 mini / 20 micros</span></div>
+          </div>
+          <div class="spec-block">
+            <div class="spec-block-label">Funded</div>
+            <div class="spec-row"><span>Max Loss Limit</span><span>$1,000</span></div>
+            <div class="spec-row"><span>DLL / LucidScale</span><span>$600 fixed → 60% peak EOD above trail</span></div>
+            <div class="spec-row"><span>Consistency</span><span>40%</span></div>
+            <div class="spec-row"><span>Buffer Balance</span><span>$26,100</span></div>
+            <div class="spec-row"><span>Payout 1 / 2+ Max</span><span>$1,000 / $1,500</span></div>
+            <div class="spec-row"><span>Scaling Plan</span><span><span class="ref-tag">None</span></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec-modal-subhead"><i data-lucide="droplet"></i> Lucid — 50K</div>
       <div class="spec-grid">
         <div class="spec-card glass">
           <h4>50K Daily</h4>
@@ -429,14 +525,8 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <div class="spec-modal-overlay" id="tierSpecModal" onclick="if(event.target===this)closeSpecModal('tierSpecModal')">
-    <div class="spec-modal-box">
-      <button class="spec-modal-close" onclick="closeSpecModal('tierSpecModal')">✕</button>
-      <div class="spec-modal-title">📐 Apex &amp; TPT — 50K vs 100K Tier Cards</div>
-      <p class="spec-modal-sub">Digitized from Apex's and TPT's own pricing-page screenshots (transcribed, not embedded as images). Apex's TradingView/Tradovate/Browser/Mobile/Mac compatibility, Tradovate License, NinjaTrader Platform ($75 value), and Real-Time Data Fees ($55 value) are identical and included across all three Apex tiers below — omitted per-card to keep these scannable.</p>
+      <div class="spec-modal-subhead"><i data-lucide="ruler"></i> Apex &amp; TPT — 50K vs 100K Tier Cards</div>
       <div class="spec-grid">
         <div class="spec-card glass">
           <h4>Apex 50K Full</h4>
@@ -524,6 +614,26 @@
       if (e.key !== 'Escape') return;
       document.querySelectorAll('.spec-modal-overlay.open').forEach(el => closeSpecModal(el.id));
     });
+
+    // ═══════════════════════════════════════════════════════
+    // Lucide icons + subtle scroll-driven parallax on the ambient
+    // gradient layer (skipped entirely under prefers-reduced-motion).
+    // ═══════════════════════════════════════════════════════
+    if (window.lucide) lucide.createIcons();
+    else document.addEventListener('DOMContentLoaded', () => window.lucide && lucide.createIcons());
+
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const bgLayer = document.getElementById('bgParallax');
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          bgLayer.style.transform = `translateY(${window.scrollY * 0.15}px)`;
+          ticking = false;
+        });
+      }, { passive: true });
+    }
   </script>
 
 </body>
