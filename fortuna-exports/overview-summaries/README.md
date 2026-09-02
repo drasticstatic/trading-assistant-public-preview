@@ -31,7 +31,7 @@ overview-summaries/
 ### Monthly Review
 - Full month arc, aggregate P&L, pattern trend analysis across the month's weekly/daily reviews
 
-> **Status (Aug 2026):** empty — no overview summaries landed here yet. `data/progression/gallery.html`'s new Trading Calendar & Metrics section is already set up to cross-link here once content exists. Historical exports (Feb–May 2026) remain at [`smarttrader-ai/exports/`](../../smarttrader-ai/exports/).
+> **Status (Sep 1, 2026):** 16 weekly review stubs now cover the May 14 – Sep 1, 2026 trade-review backlog period (`2026/05-May/` through `2026/09-Sep/`), generated from the master trade ledger + the existing individual trade reviews via `scripts/generate-weekly-stubs.py`. Each has real trade tables, per-day anchors, and computed statistics — but narrative/behavioral/SmartTraderAI sections are marked pending, since Christopher's journal/psychology backlog for this window hasn't been provided yet (same honest-placeholder convention as the individual trade reviews). `data/progression/gallery.html`'s Trading Calendar cross-links here from each day cell that falls in a covered week. No daily or monthly review exports exist yet. Historical exports (Feb–May 2026) remain at [`smarttrader-ai/exports/`](../../smarttrader-ai/exports/).
 
 ---
 
