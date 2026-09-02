@@ -440,7 +440,7 @@ All of Rules 4–7 above must be satisfied simultaneously for a payout to be app
 Key items most relevant to Christopher's live workflow (full list of 15 in the source article):
 
 - **No EAs/bots/automated trading** — all entries must be manual or semi-manual (see also dedicated EA article below)
-- **No copy trading / group trading / signal-following** — each trader's strategy must originate independently on their own TOF account. Copy trading *between your own accounts across firms* is allowed as long as the trade decision originates on the TOF account; mirroring someone else's trades (signals, Discord/Telegram calls) is not
+- **No copy trading / group trading / signal-following** — each trader's strategy must originate independently on their own TOF account. Copy trading *between your own accounts across firms* is allowed as long as the trade decision originates on the TOF account; mirroring someone else's trades (signals, Discord/Telegram calls) is not. Full policy: [Copy Trading Policy](https://help.toponefutures.com/en/articles/11680891-copy-trading-policy)
 - **No hedging between accounts** — including across firms
 - **Max 3 funded Instant/Elite Sim accounts per household** (S2F Pro allows 5–9 depending on promo). Exceeding this without contacting support first results in **automatic breach of the oldest account**, no refund, if a 4th account is activated
 - **No "sim farming"** — deliberately breaching funded accounts to avoid live transition
