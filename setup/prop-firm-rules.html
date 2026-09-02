@@ -186,12 +186,47 @@
       transition: border-color .2s, color .2s;
     }
     .spec-modal-close:hover { border-color: var(--gold); color: var(--gold); }
-    .spec-modal-subhead {
-      font-size: .74rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em;
-      color: var(--cyan); margin: 1.6rem 0 .8rem; display: flex; align-items: center; gap: .5rem;
+
+    /* ── Spec-card carousel — one card at a time, thumbstrip + centered
+       controls, same interaction pattern as gallery.html's "Legacy
+       TradeZella Archive" carousel, adapted for HTML content instead of
+       images (thumbs are labeled pills, viewport shows/hides cards
+       instead of swapping an <img> src). ── */
+    .spec-carousel-thumbstrip {
+      display: flex; gap: .4rem; overflow-x: auto; padding-bottom: .8rem; margin-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+      scrollbar-width: thin; scrollbar-color: var(--border) transparent;
     }
-    .spec-modal-subhead::after { content: ""; flex: 1; height: 1px; background: var(--border); }
-    .spec-modal-subhead:first-of-type { margin-top: 0; }
+    .spec-carousel-thumb {
+      flex: 0 0 auto; padding: .3rem .65rem; border-radius: 999px;
+      border: 1px solid var(--border); cursor: pointer; opacity: .55;
+      font-size: .68rem; font-weight: 700; color: var(--muted); background: var(--surface-soft);
+      transition: opacity .15s, border-color .15s, color .15s;
+    }
+    .spec-carousel-thumb:hover { opacity: .85; }
+    .spec-carousel-thumb.active { opacity: 1; border-color: var(--cyan); color: var(--cyan); }
+    .spec-carousel-group {
+      font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em;
+      color: var(--cyan); text-align: center; margin-bottom: .8rem; display: flex; align-items: center; justify-content: center; gap: .4rem;
+    }
+    .spec-carousel-viewport .spec-card { display: none; }
+    .spec-carousel-viewport .spec-card.active { display: block; max-width: 380px; margin: 0 auto; }
+    .spec-carousel-controls { display: flex; align-items: center; justify-content: center; gap: .55rem; flex-wrap: wrap; margin-top: 1.1rem; }
+    .spec-carousel-nav-btn {
+      background: var(--surface-soft); border: 1px solid var(--border); color: var(--text);
+      width: 2.15rem; height: 2.15rem; border-radius: 999px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; font-size: 1rem;
+      transition: border-color .15s, background .15s; flex-shrink: 0;
+    }
+    .spec-carousel-nav-btn:hover { border-color: var(--cyan); background: rgba(103,232,249,.08); }
+    .spec-carousel-dots { display: flex; gap: .35rem; align-items: center; }
+    .spec-carousel-dot {
+      width: .45rem; height: .45rem; border-radius: 999px; background: var(--border);
+      border: none; cursor: pointer; padding: 0; transition: background .15s, transform .15s;
+    }
+    .spec-carousel-dot:hover { transform: scale(1.2); }
+    .spec-carousel-dot.active { background: var(--cyan); }
+    .spec-carousel-counter { font-size: .74rem; color: var(--subtle); min-width: 2.8rem; text-align: center; }
 
     .footer { max-width: 1180px; margin: 0 auto 2rem; padding: 1.2rem 1.5rem; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); font-size: .8rem; color: var(--subtle); text-align: center; }
     .footer p { margin: 0; }
@@ -373,9 +408,10 @@
       <div class="spec-modal-title"><i data-lucide="layout-grid"></i> Full Spec Cards — Lucid, Apex &amp; TPT <span class="ref-tag">(Lucid reference only)</span></div>
       <p class="spec-modal-sub">Everything from the pill above, in one place. Lucid figures transcribed from their own pricing pages — full comparison: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-account-types-comparison.md" target="_blank" rel="noreferrer">lucid-account-types-comparison.md ↗</a>. Apex/TPT digitized from their pricing-page screenshots (transcribed, not embedded as images) — Apex's TradingView/Tradovate/Browser/Mobile/Mac compatibility, Tradovate License, NinjaTrader Platform ($75 value), and Real-Time Data Fees ($55 value) are identical and included across all three Apex tiers below, omitted per-card to keep these scannable.</p>
 
-      <div class="spec-modal-subhead"><i data-lucide="droplet"></i> Lucid — 25K <span class="ref-tag">(the incoming free-account size)</span></div>
-      <div class="spec-grid">
-        <div class="spec-card glass">
+      <div class="spec-carousel-group" id="specGroupLabel"></div>
+      <div class="spec-carousel-thumbstrip" id="specThumbstrip"></div>
+      <div class="spec-carousel-viewport" id="specViewport">
+        <div class="spec-card glass" data-group="Lucid — 25K (the incoming free-account size)">
           <h4>25K Daily</h4>
           <div class="spec-price">Standard eval → funded path</div>
           <div class="spec-block">
@@ -396,7 +432,7 @@
           </div>
         </div>
 
-        <div class="spec-card glass">
+        <div class="spec-card glass" data-group="Lucid — 25K (the incoming free-account size)">
           <h4>25K Flex</h4>
           <div class="spec-price">Same eval table as Daily/Pro</div>
           <div class="spec-block">
@@ -418,7 +454,7 @@
           </div>
         </div>
 
-        <div class="spec-card glass">
+        <div class="spec-card glass" data-group="Lucid — 25K (the incoming free-account size)">
           <h4>25K Pro</h4>
           <div class="spec-price">No DLL by default, even before customization</div>
           <div class="spec-block">
@@ -438,11 +474,8 @@
             <div class="spec-row"><span>Scaling Plan</span><span><span class="ref-tag">None</span></span></div>
           </div>
         </div>
-      </div>
 
-      <div class="spec-modal-subhead"><i data-lucide="droplet"></i> Lucid — 50K</div>
-      <div class="spec-grid">
-        <div class="spec-card glass">
+        <div class="spec-card glass" data-group="Lucid — 50K">
           <h4>50K Daily</h4>
           <div class="spec-price">Standard eval → funded path</div>
           <div class="spec-block">
@@ -465,7 +498,7 @@
           </div>
         </div>
 
-        <div class="spec-card glass">
+        <div class="spec-card glass" data-group="Lucid — 50K">
           <h4>50K Direct</h4>
           <div class="spec-price">Straight to funded — no eval — $360.50 one-time (w/ coupon, normally $515)</div>
           <div class="spec-block">
@@ -480,7 +513,7 @@
           </div>
         </div>
 
-        <div class="spec-card glass">
+        <div class="spec-card glass" data-group="Lucid — 50K">
           <h4>50K Flex</h4>
           <div class="spec-price">Eval fee $90.20 w/ DLL on · $105.20 w/ DLL off</div>
           <div class="spec-block">
@@ -503,7 +536,7 @@
           </div>
         </div>
 
-        <div class="spec-card glass">
+        <div class="spec-card glass" data-group="Lucid — 50K">
           <h4>50K Pro</h4>
           <div class="spec-price">Eval fee $115.40 · pass in as little as 1 day</div>
           <div class="spec-block">
@@ -525,11 +558,8 @@
             <div class="spec-row"><span>Scaling Plan</span><span><span class="ref-tag">—</span></span></div>
           </div>
         </div>
-      </div>
 
-      <div class="spec-modal-subhead"><i data-lucide="ruler"></i> Apex &amp; TPT — 50K vs 100K Tier Cards</div>
-      <div class="spec-grid">
-        <div class="spec-card glass">
+        <div class="spec-card glass" data-group="Apex &amp; TPT — 50K vs 100K Tier Cards">
           <h4>Apex 50K Full</h4>
           <div class="spec-price">$197/month</div>
           <div class="spec-block">
@@ -542,7 +572,7 @@
           </div>
         </div>
 
-        <div class="spec-card glass">
+        <div class="spec-card glass" data-group="Apex &amp; TPT — 50K vs 100K Tier Cards">
           <h4>Apex 100K Full</h4>
           <div class="spec-price">$297/month</div>
           <div class="spec-block">
@@ -555,7 +585,7 @@
           </div>
         </div>
 
-        <div class="spec-card glass">
+        <div class="spec-card glass" data-group="Apex &amp; TPT — 50K vs 100K Tier Cards">
           <h4>Apex 100K Static</h4>
           <div class="spec-price">$297/month</div>
           <div class="spec-block">
@@ -568,7 +598,7 @@
           </div>
         </div>
 
-        <div class="spec-card glass">
+        <div class="spec-card glass" data-group="Apex &amp; TPT — 50K vs 100K Tier Cards">
           <h4>TPT 50K</h4>
           <div class="spec-price">$170/month</div>
           <div class="spec-block">
@@ -580,7 +610,7 @@
           </div>
         </div>
 
-        <div class="spec-card glass">
+        <div class="spec-card glass" data-group="Apex &amp; TPT — 50K vs 100K Tier Cards">
           <h4>TPT 100K</h4>
           <div class="spec-price">$330/month</div>
           <div class="spec-block">
@@ -591,6 +621,12 @@
             <div class="spec-row"><span>Rules</span><span class="ref-tag">Be consistent · No trading bots · No counter positions</span></div>
           </div>
         </div>
+      </div>
+      <div class="spec-carousel-controls">
+        <button class="spec-carousel-nav-btn" onclick="specCarouselNav(-1)">‹</button>
+        <div class="spec-carousel-dots" id="specDots"></div>
+        <span class="spec-carousel-counter" id="specCounter"></span>
+        <button class="spec-carousel-nav-btn" onclick="specCarouselNav(1)">›</button>
       </div>
     </div>
   </div>
@@ -615,6 +651,50 @@
       if (e.key !== 'Escape') return;
       document.querySelectorAll('.spec-modal-overlay.open').forEach(el => closeSpecModal(el.id));
     });
+
+    // ═══════════════════════════════════════════════════════
+    // Spec-card carousel — one card at a time inside #specModal, same
+    // interaction shape as gallery.html's "Legacy TradeZella Archive"
+    // carousel (thumbstrip + centered nav/dots), but showing/hiding the
+    // existing .spec-card elements instead of swapping an <img> src.
+    // ═══════════════════════════════════════════════════════
+    let specCards = [], specIndex = 0;
+    function initSpecCarousel() {
+      specCards = Array.from(document.querySelectorAll('#specViewport .spec-card'));
+      const thumbstrip = document.getElementById('specThumbstrip');
+      const dots = document.getElementById('specDots');
+      specCards.forEach((card, i) => {
+        const label = card.querySelector('h4').textContent;
+        const t = document.createElement('button');
+        t.type = 'button';
+        t.className = 'spec-carousel-thumb';
+        t.textContent = label;
+        t.onclick = () => { specIndex = i; renderSpecCarousel(); };
+        thumbstrip.appendChild(t);
+        const d = document.createElement('button');
+        d.type = 'button';
+        d.className = 'spec-carousel-dot';
+        d.setAttribute('aria-label', label);
+        d.onclick = () => { specIndex = i; renderSpecCarousel(); };
+        dots.appendChild(d);
+      });
+      renderSpecCarousel();
+    }
+    function renderSpecCarousel() {
+      specCards.forEach((card, i) => card.classList.toggle('active', i === specIndex));
+      document.getElementById('specGroupLabel').textContent = specCards[specIndex].dataset.group;
+      document.getElementById('specCounter').textContent = `${specIndex + 1} / ${specCards.length}`;
+      document.querySelectorAll('#specThumbstrip .spec-carousel-thumb').forEach((t, i) => {
+        t.classList.toggle('active', i === specIndex);
+        if (i === specIndex) t.scrollIntoView({ block: 'nearest', inline: 'center' });
+      });
+      document.querySelectorAll('#specDots .spec-carousel-dot').forEach((d, i) => d.classList.toggle('active', i === specIndex));
+    }
+    function specCarouselNav(delta) {
+      specIndex = (specIndex + delta + specCards.length) % specCards.length;
+      renderSpecCarousel();
+    }
+    initSpecCarousel();
 
     // ═══════════════════════════════════════════════════════
     // Lucide icons + subtle scroll-driven parallax on the ambient
