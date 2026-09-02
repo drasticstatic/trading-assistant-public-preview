@@ -56,7 +56,7 @@
     }
     .sec-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
     .sec-label:first-of-type { margin-top: 0; }
-    .sec-sub { font-size: .82rem; color: var(--muted); margin: -.6rem 0 1rem; max-width: 720px; }
+    .sec-sub { font-size: .82rem; color: var(--muted); margin: -.6rem 0 1rem; max-width: none; }
     .panel { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow); overflow: hidden; }
     .tbl-wrap { overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; font-size: .8rem; white-space: nowrap; }
@@ -77,7 +77,37 @@
     .doc-card { border: 1px solid var(--border); border-radius: var(--radius-md); padding: .9rem 1rem; background: var(--surface); }
     .doc-card .fname { font-weight: 700; font-size: .84rem; margin-bottom: .2rem; }
     .doc-card .fmeta { font-size: .74rem; color: var(--muted); }
-    .footer { max-width: 1180px; margin: 0 auto; padding: 2rem 1.5rem; border-top: 1px solid var(--border); font-size: .78rem; color: var(--subtle); text-align: center; }
+
+    /* ── Lucid spec-card grid ── */
+    .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+    .spec-card { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow); padding: 1.1rem 1.2rem; }
+    .spec-card h4 { font-size: .92rem; font-weight: 800; margin-bottom: .15rem; color: var(--cyan); }
+    .spec-card .spec-price { font-size: .76rem; color: var(--gold); font-weight: 700; margin-bottom: .7rem; }
+    .spec-card .spec-block + .spec-block { margin-top: .8rem; padding-top: .7rem; border-top: 1px dashed var(--border); }
+    .spec-card .spec-block-label { font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--subtle); margin-bottom: .4rem; }
+    .spec-row { display: flex; justify-content: space-between; gap: .6rem; font-size: .78rem; padding: .18rem 0; }
+    .spec-row span:first-child { color: var(--muted); }
+    .spec-row span:last-child { font-weight: 600; text-align: right; }
+
+    /* ── News blackout grid ── */
+    .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+    .news-card { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow); padding: 1rem 1.15rem; }
+    .news-card h4 { font-size: .86rem; font-weight: 800; margin-bottom: .5rem; }
+    .news-card ul { list-style: none; display: flex; flex-direction: column; gap: .4rem; font-size: .78rem; color: var(--muted); }
+    .news-card li::before { content: "· "; color: var(--subtle); }
+    .news-card li strong { color: var(--text); }
+
+    .tier-toggle { border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); padding: .7rem 1rem; }
+    .tier-toggle summary { cursor: pointer; font-size: .82rem; font-weight: 700; color: var(--muted); }
+    .tier-toggle summary:hover { color: var(--text); }
+    .tier-toggle .tier-imgs { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: .9rem; }
+    .tier-toggle .tier-imgs img { max-width: 100%; border-radius: var(--radius-md); border: 1px solid var(--border); }
+    .tier-toggle .tier-imgs figure { margin: 0; flex: 1 1 320px; }
+    .tier-toggle .tier-imgs figcaption { font-size: .72rem; color: var(--subtle); margin-top: .3rem; text-align: center; }
+
+    .footer { max-width: 1180px; margin: 0 auto 2rem; padding: 1.2rem 1.5rem; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); font-size: .8rem; color: var(--subtle); text-align: center; }
+    .footer p { margin: 0; }
+    .footer p + p { margin-top: .5rem; }
   </style>
 </head>
 <body>
@@ -87,7 +117,7 @@
     <a class="nav-tag" href="../index.html">🏠 Home</a>
     <a class="nav-tag" href="../data/progression/resources.html">📚 Resources</a>
     <a class="nav-tag" href="../data/progression/gallery.html">🏆 Gallery</a>
-    <a class="nav-tag" href="accounts/PropFirms/prop-firm-progression.md">🏦 Account Roster</a>
+    <a class="nav-tag" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-progression.md" target="_blank" rel="noreferrer">🏦 Account Roster</a>
   </nav>
 
   <main class="content">
@@ -147,15 +177,157 @@
       </div>
     </div>
 
+    <div class="sec-label">💧 Lucid — Full 50K Spec Cards <span class="ref-tag">(reference only)</span></div>
+    <p class="sec-sub">Lucid runs four distinct 50K products, each with its own eval → funded path (Direct skips the eval entirely). Real figures transcribed from Lucid's own pricing pages — see the doc-card links below for the source screenshots.</p>
+    <div class="spec-grid">
+      <div class="spec-card">
+        <h4>50K Daily</h4>
+        <div class="spec-price">Standard eval → funded path</div>
+        <div class="spec-block">
+          <div class="spec-block-label">Eval</div>
+          <div class="spec-row"><span>Profit Target</span><span>$3,000</span></div>
+          <div class="spec-row"><span>Max Loss Limit</span><span>$2,000</span></div>
+          <div class="spec-row"><span>Drawdown Type</span><span>EOD or Intraday (chosen at purchase)</span></div>
+          <div class="spec-row"><span>Daily Loss Limit</span><span>Optional (on/off)</span></div>
+          <div class="spec-row"><span>Consistency</span><span>50%</span></div>
+          <div class="spec-row"><span>Max Size</span><span>4 mini / 40 micros</span></div>
+          <div class="spec-row"><span>Activation Fee</span><span>Free</span></div>
+        </div>
+        <div class="spec-block">
+          <div class="spec-block-label">Funded</div>
+          <div class="spec-row"><span>Max Loss Limit</span><span>$2,000</span></div>
+          <div class="spec-row"><span>DLL</span><span>$1,200</span></div>
+          <div class="spec-row"><span>Drawdown Type</span><span>Intraday</span></div>
+          <div class="spec-row"><span>Consistency</span><span><span class="badge good">None</span></span></div>
+          <div class="spec-row"><span>Daily Payouts</span><span>✓</span></div>
+        </div>
+      </div>
+
+      <div class="spec-card">
+        <h4>50K Direct</h4>
+        <div class="spec-price">Straight to funded — no eval — $360.50 one-time (w/ coupon, normally $515)</div>
+        <div class="spec-block">
+          <div class="spec-row"><span>Max Loss Limit</span><span>$2,000 EOD</span></div>
+          <div class="spec-row"><span>DLL (below initial trail)</span><span>$1,200</span></div>
+          <div class="spec-row"><span>LucidScale DLL (above initial trail)</span><span>60% of peak EOD balance</span></div>
+          <div class="spec-row"><span>Consistency</span><span>20%</span></div>
+          <div class="spec-row"><span>Max Size</span><span>4 mini / 40 micros</span></div>
+          <div class="spec-row"><span>Min Days to Payout</span><span>5</span></div>
+          <div class="spec-row"><span>Max Accounts</span><span>5</span></div>
+          <div class="spec-row"><span>Trader Dashboard</span><span>Realtime</span></div>
+        </div>
+      </div>
+
+      <div class="spec-card">
+        <h4>50K Flex</h4>
+        <div class="spec-price">Eval fee $90.20 w/ DLL on · $105.20 w/ DLL off</div>
+        <div class="spec-block">
+          <div class="spec-block-label">Eval</div>
+          <div class="spec-row"><span>Profit Target</span><span>$3,000</span></div>
+          <div class="spec-row"><span>Max Loss Limit</span><span>$2,000 EOD</span></div>
+          <div class="spec-row"><span>Daily Loss Limit</span><span>Optional — $1,200 or off</span></div>
+          <div class="spec-row"><span>Consistency</span><span>50%</span></div>
+          <div class="spec-row"><span>Max Size</span><span>4 mini / 40 micros</span></div>
+          <div class="spec-row"><span>Reset Fee</span><span>$90 (w/ DLL) / $105 (no DLL)</span></div>
+        </div>
+        <div class="spec-block">
+          <div class="spec-block-label">Funded</div>
+          <div class="spec-row"><span>Max Loss Limit</span><span>$2,000</span></div>
+          <div class="spec-row"><span>DLL</span><span>$1,200</span></div>
+          <div class="spec-row"><span>Consistency</span><span><span class="badge good">None</span></span></div>
+          <div class="spec-row"><span>Min Days of Profit</span><span>5 days of $150+</span></div>
+          <div class="spec-row"><span>Days to Payout</span><span>5</span></div>
+          <div class="spec-row"><span>Scaling Plan</span><span>Yes</span></div>
+        </div>
+      </div>
+
+      <div class="spec-card">
+        <h4>50K Pro</h4>
+        <div class="spec-price">Eval fee $115.40 · pass in as little as 1 day</div>
+        <div class="spec-block">
+          <div class="spec-block-label">Eval</div>
+          <div class="spec-row"><span>Profit Target</span><span>$3,000</span></div>
+          <div class="spec-row"><span>Max Loss Limit</span><span>$2,000 EOD</span></div>
+          <div class="spec-row"><span>Daily Loss Limit</span><span>Optional — $1,200 or off</span></div>
+          <div class="spec-row"><span>Max Size</span><span>4 mini / 40 micros</span></div>
+          <div class="spec-row"><span>Trader Dashboard</span><span>Realtime</span></div>
+          <div class="spec-row"><span>Reset Fee</span><span>$115</span></div>
+        </div>
+        <div class="spec-block">
+          <div class="spec-block-label">Funded</div>
+          <div class="spec-row"><span>Payout Profit Target</span><span>$500</span></div>
+          <div class="spec-row"><span>Max Loss Limit</span><span>$2,000</span></div>
+          <div class="spec-row"><span>DLL / LucidScale</span><span>$1,200 below trail · 60% peak EOD above</span></div>
+          <div class="spec-row"><span>Consistency</span><span>40%</span></div>
+          <div class="spec-row"><span>Days to Payout</span><span>3</span></div>
+          <div class="spec-row"><span>Scaling Plan</span><span><span class="ref-tag">—</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-label">📐 Account Size Tiers — 50K vs 100K</div>
+    <p class="sec-sub">Beyond the 50K headline numbers above, Apex and TPT scale contracts/targets/fees at 100K. Reference only — Christopher currently holds Apex Legacy 50K/100K accounts.</p>
+    <details class="tier-toggle">
+      <summary>📊 View Apex (50K Full / 100K Full / 100K Static) + TPT (50K / 100K) tier cards</summary>
+      <div class="tier-imgs">
+        <figure><img src="accounts/PropFirms/ApexTrader/Apex 50K vs 100K vs 100K-static details.png" alt="Apex 50K vs 100K vs 100K-static tier comparison"><figcaption>Apex Legacy — 50K Full / 100K Full / 100K Static</figcaption></figure>
+        <figure><img src="accounts/PropFirms/TakeProfitTrader/TPT 100K details.png" alt="TPT 100K tier details"><figcaption>TakeProfitTrader — 100K ($330/mo)</figcaption></figure>
+        <figure><img src="accounts/PropFirms/TakeProfitTrader/TPT 50K details.png" alt="TPT 50K tier details"><figcaption>TakeProfitTrader — 50K ($170/mo)</figcaption></figure>
+      </div>
+    </details>
+
+    <div class="sec-label">💳 Reset Economics</div>
+    <p class="sec-sub">Cost-of-staying-in numbers, for the accounts Christopher actually runs.</p>
+    <div class="panel" style="padding: 1rem 1.2rem;">
+      <p style="font-size:.84rem; margin-bottom:.6rem;"><strong>TakeProfitTrader:</strong> a reset costs $649, capped at 3 resets total. Pricier than starting a fresh instant-funded account elsewhere once you're past reset #1-2 — but Christopher values staying with TPT despite the account-count ceiling, so a reset is still the default move over starting over cold.</p>
+      <p style="font-size:.84rem;"><strong>Apex Legacy renewal nuance:</strong> renewing a Legacy account rolls existing profits into the next 30-day cycle rather than zeroing them out. New Apex products (EOD/Intraday) don't carry this — missing the 30-day profit target on those simply fails the account, no renewal-with-profits-intact option.</p>
+    </div>
+
+    <div class="sec-label">🔁 Copy-Trading Policy — What's Actually Allowed</div>
+    <p class="sec-sub">The short version across every firm on file: copying <em>your own</em> trade decision from one of your own accounts to another is generally fine; mirroring someone else's signals/calls is not.</p>
+    <div class="panel" style="padding: 1rem 1.2rem;">
+      <p style="font-size:.84rem; margin-bottom:.5rem;"><strong>TopOneFutures</strong> explicitly allows copy trading <em>between your own accounts across firms</em>, as long as the trade decision originates on the TOF account itself — mirroring someone else's signals (Discord/Telegram calls, group trading) is prohibited. See <a href="https://help.toponefutures.com/en/articles/11680891-copy-trading-policy" target="_blank" rel="noreferrer">TOF's Copy Trading Policy ↗</a> and the fuller prohibited-practices list in <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TopOneFutures/topone-rules.md" target="_blank" rel="noreferrer">topone-rules.md ↗</a>.</p>
+      <p style="font-size:.84rem;">This is the same rule the TradeCopia copy-trading setup leans on: Top1 Elite ACCESS stays the manual, decision-originating account; Lucid and the renewed Apex Legacy evals copy-trade <em>from</em> it. See <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-Scaling-SOP-%26-Implementation.md" target="_blank" rel="noreferrer">the Scaling SOP doc ↗</a> for the full TradeCopia writeup.</p>
+    </div>
+
+    <div class="sec-label">🛑 FOMC / CPI / NFP — News Blackout Rules by Firm</div>
+    <p class="sec-sub">Rules diverge sharply by firm — some fully permit news trading, others carry a hard 1-2 minute blackout window. Know which account is live before a red-folder release.</p>
+    <div class="news-grid">
+      <div class="news-card">
+        <h4>💰 TakeProfitTrader PRO / PRO+</h4>
+        <ul><li><strong>Forbidden</strong> 1 minute before, during, and 1 minute after FOMC / CPI / NFP</li></ul>
+      </div>
+      <div class="news-card">
+        <h4>🥇 TopOneFutures</h4>
+        <ul><li><strong>Forbidden only if a position is modified</strong> 2 minutes before/during/after — holding through untouched is fine</li></ul>
+      </div>
+      <div class="news-card">
+        <h4>🅰️ Apex Trader Funding</h4>
+        <ul>
+          <li>News-event trading is <strong>allowed</strong> as part of a normal strategy</li>
+          <li><strong>Prohibited:</strong> pure gambling, "chasing the market," or opposing bracket orders placed to luck into a news breakout</li>
+          <li><strong>No hedging</strong> — simultaneous long+short on the same/correlated instrument is a standing hard rule, separate from news</li>
+        </ul>
+      </div>
+      <div class="news-card">
+        <h4>💧 Lucid Trading</h4>
+        <ul>
+          <li><strong>LucidFlex / Pro / Direct:</strong> news trading fully allowed — enter/exit freely around major releases, no penalty</li>
+          <li><strong>LucidDaily:</strong> trading red-folder (high-impact) news is a <strong>hard breach</strong>, not allowed on this variant</li>
+          <li>Market risk (slippage/unexpected execution) still applies during news on both platforms regardless of the rule</li>
+        </ul>
+      </div>
+    </div>
+
     <div class="sec-label">Daily Close Deadlines — Know Which Account You're In</div>
-    <p class="sec-sub">Every firm enforces its own cutoff differently — some are hard account-failure triggers, others are soft auto-flatten. Confirm before assuming the same habit transfers across accounts.</p>
+    <p class="sec-sub">Every firm sets an automatic cutoff to protect both the firm and the trader — a safety net, not a trap. Enforcement style differs though: some auto-flatten cleanly, others carry the <em>possibility</em> of account failure if the close coincides with a slippage/gap event. Confirm which bucket today's account is in before assuming the same habit transfers across accounts.</p>
     <div class="panel">
       <div class="tbl-wrap">
         <table>
           <thead><tr><th>Firm</th><th>Close Deadline</th><th>Enforcement</th></tr></thead>
           <tbody>
-            <tr><td class="firm-col">Apex (all paths)</td><td>~4:59 PM ET</td><td><span class="badge bad">Hard — account forfeiture</span></td></tr>
-            <tr><td class="firm-col">TakeProfitTrader</td><td>5:00 PM ET</td><td><span class="badge bad">Hard — account failure</span></td></tr>
+            <tr><td class="firm-col">Apex (all paths)</td><td>~4:59 PM ET</td><td><span class="badge warn">Auto-flatten — failure possible only if execution slips/gaps through the close</span></td></tr>
+            <tr><td class="firm-col">TakeProfitTrader</td><td>4:55 PM ET auto-close</td><td><span class="badge good">Soft — auto-closed, no more failed accounts for a missed manual close</span></td></tr>
             <tr><td class="firm-col">TopOneFutures</td><td>4:10 PM ET</td><td><span class="badge warn">Force-closed daily (no overnight holds, any account type)</span></td></tr>
             <tr><td class="firm-col">Lucid</td><td>4:45 PM ET</td><td><span class="badge good">Soft — auto-flatten, non-punitive</span></td></tr>
             <tr><td class="firm-col">Tradeify</td><td><span class="ref-tag">Not specified in current docs — verify live</span></td><td>—</td></tr>
@@ -163,16 +335,18 @@
         </table>
       </div>
     </div>
+    <p class="sec-sub" style="margin-top:.7rem;">TakeProfitTrader updated this policy — previously, holding a position past 5:00 PM ET was an instant liquidation + failed account; now TPT auto-closes any open position at 4:55 PM ET and the account simply stays active for the next session. See <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TakeProfitTrader/Rule%20update%20-%205pm.png" target="_blank" rel="noreferrer">TPT's rule-update notice ↗</a>.</p>
 
     <div class="sec-label">✈️ Daily Pre-Flight Checklist</div>
     <p class="sec-sub">Run through before the open — especially on multi-account days.</p>
     <div class="panel">
       <ul class="checklist">
-        <li><input type="checkbox"><span>Confirm which account(s) are active today and their exact close deadline<span class="sub">Apex ~4:59 PM ET · TPT 5:00 PM ET · TopOneFutures 4:10 PM ET · Lucid 4:45 PM ET</span></span></li>
+        <li><input type="checkbox"><span>Confirm which account(s) are active today and their exact close deadline<span class="sub">Apex ~4:59 PM ET · TPT 4:55 PM ET auto-close · TopOneFutures 4:10 PM ET · Lucid 4:45 PM ET</span></span></li>
         <li><input type="checkbox"><span>SL placed and never moved — Pattern 7 discipline check<span class="sub">See <a href="../data/progression/pattern_tracker.md">pattern_tracker.md</a> for the full pattern history</span></span></li>
         <li><input type="checkbox"><span>No opposing/hedged positions across accounts<span class="sub">Apex, TPT, and TopOneFutures all treat cross-account hedging as an instant, all-accounts-involved violation</span></span></li>
         <li><input type="checkbox"><span>Daily Loss Limit checked, if the account has one<span class="sub">Apex EOD/PA, Tradeify, some Lucid configs — TPT and Apex Intraday have none</span></span></li>
         <li><input type="checkbox"><span>Consistency rule tracked if trading toward a payout<span class="sub">TPT/Lucid eval 50% · Tradeify 35% · TopOneFutures funded 40%</span></span></li>
+        <li><input type="checkbox"><span>Check today's calendar for FOMC / CPI / NFP before the open<span class="sub">TPT blackout ±1 min · TopOneFutures blackout only if a position is modified ±2 min · Apex/Lucid Flex/Pro/Direct allow it · LucidDaily hard-forbids red-folder news</span></span></li>
         <li><input type="checkbox"><span>Cancel all resting/projected orders before stepping away<span class="sub">Pattern 9 — unintentional fills from stale limit orders</span></span></li>
         <li><input type="checkbox"><span>Personal hard-exit time set before the firm's deadline becomes the exit mechanism<span class="sub">Pattern 8 — never let the prop firm's forced close be the trade management plan</span></span></li>
       </ul>
@@ -193,7 +367,8 @@
   </main>
 
   <footer class="footer">
-    <p>Part of the <a href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer">Trading Assistant</a> public preview. Educational reference — always verify current rules directly with each firm.</p>
+    <p>✈️ Prop Firm Rules &amp; Pre-Flight Checklist · Christopher Wilson · Part of the <a href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer">Trading Assistant</a> public preview</p>
+    <p>Educational reference — always verify current rules directly with each firm.</p>
   </footer>
 
 </body>
