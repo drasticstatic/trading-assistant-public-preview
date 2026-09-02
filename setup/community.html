@@ -19,6 +19,9 @@
       --orange: #ff9f67; --violet: #b693ff; --rose: #ff9dc1;
       --radius-xl: 22px; --radius-lg: 16px; --radius-md: 10px;
       --shadow: 0 20px 48px rgba(2, 8, 20, 0.34);
+      --glass: rgba(148, 163, 184, 0.07);
+      --glass-border: rgba(231, 237, 246, 0.14);
+      --spring: cubic-bezier(.34, 1.56, .64, 1);
     }
     @media (prefers-color-scheme: light) {
       :root {
@@ -26,13 +29,21 @@
         --border: rgba(71,85,105,0.18); --border-strong: rgba(71,85,105,0.28);
         --text: #162032; --muted: #56667d; --subtle: #6b7c93;
         --blue: #1864db; --cyan: #0f9db6; --green: #1f8f56; --gold: #b7791f; --orange: #d96a25; --violet: #7851db; --rose: #c93c7d;
+        --glass: rgba(255,255,255,0.55); --glass-border: rgba(71,85,105,0.16);
       }
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+    }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+      background:
+        radial-gradient(ellipse 900px 500px at 15% -10%, rgba(182,147,255,0.10), transparent 60%),
+        radial-gradient(ellipse 900px 500px at 100% 10%, rgba(255,157,193,0.08), transparent 60%),
+        linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+      background-attachment: fixed;
       color: var(--text); font-size: 14px; line-height: 1.65; min-height: 100vh;
     }
     a { color: var(--blue); text-decoration: none; }
@@ -50,6 +61,15 @@
     h1 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: .6rem; }
     h1 span { background: linear-gradient(120deg, var(--gold), var(--rose)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .lede { color: var(--muted); font-size: .9rem; max-width: 720px; margin-bottom: 2rem; }
+
+    /* ── One orchestrated entrance: hero settles in, then the Friends
+       marquee follows right after — the only scripted reveal on this
+       page, everything else is simply visible. ── */
+    @keyframes riseIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-in { animation: riseIn .6s var(--spring) both; }
+    .hero-in.d1 { animation-delay: .05s; }
+    .hero-in.d2 { animation-delay: .14s; }
+    .hero-in.d3 { animation-delay: .22s; }
     .sec-label {
       font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em;
       color: var(--violet); margin: 2.2rem 0 1rem; display: flex; align-items: center; gap: .6rem;
@@ -58,21 +78,64 @@
     .sec-label:first-of-type { margin-top: 0; }
     .sec-sub { font-size: .82rem; color: var(--muted); margin: -.6rem 0 1rem; max-width: none; }
 
-    .thanks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
-    .thanks-card { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow); padding: 1.1rem 1.2rem; }
+    /* ── Glass card base — frosted, with a thin light-line along the top
+       edge tinted per section (--accent, set on each wrapper) rather than
+       a uniform shadow on everything. ── */
+    .glass {
+      position: relative; border: 1px solid var(--glass-border); border-radius: var(--radius-lg);
+      background: var(--glass); backdrop-filter: blur(20px) saturate(160%); -webkit-backdrop-filter: blur(20px) saturate(160%);
+      box-shadow: var(--shadow); overflow: hidden;
+    }
+    .glass::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent, var(--border)), transparent);
+      opacity: .85;
+    }
+
+    .thanks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; --accent: var(--gold); }
+    .thanks-card { padding: 1.1rem 1.2rem; transition: transform .35s var(--spring), border-color .2s; }
+    .thanks-card:hover { transform: translateY(-3px); border-color: rgba(243,201,105,.4); }
     .thanks-card h3 { font-size: .94rem; font-weight: 800; margin-bottom: .35rem; color: var(--text); display: flex; align-items: center; gap: .4rem; }
     .thanks-card p { font-size: .82rem; color: var(--muted); margin-bottom: .5rem; }
     .thanks-card p:last-child { margin-bottom: 0; }
     .thanks-card .review-link { display: inline-flex; align-items: center; gap: .3rem; font-size: .76rem; font-weight: 700; padding: .18rem .6rem; border-radius: 999px; background: rgba(73,209,125,.12); color: var(--green); border: 1px solid rgba(73,209,125,.24); }
     .thanks-card .flavor-tag { font-size: .72rem; color: var(--subtle); font-style: italic; }
 
-    .pfm-panel { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow); padding: 1.2rem 1.3rem; }
+    .pfm-panel { padding: 1.2rem 1.3rem; --accent: var(--rose); }
     .pfm-panel h3 { font-size: 1rem; font-weight: 800; margin-bottom: .5rem; }
     .pfm-panel p { font-size: .85rem; color: var(--muted); margin-bottom: .6rem; }
     .pfm-panel p:last-child { margin-bottom: 0; }
     .host-chip { display: inline-flex; align-items: center; padding: .16rem .55rem; border-radius: 999px; font-size: .72rem; font-weight: 700; background: rgba(255,157,193,.12); color: var(--rose); border: 1px solid rgba(255,157,193,.24); margin: .1rem .2rem .1rem 0; }
     .partner-code { display: inline-flex; align-items: center; gap: .3rem; padding: .16rem .6rem; border-radius: 999px; font-size: .76rem; font-weight: 800; background: rgba(243,201,105,.12); color: var(--gold); border: 1px solid rgba(243,201,105,.28); font-family: ui-monospace, monospace; }
     .gexlab-note { font-size: .76rem; color: var(--subtle); font-style: italic; border-top: 1px dashed var(--border); padding-top: .6rem; margin-top: .3rem !important; }
+    #thegexlab + .sec-sub + .glass { --accent: var(--cyan); }
+
+    /* ── SOCIAL PREVIEW CARDS (Shoutout section) — an unfurled-link feel:
+       wide banner, then a title/domain footer, like the preview Discord
+       or iMessage would generate, since no real screenshots are on file. ── */
+    .preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; --accent: var(--rose); }
+    .preview-card {
+      display: block; text-decoration: none; color: inherit;
+      transition: transform .35s var(--spring), border-color .2s;
+    }
+    .preview-card:hover { transform: translateY(-3px); border-color: rgba(255,157,193,.4); }
+    .preview-banner {
+      position: relative; aspect-ratio: 2.2/1; display: flex; align-items: center; justify-content: center;
+      font-size: 2.4rem; overflow: hidden;
+    }
+    .preview-banner .schedule {
+      position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: .3rem;
+      padding: 0 1.1rem; font-size: 2.4rem; align-items: flex-start;
+    }
+    .preview-sched-row {
+      display: flex; align-items: baseline; gap: .45rem; font-size: .72rem; font-weight: 700;
+      color: rgba(9,17,29,.82);
+    }
+    .preview-sched-row .t { font-size: .64rem; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; opacity: .75; min-width: 68px; }
+    .preview-body { padding: .85rem 1rem .9rem; }
+    .preview-title { font-size: .88rem; font-weight: 800; color: var(--text); margin-bottom: .2rem; display: flex; align-items: center; gap: .35rem; }
+    .preview-desc { font-size: .78rem; color: var(--muted); margin-bottom: .5rem; }
+    .preview-domain { font-size: .7rem; color: var(--subtle); text-transform: uppercase; letter-spacing: .05em; display: flex; align-items: center; gap: .3rem; }
 
     /* ── FRIENDS (infinite-loop scrollable artwork-card marquee) ── */
     .friends-wrap {
@@ -88,11 +151,14 @@
     .friends-track { display: flex; gap: 1rem; width: max-content; }
     .friend-card {
       flex: 0 0 auto; width: 190px;
-      border: 1px solid var(--border); border-radius: var(--radius-lg);
-      background: var(--surface); overflow: hidden; box-shadow: var(--shadow);
-      transition: border-color .15s, transform .15s;
+      border: 1px solid var(--glass-border); border-radius: var(--radius-lg);
+      background: var(--glass); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      overflow: hidden; box-shadow: var(--shadow);
+      transition: border-color .2s, transform .35s var(--spring);
+      opacity: 0; transform: translateY(8px) scale(.97);
     }
-    .friend-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .friend-card.in { opacity: 1; transform: translateY(0) scale(1); }
+    .friend-card:hover { border-color: var(--gold); transform: translateY(-3px) scale(1.015); }
     .friend-art {
       aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
       font-size: 2.6rem;
@@ -104,19 +170,27 @@
       display: flex; align-items: center; justify-content: center; gap: .3rem;
       width: 100%; padding: .35rem 0; border-radius: 999px; font-size: .72rem; font-weight: 700;
       background: var(--surface-soft); border: 1px solid var(--border); color: var(--text);
+      transition: border-color .2s, color .2s;
     }
     .friend-link:hover { border-color: var(--blue); color: var(--blue); }
 
     /* ── COPY-TRADING TOOLS ── */
-    .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
-    .tool-card { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow); padding: 1.1rem 1.2rem; }
+    .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; --accent: var(--blue); }
+    .tool-card { padding: 1.1rem 1.2rem; transition: transform .35s var(--spring), border-color .2s; }
+    .tool-card:hover { transform: translateY(-3px); border-color: rgba(124,194,255,.4); }
     .tool-card h4 { font-size: .92rem; font-weight: 800; margin-bottom: .35rem; display: flex; align-items: center; gap: .4rem; }
     .tool-card p { font-size: .82rem; color: var(--muted); margin-bottom: .5rem; }
     .tool-card p:last-child { margin-bottom: 0; }
 
     .ext-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: .9rem; }
-    .ext-card { border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); padding: .9rem 1rem; text-align: center; }
-    .ext-card h4 { font-size: .88rem; font-weight: 800; margin-bottom: .3rem; }
+    .ext-card {
+      display: block; text-decoration: none; color: inherit;
+      border: 1px solid var(--glass-border); border-radius: var(--radius-md);
+      background: var(--surface-soft); padding: .9rem 1rem; text-align: center;
+      transition: transform .35s var(--spring), border-color .2s, background .2s;
+    }
+    .ext-card:hover { transform: translateY(-2px); border-color: var(--border-strong); background: var(--glass); }
+    .ext-card h4 { font-size: .88rem; font-weight: 800; margin-bottom: .3rem; color: var(--text); }
     .ext-card p { font-size: .76rem; color: var(--muted); }
 
     .affiliate-panel { border: 1px dashed var(--border); border-radius: var(--radius-lg); padding: 1.3rem 1.4rem; text-align: center; color: var(--muted); background: var(--surface-soft); }
@@ -138,26 +212,26 @@
   </nav>
 
   <main class="content">
-    <p class="eyebrow">Gratitude · Not a Solo Effort</p>
-    <h1>🙏 Community &amp; <span>Thanks</span></h1>
-    <p class="lede">None of this trading journey happened alone. This page names the people, communities, and platforms that made the difference — coaches, a copy-trading community that turned into an unexpected gift, and the tools this whole build runs on.</p>
+    <p class="eyebrow hero-in">Gratitude · Not a Solo Effort</p>
+    <h1 class="hero-in d1">🙏 Community &amp; <span>Thanks</span></h1>
+    <p class="lede hero-in d2">None of this trading journey happened alone. This page names the people, communities, and platforms that made the difference — coaches, a copy-trading community that turned into an unexpected gift, and the tools this whole build runs on.</p>
 
     <div class="sec-label">🎓 Mentors</div>
     <p class="sec-sub">Three coaching programs, each bringing something different — see <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/progression/pattern_tracker.md" target="_blank" rel="noreferrer">pattern_tracker.md</a>'s "Trading Style" note for how these actually blend day to day.</p>
     <div class="thanks-grid">
-      <div class="thanks-card">
+      <div class="thanks-card glass">
         <h3>🧠 Inevitrade (IT)</h3>
         <p class="flavor-tag">Smart money</p>
         <p>Foundation EMAs, SMT divergence, and the longest-running relationship in this whole trading arc.</p>
         <a class="review-link" href="https://www.trustpilot.com/review/inevitrade.com" target="_blank" rel="noreferrer">⭐ Trustpilot ↗</a>
       </div>
-      <div class="thanks-card">
+      <div class="thanks-card glass">
         <h3>📘 SmartTradingBlueprint (STB)</h3>
         <p class="flavor-tag">Depth</p>
         <p>FCR (First Candle Rule) and the deep case-study habit that shows up throughout this repo.</p>
         <a class="review-link" href="https://www.trustpilot.com/review/smarttradingblueprint.com" target="_blank" rel="noreferrer">⭐ Trustpilot ↗</a>
       </div>
-      <div class="thanks-card">
+      <div class="thanks-card glass">
         <h3>🎯 ZeroToHero (ZTH)</h3>
         <p class="flavor-tag">Base-hit-minded</p>
         <p>Setups looked for all session long, and the base-hit discipline behind the "securing base hits" approach.</p>
@@ -171,57 +245,68 @@
       <div class="friends-track" id="friendsTrack"></div>
     </div>
 
-    <div id="pfm" class="sec-label">🦆 PropFirmMatchTV</div>
-    <p class="sec-sub">Fun over fear — the whole reason a LucidFlex eval account is on the roster at all.</p>
-    <div class="pfm-panel">
-      <h3>🦆 PropFirmMatchTV</h3>
-      <p><a href="https://propfirmmatch.com/futures" target="_blank" rel="noreferrer">propfirmmatch.com/futures ↗</a> — a live-stream community built around prop-firm challenges, giveaways, and genuinely fun energy around a grind that can otherwise get heavy. A LucidFlex eval account was won here via an on-stream duck race 🦆 — first prize surfaced through community, not purchased. More on the copy-trading plan it kicked off: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/progression/gallery.html#copy-trading" target="_blank" rel="noreferrer">gallery.html's Copy Trading section ↗</a>.</p>
-      <p><strong>Hosts:</strong> <span class="host-chip">LunaTrades</span><span class="host-chip">ZarbsLiquidity</span><span class="host-chip">TMadeAlex</span> — plus many guests over time. Direct links to all three: see the <a href="#friends-top">Friends marquee</a> above.</p>
+    <div id="pfm" class="sec-label">📺 Shoutout</div>
+    <p class="sec-sub">PropFirmMatchTV and MarketButcher — fun over fear, and the content/perspective that goes with it.</p>
+    <div class="preview-grid">
+      <div class="preview-card glass">
+        <a class="preview-banner" href="https://propfirmmatch.com/futures" target="_blank" rel="noreferrer" style="background:linear-gradient(135deg,#ff9dc1,#b693ff);">
+          <div class="schedule" id="pfmSchedule"></div>
+        </a>
+        <div class="preview-body">
+          <a class="preview-title" href="https://propfirmmatch.com/futures" target="_blank" rel="noreferrer">🦆 PropFirmMatchTV</a>
+          <p class="preview-desc">A live-stream community built around prop-firm challenges, giveaways, and genuinely fun energy around a grind that can otherwise get heavy. A free Lucid futures account was won here via an on-stream duck race 🦆 — first prize surfaced through community, not purchased. Hosts + direct links: see the <a href="#friends-top">Friends marquee</a> above. More on the copy-trading plan it kicked off: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/progression/gallery.html#copy-trading" target="_blank" rel="noreferrer">gallery.html's Copy Trading section ↗</a>.</p>
+          <a class="preview-domain" href="https://propfirmmatch.com/futures" target="_blank" rel="noreferrer">🔗 propfirmmatch.com</a>
+        </div>
+      </div>
+      <a class="preview-card glass" href="https://www.youtube.com/@MarketButcher" target="_blank" rel="noreferrer">
+        <div class="preview-banner" style="background:linear-gradient(135deg,#ff9dc1,#ff9f67);">🥩</div>
+        <div class="preview-body">
+          <div class="preview-title">🎥 Dave Butcher — MarketButcher</div>
+          <p class="preview-desc">Thanks for the content and perspective.</p>
+          <div class="preview-domain">🔗 youtube.com/@MarketButcher</div>
+        </div>
+      </a>
     </div>
 
     <div id="thegexlab" class="sec-label">🔬 TheGexLab</div>
     <p class="sec-sub">Equal billing with PFM above, not a subsection of it — a different kind of thank-you, for a different kind of tool.</p>
-    <div class="pfm-panel">
+    <div class="pfm-panel glass">
       <h3>🔬 TMade × TheGexLab</h3>
       <p>TMade partnered with Yush to build TheGexLab — real-time dealer positioning (put/call walls, zero gamma, and the regime read that says whether the market's pinned or primed to run) laid directly onto the chart. Their Asia-session read is nicknamed "night-vision" — which lands close to home, since our own ETH-derived ZTH levels in the auto-levels indicator render green vs. cyan for exactly that reason. Years of building this system, and it's still finding new confluence to lean on.</p>
       <p>Partner access: <a href="https://www.thegexlab.com/tmade" target="_blank" rel="noreferrer">thegexlab.com/tmade ↗</a> — <span class="partner-code">code TMADE</span> for 20% off. This is a gated partner link, not the public marketing site.</p>
       <p class="gexlab-note">⚠️ Note for anyone typing this by hand: the bare <code>thegexlab.com</code> domain currently resolves to a parked GoDaddy page, not the real site — only <code>www.thegexlab.com/tmade</code> (with the <code>www.</code>) works. Flagged to Yush; use the link above until it's fixed.</p>
     </div>
 
-    <div class="sec-label">📺 Shoutout</div>
-    <div class="pfm-panel">
-      <p>🎥 <a href="https://www.youtube.com/@MarketButcher" target="_blank" rel="noreferrer">MarketButcher ↗</a> — thanks for the content and perspective.</p>
-    </div>
-
     <div class="sec-label">🔁 Copy-Trading Tools</div>
-    <p class="sec-sub">The actual plan: full writeup and account structure in <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-Scaling-SOP-%26-Implementation.md" target="_blank" rel="noreferrer">the Scaling SOP doc ↗</a>.</p>
+    <p class="sec-sub">The actual plan: full writeup and account structure in <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-Scaling-SOP-%26-Implementation.md" target="_blank" rel="noreferrer">the Scaling SOP doc ↗</a>. Both tools linked below — this isn't about elevating one over the other.</p>
     <div class="tools-grid">
-      <div id="tradecopia" class="tool-card">
+      <div id="tradecopia" class="tool-card glass">
         <h4>🔁 TradeCopia</h4>
         <p>The tool actually being set up — per-follower position sizing/multipliers, independent scaling rather than a flat 1:1 mirror. TopOneFutures stays manual; Lucid copy-trades from it; the renewed Apex Legacy evals copy-trade from TPT-PRO.</p>
         <a class="review-link" href="https://tradecopia.com" target="_blank" rel="noreferrer">🔗 tradecopia.com ↗</a>
       </div>
-      <div id="tradesyncer" class="tool-card">
+      <div id="tradesyncer" class="tool-card glass">
         <h4>🔁 Tradesyncer</h4>
         <p>The other option researched — cloud-based, sub-100ms, cross-broker (Tradovate ↔ NinjaTrader/Apex). Already in use by Inevitrade and STB. Genuinely considered, not just a footnote — TradeCopia won out because it's what surfaced through the PFM/TheGexLab community context, not a cold comparison.</p>
+        <a class="review-link" href="https://www.tradesyncer.com" target="_blank" rel="noreferrer">🔗 tradesyncer.com ↗</a>
       </div>
     </div>
 
     <div class="sec-label">🛠️ External Resources</div>
     <p class="sec-sub">Thanks to the platforms that make this whole build possible — deeper how-to context for these lives on <a href="../data/progression/resources.html">resources.html</a>.</p>
     <div class="ext-grid">
-      <div class="ext-card">
+      <a class="ext-card" href="https://www.tradingview.com" target="_blank" rel="noreferrer">
         <h4>📈 TradingView</h4>
         <p>Charting, level marking, and screenshot capture for every review in this repo.</p>
-      </div>
-      <div class="ext-card">
+      </a>
+      <a class="ext-card" href="https://www.tradezella.com" target="_blank" rel="noreferrer">
         <h4>📊 TradeZella</h4>
         <p>Where the trade-journaling habit started — the origin story kept intact on gallery.html.</p>
-      </div>
-      <div class="ext-card">
+      </a>
+      <a class="ext-card" href="https://www.btcc.com" target="_blank" rel="noreferrer">
         <h4>₿ BTCC</h4>
         <p>Crypto execution venue for SOL/USDT perp trades.</p>
-      </div>
+      </a>
     </div>
 
     <div class="sec-label">🔗 Affiliates</div>
@@ -244,25 +329,36 @@
     // card uses a stylized gradient + emoji "artwork" tile instead)
     // ═══════════════════════════════════════════════════════
     const friends = [
-      { name: 'TMade Alex', role: 'PFM host · TheGexLab partner', emoji: '⚡', grad: 'linear-gradient(135deg,#ff9f67,#f3c969)', href: 'https://www.instagram.com/tmadealex/' },
-      { name: 'Zarb', role: 'PFM host · ZarbsLiquidity', emoji: '🌊', grad: 'linear-gradient(135deg,#6ee7f9,#7cc2ff)', href: 'https://www.instagram.com/iamzarb_/' },
+      { name: 'Fabio', role: 'PFM host (pre-Luna shift) · ttacapital', emoji: '🌄', grad: 'linear-gradient(135deg,#f3c969,#ff9f67)', href: 'https://www.instagram.com/ttacapital/' },
       { name: 'Luna Trades', role: 'PFM host', emoji: '🌙', grad: 'linear-gradient(135deg,#b693ff,#ff9dc1)', href: 'https://www.instagram.com/luna_trades_/' },
+      { name: 'Zarb', role: 'PFM host · ZarbsLiquidity', emoji: '🌊', grad: 'linear-gradient(135deg,#6ee7f9,#7cc2ff)', href: 'https://www.instagram.com/iamzarb_/' },
+      { name: 'TMade Alex', role: 'PFM host · TheGexLab partner', emoji: '⚡', grad: 'linear-gradient(135deg,#ff9f67,#f3c969)', href: 'https://www.instagram.com/tmadealex/' },
+      { name: 'Dave Butcher', role: 'MarketButcher', emoji: '🥩', grad: 'linear-gradient(135deg,#ff9dc1,#ff9f67)', href: 'https://www.instagram.com/market_butcher/' },
       { name: 'Yush', role: 'TheGexLab co-creator', emoji: '🔬', grad: 'linear-gradient(135deg,#49d17d,#6ee7f9)', href: 'https://www.instagram.com/traderyush_/' },
-      { name: 'MarketButcher', role: 'Shoutout', emoji: '🥩', grad: 'linear-gradient(135deg,#ff9dc1,#ff9f67)', href: 'https://www.youtube.com/@MarketButcher', kind: 'YouTube' },
       { name: 'Craig', role: 'Inevitrade (IT)', emoji: '🧠', grad: 'linear-gradient(135deg,#7cc2ff,#b693ff)', href: 'https://www.instagram.com/craig_percoco/' },
       { name: 'Jesse', role: 'SmartTradingBlueprint (STB)', emoji: '📘', grad: 'linear-gradient(135deg,#f3c969,#ff9f67)', href: 'https://www.instagram.com/casper_smc/' },
       { name: 'Omar', role: 'ZeroToHero (ZTH)', emoji: '🎯', grad: 'linear-gradient(135deg,#49d17d,#f3c969)', href: 'https://www.instagram.com/omarfhafez/' },
     ];
+    // PropFirmMatchTV's daily schedule, in order — doubles as the thread
+    // tying the Friends marquee above into one coherent day.
+    const pfmSchedule = [
+      { time: 'Pre-Dawn', host: 'Fabio' },
+      { time: 'Early AM', host: 'Luna' },
+      { time: 'NY Session', host: 'Zarb' },
+      { time: 'Lunchbox', host: 'Alex' },
+      { time: 'Evening', host: 'Dave' },
+    ];
     function renderFriends(containerId, items) {
       const el = document.getElementById(containerId);
       const doubled = items.concat(items);
-      doubled.forEach(item => {
+      doubled.forEach((item, i) => {
         const card = document.createElement('a');
         card.className = 'friend-card';
         card.href = item.href;
         card.target = '_blank';
         card.rel = 'noreferrer';
         card.style.display = 'block';
+        card.style.transitionDelay = (i % items.length) * 0.04 + 's';
         card.innerHTML = `
           <div class="friend-art" style="background:${item.grad}">${item.emoji}</div>
           <div class="friend-card-body">
@@ -271,7 +367,15 @@
             <span class="friend-link">${item.kind === 'YouTube' ? '🎥 YouTube ↗' : '📸 Instagram ↗'}</span>
           </div>`;
         el.appendChild(card);
+        // One orchestrated reveal: cards settle into place right after
+        // the hero finishes (see .hero-in delays), staggered left to right.
+        requestAnimationFrame(() => setTimeout(() => card.classList.add('in'), 260));
       });
+    }
+    function renderPfmSchedule(containerId, rows) {
+      const el = document.getElementById(containerId);
+      if (!el) return;
+      el.innerHTML = rows.map(r => `<div class="preview-sched-row"><span class="t">${r.time}</span><span>${r.host}</span></div>`).join('');
     }
     function startInfiniteMarquee(wrapId, trackId) {
       const wrap = document.getElementById(wrapId);
@@ -303,6 +407,7 @@
     }
     renderFriends('friendsTrack', friends);
     startInfiniteMarquee('friendsWrap', 'friendsTrack');
+    renderPfmSchedule('pfmSchedule', pfmSchedule);
   </script>
 
 </body>
