@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community &amp; Thanks — Trading Assistant</title>
+  <meta name="description" content="Friends, mentors, and platforms that made this trading journey possible — Christopher Wilson's thanks page.">
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+  <style>
+    :root {
+      --bg: #09111d; --bg-alt: #0d1625;
+      --surface: rgba(11, 19, 32, 0.86); --surface-soft: rgba(148, 163, 184, 0.08);
+      --border: rgba(148, 163, 184, 0.2); --border-strong: rgba(148, 163, 184, 0.34);
+      --text: #e7edf6; --muted: #a9b6c8; --subtle: #8191a7;
+      --blue: #7cc2ff; --cyan: #6ee7f9; --green: #49d17d; --gold: #f3c969;
+      --orange: #ff9f67; --violet: #b693ff; --rose: #ff9dc1;
+      --radius-xl: 22px; --radius-lg: 16px; --radius-md: 10px;
+      --shadow: 0 20px 48px rgba(2, 8, 20, 0.34);
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #edf3fb; --bg-alt: #f8fbff; --surface: rgba(255,255,255,0.92); --surface-soft: rgba(37,99,235,0.05);
+        --border: rgba(71,85,105,0.18); --border-strong: rgba(71,85,105,0.28);
+        --text: #162032; --muted: #56667d; --subtle: #6b7c93;
+        --blue: #1864db; --cyan: #0f9db6; --green: #1f8f56; --gold: #b7791f; --orange: #d96a25; --violet: #7851db; --rose: #c93c7d;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+      color: var(--text); font-size: 14px; line-height: 1.65; min-height: 100vh;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { color: var(--cyan); }
+    .nav {
+      display: flex; align-items: center; gap: .5rem; flex-wrap: wrap;
+      padding: .65rem 1.5rem; background: rgba(9,17,29,0.85); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10;
+    }
+    .nav-brand { font-size: .82rem; font-weight: 700; color: var(--rose); margin-right: .4rem; }
+    .nav-tag { padding: .22rem .7rem; border: 1px solid var(--border); border-radius: 999px; font-size: .76rem; color: var(--muted); }
+    .nav-tag:hover { border-color: var(--blue); color: var(--text); text-decoration: none; }
+    .content { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+    .eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
+    h1 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: .6rem; }
+    h1 span { background: linear-gradient(120deg, var(--gold), var(--rose)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .lede { color: var(--muted); font-size: .9rem; max-width: 720px; margin-bottom: 2rem; }
+    .sec-label {
+      font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em;
+      color: var(--violet); margin: 2.2rem 0 1rem; display: flex; align-items: center; gap: .6rem;
+    }
+    .sec-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+    .sec-label:first-of-type { margin-top: 0; }
+    .sec-sub { font-size: .82rem; color: var(--muted); margin: -.6rem 0 1rem; max-width: none; }
+
+    .thanks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+    .thanks-card { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow); padding: 1.1rem 1.2rem; }
+    .thanks-card h3 { font-size: .94rem; font-weight: 800; margin-bottom: .35rem; color: var(--text); display: flex; align-items: center; gap: .4rem; }
+    .thanks-card p { font-size: .82rem; color: var(--muted); margin-bottom: .5rem; }
+    .thanks-card p:last-child { margin-bottom: 0; }
+    .thanks-card .review-link { display: inline-flex; align-items: center; gap: .3rem; font-size: .76rem; font-weight: 700; padding: .18rem .6rem; border-radius: 999px; background: rgba(73,209,125,.12); color: var(--green); border: 1px solid rgba(73,209,125,.24); }
+    .thanks-card .flavor-tag { font-size: .72rem; color: var(--subtle); font-style: italic; }
+
+    .pfm-panel { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow); padding: 1.2rem 1.3rem; }
+    .pfm-panel h3 { font-size: 1rem; font-weight: 800; margin-bottom: .5rem; }
+    .pfm-panel p { font-size: .85rem; color: var(--muted); margin-bottom: .6rem; }
+    .pfm-panel p:last-child { margin-bottom: 0; }
+    .host-chip { display: inline-flex; align-items: center; padding: .16rem .55rem; border-radius: 999px; font-size: .72rem; font-weight: 700; background: rgba(255,157,193,.12); color: var(--rose); border: 1px solid rgba(255,157,193,.24); margin: .1rem .2rem .1rem 0; }
+
+    .ext-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: .9rem; }
+    .ext-card { border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); padding: .9rem 1rem; text-align: center; }
+    .ext-card h4 { font-size: .88rem; font-weight: 800; margin-bottom: .3rem; }
+    .ext-card p { font-size: .76rem; color: var(--muted); }
+
+    .affiliate-panel { border: 1px dashed var(--border); border-radius: var(--radius-lg); padding: 1.3rem 1.4rem; text-align: center; color: var(--muted); background: var(--surface-soft); }
+    .affiliate-panel p { max-width: 520px; margin: 0 auto; font-size: .86rem; }
+
+    .footer { max-width: 1100px; margin: 0 auto 2rem; padding: 1.2rem 1.5rem; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); font-size: .8rem; color: var(--subtle); text-align: center; }
+    .footer p { margin: 0; }
+    .footer p + p { margin-top: .5rem; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <span class="nav-brand">🙏 Community &amp; Thanks</span>
+    <a class="nav-tag" href="../index.html">🏠 Home</a>
+    <a class="nav-tag" href="../data/progression/resources.html">📚 Resources</a>
+    <a class="nav-tag" href="../data/progression/gallery.html">🏆 Gallery</a>
+    <a class="nav-tag" href="prop-firm-rules.html">✈️ Pre-Flight Checklist</a>
+  </nav>
+
+  <main class="content">
+    <p class="eyebrow">Gratitude · Not a Solo Effort</p>
+    <h1>🙏 Community &amp; <span>Thanks</span></h1>
+    <p class="lede">None of this trading journey happened alone. This page names the people, communities, and platforms that made the difference — coaches, a copy-trading community that turned into an unexpected gift, and the tools this whole build runs on.</p>
+
+    <div class="sec-label">🤝 Friends &amp; Mentors</div>
+    <p class="sec-sub">Three coaching programs, each bringing something different — see <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/progression/pattern_tracker.md" target="_blank" rel="noreferrer">pattern_tracker.md</a>'s "Trading Style" note for how these actually blend day to day.</p>
+    <div class="thanks-grid">
+      <div class="thanks-card">
+        <h3>🧠 Inevitrade (IT)</h3>
+        <p class="flavor-tag">Smart money</p>
+        <p>Foundation EMAs, SMT divergence, and the longest-running relationship in this whole trading arc.</p>
+        <a class="review-link" href="https://www.trustpilot.com/review/inevitrade.com" target="_blank" rel="noreferrer">⭐ Trustpilot ↗</a>
+      </div>
+      <div class="thanks-card">
+        <h3>📘 SmartTradingBlueprint (STB)</h3>
+        <p class="flavor-tag">Depth</p>
+        <p>FCR (First Candle Rule) and the deep case-study habit that shows up throughout this repo.</p>
+        <a class="review-link" href="https://www.trustpilot.com/review/smarttradingblueprint.com" target="_blank" rel="noreferrer">⭐ Trustpilot ↗</a>
+      </div>
+      <div class="thanks-card">
+        <h3>🎯 ZeroToHero (ZTH)</h3>
+        <p class="flavor-tag">Base-hit-minded</p>
+        <p>Setups looked for all session long, and the base-hit discipline behind the "securing base hits" approach.</p>
+        <a class="review-link" href="https://www.trustpilot.com/review/zerotohero.trade" target="_blank" rel="noreferrer">⭐ Trustpilot ↗</a>
+      </div>
+    </div>
+
+    <div class="sec-label">🦆 PropFirmMatchTV</div>
+    <p class="sec-sub">Fun over fear — the whole reason a LucidFlex eval account is on the roster at all.</p>
+    <div class="pfm-panel">
+      <h3>🦆 PropFirmMatchTV</h3>
+      <p><a href="https://propfirmmatch.com/futures" target="_blank" rel="noreferrer">propfirmmatch.com/futures ↗</a> — a live-stream community built around prop-firm challenges, giveaways, and genuinely fun energy around a grind that can otherwise get heavy. A LucidFlex eval account was won here via an on-stream duck race 🦆 — first prize surfaced through community, not purchased. More on the copy-trading plan it kicked off: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/progression/gallery.html" target="_blank" rel="noreferrer">gallery.html's Copy Trading section ↗</a>.</p>
+      <p><strong>Hosts:</strong> <span class="host-chip">LunaTrades</span><span class="host-chip">ZarbsLiquidity</span><span class="host-chip">TMadeAlex</span> — plus many guests over time.</p>
+    </div>
+
+    <div class="sec-label">📺 Shoutout</div>
+    <div class="pfm-panel">
+      <p>🎥 <a href="https://www.youtube.com/@MarketButcher" target="_blank" rel="noreferrer">MarketButcher ↗</a> — thanks for the content and perspective.</p>
+    </div>
+
+    <div class="sec-label">🛠️ External Resources</div>
+    <p class="sec-sub">Thanks to the platforms that make this whole build possible — deeper how-to context for these lives on <a href="../data/progression/resources.html">resources.html</a>.</p>
+    <div class="ext-grid">
+      <div class="ext-card">
+        <h4>📈 TradingView</h4>
+        <p>Charting, level marking, and screenshot capture for every review in this repo.</p>
+      </div>
+      <div class="ext-card">
+        <h4>📊 TradeZella</h4>
+        <p>Where the trade-journaling habit started — the origin story kept intact on gallery.html.</p>
+      </div>
+      <div class="ext-card">
+        <h4>₿ BTCC</h4>
+        <p>Crypto execution venue for SOL/USDT perp trades.</p>
+      </div>
+    </div>
+
+    <div class="sec-label">🔗 Affiliates</div>
+    <div class="affiliate-panel">
+      <p>Not currently affiliated with anyone. Everything above is genuine thanks, not a paid partnership — this section stays honest and empty until (if ever) that changes.</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>🙏 Community &amp; Thanks · Christopher Wilson · Part of the <a href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer">Trading Assistant</a> public preview</p>
+    <p>Gratitude is the whole point of this page.</p>
+  </footer>
+
+</body>
+</html>
