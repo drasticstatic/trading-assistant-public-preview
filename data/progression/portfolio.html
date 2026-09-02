@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio — Christopher Wilson</title>
-  <meta name="description" content="Unified trading P&L ledger — futures, crypto, options. Live analytics and tax tracking.">
+  <meta name="description" content="Personal accounts aside from prop firms — crypto, equities, on-chain, web3 wallets. Prop-firm evals/funded accounts live on the Progression Gallery.">
   <link rel="icon" href="../../setup/assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../../setup/assets/favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="../../setup/assets/favicon.png">
@@ -375,11 +375,10 @@
     <a class="nav-tag" href="inevitrade/inner-circle-workbook.html">📗 IT</a>
     <div class="nav-space"></div>
     <button class="nav-donate-btn" onclick="document.getElementById('donateOverlay').classList.add('open')">💜 Donate</button>
-    <span class="nav-status">Apr 5, 2026</span>
+    <span class="nav-status">Sep 1, 2026</span>
     <div class="nav-section-row">
       <a class="nav-section-link" href="#overview">Overview</a>
       <a class="nav-section-link" href="#charts">Charts</a>
-      <a class="nav-section-link" href="#futures">Futures</a>
       <a class="nav-section-link" href="#crypto">Crypto</a>
       <a class="nav-section-link" href="#pocketoption">PocketOption</a>
       <a class="nav-section-link" href="#onchain">On-Chain</a>
@@ -461,12 +460,12 @@
   <!-- ── HEADER ── -->
   <header class="header">
     <div class="header-inner">
-      <div class="header-eyebrow">Christopher Wilson · Unified P&amp;L Ledger</div>
+      <div class="header-eyebrow">Christopher Wilson · Personal &amp; Crypto Accounts</div>
       <h1 class="header-title">Trading <span>Portfolio</span></h1>
-      <div class="header-sub">All platforms · All instruments · All years — one view</div>
+      <div class="header-sub">Accounts aside from prop firms — crypto, equities, on-chain, wallets. Prop-firm evals/funded accounts now live on the <a href="gallery.html" style="color:var(--cyan);">Progression Gallery →</a></div>
       <div class="header-meta">
-        <span class="header-badge">BTCC · Apex · TPT · Robinhood · PocketOption · CoinLedger</span>
-        <span class="header-badge">Updated: Apr 5, 2026</span>
+        <span class="header-badge">BTCC · PocketOption · CoinLedger · Robinhood · Acorns · Web3</span>
+        <span class="header-badge">Updated: Sep 1, 2026</span>
         <button class="header-badge warn disclaimer-trigger" onclick="document.getElementById('disclaimerOverlay').classList.add('open')">⚠ Working estimates — verify before filing</button>
       </div>
     </div>
@@ -477,15 +476,17 @@
     <!-- ── OVERVIEW STATS ── -->
     <section class="section" id="overview">
       <div class="sec-label">Overview</div>
+      <div class="callout info">
+        🏆 Prop-firm eval/funded account data, ledger, and charts now live entirely on the <a href="gallery.html">Progression Gallery →</a> — this page covers everything else: crypto, equities, on-chain, and wallets.
+      </div>
       <div class="btn-row" style="display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1rem;">
-        <button class="export-btn" onclick="exportAccountsCSV('propfirm')">📥 Export Prop Firm Accounts (CSV)</button>
         <button class="export-btn" onclick="exportAccountsCSV('live')">📥 Export Live Accounts (CSV)</button>
       </div>
       <div class="stat-grid">
-        <div class="stat neutral">
-          <div class="stat-label">2026 YTD</div>
-          <div class="stat-val up">+$1,084.50</div>
-          <div class="stat-sub">Futures +$1,112 · Crypto -$27.50</div>
+        <div class="stat gain" id="ov-2026-ytd">
+          <div class="stat-label">2026 YTD (BTCC)</div>
+          <div class="stat-val up">+$20.94</div>
+          <div class="stat-sub">Combined: Mar 26 baseline + 3 new SOLUSDT trades from the master ledger</div>
         </div>
         <div class="stat loss">
           <div class="stat-label">2025 Net</div>
@@ -497,20 +498,10 @@
           <div class="stat-val down">~-$2,115</div>
           <div class="stat-sub">BTCC only · Dec liquidation event</div>
         </div>
-        <div class="stat loss">
+        <div class="stat loss" id="ov-btcc-all-time">
           <div class="stat-label">BTCC All-Time</div>
-          <div class="stat-val down">~-$2,224</div>
-          <div class="stat-sub">Dec 2024 → Mar 2026</div>
-        </div>
-        <div class="stat gold">
-          <div class="stat-label">Active Evals</div>
-          <div class="stat-val gold">2</div>
-          <div class="stat-sub">APEX-06 · TPT 50K</div>
-        </div>
-        <div class="stat gain">
-          <div class="stat-label">2026 Recovery Arc</div>
-          <div class="stat-val up">+$3,603</div>
-          <div class="stat-sub">Eval cumulative · Feb 25–Mar 26</div>
+          <div class="stat-val down">~-$2,176</div>
+          <div class="stat-sub">Dec 2024 → Sep 2026 · via trading-matrices</div>
         </div>
       </div>
     </section>
@@ -519,63 +510,20 @@
     <section class="section" id="charts">
       <div class="sec-label">Analytics</div>
 
-      <div class="chart-row">
-        <!-- Year-over-Year P&L Bar Chart -->
-        <div class="chart-wrap">
-          <div class="chart-title">Year-over-Year Net P&L (All Platforms)</div>
-          <svg class="chart" viewBox="0 0 340 160" aria-label="Year over year P&L chart">
-            <defs>
-              <linearGradient id="grd-r" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#f87171" stop-opacity="0.9"/>
-                <stop offset="100%" stop-color="#f472b6" stop-opacity="0.7"/>
-              </linearGradient>
-              <linearGradient id="grd-g" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#4ade80" stop-opacity="0.9"/>
-                <stop offset="100%" stop-color="#67e8f9" stop-opacity="0.7"/>
-              </linearGradient>
-            </defs>
-            <!-- Y axis baseline -->
-            <line x1="70" y1="10" x2="70" y2="130" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-            <line x1="70" y1="130" x2="330" y2="130" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-            <!-- Grid lines -->
-            <line x1="70" y1="50"  x2="330" y2="50"  stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="3,3"/>
-            <line x1="70" y1="90"  x2="330" y2="90"  stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="3,3"/>
-
-            <!-- 2024 bar: -$2,115 → max loss, full bar (70% of chart) -->
-            <text x="62" y="70" font-family="system-ui,sans-serif" font-size="10" fill="#8899b0" text-anchor="end">2024</text>
-            <rect x="73" y="38" width="188" height="16" fill="url(#grd-r)" rx="3"/>
-            <text x="267" y="50" font-family="system-ui,sans-serif" font-size="9" fill="#f87171">~-$2,115</text>
-
-            <!-- 2025: -$234 → 234/2115 * 188 = ~21px -->
-            <text x="62" y="95" font-family="system-ui,sans-serif" font-size="10" fill="#8899b0" text-anchor="end">2025</text>
-            <rect x="73" y="83" width="21" height="16" fill="url(#grd-r)" rx="3"/>
-            <text x="100" y="95" font-family="system-ui,sans-serif" font-size="9" fill="#f87171">-$234</text>
-
-            <!-- 2026 YTD: +$1,084.50 → 1084.50/2115 * 188 ≈ 96px -->
-            <text x="62" y="122" font-family="system-ui,sans-serif" font-size="10" fill="#8899b0" text-anchor="end">2026</text>
-            <rect x="73" y="110" width="96" height="16" fill="url(#grd-g)" rx="3"/>
-            <text x="175" y="122" font-family="system-ui,sans-serif" font-size="9" fill="#4ade80">+$1,084.50</text>
-
-            <!-- X axis labels -->
-            <text x="70" y="148" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="middle">0</text>
-            <text x="210" y="148" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="middle">-$1,000</text>
-            <text x="330" y="148" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="middle">-$2,115</text>
-          </svg>
-        </div>
-
+      <div class="chart-row" style="grid-template-columns:1fr;">
         <!-- Platform Breakdown -->
         <div class="chart-wrap">
-          <div class="chart-title">All-Time P&L by Platform</div>
+          <div class="chart-title">All-Time P&L by Platform (Live Accounts)</div>
           <svg class="chart" viewBox="0 0 340 160" aria-label="Platform P&L breakdown">
             <!-- Baseline -->
             <line x1="80" y1="10" x2="80" y2="140" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
 
-            <!-- BTCC: -$2,224 = full bar 230px -->
+            <!-- BTCC: -$2,176.06 = full bar 230px -->
             <text x="74" y="35" font-family="system-ui,sans-serif" font-size="9" fill="#8899b0" text-anchor="end">BTCC</text>
             <rect x="83" y="22" width="230" height="14" fill="rgba(248,113,113,0.7)" rx="3"/>
-            <text x="319" y="33" font-family="system-ui,sans-serif" font-size="9" fill="#f87171" text-anchor="end">-$2,224</text>
+            <text x="319" y="33" font-family="system-ui,sans-serif" font-size="9" fill="#f87171" text-anchor="end">-$2,176</text>
 
-            <!-- PocketOption: -$151.62 = 151.62/2224*230 = ~15.7px -->
+            <!-- PocketOption: -$151.62 = 151.62/2176*230 = ~16px -->
             <text x="74" y="63" font-family="system-ui,sans-serif" font-size="9" fill="#8899b0" text-anchor="end">Pocket</text>
             <rect x="83" y="50" width="16" height="14" fill="rgba(248,113,113,0.45)" rx="3"/>
             <text x="105" y="61" font-family="system-ui,sans-serif" font-size="9" fill="#c86888">-$152</text>
@@ -585,151 +533,15 @@
             <rect x="83" y="78" width="60" height="14" fill="rgba(139,153,176,0.15)" stroke="rgba(139,153,176,0.3)" stroke-width="1" rx="3" stroke-dasharray="3,2"/>
             <text x="149" y="89" font-family="system-ui,sans-serif" font-size="9" fill="#6677888">TBD</text>
 
-            <!-- Futures/Eval: +$93 gain -->
-            <text x="74" y="119" font-family="system-ui,sans-serif" font-size="9" fill="#8899b0" text-anchor="end">Futures</text>
-            <rect x="83" y="106" width="10" height="14" fill="rgba(74,222,128,0.7)" rx="3"/>
-            <text x="99" y="117" font-family="system-ui,sans-serif" font-size="9" fill="#4ade80">+$93</text>
-
             <text x="80" y="155" font-family="system-ui,sans-serif" font-size="8" fill="#3a4d65" text-anchor="middle">$0</text>
-            <text x="310" y="155" font-family="system-ui,sans-serif" font-size="8" fill="#3a4d65" text-anchor="end">-$2,224</text>
+            <text x="310" y="155" font-family="system-ui,sans-serif" font-size="8" fill="#3a4d65" text-anchor="end">-$2,176</text>
           </svg>
         </div>
       </div>
 
-      <!-- 2026 Recovery Arc Chart -->
-      <div class="chart-wrap">
-        <div class="chart-title">2026 Recovery Arc — Cumulative Eval P&L (Feb 25 – Mar 26)</div>
-        <svg class="chart" viewBox="0 0 760 180" aria-label="2026 recovery arc cumulative chart">
-          <defs>
-            <linearGradient id="area-g" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.25"/>
-              <stop offset="50%" stop-color="#4ade80" stop-opacity="0.12"/>
-              <stop offset="100%" stop-color="#4ade80" stop-opacity="0"/>
-            </linearGradient>
-            <linearGradient id="line-g" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#a78bfa"/>
-              <stop offset="60%" stop-color="#4ade80"/>
-              <stop offset="100%" stop-color="#67e8f9"/>
-            </linearGradient>
-          </defs>
-
-          <!-- Zero line -->
-          <line x1="60" y1="150" x2="740" y2="150" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-          <text x="55" y="154" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="end">$0</text>
-
-          <!-- Grid lines -->
-          <line x1="60" y1="117" x2="740" y2="117" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4,4"/>
-          <text x="55" y="121" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="end">+$1K</text>
-          <line x1="60" y1="84" x2="740" y2="84" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4,4"/>
-          <text x="55" y="88" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="end">+$2K</text>
-          <line x1="60" y1="20" x2="740" y2="20" stroke="rgba(255,255,255,0.03)" stroke-width="1" stroke-dasharray="4,4"/>
-          <text x="55" y="24" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="end">+$2.6K</text>
-
-          <!-- Filled area polygon -->
-          <polygon points="80,150 80,121 180,126 270,128 370,94 470,46 570,20 680,21 680,150"
-                   fill="url(#area-g)"/>
-
-          <!-- Line path -->
-          <polyline points="80,121 180,126 270,128 370,94 470,46 570,20 680,21"
-                    fill="none" stroke="url(#line-g)" stroke-width="2.5" stroke-linejoin="round"/>
-
-          <!-- Data points -->
-          <circle cx="80"  cy="121" r="5" fill="#a78bfa" stroke="rgba(8,12,24,0.8)" stroke-width="2"/>
-          <circle cx="180" cy="126" r="5" fill="#f87171" stroke="rgba(8,12,24,0.8)" stroke-width="2"/>
-          <circle cx="270" cy="128" r="5" fill="#f87171" stroke="rgba(8,12,24,0.8)" stroke-width="2"/>
-          <circle cx="370" cy="94"  r="5" fill="#4ade80" stroke="rgba(8,12,24,0.8)" stroke-width="2"/>
-          <circle cx="470" cy="46"  r="5" fill="#4ade80" stroke="rgba(8,12,24,0.8)" stroke-width="2"/>
-          <circle cx="570" cy="20"  r="5" fill="#4ade80" stroke="rgba(8,12,24,0.8)" stroke-width="2"/>
-          <circle cx="680" cy="21"  r="5" fill="#fbbf24" stroke="rgba(8,12,24,0.8)" stroke-width="2"/>
-
-          <!-- Value labels (above points) -->
-          <text x="80"  y="112" font-family="system-ui,sans-serif" font-size="8" fill="#a78bfa" text-anchor="middle">+$585</text>
-          <text x="180" y="118" font-family="system-ui,sans-serif" font-size="8" fill="#f87171" text-anchor="middle">+$477</text>
-          <text x="270" y="120" font-family="system-ui,sans-serif" font-size="8" fill="#f87171" text-anchor="middle">+$444</text>
-          <text x="370" y="86"  font-family="system-ui,sans-serif" font-size="8" fill="#4ade80" text-anchor="middle">+$1,110</text>
-          <text x="470" y="38"  font-family="system-ui,sans-serif" font-size="8" fill="#4ade80" text-anchor="middle">+$2,073</text>
-          <text x="570" y="12"  font-family="system-ui,sans-serif" font-size="8" fill="#4ade80" text-anchor="middle">+$2,598</text>
-          <text x="680" y="14"  font-family="system-ui,sans-serif" font-size="8" fill="#fbbf24" text-anchor="middle">+$2,584</text>
-
-          <!-- Date labels -->
-          <text x="80"  y="166" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Feb 25</text>
-          <text x="180" y="166" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 10</text>
-          <text x="270" y="166" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 12</text>
-          <text x="370" y="166" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 16</text>
-          <text x="470" y="166" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 17</text>
-          <text x="570" y="166" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 20</text>
-          <text x="680" y="166" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 25–26</text>
-        </svg>
-        <div style="font-size:.72rem;color:var(--muted);margin-top:.5rem;">
-          ⚠ Eval P&L only — cumulative paper score, not cash withdrawn. Purple/green = net gain sessions · Red = net loss.
-        </div>
-      </div>
-
-      <!-- 2026 Session Bar Chart -->
-      <div class="chart-wrap">
-        <div class="chart-title">2026 Per-Session P&L — All Platforms</div>
-        <svg class="chart" viewBox="0 0 760 160" aria-label="Per-session P&L bar chart">
-          <!-- Bars scale: max 963, zero line at y=100 -->
-          <defs>
-            <linearGradient id="bar-g" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.8"/>
-              <stop offset="100%" stop-color="#4ade80" stop-opacity="0.7"/>
-            </linearGradient>
-          </defs>
-
-          <line x1="30" y1="100" x2="740" y2="100" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-          <text x="25" y="104" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="end">$0</text>
-
-          <!-- Grid -->
-          <line x1="30" y1="55" x2="740" y2="55" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="3,3"/>
-          <text x="25" y="59" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="end">+$500</text>
-          <line x1="30" y1="17" x2="740" y2="17" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="3,3"/>
-          <text x="25" y="21" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="end">+$963</text>
-          <line x1="30" y1="115" x2="740" y2="115" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="3,3"/>
-          <text x="25" y="119" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="end">-$150</text>
-
-          <!-- Feb 25: +$585.43 → h=49, y=51 -->
-          <rect x="45"  y="51" width="50" height="49" fill="url(#bar-g)" rx="3"/>
-          <text x="70"  y="45" font-family="system-ui,sans-serif" font-size="8" fill="#a78bfa" text-anchor="middle">+$585</text>
-          <text x="70"  y="155" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Feb 25</text>
-
-          <!-- Mar 10: -$108 → h=9, y=100 to 109 -->
-          <rect x="140" y="100" width="50" height="9"  fill="rgba(248,113,113,0.65)" rx="3"/>
-          <text x="165" y="122" font-family="system-ui,sans-serif" font-size="8" fill="#f87171" text-anchor="middle">-$108</text>
-          <text x="165" y="155" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 10</text>
-
-          <!-- Mar 12-13 SOL: -$33.80 → h=3 -->
-          <rect x="235" y="100" width="50" height="3"  fill="rgba(248,113,113,0.65)" rx="2"/>
-          <text x="260" y="115" font-family="system-ui,sans-serif" font-size="8" fill="#f87171" text-anchor="middle">-$34</text>
-          <text x="260" y="155" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 12</text>
-          <text x="260" y="164" font-family="system-ui,sans-serif" font-size="7" fill="#3a4d65" text-anchor="middle">SOL</text>
-
-          <!-- Mar 16: +$666.50 → h=55, y=45 -->
-          <rect x="330" y="45" width="50" height="55" fill="rgba(74,222,128,0.65)" rx="3"/>
-          <text x="355" y="39" font-family="system-ui,sans-serif" font-size="8" fill="#4ade80" text-anchor="middle">+$667</text>
-          <text x="355" y="155" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 16</text>
-
-          <!-- Mar 17: +$963 → h=80, y=20 -->
-          <rect x="425" y="20" width="50" height="80" fill="rgba(103,232,249,0.65)" rx="3"/>
-          <text x="450" y="14" font-family="system-ui,sans-serif" font-size="8" fill="#67e8f9" text-anchor="middle">+$963</text>
-          <text x="450" y="155" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 17</text>
-
-          <!-- Mar 20: +$525 → h=44, y=56 -->
-          <rect x="520" y="56" width="50" height="44" fill="rgba(74,222,128,0.65)" rx="3"/>
-          <text x="545" y="50" font-family="system-ui,sans-serif" font-size="8" fill="#4ade80" text-anchor="middle">+$525</text>
-          <text x="545" y="155" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 20</text>
-
-          <!-- Mar 25-26 SOL: -$14.13 → h=1 -->
-          <rect x="615" y="100" width="50" height="1"  fill="rgba(248,113,113,0.65)" rx="1"/>
-          <text x="640" y="113" font-family="system-ui,sans-serif" font-size="8" fill="#f87171" text-anchor="middle">-$14</text>
-          <text x="640" y="155" font-family="system-ui,sans-serif" font-size="8" fill="#5a6d84" text-anchor="middle">Mar 25</text>
-          <text x="640" y="164" font-family="system-ui,sans-serif" font-size="7" fill="#3a4d65" text-anchor="middle">SOL</text>
-        </svg>
-      </div>
-
       <!-- BTCC All-Time Yearly Breakdown -->
       <div class="chart-wrap">
-        <div class="chart-title">BTCC Crypto — Yearly Realized P&L</div>
+        <div class="chart-title">BTCC Crypto — Yearly Realized P&L (via trading-matrices)</div>
         <svg class="chart" viewBox="0 0 500 130" aria-label="BTCC yearly P&L">
           <!-- Scale max: 2115, chart width 380, baseline at y=80 -->
           <line x1="80" y1="10" x2="80" y2="100" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
@@ -745,11 +557,11 @@
           <rect x="83" y="53" width="15" height="18" fill="rgba(248,113,113,0.45)" rx="3"/>
           <text x="104" y="66" font-family="system-ui,sans-serif" font-size="9" fill="#c86888">~-$82</text>
 
-          <!-- 2026 YTD: -27.5 → 4.9px -->
+          <!-- 2026: +20.94 net (Mar 26 baseline -27.50 + 3 new SOLUSDT ledger trades +48.44) -->
           <text x="74" y="96" font-family="system-ui,sans-serif" font-size="10" fill="#8899b0" text-anchor="end">2026</text>
-          <rect x="83" y="83" width="5" height="14" fill="rgba(248,113,113,0.35)" rx="2"/>
-          <text x="94"  y="94" font-family="system-ui,sans-serif" font-size="9" fill="#a86878">-$27.50</text>
-          <text x="200" y="94" font-family="system-ui,sans-serif" font-size="8" fill="#3a6a4a">(+$20.43 Feb win offset)</text>
+          <rect x="83" y="83" width="4" height="14" fill="rgba(74,222,128,0.55)" rx="2"/>
+          <text x="94"  y="94" font-family="system-ui,sans-serif" font-size="9" fill="#4ade80">+$20.94</text>
+          <text x="200" y="94" font-family="system-ui,sans-serif" font-size="8" fill="#5a8a6a">(Mar 26 baseline -$27.50 + 3 new SOLUSDT trades +$48.44)</text>
 
           <text x="80" y="118" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="middle">0</text>
           <text x="480" y="118" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="end">-$2,115</text>
@@ -757,51 +569,21 @@
       </div>
     </section>
 
-    <!-- ── FUTURES DETAIL ── -->
-    <section class="section" id="futures">
-      <div class="sec-label">Futures · Prop Firm Evals</div>
-      <div class="stat-grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));">
-        <div class="stat gain"><div class="stat-label">2026 YTD P&L</div><div class="stat-val up">+$1,112.00</div><div class="stat-sub">Net — 10 sessions</div></div>
-        <div class="stat gold"><div class="stat-label">APEX-06</div><div class="stat-val gold">Active</div><div class="stat-sub">Min days met · profit target pending</div></div>
-        <div class="stat gold"><div class="stat-label">TPT 50K</div><div class="stat-val gold">Active</div><div class="stat-sub">Day 2/5 completed</div></div>
-        <div class="stat loss"><div class="stat-label">APEX-05</div><div class="stat-val down">Blown</div><div class="stat-sub">Mar 3 — Pat. 6+7</div></div>
-      </div>
-      <div class="panel-block">
-        <div class="tbl-wrap">
-          <table>
-            <thead><tr><th>Date</th><th>Account</th><th>Instrument</th><th>P&L</th><th>Grade</th><th>Pattern</th></tr></thead>
-            <tbody>
-              <tr><td>Feb 25</td><td class="dim mono">APEX-06</td><td>MNQ</td><td class="up mono">+$565.00</td><td><span class="tag tag-g">A+</span></td><td class="dim">All rules honored ✓</td></tr>
-              <tr><td>Mar 3</td><td class="dim mono">APEX-05</td><td>ES/CL</td><td class="dn mono">—</td><td><span class="tag tag-r">Blown</span></td><td class="dim">Patterns 6+7</td></tr>
-              <tr><td>Mar 10</td><td class="dim mono">APEX-06</td><td>MNQ</td><td class="dn mono">-$108.00</td><td><span class="tag tag-g">A+</span></td><td class="dim">SL held (P7 fix ✓) — passive exit</td></tr>
-              <tr><td>Mar 16</td><td class="dim mono">APEX-06</td><td>RTY</td><td class="up mono">+$935.00</td><td><span class="tag tag-o">A-</span></td><td></td></tr>
-              <tr><td>Mar 16</td><td class="dim mono">APEX-06</td><td>MNQ</td><td class="dn mono">-$268.50</td><td><span class="tag tag-d">—</span></td><td class="dim">Pattern 7 echo</td></tr>
-              <tr><td>Mar 17</td><td class="dim mono">APEX-06</td><td>MNQ</td><td class="up mono">+$963.00</td><td><span class="tag tag-d">—</span></td><td class="dim">SL moved wide (P7 echo)</td></tr>
-              <tr><td>Mar 20</td><td class="dim mono">APEX-06</td><td>RTY</td><td class="up mono">+$525.00</td><td><span class="tag tag-d">—</span></td><td class="dim">Unintentional fill (Pattern 9)</td></tr>
-              <tr><td>Mar 24</td><td class="dim mono">APEX-06</td><td>ES</td><td class="up mono">+$1,225.00</td><td><span class="tag tag-o">A−</span></td><td class="dim">36hr overnight limit · P7 clean · AutoLiq exit</td></tr>
-              <tr><td>Mar 26</td><td class="dim mono">TPT 50K</td><td>MCL</td><td class="dn mono">-$300.00</td><td><span class="tag tag-d">0.5</span></td><td class="dim">News candle · SL pre-placed ✓ (Pattern 9 ✅) · 4 sec</td></tr>
-              <tr><td>Mar 26</td><td class="dim mono">TPT 50K</td><td>MGC</td><td class="up mono">+$94.00</td><td><span class="tag tag-d">0.5</span></td><td class="dim">38pt MAE survived · SL moved (P7) · manual close (P8 partial ✅)</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
     <!-- ── CRYPTO DETAIL ── -->
     <section class="section" id="crypto">
       <div class="sec-label">Crypto · BTCC Perpetuals</div>
       <div class="stat-grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));">
-        <div class="stat loss"><div class="stat-label">All-Time</div><div class="stat-val down">~-$2,224</div><div class="stat-sub">Dec 2024 → Mar 2026</div></div>
+        <div class="stat loss"><div class="stat-label">All-Time</div><div class="stat-val down">~-$2,176</div><div class="stat-sub">Dec 2024 → Sep 2026 · via trading-matrices</div></div>
         <div class="stat loss"><div class="stat-label">2024</div><div class="stat-val down">~-$2,115</div><div class="stat-sub">Dec mass liquidation</div></div>
         <div class="stat loss"><div class="stat-label">2025</div><div class="stat-val down">~-$82</div><div class="stat-sub">4 trades · API3/XRP</div></div>
-        <div class="stat loss"><div class="stat-label">2026 YTD</div><div class="stat-val down">-$27.50</div><div class="stat-sub">SOL only</div></div>
+        <div class="stat gain"><div class="stat-label">2026 YTD</div><div class="stat-val up">+$20.94</div><div class="stat-sub">SOL only · Mar 26 baseline -$27.50 + 3 new trades</div></div>
       </div>
 
       <details class="acc" open>
         <summary>
           <span class="acc-name">2026 BTCC Trades — SOL/USDT Perpetual</span>
-          <span class="acc-meta">4 trades</span>
-          <span class="acc-val dn">-$27.50</span>
+          <span class="acc-meta">7 trades</span>
+          <span class="acc-val up">+$20.94</span>
           <span class="arr">▶</span>
         </summary>
         <div class="acc-body">
@@ -813,9 +595,13 @@
                 <tr><td>Mar 12</td><td><span class="tag tag-r">SHORT</span></td><td class="mono dim">1×50x</td><td class="mono">$85.68</td><td class="mono">$86.63 SL</td><td class="dn mono">-$1.00</td><td class="dim">SL hit cleanly ✓</td></tr>
                 <tr><td>Mar 13</td><td><span class="tag tag-r">SHORT</span></td><td class="mono dim">5×20x</td><td class="mono">$85.13</td><td class="mono">$91.69</td><td class="dn mono">-$32.80</td><td class="dim">Pattern 8 — held 30.5h</td></tr>
                 <tr><td>Mar 25–26</td><td><span class="tag tag-g">LONG</span></td><td class="mono dim">5×20x</td><td class="mono">$92.47</td><td class="mono">$89.64</td><td class="dn mono">-$14.13</td><td class="dim">Pattern 8+9 · voucher</td></tr>
+                <tr><td>Jul 24</td><td><span class="tag tag-g">LONG</span></td><td class="mono dim">13</td><td class="mono dim">—</td><td class="mono">$73.91</td><td class="up mono">+$25.09</td><td class="dim">Via trading-matrices — entry price not in BTCC close-row export</td></tr>
+                <tr><td>Aug 10</td><td><span class="tag tag-r">SHORT</span></td><td class="mono dim">20</td><td class="mono dim">—</td><td class="mono">$76.88</td><td class="up mono">+$7.40</td><td class="dim">Via trading-matrices</td></tr>
+                <tr><td>Aug 19</td><td><span class="tag tag-r">SHORT</span></td><td class="mono dim">5</td><td class="mono dim">—</td><td class="mono">$78.74</td><td class="up mono">+$15.95</td><td class="dim">Via trading-matrices</td></tr>
               </tbody>
             </table>
           </div>
+          <div style="font-size:.72rem;color:var(--muted);margin-top:.6rem;">Source: <code>data/progression/assets/trading-matrices/account-summary.json</code> (built by <code>scripts/build-trading-matrices.py</code> from the master trade ledger's <code>account == "BTCC"</code> rows) combined with the Mar 26, 2026 baseline in <code>data/imports/2026/03-Mar/btcc_realized_pl_2026.md</code>.</div>
         </div>
       </details>
 
@@ -1132,15 +918,16 @@
       <div class="panel-block">
         <div class="tbl-wrap">
           <table>
-            <thead><tr><th>Year</th><th>BTCC</th><th>Robinhood Divs</th><th>PocketOption</th><th>CoinLedger</th><th>Futures</th><th>Net</th></tr></thead>
+            <thead><tr><th>Year</th><th>BTCC</th><th>Robinhood Divs</th><th>PocketOption</th><th>CoinLedger</th><th>Net</th></tr></thead>
             <tbody>
-              <tr><td><strong>2024</strong></td><td class="dn mono">~-$2,115</td><td class="up mono">+$19.97</td><td class="dim">N/A</td><td class="dim">TBD</td><td class="dim">N/A</td><td class="dn mono"><strong>~-$2,095+</strong></td></tr>
-              <tr><td><strong>2025</strong></td><td class="dn mono">~-$82</td><td class="up mono">+$20.10</td><td class="dn mono">-$151.62</td><td class="dim">TBD</td><td class="dim">N/A</td><td class="dn mono"><strong>~-$214+</strong></td></tr>
-              <tr><td><strong>2026 YTD</strong></td><td class="dn mono">-$27.50</td><td class="up mono">+$4.93</td><td class="dim">None</td><td class="dim">N/A</td><td class="up mono">+$1,112.00</td><td class="up mono"><strong>+$1,089+</strong></td></tr>
+              <tr><td><strong>2024</strong></td><td class="dn mono">~-$2,115</td><td class="up mono">+$19.97</td><td class="dim">N/A</td><td class="dim">TBD</td><td class="dn mono"><strong>~-$2,095+</strong></td></tr>
+              <tr><td><strong>2025</strong></td><td class="dn mono">~-$82</td><td class="up mono">+$20.10</td><td class="dn mono">-$151.62</td><td class="dim">TBD</td><td class="dn mono"><strong>~-$214+</strong></td></tr>
+              <tr><td><strong>2026 YTD</strong></td><td class="up mono">+$20.94</td><td class="up mono">+$4.93</td><td class="dim">None</td><td class="dim">N/A</td><td class="up mono"><strong>+$25.87+</strong></td></tr>
             </tbody>
           </table>
         </div>
       </div>
+      <div class="callout info" style="margin-top:.6rem;">Prop-firm futures P&L is tracked separately on the <a href="gallery.html">Progression Gallery</a>'s Account Ledger — not included in this table.</div>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.6rem;margin-top:.8rem;">
         <div class="panel-block" style="margin:0;border-color:rgba(251,191,36,.2);">
@@ -1192,30 +979,20 @@
 
 <script>
 // ═══════════════════════════════════════════════════════════════════════════
-//  ACCOUNT CSV EXPORT — kept as two distinct scopes (prop firm vs live/personal)
-//  per Christopher's ask, not a single flat file. Update these arrays as
-//  account status changes; see prop-firm-progression.md and
-//  data/progression/assets/prop-firm-ledger.csv for the canonical roster.
+//  ACCOUNT CSV EXPORT — live/personal accounts only (prop-firm accounts export
+//  moved to gallery.html's Account Ledger; portfolio.html no longer tracks
+//  prop-firm data at all). BTCC figures sourced from the trading-matrices
+//  artifact (data/progression/assets/trading-matrices/account-summary.json,
+//  built by scripts/build-trading-matrices.py) rather than hand-entered.
 // ═══════════════════════════════════════════════════════════════════════════
 const EXPORT_ACCOUNTS = {
-  propfirm: [
-    { firm: 'Apex Trader Funding', account: 'APEX-484839-06', type: '100K eval', status: 'Passed -> funded as PA-APEX-484839-01' },
-    { firm: 'Apex Trader Funding', account: 'PA-APEX-484839-01', type: '100K funded', status: 'Blown ~Jun 11, 2026' },
-    { firm: 'Apex Trader Funding', account: 'APEX-484839-07', type: '50K Intraday Trailing eval', status: 'Outcome unconfirmed' },
-    { firm: 'Apex Trader Funding', account: 'APEX-484839-09', type: '50K Legacy FULL eval', status: 'Blown Aug 5, 2026' },
-    { firm: 'Apex Trader Funding', account: 'APEX-484839-10', type: '50K Legacy FULL eval', status: 'Blown Aug 19, 2026' },
-    { firm: 'TakeProfitTrader', account: 'TAKEPROFIT861085464', type: '50K PRO funded', status: 'Blown' },
-    { firm: 'TakeProfitTrader', account: 'TAKEPROFIT917806711', type: '50K eval (reset-4)', status: 'Passed Aug 28, 2026' },
-    { firm: 'TopOneFutures', account: 'TOF189562 -> TOF197288', type: '50K Elite ACCESS eval -> funded', status: 'Passed Aug 28, 2026' },
-    { firm: 'TopOneFutures', account: 'TOF189563 -> TOF197292', type: '50K Elite ACCESS eval -> funded', status: 'Passed Aug 28, 2026' },
-  ],
   live: [
-    { platform: 'BTCC', account: 'Crypto perpetuals (SOL/USDT, ETH copy-trade)', type: 'Live/voucher', status: 'See portfolio.html #crypto for current balance' },
-    { platform: 'PocketOption', account: 'Binary options', type: 'Live', status: 'See portfolio.html #pocketoption' },
-    { platform: 'CoinLedger', account: 'On-chain aggregation', type: 'Live', status: 'See portfolio.html #onchain' },
-    { platform: 'Robinhood', account: 'Equities', type: 'Live (partially liquidated 2026)', status: 'See portfolio.html #robinhood' },
-    { platform: 'Acorns', account: 'Invest/IRA', type: 'Live (being disbursed)', status: 'No MCP yet — see portfolio.html #acorns' },
-    { platform: 'Web3 wallets', account: 'See WALLET_CONFIG below', type: 'On-chain, read-only', status: 'See portfolio.html #live-balances' },
+    { platform: 'BTCC', account: 'Crypto perpetuals (SOL/USDT)', type: 'Live/voucher', net_pnl_2026: '+$20.94', net_pnl_all_time: '~-$2,176.06', status: 'Via trading-matrices — see portfolio.html #crypto' },
+    { platform: 'PocketOption', account: 'Binary options', type: 'Live', net_pnl_2026: 'None (no 2026 activity)', net_pnl_all_time: '-$151.62 (2025)', status: 'See portfolio.html #pocketoption' },
+    { platform: 'CoinLedger', account: 'On-chain aggregation', type: 'Live', net_pnl_2026: 'Pending CPA/tax processing', net_pnl_all_time: 'Pending CPA/tax processing', status: 'See portfolio.html #onchain' },
+    { platform: 'Robinhood', account: 'Equities', type: 'Live (partially liquidated 2026)', net_pnl_2026: '+$4.93 dividends YTD', net_pnl_all_time: '+$101.80 dividends all-time', status: 'See portfolio.html #robinhood' },
+    { platform: 'Acorns', account: 'Invest/IRA', type: 'Live (being disbursed)', net_pnl_2026: 'Pending — no MCP yet', net_pnl_all_time: 'Pending — no MCP yet', status: 'See portfolio.html #acorns' },
+    { platform: 'Web3 wallets', account: 'See WALLET_CONFIG below', type: 'On-chain, read-only', net_pnl_2026: 'N/A (balances, not P&L)', net_pnl_all_time: 'N/A (balances, not P&L)', status: 'See portfolio.html #live-balances' },
   ],
 };
 function exportAccountsCSV(scope) {
