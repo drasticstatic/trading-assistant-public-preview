@@ -30,7 +30,7 @@ Opening accounts before readiness = unnecessary fees + more rules to track + mor
 ## Phase 2 — After Apex Pass
 **Open:** LucidFlex Evaluation
 
-> **Status:** no longer gated on "after Apex pass" in practice — a LucidFlex eval account was won via a PropFirmMatchTV on-stream community giveaway (duck race 🦆) and is incoming regardless of Apex's current state. The reasoning below for why LucidFlex specifically (over LucidPro) still holds once that account is active.
+> **Status:** no longer gated on "after Apex pass" in practice — a free Lucid 25K account code was won via a PropFirmMatchTV on-stream community giveaway (duck race 🦆) and is incoming regardless of Apex's current state. **Correction:** not confirmed as specifically LucidFlex — the code is style-flexible (Flex/Daily/Pro), still being decided. The reasoning below for LucidFlex over LucidPro was the original strategic thinking pre-giveaway; the fuller comparison built once the actual prize details came in — [lucid-account-types-comparison.md](Lucid/lucid-account-types-comparison.md) — also lands on Flex (or Pro) over Daily, for a related but distinct reason: LucidDaily's funded phase is always intraday drawdown, which mismatches the EOD-to-EOD copy-trading pairing with TopOneFutures.
 
 ### Why LucidFlex over LucidPro:
 - One-time fee, no monthly rebilling — zero cost pressure to "justify" the account
@@ -78,5 +78,5 @@ Opening accounts before readiness = unnecessary fees + more rules to track + mor
 | Tradovate | Apex Trader Funding | ZeroToHero + STB | ⚠️ Funded account (PA-01) blown ~Jun 11 · new 50K Legacy evals in progress (07/09/10) |
 | Tradovate | Take Profit Trader | ZeroToHero + STB | ✅ Funded — reset-4 (TAKEPROFIT917806711) passed eval Aug 2026 |
 | Tradovate | TopOneFutures Elite ACCESS ×2 (BOGO) | ZeroToHero + STB | ✅ Funded — both eval passed Aug 28, 2026 |
-| Tradovate | LucidTrading — LucidFlex | Inevitrade + STB | 🦆 Eval won via PropFirmMatchTV on-stream duck race giveaway — incoming |
+| Tradovate | LucidTrading — style TBD (Flex/Daily/Pro) | Inevitrade + STB | 🦆 Free 25K account code won via PropFirmMatchTV duck race — incoming |
 | Tradovate | Tradeify Select Challenge | Inevitrade + STB | Planned — Phase 3 |
