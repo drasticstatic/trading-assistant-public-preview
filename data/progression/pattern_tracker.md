@@ -53,7 +53,7 @@
 
 ## 📊 Trade Log — May 14 – Aug 28, 2026 (technical record, CSV-derived)
 
-*Continuation of the Trade Log above, covering the trade-review backlog processed from the iCloud CSV staging folder (`_csv-2B-filed/`). Behavioral/psychology columns (R:R, Zella, Rating, Entry Filter grade, SL Respected, Stable) are marked pending — narrative journal data for this window hasn't been provided yet; Christopher will sanity-check once it is. Source: [`fortuna-exports/master_trade_ledger_2026-05-14_to_2026-08-28.csv`](../../fortuna-exports/master_trade_ledger_2026-05-14_to_2026-08-28.csv) — 247 trades reconstructed via FIFO fill-matching from Tradovate order exports + BTCC transaction history, cross-validated against confirmed TradeZella/certificate P&L figures (exact match on every account checked). Two commissions-only variances of ~$0.50–$1.40 remain versus platform-reported totals on two accounts — immaterial, not investigated further.*
+*Continuation of the Trade Log above, covering the trade-review backlog processed from the iCloud CSV staging folder (`_csv-2B-filed/`). Behavioral/psychology columns (R:R, Zella, Rating, Entry Filter grade, SL Respected, Stable) are marked pending — narrative journal data for this window hasn't been provided yet; Christopher will sanity-check once it is. Source: [`fortuna-exports/master_trade_ledger_2026-05-14_to_2026-09-01.csv`](../../fortuna-exports/master_trade_ledger_2026-05-14_to_2026-09-01.csv) — 247 trades reconstructed via FIFO fill-matching from Tradovate order exports + BTCC transaction history, cross-validated against confirmed TradeZella/certificate P&L figures (exact match on every account checked). Two commissions-only variances of ~$0.50–$1.40 remain versus platform-reported totals on two accounts — immaterial, not investigated further.*
 
 | # | Date | Instrument | Dir | Entry | Exit | P&L | R:R | Zella | Rating | Entry Filter | SL Respected | Stable |
 |---|------|-----------|-----|-------|------|-----|-----|-------|--------|--------------|--------------|--------|
@@ -304,6 +304,9 @@
 | 20260828_MYM-TPT_012 | Aug 28 | MYM | Short | 53,697.00 | 53,571.00 | **+$315.00** | — | — | — | ⏳ Pending journal data | — | — |
 | 20260828_M2K-TPT_013 | Aug 28 | M2K | Short | 2,994.80 | 2,994.30 | **+$7.50** | — | — | — | ⏳ Pending journal data | — | — |
 | 20260828_M2K-TOF_014 | Aug 28 | M2K | Long | 2,986.10 | 2,977.10 | **-$270.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260831_MES-TPTPRO_001 | Aug 31 | MES | Long | 7,689.50 | 7,690.75 | **+$12.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260901_MNQ-TPTPRO_001 | Sep 1 | MNQ | Long | 29,140.25 | 29,255.25 | **+$230.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260901_MNQ-TPTPRO_002 | Sep 1 | MNQ | Short | 29,173.00 | 29,041.00 | **+$264.00** | — | — | — | ⏳ Pending journal data | — | — |
 
 ---
 
@@ -789,6 +792,11 @@ Aug 28  ████████████████░░  ✅ THREE EVALS 
                                Christopher: eval execution on both fronts was "messy"/"sloppy" — manual
                                copy-trading attempts via market/limit orders — but profit targets were secured
                                regardless. Full roster: setup/accounts/PropFirms/prop-firm-progression.md
+
+Aug 31 – Sep 1  ████████████████░░  ✅ TAKEPROFITPRO781112132 — new funded PRO account, TPT reset-4's handoff
+                               Surfaced in the Sep 1 incremental CSV batch. 3 trades, net +$506.50 (MES +$12.50,
+                               MNQ +$230, MNQ +$264) — same eval→funded handoff pattern as 861085464→311919544,
+                               almost certainly TAKEPROFIT917806711's funded PRO account from its Aug 28 pass.
 ```
 
 ---

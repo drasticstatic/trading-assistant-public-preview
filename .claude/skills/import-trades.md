@@ -30,7 +30,7 @@ flag any trades missing a review file.
    - **TopOneFutures:** own CSV schema (Ticket/Symbol/Side/Open-Close Price/Time/P&L/Lots/Commissions) — see the TopOne eval-pass edge case below before archiving
    - **BTCC:** normally "Trade History" export; if the download doesn't work, Christopher may hand over a browser-copy-paste routed through Apple Numbers (a `.numbers` file with a `.csv` sibling — read the `.csv`)
 4. Confirm `~/code/TradeZella_STB/` is set up (script + template + venv + service_account.json)
-5. **After a successful import, rename (do not delete) the source file(s) out of the staging folder** — TradeZella will duplicate on re-import if the same file is left in place next pass.
+5. **After a successful import, this is a true MOVE, not a copy.** Relocate the source file(s) — both CSVs and screenshots — into the repo (`data/imports/YYYY/MM-Mon/`, `data/screenshots/`), commit, push, then remove the originals from the iCloud staging folder. Do this only *after* confirming the push succeeded — the repo + its git history on GitHub is the actual backup once that's done, so leaving a duplicate copy sitting in iCloud afterward just creates two sources of truth to keep in sync. Don't leave anything in staging "renamed in place" as a halfway step — either it's been moved into the repo and pushed, or it's still an active, un-processed file in staging.
 
 ### TopOne eval-pass edge case
 
@@ -100,7 +100,7 @@ Confirm `data/imports/YYYY/MM-Mon/` exists. Create if needed:
 mkdir -p data/imports/YYYY/MM-Mon/
 ```
 
-Copy and rename to standard format — source is the iCloud staging folder (`_csv-2B-filed/`), falling back to `~/Downloads/` if not found there:
+Move (not copy) and rename to standard format — source is the iCloud staging folder (`_csv-2B-filed/`), falling back to `~/Downloads/` if not found there. Stage the move as copy-then-verify-then-delete-original, so nothing is ever lost mid-transition:
 
 ```bash
 ICLOUD_CSV=~/"Library/Mobile Documents/com~apple~CloudDocs/Trading/_csv-2B-filed"
@@ -124,7 +124,7 @@ cp ~/Downloads/trades_*.csv data/imports/YYYY/MM-Mon/tradezella_YYYYMMDD.csv
 
 **Multiple exports edge case:** Tradovate resets the filename to `Orders.csv` each export. If you export multiple sessions, the staging folder accumulates `Orders.csv`, `Orders-2.csv`, `Orders-3.csv`, etc. Archive in the order they were exported — the earliest trade date gets the base name, each subsequent date gets its own `YYYYMMDD` name.
 
-**After archiving, rename the source file(s) in the staging folder** (don't delete — just move them out of the active `_csv-2B-filed/` path, e.g. into a `_filed/` subfolder or with a `.done` suffix) so a later import pass doesn't re-ingest and duplicate them in TradeZella.
+**This is a true move — commit, push, then delete the original from the iCloud staging folder.** Once `git push` confirms the archived copy is safely in the repo (and therefore on GitHub), remove the source file from `_csv-2B-filed/` entirely — don't rename it in place or leave it sitting there "marked done." The repo + GitHub is the backup; a second copy left behind in iCloud just becomes a second source of truth to keep in sync, which is exactly what created the `_copy`/`_new` workaround folders this convention is meant to replace.
 
 ### 4. Cross-Reference Trade Reviews
 
@@ -169,9 +169,9 @@ Three naming conventions — match all:
 - **macOS Sequoia screenshot tool:** `Screenshot 2026-04-23 at 17.32.24.png` (one word, spaces, dots in time)
 - **macOS Big Sur screenshot tool:** `Screen Shot 2026-04-23 at 17.32.24.png` (two words, spaces, dots in time)
 
-Match filenames to instruments and date. **Note:** some TradingView captures show more than one pane/instrument in a single screenshot — the same file may legitimately belong in more than one trade review (e.g. an SMT-confirmation shot covering both the traded instrument and its confirming pair). Don't assume one screenshot maps to exactly one review.
+Match filenames to instruments and date. **Note:** some TradingView captures show more than one pane/instrument in a single screenshot (Christopher's TradingView plan supports up to 2 panes at once) — for confluence/divergence context on the traded instrument and its confirming pair. The same file may legitimately belong in more than one trade review — don't assume one screenshot maps to exactly one review. The ticker symbol for each pane is normally visible top-left of that pane, unless covered by an indicator or drawing.
 
-If nothing is found in either location, ask Christopher before looking elsewhere. After screenshots are embedded in reviews and committed, rename (don't delete) the source files out of `_Screenshots-2B-filed/` the same way CSVs are handled in Step 3.
+If nothing is found in either location, ask Christopher before looking elsewhere. **This is a true move, same as CSVs (Step 3).** Once screenshots are embedded in reviews, committed, and pushed, delete the source files from `_Screenshots-2B-filed/` — don't rename in place or leave a copy behind. The repo is the archive going forward.
 
 ### 7. Create Trade Reviews
 

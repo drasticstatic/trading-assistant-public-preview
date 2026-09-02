@@ -15,7 +15,7 @@ trade-reviews/
 
 *NNN = day-sequential number, resets each date (001, 002, 003...)*
 
-> **Status (Aug 2026):** 247 reviews landed here in the Phase 1 backlog pass (May 14 – Aug 28, 2026), reconstructed from Tradovate order-fill CSVs + BTCC transaction history rather than TradeZella exports. Behavioral/psychology sections in each are marked pending — no journal data existed for this window at generation time. Historical reviews (Feb–May 2026, built the normal way from TradeZella + Tradovate CSVs) remain at [`smarttrader-ai/reviews/`](../../smarttrader-ai/reviews/). Source ledger: [`fortuna-exports/master_trade_ledger_2026-05-14_to_2026-08-28.csv`](../master_trade_ledger_2026-05-14_to_2026-08-28.csv).
+> **Status (Aug 2026):** 250 reviews landed here across the Phase 1 backlog pass and its Sep 1 incremental follow-up (May 14 – Sep 1, 2026), reconstructed from Tradovate order-fill CSVs + BTCC transaction history rather than TradeZella exports. Behavioral/psychology sections in each are marked pending — no journal data existed for this window at generation time. Historical reviews (Feb–May 2026, built the normal way from TradeZella + Tradovate CSVs) remain at [`smarttrader-ai/reviews/`](../../smarttrader-ai/reviews/). Source ledger: [`fortuna-exports/master_trade_ledger_2026-05-14_to_2026-09-01.csv`](../master_trade_ledger_2026-05-14_to_2026-09-01.csv).
 
 ## 📋 Review Sections (Standard)
 
@@ -29,8 +29,7 @@ trade-reviews/
 
 ---
 
-## 🔗 Browse (247 reviews, May 14 - Aug 28, 2026)
-
+## 🔗 Browse (250 reviews, May 14 - Sep 1, 2026)
 
 <details><summary><strong>2026/05-May/</strong> (9 files)</summary>
 
@@ -129,7 +128,7 @@ trade-reviews/
 
 </details>
 
-<details><summary><strong>2026/08-Aug/</strong> (165 files)</summary>
+<details><summary><strong>2026/08-Aug/</strong> (166 files)</summary>
 
 - [review_20260803_MYM-APEX08_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/trade-reviews/2026/08-Aug/review_20260803_MYM-APEX08_001.md)
 - [review_20260804_MYM-APEX08_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/trade-reviews/2026/08-Aug/review_20260804_MYM-APEX08_001.md)
@@ -296,9 +295,16 @@ trade-reviews/
 - [review_20260828_MYM-TOF197288_011.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/trade-reviews/2026/08-Aug/review_20260828_MYM-TOF197288_011.md)
 - [review_20260828_MYM-TPT917806711_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/trade-reviews/2026/08-Aug/review_20260828_MYM-TPT917806711_001.md)
 - [review_20260828_MYM-TPT917806711_012.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/trade-reviews/2026/08-Aug/review_20260828_MYM-TPT917806711_012.md)
+- [review_20260831_MES-TPTPRO781112132_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/trade-reviews/2026/08-Aug/review_20260831_MES-TPTPRO781112132_001.md)
 
 </details>
 
+<details><summary><strong>2026/09-Sep/</strong> (2 files)</summary>
+
+- [review_20260901_MNQ-TPTPRO781112132_001.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/trade-reviews/2026/09-Sep/review_20260901_MNQ-TPTPRO781112132_001.md)
+- [review_20260901_MNQ-TPTPRO781112132_002.md](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/trade-reviews/2026/09-Sep/review_20260901_MNQ-TPTPRO781112132_002.md)
+
+</details>
 ---
 
 *Part of the [Trading Assistant](https://github.com/drasticstatic/trading-assistant-public-preview) public preview.*
