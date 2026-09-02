@@ -19,6 +19,9 @@
       --orange: #ff9f67; --violet: #b693ff; --rose: #ff9dc1;
       --radius-xl: 22px; --radius-lg: 16px; --radius-md: 10px;
       --shadow: 0 20px 48px rgba(2, 8, 20, 0.34);
+      --glass: rgba(148, 163, 184, 0.07);
+      --glass-border: rgba(231, 237, 246, 0.14);
+      --spring: cubic-bezier(.34, 1.56, .64, 1);
     }
     @media (prefers-color-scheme: light) {
       :root {
@@ -26,10 +29,14 @@
         --border: rgba(71,85,105,0.18); --border-strong: rgba(71,85,105,0.28);
         --text: #162032; --muted: #56667d; --subtle: #6b7c93;
         --blue: #1864db; --cyan: #0f9db6; --green: #1f8f56; --gold: #b7791f; --orange: #d96a25; --violet: #7851db; --rose: #c93c7d;
+        --glass: rgba(255,255,255,0.55); --glass-border: rgba(71,85,105,0.16);
       }
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+    }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
@@ -50,6 +57,13 @@
     h1 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: .6rem; }
     h1 span { background: linear-gradient(120deg, var(--gold), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .lede { color: var(--muted); font-size: .9rem; max-width: 720px; margin-bottom: 2rem; }
+
+    /* ── One orchestrated entrance: hero settles in on load — the only
+       scripted reveal on this page, everything else stays visible. ── */
+    @keyframes riseIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-in { animation: riseIn .6s var(--spring) both; }
+    .hero-in.d1 { animation-delay: .05s; }
+    .hero-in.d2 { animation-delay: .14s; }
     .sec-label {
       font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em;
       color: var(--violet); margin: 2.2rem 0 1rem; display: flex; align-items: center; gap: .6rem;
@@ -57,7 +71,24 @@
     .sec-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
     .sec-label:first-of-type { margin-top: 0; }
     .sec-sub { font-size: .82rem; color: var(--muted); margin: -.6rem 0 1rem; max-width: none; }
-    .panel { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow); overflow: hidden; }
+    /* ── Glass card base — frosted, with a thin top-edge light-line
+       tinted per section via --accent (set on the wrapping element). ── */
+    .glass {
+      position: relative; border: 1px solid var(--glass-border); border-radius: var(--radius-lg);
+      background: var(--glass); backdrop-filter: blur(20px) saturate(160%); -webkit-backdrop-filter: blur(20px) saturate(160%);
+      box-shadow: var(--shadow); overflow: hidden;
+      transition: border-color .2s, transform .35s var(--spring);
+    }
+    .glass::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent, var(--border)), transparent);
+      opacity: .85;
+    }
+    .panel { border: 1px solid var(--glass-border); border-radius: var(--radius-lg); background: var(--glass); backdrop-filter: blur(20px) saturate(160%); -webkit-backdrop-filter: blur(20px) saturate(160%); box-shadow: var(--shadow); overflow: hidden; position: relative; }
+    .panel::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; z-index: 1;
+      background: linear-gradient(90deg, transparent, var(--accent, var(--violet)), transparent); opacity: .85;
+    }
     .tbl-wrap { overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; font-size: .8rem; white-space: nowrap; }
     th { text-align: left; padding: .65rem .9rem; background: var(--surface-soft); color: var(--muted); text-transform: uppercase; font-size: .66rem; letter-spacing: .06em; border-bottom: 1px solid var(--border); }
@@ -73,14 +104,16 @@
     .checklist li { display: flex; align-items: flex-start; gap: .6rem; font-size: .85rem; }
     .checklist input[type="checkbox"] { margin-top: .2rem; accent-color: var(--gold); flex-shrink: 0; }
     .checklist .sub { color: var(--subtle); font-size: .76rem; display: block; margin-top: .1rem; }
-    .doc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .8rem; }
-    .doc-card { border: 1px solid var(--border); border-radius: var(--radius-md); padding: .9rem 1rem; background: var(--surface); }
+    .doc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .8rem; --accent: var(--blue); }
+    .doc-card { padding: .9rem 1rem; }
+    .doc-card:hover { transform: translateY(-2px); border-color: rgba(124,194,255,.4); }
     .doc-card .fname { font-weight: 700; font-size: .84rem; margin-bottom: .2rem; }
     .doc-card .fmeta { font-size: .74rem; color: var(--muted); }
 
-    /* ── Lucid spec-card grid ── */
-    .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
-    .spec-card { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow); padding: 1.1rem 1.2rem; }
+    /* ── Spec-card grid (Lucid + digitized Apex/TPT tier cards) ── */
+    .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; --accent: var(--cyan); }
+    .spec-card { padding: 1.1rem 1.2rem; }
+    .spec-card:hover { transform: translateY(-3px); border-color: rgba(103,232,249,.4); }
     .spec-card h4 { font-size: .92rem; font-weight: 800; margin-bottom: .15rem; color: var(--cyan); }
     .spec-card .spec-price { font-size: .76rem; color: var(--gold); font-weight: 700; margin-bottom: .7rem; }
     .spec-card .spec-block + .spec-block { margin-top: .8rem; padding-top: .7rem; border-top: 1px dashed var(--border); }
@@ -90,20 +123,46 @@
     .spec-row span:last-child { font-weight: 600; text-align: right; }
 
     /* ── News blackout grid ── */
-    .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
-    .news-card { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow); padding: 1rem 1.15rem; }
+    .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; --accent: var(--rose); }
+    .news-card { padding: 1rem 1.15rem; }
+    .news-card:hover { transform: translateY(-2px); border-color: rgba(255,157,193,.4); }
     .news-card h4 { font-size: .86rem; font-weight: 800; margin-bottom: .5rem; }
     .news-card ul { list-style: none; display: flex; flex-direction: column; gap: .4rem; font-size: .78rem; color: var(--muted); }
     .news-card li::before { content: "· "; color: var(--subtle); }
     .news-card li strong { color: var(--text); }
 
-    .tier-toggle { border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); padding: .7rem 1rem; }
-    .tier-toggle summary { cursor: pointer; font-size: .82rem; font-weight: 700; color: var(--muted); }
-    .tier-toggle summary:hover { color: var(--text); }
-    .tier-toggle .tier-imgs { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: .9rem; }
-    .tier-toggle .tier-imgs img { max-width: 100%; border-radius: var(--radius-md); border: 1px solid var(--border); }
-    .tier-toggle .tier-imgs figure { margin: 0; flex: 1 1 320px; }
-    .tier-toggle .tier-imgs figcaption { font-size: .72rem; color: var(--subtle); margin-top: .3rem; text-align: center; }
+    /* ── Pill trigger buttons (open the spec-card modals) ── */
+    .pill-trigger {
+      display: inline-flex; align-items: center; gap: .35rem; margin-top: .9rem;
+      padding: .4rem .9rem; border-radius: 999px; font-size: .78rem; font-weight: 700;
+      background: rgba(103,232,249,.1); color: var(--cyan); border: 1px solid rgba(103,232,249,.28);
+      cursor: pointer; font-family: inherit; transition: border-color .2s, background .2s, transform .35s var(--spring);
+    }
+    .pill-trigger:hover { border-color: var(--cyan); background: rgba(103,232,249,.18); transform: translateY(-2px); }
+
+    /* ── Spec-card content modal (not an image lightbox — renders HTML) ── */
+    .spec-modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 500;
+      background: rgba(2,6,14,.86); backdrop-filter: blur(6px);
+      align-items: center; justify-content: center; padding: 1.5rem;
+    }
+    .spec-modal-overlay.open { display: flex; }
+    .spec-modal-box {
+      max-width: 1100px; width: 100%; max-height: 88vh; overflow-y: auto;
+      background: var(--bg-alt); border: 1px solid var(--border-strong); border-radius: var(--radius-lg);
+      padding: 1.6rem 1.6rem 1.8rem; position: relative; box-shadow: var(--shadow);
+      transform: scale(.96); opacity: 0; transition: transform .3s var(--spring), opacity .25s;
+    }
+    .spec-modal-overlay.open .spec-modal-box { transform: scale(1); opacity: 1; }
+    .spec-modal-title { font-size: 1.05rem; font-weight: 800; margin-bottom: .3rem; padding-right: 2.5rem; }
+    .spec-modal-sub { font-size: .82rem; color: var(--muted); margin-bottom: 1.2rem; }
+    .spec-modal-close {
+      position: absolute; top: 1.1rem; right: 1.2rem;
+      background: none; border: 1px solid var(--border); border-radius: 999px;
+      width: 2.1rem; height: 2.1rem; color: var(--text); font-size: 1rem; cursor: pointer;
+      transition: border-color .2s, color .2s;
+    }
+    .spec-modal-close:hover { border-color: var(--gold); color: var(--gold); }
 
     .footer { max-width: 1180px; margin: 0 auto 2rem; padding: 1.2rem 1.5rem; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); font-size: .8rem; color: var(--subtle); text-align: center; }
     .footer p { margin: 0; }
@@ -122,9 +181,9 @@
   </nav>
 
   <main class="content">
-    <p class="eyebrow">Setup · Prop Firm Reference</p>
-    <h1>✈️ Prop Firm Rules &amp; <span>Pre-Flight Checklist</span></h1>
-    <p class="lede">A quick visual comparison across every prop firm Christopher trades or tracks, plus a daily pre-flight checklist before the market opens. Figures shown are the 50K-tier headline numbers — always verify current rules against the full reference docs linked at the bottom, since prop firm rules change frequently.</p>
+    <p class="eyebrow hero-in">Setup · Prop Firm Reference</p>
+    <h1 class="hero-in d1">✈️ Prop Firm Rules &amp; <span>Pre-Flight Checklist</span></h1>
+    <p class="lede hero-in d2">A quick visual comparison across every prop firm Christopher trades or tracks, plus a daily pre-flight checklist before the market opens. Figures shown are the 50K-tier headline numbers — always verify current rules against the full reference docs linked at the bottom, since prop firm rules change frequently.</p>
 
     <div class="sec-label">50K Evaluation — Quick Comparison</div>
     <p class="sec-sub">Apex has three paths on file (Legacy, New EOD, New Intraday) since Christopher's original accounts predate the new rules. Lucid is reference/awareness only — no account held.</p>
@@ -178,104 +237,15 @@
       </div>
     </div>
 
-    <div class="sec-label">💧 Lucid — Full 50K Spec Cards <span class="ref-tag">(reference only)</span></div>
-    <p class="sec-sub">Lucid runs four distinct 50K products, each with its own eval → funded path (Direct skips the eval entirely). Real figures transcribed from Lucid's own pricing pages — see the doc-card links below for the source screenshots.</p>
-    <div class="spec-grid">
-      <div class="spec-card">
-        <h4>50K Daily</h4>
-        <div class="spec-price">Standard eval → funded path</div>
-        <div class="spec-block">
-          <div class="spec-block-label">Eval</div>
-          <div class="spec-row"><span>Profit Target</span><span>$3,000</span></div>
-          <div class="spec-row"><span>Max Loss Limit</span><span>$2,000</span></div>
-          <div class="spec-row"><span>Drawdown Type</span><span>EOD or Intraday (chosen at purchase)</span></div>
-          <div class="spec-row"><span>Daily Loss Limit</span><span>Optional (on/off)</span></div>
-          <div class="spec-row"><span>Consistency</span><span>50%</span></div>
-          <div class="spec-row"><span>Max Size</span><span>4 mini / 40 micros</span></div>
-          <div class="spec-row"><span>Activation Fee</span><span>Free</span></div>
-        </div>
-        <div class="spec-block">
-          <div class="spec-block-label">Funded</div>
-          <div class="spec-row"><span>Max Loss Limit</span><span>$2,000</span></div>
-          <div class="spec-row"><span>DLL</span><span>$1,200</span></div>
-          <div class="spec-row"><span>Drawdown Type</span><span>Intraday</span></div>
-          <div class="spec-row"><span>Consistency</span><span><span class="badge good">None</span></span></div>
-          <div class="spec-row"><span>Daily Payouts</span><span>✓</span></div>
-        </div>
-      </div>
-
-      <div class="spec-card">
-        <h4>50K Direct</h4>
-        <div class="spec-price">Straight to funded — no eval — $360.50 one-time (w/ coupon, normally $515)</div>
-        <div class="spec-block">
-          <div class="spec-row"><span>Max Loss Limit</span><span>$2,000 EOD</span></div>
-          <div class="spec-row"><span>DLL (below initial trail)</span><span>$1,200</span></div>
-          <div class="spec-row"><span>LucidScale DLL (above initial trail)</span><span>60% of peak EOD balance</span></div>
-          <div class="spec-row"><span>Consistency</span><span>20%</span></div>
-          <div class="spec-row"><span>Max Size</span><span>4 mini / 40 micros</span></div>
-          <div class="spec-row"><span>Min Days to Payout</span><span>5</span></div>
-          <div class="spec-row"><span>Max Accounts</span><span>5</span></div>
-          <div class="spec-row"><span>Trader Dashboard</span><span>Realtime</span></div>
-        </div>
-      </div>
-
-      <div class="spec-card">
-        <h4>50K Flex</h4>
-        <div class="spec-price">Eval fee $90.20 w/ DLL on · $105.20 w/ DLL off</div>
-        <div class="spec-block">
-          <div class="spec-block-label">Eval</div>
-          <div class="spec-row"><span>Profit Target</span><span>$3,000</span></div>
-          <div class="spec-row"><span>Max Loss Limit</span><span>$2,000 EOD</span></div>
-          <div class="spec-row"><span>Daily Loss Limit</span><span>Optional — $1,200 or off</span></div>
-          <div class="spec-row"><span>Consistency</span><span>50%</span></div>
-          <div class="spec-row"><span>Max Size</span><span>4 mini / 40 micros</span></div>
-          <div class="spec-row"><span>Reset Fee</span><span>$90 (w/ DLL) / $105 (no DLL)</span></div>
-        </div>
-        <div class="spec-block">
-          <div class="spec-block-label">Funded</div>
-          <div class="spec-row"><span>Max Loss Limit</span><span>$2,000</span></div>
-          <div class="spec-row"><span>DLL</span><span>$1,200</span></div>
-          <div class="spec-row"><span>Consistency</span><span><span class="badge good">None</span></span></div>
-          <div class="spec-row"><span>Min Days of Profit</span><span>5 days of $150+</span></div>
-          <div class="spec-row"><span>Days to Payout</span><span>5</span></div>
-          <div class="spec-row"><span>Scaling Plan</span><span>Yes</span></div>
-        </div>
-      </div>
-
-      <div class="spec-card">
-        <h4>50K Pro</h4>
-        <div class="spec-price">Eval fee $115.40 · pass in as little as 1 day</div>
-        <div class="spec-block">
-          <div class="spec-block-label">Eval</div>
-          <div class="spec-row"><span>Profit Target</span><span>$3,000</span></div>
-          <div class="spec-row"><span>Max Loss Limit</span><span>$2,000 EOD</span></div>
-          <div class="spec-row"><span>Daily Loss Limit</span><span>Optional — $1,200 or off</span></div>
-          <div class="spec-row"><span>Max Size</span><span>4 mini / 40 micros</span></div>
-          <div class="spec-row"><span>Trader Dashboard</span><span>Realtime</span></div>
-          <div class="spec-row"><span>Reset Fee</span><span>$115</span></div>
-        </div>
-        <div class="spec-block">
-          <div class="spec-block-label">Funded</div>
-          <div class="spec-row"><span>Payout Profit Target</span><span>$500</span></div>
-          <div class="spec-row"><span>Max Loss Limit</span><span>$2,000</span></div>
-          <div class="spec-row"><span>DLL / LucidScale</span><span>$1,200 below trail · 60% peak EOD above</span></div>
-          <div class="spec-row"><span>Consistency</span><span>40%</span></div>
-          <div class="spec-row"><span>Days to Payout</span><span>3</span></div>
-          <div class="spec-row"><span>Scaling Plan</span><span><span class="ref-tag">—</span></span></div>
-        </div>
-      </div>
-    </div>
+    <p style="margin-top:-.6rem;">
+      <button type="button" class="pill-trigger" onclick="openSpecModal('lucidSpecModal')">💧 View Full Lucid 50K Spec Cards (Daily / Direct / Flex / Pro) ↗</button>
+    </p>
 
     <div class="sec-label">📐 Account Size Tiers — 50K vs 100K</div>
     <p class="sec-sub">Beyond the 50K headline numbers above, Apex and TPT scale contracts/targets/fees at 100K. Reference only — Christopher currently holds Apex Legacy 50K/100K accounts.</p>
-    <details class="tier-toggle">
-      <summary>📊 View Apex (50K Full / 100K Full / 100K Static) + TPT (50K / 100K) tier cards</summary>
-      <div class="tier-imgs">
-        <figure><img src="accounts/PropFirms/ApexTrader/Apex 50K vs 100K vs 100K-static details.png" alt="Apex 50K vs 100K vs 100K-static tier comparison"><figcaption>Apex Legacy — 50K Full / 100K Full / 100K Static</figcaption></figure>
-        <figure><img src="accounts/PropFirms/TakeProfitTrader/TPT 100K details.png" alt="TPT 100K tier details"><figcaption>TakeProfitTrader — 100K ($330/mo)</figcaption></figure>
-        <figure><img src="accounts/PropFirms/TakeProfitTrader/TPT 50K details.png" alt="TPT 50K tier details"><figcaption>TakeProfitTrader — 50K ($170/mo)</figcaption></figure>
-      </div>
-    </details>
+    <p>
+      <button type="button" class="pill-trigger" onclick="openSpecModal('tierSpecModal')">📊 View Full Apex / TPT Tier Cards (50K vs 100K) ↗</button>
+    </p>
 
     <div class="sec-label">💳 Reset Economics</div>
     <p class="sec-sub">Cost-of-staying-in numbers, for the accounts Christopher actually runs.</p>
@@ -294,15 +264,15 @@
     <div class="sec-label">🛑 FOMC / CPI / NFP — News Blackout Rules by Firm</div>
     <p class="sec-sub">Rules diverge sharply by firm — some fully permit news trading, others carry a hard 1-2 minute blackout window. Know which account is live before a red-folder release.</p>
     <div class="news-grid">
-      <div class="news-card">
+      <div class="news-card glass">
         <h4>💰 TakeProfitTrader PRO / PRO+</h4>
         <ul><li><strong>Forbidden</strong> 1 minute before, during, and 1 minute after FOMC / CPI / NFP</li></ul>
       </div>
-      <div class="news-card">
+      <div class="news-card glass">
         <h4>🥇 TopOneFutures</h4>
         <ul><li><strong>Forbidden only if a position is modified</strong> 2 minutes before/during/after — holding through untouched is fine</li></ul>
       </div>
-      <div class="news-card">
+      <div class="news-card glass">
         <h4>🅰️ Apex Trader Funding</h4>
         <ul>
           <li>News-event trading is <strong>allowed</strong> as part of a normal strategy</li>
@@ -310,7 +280,7 @@
           <li><strong>No hedging</strong> — simultaneous long+short on the same/correlated instrument is a standing hard rule, separate from news</li>
         </ul>
       </div>
-      <div class="news-card">
+      <div class="news-card glass">
         <h4>💧 Lucid Trading</h4>
         <ul>
           <li><strong>LucidFlex / Pro / Direct:</strong> news trading fully allowed — enter/exit freely around major releases, no penalty</li>
@@ -355,23 +325,206 @@
 
     <div class="sec-label">Full Rule Reference</div>
     <div class="doc-grid">
-      <div class="doc-card"><div class="fname">🅰️ Apex — New Rules</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/ApexTrader/apex-rules.md" target="_blank" rel="noreferrer">apex-rules.md ↗</a></div></div>
-      <div class="doc-card"><div class="fname">🅰️ Apex — Legacy Rules</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/ApexTrader/apex-rules_legacy.md" target="_blank" rel="noreferrer">apex-rules_legacy.md ↗</a></div></div>
-      <div class="doc-card"><div class="fname">⚖️ Apex vs TPT</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/apex-vs-tpt-comparison.md" target="_blank" rel="noreferrer">apex-vs-tpt-comparison.md ↗</a></div></div>
-      <div class="doc-card"><div class="fname">⚖️ Apex Legacy vs New</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/apex-legacy-vs-new-comparison.md" target="_blank" rel="noreferrer">apex-legacy-vs-new-comparison.md ↗</a></div></div>
-      <div class="doc-card"><div class="fname">💰 TakeProfitTrader</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TakeProfitTrader/tpt-rules.md" target="_blank" rel="noreferrer">tpt-rules.md ↗</a></div></div>
-      <div class="doc-card"><div class="fname">🥇 TopOneFutures</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TopOneFutures/topone-rules.md" target="_blank" rel="noreferrer">topone-rules.md ↗</a></div></div>
-      <div class="doc-card"><div class="fname">📈 Tradeify</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Tradeify/tradeify-rules.md" target="_blank" rel="noreferrer">tradeify-rules.md ↗</a></div></div>
-      <div class="doc-card"><div class="fname">💧 Lucid <span class="ref-tag">(reference)</span></div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-rules.md" target="_blank" rel="noreferrer">lucid-rules.md ↗</a></div></div>
-      <div class="doc-card"><div class="fname">⚖️ Lucid — Flex vs Daily vs Pro</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-account-types-comparison.md" target="_blank" rel="noreferrer">lucid-account-types-comparison.md ↗</a></div></div>
-      <div class="doc-card"><div class="fname">🏦 Account Roster</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-progression.md" target="_blank" rel="noreferrer">prop-firm-progression.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname">🅰️ Apex — New Rules</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/ApexTrader/apex-rules.md" target="_blank" rel="noreferrer">apex-rules.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname">🅰️ Apex — Legacy Rules</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/ApexTrader/apex-rules_legacy.md" target="_blank" rel="noreferrer">apex-rules_legacy.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname">⚖️ Apex vs TPT</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/apex-vs-tpt-comparison.md" target="_blank" rel="noreferrer">apex-vs-tpt-comparison.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname">⚖️ Apex Legacy vs New</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/apex-legacy-vs-new-comparison.md" target="_blank" rel="noreferrer">apex-legacy-vs-new-comparison.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname">💰 TakeProfitTrader</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TakeProfitTrader/tpt-rules.md" target="_blank" rel="noreferrer">tpt-rules.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname">🥇 TopOneFutures</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TopOneFutures/topone-rules.md" target="_blank" rel="noreferrer">topone-rules.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname">📈 Tradeify</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Tradeify/tradeify-rules.md" target="_blank" rel="noreferrer">tradeify-rules.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname">💧 Lucid <span class="ref-tag">(reference)</span></div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-rules.md" target="_blank" rel="noreferrer">lucid-rules.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname">⚖️ Lucid — Flex vs Daily vs Pro</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-account-types-comparison.md" target="_blank" rel="noreferrer">lucid-account-types-comparison.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname">🏦 Account Roster</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-progression.md" target="_blank" rel="noreferrer">prop-firm-progression.md ↗</a></div></div>
     </div>
   </main>
+
+  <!-- ── SPEC-CARD MODALS (HTML content, not image lightboxes — opened via .pill-trigger buttons) ── -->
+  <div class="spec-modal-overlay" id="lucidSpecModal" onclick="if(event.target===this)closeSpecModal('lucidSpecModal')">
+    <div class="spec-modal-box">
+      <button class="spec-modal-close" onclick="closeSpecModal('lucidSpecModal')">✕</button>
+      <div class="spec-modal-title">💧 Lucid — Full 50K Spec Cards <span class="ref-tag">(reference only)</span></div>
+      <p class="spec-modal-sub">Lucid runs four distinct 50K products, each with its own eval → funded path (Direct skips the eval entirely). Real figures transcribed from Lucid's own pricing pages. Full comparison: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-account-types-comparison.md" target="_blank" rel="noreferrer">lucid-account-types-comparison.md ↗</a>.</p>
+      <div class="spec-grid">
+        <div class="spec-card glass">
+          <h4>50K Daily</h4>
+          <div class="spec-price">Standard eval → funded path</div>
+          <div class="spec-block">
+            <div class="spec-block-label">Eval</div>
+            <div class="spec-row"><span>Profit Target</span><span>$3,000</span></div>
+            <div class="spec-row"><span>Max Loss Limit</span><span>$2,000</span></div>
+            <div class="spec-row"><span>Drawdown Type</span><span>EOD or Intraday (chosen at purchase)</span></div>
+            <div class="spec-row"><span>Daily Loss Limit</span><span>Optional (on/off)</span></div>
+            <div class="spec-row"><span>Consistency</span><span>50%</span></div>
+            <div class="spec-row"><span>Max Size</span><span>4 mini / 40 micros</span></div>
+            <div class="spec-row"><span>Activation Fee</span><span>Free</span></div>
+          </div>
+          <div class="spec-block">
+            <div class="spec-block-label">Funded</div>
+            <div class="spec-row"><span>Max Loss Limit</span><span>$2,000</span></div>
+            <div class="spec-row"><span>DLL</span><span>$1,200</span></div>
+            <div class="spec-row"><span>Drawdown Type</span><span>Intraday</span></div>
+            <div class="spec-row"><span>Consistency</span><span><span class="badge good">None</span></span></div>
+            <div class="spec-row"><span>Daily Payouts</span><span>✓</span></div>
+          </div>
+        </div>
+
+        <div class="spec-card glass">
+          <h4>50K Direct</h4>
+          <div class="spec-price">Straight to funded — no eval — $360.50 one-time (w/ coupon, normally $515)</div>
+          <div class="spec-block">
+            <div class="spec-row"><span>Max Loss Limit</span><span>$2,000 EOD</span></div>
+            <div class="spec-row"><span>DLL (below initial trail)</span><span>$1,200</span></div>
+            <div class="spec-row"><span>LucidScale DLL (above initial trail)</span><span>60% of peak EOD balance</span></div>
+            <div class="spec-row"><span>Consistency</span><span>20%</span></div>
+            <div class="spec-row"><span>Max Size</span><span>4 mini / 40 micros</span></div>
+            <div class="spec-row"><span>Min Days to Payout</span><span>5</span></div>
+            <div class="spec-row"><span>Max Accounts</span><span>5</span></div>
+            <div class="spec-row"><span>Trader Dashboard</span><span>Realtime</span></div>
+          </div>
+        </div>
+
+        <div class="spec-card glass">
+          <h4>50K Flex</h4>
+          <div class="spec-price">Eval fee $90.20 w/ DLL on · $105.20 w/ DLL off</div>
+          <div class="spec-block">
+            <div class="spec-block-label">Eval</div>
+            <div class="spec-row"><span>Profit Target</span><span>$3,000</span></div>
+            <div class="spec-row"><span>Max Loss Limit</span><span>$2,000 EOD</span></div>
+            <div class="spec-row"><span>Daily Loss Limit</span><span>Optional — $1,200 or off</span></div>
+            <div class="spec-row"><span>Consistency</span><span>50%</span></div>
+            <div class="spec-row"><span>Max Size</span><span>4 mini / 40 micros</span></div>
+            <div class="spec-row"><span>Reset Fee</span><span>$90 (w/ DLL) / $105 (no DLL)</span></div>
+          </div>
+          <div class="spec-block">
+            <div class="spec-block-label">Funded</div>
+            <div class="spec-row"><span>Max Loss Limit</span><span>$2,000</span></div>
+            <div class="spec-row"><span>DLL</span><span>$1,200</span></div>
+            <div class="spec-row"><span>Consistency</span><span><span class="badge good">None</span></span></div>
+            <div class="spec-row"><span>Min Days of Profit</span><span>5 days of $150+</span></div>
+            <div class="spec-row"><span>Days to Payout</span><span>5</span></div>
+            <div class="spec-row"><span>Scaling Plan</span><span>Yes</span></div>
+          </div>
+        </div>
+
+        <div class="spec-card glass">
+          <h4>50K Pro</h4>
+          <div class="spec-price">Eval fee $115.40 · pass in as little as 1 day</div>
+          <div class="spec-block">
+            <div class="spec-block-label">Eval</div>
+            <div class="spec-row"><span>Profit Target</span><span>$3,000</span></div>
+            <div class="spec-row"><span>Max Loss Limit</span><span>$2,000 EOD</span></div>
+            <div class="spec-row"><span>Daily Loss Limit</span><span>Optional — $1,200 or off</span></div>
+            <div class="spec-row"><span>Max Size</span><span>4 mini / 40 micros</span></div>
+            <div class="spec-row"><span>Trader Dashboard</span><span>Realtime</span></div>
+            <div class="spec-row"><span>Reset Fee</span><span>$115</span></div>
+          </div>
+          <div class="spec-block">
+            <div class="spec-block-label">Funded</div>
+            <div class="spec-row"><span>Payout Profit Target</span><span>$500</span></div>
+            <div class="spec-row"><span>Max Loss Limit</span><span>$2,000</span></div>
+            <div class="spec-row"><span>DLL / LucidScale</span><span>$1,200 below trail · 60% peak EOD above</span></div>
+            <div class="spec-row"><span>Consistency</span><span>40%</span></div>
+            <div class="spec-row"><span>Days to Payout</span><span>3</span></div>
+            <div class="spec-row"><span>Scaling Plan</span><span><span class="ref-tag">—</span></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="spec-modal-overlay" id="tierSpecModal" onclick="if(event.target===this)closeSpecModal('tierSpecModal')">
+    <div class="spec-modal-box">
+      <button class="spec-modal-close" onclick="closeSpecModal('tierSpecModal')">✕</button>
+      <div class="spec-modal-title">📐 Apex &amp; TPT — 50K vs 100K Tier Cards</div>
+      <p class="spec-modal-sub">Digitized from Apex's and TPT's own pricing-page screenshots (transcribed, not embedded as images). Apex's TradingView/Tradovate/Browser/Mobile/Mac compatibility, Tradovate License, NinjaTrader Platform ($75 value), and Real-Time Data Fees ($55 value) are identical and included across all three Apex tiers below — omitted per-card to keep these scannable.</p>
+      <div class="spec-grid">
+        <div class="spec-card glass">
+          <h4>Apex 50K Full</h4>
+          <div class="spec-price">$197/month</div>
+          <div class="spec-block">
+            <div class="spec-row"><span>Starting Capital</span><span>$50,000</span></div>
+            <div class="spec-row"><span>Contracts</span><span>10 (100 micros)</span></div>
+            <div class="spec-row"><span>Profit Goal</span><span>$3,000</span></div>
+            <div class="spec-row"><span>Trailing Threshold</span><span>$2,500</span></div>
+            <div class="spec-row"><span>Daily Drawdown</span><span><span class="badge good">None</span></span></div>
+            <div class="spec-row"><span>Scaling</span><span><span class="badge good">None</span></span></div>
+          </div>
+        </div>
+
+        <div class="spec-card glass">
+          <h4>Apex 100K Full</h4>
+          <div class="spec-price">$297/month</div>
+          <div class="spec-block">
+            <div class="spec-row"><span>Starting Capital</span><span>$100,000</span></div>
+            <div class="spec-row"><span>Contracts</span><span>14 (140 micros)</span></div>
+            <div class="spec-row"><span>Profit Goal</span><span>$6,000</span></div>
+            <div class="spec-row"><span>Trailing Threshold</span><span>$3,000</span></div>
+            <div class="spec-row"><span>Daily Drawdown</span><span><span class="badge good">None</span></span></div>
+            <div class="spec-row"><span>Scaling</span><span><span class="badge good">None</span></span></div>
+          </div>
+        </div>
+
+        <div class="spec-card glass">
+          <h4>Apex 100K Static</h4>
+          <div class="spec-price">$297/month</div>
+          <div class="spec-block">
+            <div class="spec-row"><span>Starting Capital</span><span>$100,000</span></div>
+            <div class="spec-row"><span>Contracts</span><span>2 (20 micros)</span></div>
+            <div class="spec-row"><span>Profit Goal</span><span>$2,000</span></div>
+            <div class="spec-row"><span>Daily Drawdown</span><span><span class="badge good">None</span></span></div>
+            <div class="spec-row"><span>Max Drawdown</span><span>$625 (static, non-trailing)</span></div>
+            <div class="spec-row"><span>Scaling</span><span><span class="badge good">None</span></span></div>
+          </div>
+        </div>
+
+        <div class="spec-card glass">
+          <h4>TPT 50K</h4>
+          <div class="spec-price">$170/month</div>
+          <div class="spec-block">
+            <div class="spec-row"><span>Profit Target</span><span>$3,000</span></div>
+            <div class="spec-row"><span>Max Position Size</span><span>6 Contracts / 60 Micros</span></div>
+            <div class="spec-row"><span>Daily Loss Limit</span><span><span class="badge good">Removed</span> <span class="ref-tag">(was $1,100)</span></span></div>
+            <div class="spec-row"><span>EOD Trailing Drawdown</span><span>$2,000</span></div>
+            <div class="spec-row"><span>Rules</span><span class="ref-tag">Be consistent · No trading bots · No counter positions</span></div>
+          </div>
+        </div>
+
+        <div class="spec-card glass">
+          <h4>TPT 100K</h4>
+          <div class="spec-price">$330/month</div>
+          <div class="spec-block">
+            <div class="spec-row"><span>Profit Target</span><span>$6,000</span></div>
+            <div class="spec-row"><span>Max Position Size</span><span>12 Contracts / 120 Micros</span></div>
+            <div class="spec-row"><span>Daily Loss Limit</span><span><span class="badge good">Removed</span> <span class="ref-tag">(was $2,200)</span></span></div>
+            <div class="spec-row"><span>EOD Trailing Drawdown</span><span>$3,000</span></div>
+            <div class="spec-row"><span>Rules</span><span class="ref-tag">Be consistent · No trading bots · No counter positions</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <footer class="footer">
     <p>✈️ Prop Firm Rules &amp; Pre-Flight Checklist · Christopher Wilson · Part of the <a href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer">Trading Assistant</a> public preview</p>
     <p>Educational reference — always verify current rules directly with each firm.</p>
   </footer>
+
+  <script>
+    function openSpecModal(id) {
+      document.getElementById(id).classList.add('open');
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeSpecModal(id) {
+      document.getElementById(id).classList.remove('open');
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      document.querySelectorAll('.spec-modal-overlay.open').forEach(el => closeSpecModal(el.id));
+    });
+  </script>
 
 </body>
 </html>
