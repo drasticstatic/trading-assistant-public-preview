@@ -114,18 +114,43 @@ It makes sense for me to use Tradovate to start out and then once I am in a plac
 
 I honestly get confused sometimes using Tradovate’s UI and have made mistakes and prefer to use TradingView to execute my trades but want to get comfortable with both and ideally once I am able to collect payouts from prop firms and pay some bills/expenses start to take some of the payouts to fund crypto futures vs using crypto prop firms.
 
-### TradeCopia (Copy Trading — Sep 2026 update, the actual plan in motion)
+### TradeCopia (Copy Trading — Sep 2026, revised plan)
 
-[TradeCopia](https://tradecopia.com) is the copy-trading tool actually being set up, as of Sep 2026 — same category as Tradesyncer above (cloud-based, cross-broker, per-account risk controls), chosen because it's what surfaced through the giveaway/community context below rather than a cold comparison shop. Learn-center references: [futures-trade-copier](https://tradecopia.com/learn/futures-trade-copier) and [how-futures-copy-trading-works](https://tradecopia.com/learn/how-futures-copy-trading-works) — per-follower position sizing/multipliers (a follower account can take a different lot size than the leader, scaled independently rather than a flat 1:1 mirror) and independent per-account scaling are the specific features relevant here.
+> **This section replaces an earlier draft of the plan** (TopOne-manual / Lucid-copies-TopOne / Apex-copies-TPT-PRO) — that structure was written before working through the actual account mechanics and drawdown types in detail. The structure below is the real one.
+
+[TradeCopia](https://tradecopia.com) is the copy-trading tool being purchased/installed (Sep 2, 2026) — same category as Tradesyncer above (cloud-based, cross-broker, per-account risk controls), chosen because it's what surfaced through the giveaway/community context below rather than a cold comparison shop. Learn-center references: [futures-trade-copier](https://tradecopia.com/learn/futures-trade-copier) and [how-futures-copy-trading-works](https://tradecopia.com/learn/how-futures-copy-trading-works) — per-follower position sizing/multipliers (a follower account can take a different lot size than the leader, scaled independently rather than a flat 1:1 mirror) is the feature this whole plan leans on.
 
 **How this connects to a free Lucid account:** PropFirmMatchTV ([propfirmmatch.com/futures](https://propfirmmatch.com/futures)) runs YouTube live-stream raffles/giveaways with a Discord + "MATCH" access-code flow (anti-bot gate). A free Lucid futures account was won via an on-stream duck race 🦆 — first prize surfaced through that community, not purchased. The prize is a one-time redemption code toward a 25K account, style (Flex/Daily/Pro) still open — see [lucid-account-types-comparison.md](Lucid/lucid-account-types-comparison.md) for the analysis on which fits this copy-trading structure best.
 
-**Intended copy-trading structure once accounts are active:**
-- **TopOneFutures Elite ACCESS** stays manual — no copier involved, hands-on execution.
-- **Lucid** copy-trades from TopOneFutures (both EOD-style accounts — matching drawdown mechanics makes this pairing sensible).
-- **The 2 renewed Apex Legacy evals** copy-trade from **TPT-PRO** (all Intraday-style accounts — same reasoning, matching mechanics).
+#### Why manual multi-account execution is being retired
 
-This is the plan as scoped, not yet fully wired up — cross-referenced from `data/progression/resources.html`, `TopOneFutures/topone-rules.md`'s copy-trading policy section, and `Lucid/lucid-rules.md`, plus a Copy Trading callout on `data/progression/gallery.html` thanking PropFirmMatchTV.
+Feb–Mar 2026, after blowing the first set of funded accounts, the working method for avoiding accidental "copying" errors between accounts was genuinely manual: a MacBook Pro + iPhone + iMac running simultaneously, TradingView executing the TPT account directly while a separate Brave browser window handled TopOneFutures via Tradovate's account-switcher UI, alternating live between accounts by hand. It worked well enough to pass both the TPT and TopOneFutures evals, but the account-switcher UI had real lag, and switching under pressure introduced real human error. The plan going forward is to execute solo, from TradingView, on one leader account per group, and let TradeCopia handle the mirroring — removing the multi-device juggling entirely.
+
+#### The structure: two groups, split by drawdown mechanic, not by firm
+
+The insight that makes this work: group accounts by **drawdown type** (Intraday vs EOD), not by which firm they belong to, and put the account with the most trading history/discipline on that mechanic in the leader seat for its group.
+
+**Intraday Group — led by TPT (the 50K account, e.g. `TAKEPROFITPRO781112132`)**
+- TPT is the leader because intraday is the drawdown style this trading approach is most tested on, and TPT already carries the most disciplined news-awareness (see below).
+- Followers: **Apex Legacy** (current accounts — intraday trailing by design) and **Apex New Intraday** (if opened later — same mechanic).
+- If a **LucidDaily** account is ever added, it follows TPT too — LucidDaily's funded phase is always intraday drawdown *and* has a hard-breach news restriction, so it belongs in the group led by the account already most disciplined about news.
+
+**EOD Group — led by TopOneFutures (Top1, the funded Elite ACCESS account)**
+- Top1 is the leader for the EOD group — diligence here can match TPT's, with one real difference: TopOneFutures' news rule only forbids *modifying* a position during the blackout window, not holding one open through it (already tested live — a position was held through a TopOneFutures news window without being touched, no violation). That extra flexibility fits an EOD-style leader well.
+- Followers: **Apex New EOD** (if opened later) and **Lucid** (the incoming 25K account) — see below for exactly how the 25K fits in.
+- Apex Trader Funding's own rule is consistent with this: news-event trading is generally allowed as part of a normal strategy, as long as it's directional (not opposing-bracket gambling) — so an Apex account following an EOD leader that occasionally holds through news is compliant.
+
+**Where the 25K Lucid account fits (Fortuna's recommendation):** follower in the EOD group, under Top1, scaled down via TradeCopia's per-follower multiplier — not leader. Reasoning: the leader in each group should be the account with the most trading history on that drawdown mechanic, and Top1 has that; the 25K Lucid account is brand new with no track record yet, and TradeCopia's whole value here is letting a smaller/newer account scale down safely from a proven leader rather than the reverse. If LucidPro or LucidFlex is the style chosen (see [lucid-account-types-comparison.md](Lucid/lucid-account-types-comparison.md)), it's EOD, confirming the group placement.
+
+**Apex specifically:** still an open question which drawdown style any *new* Apex accounts will be — Legacy is already confirmed Intraday (TPT group); New EOD vs New Intraday for any future accounts isn't decided yet. Slot new accounts into whichever group matches their actual drawdown type when that's known, per the pattern above.
+
+**Trades outside the copy groups:** occasionally taking an additional individual trade on any single account, outside its copy group, when genuinely called to — the copy structure organizes the default flow, it isn't a hard cage.
+
+#### Session-close discipline (mitigates Pattern 8 — exit passivity)
+
+Close deadlines, earliest to latest: **TopOneFutures 4:10 PM ET → Lucid 4:45 PM ET → TPT 4:55 PM ET → Apex 4:59 PM ET.** Top1 leading the EOD group means that group is naturally flat by 4:10. For everything overall, the personal session-close target is **4:45 PM ET (Lucid's close)** — well ahead of TPT's 4:55 and Apex's 4:59 — so the account actually being planned around is the earliest realistic hard deadline among the intraday-group followers, not the latest one. This turns pattern_tracker.md's documented exit-passivity pattern (zero active exit decisions, relying on SL/resting-TP/AutoLiq) into a proactive plan: be flat everywhere by 4:45, not waiting on any firm's auto-flatten.
+
+This is the plan as scoped, not yet fully wired up — cross-referenced from `data/progression/gallery.html`'s Copy Trading section, `TopOneFutures/topone-rules.md`'s copy-trading policy section, and `Lucid/lucid-rules.md`.
 
 ### 🗂️ COST & FEATURES SUMMARY
 #### Basic
