@@ -26,7 +26,9 @@ Opening accounts before readiness = unnecessary fees + more rules to track + mor
 ### Phase 2 — After Apex Pass
 **Open:** LucidFlex Evaluation
 
-**Why LucidFlex over LucidPro:**
+> **Status (Sep 2, 2026):** no longer gated on "after Apex pass" in practice — a free Lucid 25K account code was won via a PropFirmMatchTV on-stream community giveaway (duck race 🦆), incoming regardless of Apex's current state. Not confirmed as specifically LucidFlex — the code is style-flexible (Flex/Daily/Pro), decision pending a support reply. Full analysis: [lucid-account-types-comparison.md](Lucid/lucid-account-types-comparison.md) — leans Flex or Pro over Daily, since LucidDaily's funded phase is always intraday drawdown, mismatching the planned EOD-to-EOD copy-trading pairing with TopOneFutures.
+
+**Why LucidFlex over LucidPro** *(original pre-giveaway strategic reasoning, still holds as background rationale)*:
 - One-time fee, no monthly rebilling — zero cost pressure to "justify" the account
 - No Daily Loss Limit — one less hard rule to manage while Inevitrade SMC execution is still developing
 - Scaling plan in funded = earn your way to larger size (discipline feature, not limitation)
@@ -70,7 +72,7 @@ Opening accounts before readiness = unnecessary fees + more rules to track + mor
 | Tradovate | Apex Trader Funding | ZeroToHero + STB | ⚠️ Funded account (PA-01) blown ~Jun 11 · new 50K Legacy evals in progress (07/09/10) |
 | Tradovate | Take Profit Trader | ZeroToHero + STB | ✅ Funded — reset-4 (TAKEPROFIT917806711) passed eval Aug 2026 |
 | TopOneFutures | Elite ACCESS ×2 (BOGO) | ZeroToHero + STB | ✅ Funded — both eval passed Aug 28, 2026 |
-| Lucid | LucidFlex | Inevitrade + STB | Planned — Phase 2 |
+| Lucid | LucidTrading — style TBD (Flex/Daily/Pro) | Inevitrade + STB | 🦆 Free 25K account code won via PropFirmMatchTV duck race — incoming |
 | Tradeify | Select Challenge | Inevitrade + STB | Planned — Phase 3 |
 
 ---
