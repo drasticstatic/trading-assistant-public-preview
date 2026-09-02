@@ -375,7 +375,7 @@
     </div>
 
     <div class="sec-label">📅 Trading Calendar &amp; Metrics <span class="sec-tag">v1 — built from Fortuna's own trade-review data, not TradeZella</span></div>
-    <p class="sec-sub">A homegrown replacement for the TradeZella calendar/stats — driven directly by <code>pattern_tracker.md</code>'s Trade Log so it grows as the <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/fortuna-exports/trade-reviews" target="_blank" rel="noreferrer">trade-review backlog</a> is processed. Currently reflects 274 logged futures trades, Feb 23 – Aug 28, 2026, across every prop firm account — reconstructed from Tradovate order-fill CSVs for the May–Aug window (see <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/master_trade_ledger_2026-05-14_to_2026-08-28.csv" target="_blank" rel="noreferrer">master_trade_ledger</a>). A short May 9–13 gap remains where no CSV export exists.</p>
+    <p class="sec-sub">A homegrown replacement for the TradeZella calendar/stats — driven directly by <code>pattern_tracker.md</code>'s Trade Log so it grows as the <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/fortuna-exports/trade-reviews" target="_blank" rel="noreferrer">trade-review backlog</a> is processed. Currently reflects 277 logged futures trades, Feb 23 – Sep 1, 2026, across every prop firm account — reconstructed from Tradovate order-fill CSVs for the May–Sep window (see <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/master_trade_ledger_2026-05-14_to_2026-09-01.csv" target="_blank" rel="noreferrer">master_trade_ledger</a>). A short May 9–13 gap remains where no CSV export exists.</p>
     <div class="metrics-strip" id="metricsStrip"></div>
     <div class="heatmap-strip" id="heatmapStrip"></div>
     <p style="margin-top:.2rem;font-size:.72rem;color:var(--dim);">Green = net win day · red = net loss day · intensity scales with size. Hover a cell for the date and net P&amp;L.</p>
@@ -660,13 +660,13 @@
       { src: 'assets/gallery/tpt/tpt-2026-04-26-thru-04-29-1.png', title: 'TPT 50K — Apr 26–29, 2026 (reset-3)',
         caption: 'TakeProfitTrader-558167553 (reset-3) — Control Center, Apr 26–29, 2026 — blown Apr 30, YM no-SL AutoLiq -$2,000',
         meta: '<span class="badge badge-blown">❌ Blown</span><span>TAKEPROFIT558167553</span>' },
-      { src: 'assets/gallery/tpt/tpt-2026-03-25-thru-03-26-1.png', title: 'TPT 50K — Mar 25–26, 2026 (reset-2)',
+      { src: 'assets/gallery/tpt/tpt-2026-03-25-thru-03-26-export-1.png', title: 'TPT 50K — Mar 25–26, 2026 (reset-2)',
         caption: 'TakeProfitTrader-363712064 (reset-2) — Control Center, Mar 25–26, 2026 — blown, overnight MGC',
         meta: '<span class="badge badge-blown">❌ Blown</span><span>TAKEPROFIT363712064</span>' },
       { src: '../imports/2026/03-Mar/APEX_2026_02-17-thru-03-03.png', title: 'APEX-484839-05 — Feb 17–Mar 3, 2026',
         caption: 'APEX-484839-05 (Legacy 100K) — balance chart, Feb 17–Mar 3, 2026 — blown Mar 3, Patterns 6+7 (-$2,294.54)',
         meta: '<span class="badge badge-blown">❌ Blown</span><span>100K</span>' },
-      { src: 'assets/gallery/tpt/tpt-2026-02-16-1.png', title: 'TPT 50K — Feb 16, 2026 (reset-1)',
+      { src: 'assets/gallery/tpt/tpt-2026-02-16-export-1.png', title: 'TPT 50K — Feb 16, 2026 (reset-1)',
         caption: 'TakeProfitTrader-401190651 (reset-1) — Control Center, Feb 16, 2026 — blown day 1',
         meta: '<span class="badge badge-blown">❌ Blown</span><span>Single trading day</span>' },
       { src: '../imports/2026/02-Feb/APEX_2026_02-13_2.png', title: 'APEX-484839-04 — Feb 13, 2026',
@@ -1022,6 +1022,9 @@
       { date: '2026-08-28', instrument: 'MYM', pnl: 315.0 },
       { date: '2026-08-28', instrument: 'M2K', pnl: 7.5 },
       { date: '2026-08-28', instrument: 'M2K', pnl: -270.0 },
+      { date: '2026-08-31', instrument: 'MES', pnl: 12.5 },
+      { date: '2026-09-01', instrument: 'MNQ', pnl: 230.0 },
+      { date: '2026-09-01', instrument: 'MNQ', pnl: 264.0 },
     ];
 
     function computeMetrics(trades) {
