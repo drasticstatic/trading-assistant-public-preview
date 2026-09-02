@@ -138,7 +138,7 @@
       border-color: rgba(126,200,255,.3); color: var(--blue); background: rgba(126,200,255,.1);
     }
 
-    /* ── MARQUEE (Certificates — mouse-scrollable strip, JS ping-pong autoplay) ── */
+    /* ── MARQUEE (Certificates — infinite-loop scrollable strip, doubled content + scrollLeft wraparound) ── */
     .marquee-wrap {
       overflow-x: auto; overflow-y: hidden; position: relative;
       -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
@@ -469,8 +469,10 @@
     <div class="ribbon" id="progressionRibbon"></div>
     <p style="margin-top:.3rem;font-size:.78rem;color:var(--dim);">Source files: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/imports" target="_blank" rel="noreferrer">data/imports/</a> (original PDFs + statement exports, by month)</p>
 
-    <div class="sec-label">🦆 Copy Trading</div>
-    <p class="sec-sub">Huge thanks to <a href="https://propfirmmatch.com/futures" target="_blank" rel="noreferrer">PropFirmMatchTV</a> — an on-stream duck race win turned into a LucidFlex eval account, which is how Lucid entered the roster at all. Copy trading is being set up through <a href="https://tradecopia.com" target="_blank" rel="noreferrer">TradeCopia</a> so eval and funded accounts can mirror a single manually-traded source instead of everything being hand-executed one account at a time. Full plan: see the copy-trading documentation (Phase 10).</p>
+    <div id="copy-trading" class="sec-label">🦆 Copy Trading</div>
+    <p class="sec-sub">Huge thanks to <a href="../../setup/community.html#pfm" target="_blank" rel="noreferrer">PropFirmMatchTV</a> — an on-stream duck race win turned into a LucidFlex eval account, which is how Lucid entered the roster at all.</p>
+    <p class="sec-sub">The plan once every account is active: <strong>TopOneFutures Elite ACCESS stays manual</strong> — no copier involved, hands-on execution on the account with the most day-to-day attention. <strong>Lucid copy-trades from TopOneFutures</strong> (both EOD-style accounts, matching drawdown mechanics). <strong>The renewed Apex Legacy evals copy-trade from TPT-PRO</strong> (all Intraday-style accounts, same reasoning). The tool doing the mirroring is <a href="../../setup/community.html#tradecopia" target="_blank" rel="noreferrer">TradeCopia</a> — per-follower position sizing/multipliers, so a follower account scales independently rather than a flat 1:1 mirror; <a href="../../setup/community.html#tradesyncer" target="_blank" rel="noreferrer">Tradesyncer</a> was the other option researched (already in use by Inevitrade and STB) before TradeCopia won out through the PFM/TheGexLab community context.</p>
+    <p class="sec-sub">Not a decision taken lightly — real money for TradeCopia, and now TheGexLab too, after some hesitation. But the account structure above only works if the leader account stays disciplined: a copier amplifies whatever the source account does, so the whole point of only taking A+ confluence entries now (with TheGexLab's gamma/dealer-positioning data layered on top of the auto-levels indicator) is to protect against one tilted leader trade compounding into every follower account at once — not to chase complexity for its own sake. Full plan + exact account mapping: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-Scaling-SOP-%26-Implementation.md" target="_blank" rel="noreferrer">Scaling SOP doc ↗</a>.</p>
 
     <div class="sec-label">Account Ledger <span class="sec-tag">what once looked like a graveyard is a resurrection project</span></div>
     <p class="sec-sub">Every eval, reset, blow, and pass across Apex, TPT, and TopOneFutures — now sourced from a clean CSV going forward instead of cross-referencing screenshots by hand. Christopher fills in cost columns from receipts as they come in. Click a row for its payment method and notes.</p>
@@ -584,11 +586,15 @@
     });
 
     // ═══════════════════════════════════════════════════════
-    // MARQUEE — mouse-scrollable certificate strip, JS ping-pong autoplay
+    // MARQUEE — infinite-loop scrollable strip (doubled content + scrollLeft
+    // wraparound, so it never bumps end-to-end — feels continuous like the
+    // original CSS-transform marquee, but stays natively drag/scroll-able)
     // ═══════════════════════════════════════════════════════
     function renderMarquee(containerId, items) {
       const el = document.getElementById(containerId);
-      items.forEach((item, idx) => {
+      const doubled = items.concat(items); // duplicate set — required for the seamless wrap
+      doubled.forEach((item, i) => {
+        const idx = i % items.length;
         const div = document.createElement('div');
         div.className = 'marquee-item';
         div.onclick = () => openLightbox(item.src, item.caption, { items, index: idx });
@@ -601,26 +607,37 @@
         el.appendChild(div);
       });
     }
-    // Autoplays a scrollable strip via scrollLeft ping-pong; pauses on hover
-    // (resumes on mouseleave), stops permanently on real touch/wheel/pointer scroll intent.
-    function startMarqueeAutoplay(wrapId) {
+    // Infinite-loop autoplay: advances scrollLeft forward only (no ping-pong),
+    // silently wraps back by exactly one item-set width once it scrolls past
+    // the first copy — since the second copy is identical, the wrap is invisible.
+    // Pauses on hover (resumes on mouseleave) and on manual touch/wheel/drag
+    // (resumes after a short idle window so it stays ambient, never dead).
+    function startMarqueeAutoplay(wrapId, trackId) {
       const wrap = document.getElementById(wrapId);
-      if (!wrap) return;
-      let dir = 1, timer = null, manual = false;
-      function tick() {
-        const max = wrap.scrollWidth - wrap.clientWidth;
-        if (max <= 0) return;
-        wrap.scrollLeft += dir;
-        if (wrap.scrollLeft >= max) dir = -1;
-        if (wrap.scrollLeft <= 0) dir = 1;
-      }
-      function play() { if (!manual && !timer) timer = setInterval(tick, 24); }
-      function pause() { clearInterval(timer); timer = null; }
-      play();
-      wrap.addEventListener('mouseenter', pause);
-      wrap.addEventListener('mouseleave', play);
-      ['touchstart', 'wheel', 'pointerdown'].forEach(evt => {
-        wrap.addEventListener(evt, () => { manual = true; pause(); }, { passive: true });
+      const track = document.getElementById(trackId);
+      if (!wrap || !track) return;
+      requestAnimationFrame(() => {
+        const singleWidth = track.scrollWidth / 2;
+        if (singleWidth <= 0) return;
+        let hoverPause = false, manualPause = false, resumeTimer = null;
+        function wrapScroll() {
+          if (wrap.scrollLeft >= singleWidth) wrap.scrollLeft -= singleWidth;
+          else if (wrap.scrollLeft < 0) wrap.scrollLeft += singleWidth;
+        }
+        setInterval(() => {
+          if (!hoverPause && !manualPause) wrap.scrollLeft += 1;
+          wrapScroll();
+        }, 24);
+        wrap.addEventListener('mouseenter', () => hoverPause = true);
+        wrap.addEventListener('mouseleave', () => hoverPause = false);
+        ['touchstart', 'wheel', 'pointerdown'].forEach(evt => {
+          wrap.addEventListener(evt, () => {
+            manualPause = true;
+            clearTimeout(resumeTimer);
+            resumeTimer = setTimeout(() => manualPause = false, 3000);
+          }, { passive: true });
+        });
+        wrap.addEventListener('scroll', wrapScroll);
       });
     }
 
@@ -727,7 +744,7 @@
         meta: '<span class="badge">✅ Funded ×2</span><span>TOF189562 · TOF189563</span>' },
     ];
     renderMarquee('certTrack', certItems);
-    startMarqueeAutoplay('certMarqueeWrap');
+    startMarqueeAutoplay('certMarqueeWrap', 'certTrack');
 
     // ── Account Progression (ribbon, newest → oldest) ──
     const progressionSlides = [
