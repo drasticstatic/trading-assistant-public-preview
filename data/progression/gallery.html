@@ -1259,8 +1259,29 @@
         grid.appendChild(cell);
       }
     }
-    // TODO(Phase 6): once weekly-stub files with daily anchors exist, replace this
-    // inline panel with a link to the matching day's anchor in the weekly stub.
+    // ── Weekly-stub linking (Phase 6) — closing Sundays that have a real
+    // fortuna-exports/overview-summaries/ file, from the May 14 - Sep 1, 2026
+    // backlog pass. Extend this set (and generate the file via
+    // scripts/generate-weekly-stubs.py) as later weeks land.
+    const WEEKLY_STUB_SUNDAYS = new Set([
+      '2026-05-17','2026-05-24','2026-05-31','2026-06-07','2026-06-14','2026-06-21',
+      '2026-06-28','2026-07-05','2026-07-12','2026-07-26','2026-08-02','2026-08-09',
+      '2026-08-16','2026-08-23','2026-08-30','2026-09-06',
+    ]);
+    const MONTH_FOLDERS = ['01-Jan','02-Feb','03-Mar','04-Apr','05-May','06-Jun','07-Jul','08-Aug','09-Sep','10-Oct','11-Nov','12-Dec'];
+    function closingSundayISO(dateStr) {
+      const d = new Date(dateStr + 'T12:00:00');
+      const daysToSun = (7 - d.getDay()) % 7;
+      d.setDate(d.getDate() + daysToSun);
+      return d.toISOString().slice(0, 10);
+    }
+    function weeklyStubLink(dateStr) {
+      const sunday = closingSundayISO(dateStr);
+      if (!WEEKLY_STUB_SUNDAYS.has(sunday)) return null;
+      const [y, m] = sunday.split('-');
+      const fname = `export_${sunday.replace(/-/g, '')}_weekly-review.md`;
+      return `https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/overview-summaries/${y}/${MONTH_FOLDERS[Number(m) - 1]}/${fname}#day-${dateStr}`;
+    }
     function showDayPanel(dateStr) {
       const info = dayDetail[dateStr];
       const panel = document.getElementById('dayPanel');
@@ -1270,7 +1291,12 @@
       info.trades.forEach(t => {
         html += `<div class="day-panel-trade"><span>${t.instrument}</span><span class="day-panel-pnl ${t.pnl >= 0 ? 'pos' : 'neg'}">${fmtMoney(t.pnl)}</span></div>`;
       });
-      html += `<div class="day-panel-note">Full trade reviews: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/fortuna-exports/trade-reviews" target="_blank" rel="noreferrer">fortuna-exports/trade-reviews</a></div>`;
+      const stubLink = weeklyStubLink(dateStr);
+      if (stubLink) {
+        html += `<div class="day-panel-note">Full trade reviews + weekly context: <a href="${stubLink}" target="_blank" rel="noreferrer">this week's review ↗</a></div>`;
+      } else {
+        html += `<div class="day-panel-note">Full trade reviews: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/fortuna-exports/trade-reviews" target="_blank" rel="noreferrer">fortuna-exports/trade-reviews</a></div>`;
+      }
       panel.innerHTML = html;
       panel.classList.add('open');
       panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
