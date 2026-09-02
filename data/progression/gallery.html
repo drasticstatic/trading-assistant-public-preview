@@ -8,6 +8,7 @@
   <link rel="icon" href="../../setup/assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../../setup/assets/favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="../../setup/assets/favicon.png">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.js" defer></script>
   <style>
     :root {
       --bg-base:  #080c18;
@@ -38,6 +39,19 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
     }
+    .lucide { width: 1em; height: 1em; vertical-align: -.15em; stroke-width: 2.25; display: inline-block; flex-shrink: 0; }
+    /* ── Parallax ambient background — separate fixed layer from body so
+       content scrolls normally while the gradient glow drifts slower. ── */
+    .bg-parallax {
+      position: fixed; inset: -10vh -10vw; z-index: -1; pointer-events: none;
+      background:
+        radial-gradient(ellipse at 10% 5%, rgba(139,92,246,0.18) 0%, transparent 35%),
+        radial-gradient(ellipse at 85% 10%, rgba(56,189,248,0.14) 0%, transparent 30%),
+        radial-gradient(ellipse at 50% 80%, rgba(74,222,128,0.08) 0%, transparent 40%);
+      will-change: transform;
+    }
+    /* Sticky nav is ~52px tall — keep anchor-scrolled section titles clear of it. */
+    [id] { scroll-margin-top: 76px; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -46,11 +60,6 @@
       min-height: 100vh;
       font-size: 14px;
       line-height: 1.65;
-      background-image:
-        radial-gradient(ellipse at 10% 5%, rgba(139,92,246,0.18) 0%, transparent 35%),
-        radial-gradient(ellipse at 85% 10%, rgba(56,189,248,0.14) 0%, transparent 30%),
-        radial-gradient(ellipse at 50% 80%, rgba(74,222,128,0.08) 0%, transparent 40%);
-      background-attachment: fixed;
     }
 
     a { color: var(--blue); text-decoration: none; }
@@ -73,6 +82,7 @@
     .nav-tag {
       padding: .22rem .7rem; border: 1px solid var(--border); border-radius: 999px;
       font-size: .76rem; color: var(--muted); transition: border-color .15s, color .15s;
+      display: inline-flex; align-items: center; gap: .3rem;
     }
     .nav-tag:hover { border-color: var(--purple); color: var(--text); }
     .nav-space { flex: 1; }
@@ -97,6 +107,12 @@
     /* ── One orchestrated entrance: the hero settles in on load — the
        only scripted reveal on this page, everything else stays visible. ── */
     @keyframes riseIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    /* "Christmas" flowing red/green scrollbar thumb, shared by every
+       horizontal-scroll strip (marquee/ribbon/heatmap) — NOT the Account
+       Ledger table, which no longer scrolls horizontally at all. Pseudo-
+       elements can't take a shared class from script, so the gradient
+       rule is repeated per owner below rather than factored out. */
+    @keyframes scrollFlow { from { background-position: 0% 0; } to { background-position: 200% 0; } }
     .hero-in { animation: riseIn .6s var(--spring) both; }
     .hero-in.d1 { animation-delay: .05s; }
     .hero-in.d2 { animation-delay: .14s; }
@@ -157,12 +173,12 @@
       overflow-x: auto; overflow-y: hidden; position: relative;
       -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
       mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
-      scrollbar-width: auto; scrollbar-color: var(--gold) rgba(255,255,255,.07);
+      scrollbar-width: thin; scrollbar-color: var(--green) rgba(255,255,255,.07);
       padding-bottom: .3rem;
     }
-    .marquee-wrap::-webkit-scrollbar { height: 10px; }
+    .marquee-wrap::-webkit-scrollbar { height: 6px; }
     .marquee-wrap::-webkit-scrollbar-track { background: rgba(255,255,255,.06); border-radius: 999px; }
-    .marquee-wrap::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 999px; }
+    .marquee-wrap::-webkit-scrollbar-thumb { background: linear-gradient(90deg, var(--green), var(--red), var(--green)); background-size: 200% 100%; animation: scrollFlow 4s linear infinite; border-radius: 999px; }
     .marquee-track {
       display: flex; gap: 1.1rem; width: max-content;
     }
@@ -186,11 +202,11 @@
     .ribbon {
       display: flex; gap: .9rem; overflow-x: auto; padding: .3rem .15rem 1.1rem;
       scroll-snap-type: x proximity;
-      scrollbar-width: auto; scrollbar-color: var(--gold) rgba(255,255,255,.07);
+      scrollbar-width: thin; scrollbar-color: var(--green) rgba(255,255,255,.07);
     }
-    .ribbon::-webkit-scrollbar { height: 10px; }
+    .ribbon::-webkit-scrollbar { height: 6px; }
     .ribbon::-webkit-scrollbar-track { background: rgba(255,255,255,.06); border-radius: 999px; }
-    .ribbon::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 999px; }
+    .ribbon::-webkit-scrollbar-thumb { background: linear-gradient(90deg, var(--green), var(--red), var(--green)); background-size: 200% 100%; animation: scrollFlow 4s linear infinite; border-radius: 999px; }
     .ribbon-item {
       position: relative;
       flex: 0 0 auto; scroll-snap-align: start; width: 280px;
@@ -315,13 +331,30 @@
     .cal-net.pos { color: var(--green); }
     .cal-net.neg { color: var(--red); }
 
-    /* ── DAY DETAIL PANEL (shared by calendar grid + heatmap-strip clicks) ── */
-    .day-panel {
-      display: none; margin: .7rem 0 1.2rem; padding: .9rem 1rem;
-      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md);
+    /* ── DAY DETAIL MODAL (shared by calendar grid + heatmap-strip clicks) —
+       a popup instead of an inline panel, so clicking a day doesn't reflow
+       or scroll the page underneath it. ── */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 500;
+      background: rgba(2,6,14,.86); backdrop-filter: blur(6px);
+      align-items: center; justify-content: center; padding: 1.5rem;
     }
-    .day-panel.open { display: block; }
-    .day-panel-title { font-size: .84rem; font-weight: 700; color: var(--text); margin-bottom: .5rem; }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      max-width: 480px; width: 100%; max-height: 85vh; overflow-y: auto;
+      background: var(--bg-base); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 1.4rem 1.4rem 1.6rem; position: relative; box-shadow: var(--shadow-md);
+      transform: scale(.96); opacity: 0; transition: transform .3s var(--spring), opacity .25s;
+    }
+    .modal-overlay.open .modal-box { transform: scale(1); opacity: 1; }
+    .modal-close {
+      position: absolute; top: 1rem; right: 1.1rem;
+      background: none; border: 1px solid var(--border); border-radius: 999px;
+      width: 2rem; height: 2rem; color: var(--text); font-size: .95rem; cursor: pointer;
+      transition: border-color .2s, color .2s;
+    }
+    .modal-close:hover { border-color: var(--gold); color: var(--gold); }
+    .day-panel-title { font-size: .9rem; font-weight: 700; color: var(--text); margin-bottom: .7rem; padding-right: 2rem; }
     .day-panel-trade {
       display: flex; justify-content: space-between; gap: .8rem; font-size: .78rem;
       padding: .3rem 0; border-top: 1px solid var(--border);
@@ -334,11 +367,11 @@
     /* ── HEATMAP (day-strip, aggregated net P&L per day) ── */
     .heatmap-strip {
       display: flex; gap: 4px; overflow-x: auto; padding: .4rem .15rem 1rem;
-      scrollbar-width: auto; scrollbar-color: var(--gold) rgba(255,255,255,.07);
+      scrollbar-width: thin; scrollbar-color: var(--green) rgba(255,255,255,.07);
     }
-    .heatmap-strip::-webkit-scrollbar { height: 8px; }
+    .heatmap-strip::-webkit-scrollbar { height: 5px; }
     .heatmap-strip::-webkit-scrollbar-track { background: rgba(255,255,255,.06); border-radius: 999px; }
-    .heatmap-strip::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 999px; }
+    .heatmap-strip::-webkit-scrollbar-thumb { background: linear-gradient(90deg, var(--green), var(--red), var(--green)); background-size: 200% 100%; animation: scrollFlow 4s linear infinite; border-radius: 999px; }
     .heatmap-cell {
       flex: 0 0 auto; width: 30px; height: 30px; border-radius: 6px;
       display: flex; align-items: center; justify-content: center;
@@ -352,11 +385,19 @@
       border-radius: 999px; padding: .3rem .7rem; font-size: .74rem; cursor: pointer;
     }
     .csv-table-wrap {
-      overflow-x: auto; overflow-y: auto; max-height: 480px;
+      /* Vertical scroll stays (long ledger) — horizontal scroll removed so
+         every column stays visible at a glance, unlike the ribbon/marquee
+         strips which are fine as horizontal-scroll. */
+      overflow-x: visible; overflow-y: auto; max-height: 480px;
       border: 1px solid var(--border); border-radius: var(--radius-md);
       background: var(--surface);
     }
-    .csv-table { width: 100%; border-collapse: collapse; font-size: .76rem; white-space: nowrap; }
+    .csv-table { width: 100%; border-collapse: collapse; font-size: .76rem; white-space: normal; table-layout: fixed; }
+    .csv-table th, .csv-table td { word-break: break-word; }
+    @media (max-width: 900px) {
+      .csv-table { font-size: .68rem; }
+      .csv-table th, .csv-table td { padding: .45rem .5rem; }
+    }
     .csv-table th {
       text-align: left; padding: .6rem .8rem; background: var(--surface-raised);
       color: var(--muted); text-transform: uppercase; font-size: .64rem; letter-spacing: .06em;
@@ -443,6 +484,8 @@
 </head>
 <body>
 
+  <div class="bg-parallax" id="bgParallax"></div>
+
   <!-- ── NAV ── -->
   <nav class="nav">
     <span class="nav-brand">Gallery</span>
@@ -471,15 +514,15 @@
 
   <main class="content">
     <p class="header-eyebrow hero-in">Progression · Evidence</p>
-    <h1 class="header-title hero-in d1">🏆 Certificates &amp; <span>Account Gallery</span></h1>
+    <h1 class="header-title hero-in d1"><i data-lucide="trophy"></i> Certificates &amp; <span>Account Gallery</span></h1>
     <p class="header-sub hero-in d2">Funded account certificates and prop firm account progression, captured as evidence alongside the trading journal. Click any image to view full-size.</p>
 
-    <div class="sec-label">Funded Account Certificates</div>
+    <div class="sec-label"><i data-lucide="award"></i> Funded Account Certificates</div>
     <div class="marquee-wrap" id="certMarqueeWrap">
       <div class="marquee-track" id="certTrack"></div>
     </div>
 
-    <div class="sec-label">📅 Trading Calendar &amp; Metrics <span class="sec-tag">v1 — built from Fortuna's own trade-review data, not TradeZella</span></div>
+    <div class="sec-label"><i data-lucide="calendar-days"></i> Trading Calendar &amp; Metrics <span class="sec-tag">v1 — built from Fortuna's own trade-review data, not TradeZella</span></div>
     <p class="sec-sub">A homegrown replacement for the TradeZella calendar/stats — driven directly by <code>pattern_tracker.md</code>'s Trade Log so it grows as the <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/fortuna-exports/trade-reviews" target="_blank" rel="noreferrer">trade-review backlog</a> is processed. Currently reflects 277 logged futures trades, Feb 23 – Sep 1, 2026, across every prop firm account — reconstructed from Tradovate order-fill CSVs for the May–Sep window (see <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/master_trade_ledger_2026-05-14_to_2026-09-01.csv" target="_blank" rel="noreferrer">master_trade_ledger</a>). A short May 9–13 gap remains where no CSV export exists.</p>
     <div class="metrics-strip" id="metricsStrip"></div>
 
@@ -489,35 +532,40 @@
       <button class="carousel-nav-btn" onclick="calNav(1)">›</button>
     </div>
     <div class="cal-grid" id="calGrid"></div>
-    <div class="day-panel" id="dayPanel"></div>
+    <div class="modal-overlay" id="dayModal" onclick="if(event.target===this)closeModal('dayModal')">
+      <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('dayModal')">✕</button>
+        <div id="dayModalContent"></div>
+      </div>
+    </div>
 
     <p style="margin-top:.4rem;font-size:.78rem;color:var(--muted);">Also viewable as a scrollable day-strip across the full backlog:</p>
     <div class="heatmap-strip" id="heatmapStrip"></div>
     <p style="margin-top:.2rem;font-size:.72rem;color:var(--dim);">Green = net win day · red = net loss day · intensity scales with size. Click a cell for that day's trades, or hover for a quick date + net P&amp;L preview.</p>
 
-    <div class="sec-label">Account Progression</div>
+    <div class="sec-label"><i data-lucide="trending-up"></i> Account Progression</div>
     <p class="sec-sub">Every eval and funded account's balance progression, newest first. TPT statement images (portrait) support a fit ↔ scroll toggle — click once to open full-page, click the image again for a scrollable full-width view.</p>
     <div class="ribbon" id="progressionRibbon"></div>
     <p style="margin-top:.3rem;font-size:.78rem;color:var(--dim);">Source files: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/data/imports" target="_blank" rel="noreferrer">data/imports/</a> (original PDFs + statement exports, by month)</p>
 
-    <div id="copy-trading" class="sec-label">🦆 Copy Trading</div>
+    <div id="copy-trading" class="sec-label"><i data-lucide="repeat"></i> Copy Trading</div>
     <p class="sec-sub">Two groups, split by drawdown mechanic rather than by firm: an <strong>Intraday Group led by TPT</strong> (Apex Legacy and Apex New Intraday follow), and an <strong>EOD Group led by TopOneFutures</strong> (Apex New EOD and the incoming Lucid 25K account follow, scaled down). Each leader is the account with the most trading history on that mechanic — the point of a copier is a smaller/newer account scaling down from a proven one, not the reverse. The tool doing the mirroring is <a href="../../setup/community.html#tradecopia" target="_blank" rel="noreferrer">TradeCopia</a> — per-follower position sizing/multipliers, so a follower account scales independently rather than a flat 1:1 mirror; <a href="../../setup/community.html#tradesyncer" target="_blank" rel="noreferrer">Tradesyncer</a> was the other option researched (already in use by Inevitrade and STB) before TradeCopia won out through the PFM/TheGexLab community context. Full plan + reasoning: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-Scaling-SOP-%26-Implementation.md" target="_blank" rel="noreferrer">Scaling SOP doc ↗</a>.</p>
     <p class="sec-sub">Not a decision taken lightly — real money for TradeCopia, and now TheGexLab too, after some hesitation. But the account structure above only works if the leader accounts stay disciplined: a copier amplifies whatever the source account does, so the whole point of only taking A+ confluence entries now (with TheGexLab's gamma/dealer-positioning data layered on top of the auto-levels indicator) is to protect against one tilted leader trade compounding into every follower account at once — not to chase complexity for its own sake. Session-close target: flat everywhere by <strong>4:45 PM ET</strong> (Lucid's close) — ahead of TPT's 4:55 and Apex's 4:59 — a proactive plan against exit passivity rather than waiting on any firm's auto-flatten.</p>
     <p style="margin-top:.6rem;font-size:.78rem;color:var(--dim);">🦆 None of this exists without <a href="../../setup/community.html#pfm" target="_blank" rel="noreferrer">PropFirmMatchTV</a> — an on-stream duck race win turned into a free Lucid 25K account code, which is how Lucid entered the roster at all. Happy to say that.</p>
 
-    <div class="sec-label">Account Ledger <span class="sec-tag">what once looked like a graveyard is a resurrection project</span></div>
+    <div class="sec-label"><i data-lucide="landmark"></i> Account Ledger <span class="sec-tag">what once looked like a graveyard is a resurrection project</span></div>
     <p class="sec-sub">Every eval, reset, blow, and pass across Apex, TPT, and TopOneFutures — now sourced from a clean CSV going forward instead of cross-referencing screenshots by hand. Christopher fills in cost columns from receipts as they come in. Click a row for its payment method and notes.</p>
     <div class="ledger-filters" id="ledgerFilters"></div>
     <div class="csv-table-wrap" id="ledgerTableWrap"><p class="csv-table-note">Loading ledger…</p></div>
     <div class="carousel-pills">
-      <a href="#" class="pill-cta" onclick="toggleLegacyLedger(); return false;" id="legacyLedgerPill">🗄️ Legacy TradeZella Ledger ↗</a>
-      <a href="#" class="pill-cta alt" onclick="exportLedgerCSV(); return false;">📥 Export Ledger (CSV)</a>
+      <a href="#" class="pill-cta" onclick="toggleLegacyLedger(); return false;" id="legacyLedgerPill"><i data-lucide="archive"></i> Legacy TradeZella Ledger ↗</a>
+      <a href="#" class="pill-cta alt" onclick="exportLedgerCSV(); return false;"><i data-lucide="download"></i> Export Ledger (CSV)</a>
     </div>
     <div class="toggle-panel" id="legacyLedgerPanel">
       <div class="gallery-grid" id="ledgerGrid"></div>
     </div>
 
-    <div class="sec-label">🗄️ Legacy TradeZella Archive <span class="sec-tag">how this started — and letting go of it, moving forward</span></div>
+    <div class="sec-label"><i data-lucide="archive"></i> Legacy TradeZella Archive <span class="sec-tag">how this started — and letting go of it, moving forward</span></div>
     <p class="sec-sub">TradeZella got the habit started: drag-and-drop calendars, Zella Score, AI reviews. This section keeps that record intact — including the paper-trading intro, on purpose, as part of the origin story — while the sections above take over for everything going forward. See also: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews" target="_blank" rel="noreferrer">monthly reviews</a> for the fuller written record behind these screenshots.</p>
     <div class="carousel">
       <div class="carousel-thumbstrip" id="calendarThumbstrip"></div>
@@ -535,8 +583,8 @@
           <button class="carousel-nav-btn" onclick="carouselNav(calendarState, 1)">›</button>
         </div>
         <div class="carousel-pills">
-          <a href="#" class="pill-cta" onclick="openStatsModal('post'); return false;">📊 Extended TradeZella Stats ↗</a>
-          <a href="#" class="pill-cta alt" onclick="openStatsModal('pre'); return false;">🌱 + Paper Trading Origin – Intro Story Included ↗</a>
+          <a href="#" class="pill-cta" onclick="openStatsModal('post'); return false;"><i data-lucide="bar-chart-3"></i> Extended TradeZella Stats ↗</a>
+          <a href="#" class="pill-cta alt" onclick="openStatsModal('pre'); return false;"><i data-lucide="sprout"></i> + Paper Trading Origin – Intro Story Included ↗</a>
         </div>
       </div>
     </div>
@@ -586,6 +634,23 @@
       lightboxNav = null;
       unlockScroll();
     }
+
+    // ═══════════════════════════════════════════════════════
+    // Small content modal (calendar day-detail) — reuses the same
+    // scroll-lock helpers as the image lightbox above.
+    // ═══════════════════════════════════════════════════════
+    function openModal(id) {
+      document.getElementById(id).classList.add('open');
+      lockScroll();
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('open');
+      unlockScroll();
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      document.querySelectorAll('.modal-overlay.open').forEach(el => closeModal(el.id));
+    });
     function setScrollable(scrollable, defaultScroll) {
       lightboxScrollable = scrollable;
       document.getElementById('lightboxScrollHint').style.display = scrollable ? 'block' : 'none';
@@ -1271,6 +1336,7 @@
       return map;
     }
     const dayDetail = aggregateByDateDetailed(loggedTrades);
+    const dayNetMaxAbs = Math.max(1, ...Object.values(dayDetail).map(d => Math.abs(d.net)));
     const calMonths = Object.keys(dayDetail).map(d => d.slice(0, 7)).filter((v, i, a) => a.indexOf(v) === i).sort();
     let calMonthIndex = calMonths.length - 1; // default to most recent month
 
@@ -1303,6 +1369,16 @@
         const info = dayDetail[dateStr];
         const cell = document.createElement('div');
         cell.className = 'cal-cell' + (info ? ' has-trades' : '');
+        if (info) {
+          // Subtle full-cell PnL fill, underneath the existing win/loss dots —
+          // same intensity math as the heatmap-strip, just applied as a
+          // background wash instead of solid color.
+          const intensity = Math.min(1, Math.abs(info.net) / dayNetMaxAbs);
+          const isWin = info.net > 0;
+          cell.style.background = info.net === 0 ? 'rgba(255,255,255,0.05)' : (isWin
+            ? `rgba(74,222,128,${0.06 + intensity * 0.22})`
+            : `rgba(248,113,113,${0.06 + intensity * 0.22})`);
+        }
         const dots = info ? Array.from({ length: Math.min(info.wins, 5) }, () => '<span class="cal-dot win"></span>').join('')
           + Array.from({ length: Math.min(info.losses, 5) }, () => '<span class="cal-dot loss"></span>').join('') : '';
         cell.innerHTML = `<span class="cal-cell-daynum">${day}</span>` +
@@ -1336,8 +1412,7 @@
     }
     function showDayPanel(dateStr) {
       const info = dayDetail[dateStr];
-      const panel = document.getElementById('dayPanel');
-      if (!info) { panel.classList.remove('open'); return; }
+      if (!info) return;
       const label = new Date(dateStr + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
       let html = `<div class="day-panel-title">${label} — Net ${fmtMoney(info.net)} (${info.wins}W / ${info.losses}L)</div>`;
       info.trades.forEach(t => {
@@ -1349,9 +1424,8 @@
       } else {
         html += `<div class="day-panel-note">Full trade reviews: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/fortuna-exports/trade-reviews" target="_blank" rel="noreferrer">fortuna-exports/trade-reviews</a></div>`;
       }
-      panel.innerHTML = html;
-      panel.classList.add('open');
-      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      document.getElementById('dayModalContent').innerHTML = html;
+      openModal('dayModal');
     }
     renderCalMonth();
 
@@ -1484,6 +1558,26 @@
         document.getElementById('ledgerTableWrap').innerHTML =
           '<p class="csv-table-note">Live table requires viewing this page over HTTP (e.g. GitHub Pages) — a local file:// preview can\'t fetch the CSV. <a href="assets/prop-firm-account-ledger.csv">View the raw CSV</a> instead.</p>';
       });
+
+    // ═══════════════════════════════════════════════════════
+    // Lucide icons + subtle scroll-driven parallax on the ambient
+    // gradient layer (skipped entirely under prefers-reduced-motion).
+    // ═══════════════════════════════════════════════════════
+    if (window.lucide) lucide.createIcons();
+    else document.addEventListener('DOMContentLoaded', () => window.lucide && lucide.createIcons());
+
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const bgLayer = document.getElementById('bgParallax');
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          bgLayer.style.transform = `translateY(${window.scrollY * 0.15}px)`;
+          ticking = false;
+        });
+      }, { passive: true });
+    }
   </script>
 
 </body>
