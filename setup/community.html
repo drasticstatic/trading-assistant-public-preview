@@ -10,6 +10,9 @@
   <link rel="icon" href="assets/favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="assets/favicon.png">
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.js" defer></script>
+  <!-- Phosphor "thin" weight — used only for the Friends artwork tiles,
+       a noticeably finer line than Lucide's default stroke. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/thin/style.css">
   <style>
     :root {
       --bg: #09111d; --bg-alt: #0d1625;
@@ -38,7 +41,8 @@
     @media (prefers-reduced-motion: reduce) {
       * { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
     }
-    .lucide { width: 1em; height: 1em; vertical-align: -.15em; stroke-width: 2.25; display: inline-block; flex-shrink: 0; }
+    .lucide { width: 1.3em; height: 1.3em; vertical-align: -.22em; stroke-width: 1.75; display: inline-block; flex-shrink: 0; }
+    h1 .lucide { width: 1em; height: 1em; vertical-align: -.12em; }
     /* ── Parallax ambient background — separate fixed layer from body so
        content scrolls normally while the gradient glow drifts slower. ── */
     .bg-parallax {
@@ -102,9 +106,9 @@
     }
 
     .thanks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; --accent: var(--gold); }
-    .thanks-card { padding: 1.1rem 1.2rem; transition: transform .35s var(--spring), border-color .2s; }
+    .thanks-card { padding: 1.1rem 1.2rem; text-align: center; transition: transform .35s var(--spring), border-color .2s; }
     .thanks-card:hover { transform: translateY(-3px); border-color: rgba(243,201,105,.4); }
-    .thanks-card h3 { font-size: .94rem; font-weight: 800; margin-bottom: .35rem; color: var(--text); display: flex; align-items: center; gap: .4rem; }
+    .thanks-card h3 { font-size: .94rem; font-weight: 800; margin-bottom: .35rem; color: var(--text); display: flex; align-items: center; justify-content: center; gap: .4rem; }
     .thanks-card p { font-size: .82rem; color: var(--muted); margin-bottom: .5rem; }
     .thanks-card p:last-child { margin-bottom: 0; }
     .thanks-card .review-link { display: inline-flex; align-items: center; gap: .3rem; font-size: .76rem; font-weight: 700; padding: .18rem .6rem; border-radius: 999px; background: rgba(73,209,125,.12); color: var(--green); border: 1px solid rgba(73,209,125,.24); }
@@ -132,19 +136,10 @@
       position: relative; aspect-ratio: 2.2/1; display: flex; align-items: center; justify-content: center;
       font-size: 2.4rem; overflow: hidden;
     }
-    .preview-banner .schedule {
-      position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: .3rem;
-      padding: 0 1.1rem; font-size: 2.4rem; align-items: flex-start;
-    }
-    .preview-sched-row {
-      display: flex; align-items: baseline; gap: .45rem; font-size: .72rem; font-weight: 700;
-      color: rgba(9,17,29,.82);
-    }
-    .preview-sched-row .t { font-size: .64rem; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; opacity: .75; min-width: 68px; }
-    .preview-body { padding: .85rem 1rem .9rem; }
-    .preview-title { font-size: .88rem; font-weight: 800; color: var(--text); margin-bottom: .2rem; display: flex; align-items: center; gap: .35rem; }
+    .preview-body { padding: .85rem 1rem .9rem; text-align: center; }
+    .preview-title { font-size: .88rem; font-weight: 800; color: var(--text); margin-bottom: .2rem; display: flex; align-items: center; justify-content: center; gap: .35rem; }
     .preview-desc { font-size: .78rem; color: var(--muted); margin-bottom: .5rem; }
-    .preview-domain { font-size: .7rem; color: var(--subtle); text-transform: uppercase; letter-spacing: .05em; display: flex; align-items: center; gap: .3rem; }
+    .preview-domain { font-size: .7rem; color: var(--subtle); text-transform: uppercase; letter-spacing: .05em; display: flex; align-items: center; justify-content: center; gap: .3rem; }
 
     /* ── YouTube-branded preview card (MarketButcher) — static preview
        in YouTube's visual language, not a live embed (no video URL to
@@ -222,7 +217,7 @@
       aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
       font-size: 2.6rem;
     }
-    .friend-card-body { padding: .8rem .9rem .9rem; }
+    .friend-card-body { padding: .8rem .9rem .9rem; text-align: center; }
     .friend-name { font-size: .84rem; font-weight: 800; color: var(--text); margin-bottom: .15rem; }
     .friend-role { font-size: .7rem; color: var(--subtle); margin-bottom: .6rem; }
     .friend-link {
@@ -236,9 +231,9 @@
 
     /* ── COPY-TRADING TOOLS ── */
     .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; --accent: var(--blue); }
-    .tool-card { padding: 1.1rem 1.2rem; transition: transform .35s var(--spring), border-color .2s; }
+    .tool-card { padding: 1.1rem 1.2rem; text-align: center; transition: transform .35s var(--spring), border-color .2s; }
     .tool-card:hover { transform: translateY(-3px); border-color: rgba(124,194,255,.4); }
-    .tool-card h4 { font-size: .92rem; font-weight: 800; margin-bottom: .35rem; display: flex; align-items: center; gap: .4rem; }
+    .tool-card h4 { font-size: .92rem; font-weight: 800; margin-bottom: .35rem; display: flex; align-items: center; justify-content: center; gap: .4rem; }
     .tool-card p { font-size: .82rem; color: var(--muted); margin-bottom: .5rem; }
     .tool-card p:last-child { margin-bottom: 0; }
 
@@ -311,9 +306,7 @@
     <p class="sec-sub">PropFirmMatchTV and MarketButcher — fun over fear, and the content/perspective that goes with it.</p>
     <div class="preview-grid">
       <div class="preview-card glass">
-        <a class="preview-banner" href="https://propfirmmatch.com/futures" target="_blank" rel="noreferrer" style="background-image:linear-gradient(rgba(9,17,29,.35),rgba(9,17,29,.65)),url('https://propfirmmatch.com/og/homepage.jpg');background-size:cover;background-position:center;">
-          <div class="schedule" id="pfmSchedule"></div>
-        </a>
+        <a class="preview-banner" href="https://propfirmmatch.com/futures" target="_blank" rel="noreferrer" style="background-color:#1a1230;background-image:url('https://propfirmmatch.com/og/homepage.jpg');background-size:contain;background-repeat:no-repeat;background-position:center;"></a>
         <div class="preview-body">
           <a class="preview-title" href="https://propfirmmatch.com/futures" target="_blank" rel="noreferrer"><i data-lucide="tv"></i> PropFirmMatchTV</a>
           <p class="preview-desc">A live-stream community built around prop-firm challenges, giveaways, and genuinely fun energy around a grind that can otherwise get heavy. Hosts + direct links: see the <a href="#friends-top">Friends marquee</a> above. More on the copy-trading plan it kicked off: <a href="https://drasticstatic.github.io/trading-assistant-public-preview/data/progression/gallery.html#copy-trading" target="_blank" rel="noreferrer">gallery.html's Copy Trading section ↗</a>.</p>
@@ -323,7 +316,7 @@
         </div>
       </div>
       <a class="preview-card glass" href="https://www.youtube.com/@MarketButcher" target="_blank" rel="noreferrer">
-        <div class="preview-banner youtube" style="background-image:linear-gradient(rgba(9,17,29,.15),rgba(9,17,29,.5)),url('https://yt3.googleusercontent.com/NzTyeFW5UcEDLlj3WSzji5yBb5tySka510a44aiu_O5_as92jDZDYk8Uva_No0FFp0F1WaL2SQ=s900-c-k-c0x00ffffff-no-rj');background-size:cover;background-position:center;">
+        <div class="preview-banner youtube" style="background-color:#1a0505;background-image:url('https://yt3.googleusercontent.com/NzTyeFW5UcEDLlj3WSzji5yBb5tySka510a44aiu_O5_as92jDZDYk8Uva_No0FFp0F1WaL2SQ=s900-c-k-c0x00ffffff-no-rj');background-size:contain;background-repeat:no-repeat;background-position:center;">
           <div class="yt-play"><i data-lucide="play"></i></div>
         </div>
         <div class="preview-body">
@@ -406,26 +399,23 @@
     // stays natively drag/scroll-able — no real photos on file, so each
     // card uses a stylized gradient + emoji "artwork" tile instead)
     // ═══════════════════════════════════════════════════════
+    // Friend-art icons use Phosphor (thin weight) instead of Lucide — a
+    // finer line that reads less "chunky" for these decorative tiles.
     const friends = [
-      { name: 'Fabio', role: 'PFM host · ttacapital', icon: 'sunrise', grad: 'linear-gradient(135deg,#f3c969,#ff9f67)', href: 'https://www.instagram.com/ttacapital/' },
-      { name: 'Luna Trades', role: 'PFM host', icon: 'moon', grad: 'linear-gradient(135deg,#b693ff,#ff9dc1)', href: 'https://www.instagram.com/luna_trades_/' },
-      { name: 'Zarb', role: 'PFM host · ZarbsLiquidity', icon: 'waves', grad: 'linear-gradient(135deg,#6ee7f9,#7cc2ff)', href: 'https://www.instagram.com/iamzarb_/' },
-      { name: 'TMade Alex', role: 'TheGexLab partner · Lunchbox VWAP PFM trader', icon: 'zap', grad: 'linear-gradient(135deg,#ff9f67,#f3c969)', href: 'https://www.instagram.com/tmadealex/' },
-      { name: 'Dave Butcher', role: 'MarketButcher', icon: 'beef', grad: 'linear-gradient(135deg,#ff9dc1,#ff9f67)', href: 'https://www.instagram.com/market_butcher/' },
-      { name: 'Yush', role: 'TheGexLab co-creator', icon: 'microscope', grad: 'linear-gradient(135deg,#49d17d,#6ee7f9)', href: 'https://www.instagram.com/traderyush_/' },
-      { name: 'Craig', role: 'Inevitrade (IT)', icon: 'brain', grad: 'linear-gradient(135deg,#7cc2ff,#b693ff)', href: 'https://www.instagram.com/craig_percoco/' },
-      { name: 'Jesse', role: 'SmartTradingBlueprint (STB)', icon: 'book-open-text', grad: 'linear-gradient(135deg,#f3c969,#ff9f67)', href: 'https://www.instagram.com/casper_smc/' },
-      { name: 'Omar', role: 'ZeroToHero (ZTH)', icon: 'target', grad: 'linear-gradient(135deg,#49d17d,#f3c969)', href: 'https://www.instagram.com/omarfhafez/' },
+      { name: 'Fabio', role: 'Pre-Dawn · PFM host · ttacapital', pi: 'ph-sun-horizon', grad: 'linear-gradient(135deg,#f3c969,#ff9f67)', href: 'https://www.instagram.com/ttacapital/' },
+      { name: 'Luna Trades', role: 'Early AM · PFM host', pi: 'ph-moon', grad: 'linear-gradient(135deg,#b693ff,#ff9dc1)', href: 'https://www.instagram.com/luna_trades_/' },
+      { name: 'Zarb', role: 'NY Session · PFM host · ZarbsLiquidity', pi: 'ph-waves', grad: 'linear-gradient(135deg,#6ee7f9,#7cc2ff)', href: 'https://www.instagram.com/iamzarb_/' },
+      { name: 'TMade Alex', role: 'Lunchbox VWAP PFM trader · TheGexLab partner', pi: 'ph-lightning', grad: 'linear-gradient(135deg,#ff9f67,#f3c969)', href: 'https://www.instagram.com/tmadealex/' },
+      { name: 'Dave Butcher', role: 'Evening · MarketButcher', pi: 'ph-knife', grad: 'linear-gradient(135deg,#ff9dc1,#ff9f67)', href: 'https://www.instagram.com/market_butcher/' },
+      { name: 'Yush', role: 'TheGexLab co-creator', pi: 'ph-microscope', grad: 'linear-gradient(135deg,#49d17d,#6ee7f9)', href: 'https://www.instagram.com/traderyush_/' },
+      { name: 'Craig', role: 'Inevitrade (IT)', pi: 'ph-brain', grad: 'linear-gradient(135deg,#7cc2ff,#b693ff)', href: 'https://www.instagram.com/craig_percoco/' },
+      { name: 'Jesse', role: 'SmartTradingBlueprint (STB)', pi: 'ph-book-open-text', grad: 'linear-gradient(135deg,#f3c969,#ff9f67)', href: 'https://www.instagram.com/casper_smc/' },
+      { name: 'Omar', role: 'ZeroToHero (ZTH)', pi: 'ph-target', grad: 'linear-gradient(135deg,#49d17d,#f3c969)', href: 'https://www.instagram.com/omarfhafez/' },
     ];
-    // PropFirmMatchTV's daily schedule, in order — doubles as the thread
-    // tying the Friends marquee above into one coherent day.
-    const pfmSchedule = [
-      { time: 'Pre-Dawn', host: 'Fabio' },
-      { time: 'Early AM', host: 'Luna' },
-      { time: 'NY Session', host: 'Zarb' },
-      { time: 'Lunchbox', host: 'Alex' },
-      { time: 'Evening', host: 'Dave' },
-    ];
+    // PropFirmMatchTV's daily schedule (Pre-Dawn/Fabio -> Early AM/Luna ->
+    // NY Session/Zarb -> Lunchbox/Alex -> Evening/Dave) is baked directly
+    // into each person's role text in the array above now, instead of a
+    // separate overlay on the PFM banner.
     function renderFriends(containerId, items) {
       const el = document.getElementById(containerId);
       const doubled = items.concat(items);
@@ -438,7 +428,7 @@
         card.style.display = 'block';
         card.style.transitionDelay = (i % items.length) * 0.04 + 's';
         card.innerHTML = `
-          <div class="friend-art" style="background:${item.grad}"><i data-lucide="${item.icon}"></i></div>
+          <div class="friend-art" style="background:${item.grad}"><i class="ph-thin ${item.pi}"></i></div>
           <div class="friend-card-body">
             <div class="friend-name">${item.name}</div>
             <div class="friend-role">${item.role}</div>
@@ -449,11 +439,6 @@
         // the hero finishes (see .hero-in delays), staggered left to right.
         requestAnimationFrame(() => setTimeout(() => card.classList.add('in'), 260));
       });
-    }
-    function renderPfmSchedule(containerId, rows) {
-      const el = document.getElementById(containerId);
-      if (!el) return;
-      el.innerHTML = rows.map(r => `<div class="preview-sched-row"><span class="t">${r.time}</span><span>${r.host}</span></div>`).join('');
     }
     function startInfiniteMarquee(wrapId, trackId) {
       const wrap = document.getElementById(wrapId);
@@ -485,7 +470,6 @@
     }
     renderFriends('friendsTrack', friends);
     startInfiniteMarquee('friendsWrap', 'friendsTrack');
-    renderPfmSchedule('pfmSchedule', pfmSchedule);
 
     // ═══════════════════════════════════════════════════════
     // Small content modal (duck-race story) — same pattern as
@@ -507,7 +491,7 @@
     });
 
     // ═══════════════════════════════════════════════════════
-    // Lucide icons (called after renderFriends/renderPfmSchedule so
+    // Lucide icons (called after renderFriends so
     // their dynamically-injected <i data-lucide> tags get picked up
     // too) + subtle scroll-driven parallax on the ambient gradient
     // layer (skipped entirely under prefers-reduced-motion).
