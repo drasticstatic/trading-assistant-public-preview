@@ -417,7 +417,9 @@ When reviewing any Lucid trade, flag if:
 
 ## Notes / Open Items
 
-**No Lucid account currently held.** This document exists for cross-firm awareness given Christopher's active positions with TopOneFutures (Elite ACCESS) and TPT.
+**No Lucid account currently held, but a LucidFlex eval account was won** via a PropFirmMatchTV ([propfirmmatch.com/futures](https://propfirmmatch.com/futures)) on-stream duck race giveaway 🦆 (Sep 2026) — incoming, not yet active. This document exists for cross-firm awareness given Christopher's active positions with TopOneFutures (Elite ACCESS) and TPT, and now for the incoming LucidFlex account specifically.
+
+**Copy-trading plan (once active):** LucidFlex is intended to copy-trade from TopOneFutures Elite ACCESS via [TradeCopia](https://tradecopia.com) (both EOD-style accounts) — TopOneFutures itself stays manual. Full plan: `setup/accounts/PropFirms/prop-firm-Scaling-SOP-&-Implementation.md`'s TradeCopia section. Confirm this doesn't conflict with any Lucid-side copy-trading restriction before activating — the general rules above don't currently document a Lucid-specific copy-trading policy; verify with Lucid's own terms once the account is live.
 
 **Comparison notes worth revisiting if a Lucid account is ever opened:**
 - Lucid's 4:45 PM ET close is explicitly **non-punitive** (auto-flatten only) — a meaningfully different risk model than TPT's 5:00 PM ET hard failure or TopOneFutures' 4:10 PM ET force-close. Don't assume the same discipline habit (e.g. closing by 4:00 PM personal rule) carries the same stakes across all three firms.

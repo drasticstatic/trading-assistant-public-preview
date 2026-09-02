@@ -642,6 +642,18 @@ Note:       Root cause same as Pattern 1 (FOMO) but mechanism differs:
 
 ---
 
+## 🎯 Trading Style — Three Distinct Approaches (Sep 1, 2026)
+
+Not one unified identity — three separate, sometimes-contrasting tactical behaviors, captured here neutrally (none of these are a win/loss judgment on the style itself; exit *timing* within a style is separate personal discretion, not a flaw in the strategy):
+
+1. **Liquidity-sweep-hunter / WASL ("wide-ass-stop-loss") / NSL ("no-SL")** — terminology from the Zarbs Liquidity Lab community. Wide-or-no stop-loss on small micro-contract intraday swings, taken even on EOD accounts. **This is not a losing style** — A+ entries most of the time, generally profitable. Whether to hold through a move or take the exit at a given green/red moment is personal discretion in the moment, not a strategy flaw.
+2. **"Securing base hits"** — a different, situational approach (Christopher's own words: "not liquidity sweep or Zarb, quite the contrary"). Zero drawdown tolerance, tight/quick take-profit exits with no letting a winner erode back into drawdown. Adopted specifically to stop the anxiety of watching profit slip away and to actually pass evals — not chasing screenshot-worthy large-reward runners.
+3. **Exhaustion-reading on longer runners** — for trades that do run further, watching for price-action exhaustion signals and exiting right there without accepting further drawdown even if price continues, then re-entering or finding a fresh setup rather than holding through a pullback.
+
+**Coaching-community flavor** (how these blend): ZTH = base-hit-minded, IT = smart money, STB = depth, PFM (PropFirmMatchTV) = fun over fear. The combination across all of them — plus Fortuna and the rest of the agent fleet — is what Christopher credits for his current strength as a trader.
+
+---
+
 <a id="recovery-arc-timeline"></a>
 
 ## 📈 Recovery Arc Timeline

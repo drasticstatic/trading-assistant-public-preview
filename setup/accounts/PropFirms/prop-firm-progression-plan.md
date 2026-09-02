@@ -1,5 +1,11 @@
 # Prop Firm Progression Plan
-> Last updated: February 2026 — original phase-by-phase plan. For the live account roster and current status, see [prop-firm-progression.md](prop-firm-progression.md).
+> Last updated: Sep 1, 2026 — original phase-by-phase plan, refreshed to reflect actual progress. For the live account roster and current status, see [prop-firm-progression.md](prop-firm-progression.md) — that document is the source of truth for what's actually happened; this file is the original strategic sequencing plan, kept for context on *why* the order was chosen.
+
+---
+
+## Current Status (Sep 1, 2026)
+
+The original Phase 1 (Apex eval) is long since resolved — Apex has cycled through multiple evals, one funded pass (blown ~Jun 11), and further resets since Feb 2026. TakeProfitTrader (added outside this plan's original scope, reset-4 / TAKEPROFIT917806711) and TopOneFutures Elite ACCESS (×2, BOGO) are both currently funded as of Aug 28, 2026. Phase 2 (Lucid) has moved from "planned" to "incoming" — see below. Full blow-by-blow account history: [prop-firm-progression.md](prop-firm-progression.md)'s Account Roster.
 
 ---
 
@@ -17,10 +23,14 @@ Opening accounts before readiness = unnecessary fees + more rules to track + mor
 
 **Do NOT open Lucid or Tradeify until Apex is passed.**
 
+> **Status:** superseded by events — see Current Status above. Apex has since passed, funded, blown, and reset multiple times; TPT and TopOneFutures were added to the roster outside this plan's original sequencing.
+
 ---
 
 ## Phase 2 — After Apex Pass
 **Open:** LucidFlex Evaluation
+
+> **Status:** no longer gated on "after Apex pass" in practice — a LucidFlex eval account was won via a PropFirmMatchTV on-stream community giveaway (duck race 🦆) and is incoming regardless of Apex's current state. The reasoning below for why LucidFlex specifically (over LucidPro) still holds once that account is active.
 
 ### Why LucidFlex over LucidPro:
 - One-time fee, no monthly rebilling — zero cost pressure to "justify" the account
@@ -61,9 +71,12 @@ Opening accounts before readiness = unnecessary fees + more rules to track + mor
 
 ## Long-Term Ecosystem Vision
 
+> Synced from [prop-firm-progression.md](prop-firm-progression.md) (the live version) — Sep 1, 2026.
+
 | Platform | Firm | Strategy | Status |
 |----------|------|----------|--------|
-| Tradovate | Apex Trader Funding | ZeroToHero + STB | Active — In Evaluation |
-| Tradovate | Take Profit Trader | ZeroToHero + STB | Active |
-| Lucid | LucidFlex | Inevitrade + STB | Planned — Phase 2 |
-| Tradeify | Select Challenge | Inevitrade + STB | Planned — Phase 3 |
+| Tradovate | Apex Trader Funding | ZeroToHero + STB | ⚠️ Funded account (PA-01) blown ~Jun 11 · new 50K Legacy evals in progress (07/09/10) |
+| Tradovate | Take Profit Trader | ZeroToHero + STB | ✅ Funded — reset-4 (TAKEPROFIT917806711) passed eval Aug 2026 |
+| Tradovate | TopOneFutures Elite ACCESS ×2 (BOGO) | ZeroToHero + STB | ✅ Funded — both eval passed Aug 28, 2026 |
+| Tradovate | LucidTrading — LucidFlex | Inevitrade + STB | 🦆 Eval won via PropFirmMatchTV on-stream duck race giveaway — incoming |
+| Tradovate | Tradeify Select Challenge | Inevitrade + STB | Planned — Phase 3 |

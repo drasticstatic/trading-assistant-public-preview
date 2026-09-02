@@ -114,6 +114,19 @@ It makes sense for me to use Tradovate to start out and then once I am in a plac
 
 I honestly get confused sometimes using Tradovate’s UI and have made mistakes and prefer to use TradingView to execute my trades but want to get comfortable with both and ideally once I am able to collect payouts from prop firms and pay some bills/expenses start to take some of the payouts to fund crypto futures vs using crypto prop firms.
 
+### TradeCopia (Copy Trading — Sep 2026 update, the actual plan in motion)
+
+[TradeCopia](https://tradecopia.com) is the copy-trading tool actually being set up, as of Sep 2026 — same category as Tradesyncer above (cloud-based, cross-broker, per-account risk controls), chosen because it's what surfaced through the giveaway/community context below rather than a cold comparison shop. Learn-center references: [futures-trade-copier](https://tradecopia.com/learn/futures-trade-copier) and [how-futures-copy-trading-works](https://tradecopia.com/learn/how-futures-copy-trading-works) — per-follower position sizing/multipliers (a follower account can take a different lot size than the leader, scaled independently rather than a flat 1:1 mirror) and independent per-account scaling are the specific features relevant here.
+
+**How this connects to a LucidFlex eval account:** PropFirmMatchTV ([propfirmmatch.com/futures](https://propfirmmatch.com/futures)) runs YouTube live-stream raffles/giveaways with a Discord + "MATCH" access-code flow (anti-bot gate). A LucidFlex eval account was won via an on-stream duck race 🦆 — first prize surfaced through that community, not purchased.
+
+**Intended copy-trading structure once accounts are active:**
+- **TopOneFutures Elite ACCESS** stays manual — no copier involved, hands-on execution.
+- **Lucid** copy-trades from TopOneFutures (both EOD-style accounts — matching drawdown mechanics makes this pairing sensible).
+- **The 2 renewed Apex Legacy evals** copy-trade from **TPT-PRO** (all Intraday-style accounts — same reasoning, matching mechanics).
+
+This is the plan as scoped, not yet fully wired up — cross-referenced from `data/progression/resources.html`, `TopOneFutures/topone-rules.md`'s copy-trading policy section, and `Lucid/lucid-rules.md`, plus a Copy Trading callout on `data/progression/gallery.html` thanking PropFirmMatchTV.
+
 ### 🗂️ COST & FEATURES SUMMARY
 #### Basic
     $39/month$49 Save 20% if paid annually
