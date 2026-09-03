@@ -587,8 +587,28 @@
           <button class="carousel-nav-btn" onclick="carouselNav(calendarState, 1)">›</button>
         </div>
         <div class="carousel-pills">
-          <a href="#" class="pill-cta" onclick="openStatsModal('post'); return false;"><i data-lucide="bar-chart-3"></i> Extended TradeZella Stats ↗</a>
-          <a href="#" class="pill-cta alt" onclick="openStatsModal('pre'); return false;"><i data-lucide="sprout"></i> + Paper Trading Origin – Intro Story Included ↗</a>
+          <a href="#" class="pill-cta" onclick="openStatsReel(0); return false;"><i data-lucide="bar-chart-3"></i> Extended TradeZella Stats ↗</a>
+          <a href="#" class="pill-cta alt" onclick="openStatsReel(statsReelOriginIndex); return false;"><i data-lucide="sprout"></i> + Paper Trading Origin – Intro Story Included ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="toggle-panel" id="statsReelPanel">
+      <div class="carousel" id="statsReelAnchor">
+        <div class="carousel-thumbstrip" id="statsThumbstrip"></div>
+        <div class="carousel-viewport" onclick="carouselOpenLightbox(statsReelState)">
+          <img id="statsImg" src="" alt="">
+        </div>
+        <div class="carousel-body">
+          <div class="carousel-title" id="statsTitle"></div>
+          <div class="carousel-meta" id="statsMeta"></div>
+          <div class="carousel-controls">
+            <button class="carousel-nav-btn" onclick="carouselNav(statsReelState, -1)">‹</button>
+            <div class="carousel-dots" id="statsDots"></div>
+            <span class="carousel-counter" id="statsCounter"></span>
+            <button class="carousel-play-btn" id="statsPlayBtn" onclick="toggleAutoplay(statsReelState)">▶</button>
+            <button class="carousel-nav-btn" onclick="carouselNav(statsReelState, 1)">›</button>
+          </div>
         </div>
       </div>
     </div>
@@ -960,23 +980,45 @@
       ledgerGrid.appendChild(card);
     });
 
-    // ── Extended TradeZella Stats — post-paper-trading (default, "going forward") ──
-    const statsImagesPost = [
-      { src: '../imports/2026/08-Aug/stats_post-paper-trading/TradeZella_Aug-post-paper.png', caption: 'All-time overview, real accounts only — Net P&L -$1,119.55 · Trade expectancy -$4.39 · Profit factor 0.98 · Win% 60% · Avg win/loss 0.65 ($308/-$473)' },
-      { src: '../imports/2026/08-Aug/stats_post-paper-trading/Screenshot 2026-08-29 at 18.38.43.png', caption: 'Win%/Avg Win/Avg Loss report + trade time/duration performance — real accounts only' },
-      { src: '../imports/2026/08-Aug/stats_post-paper-trading/Screenshot 2026-08-29 at 18.39.00.png', caption: 'Trade time performance — exit time — real accounts only' },
+    // ── Extended TradeZella Stats + Paper Trading Origin — one combined reel, newest first ──
+    // Index 0 = most recent (Sept 1, post-repair). Origin/paper-trading section starts at statsReelOriginIndex.
+    const statsReelItems = [
+      { src: '../imports/2026/09-Sep/TradeZella_Sept1st.png', title: 'September 1, 2026 — First Trading Day, Post-Repair',
+        meta: '<span>Net P&L $6,484.46 (117 trades) · Trade expectancy $55.44 · Profit factor 1.58 · Win% 70.94% · Avg win/loss 0.65 ($212/-$326) · Zella Score 64.3 — Sep 1: +$494, 2 trades, 100% win rate</span>',
+        caption: 'All-time TradeZella overview as of September 1, 2026 — Net P&L $6,484.46 (117 trades) · Trade expectancy $55.44 · Profit factor 1.58 · Win% 70.94% · Avg win/loss 0.65 ($212/-$326) · Zella Score 64.3. September calendar: Sep 1 +$494 (2 trades, 100% win rate) — the first trading day captured post-repair.' },
+      { src: '../imports/2026/08-Aug/stats_post-paper-trading/TradeZella_Aug-post-paper.png', title: 'August 2026 — Real Accounts Only',
+        meta: '<span>Net P&L -$1,119.55 · Trade expectancy -$4.39 · Profit factor 0.98 · Win% 60% · Avg win/loss 0.65 ($308/-$473)</span>',
+        caption: 'All-time overview, real accounts only — Net P&L -$1,119.55 · Trade expectancy -$4.39 · Profit factor 0.98 · Win% 60% · Avg win/loss 0.65 ($308/-$473)' },
+      { src: '../imports/2026/08-Aug/stats_post-paper-trading/Screenshot 2026-08-29 at 18.38.43.png', title: 'Win % / Avg Win / Avg Loss — Real Accounts',
+        meta: '<span>Trade time/duration performance — real accounts only</span>',
+        caption: 'Win%/Avg Win/Avg Loss report + trade time/duration performance — real accounts only' },
+      { src: '../imports/2026/08-Aug/stats_post-paper-trading/Screenshot 2026-08-29 at 18.39.00.png', title: 'Exit-Time Performance — Real Accounts',
+        meta: '<span>Trade time performance — exit time — real accounts only</span>',
+        caption: 'Trade time performance — exit time — real accounts only' },
+      { src: '../imports/2026/08-Aug/stats-pre-paper-trading/TradeZella_Aug-pre-paper.png', title: 'Origin Story — Including the Paper-Trading Intro',
+        meta: '<span>All-time overview including paper trading — Net P&L, Zella Score, daily/cumulative P&L, August calendar, progress tracker</span>',
+        caption: 'All-time overview, including the paper-trading intro — Net P&L, Zella Score, daily/cumulative P&L, August calendar, progress tracker' },
+      { src: '../imports/2026/08-Aug/stats-pre-paper-trading/Screenshot 2026-08-22 at 00.16.55.png', title: 'Win % / Avg Win / Avg Loss — Including Paper Trading',
+        meta: '<span>All-time trend, including paper trading</span>',
+        caption: 'Win % / Avg Win / Avg Loss trend — all-time report, including paper trading' },
+      { src: '../imports/2026/08-Aug/stats-pre-paper-trading/Screenshot 2026-08-22 at 00.17.08.png', title: 'Entry-Time Performance — Including Paper Trading',
+        meta: '<span>P&L by entry time of day, including paper trading</span>',
+        caption: 'Trade time performance — P&L by entry time of day, including paper trading' },
+      { src: '../imports/2026/08-Aug/stats-pre-paper-trading/Screenshot 2026-08-22 at 00.17.29.png', title: 'Exit-Time Performance — Including Paper Trading',
+        meta: '<span>P&L by exit time of day, including paper trading</span>',
+        caption: 'Trade time performance — P&L by exit time of day, including paper trading' },
+      { src: '../imports/2026/08-Aug/stats-pre-paper-trading/Screenshot 2026-08-22 at 00.17.39.png', title: 'Hold-Time Performance — Including Paper Trading',
+        meta: '<span>P&L by hold time, including paper trading</span>',
+        caption: 'Trade duration performance — P&L by hold time, including paper trading' },
     ];
-    // ── Extended TradeZella Stats — pre-paper-trading (origin story, includes the paper-trading intro) ──
-    const statsImagesPre = [
-      { src: '../imports/2026/08-Aug/stats-pre-paper-trading/TradeZella_Aug-pre-paper.png', caption: 'All-time overview, including the paper-trading intro — Net P&L, Zella Score, daily/cumulative P&L, August calendar, progress tracker' },
-      { src: '../imports/2026/08-Aug/stats-pre-paper-trading/Screenshot 2026-08-22 at 00.16.55.png', caption: 'Win % / Avg Win / Avg Loss trend — all-time report, including paper trading' },
-      { src: '../imports/2026/08-Aug/stats-pre-paper-trading/Screenshot 2026-08-22 at 00.17.08.png', caption: 'Trade time performance — P&L by entry time of day, including paper trading' },
-      { src: '../imports/2026/08-Aug/stats-pre-paper-trading/Screenshot 2026-08-22 at 00.17.29.png', caption: 'Trade time performance — P&L by exit time of day, including paper trading' },
-      { src: '../imports/2026/08-Aug/stats-pre-paper-trading/Screenshot 2026-08-22 at 00.17.39.png', caption: 'Trade duration performance — P&L by hold time, including paper trading' },
-    ];
-    function openStatsModal(which) {
-      const set = which === 'pre' ? statsImagesPre : statsImagesPost;
-      openLightbox(set[0].src, set[0].caption, { items: set, index: 0 });
+    const statsReelOriginIndex = 4; // first "pre-paper-trading" / origin-story item
+    const statsReelState = createCarousel('stats', statsReelItems, 0);
+    function openStatsReel(index) {
+      document.getElementById('statsReelPanel').classList.add('open');
+      pauseCarousel(statsReelState);
+      statsReelState.index = index;
+      renderCarousel(statsReelState);
+      document.getElementById('statsReelAnchor').scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     // ═══════════════════════════════════════════════════════
