@@ -8,7 +8,9 @@ This is a setup guide, not financial advice — see the disclaimer at the bottom
 
 ## Why bother
 
-TradeCopia is entirely browser-based, so there's no special API or integration needed for an AI agent to help configure it — it just needs to be able to see and click the same web page you do. That's exactly what Claude's Chrome extension is built for: read the page, click, type, navigate — the same things you'd do by hand, just faster and with a second set of eyes checking the settings against what you actually intend.
+TradeCopia **Pro+ Lite** is browser-based, so there's no special API or integration needed for an AI agent to help configure it — it just needs to be able to see and click the same web page you do. That's exactly what Claude's Chrome extension is built for: read the page, click, type, navigate — the same things you'd do by hand, just faster and with a second set of eyes checking the settings against what you actually intend.
+
+**Tier matters here.** TradeCopia also ships a "Local Trade Copier" — a downloaded desktop application, installed as Administrator, running entirely on your own machine — described in TradeCopia's own Quick Start & Setup Guide PDF. That's a different product experience: Chrome automation can only reach browser tabs, not a native desktop app. If you're not sure which one you're on, check — this guide (and Claude-in-Chrome generally) only works for the browser-based tier.
 
 ## What you need
 
