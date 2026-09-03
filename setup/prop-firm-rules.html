@@ -134,13 +134,17 @@
     .doc-card .fmeta { font-size: .74rem; color: var(--muted); }
 
     /* ── News blackout grid ── */
-    .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; --accent: var(--rose); }
-    .news-card { padding: 1rem 1.15rem; }
-    .news-card:hover { transform: translateY(-2px); border-color: rgba(255,157,193,.4); }
-    .news-card h4 { font-size: .86rem; font-weight: 800; margin-bottom: .5rem; display: flex; align-items: center; gap: .35rem; }
-    .news-card ul { list-style: none; display: flex; flex-direction: column; gap: .4rem; font-size: .78rem; color: var(--muted); }
-    .news-card li::before { content: "· "; color: var(--subtle); }
-    .news-card li strong { color: var(--text); }
+    /* ── News blackout — one merged panel, firm rows separated by a
+       dashed divider, instead of 4 separate cards. ── */
+    .news-panel { padding: .3rem 1.3rem; --accent: var(--rose); }
+    .news-row { padding: 1rem 0; }
+    .news-row + .news-row { border-top: 1px dashed var(--border); }
+    .news-row h4 { font-size: .86rem; font-weight: 800; margin-bottom: .5rem; display: flex; align-items: center; gap: .35rem; }
+    .news-row p { font-size: .8rem; color: var(--muted); }
+    .news-row p strong { color: var(--text); }
+    .news-row ul { list-style: none; display: flex; flex-direction: column; gap: .4rem; font-size: .78rem; color: var(--muted); }
+    .news-row li::before { content: "· "; color: var(--subtle); }
+    .news-row li strong { color: var(--text); }
 
     /* ── Pill trigger buttons (open the spec-card modals) ── */
     .pill-trigger {
@@ -174,6 +178,26 @@
       transition: border-color .2s, color .2s;
     }
     .spec-modal-close:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── Image lightbox (TPT rule-update notice) — opens in-page instead
+       of navigating out to a GitHub blob view. ── */
+    .img-lightbox-overlay {
+      display: none; position: fixed; inset: 0; z-index: 600;
+      background: rgba(2,6,14,.9); backdrop-filter: blur(6px);
+      align-items: center; justify-content: center; padding: 2rem;
+    }
+    .img-lightbox-overlay.open { display: flex; }
+    .img-lightbox-overlay img {
+      max-width: 100%; max-height: 88vh; border-radius: var(--radius-md);
+      box-shadow: var(--shadow); border: 1px solid var(--border-strong);
+    }
+    .img-lightbox-close {
+      position: fixed; top: 1.3rem; right: 1.5rem; z-index: 601;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 999px;
+      width: 2.3rem; height: 2.3rem; color: var(--text); font-size: 1rem; cursor: pointer;
+      transition: border-color .2s, color .2s;
+    }
+    .img-lightbox-close:hover { border-color: var(--gold); color: var(--gold); }
 
     /* ── Spec comparison table — filterable by firm/size/phase, same
        shape as gallery.html's Account Ledger table, replacing what used
@@ -240,16 +264,16 @@
 
     <div class="sec-label"><i data-lucide="octagon-alert"></i> FOMC / CPI / NFP — News Blackout Rules by Firm</div>
     <p class="sec-sub">Rules diverge sharply by firm — some fully permit news trading, others carry a hard 1-2 minute blackout window. Know which account is live before a red-folder release</p>
-    <div class="news-grid">
-      <div class="news-card glass">
+    <div class="panel news-panel">
+      <div class="news-row">
         <h4><i data-lucide="banknote"></i> TakeProfitTrader PRO / PRO+</h4>
-        <ul><li><strong>Forbidden</strong> 1 minute before, during, and 1 minute after FOMC / CPI / NFP</li></ul>
+        <p><strong>Forbidden</strong> 1 minute before, during, and 1 minute after FOMC / CPI / NFP</p>
       </div>
-      <div class="news-card glass">
+      <div class="news-row">
         <h4><i data-lucide="medal"></i> TopOneFutures</h4>
-        <ul><li><strong>Forbidden only if a position is modified</strong> 2 minutes before/during/after — holding through untouched is fine</li></ul>
+        <p><strong>Forbidden only if a position is modified</strong> 2 minutes before/during/after — holding through untouched is fine</p>
       </div>
-      <div class="news-card glass">
+      <div class="news-row">
         <h4><i data-lucide="landmark"></i> Apex Trader Funding</h4>
         <ul>
           <li>News-event trading is <strong>allowed</strong> as part of a normal strategy</li>
@@ -257,7 +281,7 @@
           <li><strong>No hedging</strong> — simultaneous long+short on the same/correlated instrument is a standing hard rule, separate from news</li>
         </ul>
       </div>
-      <div class="news-card glass">
+      <div class="news-row">
         <h4><i data-lucide="droplet"></i> Lucid Trading</h4>
         <ul>
           <li><strong>LucidFlex / Pro / Direct:</strong> news trading fully allowed — enter/exit freely around major releases, no penalty</li>
@@ -283,7 +307,7 @@
         </table>
       </div>
     </div>
-    <p class="sec-sub" style="margin-top:.7rem;">TakeProfitTrader updated this policy — previously, holding a position past 5:00 PM ET was an instant liquidation + failed account; now TPT auto-closes any open position at 4:55 PM ET and the account simply stays active for the next session. See <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TakeProfitTrader/Rule%20update%20-%205pm.png" target="_blank" rel="noreferrer">TPT's rule-update notice ↗</a></p>
+    <p class="sec-sub" style="margin-top:.7rem;">TakeProfitTrader updated this policy — previously, holding a position past 5:00 PM ET was an instant liquidation + failed account; now TPT auto-closes any open position at 4:55 PM ET and the account simply stays active for the next session. See <a href="#" onclick="event.preventDefault(); openImgLightbox('tptNoticeLightbox')">TPT's rule-update notice ↗</a></p>
 
     <div class="sec-label"><i data-lucide="scroll-text"></i> Full Rule Reference</div>
     <div class="doc-grid">
@@ -385,6 +409,11 @@
     </div>
   </div>
 
+  <div class="img-lightbox-overlay" id="tptNoticeLightbox" onclick="if(event.target===this)closeImgLightbox('tptNoticeLightbox')">
+    <button class="img-lightbox-close" onclick="closeImgLightbox('tptNoticeLightbox')">✕</button>
+    <img src="https://raw.githubusercontent.com/drasticstatic/trading-assistant-public-preview/main/setup/accounts/PropFirms/TakeProfitTrader/Rule%20update%20-%205pm.png" alt="TakeProfitTrader 5pm close-rule update notice">
+  </div>
+
   <footer class="footer">
     <p>✈️ Prop Firm Rules &amp; Pre-Flight Checklist · Christopher Wilson · Part of the <a href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer">Trading Assistant</a> public preview</p>
     <p>Educational reference — always verify current rules directly with each firm</p>
@@ -405,7 +434,18 @@
     document.addEventListener('keydown', (e) => {
       if (e.key !== 'Escape') return;
       document.querySelectorAll('.spec-modal-overlay.open').forEach(el => closeSpecModal(el.id));
+      document.querySelectorAll('.img-lightbox-overlay.open').forEach(el => closeImgLightbox(el.id));
     });
+    function openImgLightbox(id) {
+      document.getElementById(id).classList.add('open');
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeImgLightbox(id) {
+      document.getElementById(id).classList.remove('open');
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    }
 
     // ═══════════════════════════════════════════════════════
     // Spec comparison table — flat, filterable rows (firm / size / phase)

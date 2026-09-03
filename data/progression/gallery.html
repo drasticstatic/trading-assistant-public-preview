@@ -365,18 +365,25 @@
     .day-panel-pnl.neg { color: var(--red); font-weight: 700; }
     .day-panel-note { font-size: .72rem; color: var(--dim); margin-top: .6rem; }
 
-    /* ── HEATMAP (day-strip, aggregated net P&L per day) ── */
+    /* ── HEATMAP (day-strip, aggregated net P&L per day) — infinite-loop
+       marquee like the Certificates strip, with a minimal month tag
+       inserted inline wherever the month rolls over. ── */
     .heatmap-strip {
-      display: flex; gap: 4px; overflow-x: auto; padding: .4rem .15rem 1rem;
+      overflow-x: auto; padding: .4rem .15rem 1rem;
       scrollbar-width: thin; scrollbar-color: var(--green) rgba(255,255,255,.07);
     }
     .heatmap-strip::-webkit-scrollbar { height: 5px; }
     .heatmap-strip::-webkit-scrollbar-track { background: rgba(255,255,255,.06); border-radius: 999px; }
     .heatmap-strip::-webkit-scrollbar-thumb { background: linear-gradient(90deg, var(--green), var(--red), var(--green)); background-size: 200% 100%; animation: scrollFlow 4s linear infinite; border-radius: 999px; }
+    .heatmap-track { display: flex; align-items: center; gap: 4px; width: max-content; }
     .heatmap-cell {
       flex: 0 0 auto; width: 30px; height: 30px; border-radius: 6px;
       display: flex; align-items: center; justify-content: center;
       font-size: .58rem; font-weight: 800; color: rgba(0,0,0,.55); cursor: default;
+    }
+    .heatmap-month-tag {
+      flex: 0 0 auto; font-size: .6rem; font-weight: 800; letter-spacing: .06em;
+      color: var(--dim); padding: 0 .3rem 0 .1rem; text-transform: uppercase;
     }
 
     /* ── CSV TABLE (Prop Firm Ledger) ── */
@@ -541,7 +548,7 @@
     </div>
 
     <p style="margin-top:.4rem;font-size:.78rem;color:var(--muted);">Also viewable as a scrollable day-strip across the full backlog:</p>
-    <div class="heatmap-strip" id="heatmapStrip"></div>
+    <div class="heatmap-strip" id="heatmapStrip"><div class="heatmap-track" id="heatmapTrack"></div></div>
     <p style="margin-top:.2rem;font-size:.72rem;color:var(--dim);">Green = net win day · red = net loss day · intensity scales with size. Click a cell for that day's trades, or hover for a quick date + net P&amp;L preview.</p>
 
     <div class="sec-label"><i data-lucide="trending-up"></i> Account Progression</div>
@@ -1295,30 +1302,44 @@
       trades.forEach(t => { map[t.date] = (map[t.date] || 0) + t.pnl; });
       return Object.keys(map).sort().map(date => ({ date, pnl: map[date] }));
     }
+    const MONTH_ABBR = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
     function renderHeatmap(trades) {
       const days = aggregateByDate(trades);
       const maxAbs = Math.max(1, ...days.map(d => Math.abs(d.pnl)));
-      const el = document.getElementById('heatmapStrip');
-      days.forEach(d => {
-        const intensity = Math.min(1, Math.abs(d.pnl) / maxAbs);
-        const isWin = d.pnl > 0;
-        const isFlat = d.pnl === 0;
-        const color = isFlat ? 'rgba(255,255,255,0.12)' : (isWin
-          ? `rgba(74,222,128,${0.25 + intensity * 0.65})`
-          : `rgba(248,113,113,${0.25 + intensity * 0.65})`);
-        const cell = document.createElement('div');
-        cell.className = 'heatmap-cell';
-        cell.style.background = color;
-        cell.style.cursor = 'pointer';
-        cell.title = `${d.date} — ${fmtMoney(d.pnl)}`;
-        const day = d.date.slice(8, 10);
-        cell.textContent = day;
-        cell.onclick = () => showDayPanel(d.date);
-        el.appendChild(cell);
+      const el = document.getElementById('heatmapTrack');
+      // Doubled pass (like the Certificates marquee) so scrollLeft can wrap
+      // seamlessly for continuous looping; month tags rebuilt each pass.
+      [0, 1].forEach(() => {
+        let lastMonth = null;
+        days.forEach(d => {
+          const monthKey = d.date.slice(0, 7);
+          if (monthKey !== lastMonth) {
+            lastMonth = monthKey;
+            const tag = document.createElement('div');
+            tag.className = 'heatmap-month-tag';
+            tag.textContent = MONTH_ABBR[parseInt(d.date.slice(5, 7), 10) - 1];
+            el.appendChild(tag);
+          }
+          const intensity = Math.min(1, Math.abs(d.pnl) / maxAbs);
+          const isWin = d.pnl > 0;
+          const isFlat = d.pnl === 0;
+          const color = isFlat ? 'rgba(255,255,255,0.12)' : (isWin
+            ? `rgba(74,222,128,${0.25 + intensity * 0.65})`
+            : `rgba(248,113,113,${0.25 + intensity * 0.65})`);
+          const cell = document.createElement('div');
+          cell.className = 'heatmap-cell';
+          cell.style.background = color;
+          cell.style.cursor = 'pointer';
+          cell.title = `${d.date} — ${fmtMoney(d.pnl)}`;
+          cell.textContent = d.date.slice(8, 10);
+          cell.onclick = () => showDayPanel(d.date);
+          el.appendChild(cell);
+        });
       });
     }
     renderMetrics(loggedTrades);
     renderHeatmap(loggedTrades);
+    startMarqueeAutoplay('heatmapStrip', 'heatmapTrack');
 
     // ═══════════════════════════════════════════════════════
     // CALENDAR — real month grid, partitioned win/loss day cells + day-click panel
