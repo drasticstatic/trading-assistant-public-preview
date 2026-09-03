@@ -1014,7 +1014,16 @@
     const statsReelOriginIndex = 4; // first "pre-paper-trading" / origin-story item
     const statsReelState = createCarousel('stats', statsReelItems, 0);
     function openStatsReel(index) {
-      document.getElementById('statsReelPanel').classList.add('open');
+      const panel = document.getElementById('statsReelPanel');
+      // Clicking a pill again while the reel is already open collapses it —
+      // same "unfolding accordion" behavior in both directions, rather than
+      // only ever opening/re-jumping.
+      if (panel.classList.contains('open')) {
+        panel.classList.remove('open');
+        pauseCarousel(statsReelState);
+        return;
+      }
+      panel.classList.add('open');
       pauseCarousel(statsReelState);
       statsReelState.index = index;
       renderCarousel(statsReelState);
@@ -1498,6 +1507,42 @@
     const ledgerColumns = ['Firm', 'Account #', 'Paid', 'Coupon', 'Date', 'Date Funded', 'Purchased/Renewed', 'Phase', 'Size', 'Drawdown', 'Type', 'Recourse', 'Outcome'];
     let ledgerRows = []; // array of field->value objects, parsed once
     let ledgerFilterState = { firm: 'all', outcome: 'all', phase: 'all' };
+    let ledgerSortState = { key: 'date', dir: 'desc' }; // default: newest → oldest
+
+    // Best-available date per row: date_funded > date_purchased_renewed > date
+    // (whichever actually reflects "when this happened" most specifically).
+    // Rows with none of these (the early blown-account backlog, before dates
+    // were tracked) sort as undated — always after every dated row, in
+    // reverse original CSV order (which is itself chronological insertion
+    // order), so the undated group still reads newest-first internally.
+    function ledgerSortDate(r) {
+      const raw = r.date_funded || r.date_purchased_renewed || r.date;
+      if (!raw) return null;
+      const d = new Date(raw + 'T12:00:00');
+      return isNaN(d.getTime()) ? null : d;
+    }
+    function sortLedgerRows(rows) {
+      const withIdx = rows.map((r, i) => ({ r, i }));
+      withIdx.sort((a, b) => {
+        if (ledgerSortState.key === 'date') {
+          const da = ledgerSortDate(a.r), db = ledgerSortDate(b.r);
+          if (da && db) return ledgerSortState.dir === 'desc' ? db - da : da - db;
+          if (da && !db) return -1; // dated rows always above undated
+          if (!da && db) return 1;
+          return ledgerSortState.dir === 'desc' ? b.i - a.i : a.i - b.i; // undated: reverse insertion order
+        }
+        if (ledgerSortState.key === 'firm') {
+          const cmp = (a.r.firm || '').localeCompare(b.r.firm || '');
+          return ledgerSortState.dir === 'desc' ? -cmp : cmp;
+        }
+        if (ledgerSortState.key === 'amount') {
+          const aa = parseFloat(a.r.amount_paid) || 0, ab = parseFloat(b.r.amount_paid) || 0;
+          return ledgerSortState.dir === 'desc' ? ab - aa : aa - ab;
+        }
+        return 0;
+      });
+      return withIdx.map(x => x.r);
+    }
 
     function parseCSVLine(line) {
       const out = []; let cur = ''; let inQ = false;
@@ -1539,15 +1584,25 @@
           values.map(v => `<option value="${v}">${label}: ${v === 'all' ? 'All' : v}</option>`).join('') +
           `</select>`;
       }
+      const sortOptions = [
+        { value: 'date-desc', label: 'Sort: Newest First' },
+        { value: 'date-asc', label: 'Sort: Oldest First' },
+        { value: 'firm-asc', label: 'Sort: Firm (A→Z)' },
+        { value: 'amount-desc', label: 'Sort: Amount Paid (High→Low)' },
+      ];
+      const sortSelect = `<select onchange="const [k,d]=this.value.split('-'); ledgerSortState={key:k,dir:d}; renderLedgerRows();">` +
+        sortOptions.map(o => `<option value="${o.value}"${o.value === (ledgerSortState.key + '-' + ledgerSortState.dir) ? ' selected' : ''}>${o.label}</option>`).join('') +
+        `</select>`;
       document.getElementById('ledgerFilters').innerHTML =
-        selectHtml('firm', firms, 'Firm') + selectHtml('outcome', outcomes, 'Outcome') + selectHtml('phase', phases, 'Phase');
+        selectHtml('firm', firms, 'Firm') + selectHtml('outcome', outcomes, 'Outcome') + selectHtml('phase', phases, 'Phase') + sortSelect;
     }
     function filteredLedgerRows() {
-      return ledgerRows.filter(r =>
+      const filtered = ledgerRows.filter(r =>
         (ledgerFilterState.firm === 'all' || r.firm === ledgerFilterState.firm) &&
         (ledgerFilterState.outcome === 'all' || r.outcome === ledgerFilterState.outcome) &&
         (ledgerFilterState.phase === 'all' || r.phase === ledgerFilterState.phase)
       );
+      return sortLedgerRows(filtered);
     }
     function toggleLedgerDetail(idx) {
       const row = document.getElementById(`ledgerDetail${idx}`);

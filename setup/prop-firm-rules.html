@@ -132,8 +132,11 @@
     .doc-card:hover { transform: translateY(-2px); border-color: rgba(124,194,255,.4); }
     .doc-card .fname { font-weight: 700; font-size: .84rem; margin-bottom: .2rem; display: flex; align-items: center; gap: .35rem; }
     .doc-card .fmeta { font-size: .74rem; color: var(--muted); }
-    .doc-card.placeholder { border-style: dashed; opacity: .6; }
-    .doc-card.placeholder:hover { transform: none; border-color: var(--border); }
+    .doc-card.placeholder {
+      border: 1px dashed var(--border); border-radius: calc(var(--radius-lg) + 8px);
+      background: var(--surface-soft); opacity: .75;
+    }
+    .doc-card.placeholder:hover { transform: none; border-color: var(--border-strong); }
     .doc-card.placeholder .fmeta { font-style: italic; }
 
     /* ── News blackout grid ── */
@@ -503,6 +506,30 @@
       { firm: 'Tradeify', size: '—', tier: 'Growth', phase: '—', price: '—', target: '—', maxLoss: '—', dll: '—', consistency: '—', size2: '—', notes: 'Placeholder — not yet documented, verify live' },
     ];
     let specFilterState = { firm: 'All', size: 'All', phase: 'All' };
+    let specSortState = { key: 'firm', dir: 'asc' };
+    // "50K" / "100K" / "25K" / "—" -> numeric, for sorting Size as a number
+    // rather than a string (which would put "100K" before "25K").
+    function parseSizeK(sizeStr) {
+      const m = (sizeStr || '').match(/(\d+)/);
+      return m ? parseInt(m[1], 10) : -1;
+    }
+    // "$3,000" / "$3,000 (6%)" / "Buffer + $500 (first payout)" -> the first
+    // dollar figure found, for sorting Profit Target as a number.
+    function parseFirstMoney(str) {
+      const m = (str || '').match(/\$([\d,]+)/);
+      return m ? parseInt(m[1].replace(/,/g, ''), 10) : -1;
+    }
+    function sortSpecRows(rows) {
+      const sorted = rows.slice();
+      sorted.sort((a, b) => {
+        let cmp = 0;
+        if (specSortState.key === 'firm') cmp = (a.firm || '').localeCompare(b.firm || '');
+        else if (specSortState.key === 'size') cmp = parseSizeK(a.size) - parseSizeK(b.size);
+        else if (specSortState.key === 'target') cmp = parseFirstMoney(a.target) - parseFirstMoney(b.target);
+        return specSortState.dir === 'desc' ? -cmp : cmp;
+      });
+      return sorted;
+    }
     function initSpecFilters() {
       const wrap = document.getElementById('specFilters');
       const opts = {
@@ -522,14 +549,34 @@
         sel.onchange = () => { specFilterState[key] = sel.value; renderSpecTable(); };
         wrap.appendChild(sel);
       });
+      const sortSel = document.createElement('select');
+      sortSel.setAttribute('aria-label', 'Sort');
+      [
+        { value: 'firm-asc', label: 'Sort: Firm (A→Z)' },
+        { value: 'firm-desc', label: 'Sort: Firm (Z→A)' },
+        { value: 'size-asc', label: 'Sort: Size (Low→High)' },
+        { value: 'size-desc', label: 'Sort: Size (High→Low)' },
+        { value: 'target-asc', label: 'Sort: Profit Target (Low→High)' },
+        { value: 'target-desc', label: 'Sort: Profit Target (High→Low)' },
+      ].forEach(o => {
+        const opt = document.createElement('option');
+        opt.value = o.value; opt.textContent = o.label;
+        sortSel.appendChild(opt);
+      });
+      sortSel.onchange = () => {
+        const [key, dir] = sortSel.value.split('-');
+        specSortState = { key, dir };
+        renderSpecTable();
+      };
+      wrap.appendChild(sortSel);
       renderSpecTable();
     }
     function renderSpecTable() {
-      const rows = specRows.filter(r =>
+      const rows = sortSpecRows(specRows.filter(r =>
         (specFilterState.firm === 'All' || r.firm === specFilterState.firm) &&
         (specFilterState.size === 'All' || r.size === specFilterState.size) &&
         (specFilterState.phase === 'All' || r.phase === specFilterState.phase)
-      );
+      ));
       const table = document.getElementById('specTable');
       const phaseClass = p => p.startsWith('Funded') ? 'funded' : 'eval';
       table.innerHTML = `
