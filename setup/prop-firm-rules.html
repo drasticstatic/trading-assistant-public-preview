@@ -132,6 +132,9 @@
     .doc-card:hover { transform: translateY(-2px); border-color: rgba(124,194,255,.4); }
     .doc-card .fname { font-weight: 700; font-size: .84rem; margin-bottom: .2rem; display: flex; align-items: center; gap: .35rem; }
     .doc-card .fmeta { font-size: .74rem; color: var(--muted); }
+    .doc-card.placeholder { border-style: dashed; opacity: .6; }
+    .doc-card.placeholder:hover { transform: none; border-color: var(--border); }
+    .doc-card.placeholder .fmeta { font-style: italic; }
 
     /* ── News blackout grid ── */
     /* ── News blackout — one merged panel, firm rows separated by a
@@ -321,6 +324,13 @@
       <div class="doc-card glass"><div class="fname"><i data-lucide="droplet"></i> Lucid <span class="ref-tag">(reference)</span></div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-rules.md" target="_blank" rel="noreferrer">lucid-rules.md ↗</a></div></div>
       <div class="doc-card glass"><div class="fname"><i data-lucide="scale"></i> Lucid — Flex vs Daily vs Pro</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-account-types-comparison.md" target="_blank" rel="noreferrer">lucid-account-types-comparison.md ↗</a></div></div>
       <div class="doc-card glass"><div class="fname"><i data-lucide="landmark"></i> Account Roster</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-progression.md" target="_blank" rel="noreferrer">prop-firm-progression.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i data-lucide="route"></i> Progression Plan <span class="ref-tag">(original sequencing)</span></div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-progression-plan.md" target="_blank" rel="noreferrer">prop-firm-progression-plan.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i data-lucide="repeat"></i> TradeCopia — Chrome Setup Guide</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-claude-chrome-setup-guide.md" target="_blank" rel="noreferrer">tradecopia-claude-chrome-setup-guide.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i data-lucide="shield-check"></i> TradeCopia — Compliance Memo</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-compliance-memo.md" target="_blank" rel="noreferrer">tradecopia-compliance-memo.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i data-lucide="sliders-horizontal"></i> TradeCopia — Risk Toggle Deep Dive</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-risk-toggle-deep-dive.md" target="_blank" rel="noreferrer">tradecopia-risk-toggle-deep-dive.md ↗</a></div></div>
+      <div class="doc-card placeholder"><div class="fname"><i data-lucide="bitcoin"></i> Tradeify — Crypto</div><div class="fmeta">Coming soon — <a href="https://tradeify247.co/" target="_blank" rel="noreferrer">tradeify247.co ↗</a></div></div>
+      <div class="doc-card placeholder"><div class="fname"><i data-lucide="circle-dashed"></i> BreakoutProp</div><div class="fmeta">Coming soon — <a href="https://www.breakoutprop.com/" target="_blank" rel="noreferrer">breakoutprop.com ↗</a></div></div>
+      <div class="doc-card placeholder"><div class="fname"><i data-lucide="circle-dashed"></i> Leveraged <span class="ref-tag">(crypto, unconfirmed)</span></div><div class="fmeta">Coming soon — <a href="https://getleveraged.com/crypto/" target="_blank" rel="noreferrer">getleveraged.com ↗</a></div></div>
     </div>
 
     <div class="sec-label"><i data-lucide="repeat"></i> Copy-Trading</div>
@@ -371,7 +381,17 @@
               <td><span class="badge good">1 profitable day</span></td><td><span class="badge good">Not applied</span></td><td>—</td><td>30 days</td>
             </tr>
             <tr>
+              <td class="firm-col">Lucid — LucidDaily <span class="ref-tag">(50K tier shown; account held is LucidFlex25)</span></td>
+              <td>$3,000</td><td>$2,000 EOD trailing</td><td><span class="badge good">None (eval)</span></td>
+              <td><span class="ref-tag">Not specified — verify live</span></td><td><span class="badge warn">50%</span></td><td>4 (40 micros)</td><td><span class="badge good">No limit</span></td>
+            </tr>
+            <tr>
               <td class="firm-col">Lucid — LucidFlex <span class="ref-tag">(50K tier shown; actual account is 25K)</span></td>
+              <td>$3,000</td><td>$2,000 EOD trailing</td><td><span class="badge good">None (eval)</span></td>
+              <td><span class="ref-tag">Not specified — verify live</span></td><td><span class="badge warn">50%</span></td><td>4 (40 micros)</td><td><span class="badge good">No limit</span></td>
+            </tr>
+            <tr>
+              <td class="firm-col">Lucid — LucidPro <span class="ref-tag">(50K tier shown)</span></td>
               <td>$3,000</td><td>$2,000 EOD trailing</td><td><span class="badge good">None (eval)</span></td>
               <td><span class="ref-tag">Not specified — verify live</span></td><td><span class="badge warn">50%</span></td><td>4 (40 micros)</td><td><span class="badge good">No limit</span></td>
             </tr>
@@ -381,9 +401,9 @@
               <td><span class="badge good">None (3-day eval)</span></td><td><span class="badge warn">35%</span></td><td>4</td><td>—</td>
             </tr>
             <tr>
-              <td class="firm-col">Lucid <span class="ref-tag">(reference only)</span></td>
-              <td>$3,000</td><td>$2,000</td><td>Optional (choose at purchase)</td>
-              <td><span class="badge good">None</span></td><td><span class="badge bad">50%</span></td><td>4 mini / 40 micros</td><td><span class="badge good">Unlimited (one-time fee)</span></td>
+              <td class="firm-col">Tradeify — Growth <span class="ref-tag">(placeholder)</span></td>
+              <td><span class="ref-tag">Not specified — verify live</span></td><td><span class="ref-tag">Not specified — verify live</span></td><td><span class="ref-tag">Not specified — verify live</span></td>
+              <td><span class="ref-tag">Not specified — verify live</span></td><td><span class="ref-tag">Not specified — verify live</span></td><td><span class="ref-tag">Not specified — verify live</span></td><td><span class="ref-tag">Not specified — verify live</span></td>
             </tr>
           </tbody>
         </table>
@@ -391,7 +411,7 @@
     </div>
 
     <p style="margin-top:-.6rem;">
-      <button type="button" class="pill-trigger" onclick="openSpecModal('specModal')"><i data-lucide="layout-grid"></i> View Full Spec Comparison Table — Lucid (25K + 50K) + Apex + TPT ↗</button>
+      <button type="button" class="pill-trigger" onclick="openSpecModal('specModal')"><i data-lucide="layout-grid"></i> View Full Spec Comparison Table — Lucid (25K + 50K) + Apex + TPT + TopOneFutures ↗</button>
     </p>
 
     <div class="sec-label"><i data-lucide="credit-card"></i> Reset Economics</div>
@@ -406,8 +426,8 @@
   <div class="spec-modal-overlay" id="specModal" onclick="if(event.target===this)closeSpecModal('specModal')">
     <div class="spec-modal-box">
       <button class="spec-modal-close" onclick="closeSpecModal('specModal')">✕</button>
-      <div class="spec-modal-title"><i data-lucide="layout-grid"></i> Full Spec Cards — Lucid, Apex &amp; TPT <span class="ref-tag">(Lucid reference only)</span></div>
-      <p class="spec-modal-sub">Filterable across firm, size, and eval-vs-funded phase — the same shape as gallery.html's Account Ledger table, instead of clicking through one firm-branded card at a time. Lucid figures transcribed from their own pricing pages — full comparison: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-account-types-comparison.md" target="_blank" rel="noreferrer">lucid-account-types-comparison.md ↗</a>. Apex/TPT digitized from their pricing-page screenshots — Apex's TradingView/Tradovate/Browser/Mobile/Mac compatibility, Tradovate License, NinjaTrader Platform ($75 value), and Real-Time Data Fees ($55 value) are identical across all three Apex tiers below, omitted from the table to keep it scannable</p>
+      <div class="spec-modal-title"><i data-lucide="layout-grid"></i> Full Spec Cards — Lucid, Apex, TPT &amp; TopOneFutures</div>
+      <p class="spec-modal-sub">Filterable across firm, size, and eval-vs-funded phase — the same shape as gallery.html's Account Ledger table, instead of clicking through one firm-branded card at a time. Lucid figures transcribed from their own pricing pages, LucidFlex25 (25K Flex) is the account actually held — full comparison: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-account-types-comparison.md" target="_blank" rel="noreferrer">lucid-account-types-comparison.md ↗</a>. Apex/TPT digitized from their pricing-page screenshots — Apex's TradingView/Tradovate/Browser/Mobile/Mac compatibility, Tradovate License, NinjaTrader Platform ($75 value), and Real-Time Data Fees ($55 value) are identical across all three Apex tiers below, omitted from the table to keep it scannable. TopOneFutures Elite ACCESS is the two funded accounts actually held (TOF197288/292) — figures from <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TopOneFutures/topone-rules.md" target="_blank" rel="noreferrer">topone-rules.md ↗</a></p>
 
       <div class="spec-filters" id="specFilters"></div>
       <div class="spec-table-wrap"><table class="spec-table" id="specTable"></table></div>
@@ -477,6 +497,10 @@
       { firm: 'Apex', size: '100K', tier: 'Static', phase: 'Funded', price: '$297/mo', target: '$2,000', maxLoss: '$625 static (non-trailing)', dll: 'None', consistency: '—', size2: '2 (20 micros)', notes: 'No scaling' },
       { firm: 'TPT', size: '50K', tier: 'Standard', phase: 'Funded', price: '$170/mo', target: '$3,000', maxLoss: '$2,000 EOD trailing', dll: 'Removed (was $1,100)', consistency: '—', size2: '6 (60 micros)', notes: 'Be consistent · no bots · no counter positions' },
       { firm: 'TPT', size: '100K', tier: 'Standard', phase: 'Funded', price: '$330/mo', target: '$6,000', maxLoss: '$3,000 EOD trailing', dll: 'Removed (was $2,200)', consistency: '—', size2: '12 (120 micros)', notes: 'Be consistent · no bots · no counter positions' },
+      { firm: 'TopOneFutures', size: '50K', tier: 'Elite ACCESS', phase: 'Eval', price: '—', target: '$3,000 (6%)', maxLoss: '$2,000 EOD trailing', dll: 'None (eval)', consistency: 'None', size2: '—', notes: '1 profitable day to pass · 30-day time limit' },
+      { firm: 'TopOneFutures', size: '50K', tier: 'Elite ACCESS', phase: 'Funded', price: '—', target: 'Buffer + $500 (first payout)', maxLoss: '$2,000 EOD trailing', dll: '2% (~$1,000 at 50K)', consistency: '40%', size2: '—', notes: 'TOF197288/292 — both actually held · scaling plan applies · 2-min news rule' },
+      { firm: 'Tradeify', size: '50K', tier: 'Select Challenge', phase: 'Eval', price: '—', target: '$3,000', maxLoss: '$2,000 EOD', dll: '$1,250', consistency: '35%', size2: '4', notes: 'None (3-day min eval)' },
+      { firm: 'Tradeify', size: '—', tier: 'Growth', phase: '—', price: '—', target: '—', maxLoss: '—', dll: '—', consistency: '—', size2: '—', notes: 'Placeholder — not yet documented, verify live' },
     ];
     let specFilterState = { firm: 'All', size: 'All', phase: 'All' };
     function initSpecFilters() {
