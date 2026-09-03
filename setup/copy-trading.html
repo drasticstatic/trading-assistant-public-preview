@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copy-Trading Plan — Trading Assistant</title>
+  <meta name="description" content="TradeCopia account structure, compliance findings, and risk-limit decisions — Christopher Wilson's live copy-trading setup, documented in full.">
+  <meta name="color-scheme" content="dark light">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.js" defer></script>
+  <style>
+    :root {
+      --bg: #09111d; --bg-alt: #0d1625;
+      --surface: rgba(11, 19, 32, 0.86); --surface-soft: rgba(148, 163, 184, 0.08);
+      --border: rgba(148, 163, 184, 0.2); --border-strong: rgba(148, 163, 184, 0.34);
+      --text: #e7edf6; --muted: #a9b6c8; --subtle: #8191a7;
+      --blue: #7cc2ff; --cyan: #6ee7f9; --green: #49d17d; --gold: #f3c969;
+      --orange: #ff9f67; --violet: #b693ff; --rose: #ff9dc1;
+      --radius-xl: 22px; --radius-lg: 16px; --radius-md: 10px;
+      --shadow: 0 20px 48px rgba(2, 8, 20, 0.34);
+      --glass: rgba(148, 163, 184, 0.07);
+      --glass-border: rgba(231, 237, 246, 0.14);
+      --spring: cubic-bezier(.34, 1.56, .64, 1);
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #edf3fb; --bg-alt: #f8fbff; --surface: rgba(255,255,255,0.92); --surface-soft: rgba(37,99,235,0.05);
+        --border: rgba(71,85,105,0.18); --border-strong: rgba(71,85,105,0.28);
+        --text: #162032; --muted: #56667d; --subtle: #6b7c93;
+        --blue: #1864db; --cyan: #0f9db6; --green: #1f8f56; --gold: #b7791f; --orange: #d96a25; --violet: #7851db; --rose: #c93c7d;
+        --glass: rgba(255,255,255,0.55); --glass-border: rgba(71,85,105,0.16);
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+    }
+    .lucide { width: 1.3em; height: 1.3em; vertical-align: -.22em; stroke-width: 1.75; display: inline-block; flex-shrink: 0; }
+    h1 .lucide { width: 1em; height: 1em; vertical-align: -.12em; }
+    .bg-parallax {
+      position: fixed; inset: -10vh -10vw; z-index: -1; pointer-events: none;
+      background:
+        radial-gradient(ellipse 900px 500px at 15% -10%, rgba(124,194,255,0.10), transparent 60%),
+        radial-gradient(ellipse 900px 500px at 100% 10%, rgba(182,147,255,0.08), transparent 60%);
+      will-change: transform;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+      color: var(--text); font-size: 14px; line-height: 1.65; min-height: 100vh;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { color: var(--cyan); }
+    [id] { scroll-margin-top: 76px; }
+    .nav {
+      display: flex; align-items: center; gap: .5rem; flex-wrap: wrap;
+      padding: .65rem 1.5rem; background: rgba(9,17,29,0.85); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10;
+    }
+    .nav-brand { font-size: .82rem; font-weight: 700; color: var(--blue); margin-right: .4rem; display: inline-flex; align-items: center; gap: .35rem; }
+    .nav-tag { padding: .22rem .7rem; border: 1px solid var(--border); border-radius: 999px; font-size: .76rem; color: var(--muted); display: inline-flex; align-items: center; gap: .3rem; }
+    .nav-tag:hover { border-color: var(--blue); color: var(--text); text-decoration: none; }
+    .content { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+    .eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
+    h1 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: .6rem; }
+    h1 span { background: linear-gradient(120deg, var(--blue), var(--violet)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .lede { color: var(--muted); font-size: .9rem; max-width: none; margin-bottom: 2rem; }
+    @keyframes riseIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-in { animation: riseIn .6s var(--spring) both; }
+    .hero-in.d1 { animation-delay: .05s; }
+    .hero-in.d2 { animation-delay: .14s; }
+    .sec-label {
+      font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em;
+      color: var(--violet); margin: 2.2rem 0 1rem; display: flex; align-items: center; gap: .6rem;
+    }
+    .sec-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+    .sec-label:first-of-type { margin-top: 0; }
+    .sec-sub { font-size: .82rem; color: var(--muted); margin: -.6rem 0 1rem; max-width: none; }
+    .glass {
+      position: relative; border: 1px solid var(--glass-border); border-radius: var(--radius-lg);
+      background: var(--glass); backdrop-filter: blur(20px) saturate(160%); -webkit-backdrop-filter: blur(20px) saturate(160%);
+      box-shadow: var(--shadow); overflow: hidden;
+    }
+    .glass::before, .panel::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent, var(--border)), transparent);
+      opacity: .85;
+    }
+    .panel {
+      position: relative; border: 1px solid var(--glass-border); border-radius: var(--radius-lg);
+      background: var(--glass); backdrop-filter: blur(20px) saturate(160%); -webkit-backdrop-filter: blur(20px) saturate(160%);
+      box-shadow: var(--shadow); overflow: hidden; padding: 1.2rem 1.4rem;
+    }
+    .tbl-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: .8rem; }
+    th { text-align: left; padding: .6rem .8rem; background: var(--surface-soft); color: var(--muted); text-transform: uppercase; font-size: .64rem; letter-spacing: .06em; border-bottom: 1px solid var(--border); }
+    td { padding: .6rem .8rem; border-top: 1px solid var(--border); vertical-align: top; }
+    tr:hover td { background: rgba(255,255,255,.02); }
+    .acct-col { font-weight: 700; color: var(--text); white-space: nowrap; }
+    .ref-tag { font-size: .68rem; color: var(--subtle); font-weight: 400; }
+    .badge { display: inline-flex; align-items: center; padding: .12rem .5rem; border-radius: 999px; font-size: .68rem; font-weight: 700; white-space: nowrap; }
+    .badge.good { background: rgba(73,209,125,.12); color: var(--green); }
+    .badge.warn { background: rgba(243,201,105,.12); color: var(--gold); }
+    .badge.bad { background: rgba(255,159,199,.14); color: var(--rose); }
+    .badge.info { background: rgba(124,194,255,.12); color: var(--blue); }
+    .doc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .8rem; --accent: var(--blue); }
+    .doc-card { padding: .9rem 1rem; transition: transform .35s var(--spring), border-color .2s; }
+    .doc-card:hover { transform: translateY(-2px); border-color: rgba(124,194,255,.4); }
+    .doc-card .fname { font-weight: 700; font-size: .84rem; margin-bottom: .2rem; display: flex; align-items: center; gap: .35rem; }
+    .doc-card .fmeta { font-size: .74rem; color: var(--muted); }
+    .toggle-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .toggle-list li { padding: .9rem 0; font-size: .84rem; }
+    .toggle-list li + li { border-top: 1px dashed var(--border); }
+    .toggle-list .t-name { font-weight: 800; color: var(--text); display: flex; align-items: center; gap: .5rem; margin-bottom: .3rem; }
+    .toggle-list .t-desc { color: var(--muted); }
+    .quote-block { border-left: 3px solid var(--violet); padding: .3rem 0 .3rem 1rem; margin: .8rem 0; font-size: .84rem; color: var(--muted); font-style: italic; }
+    .footer { max-width: 1100px; margin: 0 auto 2rem; padding: 1.2rem 1.5rem; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); font-size: .8rem; color: var(--subtle); text-align: center; }
+    .footer p { margin: 0; }
+    .footer p + p { margin-top: .5rem; }
+  </style>
+</head>
+<body>
+  <div class="bg-parallax" id="bgParallax"></div>
+
+  <nav class="nav">
+    <span class="nav-brand"><i data-lucide="repeat"></i> Copy-Trading Plan</span>
+    <a class="nav-tag" href="../index.html"><i data-lucide="home"></i> Home</a>
+    <a class="nav-tag" href="../data/progression/resources.html"><i data-lucide="book-open"></i> Resources</a>
+    <a class="nav-tag" href="../data/progression/gallery.html"><i data-lucide="trophy"></i> Gallery</a>
+    <a class="nav-tag" href="community.html"><i data-lucide="hand-heart"></i> Community</a>
+    <a class="nav-tag" href="prop-firm-rules.html"><i data-lucide="plane"></i> Pre-Flight Checklist</a>
+  </nav>
+
+  <main class="content">
+    <p class="eyebrow hero-in">TradeCopia · A Fork in the Road</p>
+    <h1 class="hero-in d1"><i data-lucide="repeat"></i> The Copy-<span>Trading</span> Plan</h1>
+    <p class="lede hero-in d2">The manual method — a MacBook, iPhone, and iMac running at once, alternating live between accounts by hand — got the job done through two evals, but it was never going to scale, and it introduced real human error under pressure. This page is the full, current record of what replaced it: TradeCopia, the account structure behind it, the compliance research that reshaped that structure twice, and the risk-limit decisions that came out of it.</p>
+
+    <div class="sec-label"><i data-lucide="git-branch"></i> The Structure — Two Groups, Two Flips</div>
+    <p class="sec-sub">Grouped by leader, matched on account size and firm-policy compatibility first — not by drawdown mechanic. Both groups have been restructured at least once since the original plan, each time for a real reason, documented here rather than smoothed over.</p>
+    <div class="panel" style="--accent: var(--blue);">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Group</th><th>Leader</th><th>Followers</th><th>Why this shape</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="acct-col">A — Strict News Discipline</td>
+              <td>LucidFlex25 <span class="ref-tag">(25K)</span></td>
+              <td>TPT <span class="ref-tag">(50K, 2x multiplier)</span></td>
+              <td>Originally TPT-led, since TPT's own PRO Account Rules #6 news-blackout obligation gated every trade before it reached either account. Flipped once a 1-micro-contract sizing habit (WASL logic on MNQ/MGC) was found to scale down to 0.5 of a contract at 0.5x — not a valid position. Leading from the smaller account and scaling up guarantees a whole number every time. The tradeoff: TPT's automatic gate is gone; that gap is covered by trading both leaders manually and independently.</td>
+            </tr>
+            <tr>
+              <td class="acct-col">B — TopOne Derived</td>
+              <td>TOF197288 <span class="ref-tag">(Top1 Elite ACCESS, 50K)</span></td>
+              <td>TOF197292, Apex-11, Apex-12 <span class="ref-tag">(all 50K, 1x)</span></td>
+              <td>The original plan paired a 50K Top1 leader with a 25K Lucid follower — TopOneFutures' own copy-trading policy prohibits mismatched-size cross-firm copying, and TOF's own AI assistant confirmed that exact pairing is a violation. Rebuilt around matching sizes instead: same-size TOF-to-TOF (TOF's own explicitly-allowed case) and same-size TOF-to-Apex.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="sec-sub" style="margin-top:.8rem;">Named "TopOne Derived" specifically to honor TOF's own policy language — "trade decisions must originate from activity on our platform." Full account-by-account rationale: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/specs/TradeCopia_workflow.md" target="_blank" rel="noreferrer">TradeCopia_workflow.md ↗</a></p>
+
+    <div class="sec-label"><i data-lucide="shield-check"></i> What the Compliance Research Actually Found</div>
+    <p class="sec-sub">Every firm's copy-trading stance is different, and none of it was assumed — each was fetched or asked directly before the structure above was finalized</p>
+    <div class="panel" style="--accent: var(--green);">
+      <div class="quote-block">"Cannot copy between different programs or different sizes, even with software." — TopOneFutures' copy-trading policy, confirmed by TOF's own AI assistant to rule out the original Top1→25K-Lucid pairing.</div>
+      <div class="quote-block">"You do not need to send a request to use Tradecopia as your trade copier; you may simply use this going forward." — Apex support, resolving `apex-rules_legacy.md`'s "submit for approval" requirement without an actual pre-clearance step.</div>
+      <div class="quote-block">TradeCopia is on TakeProfitTrader's own explicit approved-copier list, alongside Tradesyncer and platform-native tools — confirmed directly from TPT's official Trade Copier Policy article, not assumed from the general rules doc.</div>
+    </div>
+
+    <div class="sec-label"><i data-lucide="octagon-alert"></i> Risk Settings — $555, Everywhere, On Purpose</div>
+    <p class="sec-sub">The six settings originally asked for, mapped to what TradeCopia actually exposes — five per-group toggles, plus a personal daily-loss ceiling applied to all six accounts</p>
+    <div class="panel" style="--accent: var(--gold);">
+      <ul class="toggle-list">
+        <li><div class="t-name"><i data-lucide="shield" class="lucide"></i> Prevent hedging <span class="badge good">ON</span></div><div class="t-desc">Caps a follower's order at its existing position size — never flips it into a reversed direction. Only covers Market-order flips through flat; a Stop/Limit reversal or fresh bracket entry isn't blocked by this alone.</div></li>
+        <li><div class="t-name"><i data-lucide="scale" class="lucide"></i> Position reconciler <span class="badge good">ON</span></div><div class="t-desc">Corrects any follower fill that doesn't match the leader — entry or exit, regardless of cause. Recommended kept on by TradeCopia's own guide.</div></li>
+        <li><div class="t-name"><i data-lucide="pause-circle" class="lucide"></i> Disable replication on breach <span class="badge warn">OFF</span></div><div class="t-desc">The reconciler already corrects any mismatch on its own; this toggle's only added effect is silently pausing a follower's <em>future, clean</em> trades after one incident, until manually re-enabled. Given active monitoring is already the plan, the automatic pause costs more (missed trades) than it protects.</div></li>
+        <li><div class="t-name"><i data-lucide="flag" class="lucide"></i> Auto-close on leader-flat <span class="badge good">ON</span></div><div class="t-desc">Brackets replicate as individual orders, not one linked group — this is the direct fix for a stale follower order surviving after the leader's TP or SL already closed it out.</div></li>
+        <li><div class="t-name"><i data-lucide="x-circle" class="lucide"></i> Flatten followers on cancel <span class="badge good">ON</span></div><div class="t-desc">Same cleanup, triggered by a cancel rather than a fill — covers the other path to a clean, flat leader state.</div></li>
+        <li><div class="t-name"><i data-lucide="dollar-sign" class="lucide"></i> Daily Loss limit — $555, all six accounts <span class="badge info">Personal rule</span></div><div class="t-desc">Started at $600 — "so I never lose more than $600 in a day again" — then revised down once the question became <em>would this actually have saved the account</em>, not just felt safe. LucidFlex25's real firm DLL is $600; a self-imposed limit at that exact value leaves no margin between the trigger and the flatten order actually filling — the same gap that took a 100K Apex Static account previously. $555 became the number for every account, not just Lucid, for consistency.</div></li>
+      </ul>
+    </div>
+    <p class="sec-sub" style="margin-top:.8rem;">Full worked examples for every toggle, including a plain-language breakdown of what "disable replication on breach" actually costs vs. protects: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-risk-toggle-deep-dive.md" target="_blank" rel="noreferrer">tradecopia-risk-toggle-deep-dive.md ↗</a></p>
+
+    <div class="sec-label"><i data-lucide="landmark"></i> Why This Matters Beyond the Settings</div>
+    <div class="panel" style="--accent: var(--rose);">
+      <p style="font-size:.86rem; color: var(--muted); margin-bottom:.8rem;">The account ledger on the <a href="../data/progression/gallery.html#account-ledger" target="_blank" rel="noreferrer">gallery page</a> carries its own subtitle: <em>"what once looked like a graveyard is a resurrection project."</em> That's not a figure of speech — the recovery arc starts Feb 13, 2026, with a blowup and no rule held. Everything since has been rebuilding discipline one rule at a time.</p>
+      <p style="font-size:.86rem; color: var(--muted);">TradeCopia's Daily Loss enforcement is the first <strong>automated</strong> backstop for a failure mode personal discipline alone has never fully covered: being physically unable to close a trade in time, whether from a mental-stop habit or a power/internet failure removing the ability to execute manually. Not a replacement for discipline — the next layer on top of it.</p>
+    </div>
+
+    <div class="sec-label"><i data-lucide="scroll-text"></i> Full Documentation</div>
+    <div class="doc-grid">
+      <div class="doc-card glass"><div class="fname"><i data-lucide="workflow"></i> TradeCopia Workflow Spec</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/specs/TradeCopia_workflow.md" target="_blank" rel="noreferrer">TradeCopia_workflow.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i data-lucide="shield-check"></i> Compliance Memo</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-compliance-memo.md" target="_blank" rel="noreferrer">tradecopia-compliance-memo.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i data-lucide="sliders-horizontal"></i> Risk Toggle Deep Dive</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-risk-toggle-deep-dive.md" target="_blank" rel="noreferrer">tradecopia-risk-toggle-deep-dive.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i data-lucide="mouse-pointer-click"></i> Chrome Setup Guide</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-claude-chrome-setup-guide.md" target="_blank" rel="noreferrer">tradecopia-claude-chrome-setup-guide.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i data-lucide="git-branch"></i> Full Scaling SOP</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-Scaling-SOP-%26-Implementation.md" target="_blank" rel="noreferrer">Scaling SOP doc ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i data-lucide="calendar"></i> Sep 3 Daily Review</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/overview-summaries/2026/09-Sep/export_20260903_daily-review.md" target="_blank" rel="noreferrer">The day this was built ↗</a></div></div>
+    </div>
+    <p class="sec-sub" style="margin-top:1rem;">Tradesyncer's equivalent risk-control docs, for comparison: <a href="https://help.tradesyncer.com/en/articles/10410714-how-to-use-follower-protection" target="_blank" rel="noreferrer">Follower Protection ↗</a>. Back to the origin story: <a href="community.html#pfm">PropFirmMatchTV ↗</a></p>
+  </main>
+
+  <footer class="footer">
+    <p><i data-lucide="repeat"></i> The Copy-Trading Plan · Christopher Wilson · Part of the <a href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer">Trading Assistant</a> public preview</p>
+    <p>Not financial advice — everything here is personal documentation, not a trading or risk-management recommendation. Verify any firm's rules directly before relying on them.</p>
+  </footer>
+
+  <script>
+    if (window.lucide) lucide.createIcons();
+    else document.addEventListener('DOMContentLoaded', () => window.lucide && lucide.createIcons());
+
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const bgLayer = document.getElementById('bgParallax');
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          bgLayer.style.transform = `translateY(${window.scrollY * 0.12}px)`;
+          ticking = false;
+        });
+      }, { passive: true });
+    }
+  </script>
+</body>
+</html>
