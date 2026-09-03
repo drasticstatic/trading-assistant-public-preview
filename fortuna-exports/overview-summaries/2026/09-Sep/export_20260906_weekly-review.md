@@ -13,7 +13,7 @@
 | <a id="day-2026-08-31"></a>Mon Aug 31 | 1 | MES | +$12.50 | [001](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/trade-reviews/2026/08-Aug/review_20260831_MES-TPTPRO781112132_001.md) |
 | <a id="day-2026-09-01"></a>Tue Sep 1 | 2 | MNQ | +$494.00 | [001](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/trade-reviews/2026/09-Sep/review_20260901_MNQ-TPTPRO781112132_001.md) · [002](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/trade-reviews/2026/09-Sep/review_20260901_MNQ-TPTPRO781112132_002.md) |
 | <a id="day-2026-09-02"></a>Wed Sep 2 | 0 | — | $0 | — |
-| <a id="day-2026-09-03"></a>Thu Sep 3 | 0 | — | $0 | — |
+| <a id="day-2026-09-03"></a>Thu Sep 3 | 0 | — | $0 (infra day — TradeCopia established) | [Daily review](https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/overview-summaries/2026/09-Sep/export_20260903_daily-review.md) |
 | <a id="day-2026-09-04"></a>Fri Sep 4 | 0 | — | $0 | — |
 | <a id="day-2026-09-05"></a>Sat Sep 5 | 0 | — | $0 | — |
 | <a id="day-2026-09-06"></a>Sun Sep 6 | 0 | — | $0 | — |
