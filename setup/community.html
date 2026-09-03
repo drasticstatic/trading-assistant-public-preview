@@ -114,6 +114,8 @@
     .thanks-card .review-link { display: inline-flex; align-items: center; gap: .3rem; font-size: .76rem; font-weight: 700; padding: .18rem .6rem; border-radius: 999px; background: rgba(73,209,125,.12); color: var(--green); border: 1px solid rgba(73,209,125,.24); }
     .thanks-card .flavor-tag { font-size: .72rem; color: var(--subtle); font-style: italic; }
 
+    .pfm-panel { display: block; text-decoration: none; color: inherit; transition: transform .35s var(--spring), border-color .2s; }
+    .pfm-panel:hover { transform: translateY(-3px); border-color: rgba(103,232,249,.4); }
     .pfm-panel h3 { font-size: 1rem; font-weight: 800; margin-bottom: .5rem; display: flex; align-items: center; gap: .4rem; }
     .pfm-panel p { font-size: .85rem; color: var(--muted); margin-bottom: .6rem; }
     .pfm-panel p:last-child { margin-bottom: 0; }
@@ -228,20 +230,20 @@
       aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
       font-size: 2.6rem; filter: saturate(.55) brightness(.72);
     }
-    /* ── Trippy icon treatment — slow hue-cycle + a gentle "breathing"
-       scale, quickening into a bounce on hover, so the muted friend-art
-       tiles don't read flat/dull. ── */
-    @keyframes iconHue {
-      from { filter: hue-rotate(0deg) drop-shadow(0 1px 4px rgba(0,0,0,.4)); }
-      to { filter: hue-rotate(360deg) drop-shadow(0 1px 4px rgba(0,0,0,.4)); }
+    /* ── Trippy icon treatment — slow red↔green color modulation (a
+       hue-rotate filter did nothing on a near-white icon, since white has
+       no hue to rotate) + a gentle "breathing" scale, quickening into a
+       bounce on hover, so the muted friend-art tiles don't read dull. ── */
+    @keyframes iconRedGreen {
+      0%, 100% { color: #f87171; filter: drop-shadow(0 1px 4px rgba(0,0,0,.4)); }
+      50% { color: #4ade80; filter: drop-shadow(0 1px 4px rgba(0,0,0,.4)); }
     }
     @keyframes iconBreathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
     @keyframes iconBounce { 0%, 100% { transform: scale(1.15) translateY(0); } 50% { transform: scale(1.22) translateY(-3px); } }
     .friend-art i {
-      color: rgba(255,255,255,.94);
-      animation: iconHue 7s linear infinite, iconBreathe 3.2s ease-in-out infinite;
+      animation: iconRedGreen 5s ease-in-out infinite, iconBreathe 3.2s ease-in-out infinite;
     }
-    .friend-card:hover .friend-art i { animation: iconHue 7s linear infinite, iconBounce .65s ease-in-out infinite; }
+    .friend-card:hover .friend-art i { animation: iconRedGreen 5s ease-in-out infinite, iconBounce .65s ease-in-out infinite; }
     .friend-card-body { padding: .8rem .9rem .9rem; text-align: center; }
     .friend-name { font-size: .84rem; font-weight: 800; color: var(--text); margin-bottom: .15rem; }
     .friend-role { font-size: .7rem; color: var(--subtle); margin-bottom: .6rem; }
@@ -252,8 +254,8 @@
       transition: border-color .2s, color .2s;
     }
     .friend-link:hover { border-color: var(--blue); color: var(--blue); }
-    .friend-link .lucide { width: 1rem; height: 1rem; animation: iconHue 9s linear infinite; }
-    .friend-card:hover .friend-link .lucide { animation: iconHue 9s linear infinite, iconBounce .65s ease-in-out infinite; }
+    .friend-link .lucide { width: 1rem; height: 1rem; animation: iconRedGreen 6s ease-in-out infinite; }
+    .friend-card:hover .friend-link .lucide { animation: iconRedGreen 6s ease-in-out infinite, iconBounce .65s ease-in-out infinite; }
 
     /* ── COPY-TRADING TOOLS ── */
     .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; --accent: var(--blue); }
@@ -276,6 +278,21 @@
 
     .affiliate-panel { border: 1px dashed var(--border); border-radius: var(--radius-lg); padding: 1.3rem 1.4rem; text-align: center; color: var(--muted); background: var(--surface-soft); }
     .affiliate-panel p { max-width: 520px; margin: 0 auto; font-size: .86rem; }
+
+    /* ── Consistent cyan title+icon highlight on hover, every bento card
+       on the page — was previously an accident of link-color inheritance
+       on the Copy-Trading cards alone; made explicit and universal. ── */
+    .thanks-card h3, .pfm-panel h3, .preview-title, .tool-card h4, .ext-card h4, .friend-name {
+      transition: color .2s;
+    }
+    .thanks-card:hover h3,
+    .pfm-panel:hover h3,
+    .preview-card:hover .preview-title,
+    .tool-card:hover h4,
+    .ext-card:hover h4,
+    .friend-card:hover .friend-name {
+      color: var(--cyan);
+    }
 
     .footer { max-width: 1100px; margin: 0 auto 2rem; padding: 1.2rem 1.5rem; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); font-size: .8rem; color: var(--subtle); text-align: center; }
     .footer p { margin: 0; }
@@ -329,7 +346,7 @@
     </div>
 
     <div id="pfm" class="sec-label"><i data-lucide="tv"></i> Shoutout</div>
-    <p class="sec-sub">PropFirmMatchTV and MarketButcher — fun over fear, and the content/perspective that goes with it</p>
+    <p class="sec-sub">PropFirmMatchTV's live-stream energy, MarketButcher's after-hours breakdowns — two different formats, the same fun-over-fear spirit</p>
     <div class="preview-grid">
       <div class="preview-card glass">
         <a class="preview-banner youtube" href="https://www.youtube.com/@propfirmmatch" target="_blank" rel="noreferrer" style="background-color:#1a1230;background-image:url('https://yt3.googleusercontent.com/C7qZKkPiURZpfelvBU-nCAr42vMELcKDwEnonNH4N4O0gFLVS6dt-82pBdmCuDzjeabdrIcx_eM=s900-c-k-c0x00ffffff-no-rj');background-size:cover;background-repeat:no-repeat;background-position:center;">
@@ -358,27 +375,27 @@
     </div>
 
     <div id="thegexlab" class="sec-label"><i data-lucide="flask-conical"></i> TheGexLab</div>
-    <p class="sec-sub">Equal billing with PFM above, not a subsection of it — a different kind of thank-you, for a different kind of tool</p>
-    <div class="pfm-panel glass gexlab-split">
-      <a class="gexlab-banner" href="https://www.thegexlab.com/tmade" target="_blank" rel="noreferrer" style="background-image:url('https://www.thegexlab.com/app/gexlab-shot.jpg');" aria-label="TheGexLab app preview"></a>
+    <p class="sec-sub">Not a footnote under PFM above — its own thank-you, for a different kind of tool entirely</p>
+    <a class="pfm-panel glass gexlab-split" href="https://www.thegexlab.com/tmade" target="_blank" rel="noreferrer">
+      <div class="gexlab-banner" style="background-image:url('https://www.thegexlab.com/app/gexlab-shot.jpg');" aria-label="TheGexLab app preview"></div>
       <div class="gexlab-info">
         <h3><i data-lucide="flask-conical"></i> TMade × TheGexLab</h3>
         <p>TMade partnered with Yush to build TheGexLab — real-time dealer positioning (put/call walls, zero gamma, and the regime read that says whether the market's pinned or primed to run) laid directly onto the chart. Their Asia-session read is nicknamed "night-vision" — which lands close to home, since our own ETH-derived ZTH levels in the auto-levels indicator render green vs. cyan for exactly that reason. Years of building this system, and it's still finding new confluence to lean on</p>
-        <p>Partner access: <a href="https://www.thegexlab.com/tmade" target="_blank" rel="noreferrer">thegexlab.com/tmade ↗</a> — <span class="partner-code">code TMADE</span> for 20% off. This is a gated partner link, not the public marketing site</p>
+        <p>Partner access: thegexlab.com/tmade — <span class="partner-code">code TMADE</span> for 20% off. This is a gated partner link, not the public marketing site</p>
       </div>
-    </div>
+    </a>
 
     <div id="copy-trading" class="sec-label"><i data-lucide="repeat"></i> Copy-Trading</div>
-    <p class="sec-sub">TradeCopia and Tradesyncer, plus the full account-structure plan — consolidated to one modal here instead of scattered across pages</p>
+    <p class="sec-sub">Both connect Tradovate ↔ NinjaTrader/Apex and handle per-follower quantity multipliers, replacing the old manual multi-device method (a MacBook, iPhone, and iMac all running at once just to mirror trades by hand) — what actually sets them apart is below</p>
     <div class="tools-grid">
       <a id="tradecopia" class="tool-card glass" href="https://tradecopia.com" target="_blank" rel="noreferrer">
         <h4><i data-lucide="repeat"></i> TradeCopia</h4>
-        <p>Cloud-based futures copy trading, browser-driven — per-follower position sizing and multipliers (a follower scales independently instead of mirroring 1:1), plus cross-account risk controls: hedge prevention, a position reconciler, and auto-flatten on the leader going flat. A real upgrade from Tradovate's native account-switcher, which only shows one account at a time and offers no cross-account guardrails at all</p>
+        <p>Cloud-based, browser-driven, upgrading straight off Tradovate's native single-account-view switcher. Its own named risk-control set: hedge prevention, a position reconciler, and auto-flatten the moment the leader goes flat</p>
         <span class="ext-link-row"><i data-lucide="link"></i> tradecopia.com ↗</span>
       </a>
       <a id="tradesyncer" class="tool-card glass" href="https://www.tradesyncer.com" target="_blank" rel="noreferrer">
         <h4><i data-lucide="repeat"></i> Tradesyncer</h4>
-        <p>Cloud-based, sub-100ms cross-broker copy trading (Tradovate ↔ NinjaTrader/Apex) — already in use by Inevitrade and STB. Same category as TradeCopia: it replaces the same kind of manual multi-device, multi-browser copying that used to mean a MacBook, iPhone, and iMac all running at once just to mirror trades by hand</p>
+        <p>Sub-100ms sync speed. Position sync and hedge prevention run through its own named feature — <strong>Follower Protection</strong> — rather than TradeCopia's separate reconciler/auto-flatten controls</p>
         <span class="ext-link-row"><i data-lucide="link"></i> tradesyncer.com ↗</span>
       </a>
     </div>
@@ -432,7 +449,7 @@
       <p>🌱 Why the 25K Lucid account follows rather than leads: it's brand new with no track record yet, and TradeCopia's actual value here is letting a newer or smaller account scale down safely from a proven leader — not the reverse</p>
       <p>🛡️ Risk controls being set up alongside the multiplier: hedge prevention (no opposing/reversed positions across accounts), a position reconciler with auto-exit on mismatch, auto-flatten when the leader goes flat, and per-account loss-limit/consistency-rule accountability</p>
       <p>⏰ Session-close discipline: TopOne 4:10pm ET → Lucid 4:45pm ET → TPT 4:55pm ET → Apex 4:59pm ET — personal target is flat everywhere by 4:45pm ET</p>
-      <p>📎 Full writeup: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-Scaling-SOP-%26-Implementation.md" target="_blank" rel="noreferrer">Scaling SOP doc ↗</a>. Setting it up hands-on with Claude in Chrome: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-claude-chrome-setup-guide.md" target="_blank" rel="noreferrer">TradeCopia + Claude in Chrome setup guide ↗</a></p>
+      <p>📎 Full writeup: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-Scaling-SOP-%26-Implementation.md" target="_blank" rel="noreferrer">Scaling SOP doc ↗</a>. Setting it up hands-on with Claude in Chrome: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-claude-chrome-setup-guide.md" target="_blank" rel="noreferrer">TradeCopia + Claude in Chrome setup guide ↗</a>. Tradesyncer's equivalent risk-control docs: <a href="https://help.tradesyncer.com/en/articles/10410714-how-to-use-follower-protection" target="_blank" rel="noreferrer">Follower Protection ↗</a></p>
     </div>
   </div>
 
