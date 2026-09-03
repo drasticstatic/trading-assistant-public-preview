@@ -356,7 +356,7 @@
           <div class="yt-brand">YouTube · Channel</div>
           <a class="preview-title" href="https://www.youtube.com/@propfirmmatch" target="_blank" rel="noreferrer"><i data-lucide="tv"></i> PropFirmMatchTV</a>
           <p class="preview-desc"><em>Trusted platform to compare trading firms and challenges — verified data and insights, reviews, rules, rankings, loyalty rewards, and tracking.</em></p>
-          <p class="preview-desc">A live-stream community built around prop-firm challenges, giveaways, and genuinely fun energy around a grind that can otherwise get heavy. Hosts + direct links: see the <a href="#friends-top">Friends marquee</a> above. More on the copy-trading plan it kicked off: <a href="#copy-trading" onclick="event.preventDefault(); openModal('copyTradingModal')">the Copy-Trading plan ↗</a></p>
+          <p class="preview-desc">A live-stream community built around prop-firm challenges, giveaways, and genuinely fun energy around a grind that can otherwise get heavy. Hosts + direct links: see the <a href="#friends-top">Friends marquee</a> above. More on the copy-trading plan it kicked off: <a href="copy-trading.html">the Copy-Trading plan ↗</a></p>
           <button type="button" class="story-trigger" onclick="openModal('duckModal')">🦆 The Duck Race Story</button>
           <a class="story-trigger" href="https://propfirmmatch.com/futures" target="_blank" rel="noreferrer" style="margin-left:.35rem;"><i data-lucide="link"></i> propfirmmatch.com ↗</a>
         </div>
@@ -400,7 +400,7 @@
       </a>
     </div>
     <div style="text-align:center; margin-top:1.1rem;">
-      <button type="button" class="story-trigger" onclick="openModal('copyTradingModal')" style="font-size:.82rem; padding:.4rem 1.1rem;"><i data-lucide="layout-panel-top"></i> View Full Copy-Trading Plan ↗</button>
+      <a class="story-trigger" href="copy-trading.html" style="font-size:.82rem; padding:.4rem 1.1rem;"><i data-lucide="layout-panel-top"></i> View Full Copy-Trading Plan ↗</a>
     </div>
 
     <div class="sec-label"><i data-lucide="wrench"></i> External Resources</div>
@@ -436,20 +436,6 @@
       <p>🏆 A free Lucid futures account was won here via an on-stream duck race — first prize surfaced through community, not purchased. PropFirmMatchTV runs live-stream giveaways with a Discord + access-code flow, and this particular race is how Lucid ended up on the roster at all: a redemption code good toward a 25K account, style already decided in the account-structure plan above (25K follows, doesn't lead — see the <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-account-types-comparison.md" target="_blank" rel="noreferrer">comparison doc</a> for the style analysis behind it)</p>
       <p>🙏 Why it landed harder than "free 25K account": by July 20, a Lucid account had already been created specifically to dodge the 30-day eval-subscription clock TPT was running — this was around the time Apex Legacy accounts stopped being purchasable outright. Even so, a Lucid eval itself was never actually bought — TopOne's BOGO deal and TPT's 50AND3 offer had already covered enough ground. In a moment of prayer, weighing whether to even enter the giveaway at all while already juggling three funded accounts and two Apex renewals, the honest answer was: enough is enough for now — and that was said out loud, gratefully, as a letting go, not a complaint</p>
       <p>😭 Then the name got called. During Alex's hosting slot, using the code "tmade" — and hearing it live was genuinely a "wait, seriously?" moment, followed by tears. Not because of the account's dollar value, but because of how the whole journey had been unfolding up to that point. The gratitude here runs deeper than the outcome itself — it's encouragement, hope, and a real opportunity to level up and actually learn TradeCopia, scaling, and Lucid properly, rather than something owed or expected</p>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="copyTradingModal" onclick="if(event.target===this)closeModal('copyTradingModal')">
-    <div class="modal-box" style="max-width:640px;">
-      <button class="modal-close" onclick="closeModal('copyTradingModal')">✕</button>
-      <div class="modal-title"><i data-lucide="repeat"></i> The Copy-Trading Plan</div>
-      <p>🧩 Two groups, split by drawdown mechanic (Intraday vs. EOD) rather than by firm — whichever account has the most trading history on a given mechanic leads its group, and everything else follows it, scaled down through TradeCopia's per-follower quantity multiplier rather than mirrored 1:1</p>
-      <p>⚡ <strong>Intraday — led by TPT</strong> (50K, fully scaled at funded). Followers: the Apex Legacy accounts, and any future Apex New Intraday or LucidDaily accounts</p>
-      <p>🌙 <strong>EOD — led by TopOneFutures</strong> (Elite ACCESS, funded). Followers: the incoming 25K Lucid account (see the 🦆 story above), and any future Apex New EOD accounts</p>
-      <p>🌱 Why the 25K Lucid account follows rather than leads: it's brand new with no track record yet, and TradeCopia's actual value here is letting a newer or smaller account scale down safely from a proven leader — not the reverse</p>
-      <p>🛡️ Risk controls being set up alongside the multiplier: hedge prevention (no opposing/reversed positions across accounts), a position reconciler with auto-exit on mismatch, auto-flatten when the leader goes flat, and per-account loss-limit/consistency-rule accountability</p>
-      <p>⏰ Session-close discipline: TopOne 4:10pm ET → Lucid 4:45pm ET → TPT 4:55pm ET → Apex 4:59pm ET — personal target is flat everywhere by 4:45pm ET</p>
-      <p>📎 Full writeup: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-Scaling-SOP-%26-Implementation.md" target="_blank" rel="noreferrer">Scaling SOP doc ↗</a>. Setting it up hands-on with Claude in Chrome: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-claude-chrome-setup-guide.md" target="_blank" rel="noreferrer">TradeCopia + Claude in Chrome setup guide ↗</a>. Tradesyncer's equivalent risk-control docs: <a href="https://help.tradesyncer.com/en/articles/10410714-how-to-use-follower-protection" target="_blank" rel="noreferrer">Follower Protection ↗</a></p>
     </div>
   </div>
 
@@ -557,11 +543,6 @@
       if (e.key !== 'Escape') return;
       document.querySelectorAll('.modal-overlay.open').forEach(el => closeModal(el.id));
     });
-    // Cross-page links landing on #copy-trading (from gallery.html /
-    // prop-firm-rules.html) scroll to the section AND pop the full modal,
-    // so the linked-to content feels immediately present, not buried.
-    if (window.location.hash === '#copy-trading') openModal('copyTradingModal');
-
     // ═══════════════════════════════════════════════════════
     // Lucide icons (called after renderFriends so
     // their dynamically-injected <i data-lucide> tags get picked up
