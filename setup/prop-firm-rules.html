@@ -251,7 +251,7 @@
     <p class="sec-sub">Run through before the open — especially on multi-account days</p>
     <div class="panel">
       <ul class="checklist">
-        <li><input type="checkbox"><span>Confirm which account(s) are active today and their exact close deadline<span class="sub">Apex ~4:59 PM ET · TPT 4:55 PM ET auto-close · TopOneFutures 4:10 PM ET · Lucid 4:45 PM ET</span></span></li>
+        <li><input type="checkbox"><span>Confirm which account(s) are active today and their exact close deadline<span class="sub">Apex ~16:59 ET · TPT 16:55 ET auto-close · TopOneFutures 16:10 ET · Lucid 16:45 ET</span></span></li>
         <li><input type="checkbox"><span>SL placed and never moved — Pattern 7 discipline check<span class="sub">See <a href="../data/progression/pattern_tracker.md">pattern_tracker.md</a> for the full pattern history</span></span></li>
         <li><input type="checkbox"><span>No opposing/hedged positions across accounts<span class="sub">Apex, TPT, and TopOneFutures all treat cross-account hedging as an instant, all-accounts-involved violation</span></span></li>
         <li><input type="checkbox"><span>Daily Loss Limit checked, if the account has one<span class="sub">Apex EOD/PA, Tradeify, some Lucid configs — TPT and Apex Intraday have none</span></span></li>
@@ -298,16 +298,16 @@
         <table>
           <thead><tr><th>Firm</th><th>Close Deadline</th><th>Enforcement</th></tr></thead>
           <tbody>
-            <tr><td class="firm-col">Apex (all paths)</td><td>~4:59 PM ET</td><td><span class="badge warn">Auto-flatten — failure possible only if execution slips/gaps through the close</span></td></tr>
-            <tr><td class="firm-col">TakeProfitTrader</td><td>4:55 PM ET auto-close</td><td><span class="badge good">Soft — auto-closed, no more failed accounts for a missed manual close</span></td></tr>
-            <tr><td class="firm-col">TopOneFutures</td><td>4:10 PM ET</td><td><span class="badge warn">Force-closed daily (no overnight holds, any account type)</span></td></tr>
-            <tr><td class="firm-col">Lucid</td><td>4:45 PM ET</td><td><span class="badge good">Soft — auto-flatten, non-punitive</span></td></tr>
+            <tr><td class="firm-col">Apex (all paths)</td><td>~16:59 ET</td><td><span class="badge warn">Auto-flatten — failure possible only if execution slips/gaps through the close</span></td></tr>
+            <tr><td class="firm-col">TakeProfitTrader</td><td>16:55 ET auto-close</td><td><span class="badge good">Soft — auto-closed, no more failed accounts for a missed manual close</span></td></tr>
+            <tr><td class="firm-col">TopOneFutures</td><td>16:10 ET</td><td><span class="badge warn">Force-closed daily (no overnight holds, any account type)</span></td></tr>
+            <tr><td class="firm-col">Lucid</td><td>16:45 ET</td><td><span class="badge good">Soft — auto-flatten, non-punitive</span></td></tr>
             <tr><td class="firm-col">Tradeify</td><td><span class="ref-tag">Not specified in current docs — verify live</span></td><td>—</td></tr>
           </tbody>
         </table>
       </div>
     </div>
-    <p class="sec-sub" style="margin-top:.7rem;">TakeProfitTrader updated this policy — previously, holding a position past 5:00 PM ET was an instant liquidation + failed account; now TPT auto-closes any open position at 4:55 PM ET and the account simply stays active for the next session. See <a href="#" onclick="event.preventDefault(); openImgLightbox('tptNoticeLightbox')">TPT's rule-update notice ↗</a></p>
+    <p class="sec-sub" style="margin-top:.7rem;">TakeProfitTrader updated this policy — previously, holding a position past 17:00 ET was an instant liquidation + failed account; now TPT auto-closes any open position at 16:55 ET and the account simply stays active for the next session. See <a href="#" onclick="event.preventDefault(); openImgLightbox('tptNoticeLightbox')">TPT's rule-update notice ↗</a></p>
 
     <div class="sec-label"><i data-lucide="scroll-text"></i> Full Rule Reference</div>
     <div class="doc-grid">
@@ -334,7 +334,7 @@
     <p class="sec-sub">25K is the incoming Lucid free-account size (from the PFM duck-race win); Apex and TPT scale contracts/targets/fees at 100K on top of the 50K headline numbers below. Reference only for 100K — Christopher currently holds Apex Legacy 50K/100K accounts. Full tier detail is filterable by size in the comparison table below</p>
 
     <div class="sec-label"><i data-lucide="bar-chart-3"></i> 50K Evaluation — Quick Comparison</div>
-    <p class="sec-sub">Apex has three paths on file (Legacy, New EOD, New Intraday) since Christopher's original accounts predate the new rules. Lucid is reference/awareness only — no account held</p>
+    <p class="sec-sub">Apex has three paths on file (Legacy, New EOD, New Intraday) since Christopher's original accounts predate the new rules. Lucid figures shown are the 50K LucidFlex tier for apples-to-apples comparison — the account actually held is LucidFlex25 (25K)</p>
     <div class="panel">
       <div class="tbl-wrap tbl-wrap-full">
         <table>
@@ -369,6 +369,11 @@
               <td class="firm-col">TopOneFutures — Elite ACCESS</td>
               <td>$3,000 (6%)</td><td>$2,000 EOD trailing</td><td><span class="badge good">None (eval)</span></td>
               <td><span class="badge good">1 profitable day</span></td><td><span class="badge good">Not applied</span></td><td>—</td><td>30 days</td>
+            </tr>
+            <tr>
+              <td class="firm-col">Lucid — LucidFlex <span class="ref-tag">(50K tier shown; actual account is 25K)</span></td>
+              <td>$3,000</td><td>$2,000 EOD trailing</td><td><span class="badge good">None (eval)</span></td>
+              <td><span class="ref-tag">Not specified — verify live</span></td><td><span class="badge warn">50%</span></td><td>4 (40 micros)</td><td><span class="badge good">No limit</span></td>
             </tr>
             <tr>
               <td class="firm-col">Tradeify — Select Challenge</td>

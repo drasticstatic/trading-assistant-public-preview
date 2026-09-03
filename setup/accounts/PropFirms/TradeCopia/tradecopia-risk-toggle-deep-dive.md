@@ -58,6 +58,20 @@ Think of it as two separate questions TradeCopia asks after any mismatch:
 
 **Recommendation:** ON, matching your original ask — but go in knowing it requires the due-diligence habit to actually pay off, not a set-and-forget toggle.
 
+**Appended Sep 3, 2026, second pass — reconciled against your own SIM observation:**
+
+You reported seeing a 7-micro leader trade fill in stages (2, then 3, then 2) during SIM eval, and this happening often. That's exactly why #2 (Position reconciler) earns its keep — staggered/partial fills are a normal broker behavior, and every time a follower's fill lands mid-sequence, there's a window where the follower's position doesn't yet match the leader's final size. The reconciler is what catches and corrects that, rather than leaving a partially-filled follower position hanging.
+
+You then asked the sharper question: **what does #3 (Disable replication on breach) actually protect against, versus just cost me?** Your own reasoning was correct, with one piece worth pinning down precisely:
+
+- **A missed entry (the follower's order never fills at all — rejected, no liquidity, whatever) triggers *neither* #2 nor #3.** There's no position to reconcile and nothing to have "breached," so both toggles are irrelevant to a simple non-fill. You're right about that.
+- **#2 (reconciler) only fires when a fill *did* happen and it's wrong** — wrong size or wrong direction (exactly what your staggered 2/3/2 fills could produce on the follower side if the follower's own partial fills land differently than the leader's). It force-exits that one bad position immediately. This part is a correction, not a miss.
+- **#3 (disabler) doesn't cause a miss at the moment of the breach either** — the breach is already corrected by #2 regardless of #3. What #3 controls is *everything after that*: with #3 ON, the follower is now paused, so the *next* legitimate leader entry — a totally clean, correctly-sized trade with nothing wrong about it — will not be copied, because the follower is sitting in a "needs manual re-enable" state from the earlier, already-resolved incident. That's where your "could prevent a loss but could also miss a win" framing is exactly right — the cost isn't at the breach itself, it's every trade after it, until you notice and flip it back on.
+
+**So the honest tradeoff is:** #3 ON buys you an automatic circuit-breaker after repeated/systemic problems, at the cost of possibly sitting out clean future trades while paused and unnoticed. #3 OFF means a follower keeps trading normally right after any correction, at the cost of no automatic pause if something's genuinely, repeatedly wrong with that follower's connection.
+
+Given you're planning to actively watch Copia anyway (the reconciler + due-diligence habit already covers "don't let a bad position sit"), and #3's main added value is specifically the *automatic pause* — which only helps if you'd otherwise miss noticing a repeating problem — your instinct to lean toward OFF is reasonable. Recommendation revised: **either is defensible; leaning OFF matches your stated reasoning better than my original ON recommendation did.** Your call — happy to flip it on either group whenever you say the word.
+
 ---
 
 ## 4. Auto-close follower positions — default ON, you called this "required"

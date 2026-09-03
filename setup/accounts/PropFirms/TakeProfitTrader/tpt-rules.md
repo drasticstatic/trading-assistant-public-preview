@@ -74,15 +74,22 @@
 
 ### Trading Hours
 - **Trading window:** 6:00 PM Eastern → 5:00 PM Eastern (next day)
-- **Day ends:** 5:00 PM Eastern — positions must be closed before this
-- **Holding past 5 PM ET = automatic failure and account loss**
-- Trades opened at or after 6:00 PM ET count toward the **next** trading day
+- **Day ends:** 17:00 ET
+- **Updated policy (per TPT's rule-update notice, see `setup/prop-firm-rules.html`):** holding past 17:00 ET used to be an instant liquidation + failed account. **TPT now soft auto-closes any open position at 16:55 ET instead** — the account simply stays active for the next session, no more failed accounts for a missed manual close.
+- Trades opened at or after 18:00 ET count toward the **next** trading day
 
 ### Holiday Rules
 - Market hours change on holidays — **trader's responsibility** to monitor
 - Missing a holiday-adjusted close time = account liquidation
 
-> ⚠️ Note: TPT close deadline is **5:00 PM ET**, not 4:59 PM ET like Apex. Know which account you're in.
+> Note: TPT's auto-close is **16:55 ET**, not 16:59 ET like Apex. Know which account you're in.
+
+### News Trading Restriction (PRO Account Rules #6 — "No Open Positions During Prohibited News")
+> Source: [PRO Account Rules](https://takeprofittraderhelp.zendesk.com/hc/en-us/articles/15171769361053-PRO-Account-Rules), confirmed Sep 3, 2026. Applies to PRO accounts — Christopher's account (`TAKEPROFITPRO781112132`) is a PRO account by name.
+- **All open positions and open orders must be closed 1 minute before, during, and 1 minute after** any prohibited news event
+- **Prohibited for all products:** FOMC statements/announcements (Wednesdays 2:00 PM ET — FED speakers and FOMC meeting minutes are allowed), Non-Farm Payroll (NFP, monthly, Fridays 8:30 AM ET), Consumer Price Index (CPI)
+- **Prohibited for specific instruments only:** Crude Oil Inventories → Crude Oil (CL/MCL) only; Bond Auctions → 10-Year Note and 30-Year Bond only
+- Track via forexfactory.com (red folder, USD currency) or TPT's own trader calendar: takeprofittrader.com/user-info/calendar
 
 ---
 
@@ -146,7 +153,8 @@
 When reviewing any TPT trade, flag if:
 - [ ] Position size exceeded plan max (100K = 12 contracts / 120 micros)
 - [ ] Account balance approached Minimum Account Balance during session (intraday real-time risk)
-- [ ] Trade held past **4:00 PM ET** (personal EOD target — firm deadline is 5:00 PM ET, personal rule is more conservative)
+- [ ] Trade held past **16:00 ET** (personal EOD target — firm auto-close is 16:55 ET, personal rule is more conservative)
+- [ ] Position open or working order live within 1 min of FOMC (Wed 14:00 ET) / NFP (Fri 08:30 ET) / CPI, or CL within 1 min of Crude Oil Inventories, or 10Y/30Y within 1 min of a Bond Auction
 - [ ] Single day P&L ≥ 50% of total net P/L (consistency violation risk)
 - [ ] Fewer than 5 trading days completed before claiming profit target pass
 - [ ] Counter/opposing positions detected across multiple TPT accounts
