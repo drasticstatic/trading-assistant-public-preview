@@ -67,16 +67,28 @@ git commit -m "$(cat <<'EOF'
 - [detail line 1]
 - [detail line 2]
 
-Co-Authored-By: Fortuna · Claude · [model] <noreply@anthropic.com>
+Co-Authored-By: Fortuna · ClaudeCodeCLI · Anthropic Sonnet-5
 EOF
 )"
 git push origin main
 ```
 
-Replace `[model]` with the model currently in use:
-- Fortuna-Anthropic (Sonnet): `Fortuna · Claude · claude-sonnet-4-6 <noreply@anthropic.com>`
-- Fortuna-Anthropic (Opus): `Fortuna · Claude · claude-opus-4-7 <noreply@anthropic.com>`
-- Fortuna-NIM (if testing): `Fortuna · Claude · NVIDIA NIM Z-AI GLM-4.7 <noreply@anthropic.com>`
+Footer format is `Agent · Engine · Model`. Replace with whichever combination is actually in use:
+- Fortuna-Anthropic (Sonnet): `Fortuna · ClaudeCodeCLI · Anthropic Sonnet-5`
+- Fortuna-Anthropic (Opus): `Fortuna · ClaudeCodeCLI · Anthropic Opus-5`
+- Fortuna-NIM (if testing): `Fortuna · ClaudeCodeCLI · NVIDIA NIM Z-AI GLM-5.2`
+- Kavanah, Intent chat UI, Anthropic login ("ClaudeMent"): `Kavanah · ClaudeMent · Anthropic [model]`
+- Kavanah, Intent chat UI, native Auggie login: `Kavanah · AugmentIntent · [model]`
+- Kavanah, terminal instance (macOS/Intent/VSCode), Anthropic login: `Kavanah · ClaudeCodeCLI · Anthropic [model]`
+- Mystarch (rare — app-level cross-workspace reach): same engine options as Kavanah, swap the agent name
+
+`ClaudeCodeCLI` applies whether the session is a plain native terminal or a terminal-instance
+session launched from inside Intent/VSCode — `ClaudeMent` is reserved specifically for Intent's own
+chat UI panel running on Claude. See `anthropas-argus-alfred/sandbox/AGENT_IDENTITY_REFERENCE.md`
+for the full rule on which application decides the agent name.
+
+The `<noreply@anthropic.com>` tail is no longer part of the documented convention (dropped
+2026-09-02 — didn't carry useful information). Omit it in new commits going forward.
 
 If push fails due to remote changes:
 ```bash
