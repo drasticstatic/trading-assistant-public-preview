@@ -84,7 +84,7 @@ So the "submit for approval" line in `apex-rules_legacy.md` turned out not to re
 > **Prohibited:** copying/synchronizing trades between different users or identities, coordinating execution across accounts not owned by you, **entering opposing or offsetting positions designed to reduce, transfer, or neutralize risk** (reinforces why "Prevent hedging" matters), pass/payout services, circumventing the Independent Trade Execution Policy.
 > No size-matching or leader/follower-role restriction stated. Enforcement is based on "behavioral, statistical, and technical analysis of execution data and account relationships, not the specific copier software used" — violations risk profit forfeiture, account reset/liquidation, account closure, or permanent ban.
 
-**Gate:** None — TradeCopia is explicitly pre-approved. No size-matching restriction found in TPT's rules. TPT is Group A (Strict News Discipline)'s leader (→ LucidFlex25); trader bears responsibility for any misconfiguration, same as any other account activity.
+**Gate:** None — TradeCopia is explicitly pre-approved. No size-matching restriction found in TPT's rules; no restriction on which role (leader or follower) an account holds. TPT is Group A (Strict News Discipline)'s follower as of Sep 3, 2026 (flipped from leader — see `specs/TradeCopia_workflow.md`); trader bears responsibility for any misconfiguration, same as any other account activity.
 
 ---
 
@@ -101,7 +101,7 @@ So the "submit for approval" line in `apex-rules_legacy.md` turned out not to re
 
 | Firm | Role | Copier permitted? | Approval needed? | Size constraint? |
 |---|---|---|---|---|
-| TPT | Group A (Strict News Discipline) leader | Yes | No | No |
+| TPT | Group A (Strict News Discipline) follower (flipped Sep 3, 2026) | Yes | No | No |
 | Lucid (LucidFlex25) | Group A (Strict News Discipline) follower | Yes | No | No |
 | TopOneFutures | Group B (TopOne Derived) leader | Yes, conditionally | No (but written confirmation recommended for this pairing) | Yes — same size required |
 | Apex-11 / Apex-12 | Group B (TopOne Derived) followers | Yes, conditionally | No — Apex support confirmed directly, keep Tradovate open as manual override | Matched to Top1 (50K=50K) |
