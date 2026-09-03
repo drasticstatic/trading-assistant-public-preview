@@ -81,6 +81,7 @@ Footer format is `Agent · Engine · Model`. Replace with whichever combination 
 - Kavanah, Intent chat UI, native Auggie login: `Kavanah · AugmentIntent · [model]`
 - Kavanah, terminal instance (macOS/Intent/VSCode), Anthropic login: `Kavanah · ClaudeCodeCLI · Anthropic [model]`
 - Mystarch (rare — app-level cross-workspace reach): same engine options as Kavanah, swap the agent name
+- Auggie (native Augment CLI — currently hibernating, may return): `Auggie · AugmentCLI · [model]`
 
 `ClaudeCodeCLI` applies whether the session is a plain native terminal or a terminal-instance
 session launched from inside Intent/VSCode — `ClaudeMent` is reserved specifically for Intent's own
