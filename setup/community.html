@@ -73,7 +73,7 @@
     .eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
     h1 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: .6rem; }
     h1 span { background: linear-gradient(120deg, var(--gold), var(--rose)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .lede { color: var(--muted); font-size: .9rem; max-width: 720px; margin-bottom: 2rem; }
+    .lede { color: var(--muted); font-size: .9rem; max-width: none; margin-bottom: 2rem; }
 
     /* ── One orchestrated entrance: hero settles in, then the Friends
        marquee follows right after — the only scripted reveal on this
@@ -215,8 +215,9 @@
     .friend-card:hover { border-color: var(--gold); transform: translateY(-3px) scale(1.015); }
     .friend-art {
       aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
-      font-size: 2.6rem;
+      font-size: 2.6rem; filter: saturate(.55) brightness(.72);
     }
+    .friend-art i { color: rgba(255,255,255,.94); filter: drop-shadow(0 1px 4px rgba(0,0,0,.4)); }
     .friend-card-body { padding: .8rem .9rem .9rem; text-align: center; }
     .friend-name { font-size: .84rem; font-weight: 800; color: var(--text); margin-bottom: .15rem; }
     .friend-role { font-size: .7rem; color: var(--subtle); margin-bottom: .6rem; }
@@ -274,107 +275,113 @@
     <p class="lede hero-in d2">None of this trading journey happened alone. This page names the people, communities, and platforms that made the difference — coaches, a copy-trading community that turned into an unexpected gift, and the tools this whole build runs on.</p>
 
     <div class="sec-label"><i data-lucide="graduation-cap"></i> Mentors</div>
-    <p class="sec-sub">Three coaching programs, each bringing something different — see <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/progression/pattern_tracker.md" target="_blank" rel="noreferrer">pattern_tracker.md</a>'s "Trading Style" note for how these actually blend day to day.</p>
+    <p class="sec-sub">Three coaching programs, each bringing something different — see <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/progression/pattern_tracker.md" target="_blank" rel="noreferrer">pattern_tracker.md</a>'s "Trading Style" note for how these actually blend day to day</p>
     <div class="thanks-grid">
       <div class="thanks-card glass">
         <h3><i data-lucide="brain"></i> Inevitrade (IT)</h3>
         <p class="flavor-tag">Smart money</p>
-        <p>Foundation EMAs, SMT divergence, and the longest-running relationship in this whole trading arc.</p>
+        <p>Foundation EMAs, SMT divergence, and the longest-running relationship in this whole trading arc</p>
         <a class="review-link" href="https://www.trustpilot.com/review/inevitrade.com" target="_blank" rel="noreferrer"><i data-lucide="star"></i> Trustpilot ↗</a>
       </div>
       <div class="thanks-card glass">
         <h3><i data-lucide="book-open-text"></i> SmartTradingBlueprint (STB)</h3>
         <p class="flavor-tag">Depth</p>
-        <p>FCR (First Candle Rule) and the deep case-study habit that shows up throughout this repo.</p>
+        <p>FCR (First Candle Rule) and the deep case-study habit that shows up throughout this repo</p>
         <a class="review-link" href="https://www.trustpilot.com/review/smarttradingblueprint.com" target="_blank" rel="noreferrer"><i data-lucide="star"></i> Trustpilot ↗</a>
       </div>
       <div class="thanks-card glass">
         <h3><i data-lucide="target"></i> ZeroToHero (ZTH)</h3>
         <p class="flavor-tag">Base-hit-minded</p>
-        <p>Setups looked for all session long, and the base-hit discipline behind the "securing base hits" approach.</p>
+        <p>Setups looked for all session long, and the base-hit discipline behind the "securing base hits" approach</p>
         <a class="review-link" href="https://www.trustpilot.com/review/zerotohero.trade" target="_blank" rel="noreferrer"><i data-lucide="star"></i> Trustpilot ↗</a>
       </div>
     </div>
 
     <div id="friends-top" class="sec-label"><i data-lucide="users"></i> Friends</div>
-    <p class="sec-sub">The people behind the programs, the community, and the tools — direct links, not just program pills. Every card below links to Instagram (<i data-lucide="instagram"></i>). More get added as the circle grows (a prop-firm founder-friend or two may sneak in here later).</p>
+    <p class="sec-sub">The people behind the programs, the community, and the tools — direct links, not just program pills. Every card below links to Instagram (<i data-lucide="instagram"></i>). More get added as the circle grows (a prop-firm founder-friend or two may sneak in here later)</p>
     <div class="friends-wrap" id="friendsWrap">
       <div class="friends-track" id="friendsTrack"></div>
     </div>
 
     <div id="pfm" class="sec-label"><i data-lucide="tv"></i> Shoutout</div>
-    <p class="sec-sub">PropFirmMatchTV and MarketButcher — fun over fear, and the content/perspective that goes with it.</p>
+    <p class="sec-sub">PropFirmMatchTV and MarketButcher — fun over fear, and the content/perspective that goes with it</p>
     <div class="preview-grid">
       <div class="preview-card glass">
-        <a class="preview-banner" href="https://propfirmmatch.com/futures" target="_blank" rel="noreferrer" style="background-color:#1a1230;background-image:url('https://propfirmmatch.com/og/homepage.jpg');background-size:contain;background-repeat:no-repeat;background-position:center;"></a>
+        <a class="preview-banner youtube" href="https://www.youtube.com/@propfirmmatch" target="_blank" rel="noreferrer" style="background-color:#1a1230;background-image:url('https://yt3.googleusercontent.com/C7qZKkPiURZpfelvBU-nCAr42vMELcKDwEnonNH4N4O0gFLVS6dt-82pBdmCuDzjeabdrIcx_eM=s900-c-k-c0x00ffffff-no-rj');background-size:150%;background-repeat:no-repeat;background-position:center;">
+          <div class="yt-play"><i data-lucide="play"></i></div>
+        </a>
         <div class="preview-body">
-          <a class="preview-title" href="https://propfirmmatch.com/futures" target="_blank" rel="noreferrer"><i data-lucide="tv"></i> PropFirmMatchTV</a>
-          <p class="preview-desc">A live-stream community built around prop-firm challenges, giveaways, and genuinely fun energy around a grind that can otherwise get heavy. Hosts + direct links: see the <a href="#friends-top">Friends marquee</a> above. More on the copy-trading plan it kicked off: <a href="https://drasticstatic.github.io/trading-assistant-public-preview/data/progression/gallery.html#copy-trading" target="_blank" rel="noreferrer">gallery.html's Copy Trading section ↗</a>.</p>
-          <button type="button" class="story-trigger" onclick="event.preventDefault(); openModal('duckModal')">🦆 The Duck Race Story</button>
-          <br>
-          <a class="preview-domain" href="https://propfirmmatch.com/futures" target="_blank" rel="noreferrer"><i data-lucide="link"></i> propfirmmatch.com</a>
+          <div class="yt-brand">YouTube · Channel</div>
+          <a class="preview-title" href="https://www.youtube.com/@propfirmmatch" target="_blank" rel="noreferrer"><i data-lucide="tv"></i> PropFirmMatchTV</a>
+          <p class="preview-desc"><em>Trusted platform to compare trading firms and challenges — verified data and insights, reviews, rules, rankings, loyalty rewards, and tracking.</em></p>
+          <p class="preview-desc">A live-stream community built around prop-firm challenges, giveaways, and genuinely fun energy around a grind that can otherwise get heavy. Hosts + direct links: see the <a href="#friends-top">Friends marquee</a> above. More on the copy-trading plan it kicked off: <a href="#copy-trading" onclick="event.preventDefault(); openModal('copyTradingModal')">the Copy-Trading plan ↗</a></p>
+          <button type="button" class="story-trigger" onclick="openModal('duckModal')">🦆 The Duck Race Story</button>
+          <a class="story-trigger" href="https://propfirmmatch.com/futures" target="_blank" rel="noreferrer" style="margin-left:.35rem;"><i data-lucide="link"></i> propfirmmatch.com ↗</a>
         </div>
       </div>
       <a class="preview-card glass" href="https://www.youtube.com/@MarketButcher" target="_blank" rel="noreferrer">
-        <div class="preview-banner youtube" style="background-color:#1a0505;background-image:url('https://yt3.googleusercontent.com/NzTyeFW5UcEDLlj3WSzji5yBb5tySka510a44aiu_O5_as92jDZDYk8Uva_No0FFp0F1WaL2SQ=s900-c-k-c0x00ffffff-no-rj');background-size:contain;background-repeat:no-repeat;background-position:center;">
+        <div class="preview-banner youtube" style="background-color:#1a0505;background-image:url('https://yt3.googleusercontent.com/NzTyeFW5UcEDLlj3WSzji5yBb5tySka510a44aiu_O5_as92jDZDYk8Uva_No0FFp0F1WaL2SQ=s900-c-k-c0x00ffffff-no-rj');background-size:150%;background-repeat:no-repeat;background-position:center;">
           <div class="yt-play"><i data-lucide="play"></i></div>
         </div>
         <div class="preview-body">
           <div class="yt-brand">YouTube · Channel</div>
           <div class="preview-title"><i data-lucide="clapperboard"></i> Dave Butcher — MarketButcher</div>
-          <p class="preview-desc">Thanks for the content and perspective.</p>
+          <p class="preview-desc">Thanks for the content and perspective</p>
           <div class="preview-domain"><i data-lucide="link"></i> youtube.com/@MarketButcher</div>
         </div>
       </a>
     </div>
 
     <div id="thegexlab" class="sec-label"><i data-lucide="flask-conical"></i> TheGexLab</div>
-    <p class="sec-sub">Equal billing with PFM above, not a subsection of it — a different kind of thank-you, for a different kind of tool.</p>
+    <p class="sec-sub">Equal billing with PFM above, not a subsection of it — a different kind of thank-you, for a different kind of tool</p>
     <div class="pfm-panel glass">
       <h3><i data-lucide="flask-conical"></i> TMade × TheGexLab</h3>
-      <p>TMade partnered with Yush to build TheGexLab — real-time dealer positioning (put/call walls, zero gamma, and the regime read that says whether the market's pinned or primed to run) laid directly onto the chart. Their Asia-session read is nicknamed "night-vision" — which lands close to home, since our own ETH-derived ZTH levels in the auto-levels indicator render green vs. cyan for exactly that reason. Years of building this system, and it's still finding new confluence to lean on.</p>
-      <p>Partner access: <a href="https://www.thegexlab.com/tmade" target="_blank" rel="noreferrer">thegexlab.com/tmade ↗</a> — <span class="partner-code">code TMADE</span> for 20% off. This is a gated partner link, not the public marketing site.</p>
-      <p class="gexlab-note">⚠️ Note for anyone typing this by hand: the bare <code>thegexlab.com</code> domain currently resolves to a parked GoDaddy page, not the real site — only <code>www.thegexlab.com/tmade</code> (with the <code>www.</code>) works. Flagged to Yush; use the link above until it's fixed.</p>
+      <p>TMade partnered with Yush to build TheGexLab — real-time dealer positioning (put/call walls, zero gamma, and the regime read that says whether the market's pinned or primed to run) laid directly onto the chart. Their Asia-session read is nicknamed "night-vision" — which lands close to home, since our own ETH-derived ZTH levels in the auto-levels indicator render green vs. cyan for exactly that reason. Years of building this system, and it's still finding new confluence to lean on</p>
+      <p>Partner access: <a href="https://www.thegexlab.com/tmade" target="_blank" rel="noreferrer">thegexlab.com/tmade ↗</a> — <span class="partner-code">code TMADE</span> for 20% off. This is a gated partner link, not the public marketing site</p>
+      <p class="gexlab-note">⚠️ Note for anyone typing this by hand: the bare <code>thegexlab.com</code> domain currently resolves to a parked GoDaddy page, not the real site — only <code>www.thegexlab.com/tmade</code> (with the <code>www.</code>) works. Flagged to Yush; use the link above until it's fixed</p>
     </div>
 
-    <div class="sec-label"><i data-lucide="repeat"></i> Copy-Trading Tools</div>
-    <p class="sec-sub">The actual plan: full writeup and account structure in <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-Scaling-SOP-%26-Implementation.md" target="_blank" rel="noreferrer">the Scaling SOP doc ↗</a>. Both tools linked below — this isn't about elevating one over the other.</p>
+    <div id="copy-trading" class="sec-label"><i data-lucide="repeat"></i> Copy-Trading</div>
+    <p class="sec-sub">TradeCopia and Tradesyncer, plus the full account-structure plan — consolidated to one modal here instead of scattered across pages</p>
     <div class="tools-grid">
       <div id="tradecopia" class="tool-card glass">
         <h4><i data-lucide="repeat"></i> TradeCopia</h4>
-        <p>The tool actually being set up — per-follower position sizing/multipliers, so a follower account scales independently rather than mirroring a flat 1:1 lot size. The actual account-structure plan lives with its sibling doc: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-Scaling-SOP-%26-Implementation.md" target="_blank" rel="noreferrer">Scaling SOP ↗</a>.</p>
+        <p>The tool actually being set up — per-follower position sizing and multipliers, so a smaller account scales down independently rather than mirroring a flat 1:1 lot size</p>
         <a class="review-link" href="https://tradecopia.com" target="_blank" rel="noreferrer"><i data-lucide="link"></i> tradecopia.com ↗</a>
       </div>
       <div id="tradesyncer" class="tool-card glass">
         <h4><i data-lucide="repeat"></i> Tradesyncer</h4>
-        <p>The other option researched — cloud-based, sub-100ms, cross-broker (Tradovate ↔ NinjaTrader/Apex). Already in use by Inevitrade and STB. Genuinely considered, not just a footnote — TradeCopia won out because it's what surfaced through the PFM/TheGexLab community context, not a cold comparison.</p>
+        <p>The other option researched — cloud-based, sub-100ms, cross-broker (Tradovate ↔ NinjaTrader/Apex), already in use by Inevitrade and STB. TradeCopia won out because it's what surfaced through the PFM/TheGexLab community context, not a cold comparison</p>
         <a class="review-link" href="https://www.tradesyncer.com" target="_blank" rel="noreferrer"><i data-lucide="link"></i> tradesyncer.com ↗</a>
       </div>
     </div>
+    <div style="text-align:center; margin-top:1.1rem;">
+      <button type="button" class="story-trigger" onclick="openModal('copyTradingModal')" style="font-size:.82rem; padding:.4rem 1.1rem;"><i data-lucide="layout-panel-top"></i> View Full Copy-Trading Plan ↗</button>
+    </div>
 
     <div class="sec-label"><i data-lucide="wrench"></i> External Resources</div>
-    <p class="sec-sub">Thanks to the platforms that make this whole build possible — deeper how-to context for these lives on <a href="../data/progression/resources.html">resources.html</a>.</p>
+    <p class="sec-sub">Thanks to the platforms that make this whole build possible — deeper how-to context for these lives on <a href="../data/progression/resources.html">resources.html</a></p>
     <div class="ext-grid">
       <a class="ext-card" href="https://www.tradingview.com" target="_blank" rel="noreferrer">
         <h4><i data-lucide="line-chart"></i> TradingView</h4>
-        <p>Charting, level marking, and screenshot capture for every review in this repo.</p>
+        <p>Charting, level marking, and screenshot capture for every review in this repo</p>
         <span class="ext-link-row"><i data-lucide="link"></i> tradingview.com ↗</span>
       </a>
       <a class="ext-card" href="https://www.tradezella.com" target="_blank" rel="noreferrer">
         <h4><i data-lucide="bar-chart-3"></i> TradeZella</h4>
-        <p>Where the trade-journaling habit started — the origin story kept intact on gallery.html.</p>
+        <p>Where the trade-journaling habit started — the origin story kept intact on gallery.html</p>
         <span class="ext-link-row"><i data-lucide="link"></i> tradezella.com ↗</span>
       </a>
       <a class="ext-card" href="https://www.btcc.com" target="_blank" rel="noreferrer">
         <h4><i data-lucide="bitcoin"></i> BTCC</h4>
-        <p>Crypto execution venue for SOL/USDT perp trades.</p>
+        <p>Crypto execution venue for SOL/USDT perp trades</p>
         <span class="ext-link-row"><i data-lucide="link"></i> btcc.com ↗</span>
       </a>
     </div>
 
     <div class="sec-label"><i data-lucide="link"></i> Affiliates</div>
     <div class="affiliate-panel">
-      <p>Not currently affiliated with anyone. Everything above is genuine thanks, not a paid partnership — this section stays honest and empty until (if ever) that changes.</p>
+      <p>Not currently affiliated with anyone. Everything above is genuine thanks, not a paid partnership — this section stays honest and empty until (if ever) that changes</p>
     </div>
   </main>
 
@@ -382,13 +389,30 @@
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal('duckModal')">✕</button>
       <div class="modal-title">🦆 The Duck Race Story</div>
-      <p>A free Lucid futures account was won here via an on-stream duck race — first prize surfaced through community, not purchased. PropFirmMatchTV runs live-stream giveaways with a Discord + access-code flow, and this particular race is how Lucid ended up on the roster at all: a redemption code good toward a 25K account, style still being decided (see <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-account-types-comparison.md" target="_blank" rel="noreferrer">the comparison doc</a> for that analysis). Genuinely unexpected, genuinely appreciated.</p>
+      <p>A free Lucid futures account was won here via an on-stream duck race — first prize surfaced through community, not purchased. PropFirmMatchTV runs live-stream giveaways with a Discord + access-code flow, and this particular race is how Lucid ended up on the roster at all: a redemption code good toward a 25K account, style already decided in the account-structure plan above (25K follows, doesn't lead — see the <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-account-types-comparison.md" target="_blank" rel="noreferrer">comparison doc</a> for the style analysis behind it)</p>
+      <p>Why it landed harder than "free 25K account": by July 20, a Lucid account had already been created specifically to dodge the 30-day eval-subscription clock TPT was running — this was around the time Apex Legacy accounts stopped being purchasable outright. Even so, a Lucid eval itself was never actually bought — TopOne's BOGO deal and TPT's 50AND3 offer had already covered enough ground. In a moment of prayer, weighing whether to even enter the giveaway at all while already juggling three funded accounts and two Apex renewals, the honest answer was: enough is enough for now — and that was said out loud, gratefully, as a letting go, not a complaint</p>
+      <p>Then the name got called. During Alex's hosting slot, using the code "tmade" — and hearing it live was genuinely a "wait, seriously?" moment, followed by tears. Not because of the account's dollar value, but because of how the whole journey had been unfolding up to that point. The gratitude here runs deeper than the outcome itself — it's encouragement, hope, and a real opportunity to level up and actually learn TradeCopia, scaling, and Lucid properly, rather than something owed or expected</p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="copyTradingModal" onclick="if(event.target===this)closeModal('copyTradingModal')">
+    <div class="modal-box" style="max-width:640px;">
+      <button class="modal-close" onclick="closeModal('copyTradingModal')">✕</button>
+      <div class="modal-title"><i data-lucide="repeat"></i> The Copy-Trading Plan</div>
+      <p>Two groups, split by drawdown mechanic (Intraday vs. EOD) rather than by firm — whichever account has the most trading history on a given mechanic leads its group, and everything else follows it, scaled down through TradeCopia's per-follower quantity multiplier rather than mirrored 1:1</p>
+      <p><strong>Intraday — led by TPT</strong> (50K, fully scaled at funded). Followers: the Apex Legacy accounts, and any future Apex New Intraday or LucidDaily accounts</p>
+      <p><strong>EOD — led by TopOneFutures</strong> (Elite ACCESS, funded). Followers: the incoming 25K Lucid account (see the 🦆 story above), and any future Apex New EOD accounts</p>
+      <p>Why the 25K Lucid account follows rather than leads: it's brand new with no track record yet, and TradeCopia's actual value here is letting a newer or smaller account scale down safely from a proven leader — not the reverse</p>
+      <p>Risk controls being set up alongside the multiplier: hedge prevention (no opposing/reversed positions across accounts), a position reconciler with auto-exit on mismatch, auto-flatten when the leader goes flat, and per-account loss-limit/consistency-rule accountability</p>
+      <p>Session-close discipline: TopOne 4:10pm ET → Lucid 4:45pm ET → TPT 4:55pm ET → Apex 4:59pm ET — personal target is flat everywhere by 4:45pm ET</p>
+      <p>Full writeup: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-Scaling-SOP-%26-Implementation.md" target="_blank" rel="noreferrer">Scaling SOP doc ↗</a>. Setting it up hands-on with Claude in Chrome: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-claude-chrome-setup-guide.md" target="_blank" rel="noreferrer">TradeCopia + Claude in Chrome setup guide ↗</a></p>
     </div>
   </div>
 
   <footer class="footer">
     <p><i data-lucide="hand-heart"></i> Community &amp; Thanks · Christopher Wilson · Part of the <a href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer">Trading Assistant</a> public preview</p>
-    <p>Gratitude is the whole point of this page.</p>
+    <p>Gratitude is the whole point of this page</p>
+    <p>Not financial advice — everything here is personal experience and documentation, not a trading or risk-management recommendation. Verify any firm's rules directly before relying on them.</p>
   </footer>
 
   <script>
@@ -489,6 +513,10 @@
       if (e.key !== 'Escape') return;
       document.querySelectorAll('.modal-overlay.open').forEach(el => closeModal(el.id));
     });
+    // Cross-page links landing on #copy-trading (from gallery.html /
+    // prop-firm-rules.html) scroll to the section AND pop the full modal,
+    // so the linked-to content feels immediately present, not buried.
+    if (window.location.hash === '#copy-trading') openModal('copyTradingModal');
 
     // ═══════════════════════════════════════════════════════
     // Lucide icons (called after renderFriends so
