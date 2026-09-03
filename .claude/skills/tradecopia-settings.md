@@ -18,7 +18,7 @@ Repeatable procedure for changing TradeCopia's live configuration — adding an 
 
 ## Before Starting
 
-1. Read `specs/TradeCopia_workflow.md` — confirm the current Group A / Group B structure and which accounts are leaders vs. followers before changing anything.
+1. Read `specs/TradeCopia_workflow.md` — confirm the current Group A (Strict News Discipline) / Group B (TopOne Derived) structure and which accounts are leaders vs. followers before changing anything.
 2. If the change involves a **new account on a firm not already in the compliance memo's summary table**, check that firm's own rules doc (`setup/accounts/PropFirms/{firm}/`) for a copier-approval requirement or size-matching restriction *before* wiring it in — Apex requires pre-approval, TopOneFutures requires same-size cross-firm pairings. Don't assume a new firm is unrestricted just because the four already documented aren't uniform.
 3. Confirm TradeCopia is the **Pro+ Lite (browser)** tier, not the desktop "Local Trade Copier" — Claude-in-Chrome only works on the former (see the tier caveat in `specs/TradeCopia_workflow.md`).
 

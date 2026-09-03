@@ -2,7 +2,7 @@
 
 A short guide to having Claude help configure [TradeCopia](https://tradecopia.com) — a cloud-based futures copy-trading tool — directly inside your browser, rather than clicking through every setting by hand. Written from real setup experience on TradeCopia **Pro+ Lite**; the steps apply to Pro+ generally.
 
-This is a setup guide, not financial advice — see the disclaimer at the bottom.
+This is a setup guide, not financial advice — see the disclaimer at the bottom. For worked examples of what each risk toggle actually does once you're inside the group-settings screen, see `tradecopia-risk-toggle-deep-dive.md` in this same folder.
 
 ---
 
