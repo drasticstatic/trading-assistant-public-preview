@@ -34,7 +34,7 @@ flag any trades missing a review file.
 
 ### TopOne eval-pass edge case
 
-TopOneFutures revokes Tradovate access instantly the moment an eval is passed, so there's no way to re-pull a Tradovate-format export after a pass — only TopOne's own CSV schema is available. Reshape it to match Tradovate's `Orders-N.csv` column layout before archiving/importing, so the rest of this pipeline (STB push, TradeZella ingestion) works unchanged. Verify the conversion via P&L reconciliation math (contract multiplier × points = P&L) before trusting the output — this is how the Orders-102/103 conversion was verified.
+TopOneFutures revokes Tradovate access instantly the moment an eval is passed, so there's no way to re-pull a Tradovate-format export after a pass. **There is no downloadable CSV export on TopOne's own site either** — the only way to get the data out is Christopher opening TopOne's trade history in a browser, copying it, pasting into Apple Numbers, then exporting that to CSV. That Numbers-exported CSV is the raw source (e.g. `Orders-100_TOF189562-Trade-History_...csv`) — reshape it to match Tradovate's `Orders-N.csv` column layout before archiving/importing, so the rest of this pipeline (STB push, TradeZella ingestion) works unchanged. Verify the conversion via P&L reconciliation math (contract multiplier × points = P&L) before trusting the output — this is how the Orders-102/103 conversion was verified. Archive both the raw Numbers-exported CSV and the reshaped version (suffix the raw one `_raw-topone-export` so the actually-ledgered file stays unambiguous) — the raw copy is the only record of exactly what TopOne showed, worth keeping even though it's not what gets parsed.
 
 ## File Naming and Location
 
