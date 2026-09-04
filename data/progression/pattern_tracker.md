@@ -850,12 +850,29 @@ Aug 31 – Sep 1  ████████████████░░  ✅ TA
 Each session: append a new row to the **Trade Log** table, a new row to **Behavioral Progression**, update **Running P&L**, and add any new **Patterns Identified**. Individual trade reviews link here for the broader arc view.
 
 Links to individual reviews:
+
+<details>
+<summary><strong>Feb 2025</strong> (1 review)</summary>
+
+- [Feb 10 — API3USDT BTCC #001](../../smarttrader-ai/reviews/2025/review_20250210_API3USDT-BTCC_001.md)
+
+</details>
+
+<details>
+<summary><strong>Feb 2026</strong> (6 reviews)</summary>
+
 - [Feb 23 — MNQ Short](../../smarttrader-ai/reviews/2026/02-Feb/review_20260223_MNQ-APEX_001.md)
 - [Feb 24 — MES Long](../../smarttrader-ai/reviews/2026/02-Feb/review_20260224_MES-APEX_001.md)
 - [Feb 25 — MNQ Long](../../smarttrader-ai/reviews/2026/02-Feb/review_20260225_MNQ-APEX_001.md)
 - [Feb 25 — SOL Long](../../smarttrader-ai/reviews/2026/02-Feb/review_20260225_SOLUSDT-BTCC_002.md)
 - [Feb 26 — MNQ Short](../../smarttrader-ai/reviews/2026/02-Feb/review_20260226_MNQ-APEX_001.md)
 - [Feb 27 — MNQ Short (no fill)](../../smarttrader-ai/reviews/2026/02-Feb/review_20260227_MNQ-APEX_001.md)
+
+</details>
+
+<details>
+<summary><strong>Mar 2026</strong> (17 reviews)</summary>
+
 - [Mar 2 — YM Long T1](../../smarttrader-ai/reviews/2026/03-Mar/review_20260302_YM-APEX_001.md)
 - [Mar 2 — ES Short T2 (A+)](../../smarttrader-ai/reviews/2026/03-Mar/review_20260302_ES-APEX_002.md)
 - [Mar 2 — ES Short T3 (re-entry)](../../smarttrader-ai/reviews/2026/03-Mar/review_20260302_ES-APEX_003.md)
@@ -873,15 +890,308 @@ Links to individual reviews:
 - [Mar 26 — MCL Long (-$300 · TPT · news candle)](../../smarttrader-ai/reviews/2026/03-Mar/review_20260326_MCL-TPT_001.md)
 - [Mar 26 — MGC Short (+$94 · TPT · stop hunt survival)](../../smarttrader-ai/reviews/2026/03-Mar/review_20260326_MGC-TPT_002.md)
 - [Mar 26–27 — MGC Short (-$1,794 · TPT · overnight · account blown)](../../smarttrader-ai/reviews/2026/03-Mar/review_20260326_MGC-TPT_003.md)
+
+</details>
+
+<details>
+<summary><strong>Apr 2026</strong> (11 reviews)</summary>
+
 - [Apr 8 — SOL Short (~-$22 · BTCC voucher · AutoLiq)](../../smarttrader-ai/reviews/2026/04-Apr/review_20260408_SOLUSDT-BTCC_001.md)
 - [Apr 17 — M2K Short (-$87 · APEX · overnight limit · Pattern 8)](../../smarttrader-ai/reviews/2026/04-Apr/review_20260417_M2K-APEX_001.md)
 - [Apr 21 — MCL Short (+$141 · APEX · ZTH Pivot · Pattern 7 · 43% efficiency)](../../smarttrader-ai/reviews/2026/04-Apr/review_20260421_MCL-APEX_001.md)
 - [Apr 23 — RTY Long (-$140 · APEX · ZTH SFP sweep · Pattern 7+8 · AutoLiq)](../../smarttrader-ai/reviews/2026/04-Apr/review_20260423_RTY-APEX_001.md)
 - [Apr 23 — YM Long (+$1,095 · APEX · ZTH SFP sweep · Zella 95.22 · TP filled)](../../smarttrader-ai/reviews/2026/04-Apr/review_20260423_YM-APEX_002.md)
 - [Apr 27 — MGC Long (+$22 · TPT · FOMO forced entry · TP placed 41s post-entry · Pattern 8 not triggered)](../../smarttrader-ai/reviews/2026/04-Apr/review_20260427_MGC-TPT_001.md)
+- [Apr 28 — MGC TPT #001](../../smarttrader-ai/reviews/2026/04-Apr/review_20260428_MGC-TPT_001.md)
 - [Apr 29 — RTY Short (+$1,540 · TPT · ZTH Pivot · active exit · Pattern 8 improvement · Zella 85.56)](../../smarttrader-ai/reviews/2026/04-Apr/review_20260429_RTY-TPT_001.md)
 - [Apr 29 — YM Long (−$1,205 · TPT · counter-trend entry · Pattern 8 · Zella −97.97 · held all day)](../../smarttrader-ai/reviews/2026/04-Apr/review_20260429_YM-TPT_002.md)
 - [Apr 29 — MCL Short (+$20 · TPT · revenge trade · 44 sec · no plan · Zella 71.43)](../../smarttrader-ai/reviews/2026/04-Apr/review_20260429_MCL-TPT_003.md)
+- [Apr 30 — YM TPT #001](../../smarttrader-ai/reviews/2026/04-Apr/review_20260430_YM-TPT_001.md)
+
+</details>
+
+<details>
+<summary><strong>May 2026</strong> (12 reviews)</summary>
+
+- [May 2 — SOL BTCC #001](../../smarttrader-ai/reviews/2026/05-May/review_20260502_SOL-BTCC_001.md)
+- [May 6 — RTY APEX #001](../../smarttrader-ai/reviews/2026/05-May/review_20260506_RTY-APEX_001.md)
+- [May 8 — RTY APEX #001](../../smarttrader-ai/reviews/2026/05-May/review_20260508_RTY-APEX_001.md)
+- [May 14 — RTY APEX06 #001](../../fortuna-exports/trade-reviews/2026/05-May/review_20260514_RTY-APEX06_001.md)
+- [May 20 — RTY TPT861085464 #001](../../fortuna-exports/trade-reviews/2026/05-May/review_20260520_RTY-TPT861085464_001.md)
+- [May 20 — YM TPT861085464 #002](../../fortuna-exports/trade-reviews/2026/05-May/review_20260520_YM-TPT861085464_002.md)
+- [May 21 — RTY TPT861085464 #001](../../fortuna-exports/trade-reviews/2026/05-May/review_20260521_RTY-TPT861085464_001.md)
+- [May 26 — RTY TPT861085464 #001](../../fortuna-exports/trade-reviews/2026/05-May/review_20260526_RTY-TPT861085464_001.md)
+- [May 27 — ES TPT861085464 #001](../../fortuna-exports/trade-reviews/2026/05-May/review_20260527_ES-TPT861085464_001.md)
+- [May 27 — ES APEXPA01 #002](../../fortuna-exports/trade-reviews/2026/05-May/review_20260527_ES-APEXPA01_002.md)
+- [May 28 — ES APEXPA01 #001](../../fortuna-exports/trade-reviews/2026/05-May/review_20260528_ES-APEXPA01_001.md)
+- [May 29 — M2K TPT861085464 #001](../../fortuna-exports/trade-reviews/2026/05-May/review_20260529_M2K-TPT861085464_001.md)
+
+</details>
+
+<details>
+<summary><strong>Jun 2026</strong> (43 reviews)</summary>
+
+- [Jun 2 — M2K APEXPA01 #001](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260602_M2K-APEXPA01_001.md)
+- [Jun 3 — MYM TPTPRO311919544 #001](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260603_MYM-TPTPRO311919544_001.md)
+- [Jun 4 — MYM TPTPRO311919544 #001](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260604_MYM-TPTPRO311919544_001.md)
+- [Jun 4 — MYM APEXPA01 #002](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260604_MYM-APEXPA01_002.md)
+- [Jun 5 — MYM APEXPA01 #001](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260605_MYM-APEXPA01_001.md)
+- [Jun 9 — MYM TPTPRO311919544 #001](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260609_MYM-TPTPRO311919544_001.md)
+- [Jun 9 — MYM TPTPRO311919544 #002](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260609_MYM-TPTPRO311919544_002.md)
+- [Jun 9 — M2K TPTPRO311919544 #003](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260609_M2K-TPTPRO311919544_003.md)
+- [Jun 9 — M2K TPTPRO311919544 #004](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260609_M2K-TPTPRO311919544_004.md)
+- [Jun 9 — M2K APEXPA01 #005](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260609_M2K-APEXPA01_005.md)
+- [Jun 9 — M2K APEXPA01 #006](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260609_M2K-APEXPA01_006.md)
+- [Jun 9 — MYM APEXPA01 #007](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260609_MYM-APEXPA01_007.md)
+- [Jun 9 — MYM APEXPA01 #008](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260609_MYM-APEXPA01_008.md)
+- [Jun 10 — M2K TPTPRO311919544 #001](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260610_M2K-TPTPRO311919544_001.md)
+- [Jun 10 — M2K APEXPA01 #002](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260610_M2K-APEXPA01_002.md)
+- [Jun 11 — MYM TPTPRO311919544 #001](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260611_MYM-TPTPRO311919544_001.md)
+- [Jun 11 — MYM TPTPRO311919544 #002](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260611_MYM-TPTPRO311919544_002.md)
+- [Jun 11 — MYM TPTPRO311919544 #003](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260611_MYM-TPTPRO311919544_003.md)
+- [Jun 11 — M2K TPTPRO311919544 #004](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260611_M2K-TPTPRO311919544_004.md)
+- [Jun 11 — M2K TPTPRO311919544 #005](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260611_M2K-TPTPRO311919544_005.md)
+- [Jun 11 — M2K TPTPRO311919544 #006](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260611_M2K-TPTPRO311919544_006.md)
+- [Jun 11 — M2K APEXPA01 #007](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260611_M2K-APEXPA01_007.md)
+- [Jun 11 — M2K APEXPA01 #008](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260611_M2K-APEXPA01_008.md)
+- [Jun 11 — M2K APEXPA01 #009](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260611_M2K-APEXPA01_009.md)
+- [Jun 11 — MYM APEXPA01 #010](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260611_MYM-APEXPA01_010.md)
+- [Jun 11 — MYM APEXPA01 #011](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260611_MYM-APEXPA01_011.md)
+- [Jun 11 — MYM APEXPA01 #012](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260611_MYM-APEXPA01_012.md)
+- [Jun 12 — MYM TPT718652247 #001](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260612_MYM-TPT718652247_001.md)
+- [Jun 12 — MYM APEX07 #002](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260612_MYM-APEX07_002.md)
+- [Jun 15 — MES TPT718652247 #001](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260615_MES-TPT718652247_001.md)
+- [Jun 15 — MES APEX07 #002](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260615_MES-APEX07_002.md)
+- [Jun 16 — M2K TPT718652247 #001](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260616_M2K-TPT718652247_001.md)
+- [Jun 16 — M2K APEX07 #002](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260616_M2K-APEX07_002.md)
+- [Jun 17 — MYM TPT718652247 #001](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260617_MYM-TPT718652247_001.md)
+- [Jun 17 — MYM APEX07 #002](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260617_MYM-APEX07_002.md)
+- [Jun 18 — MYM APEX07 #001](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260618_MYM-APEX07_001.md)
+- [Jun 18 — MYM TPT718652247 #002](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260618_MYM-TPT718652247_002.md)
+- [Jun 18 — MNQ TPT718652247 #003](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260618_MNQ-TPT718652247_003.md)
+- [Jun 18 — MNQ APEX07 #004](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260618_MNQ-APEX07_004.md)
+- [Jun 24 — M2K TPT718652247 #001](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260624_M2K-TPT718652247_001.md)
+- [Jun 24 — M2K APEX07 #002](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260624_M2K-APEX07_002.md)
+- [Jun 30 — MNQ TPT718652247 #001](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260630_MNQ-TPT718652247_001.md)
+- [Jun 30 — MNQ APEX07 #002](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260630_MNQ-APEX07_002.md)
+
+</details>
+
+<details>
+<summary><strong>Jul 2026</strong> (30 reviews)</summary>
+
+- [Jul 2 — M2K TPT718652247 #001](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260702_M2K-TPT718652247_001.md)
+- [Jul 2 — M2K APEX07 #002](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260702_M2K-APEX07_002.md)
+- [Jul 2 — M2K TPT718652247 #003](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260702_M2K-TPT718652247_003.md)
+- [Jul 2 — M2K APEX07 #004](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260702_M2K-APEX07_004.md)
+- [Jul 2 — MNQ APEX07 #005](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260702_MNQ-APEX07_005.md)
+- [Jul 2 — MNQ TPT718652247 #006](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260702_MNQ-TPT718652247_006.md)
+- [Jul 3 — MCL TPT718652247 #001](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260703_MCL-TPT718652247_001.md)
+- [Jul 3 — MCL APEX07 #002](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260703_MCL-APEX07_002.md)
+- [Jul 6 — MCL TPT718652247 #001](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260706_MCL-TPT718652247_001.md)
+- [Jul 6 — MCL APEX07 #002](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260706_MCL-APEX07_002.md)
+- [Jul 7 — MCL APEX07 #001](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260707_MCL-APEX07_001.md)
+- [Jul 7 — MCL TPT718652247 #002](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260707_MCL-TPT718652247_002.md)
+- [Jul 9 — MGC TPT718652247 #001](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260709_MGC-TPT718652247_001.md)
+- [Jul 9 — MGC APEX07 #002](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260709_MGC-APEX07_002.md)
+- [Jul 10 — MYM APEX07 #001](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260710_MYM-APEX07_001.md)
+- [Jul 10 — MNQ APEX07 #002](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260710_MNQ-APEX07_002.md)
+- [Jul 10 — MES TPT718652247 #003](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260710_MES-TPT718652247_003.md)
+- [Jul 10 — MYM TPT718652247 #004](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260710_MYM-TPT718652247_004.md)
+- [Jul 10 — MNQ TPT718652247 #005](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260710_MNQ-TPT718652247_005.md)
+- [Jul 21 — M2K APEX08 #001](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260721_M2K-APEX08_001.md)
+- [Jul 23 — MNQ APEX08 #001](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260723_MNQ-APEX08_001.md)
+- [Jul 23 — M2K APEX08 #002](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260723_M2K-APEX08_002.md)
+- [Jul 23 — MCL APEX08 #003](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260723_MCL-APEX08_003.md)
+- [Jul 24 — MCL APEX08 #001](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260724_MCL-APEX08_001.md)
+- [Jul 24 — MCL APEX08 #002](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260724_MCL-APEX08_002.md)
+- [Jul 24 — SOLUSDT BTCC #003](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260724_SOLUSDT-BTCC_003.md)
+- [Jul 30 — MCL APEX08 #001](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260730_MCL-APEX08_001.md)
+- [Jul 30 — MCL APEX08 #002](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260730_MCL-APEX08_002.md)
+- [Jul 31 — M2K APEX08 #001](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260731_M2K-APEX08_001.md)
+- [Jul 31 — MCL APEX08 #002](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260731_MCL-APEX08_002.md)
+
+</details>
+
+<details>
+<summary><strong>Aug 2026</strong> (166 reviews)</summary>
+
+- [Aug 3 — MYM APEX08 #001](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260803_MYM-APEX08_001.md)
+- [Aug 4 — MYM APEX08 #001](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260804_MYM-APEX08_001.md)
+- [Aug 4 — MYM APEX08 #002](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260804_MYM-APEX08_002.md)
+- [Aug 4 — MYM APEX08 #003](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260804_MYM-APEX08_003.md)
+- [Aug 4 — MYM APEX08 #004](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260804_MYM-APEX08_004.md)
+- [Aug 4 — MYM APEX08 #005](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260804_MYM-APEX08_005.md)
+- [Aug 5 — MGC APEX09 #001](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260805_MGC-APEX09_001.md)
+- [Aug 5 — MGC APEX10 #002](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260805_MGC-APEX10_002.md)
+- [Aug 6 — M2K APEX10 #001](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260806_M2K-APEX10_001.md)
+- [Aug 6 — MGC APEX10 #002](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260806_MGC-APEX10_002.md)
+- [Aug 7 — MGC APEX10 #001](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260807_MGC-APEX10_001.md)
+- [Aug 7 — MGC APEX10 #002](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260807_MGC-APEX10_002.md)
+- [Aug 7 — M2K APEX10 #003](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260807_M2K-APEX10_003.md)
+- [Aug 7 — MCL APEX10 #004](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260807_MCL-APEX10_004.md)
+- [Aug 10 — MGC APEX10 #001](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260810_MGC-APEX10_001.md)
+- [Aug 10 — M2K APEX10 #002](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260810_M2K-APEX10_002.md)
+- [Aug 10 — MYM APEX10 #003](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260810_MYM-APEX10_003.md)
+- [Aug 10 — SOLUSDT BTCC #004](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260810_SOLUSDT-BTCC_004.md)
+- [Aug 10 — M2K APEX10 #005](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260810_M2K-APEX10_005.md)
+- [Aug 10 — MCL APEX10 #006](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260810_MCL-APEX10_006.md)
+- [Aug 11 — MYM APEX10 #001](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260811_MYM-APEX10_001.md)
+- [Aug 11 — MNQ APEX10 #002](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260811_MNQ-APEX10_002.md)
+- [Aug 11 — MGC APEX10 #003](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260811_MGC-APEX10_003.md)
+- [Aug 11 — M2K APEX10 #004](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260811_M2K-APEX10_004.md)
+- [Aug 11 — MYM APEX10 #005](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260811_MYM-APEX10_005.md)
+- [Aug 12 — MGC APEX10 #001](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260812_MGC-APEX10_001.md)
+- [Aug 12 — MCL APEX10 #002](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260812_MCL-APEX10_002.md)
+- [Aug 12 — M2K APEX10 #003](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260812_M2K-APEX10_003.md)
+- [Aug 12 — MCL APEX10 #004](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260812_MCL-APEX10_004.md)
+- [Aug 12 — MGC APEX10 #005](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260812_MGC-APEX10_005.md)
+- [Aug 12 — M2K APEX10 #006](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260812_M2K-APEX10_006.md)
+- [Aug 12 — M2K APEX10 #007](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260812_M2K-APEX10_007.md)
+- [Aug 12 — M2K APEX10 #008](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260812_M2K-APEX10_008.md)
+- [Aug 12 — MGC APEX10 #009](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260812_MGC-APEX10_009.md)
+- [Aug 12 — MCL APEX10 #010](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260812_MCL-APEX10_010.md)
+- [Aug 12 — MYM APEX10 #011](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260812_MYM-APEX10_011.md)
+- [Aug 12 — MES APEX10 #012](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260812_MES-APEX10_012.md)
+- [Aug 13 — MCL APEX10 #001](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260813_MCL-APEX10_001.md)
+- [Aug 13 — MYM APEX10 #002](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260813_MYM-APEX10_002.md)
+- [Aug 13 — M2K APEX10 #003](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260813_M2K-APEX10_003.md)
+- [Aug 13 — M2K APEX10 #004](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260813_M2K-APEX10_004.md)
+- [Aug 13 — MCL APEX10 #005](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260813_MCL-APEX10_005.md)
+- [Aug 13 — MGC APEX10 #006](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260813_MGC-APEX10_006.md)
+- [Aug 13 — MGC APEX10 #007](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260813_MGC-APEX10_007.md)
+- [Aug 13 — MES APEX10 #008](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260813_MES-APEX10_008.md)
+- [Aug 13 — MES APEX10 #009](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260813_MES-APEX10_009.md)
+- [Aug 14 — MCL APEX10 #001](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260814_MCL-APEX10_001.md)
+- [Aug 14 — MYM APEX10 #002](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260814_MYM-APEX10_002.md)
+- [Aug 14 — MGC APEX10 #003](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260814_MGC-APEX10_003.md)
+- [Aug 14 — MCL APEX10 #004](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260814_MCL-APEX10_004.md)
+- [Aug 14 — M2K APEX10 #005](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260814_M2K-APEX10_005.md)
+- [Aug 14 — MGC APEX10 #006](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260814_MGC-APEX10_006.md)
+- [Aug 14 — M2K APEX10 #007](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260814_M2K-APEX10_007.md)
+- [Aug 14 — MYM APEX10 #008](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260814_MYM-APEX10_008.md)
+- [Aug 14 — MES APEX10 #009](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260814_MES-APEX10_009.md)
+- [Aug 14 — MES APEX10 #010](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260814_MES-APEX10_010.md)
+- [Aug 17 — MGC APEX10 #001](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260817_MGC-APEX10_001.md)
+- [Aug 17 — MGC APEX10 #002](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260817_MGC-APEX10_002.md)
+- [Aug 17 — MCL APEX10 #003](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260817_MCL-APEX10_003.md)
+- [Aug 17 — MNQ APEX10 #004](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260817_MNQ-APEX10_004.md)
+- [Aug 17 — M2K APEX10 #005](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260817_M2K-APEX10_005.md)
+- [Aug 17 — MCL APEX10 #006](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260817_MCL-APEX10_006.md)
+- [Aug 17 — MNQ APEX10 #007](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260817_MNQ-APEX10_007.md)
+- [Aug 17 — MNQ APEX10 #008](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260817_MNQ-APEX10_008.md)
+- [Aug 18 — M2K APEX10 #001](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260818_M2K-APEX10_001.md)
+- [Aug 18 — MYM APEX10 #002](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260818_MYM-APEX10_002.md)
+- [Aug 18 — M2K APEX10 #003](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260818_M2K-APEX10_003.md)
+- [Aug 18 — MES APEX10 #004](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260818_MES-APEX10_004.md)
+- [Aug 18 — MYM APEX10 #005](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260818_MYM-APEX10_005.md)
+- [Aug 18 — MGC APEX10 #006](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260818_MGC-APEX10_006.md)
+- [Aug 18 — MGC APEX10 #007](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260818_MGC-APEX10_007.md)
+- [Aug 18 — M2K APEX10 #008](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260818_M2K-APEX10_008.md)
+- [Aug 18 — MES APEX10 #009](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260818_MES-APEX10_009.md)
+- [Aug 18 — MCL APEX10 #010](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260818_MCL-APEX10_010.md)
+- [Aug 19 — M2K APEX10 #001](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260819_M2K-APEX10_001.md)
+- [Aug 19 — MCL APEX10 #002](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260819_MCL-APEX10_002.md)
+- [Aug 19 — SOLUSDT BTCC #003](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260819_SOLUSDT-BTCC_003.md)
+- [Aug 21 — M2K TPT917806711 #001](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260821_M2K-TPT917806711_001.md)
+- [Aug 21 — M2K TOF189562 #002](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260821_M2K-TOF189562_002.md)
+- [Aug 24 — M2K TOF189563 #001](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_M2K-TOF189563_001.md)
+- [Aug 24 — M2K TOF189562 #002](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_M2K-TOF189562_002.md)
+- [Aug 24 — M2K TOF189563 #003](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_M2K-TOF189563_003.md)
+- [Aug 24 — M2K TOF189562 #004](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_M2K-TOF189562_004.md)
+- [Aug 24 — M2K TOF189563 #005](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_M2K-TOF189563_005.md)
+- [Aug 24 — MYM TPT917806711 #006](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_MYM-TPT917806711_006.md)
+- [Aug 24 — MYM TOF189562 #007](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_MYM-TOF189562_007.md)
+- [Aug 24 — MYM TOF189562 #008](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_MYM-TOF189562_008.md)
+- [Aug 24 — MYM TOF189563 #009](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_MYM-TOF189563_009.md)
+- [Aug 24 — MYM TOF189563 #010](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_MYM-TOF189563_010.md)
+- [Aug 24 — M2K TPT917806711 #011](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_M2K-TPT917806711_011.md)
+- [Aug 24 — M2K TOF189562 #012](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_M2K-TOF189562_012.md)
+- [Aug 24 — M2K TOF189563 #013](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_M2K-TOF189563_013.md)
+- [Aug 24 — M2K TOF189562 #014](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_M2K-TOF189562_014.md)
+- [Aug 24 — M2K TOF189562 #015](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_M2K-TOF189562_015.md)
+- [Aug 24 — M2K TOF189562 #016](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_M2K-TOF189562_016.md)
+- [Aug 24 — M2K TOF189562 #017](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_M2K-TOF189562_017.md)
+- [Aug 24 — M2K TOF189562 #018](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_M2K-TOF189562_018.md)
+- [Aug 24 — M2K TOF189562 #019](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_M2K-TOF189562_019.md)
+- [Aug 24 — M2K TOF189563 #020](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_M2K-TOF189563_020.md)
+- [Aug 24 — M2K TOF189563 #021](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_M2K-TOF189563_021.md)
+- [Aug 24 — M2K TOF189563 #022](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_M2K-TOF189563_022.md)
+- [Aug 24 — M2K TOF189563 #023](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_M2K-TOF189563_023.md)
+- [Aug 24 — M2K TOF189563 #024](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_M2K-TOF189563_024.md)
+- [Aug 24 — M2K TOF189563 #025](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260824_M2K-TOF189563_025.md)
+- [Aug 25 — MYM TPT917806711 #001](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260825_MYM-TPT917806711_001.md)
+- [Aug 25 — MYM TOF189562 #002](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260825_MYM-TOF189562_002.md)
+- [Aug 25 — MYM TOF189562 #003](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260825_MYM-TOF189562_003.md)
+- [Aug 25 — MYM TOF189562 #004](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260825_MYM-TOF189562_004.md)
+- [Aug 25 — MYM TOF189563 #005](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260825_MYM-TOF189563_005.md)
+- [Aug 25 — MYM TOF189563 #006](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260825_MYM-TOF189563_006.md)
+- [Aug 25 — MYM TOF189563 #007](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260825_MYM-TOF189563_007.md)
+- [Aug 25 — MYM TOF189562 #008](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260825_MYM-TOF189562_008.md)
+- [Aug 25 — MYM TOF189562 #009](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260825_MYM-TOF189562_009.md)
+- [Aug 25 — MYM TOF189563 #010](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260825_MYM-TOF189563_010.md)
+- [Aug 25 — MYM TOF189563 #011](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260825_MYM-TOF189563_011.md)
+- [Aug 26 — MYM TPT917806711 #001](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260826_MYM-TPT917806711_001.md)
+- [Aug 26 — M2K TPT917806711 #002](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260826_M2K-TPT917806711_002.md)
+- [Aug 26 — MYM TOF189562 #003](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260826_MYM-TOF189562_003.md)
+- [Aug 26 — MYM TOF189563 #004](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260826_MYM-TOF189563_004.md)
+- [Aug 26 — M2K TOF189562 #005](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260826_M2K-TOF189562_005.md)
+- [Aug 26 — M2K TOF189563 #006](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260826_M2K-TOF189563_006.md)
+- [Aug 26 — M2K TOF189562 #007](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260826_M2K-TOF189562_007.md)
+- [Aug 26 — M2K TOF189562 #008](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260826_M2K-TOF189562_008.md)
+- [Aug 26 — M2K TOF189562 #009](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260826_M2K-TOF189562_009.md)
+- [Aug 26 — M2K TOF189562 #010](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260826_M2K-TOF189562_010.md)
+- [Aug 26 — M2K TOF189563 #011](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260826_M2K-TOF189563_011.md)
+- [Aug 26 — M2K TOF189563 #012](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260826_M2K-TOF189563_012.md)
+- [Aug 26 — M2K TOF189563 #013](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260826_M2K-TOF189563_013.md)
+- [Aug 26 — M2K TPT917806711 #014](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260826_M2K-TPT917806711_014.md)
+- [Aug 26 — MYM TPT917806711 #015](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260826_MYM-TPT917806711_015.md)
+- [Aug 26 — MYM TOF189562 #016](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260826_MYM-TOF189562_016.md)
+- [Aug 26 — M2K TOF189562 #017](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260826_M2K-TOF189562_017.md)
+- [Aug 26 — MYM TOF189563 #018](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260826_MYM-TOF189563_018.md)
+- [Aug 26 — M2K TOF189563 #019](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260826_M2K-TOF189563_019.md)
+- [Aug 27 — MYM TPT917806711 #001](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260827_MYM-TPT917806711_001.md)
+- [Aug 27 — MYM TPT917806711 #002](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260827_MYM-TPT917806711_002.md)
+- [Aug 27 — MNQ TPT917806711 #003](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260827_MNQ-TPT917806711_003.md)
+- [Aug 27 — MNQ TOF189562 #004](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260827_MNQ-TOF189562_004.md)
+- [Aug 27 — MNQ TOF189563 #005](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260827_MNQ-TOF189563_005.md)
+- [Aug 27 — MYM TPT917806711 #006](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260827_MYM-TPT917806711_006.md)
+- [Aug 27 — MES TPT917806711 #007](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260827_MES-TPT917806711_007.md)
+- [Aug 27 — MGC TPT917806711 #008](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260827_MGC-TPT917806711_008.md)
+- [Aug 27 — MYM TPT917806711 #009](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260827_MYM-TPT917806711_009.md)
+- [Aug 27 — MNQ TPT917806711 #010](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260827_MNQ-TPT917806711_010.md)
+- [Aug 27 — MCL TPT917806711 #011](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260827_MCL-TPT917806711_011.md)
+- [Aug 27 — MGC TPT917806711 #012](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260827_MGC-TPT917806711_012.md)
+- [Aug 27 — MES TOF189562 #013](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260827_MES-TOF189562_013.md)
+- [Aug 27 — MES TOF189563 #014](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260827_MES-TOF189563_014.md)
+- [Aug 27 — MCL TOF189562 #015](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260827_MCL-TOF189562_015.md)
+- [Aug 27 — MCL TOF189563 #016](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260827_MCL-TOF189563_016.md)
+- [Aug 27 — MYM TPT917806711 #017](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260827_MYM-TPT917806711_017.md)
+- [Aug 28 — MYM TPT917806711 #001](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260828_MYM-TPT917806711_001.md)
+- [Aug 28 — MCL TPT917806711 #002](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260828_MCL-TPT917806711_002.md)
+- [Aug 28 — M2K TPT917806711 #003](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260828_M2K-TPT917806711_003.md)
+- [Aug 28 — MCL TOF189563 #004](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260828_MCL-TOF189563_004.md)
+- [Aug 28 — MCL TOF189563 #005](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260828_MCL-TOF189563_005.md)
+- [Aug 28 — MGC TOF189562 #006](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260828_MGC-TOF189562_006.md)
+- [Aug 28 — MCL TOF189562 #007](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260828_MCL-TOF189562_007.md)
+- [Aug 28 — MCL TOF189562 #008](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260828_MCL-TOF189562_008.md)
+- [Aug 28 — M2K TOF197288 #009](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260828_M2K-TOF197288_009.md)
+- [Aug 28 — MGC TPT917806711 #010](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260828_MGC-TPT917806711_010.md)
+- [Aug 28 — MYM TOF197288 #011](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260828_MYM-TOF197288_011.md)
+- [Aug 28 — MYM TPT917806711 #012](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260828_MYM-TPT917806711_012.md)
+- [Aug 28 — M2K TPT917806711 #013](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260828_M2K-TPT917806711_013.md)
+- [Aug 28 — M2K TOF197288 #014](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260828_M2K-TOF197288_014.md)
+- [Aug 31 — MES TPTPRO781112132 #001](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260831_MES-TPTPRO781112132_001.md)
+
+</details>
+
+<details>
+<summary><strong>Sep 2026</strong> (2 reviews)</summary>
+
+- [Sep 1 — MNQ TPTPRO781112132 #001](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260901_MNQ-TPTPRO781112132_001.md)
+- [Sep 1 — MNQ TPTPRO781112132 #002](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260901_MNQ-TPTPRO781112132_002.md)
+
+</details>
 
 ---
 
@@ -893,5 +1203,5 @@ Links to individual reviews:
 ---
 
 *Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
-*Pattern Tracker · Established Feb 25, 2026 · Updated Aug 30, 2026*
+*Pattern Tracker · Established Feb 25, 2026 · Updated Sep 4, 2026*
 *Updated after each session — append, do not overwrite historical entries*
