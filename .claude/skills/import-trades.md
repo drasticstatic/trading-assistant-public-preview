@@ -28,13 +28,37 @@ flag any trades missing a review file.
    - **TradeZella:** exported from Trade Log page — contains summary data with P&L
    - **Tradovate:** exported from ORDERS tab (not Performance) — contains order-level data
    - **TopOneFutures:** own CSV schema (Ticket/Symbol/Side/Open-Close Price/Time/P&L/Lots/Commissions) — see the TopOne eval-pass edge case below before archiving
-   - **BTCC:** normally "Trade History" export; if the download doesn't work, Christopher may hand over a browser-copy-paste routed through Apple Numbers (a `.numbers` file with a `.csv` sibling — read the `.csv`)
+   - **BTCC:** normally "Trade History" export; if the download doesn't work, Christopher may hand over a browser-copy-paste routed through Apple Numbers (a `.numbers` file with a `.csv` sibling — read the `.csv`). A blank starting-point Numbers file for this is archived at `data/imports/2026/08-Aug/BTCC/btcc-browser-copy-template.numbers` — reuse it as the template rather than building a fresh spreadsheet each time.
 4. Confirm `~/code/TradeZella_STB/` is set up (script + template + venv + service_account.json)
 5. **After a successful import, this is a true MOVE, not a copy.** Relocate the source file(s) — both CSVs and screenshots — into the repo (`data/imports/YYYY/MM-Mon/`, `data/screenshots/`), commit, push, then remove the originals from the iCloud staging folder. Do this only *after* confirming the push succeeded — the repo + its git history on GitHub is the actual backup once that's done, so leaving a duplicate copy sitting in iCloud afterward just creates two sources of truth to keep in sync. Don't leave anything in staging "renamed in place" as a halfway step — either it's been moved into the repo and pushed, or it's still an active, un-processed file in staging.
 
 ### TopOne eval-pass edge case
 
-TopOneFutures revokes Tradovate access instantly the moment an eval is passed, so there's no way to re-pull a Tradovate-format export after a pass. **There is no downloadable CSV export on TopOne's own site either** — the only way to get the data out is Christopher opening TopOne's trade history in a browser, copying it, pasting into Apple Numbers, then exporting that to CSV. That Numbers-exported CSV is the raw source (e.g. `Orders-100_TOF189562-Trade-History_...csv`) — reshape it to match Tradovate's `Orders-N.csv` column layout before archiving/importing, so the rest of this pipeline (STB push, TradeZella ingestion) works unchanged. Verify the conversion via P&L reconciliation math (contract multiplier × points = P&L) before trusting the output — this is how the Orders-102/103 conversion was verified. Archive both the raw Numbers-exported CSV and the reshaped version (suffix the raw one `_raw-topone-export` so the actually-ledgered file stays unambiguous) — the raw copy is the only record of exactly what TopOne showed, worth keeping even though it's not what gets parsed.
+TopOneFutures revokes Tradovate access instantly the moment an eval is passed, so there's no way to re-pull a Tradovate-format export after a pass. **There is no downloadable CSV export on TopOne's own site either** — the only way to get the data out is Christopher opening TopOne's trade history in a browser, copying it, pasting into Apple Numbers, then exporting that to CSV. That Numbers-exported CSV is the raw source (e.g. `Orders-100_TOF189562-Trade-History_...csv`), in TopOne's own schema:
+
+```
+Ticket, Symbol, Side, Stop Loss, Take Profit, Open Time, Open Price, Closed Time, Closed Price, Duration, P&L, Lots, Commissions
+```
+
+Reshape it to match Tradovate's `Orders-N.csv` column layout before archiving/importing, so the rest of this pipeline (STB push, TradeZella ingestion) works unchanged. **Exact reshape recipe** (reverse-engineered from the Orders-100→102 / Orders-101→103 conversion, so it doesn't need to be re-derived by hand next time): TopOne reports one row per *closed round-trip*; Tradovate's schema reports one row per *fill*. So **each TopOne row becomes exactly two Tradovate-format rows** — an Entry fill and an Exit fill:
+
+| Tradovate column | Entry row | Exit row |
+|---|---|---|
+| `orderId` / `Order ID` / `lastCommandId` / `Version ID` | a unique numeric ID (Ticket's trailing digits work; give Entry and Exit distinct IDs) | same pattern, different ID than its Entry |
+| `Account` | the TopOne account ID (constant for the whole file) | same |
+| `B/S` | TopOne's `Side` as-is (`SELL`→`Sell`, `BUY`→`Buy`) | the **opposite** side (closing a short = Buy, closing a long = Sell) |
+| `Contract` | `Symbol` as-is (already Tradovate-style, e.g. `MGCZ6`) | same |
+| `Product` / `Product Description` | derived from the `Symbol` root (`MGC`→"E-Micro Gold", `MCL`→"Micro Crude Oil", etc. — same lookup the rest of the pipeline already uses) | same |
+| `avgPrice` / `Avg Fill Price` / `decimalFillAvg` | `Open Price` | `Closed Price` |
+| `Fill Time` / `Timestamp` / `Date` | `Open Time`, reformatted `DD-MM-YYYY, HH:MM:SS` → `MM/DD/YYYY HH:MM:SS` (and `M/D/YY` for `Date`) | `Closed Time`, same reformat |
+| `filledQty` / `Quantity` / `Filled Qty` | `Lots` | `Lots` |
+| `Status` | `Filled` (TopOne only reports completed trades) | `Filled` |
+| `Text` | ` Entry` | ` Exit` |
+| `Type` | `Market` (TopOne doesn't specify order type; this is the only reasonable assumption and doesn't affect P&L) | `Market` |
+
+`Stop Loss` / `Take Profit` / `Duration` / `P&L` / `Commissions` from the raw row are **not** carried into the reshaped fill rows — P&L gets recomputed downstream from the entry/exit price difference during FIFO matching (Step 3 below), same as every other Tradovate-sourced file, so there's no need to smuggle TopOne's own P&L figure through. Verify the conversion via that same reconciliation math (contract multiplier × points = P&L, matched against TopOne's own reported `P&L` column) before trusting the output — this is how the Orders-102/103 conversion was verified. Archive both the raw Numbers-exported CSV and the reshaped version (suffix the raw one `_raw-topone-export` so the actually-ledgered file stays unambiguous) — the raw copy is the only record of exactly what TopOne showed, worth keeping even though it's not what gets parsed.
+
+The same two-rows-per-round-trip reshape applies to **any** hand-copied browser export that reports closed round-trips rather than individual fills (BTCC's browser-copy-to-Numbers pipeline is the other case that comes up) — the column names differ per source, but the Entry/Exit-row logic is the same.
 
 ## File Naming and Location
 
