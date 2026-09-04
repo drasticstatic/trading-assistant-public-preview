@@ -31,7 +31,7 @@ Break & Retest SHORT setup on MNQ near the top of the session range. FCR levels 
 | **Rating** | 2 / 5 |
 | **Account** | APEX-484839-06 |
 | **TradeZella file** | `data/imports/2026/03-Mar/tradezella_20260316.csv` |
-| **Tradovate file** | `data/imports/2026/03-Mar/tradovate_orders_20260316.csv` |
+| **Tradovate file** | `data/imports/2026/03-Mar/Tradovate/tradovate_orders_20260316.csv` |
 
 ---
 

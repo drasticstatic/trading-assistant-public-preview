@@ -170,7 +170,7 @@ This document is the source of truth for all trading P&L across all platforms an
 
 | File | Location |
 |------|----------|
-| BTCC CSV (2024–2026) | `data/imports/2026/03-Mar/btcc-orders_20241217_thru_20260326.csv` |
+| BTCC CSV (2024–2026) | `data/imports/2026/03-Mar/BTCC/btcc-orders_20241217_thru_20260326.csv` |
 | BTCC P&L 2024 | `data/imports/2024/btcc_realized_pl_2024.md` |
 | BTCC P&L 2025 | `data/imports/2025/btcc_realized_pl_2025.md` |
 | BTCC P&L 2026 YTD | `data/imports/2026/03-Mar/btcc_realized_pl_2026.md` |
