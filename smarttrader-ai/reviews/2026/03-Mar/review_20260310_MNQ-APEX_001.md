@@ -30,7 +30,7 @@ FCR LONG setup developed after an SFP open and a weak initial short displacement
 | **Rating** | 1.5 / 5 |
 | **R:R placed** | ~3.8:1 (83.75 pt risk / 317.25 pt reward) |
 | **Account** | APEX-484839-06 — **first trade on this account** |
-| **TradeZella file** | `data/imports/2026/03-Mar/tradezella_20260310.csv` |
+| **TradeZella file** | `data/imports/2026/03-Mar/TradeZella/tradezella_20260310.csv` |
 | **Tradovate file** | `data/imports/2026/03-Mar/Tradovate/tradovate_orders_20260310.csv` |
 
 ---

@@ -38,12 +38,26 @@ TopOneFutures revokes Tradovate access instantly the moment an eval is passed, s
 
 ## File Naming and Location
 
+Each source system gets its own subfolder within the month directory — keeps
+`data/imports/YYYY/MM-Mon/` scannable instead of one long flat file list:
+
 ```
-data/imports/YYYY/MM-Mon/tradezella_YYYYMMDD.csv
-data/imports/YYYY/MM-Mon/tradovate_orders_YYYYMMDD.csv
+data/imports/YYYY/MM-Mon/TradeZella/tradezella_YYYYMMDD.csv
+data/imports/YYYY/MM-Mon/Tradovate/tradovate_orders_YYYYMMDD.csv
+data/imports/YYYY/MM-Mon/BTCC/btcc-orders_YYYYMMDD_thru_YYYYMMDD.csv
 ```
 
 Date in filename = the trade date (or last date in range for multi-day exports).
+BTCC exports cover a date range, not a single day — name with the full
+`_thru_` range the export actually spans. If a same-date collision happens
+within a subfolder (e.g. two Tradovate exports both dated the same day),
+append `_b`, `_c`, etc. — earliest export gets the bare name.
+
+This subfolder split was applied retroactively across the whole `data/imports/`
+tree in Sep 2026 (a 130-file archival + reorg pass) — any older doc, script,
+or note referencing a bare `data/imports/YYYY/MM-Mon/tradovate_orders_*.csv`
+path (no subfolder) is describing the pre-reorg layout; the subfolder is
+canonical going forward.
 
 ## Steps
 
@@ -94,37 +108,45 @@ Flag any rows with missing critical data (symbol, date, price, quantity).
 
 ### 3. Archive CSV to Import Directory
 
-Confirm `data/imports/YYYY/MM-Mon/` exists. Create if needed:
+Confirm the source-specific subfolder exists. Create if needed:
 
 ```bash
-mkdir -p data/imports/YYYY/MM-Mon/
+mkdir -p data/imports/YYYY/MM-Mon/TradeZella/
+mkdir -p data/imports/YYYY/MM-Mon/Tradovate/
+mkdir -p data/imports/YYYY/MM-Mon/BTCC/
 ```
 
-Move (not copy) and rename to standard format — source is the iCloud staging folder (`_csv-2B-filed/`), falling back to `~/Downloads/` if not found there. Stage the move as copy-then-verify-then-delete-original, so nothing is ever lost mid-transition:
+Move (not copy) and rename to standard format — source is the iCloud staging folder (`_csv-2B-filed/`), falling back to `~/Downloads/` if not found there. Stage the move as copy-then-verify-then-delete-original, so nothing is ever lost mid-transition. **Verify with a hash check, not just a visual diff** — `shasum -a 256` the source and the destination and confirm they match before deleting anything from staging:
 
 ```bash
 ICLOUD_CSV=~/"Library/Mobile Documents/com~apple~CloudDocs/Trading/_csv-2B-filed"
 
 # TradeZella
-cp "$ICLOUD_CSV"/trades_*.csv data/imports/YYYY/MM-Mon/tradezella_YYYYMMDD.csv
+cp "$ICLOUD_CSV"/trades_*.csv data/imports/YYYY/MM-Mon/TradeZella/tradezella_YYYYMMDD.csv
 
 # Tradovate — single export
-cp "$ICLOUD_CSV"/Orders.csv data/imports/YYYY/MM-Mon/tradovate_orders_YYYYMMDD.csv
+cp "$ICLOUD_CSV"/Orders.csv data/imports/YYYY/MM-Mon/Tradovate/tradovate_orders_YYYYMMDD.csv
 
 # Tradovate — multiple exports (e.g. Orders.csv + Orders-2.csv from two different trade dates)
 # Name each file after the trade date it covers:
-cp "$ICLOUD_CSV"/Orders.csv   data/imports/YYYY/MM-Mon/tradovate_orders_20260506.csv
-cp "$ICLOUD_CSV"/Orders-2.csv data/imports/YYYY/MM-Mon/tradovate_orders_20260508.csv
+cp "$ICLOUD_CSV"/Orders.csv   data/imports/YYYY/MM-Mon/Tradovate/tradovate_orders_20260506.csv
+cp "$ICLOUD_CSV"/Orders-2.csv data/imports/YYYY/MM-Mon/Tradovate/tradovate_orders_20260508.csv
 # If both cover the same date (e.g. split session), append a suffix:
-cp "$ICLOUD_CSV"/Orders-2.csv data/imports/YYYY/MM-Mon/tradovate_orders_YYYYMMDD_b.csv
+cp "$ICLOUD_CSV"/Orders-2.csv data/imports/YYYY/MM-Mon/Tradovate/tradovate_orders_YYYYMMDD_b.csv
+
+# BTCC — name with the full range the export actually covers
+cp "$ICLOUD_CSV"/BTCC-Derivatives-TransactionHistory-*.csv data/imports/YYYY/MM-Mon/BTCC/btcc-orders_YYYYMMDD_thru_YYYYMMDD.csv
+
+# Verify before deleting the source
+shasum -a 256 "$ICLOUD_CSV"/Orders.csv data/imports/YYYY/MM-Mon/Tradovate/tradovate_orders_YYYYMMDD.csv
 
 # Fallback if not found in iCloud staging:
-cp ~/Downloads/trades_*.csv data/imports/YYYY/MM-Mon/tradezella_YYYYMMDD.csv
+cp ~/Downloads/trades_*.csv data/imports/YYYY/MM-Mon/TradeZella/tradezella_YYYYMMDD.csv
 ```
 
-**Multiple exports edge case:** Tradovate resets the filename to `Orders.csv` each export. If you export multiple sessions, the staging folder accumulates `Orders.csv`, `Orders-2.csv`, `Orders-3.csv`, etc. Archive in the order they were exported — the earliest trade date gets the base name, each subsequent date gets its own `YYYYMMDD` name.
+**Multiple exports edge case:** Tradovate resets the filename to `Orders.csv` each export. If you export multiple sessions, the staging folder accumulates `Orders.csv`, `Orders-2.csv`, `Orders-3.csv`, etc. Archive in the order they were exported — the earliest trade date gets the base name, each subsequent date gets its own `YYYYMMDD` name. If a fill genuinely has no counterpart in the master trade ledger (check `fortuna-exports/master_trade_ledger_*.csv`'s `source` column) even though the file has `Filled` rows, don't archive-and-forget it — flag it as a possible ledger gap before moving on. That gap (mirror/copy-trading accounts especially — a leader export and a follower export can both have real fills, but only one side gets extracted) is exactly what a 2026-09-03 backlog cleanup found: 19 of ~105 backlogged files had real, un-ledgered fills hiding behind a "the data's already in the ledger" assumption.
 
-**This is a true move — commit, push, then delete the original from the iCloud staging folder.** Once `git push` confirms the archived copy is safely in the repo (and therefore on GitHub), remove the source file from `_csv-2B-filed/` entirely — don't rename it in place or leave it sitting there "marked done." The repo + GitHub is the backup; a second copy left behind in iCloud just becomes a second source of truth to keep in sync, which is exactly what created the `_copy`/`_new` workaround folders this convention is meant to replace.
+**This is a true move — commit, push, then delete the original from the iCloud staging folder.** Once `git push` confirms the archived copy is safely in the repo (and therefore on GitHub), remove the source file from `_csv-2B-filed/` entirely — don't rename it in place or leave it sitting there "marked done." **GitHub is the canonical, sole source of truth for this data once pushed** — there is no expectation of a parallel copy anywhere else, iCloud staging included. A second copy left behind in iCloud just becomes a second source of truth to keep in sync, which is exactly what created the `_copy`/`_new`/`_new_copy`/`_new_again` workaround folders this convention exists to replace. Delete the staging original the moment the hash-verified push is confirmed — don't wait for a "just in case" cleanup pass later.
 
 ### 4. Cross-Reference Trade Reviews
 
@@ -183,10 +205,23 @@ For each trade missing a review, run `/trade-review` using the CSV data and scre
 
 If two trades are closely related (same day, cross-instrument setup), note that in both reviews and create a daily review as well.
 
-### 8. Commit Import Files + Reviews
+### 8. Update Gallery.html's Trading Calendar & Metrics
+
+`data/progression/gallery.html`'s "Trading Calendar & Metrics" section (the calendar grid, the day-strip, Net P&L / Win Rate / Profit Factor stat tiles) is driven by a hardcoded JS array, `const loggedTrades = [...]`, sourced from `pattern_tracker.md`'s Trade Log — **not** auto-generated from the CSVs or the master ledger. Every import that adds a newly-reviewed trade needs a matching entry appended to that array, or the gallery page silently falls behind what's actually been reviewed:
+
+```js
+{ date: '2026-MM-DD', instrument: 'XXX', pnl: NNN.NN },
+```
+
+- One entry per filled trade (same granularity as trade reviews — Step 7)
+- `instrument` is the bare symbol root (`MNQ`, not `MNQU6`)
+- Append in date order at the end of the array
+- Do this in the same commit as the reviews (Step 9) so the calendar and the reviews it links out to land together — a review without a matching calendar entry (or vice versa) is a half-finished import
+
+### 9. Commit Import Files + Reviews
 
 ```bash
-git add data/imports/ fortuna-exports/trade-reviews/ fortuna-exports/overview-summaries/ data/screenshots/ && \
+git add data/imports/ fortuna-exports/trade-reviews/ fortuna-exports/overview-summaries/ data/screenshots/ data/progression/gallery.html data/progression/pattern_tracker.md && \
   git commit -m "Import trade data YYYYMMDD — [instruments]"
 git push origin main
 ```
@@ -194,6 +229,8 @@ git push origin main
 ## After Running
 
 - Update `data/progression/pattern_tracker.md` Running P&L if not current
+- Confirm `data/progression/gallery.html`'s `loggedTrades` array (Step 8) actually landed — a quick `grep` for the new date range is enough
+- Confirm the iCloud staging originals were actually deleted post-push, not just archived — a lingering original is the exact failure mode this whole convention exists to prevent
 
 ## Common Issues
 
@@ -229,13 +266,15 @@ cd ~/code/TradeZella_STB && source venv/bin/activate
 python3 tradezella_to_stb.py "$ICLOUD_CSV"/trades_*.csv
 
 # Archive CSV (iCloud staging is primary; ~/Downloads/ is the fallback)
-mkdir -p data/imports/YYYY/MM-Mon/
-cp "$ICLOUD_CSV"/trades_*.csv data/imports/YYYY/MM-Mon/tradezella_YYYYMMDD.csv
+mkdir -p data/imports/YYYY/MM-Mon/TradeZella/
+cp "$ICLOUD_CSV"/trades_*.csv data/imports/YYYY/MM-Mon/TradeZella/tradezella_YYYYMMDD.csv
+shasum -a 256 "$ICLOUD_CSV"/trades_*.csv data/imports/YYYY/MM-Mon/TradeZella/tradezella_YYYYMMDD.csv  # verify before deleting the source
 
 # Cross-reference reviews
 ls fortuna-exports/trade-reviews/YYYY/MM-Mon/
 
-# Commit
-git add data/imports/ && git commit -m "Import trade data YYYYMMDD — [instruments]"
+# Commit (include gallery.html + pattern_tracker.md if Step 8 updated them)
+git add data/imports/ data/progression/gallery.html data/progression/pattern_tracker.md && \
+  git commit -m "Import trade data YYYYMMDD — [instruments]"
 git push origin main
 ```
