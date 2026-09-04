@@ -117,6 +117,83 @@
     .toggle-list .t-name { font-weight: 800; color: var(--text); display: flex; align-items: center; gap: .5rem; margin-bottom: .3rem; }
     .toggle-list .t-desc { color: var(--muted); }
     .quote-block { border-left: 3px solid var(--violet); padding: .3rem 0 .3rem 1rem; margin: .8rem 0; font-size: .84rem; color: var(--muted); font-style: italic; }
+    /* ── Live results carousel (same pattern as gallery.html's TradeZella
+       carousels) — thumbnail strip + viewport + dots/play, extensible for
+       future case studies (success, edge cases, anything worth showing). ── */
+    .carousel {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 1rem 1rem 1.2rem;
+    }
+    .carousel-thumbstrip {
+      display: flex; gap: .5rem; overflow-x: auto; padding-bottom: .8rem; margin-bottom: .9rem;
+      border-bottom: 1px solid var(--border);
+      scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+    }
+    .carousel-thumb {
+      flex: 0 0 auto; width: 68px; height: 46px; border-radius: 6px; overflow: hidden;
+      border: 2px solid transparent; cursor: pointer; opacity: .5;
+      transition: opacity .15s, border-color .15s; background: var(--surface-soft);
+    }
+    .carousel-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .carousel-thumb:hover { opacity: .85; }
+    .carousel-thumb.active { opacity: 1; border-color: var(--gold); }
+    .carousel-viewport {
+      position: relative; aspect-ratio: 16/10; background: var(--surface-soft);
+      cursor: pointer; border-radius: var(--radius-md); overflow: hidden;
+    }
+    .carousel-viewport img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+    .carousel-body { padding-top: 1rem; }
+    .carousel-title { font-size: .92rem; font-weight: 700; color: var(--text); margin-bottom: .2rem; text-align: center; }
+    .carousel-meta { font-size: .74rem; color: var(--muted); display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; margin-bottom: .9rem; }
+    .carousel-controls { display: flex; align-items: center; justify-content: center; gap: .55rem; flex-wrap: wrap; }
+    .carousel-nav-btn, .carousel-play-btn {
+      background: var(--surface-soft); border: 1px solid var(--border); color: var(--text);
+      width: 2.15rem; height: 2.15rem; border-radius: 999px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; font-size: 1rem;
+      transition: border-color .15s, background .15s; flex-shrink: 0;
+    }
+    .carousel-nav-btn:hover, .carousel-play-btn:hover { border-color: var(--gold); background: rgba(251,191,36,.08); }
+    .carousel-dots { display: flex; gap: .4rem; align-items: center; }
+    .carousel-dot {
+      width: .5rem; height: .5rem; border-radius: 999px; background: var(--border);
+      border: none; cursor: pointer; padding: 0; transition: background .15s, transform .15s;
+    }
+    .carousel-dot:hover { transform: scale(1.2); }
+    .carousel-dot.active { background: var(--gold); }
+    .carousel-counter { font-size: .74rem; color: var(--subtle); min-width: 2.8rem; text-align: center; }
+
+    /* ── LIGHTBOX ── */
+    .lightbox-overlay {
+      display: none; position: fixed; inset: 0; z-index: 500;
+      background: rgba(0,0,0,.94);
+      align-items: center; justify-content: center; padding: 1.2rem;
+    }
+    .lightbox-overlay.open { display: flex; }
+    .lightbox-box { max-width: 98vw; max-height: 98vh; display: flex; flex-direction: column; align-items: center; gap: .5rem; }
+    .lightbox-box img { max-width: 98vw; max-height: 88vh; width: auto; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow); }
+    .lightbox-caption { color: var(--muted); font-size: .85rem; text-align: center; max-width: 90vw; }
+    .lightbox-close {
+      position: fixed; top: 1.2rem; right: 1.5rem; z-index: 503;
+      background: none; border: 1px solid var(--border); border-radius: 999px;
+      width: 2.3rem; height: 2.3rem; color: var(--text); font-size: 1.1rem; cursor: pointer;
+    }
+    .lightbox-close:hover { border-color: var(--gold); color: var(--gold); }
+    .lightbox-nav-btn {
+      position: fixed; top: 50%; transform: translateY(-50%); z-index: 501;
+      background: rgba(8,12,24,.72); border: 1px solid var(--border); color: var(--text);
+      width: 3rem; height: 3rem; border-radius: 999px; cursor: pointer; font-size: 1.4rem;
+      display: none; align-items: center; justify-content: center;
+      transition: border-color .15s, background .15s;
+    }
+    .lightbox-nav-btn:hover { border-color: var(--gold); background: rgba(8,12,24,.9); }
+    .lightbox-nav-btn.prev { left: 1.2rem; }
+    .lightbox-nav-btn.next { right: 1.2rem; }
+    .lightbox-counter {
+      position: fixed; top: 1.2rem; right: 4.4rem; z-index: 502;
+      font-size: .78rem; color: var(--subtle); background: rgba(8,12,24,.7);
+      padding: .3rem .85rem; border-radius: 999px; display: none;
+    }
+
     .footer { max-width: 1100px; margin: 0 auto 2rem; padding: 1.2rem 1.5rem; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); font-size: .8rem; color: var(--subtle); text-align: center; }
     .footer p { margin: 0; }
     .footer p + p { margin-top: .5rem; }
@@ -186,6 +263,26 @@
     </div>
     <p class="sec-sub" style="margin-top:.8rem;">Full worked examples for every toggle, including a plain-language breakdown of what "disable replication on breach" actually costs vs. protects: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-risk-toggle-deep-dive.md" target="_blank" rel="noreferrer">tradecopia-risk-toggle-deep-dive.md ↗</a></p>
 
+    <div class="sec-label"><i data-lucide="camera"></i> Live Results &amp; Case Studies</div>
+    <p class="sec-sub">Real screenshots from the actual TradeCopia dashboard, as they happen — success, edge cases, or anything worth showing. This grows over time rather than staying a one-time proof.</p>
+    <div class="carousel">
+      <div class="carousel-thumbstrip" id="resultsThumbstrip"></div>
+      <div class="carousel-viewport" onclick="carouselOpenLightbox(resultsState)">
+        <img id="resultsImg" src="" alt="">
+      </div>
+      <div class="carousel-body">
+        <div class="carousel-title" id="resultsTitle"></div>
+        <div class="carousel-meta" id="resultsMeta"></div>
+        <div class="carousel-controls">
+          <button class="carousel-nav-btn" onclick="carouselNav(resultsState, -1)">‹</button>
+          <div class="carousel-dots" id="resultsDots"></div>
+          <span class="carousel-counter" id="resultsCounter"></span>
+          <button class="carousel-play-btn" id="resultsPlayBtn" onclick="toggleAutoplay(resultsState)">▶</button>
+          <button class="carousel-nav-btn" onclick="carouselNav(resultsState, 1)">›</button>
+        </div>
+      </div>
+    </div>
+
     <div class="sec-label"><i data-lucide="landmark"></i> Why This Matters Beyond the Settings</div>
     <div class="panel" style="--accent: var(--rose);">
       <p style="font-size:.86rem; color: var(--muted); margin-bottom:.8rem;">The account ledger on the <a href="../data/progression/gallery.html#account-ledger" target="_blank" rel="noreferrer">gallery page</a> carries its own subtitle: <em>"what once looked like a graveyard is a resurrection project."</em> That's not a figure of speech — the recovery arc starts Feb 13, 2026, with a blowup and no rule held. Everything since has been rebuilding discipline one rule at a time.</p>
@@ -208,8 +305,20 @@
       </span>
     </a>
 
-    <p class="sec-sub" style="margin-top:1rem;">Tradesyncer's equivalent risk-control docs, for comparison: <a href="https://help.tradesyncer.com/en/articles/10410714-how-to-use-follower-protection" target="_blank" rel="noreferrer">Follower Protection ↗</a>. Back to the origin story: <a href="community.html#pfm">PropFirmMatchTV ↗</a></p>
+    <p class="sec-sub" style="margin-top:1rem;">Back to the origin story: <a href="community.html#pfm">PropFirmMatchTV ↗</a></p>
   </main>
+
+  <!-- ── LIGHTBOX ── -->
+  <div class="lightbox-overlay" id="lightboxOverlay" onclick="if(event.target===this)closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <button class="lightbox-nav-btn prev" id="lightboxPrev" onclick="lightboxStep(-1)">‹</button>
+    <div class="lightbox-box" id="lightboxBox">
+      <img id="lightboxImg" src="" alt="">
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+    <button class="lightbox-nav-btn next" id="lightboxNext" onclick="lightboxStep(1)">›</button>
+    <span class="lightbox-counter" id="lightboxCounter"></span>
+  </div>
 
   <footer class="footer">
     <p><i data-lucide="repeat"></i> The Copy-Trading Plan · Christopher Wilson · Part of the <a href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer">Trading Assistant</a> public preview</p>
@@ -217,6 +326,127 @@
   </footer>
 
   <script>
+    // ═══════════════════════════════════════════════════════
+    // SCROLL LOCK + LIGHTBOX (same pattern as gallery.html)
+    // ═══════════════════════════════════════════════════════
+    function lockScroll() { document.documentElement.style.overflow = 'hidden'; document.body.style.overflow = 'hidden'; }
+    function unlockScroll() { document.documentElement.style.overflow = ''; document.body.style.overflow = ''; }
+    let lightboxNav = null;
+    function openLightbox(src, caption, nav) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightboxImg').alt = caption;
+      document.getElementById('lightboxCaption').textContent = caption;
+      lightboxNav = nav || null;
+      const showNav = !!lightboxNav;
+      document.getElementById('lightboxPrev').style.display = showNav ? 'flex' : 'none';
+      document.getElementById('lightboxNext').style.display = showNav ? 'flex' : 'none';
+      document.getElementById('lightboxCounter').style.display = showNav ? 'block' : 'none';
+      if (showNav) updateLightboxCounter();
+      document.getElementById('lightboxOverlay').classList.add('open');
+      lockScroll();
+    }
+    function closeLightbox() {
+      document.getElementById('lightboxOverlay').classList.remove('open');
+      lightboxNav = null;
+      unlockScroll();
+    }
+    function updateLightboxCounter() {
+      if (!lightboxNav) return;
+      document.getElementById('lightboxCounter').textContent = `${lightboxNav.index + 1} / ${lightboxNav.items.length}`;
+    }
+    function lightboxStep(delta) {
+      if (!lightboxNav) return;
+      lightboxNav.index = (lightboxNav.index + delta + lightboxNav.items.length) % lightboxNav.items.length;
+      const item = lightboxNav.items[lightboxNav.index];
+      document.getElementById('lightboxImg').src = item.src;
+      document.getElementById('lightboxImg').alt = item.caption;
+      document.getElementById('lightboxCaption').textContent = item.caption;
+      updateLightboxCounter();
+    }
+    document.addEventListener('keydown', (e) => {
+      if (!document.getElementById('lightboxOverlay').classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') lightboxStep(-1);
+      if (e.key === 'ArrowRight') lightboxStep(1);
+    });
+
+    // ═══════════════════════════════════════════════════════
+    // CAROUSEL (same generic helper as gallery.html — keyed by id
+    // prefix, so more carousels can be added later without new code)
+    // ═══════════════════════════════════════════════════════
+    function createCarousel(prefix, items, startIndex) {
+      const state = { prefix, items, index: startIndex || 0, timer: null, playing: false };
+      const thumbstrip = document.getElementById(prefix + 'Thumbstrip');
+      items.forEach((item, i) => {
+        const t = document.createElement('div');
+        t.className = 'carousel-thumb';
+        t.onclick = () => { pauseCarousel(state); state.index = i; renderCarousel(state); };
+        t.innerHTML = `<img src="${item.src}" alt="${item.title}" loading="lazy">`;
+        thumbstrip.appendChild(t);
+      });
+      const dots = document.getElementById(prefix + 'Dots');
+      items.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'carousel-dot';
+        d.onclick = () => { pauseCarousel(state); state.index = i; renderCarousel(state); };
+        dots.appendChild(d);
+      });
+      renderCarousel(state);
+      return state;
+    }
+    function renderCarousel(state) {
+      const item = state.items[state.index];
+      document.getElementById(state.prefix + 'Img').src = item.src;
+      document.getElementById(state.prefix + 'Img').alt = item.title;
+      document.getElementById(state.prefix + 'Title').textContent = item.title;
+      document.getElementById(state.prefix + 'Meta').innerHTML = item.meta;
+      document.getElementById(state.prefix + 'Counter').textContent = `${state.index + 1} / ${state.items.length}`;
+      document.querySelectorAll(`#${state.prefix}Dots .carousel-dot`).forEach((d, i) => d.classList.toggle('active', i === state.index));
+      document.querySelectorAll(`#${state.prefix}Thumbstrip .carousel-thumb`).forEach((t, i) => t.classList.toggle('active', i === state.index));
+    }
+    function carouselNav(state, delta) {
+      pauseCarousel(state);
+      state.index = (state.index + delta + state.items.length) % state.items.length;
+      renderCarousel(state);
+    }
+    function carouselOpenLightbox(state) {
+      const item = state.items[state.index];
+      openLightbox(item.src, item.caption, { items: state.items, index: state.index });
+    }
+    function toggleAutoplay(state) {
+      if (state.playing) pauseCarousel(state);
+      else playCarousel(state);
+    }
+    function playCarousel(state) {
+      state.playing = true;
+      document.getElementById(state.prefix + 'PlayBtn').textContent = '⏸';
+      state.timer = setInterval(() => {
+        state.index = (state.index + 1) % state.items.length;
+        renderCarousel(state);
+      }, 3500);
+    }
+    function pauseCarousel(state) {
+      state.playing = false;
+      clearInterval(state.timer);
+      document.getElementById(state.prefix + 'PlayBtn').textContent = '▶';
+    }
+
+    // ═══════════════════════════════════════════════════════
+    // LIVE RESULTS & CASE STUDIES — add new entries here as they happen.
+    // Newest first, same convention as the TradeZella reel on gallery.html.
+    // ═══════════════════════════════════════════════════════
+    const resultsItems = [
+      { src: '../data/imports/2026/09-Sep/TradeCopia%20Top1%26TPT%20cleared%20the%20daily%20pNL%20b4%20Apex%20and%20Lucid%202026-09-03%20at%2017.36.57.png',
+        title: 'Sep 3, 2026, 17:36 ET — TOF/TPT Daily P&L Already Reset',
+        meta: '<span>Total Daily P&L $170.64 · 0 open positions · TOF197288, TPT, and TOF197292 already showing $0.00 (reset), while Apex-11/12 (+$77.32 each) and LucidFlex25 (+$16.00) still show their day\'s gain</span>',
+        caption: 'Sep 3, 2026, 17:36 ET — TopOneFutures and TPT\'s Daily P&L had already cleared to $0.00 by this point, while Apex-11, Apex-12, and LucidFlex25 still showed their accumulated daily gains — a live example of each firm\'s own reset timing showing up directly in TradeCopia\'s dashboard.' },
+      { src: '../data/imports/2026/09-Sep/TradeCopia_success 2026-09-03 at 16.46.53.png',
+        title: 'Sep 3, 2026, 16:46 ET — First Live Test, All Green',
+        meta: '<span>Total Daily P&L +$349.04 · 6 trades · 6 accounts connected · 0 open positions — every account positive, both groups mirrored correctly</span>',
+        caption: 'Sep 3, 2026, 16:46 ET — the first live test after today\'s full TradeCopia build-out. Both groups mirrored correctly: LucidFlex25 +$16.00, TOF197288 +$75.20, Apex-11 +$77.32, Apex-12 +$77.32, TPT +$28.00, TOF197292 +$75.20. Total +$349.04 across all six accounts, zero open positions left behind.' },
+    ];
+    const resultsState = createCarousel('results', resultsItems, 0);
+
     if (window.lucide) lucide.createIcons();
     else document.addEventListener('DOMContentLoaded', () => window.lucide && lucide.createIcons());
 

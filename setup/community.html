@@ -201,6 +201,16 @@
     }
     .story-trigger:hover { border-color: var(--rose); background: rgba(255,157,193,.18); }
     .story-trigger .lucide { width: 1em; height: 1em; vertical-align: -.15em; }
+    .story-trigger-blue {
+      display: inline-flex; align-items: center; gap: .3rem; margin-top: .3rem;
+      padding: .18rem .6rem; border-radius: 999px; font-size: .74rem; font-weight: 700; line-height: 1.4;
+      background: rgba(24,100,219,.12); color: #4d94ff; border: 1px solid rgba(24,100,219,.35);
+      cursor: pointer; font-family: inherit; box-sizing: border-box; vertical-align: middle;
+      transition: border-color .2s, background .2s;
+    }
+    .story-trigger-blue:hover { border-color: #4d94ff; background: rgba(24,100,219,.22); }
+    .story-trigger-blue .lucide { width: 1em; height: 1em; vertical-align: -.15em; }
+    .tool-card-wrap { display: flex; flex-direction: column; }
 
     .ext-link-row { display: inline-flex; align-items: center; gap: .3rem; font-size: .72rem; color: var(--blue); margin-top: .4rem; }
 
@@ -388,19 +398,26 @@
     <div id="copy-trading" class="sec-label"><i data-lucide="repeat"></i> Copy-Trading</div>
     <p class="sec-sub">Both connect Tradovate ↔ NinjaTrader/Apex and handle per-follower quantity multipliers, replacing the old manual multi-device method (a MacBook, iPhone, and iMac all running at once just to mirror trades by hand) — what actually sets them apart is below</p>
     <div class="tools-grid">
-      <a id="tradecopia" class="tool-card glass" href="https://tradecopia.com" target="_blank" rel="noreferrer">
-        <h4><i data-lucide="repeat"></i> TradeCopia</h4>
-        <p>Cloud-based, browser-driven, upgrading straight off Tradovate's native single-account-view switcher. Its own named risk-control set: hedge prevention, a position reconciler, and auto-flatten the moment the leader goes flat</p>
-        <span class="ext-link-row"><i data-lucide="link"></i> tradecopia.com ↗</span>
-      </a>
-      <a id="tradesyncer" class="tool-card glass" href="https://www.tradesyncer.com" target="_blank" rel="noreferrer">
-        <h4><i data-lucide="repeat"></i> Tradesyncer</h4>
-        <p>Sub-100ms sync speed. Position sync and hedge prevention run through its own named feature — <strong>Follower Protection</strong> — rather than TradeCopia's separate reconciler/auto-flatten controls</p>
-        <span class="ext-link-row"><i data-lucide="link"></i> tradesyncer.com ↗</span>
-      </a>
-    </div>
-    <div style="text-align:center; margin-top:1.1rem;">
-      <a class="story-trigger" href="copy-trading.html" style="font-size:.82rem; padding:.4rem 1.1rem;"><i data-lucide="layout-panel-top"></i> View Full Copy-Trading Plan ↗</a>
+      <div class="tool-card-wrap">
+        <a id="tradecopia" class="tool-card glass" href="https://tradecopia.com" target="_blank" rel="noreferrer">
+          <h4><i data-lucide="repeat"></i> TradeCopia</h4>
+          <p>Cloud-based, browser-driven, upgrading straight off Tradovate's native single-account-view switcher. Its own named risk-control set: hedge prevention, a position reconciler, and auto-flatten the moment the leader goes flat</p>
+          <span class="ext-link-row"><i data-lucide="link"></i> tradecopia.com ↗</span>
+        </a>
+        <div style="text-align:center; margin-top:.9rem;">
+          <a class="story-trigger" href="copy-trading.html" style="font-size:.82rem; padding:.4rem 1.1rem;"><i data-lucide="layout-panel-top"></i> View Full Copy-Trading Plan ↗</a>
+        </div>
+      </div>
+      <div class="tool-card-wrap">
+        <a id="tradesyncer" class="tool-card glass" href="https://www.tradesyncer.com" target="_blank" rel="noreferrer">
+          <h4><i data-lucide="repeat"></i> Tradesyncer</h4>
+          <p>Sub-100ms sync speed. Position sync and hedge prevention run through its own named feature — <strong>Follower Protection</strong> — rather than TradeCopia's separate reconciler/auto-flatten controls</p>
+          <span class="ext-link-row"><i data-lucide="link"></i> tradesyncer.com ↗</span>
+        </a>
+        <div style="text-align:center; margin-top:.9rem;">
+          <a class="story-trigger-blue" href="https://help.tradesyncer.com/en/articles/10410714-how-to-use-follower-protection" target="_blank" rel="noreferrer" style="font-size:.82rem; padding:.4rem 1.1rem;"><i data-lucide="shield-check"></i> Follower Protection ↗</a>
+        </div>
+      </div>
     </div>
 
     <div class="sec-label"><i data-lucide="wrench"></i> External Resources</div>
