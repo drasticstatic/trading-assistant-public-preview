@@ -51,9 +51,12 @@
 
 <a id="trade-log-continued"></a>
 
-## 📊 Trade Log — May 14 – Aug 28, 2026 (technical record, CSV-derived)
+## 📊 Trade Log — May 14 – Sep 3, 2026 (technical record, CSV-derived)
 
-*Continuation of the Trade Log above, covering the trade-review backlog processed from the iCloud CSV staging folder (`_csv-2B-filed/`). Behavioral/psychology columns (R:R, Zella, Rating, Entry Filter grade, SL Respected, Stable) are marked pending — narrative journal data for this window hasn't been provided yet; Christopher will sanity-check once it is. Source: [`fortuna-exports/master_trade_ledger_2026-05-14_to_2026-09-01.csv`](../../fortuna-exports/master_trade_ledger_2026-05-14_to_2026-09-01.csv) — 247 trades reconstructed via FIFO fill-matching from Tradovate order exports + BTCC transaction history, cross-validated against confirmed TradeZella/certificate P&L figures (exact match on every account checked). Two commissions-only variances of ~$0.50–$1.40 remain versus platform-reported totals on two accounts — immaterial, not investigated further.*
+*Continuation of the Trade Log above, covering the trade-review backlog processed from the iCloud CSV staging folder (`_csv-2B-filed/`). Behavioral/psychology columns (R:R, Zella, Rating, Entry Filter grade, SL Respected, Stable) are marked pending — narrative journal data for this window hasn't been provided yet; Christopher will sanity-check once it is. Source: [`fortuna-exports/master_trade_ledger_2026-05-14_to_2026-09-01.csv`](../../fortuna-exports/master_trade_ledger_2026-05-14_to_2026-09-01.csv) — 255 trades reconstructed via FIFO fill-matching from Tradovate order exports + BTCC transaction history, cross-validated against confirmed TradeZella/certificate P&L figures (exact match on every account checked). Two commissions-only variances of ~$0.50–$1.40 remain versus platform-reported totals on two accounts — immaterial, not investigated further.*
+
+<details>
+<summary>🔽 <a href="#trade-log-continued"><strong>Show the full 255-row technical trade log</strong></a></summary>
 
 | # | Date | Instrument | Dir | Entry | Exit | P&L | R:R | Zella | Rating | Entry Filter | SL Respected | Stable |
 |---|------|-----------|-----|-------|------|-----|-----|-------|--------|--------------|--------------|--------|
@@ -307,6 +310,16 @@
 | 20260831_MES-TPTPRO_001 | Aug 31 | MES | Long | 7,689.50 | 7,690.75 | **+$12.50** | — | — | — | ⏳ Pending journal data | — | — |
 | 20260901_MNQ-TPTPRO_001 | Sep 1 | MNQ | Long | 29,140.25 | 29,255.25 | **+$230.00** | — | — | — | ⏳ Pending journal data | — | — |
 | 20260901_MNQ-TPTPRO_002 | Sep 1 | MNQ | Short | 29,173.00 | 29,041.00 | **+$264.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260730_MCL-APEX8_001 | Jul 30 | MCL | Short | 85.22 | 83.94 | **+$256.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260730_MCL-APEX8_002 | Jul 30 | MCL | Short | 84.81 | 83.94 | **+$174.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260903_MGC-TOF288_001 | Sep 3 | MGC | Short | 4,524.80 | 4,520.80 | **+$80.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260903_MGC-TOF292_001 | Sep 3 | MGC | Short | 4,524.80 | 4,520.80 | **+$80.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260903_MGC-APEX11_001 | Sep 3 | MGC | Short | 4,524.80 | 4,520.80 | **+$80.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260903_MGC-APEX12_001 | Sep 3 | MGC | Short | 4,524.80 | 4,520.80 | **+$80.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260903_MYM-TPTPRO_001 | Sep 3 | MYM | Short | 53,737.00 | 53,727.00 | **+$40.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260903_MYM-LFE_001 | Sep 3 | MYM | Short | 53,737.00 | 53,727.00 | **+$20.00** | — | — | — | ⏳ Pending journal data | — | — |
+
+</details>
 
 ---
 
@@ -852,14 +865,14 @@ Each session: append a new row to the **Trade Log** table, a new row to **Behavi
 Links to individual reviews:
 
 <details>
-<summary><strong>Feb 2025</strong> (1 review)</summary>
+<summary>🔽 <a href="#individual-reviews"><strong>Feb 2025</strong></a> — 1 review</summary>
 
 - [Feb 10 — API3USDT BTCC #001](../../smarttrader-ai/reviews/2025/review_20250210_API3USDT-BTCC_001.md)
 
 </details>
 
 <details>
-<summary><strong>Feb 2026</strong> (6 reviews)</summary>
+<summary>🔽 <a href="#individual-reviews"><strong>Feb 2026</strong></a> — 6 reviews</summary>
 
 - [Feb 23 — MNQ Short](../../smarttrader-ai/reviews/2026/02-Feb/review_20260223_MNQ-APEX_001.md)
 - [Feb 24 — MES Long](../../smarttrader-ai/reviews/2026/02-Feb/review_20260224_MES-APEX_001.md)
@@ -871,7 +884,7 @@ Links to individual reviews:
 </details>
 
 <details>
-<summary><strong>Mar 2026</strong> (17 reviews)</summary>
+<summary>🔽 <a href="#individual-reviews"><strong>Mar 2026</strong></a> — 17 reviews</summary>
 
 - [Mar 2 — YM Long T1](../../smarttrader-ai/reviews/2026/03-Mar/review_20260302_YM-APEX_001.md)
 - [Mar 2 — ES Short T2 (A+)](../../smarttrader-ai/reviews/2026/03-Mar/review_20260302_ES-APEX_002.md)
@@ -894,7 +907,7 @@ Links to individual reviews:
 </details>
 
 <details>
-<summary><strong>Apr 2026</strong> (11 reviews)</summary>
+<summary>🔽 <a href="#individual-reviews"><strong>Apr 2026</strong></a> — 11 reviews</summary>
 
 - [Apr 8 — SOL Short (~-$22 · BTCC voucher · AutoLiq)](../../smarttrader-ai/reviews/2026/04-Apr/review_20260408_SOLUSDT-BTCC_001.md)
 - [Apr 17 — M2K Short (-$87 · APEX · overnight limit · Pattern 8)](../../smarttrader-ai/reviews/2026/04-Apr/review_20260417_M2K-APEX_001.md)
@@ -911,7 +924,7 @@ Links to individual reviews:
 </details>
 
 <details>
-<summary><strong>May 2026</strong> (12 reviews)</summary>
+<summary>🔽 <a href="#individual-reviews"><strong>May 2026</strong></a> — 12 reviews</summary>
 
 - [May 2 — SOL BTCC #001](../../smarttrader-ai/reviews/2026/05-May/review_20260502_SOL-BTCC_001.md)
 - [May 6 — RTY APEX #001](../../smarttrader-ai/reviews/2026/05-May/review_20260506_RTY-APEX_001.md)
@@ -929,7 +942,7 @@ Links to individual reviews:
 </details>
 
 <details>
-<summary><strong>Jun 2026</strong> (43 reviews)</summary>
+<summary>🔽 <a href="#individual-reviews"><strong>Jun 2026</strong></a> — 43 reviews</summary>
 
 - [Jun 2 — M2K APEXPA01 #001](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260602_M2K-APEXPA01_001.md)
 - [Jun 3 — MYM TPTPRO311919544 #001](../../fortuna-exports/trade-reviews/2026/06-Jun/review_20260603_MYM-TPTPRO311919544_001.md)
@@ -978,7 +991,7 @@ Links to individual reviews:
 </details>
 
 <details>
-<summary><strong>Jul 2026</strong> (30 reviews)</summary>
+<summary>🔽 <a href="#individual-reviews"><strong>Jul 2026</strong></a> — 30 reviews</summary>
 
 - [Jul 2 — M2K TPT718652247 #001](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260702_M2K-TPT718652247_001.md)
 - [Jul 2 — M2K APEX07 #002](../../fortuna-exports/trade-reviews/2026/07-Jul/review_20260702_M2K-APEX07_002.md)
@@ -1014,7 +1027,7 @@ Links to individual reviews:
 </details>
 
 <details>
-<summary><strong>Aug 2026</strong> (166 reviews)</summary>
+<summary>🔽 <a href="#individual-reviews"><strong>Aug 2026</strong></a> — 166 reviews</summary>
 
 - [Aug 3 — MYM APEX08 #001](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260803_MYM-APEX08_001.md)
 - [Aug 4 — MYM APEX08 #001](../../fortuna-exports/trade-reviews/2026/08-Aug/review_20260804_MYM-APEX08_001.md)
@@ -1186,7 +1199,7 @@ Links to individual reviews:
 </details>
 
 <details>
-<summary><strong>Sep 2026</strong> (2 reviews)</summary>
+<summary>🔽 <a href="#individual-reviews"><strong>Sep 2026</strong></a> — 2 reviews</summary>
 
 - [Sep 1 — MNQ TPTPRO781112132 #001](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260901_MNQ-TPTPRO781112132_001.md)
 - [Sep 1 — MNQ TPTPRO781112132 #002](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260901_MNQ-TPTPRO781112132_002.md)
