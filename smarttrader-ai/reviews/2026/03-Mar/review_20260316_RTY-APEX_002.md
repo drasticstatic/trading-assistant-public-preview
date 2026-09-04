@@ -31,7 +31,7 @@ SFP + ZTH Rejection + Pivot SHORT on RTY near the end of RTH. A bullish SFP cand
 | **Exit type** | Limit TP — clean fill |
 | **Zella Rating** | 4 / 5 |
 | **Account** | APEX-484839-06 |
-| **TradeZella file** | `data/imports/2026/03-Mar/tradezella_20260316.csv` |
+| **TradeZella file** | `data/imports/2026/03-Mar/TradeZella/tradezella_20260316.csv` |
 | **Tradovate file** | `data/imports/2026/03-Mar/Tradovate/tradovate_orders_20260316.csv` |
 
 ---
