@@ -109,12 +109,14 @@
     }
 
     .thanks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; --accent: var(--gold); }
-    .thanks-card { display: block; text-decoration: none; color: inherit; padding: 1.1rem 1.2rem; text-align: center; transition: transform .35s var(--spring), border-color .2s; }
+    /* ── flex column so .review-link (margin-top:auto below) lands on the
+       same y-axis across all three Mentors cards regardless of copy length. ── */
+    .thanks-card { display: flex; flex-direction: column; text-decoration: none; color: inherit; padding: 1.1rem 1.2rem; text-align: center; transition: transform .35s var(--spring), border-color .2s; }
     .thanks-card:hover { transform: translateY(-3px); border-color: rgba(243,201,105,.4); }
     .thanks-card h3 { font-size: .94rem; font-weight: 800; margin-bottom: .35rem; color: var(--text); display: flex; align-items: center; justify-content: center; gap: .4rem; }
     .thanks-card p { font-size: .82rem; color: var(--muted); margin-bottom: .5rem; }
     .thanks-card p:last-child { margin-bottom: 0; }
-    .thanks-card .review-link { display: inline-flex; align-items: center; gap: .3rem; font-size: .76rem; font-weight: 700; padding: .18rem .6rem; border-radius: 999px; background: rgba(73,209,125,.12); color: var(--green); border: 1px solid rgba(73,209,125,.24); }
+    .thanks-card .review-link { display: inline-flex; align-items: center; gap: .3rem; font-size: .76rem; font-weight: 700; padding: .18rem .6rem; border-radius: 999px; background: rgba(73,209,125,.12); color: var(--green); border: 1px solid rgba(73,209,125,.24); margin: auto auto 0; }
     .thanks-card .flavor-tag { font-size: .72rem; color: var(--subtle); font-style: italic; }
 
     .pfm-panel { display: block; text-decoration: none; color: inherit; transition: transform .35s var(--spring), border-color .2s; }
@@ -140,7 +142,7 @@
        or iMessage would generate, since no real screenshots are on file. ── */
     .preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; --accent: var(--rose); }
     .preview-card {
-      display: block; text-decoration: none; color: inherit;
+      display: flex; flex-direction: column; text-decoration: none; color: inherit;
       transition: transform .35s var(--spring), border-color .2s;
     }
     .preview-card:hover { transform: translateY(-3px); border-color: rgba(255,157,193,.4); }
@@ -148,8 +150,11 @@
       position: relative; aspect-ratio: 2.2/1; display: flex; align-items: center; justify-content: center;
       font-size: 2.4rem; overflow: hidden;
     }
-    .preview-body { padding: .85rem 1rem .9rem; text-align: center; }
-    .preview-title { font-size: .88rem; font-weight: 800; letter-spacing: .04em; color: var(--text); margin-bottom: .2rem; display: flex; align-items: center; justify-content: center; gap: .35rem; }
+    /* ── flex column so .card-socials (margin-top:auto below) lands on
+       the same y-axis in both shoutout cards regardless of how much
+       text sits above it. ── */
+    .preview-body { padding: .85rem 1rem .9rem; text-align: center; display: flex; flex-direction: column; flex: 1; }
+    .preview-title { font-size: .88rem; font-weight: 800; letter-spacing: .14em; color: var(--text); margin-bottom: .2rem; display: flex; align-items: center; justify-content: center; gap: .35rem; }
     .preview-desc { font-size: .78rem; color: var(--muted); margin-bottom: .5rem; }
 
     /* ── YouTube-branded preview card (MarketButcher) — static preview
@@ -240,7 +245,7 @@
     .friends-wrap::-webkit-scrollbar-thumb { background: var(--violet); border-radius: 999px; }
     .friends-track { display: flex; gap: 1rem; width: max-content; }
     .friend-card {
-      flex: 0 0 auto; width: 190px;
+      flex: 0 0 auto; width: 190px; display: flex; flex-direction: column;
       border: 1px solid var(--glass-border); border-radius: var(--radius-lg);
       background: var(--glass); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
       overflow: hidden; box-shadow: var(--shadow);
@@ -288,17 +293,19 @@
       animation: iconPurplePink 6s ease-in-out infinite, iconBounce .65s ease-in-out infinite;
     }
     .friend-link.social-purple:hover { border-color: var(--violet); color: var(--violet); }
-    .card-socials { display: flex; align-items: center; justify-content: center; gap: .5rem; margin-top: .7rem; }
+    .card-socials { display: flex; align-items: center; justify-content: center; gap: .5rem; margin-top: auto; padding-top: .7rem; }
     .friend-art i {
       animation: iconRedGreen 5s ease-in-out infinite, iconBreathe 3.2s ease-in-out infinite;
     }
     .friend-card:hover .friend-art i { animation: iconRedGreen 5s ease-in-out infinite, iconBounce .65s ease-in-out infinite; }
-    .friend-card-body { padding: .8rem .9rem .9rem; text-align: center; }
+    /* ── flex column so .friend-link (margin-top:auto below) lands on
+       the same y-axis across every card, regardless of role-text length. ── */
+    .friend-card-body { padding: .8rem .9rem .9rem; text-align: center; display: flex; flex-direction: column; flex: 1; }
     .friend-name { font-size: .84rem; font-weight: 800; color: var(--text); margin-bottom: .15rem; }
     .friend-role { font-size: .7rem; color: var(--subtle); margin-bottom: .6rem; }
     .friend-link {
       display: flex; align-items: center; justify-content: center;
-      width: 2.3rem; height: 2.3rem; margin: 0 auto; border-radius: 999px;
+      width: 2.3rem; height: 2.3rem; margin: auto auto 0; border-radius: 999px;
       background: var(--surface-soft); border: 1px solid var(--border); color: var(--text);
       transition: border-color .2s, color .2s;
     }
@@ -309,7 +316,11 @@
     /* ── COPY-TRADING TOOLS — one featured (TradeCopia, actually run in
        production) stacked above one quieter alt card (Tradesyncer, a
        real option that just isn't the one running things day to day). ── */
-    .tools-stack { display: flex; flex-direction: column; gap: 1.4rem; }
+    /* ── TradeCopia (featured, ~4/5 width) sits inline with Tradesyncer
+       (alt, ~1/5 width) so both cards' pill buttons stay on the same
+       row pair without stacking the whole section vertically. ── */
+    .tools-row { display: grid; grid-template-columns: minmax(0,4fr) minmax(200px,1fr); gap: 1.4rem; align-items: start; }
+    @media (max-width: 680px) { .tools-row { grid-template-columns: 1fr; } }
     .tool-card { display: block; text-decoration: none; color: inherit; padding: 1.1rem 1.2rem; text-align: center; transition: transform .35s var(--spring), border-color .2s; }
     .tool-card:hover { transform: translateY(-3px); border-color: rgba(124,194,255,.4); }
     .tool-card h4 { font-size: .92rem; font-weight: 800; margin-bottom: .35rem; display: flex; align-items: center; justify-content: center; gap: .4rem; }
@@ -317,7 +328,7 @@
     .tool-card p:last-child { margin-bottom: 0; }
 
     .tool-card.featured {
-      text-align: left; padding: 1.5rem 1.7rem; max-width: 720px; margin: 0 auto;
+      text-align: left; padding: 1.5rem 1.7rem;
       border-color: rgba(243,201,105,.4);
       background: linear-gradient(155deg, rgba(243,201,105,.09), rgba(148,163,184,.03));
     }
@@ -335,9 +346,15 @@
     .tool-strengths li { display: flex; align-items: flex-start; gap: .55rem; font-size: .82rem; color: var(--muted); line-height: 1.5; }
     .tool-strengths li .ph-duotone { flex-shrink: 0; color: var(--gold); font-size: 1.25em; margin-top: .05em; }
     .tool-strengths li strong { color: var(--text); }
+    .tool-honesty-note {
+      font-size: .74rem; color: var(--subtle); line-height: 1.55;
+      border-top: 1px dashed var(--border); padding-top: .7rem; margin: .8rem 0 .9rem;
+    }
+    .tool-honesty-note .ph-duotone { color: var(--subtle); margin-right: .2rem; }
 
-    .tool-card.alt { text-align: left; padding: 1.1rem 1.3rem; max-width: 640px; margin: 0 auto; }
-    .tool-card.alt h4 { justify-content: flex-start; }
+    .tool-card.alt { text-align: left; padding: .9rem 1rem; }
+    .tool-card.alt h4 { justify-content: flex-start; flex-wrap: wrap; font-size: .84rem; gap: .35rem; }
+    .tool-card.alt p { font-size: .74rem; }
     .tool-card.alt p, .tool-card.alt .ext-link-row { text-align: left; justify-content: flex-start; }
     .tool-tag-alt {
       font-size: .64rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
@@ -402,25 +419,25 @@
       <a class="thanks-card glass" href="https://www.trustpilot.com/review/inevitrade.com" target="_blank" rel="noreferrer">
         <h3><i class="ph-duotone ph-brain"></i> Inevitrade (IT)</h3>
         <p class="flavor-tag">Smart money</p>
-        <p>Foundation EMAs, SMT divergence, and the longest-running relationship in this whole trading arc</p>
+        <p>The longest-running relationship in this whole trading arc. Foundation EMAs and SMT divergence gave this system its earliest real structure, and years later that same smart-money framework still shapes every session outside the NY AM window</p>
         <span class="review-link"><i class="ph-duotone ph-star"></i> Trustpilot ↗</span>
       </a>
       <a class="thanks-card glass" href="https://www.trustpilot.com/review/smarttradingblueprint.com" target="_blank" rel="noreferrer">
         <h3><i class="ph-duotone ph-book-open-text"></i> SmartTradingBlueprint (STB)</h3>
         <p class="flavor-tag">Depth</p>
-        <p>FCR (First Candle Rule) and the deep case-study habit that shows up throughout this repo</p>
+        <p>FCR (First Candle Rule) opened the door, but the deep case-study habit it instilled is what actually shows up everywhere in this repo — every trade review here still traces back to that discipline</p>
         <span class="review-link"><i class="ph-duotone ph-star"></i> Trustpilot ↗</span>
       </a>
       <a class="thanks-card glass" href="https://www.trustpilot.com/review/zerotohero.trade" target="_blank" rel="noreferrer">
         <h3><i class="ph-duotone ph-target"></i> ZeroToHero (ZTH)</h3>
         <p class="flavor-tag">Base-hit-minded</p>
-        <p>Setups looked for all session long, and the base-hit discipline behind the "securing base hits" approach</p>
+        <p>All-day setups and the base-hit discipline behind the "securing base hits" approach — the community here, and the coaching behind it, did as much for the psychology of trading as for the setups themselves</p>
         <span class="review-link"><i class="ph-duotone ph-star"></i> Trustpilot ↗</span>
       </a>
     </div>
 
     <div id="friends-top" class="sec-label"><i class="ph-duotone ph-users"></i> Friends</div>
-    <p class="sec-sub">The people behind the programs, the community, and the tools — direct links, not just program pills. Every card below links to Instagram (<i class="ph-duotone ph-instagram-logo"></i>)</p>
+    <p class="sec-sub">The people behind the programs, the community, and the tools — direct links, not just program pills. Most cards link to Instagram (<i class="ph-duotone ph-instagram-logo"></i>), a few to LinkedIn (<i class="ph-duotone ph-linkedin-logo"></i>) instead — one voice (WhatsApp-only) doesn't have a public profile to link to at all</p>
     <div class="friends-wrap" id="friendsWrap">
       <div class="friends-track" id="friendsTrack"></div>
     </div>
@@ -437,7 +454,6 @@
         <div class="preview-body">
           <div class="yt-brand">YouTube · Channel</div>
           <a class="preview-title" href="https://www.youtube.com/@propfirmmatch" target="_blank" rel="noreferrer"><i class="ph-duotone ph-television"></i> PropFirmMatchTV</a>
-          <p class="preview-desc">Hosts + direct links: see the <a href="#friends-top">Friends marquee</a> above</p>
           <a class="story-trigger" href="https://www.youtube.com/@propfirmmatch" target="_blank" rel="noreferrer"><i class="ph-duotone ph-link"></i> youtube.com/@propfirmmatch ↗</a>
           <a class="story-trigger" href="https://propfirmmatch.com/futures" target="_blank" rel="noreferrer" style="margin-left:.35rem;"><i class="ph-duotone ph-link"></i> propfirmmatch.com ↗</a>
           <p class="preview-desc" style="margin-top:.6rem;">More on the copy-trading plan it kicked off:</p>
@@ -456,7 +472,7 @@
         <div class="preview-body">
           <div class="yt-brand">YouTube · Channel</div>
           <a class="preview-title" href="https://www.youtube.com/@MarketButcher" target="_blank" rel="noreferrer"><i class="ph-duotone ph-film-slate"></i> <span style="display:flex; flex-direction:column; line-height:1.35;">MarketButcher<br>Dave &amp; Ralph</span></a>
-          <p class="preview-desc">after-hours content and perspective<br>breakdowns that make the grind feel lighter</p>
+          <p class="preview-desc">After-hours content and perspective<br>breakdowns that make the grind feel lighter</p>
           <a class="story-trigger" href="https://www.youtube.com/@MarketButcher" target="_blank" rel="noreferrer"><i class="ph-duotone ph-link"></i> youtube.com/@MarketButcher ↗</a>
           <div class="card-socials">
             <a class="friend-link social-purple" href="https://discord.gg/3xBumtNFXQ" target="_blank" rel="noreferrer" aria-label="MarketButcher Discord" title="MarketButcher Discord"><i class="ph-duotone ph-discord-logo"></i></a>
@@ -478,20 +494,20 @@
 
     <div id="copy-trading" class="sec-label"><i class="ph-duotone ph-path"></i> Copy-Trading</div>
     <p class="sec-sub">Connect Tradovate ↔ NinjaTrader and handle per-follower quantity multipliers, replacing the old manual multi-device method <button type="button" class="story-trigger" onclick="openModal('mirrorBackstoryModal')" style="margin-left:.35rem;"><i class="ph-duotone ph-clock-counter-clockwise"></i> How We Got Here ↗</button></p>
-    <div class="tools-stack">
+    <div class="tools-row">
       <div class="tool-card-wrap">
         <a id="tradecopia" class="tool-card featured glass" href="https://tradecopia.com" target="_blank" rel="noreferrer">
           <div class="tool-featured-head">
             <h4><i class="ph-duotone ph-cloud-check"></i> TradeCopia</h4>
-            <span class="tool-badge-live"><i class="ph-duotone ph-check-circle"></i> Battle-tested — running the account structure today</span>
+            <span class="tool-badge-live"><i class="ph-duotone ph-sword"></i> Battle-tested — running the account structure today</span>
           </div>
-          <p>Cloud-based, browser-driven — the actual upgrade from Tradovate's native single-account-view switcher, not just a faster version of the same manual habit</p>
+          <p>Cloud-based, browser-driven — the upgrade from executing through multiple session instances of TradingView's native single-account-view switcher. Not just an easier, faster version of conducting clean business by hand: an enterprise-grade fix for a growing need — taking human error and lag out of manual mirroring, and moving off Tradovate's own "airplane cockpit" UI, which resets and lacks the drawing tools and TA that stay intact across every TradingView session</p>
           <ul class="tool-strengths">
             <li><i class="ph-duotone ph-shield-check"></i> <span><strong>Hedge prevention</strong> — caps a follower's order at its existing size, never flips it into reverse</span></li>
             <li><i class="ph-duotone ph-scales"></i> <span><strong>Position reconciler</strong> — corrects any follower fill that drifts from the leader, entry or exit</span></li>
             <li><i class="ph-duotone ph-flag"></i> <span><strong>Auto-flatten</strong> the instant the leader goes flat — no stale bracket orders left behind</span></li>
-            <li><i class="ph-duotone ph-currency-dollar"></i> <span>A shared <strong>$555 daily-loss ceiling</strong>, tuned the same across every account on the roster</span></li>
           </ul>
+          <p class="tool-honesty-note"><i class="ph-duotone ph-waveform"></i> Running on TradeCopia's Pro+Lite tier here, not its local low-latency tier — the local-environment instability covered in the backstory above rules that one out, even though it's a feature a lot of people genuinely rely on. One real rough edge: live P&L doesn't always register the instant a position opens or closes, even though the pause/reconnect sounds fire right on cue — every trade so far has still executed exactly as configured regardless. Pro+ might smooth that over; just not an affordable upgrade yet, and the local tier still isn't a fit for laptops or a computer that goes to sleep mid-session</p>
           <span class="ext-link-row"><i class="ph-duotone ph-link"></i> tradecopia.com ↗</span>
         </a>
         <div style="text-align:center; margin-top:1rem;">
@@ -501,7 +517,7 @@
       <div class="tool-card-wrap">
         <a id="tradesyncer" class="tool-card alt glass" href="https://www.tradesyncer.com" target="_blank" rel="noreferrer">
           <h4><i class="ph-duotone ph-arrows-clockwise"></i> Tradesyncer <span class="tool-tag-alt">Another option</span></h4>
-          <p>Sub-100ms sync speed, with hedge prevention and position sync run through its own named feature — <strong>Follower Protection</strong> — a different take on the same problem TradeCopia solves with its reconciler and auto-flatten controls</p>
+          <p>Sub-100ms sync speed, with hedge prevention and position sync run through its named feature — <strong>Follower Protection</strong> — a similar control to how TradeCopia solves reconciliation and auto-flattening</p>
           <span class="ext-link-row"><i class="ph-duotone ph-link"></i> tradesyncer.com ↗</span>
         </a>
         <div style="text-align:center; margin-top:.9rem;">
@@ -544,7 +560,7 @@
       <p><i class="ph-duotone ph-trophy"></i> A free Lucid futures account was won here via an on-stream duck race — first prize surfaced through community, not purchased. PropFirmMatchTV runs live-stream giveaways with a Discord + access-code flow, and this particular race is how Lucid ended up on the roster at all: a redemption code good toward a 25K account, style already decided in the account-structure plan above (25K follows, doesn't lead — see the <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-account-types-comparison.md" target="_blank" rel="noreferrer">comparison doc</a> for the style analysis behind it)</p>
       <p><i class="ph-duotone ph-hands-praying"></i> Why it landed harder than "free 25K account": by July 20, a Lucid account had already been created specifically to dodge the 30-day eval-subscription clock TPT was running — this was around the time Apex Legacy accounts stopped being purchasable outright. Even so, a Lucid eval itself was never actually bought — TopOne's BOGO deal and TPT's 50AND3 offer had already covered enough ground. In a moment of prayer, weighing whether to even enter the giveaway at all while already juggling three funded accounts and two Apex renewals, the honest answer was: enough is enough for now — and that was said out loud, gratefully, as a letting go, not a complaint</p>
       <p><i class="ph-duotone ph-smiley-blank"></i> Then the name got called. During Alex's hosting slot, using the code "tmade" — and hearing it live was genuinely a "wait, seriously?" moment, followed by tears. Not because of the account's dollar value, but because of how the whole journey had been unfolding up to that point. The gratitude here runs deeper than the outcome itself — it's encouragement, hope, and a real opportunity to level up and actually learn TradeCopia, scaling, and Lucid properly, rather than something owed or expected</p>
-      <p><i class="ph-duotone ph-users"></i> Dave/MarketButcher and no shortage of other YouTube livestreamers in this space are affiliates too, running their own versions of these fun raffles and giveaway-style engagement while still mentoring — this duck race is one example of a much broader, genuinely fun pattern in this corner of YouTube</p>
+      <p><i class="ph-duotone ph-youtube-logo"></i> Dave/MarketButcher and no shortage of other YouTube livestreamers in this space are affiliates too, running their own versions of these fun raffles and giveaway-style engagement while still mentoring — this duck race is one example of a much broader, genuinely fun pattern in this corner of YouTube</p>
     </div>
   </div>
 
@@ -555,6 +571,8 @@
       <p><i class="ph-duotone ph-devices"></i> It started on two machines at once — an iMac and a MacBook Pro, both running TradingView's Desktop App, trying to mirror the same trade by hand. TradingView doesn't allow multiple simultaneous sessions, so the MacBook side got pushed to a browser tab instead — which ran into the same wall from a different angle, since Tradovate was also logged into TradingView across desktop and mobile. Manual mirroring got paused for a while after that</p>
       <p><i class="ph-duotone ph-desktop"></i> Coming back to it meant simplifying to one machine, not two: TPT traded through TradingView's Desktop App, Top1's BOGO accounts through a browser tab, both under the same login on the same iMac — switching Tradovate's account selector inside TradingView fast enough to never need a second tab. Three evals passed that way, each with multiple entries per account</p>
       <p><i class="ph-duotone ph-cloud-arrow-up"></i> Then TheGexLab needed its own tab, Lucid and Apex both came back into the mix, and leaving all of that to manual habit — on top of Starlink resync pauses and weather-related power outages that can take the whole trading terminal down — stopped feeling survivable. That's the real reason this scaled to TradeCopia's cloud syncing: not a nice-to-have, an enterprise-grade fix for an environment that isn't always stable. Lucid now runs as leader through the Desktop App, Top1 as leader through the browser, Tradovate's own UI still one click away either way — Fortuna's looped in on the plan now, and LittlebirdAI keeps quietly observing</p>
+      <p><i class="ph-duotone ph-cursor-click"></i> Somewhere in that same period, TradingView's reverse-position button got disabled entirely, switched over to One-Click Trading instead — instantly placing, editing, canceling, or closing positions without a confirmation prompt — after watching TMade Alex run the same setup on DeepCharts</p>
+      <p><i class="ph-duotone ph-desktop-tower"></i> Maybe one day there's room for a Windows VM again, just to properly test DeepCharts for order-flow data and lower latency — TradingView is known to get bloated under load with so many users on it, and both tools have real strengths worth having. For now, the time and attention goes to TheGexLab instead; screenshots of all this are coming through the TradeCopia-init session soon</p>
     </div>
   </div>
 
@@ -576,37 +594,48 @@
     // duotone weight used everywhere else on this page, better suited
     // to these small decorative tiles.
     const friends = [
-      { name: 'Fabio', role: 'Pre-Dawn · PFM host · ttacapital', pi: 'ph-sun-horizon', grad: 'linear-gradient(135deg,#f3c969,#ff9f67,#ff6b6b)', href: 'https://www.instagram.com/ttacapital/' },
+      { name: 'Fabio Valentini', role: 'Pre-Dawn · PFM host · Founder of TTACapital & The Trading Academy', pi: 'ph-sun-horizon', grad: 'linear-gradient(135deg,#f3c969,#ff9f67,#ff6b6b)', href: 'https://www.instagram.com/ttacapital/' },
       { name: 'Luna Trades', role: 'Early AM · PFM host', pi: 'ph-moon', grad: 'linear-gradient(135deg,#7c6fff,#b693ff,#ff9dc1)', href: 'https://www.instagram.com/luna_trades_/' },
-      { name: 'Zarb', role: 'NY Session · PFM host · ZarbsLiquidity', pi: 'ph-waves', grad: 'linear-gradient(135deg,#22d3ee,#6ee7f9,#7cc2ff)', href: 'https://www.instagram.com/iamzarb_/' },
-      { name: 'TMade Alex', role: 'Lunchbox VWAP PFM trader · TheGexLab partner', pi: 'ph-lightning', grad: 'linear-gradient(135deg,#ff9f67,#f3c969,#fde68a)', href: 'https://www.instagram.com/tmadealex/' },
+      { name: 'Zach Arbucci', role: 'NY Session · PFM host · Zarbs Liquidity Lab', pi: 'ph-waves', grad: 'linear-gradient(135deg,#22d3ee,#6ee7f9,#7cc2ff)', href: 'https://www.instagram.com/iamzarb_/' },
+      { name: 'TMade Alex', role: 'Lunchbox VWAP PFM host · TheGexLab partner', pi: 'ph-lightning', grad: 'linear-gradient(135deg,#ff9f67,#f3c969,#fde68a)', href: 'https://www.instagram.com/tmadealex/' },
       { name: 'Dave Butcher', role: 'Evening · MarketButcher', pi: 'ph-knife', grad: 'linear-gradient(135deg,#ff9dc1,#ff9f67,#ff6b6b)', href: 'https://www.instagram.com/market_butcher/' },
-      { name: 'Yush', role: 'TheGexLab co-creator', pi: 'ph-microscope', grad: 'linear-gradient(135deg,#34d399,#49d17d,#6ee7f9)', href: 'https://www.instagram.com/traderyush_/' },
-      { name: 'Craig', role: 'Inevitrade (IT)', pi: 'ph-brain', grad: 'linear-gradient(135deg,#60a5fa,#7cc2ff,#b693ff)', href: 'https://www.instagram.com/craig_percoco/' },
-      { name: 'Jesse', role: 'SmartTradingBlueprint (STB)', pi: 'ph-book-open-text', grad: 'linear-gradient(135deg,#f3c969,#ff9f67,#fbbf24)', href: 'https://www.instagram.com/casper_smc/' },
-      { name: 'Omar', role: 'ZeroToHero (ZTH)', pi: 'ph-target', grad: 'linear-gradient(135deg,#22c55e,#49d17d,#f3c969)', href: 'https://www.instagram.com/omarfhafez/' },
+      { name: 'Trader Yush', role: 'TheGexLab co-creator', pi: 'ph-microscope', grad: 'linear-gradient(135deg,#34d399,#49d17d,#6ee7f9)', href: 'https://www.instagram.com/traderyush_/' },
+      { name: 'Craig Percoco', role: 'Inevitrade (IT)', pi: 'ph-brain', grad: 'linear-gradient(135deg,#60a5fa,#7cc2ff,#b693ff)', href: 'https://www.instagram.com/craig_percoco/' },
+      { name: 'Jesse Rogers · CasperSMC', role: 'SmartTradingBlueprint (STB)', pi: 'ph-book-open-text', grad: 'linear-gradient(135deg,#f3c969,#ff9f67,#fbbf24)', href: 'https://www.instagram.com/casper_smc/' },
+      { name: 'Boian', role: 'SmartTradingBlueprint (STB) · Success Manager', pi: 'ph-headset', grad: 'linear-gradient(135deg,#2dd4bf,#5eead4,#a7f3d0)', platform: 'whatsapp' },
+      { name: 'Omar Hafez', role: 'ZeroToHero (ZTH)', pi: 'ph-target', grad: 'linear-gradient(135deg,#22c55e,#49d17d,#f3c969)', href: 'https://www.instagram.com/omarfhafez/' },
+      { name: 'Dario Pirrone', role: 'ZeroToHero (ZTH) · Coach', pi: 'ph-compass', grad: 'linear-gradient(135deg,#60a5fa,#38bdf8,#6ee7f9)', platform: 'linkedin', href: 'https://www.linkedin.com/in/dario-pirrone-b9340199/' },
+      { name: 'Chawkat Houri', role: 'ZeroToHero (ZTH) · Accountability Coach', pi: 'ph-alarm', grad: 'linear-gradient(135deg,#fbbf24,#f97316,#ff6b6b)', platform: 'linkedin', href: 'https://www.linkedin.com/in/chawkat-houri-6a384b96/' },
     ];
     // PropFirmMatchTV's daily schedule (Pre-Dawn/Fabio -> Early AM/Luna ->
     // NY Session/Zarb -> Lunchbox/Alex -> Evening/Dave) is baked directly
     // into each person's role text in the array above now, instead of a
     // separate overlay on the PFM banner.
+    // Most friends link out to Instagram, but a couple of coaches are
+    // LinkedIn-only, and one (no public profile at all, WhatsApp-only
+    // contact) isn't a link card — just a non-clickable one.
+    const FRIEND_ICONS = { instagram: 'ph-instagram-logo', linkedin: 'ph-linkedin-logo', whatsapp: 'ph-whatsapp-logo' };
     function renderFriends(containerId, items) {
       const el = document.getElementById(containerId);
       const doubled = items.concat(items);
       doubled.forEach((item, i) => {
-        const card = document.createElement('a');
+        const platform = item.platform || 'instagram';
+        const clickable = !!item.href;
+        const card = document.createElement(clickable ? 'a' : 'div');
         card.className = 'friend-card';
-        card.href = item.href;
-        card.target = '_blank';
-        card.rel = 'noreferrer';
-        card.style.display = 'block';
+        if (clickable) {
+          card.href = item.href;
+          card.target = '_blank';
+          card.rel = 'noreferrer';
+        }
+        card.style.display = 'flex';
         card.style.transitionDelay = (i % items.length) * 0.04 + 's';
         card.innerHTML = `
           <div class="friend-art" style="--grad:${item.grad}"><i class="ph-light ${item.pi}"></i></div>
           <div class="friend-card-body">
             <div class="friend-name">${item.name}</div>
             <div class="friend-role">${item.role}</div>
-            <span class="friend-link"><i class="ph-duotone ph-instagram-logo"></i></span>
+            <span class="friend-link"><i class="ph-duotone ${FRIEND_ICONS[platform]}"></i></span>
           </div>`;
         el.appendChild(card);
         // One orchestrated reveal: cards settle into place right after
