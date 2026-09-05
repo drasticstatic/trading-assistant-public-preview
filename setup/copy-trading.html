@@ -9,7 +9,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="assets/favicon.png">
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/duotone/style.css">
   <style>
     :root {
       --bg: #09111d; --bg-alt: #0d1625;
@@ -38,8 +38,11 @@
     @media (prefers-reduced-motion: reduce) {
       * { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
     }
-    .lucide { width: 1.3em; height: 1.3em; vertical-align: -.22em; stroke-width: 1.75; display: inline-block; flex-shrink: 0; }
-    h1 .lucide { width: 1em; height: 1em; vertical-align: -.12em; }
+    .ph-duotone { font-size: 1.7em; vertical-align: -.28em; display: inline-block; flex-shrink: 0; }
+    /* Vendor default duotone "ghost" layer is only 20% opacity -- nearly invisible in a
+       light-on-dark palette. Bump it so the two-tone shape is actually perceptible. */
+    .ph-duotone::before { opacity: .55 !important; }
+    h1 .ph-duotone { font-size: 1.15em; vertical-align: -.15em; }
     .bg-parallax {
       position: fixed; inset: -10vh -10vw; z-index: -1; pointer-events: none;
       background:
@@ -203,20 +206,20 @@
   <div class="bg-parallax" id="bgParallax"></div>
 
   <nav class="nav">
-    <span class="nav-brand"><i data-lucide="repeat"></i> Copy-Trading Plan</span>
-    <a class="nav-tag" href="../index.html"><i data-lucide="home"></i> Home</a>
-    <a class="nav-tag" href="../data/progression/resources.html"><i data-lucide="book-open"></i> Resources</a>
-    <a class="nav-tag" href="../data/progression/gallery.html"><i data-lucide="trophy"></i> Gallery</a>
-    <a class="nav-tag" href="community.html"><i data-lucide="hand-heart"></i> Community</a>
-    <a class="nav-tag" href="prop-firm-rules.html"><i data-lucide="plane"></i> Pre-Flight Checklist</a>
+    <span class="nav-brand"><i class="ph-duotone ph-arrows-clockwise"></i> Copy-Trading Plan</span>
+    <a class="nav-tag" href="../index.html"><i class="ph-duotone ph-house"></i> Home</a>
+    <a class="nav-tag" href="../data/progression/resources.html"><i class="ph-duotone ph-book-open"></i> Resources</a>
+    <a class="nav-tag" href="../data/progression/gallery.html"><i class="ph-duotone ph-trophy"></i> Gallery</a>
+    <a class="nav-tag" href="community.html"><i class="ph-duotone ph-hand-heart"></i> Community</a>
+    <a class="nav-tag" href="prop-firm-rules.html"><i class="ph-duotone ph-airplane-tilt"></i> Pre-Flight Checklist</a>
   </nav>
 
   <main class="content">
     <p class="eyebrow hero-in">TradeCopia · A Fork in the Road</p>
-    <h1 class="hero-in d1"><i data-lucide="repeat"></i> The Copy-<span>Trading</span> Plan</h1>
+    <h1 class="hero-in d1"><i class="ph-duotone ph-arrows-clockwise"></i> The Copy-<span>Trading</span> Plan</h1>
     <p class="lede hero-in d2">The manual method — a MacBook, iPhone, and iMac running at once, alternating live between accounts by hand — got the job done through two evals, but it was never going to scale, and it introduced real human error under pressure. This page is the full, current record of what replaced it: TradeCopia, the account structure behind it, the compliance research that reshaped that structure twice, and the risk-limit decisions that came out of it.</p>
 
-    <div class="sec-label"><i data-lucide="git-branch"></i> The Structure — Two Groups, Two Flips</div>
+    <div class="sec-label"><i class="ph-duotone ph-git-branch"></i> The Structure — Two Groups, Two Flips</div>
     <p class="sec-sub">Grouped by leader, matched on account size and firm-policy compatibility first — not by drawdown mechanic. Both groups have been restructured at least once since the original plan, each time for a real reason, documented here rather than smoothed over.</p>
     <div class="panel" style="--accent: var(--blue);">
       <div class="tbl-wrap">
@@ -241,7 +244,7 @@
     </div>
     <p class="sec-sub" style="margin-top:.8rem;">Named "TopOne Derived" specifically to honor TOF's own policy language — "trade decisions must originate from activity on our platform." Full account-by-account rationale: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-Scaling-SOP-%26-Implementation.md" target="_blank" rel="noreferrer">Scaling SOP doc ↗</a></p>
 
-    <div class="sec-label"><i data-lucide="shield-check"></i> What the Compliance Research Actually Found</div>
+    <div class="sec-label"><i class="ph-duotone ph-shield-check"></i> What the Compliance Research Actually Found</div>
     <p class="sec-sub">Every firm's copy-trading stance is different, and none of it was assumed — each was fetched or asked directly before the structure above was finalized</p>
     <div class="panel" style="--accent: var(--green);">
       <div class="quote-block">"Cannot copy between different programs or different sizes, even with software." — TopOneFutures' copy-trading policy, confirmed by TOF's own AI assistant to rule out the original Top1→25K-Lucid pairing.</div>
@@ -249,43 +252,43 @@
       <div class="quote-block">TradeCopia is on TakeProfitTrader's own explicit approved-copier list, alongside Tradesyncer and platform-native tools — confirmed directly from TPT's official Trade Copier Policy article, not assumed from the general rules doc.</div>
     </div>
 
-    <div class="sec-label"><i data-lucide="octagon-alert"></i> Risk Settings — $555, Everywhere, On Purpose</div>
+    <div class="sec-label"><i class="ph-duotone ph-warning-octagon"></i> Risk Settings — $555, Everywhere, On Purpose</div>
     <p class="sec-sub">The six settings originally asked for, mapped to what TradeCopia actually exposes — five per-group toggles, plus a personal daily-loss ceiling applied to all six accounts</p>
     <div class="panel" style="--accent: var(--gold);">
       <ul class="toggle-list">
-        <li><div class="t-name"><i data-lucide="shield" class="lucide"></i> Prevent hedging <span class="badge good">ON</span></div><div class="t-desc">Caps a follower's order at its existing position size — never flips it into a reversed direction. Only covers Market-order flips through flat; a Stop/Limit reversal or fresh bracket entry isn't blocked by this alone.</div></li>
-        <li><div class="t-name"><i data-lucide="scale" class="lucide"></i> Position reconciler <span class="badge good">ON</span></div><div class="t-desc">Corrects any follower fill that doesn't match the leader — entry or exit, regardless of cause. Recommended kept on by TradeCopia's own guide.</div></li>
-        <li><div class="t-name"><i data-lucide="pause-circle" class="lucide"></i> Disable replication on breach <span class="badge warn">OFF</span></div><div class="t-desc">The reconciler already corrects any mismatch on its own; this toggle's only added effect is silently pausing a follower's <em>future, clean</em> trades after one incident, until manually re-enabled. Given active monitoring is already the plan, the automatic pause costs more (missed trades) than it protects.</div></li>
-        <li><div class="t-name"><i data-lucide="flag" class="lucide"></i> Auto-close on leader-flat <span class="badge good">ON</span></div><div class="t-desc">Brackets replicate as individual orders, not one linked group — this is the direct fix for a stale follower order surviving after the leader's TP or SL already closed it out.</div></li>
-        <li><div class="t-name"><i data-lucide="x-circle" class="lucide"></i> Flatten followers on cancel <span class="badge good">ON</span></div><div class="t-desc">Same cleanup, triggered by a cancel rather than a fill — covers the other path to a clean, flat leader state.</div></li>
-        <li><div class="t-name"><i data-lucide="dollar-sign" class="lucide"></i> Daily Loss limit — $555, all six accounts <span class="badge info">Personal rule</span></div><div class="t-desc">Started at $600 — "so I never lose more than $600 in a day again" — then revised down once the question became <em>would this actually have saved the account</em>, not just felt safe. LucidFlex25's real firm DLL is $600; a self-imposed limit at that exact value leaves no margin between the trigger and the flatten order actually filling — the same gap that took a 100K Apex Static account previously. $555 became the number for every account, not just Lucid, for consistency.</div></li>
+        <li><div class="t-name"><i class="ph-duotone ph-shield"></i> Prevent hedging <span class="badge good">ON</span></div><div class="t-desc">Caps a follower's order at its existing position size — never flips it into a reversed direction. Only covers Market-order flips through flat; a Stop/Limit reversal or fresh bracket entry isn't blocked by this alone.</div></li>
+        <li><div class="t-name"><i class="ph-duotone ph-scales"></i> Position reconciler <span class="badge good">ON</span></div><div class="t-desc">Corrects any follower fill that doesn't match the leader — entry or exit, regardless of cause. Recommended kept on by TradeCopia's own guide.</div></li>
+        <li><div class="t-name"><i class="ph-duotone ph-pause-circle"></i> Disable replication on breach <span class="badge warn">OFF</span></div><div class="t-desc">The reconciler already corrects any mismatch on its own; this toggle's only added effect is silently pausing a follower's <em>future, clean</em> trades after one incident, until manually re-enabled. Given active monitoring is already the plan, the automatic pause costs more (missed trades) than it protects.</div></li>
+        <li><div class="t-name"><i class="ph-duotone ph-flag"></i> Auto-close on leader-flat <span class="badge good">ON</span></div><div class="t-desc">Brackets replicate as individual orders, not one linked group — this is the direct fix for a stale follower order surviving after the leader's TP or SL already closed it out.</div></li>
+        <li><div class="t-name"><i class="ph-duotone ph-x-circle"></i> Flatten followers on cancel <span class="badge good">ON</span></div><div class="t-desc">Same cleanup, triggered by a cancel rather than a fill — covers the other path to a clean, flat leader state.</div></li>
+        <li><div class="t-name"><i class="ph-duotone ph-currency-dollar"></i> Daily Loss limit — $555, all six accounts <span class="badge info">Personal rule</span></div><div class="t-desc">Started at $600 — "so I never lose more than $600 in a day again" — then revised down once the question became <em>would this actually have saved the account</em>, not just felt safe. LucidFlex25's real firm DLL is $600; a self-imposed limit at that exact value leaves no margin between the trigger and the flatten order actually filling — the same gap that took a 100K Apex Static account previously. $555 became the number for every account, not just Lucid, for consistency.</div></li>
       </ul>
     </div>
     <p class="sec-sub" style="margin-top:.8rem;">Full worked examples for every toggle, including a plain-language breakdown of what "disable replication on breach" actually costs vs. protects: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-risk-toggle-deep-dive.md" target="_blank" rel="noreferrer">tradecopia-risk-toggle-deep-dive.md ↗</a></p>
 
-    <div class="sec-label"><i data-lucide="landmark"></i> Why This Matters Beyond the Settings</div>
+    <div class="sec-label"><i class="ph-duotone ph-bank"></i> Why This Matters Beyond the Settings</div>
     <div class="panel" style="--accent: var(--rose);">
       <p style="font-size:.86rem; color: var(--muted); margin-bottom:.8rem;">The account ledger on the <a href="../data/progression/gallery.html#account-ledger" target="_blank" rel="noreferrer">gallery page</a> carries its own subtitle: <em>"what once looked like a graveyard is a resurrection project."</em> That's not a figure of speech — the recovery arc starts Feb 13, 2026, with a blowup and no rule held. Everything since has been rebuilding discipline one rule at a time.</p>
       <p style="font-size:.86rem; color: var(--muted);">TradeCopia's Daily Loss enforcement is the first <strong>automated</strong> backstop for a failure mode personal discipline alone has never fully covered: being physically unable to close a trade in time, whether from a mental-stop habit or a power/internet failure removing the ability to execute manually. Not a replacement for discipline — the next layer on top of it.</p>
     </div>
 
-    <div class="sec-label"><i data-lucide="scroll-text"></i> Full Documentation</div>
+    <div class="sec-label"><i class="ph-duotone ph-scroll"></i> Full Documentation</div>
     <div class="doc-grid">
-      <div class="doc-card glass"><div class="fname"><i data-lucide="shield-check"></i> Compliance Memo</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-compliance-memo.md" target="_blank" rel="noreferrer">tradecopia-compliance-memo.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname"><i data-lucide="sliders-horizontal"></i> Risk Toggle Deep Dive</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-risk-toggle-deep-dive.md" target="_blank" rel="noreferrer">tradecopia-risk-toggle-deep-dive.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname"><i data-lucide="mouse-pointer-click"></i> Chrome Setup Guide</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-claude-chrome-setup-guide.md" target="_blank" rel="noreferrer">tradecopia-claude-chrome-setup-guide.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname"><i data-lucide="git-branch"></i> Full Scaling SOP</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-Scaling-SOP-%26-Implementation.md" target="_blank" rel="noreferrer">Scaling SOP doc ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i class="ph-duotone ph-shield-check"></i> Compliance Memo</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-compliance-memo.md" target="_blank" rel="noreferrer">tradecopia-compliance-memo.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i class="ph-duotone ph-sliders-horizontal"></i> Risk Toggle Deep Dive</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-risk-toggle-deep-dive.md" target="_blank" rel="noreferrer">tradecopia-risk-toggle-deep-dive.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i class="ph-duotone ph-cursor-click"></i> Chrome Setup Guide</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-claude-chrome-setup-guide.md" target="_blank" rel="noreferrer">tradecopia-claude-chrome-setup-guide.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i class="ph-duotone ph-git-branch"></i> Full Scaling SOP</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-Scaling-SOP-%26-Implementation.md" target="_blank" rel="noreferrer">Scaling SOP doc ↗</a></div></div>
     </div>
 
     <a class="doc-card glass" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/overview-summaries/2026/09-Sep/export_20260903_daily-review.md" target="_blank" rel="noreferrer" style="--accent: var(--rose); display: flex; align-items: center; gap: .8rem; margin-top: .8rem; text-decoration: none; color: inherit; transition: transform .35s var(--spring), border-color .2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
-      <i data-lucide="calendar-heart" style="width:1.6em; height:1.6em; flex-shrink:0; color: var(--rose);"></i>
+      <i class="ph-duotone ph-calendar-heart" style="width:1.6em; height:1.6em; flex-shrink:0; color: var(--rose);"></i>
       <span>
         <span class="fname" style="margin-bottom:.15rem;">Sep 3, 2026 — The Day This Was Built</span>
         <span class="fmeta">The full daily review — both leader flips, the compliance research, and the $555 decision, written the same day it happened ↗</span>
       </span>
     </a>
 
-    <div class="sec-label"><i data-lucide="camera"></i> Live Results &amp; Case Studies</div>
+    <div class="sec-label"><i class="ph-duotone ph-camera"></i> Live Results &amp; Case Studies</div>
     <p class="sec-sub">Real screenshots from the actual TradeCopia dashboard, as they happen — success, edge cases, or anything worth showing. This grows over time rather than staying a one-time proof.</p>
     <div class="carousel">
       <div class="carousel-thumbstrip" id="resultsThumbstrip"></div>
@@ -321,7 +324,7 @@
   </div>
 
   <footer class="footer">
-    <p><i data-lucide="repeat"></i> The Copy-Trading Plan · Christopher Wilson · Part of the <a href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer">Trading Assistant</a> public preview</p>
+    <p><i class="ph-duotone ph-arrows-clockwise"></i> The Copy-Trading Plan · Christopher Wilson · Part of the <a href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer">Trading Assistant</a> public preview</p>
     <p>Not financial advice — everything here is personal documentation, not a trading or risk-management recommendation. Verify any firm's rules directly before relying on them.</p>
   </footer>
 
@@ -446,9 +449,6 @@
         caption: 'Sep 3, 2026, 16:46 ET — the first live test after today\'s full TradeCopia build-out. Both groups mirrored correctly: LucidFlex25 +$16.00, TOF197288 +$75.20, Apex-11 +$77.32, Apex-12 +$77.32, TPT +$28.00, TOF197292 +$75.20. Total +$349.04 across all six accounts, zero open positions left behind.' },
     ];
     const resultsState = createCarousel('results', resultsItems, 0);
-
-    if (window.lucide) lucide.createIcons();
-    else document.addEventListener('DOMContentLoaded', () => window.lucide && lucide.createIcons());
 
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       const bgLayer = document.getElementById('bgParallax');
