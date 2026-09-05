@@ -352,8 +352,9 @@
     .tool-strengths li strong { color: var(--text); }
     .tool-honesty-note {
       font-size: .74rem; color: var(--subtle); line-height: 1.55;
-      border-top: 1px dashed var(--border); padding-top: .7rem; margin: .8rem 0 .9rem;
+      margin: 0 0 .9rem;
     }
+    .tool-honesty-note:first-of-type { border-top: 1px dashed var(--border); padding-top: .7rem; margin-top: .8rem; }
     .tool-honesty-note .ph-duotone { color: var(--subtle); margin-right: .2rem; }
 
     .tool-card.alt { padding: .9rem 1rem; }
@@ -419,29 +420,39 @@
     <div class="sec-label"><i class="ph-duotone ph-graduation-cap"></i> Mentors</div>
     <p class="sec-sub">Three coaching programs, each bringing something different — see <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/progression/pattern_tracker.md" target="_blank" rel="noreferrer">pattern_tracker.md</a>'s "Trading Style" note for how these actually blend day to day</p>
     <div class="thanks-grid">
-      <a class="thanks-card glass" href="https://www.trustpilot.com/review/inevitrade.com" target="_blank" rel="noreferrer">
-        <h3><i class="ph-duotone ph-brain"></i> Inevitrade (IT)</h3>
-        <p class="flavor-tag">Smart money</p>
-        <p>Smart-money concepts applied across both crypto and traditional futures, backed by a purpose-built indicator suite and an extensive internal backtesting data set — parts of it increasingly run through in-house strategy bots rather than purely manual execution. Foundation EMAs and SMT divergence remain the backbone underneath every session outside the NY AM window</p>
-        <span class="review-link"><i class="ph-duotone ph-star"></i> Trustpilot ↗</span>
-      </a>
-      <a class="thanks-card glass" href="https://www.trustpilot.com/review/smarttradingblueprint.com" target="_blank" rel="noreferrer">
-        <h3><i class="ph-duotone ph-book-open-text"></i> SmartTradingBlueprint (STB)</h3>
-        <p class="flavor-tag">Depth</p>
-        <p>The ICT/SMC vocabulary underneath everything else here — Fair Value Gaps, Order Blocks, liquidity sweeps, market structure, Kill Zones — plus four stand-alone setups of its own (FCR, Opening Range Break, Silver Bullet, Turtle Soup). The deep case-study habit it instilled is what actually shows up everywhere in this repo</p>
-        <span class="review-link"><i class="ph-duotone ph-star"></i> Trustpilot ↗</span>
-      </a>
-      <a class="thanks-card glass" href="https://www.trustpilot.com/review/zerotohero.trade" target="_blank" rel="noreferrer">
-        <h3><i class="ph-duotone ph-target"></i> ZeroToHero (ZTH)</h3>
-        <p class="flavor-tag">Base-hit-minded</p>
-        <p>A six-setup, top-down framework — 1-hour bias, 5-minute trigger — spanning breakout retests, pivots, bounces, rejections, and swing-failure reversals, with volume-profile confluence on every level. The discipline behind "securing base hits" (2R minimum, 1–3 trades a day, half-size counter-trend) did as much for the psychology of trading as for the setups themselves</p>
-        <span class="review-link"><i class="ph-duotone ph-star"></i> Trustpilot ↗</span>
-      </a>
-    </div>
-    <div style="display:flex; justify-content:center; gap:.6rem; flex-wrap:wrap; margin-top:.9rem;">
-      <button type="button" class="story-trigger" onclick="openModal('itModal')"><i class="ph-duotone ph-brain"></i> Inevitrade — Deeper Story ↗</button>
-      <button type="button" class="story-trigger" onclick="openModal('stbModal')"><i class="ph-duotone ph-book-open-text"></i> STB — Deeper Story ↗</button>
-      <button type="button" class="story-trigger" onclick="openModal('zthModal')"><i class="ph-duotone ph-target"></i> ZTH — Deeper Story ↗</button>
+      <div class="tool-card-wrap">
+        <a class="thanks-card glass" href="https://www.trustpilot.com/review/inevitrade.com" target="_blank" rel="noreferrer">
+          <h3><i class="ph-duotone ph-brain"></i> Inevitrade (IT) <i class="ph-duotone ph-flame"></i></h3>
+          <p class="flavor-tag">Smart money</p>
+          <p>Smart-money concepts across both crypto and traditional futures — a purpose-built indicator suite, extensive backtesting, and strategy bots</p>
+          <span class="review-link"><i class="ph-duotone ph-star"></i> Trustpilot ↗</span>
+        </a>
+        <div style="text-align:center; margin-top:.7rem;">
+          <button type="button" class="story-trigger" onclick="openModal('itModal')"><i class="ph-duotone ph-shovel"></i> Deeper Story ↗</button>
+        </div>
+      </div>
+      <div class="tool-card-wrap">
+        <a class="thanks-card glass" href="https://www.trustpilot.com/review/zerotohero.trade" target="_blank" rel="noreferrer">
+          <h3><i class="ph-duotone ph-target"></i> ZeroToHero (ZTH) <i class="ph-duotone ph-campfire"></i></h3>
+          <p class="flavor-tag">Base-hit-minded</p>
+          <p>A six-setup, top-down framework — 1-hour bias, 5-minute trigger — built on the discipline behind "securing base hits"</p>
+          <span class="review-link"><i class="ph-duotone ph-star"></i> Trustpilot ↗</span>
+        </a>
+        <div style="text-align:center; margin-top:.7rem;">
+          <button type="button" class="story-trigger" onclick="openModal('zthModal')"><i class="ph-duotone ph-basket"></i> Deeper Story ↗</button>
+        </div>
+      </div>
+      <div class="tool-card-wrap">
+        <a class="thanks-card glass" href="https://www.trustpilot.com/review/smarttradingblueprint.com" target="_blank" rel="noreferrer">
+          <h3><i class="ph-duotone ph-book-open-text"></i> SmartTradingBlueprint (STB) <i class="ph-duotone ph-fire"></i></h3>
+          <p class="flavor-tag">Depth</p>
+          <p>The ICT/SMC vocabulary underneath everything else here, plus four stand-alone setups — FCR, Opening Range Break, Silver Bullet, Turtle Soup</p>
+          <span class="review-link"><i class="ph-duotone ph-star"></i> Trustpilot ↗</span>
+        </a>
+        <div style="text-align:center; margin-top:.7rem;">
+          <button type="button" class="story-trigger" onclick="openModal('stbModal')"><i class="ph-duotone ph-wrench"></i> Deeper Story ↗</button>
+        </div>
+      </div>
     </div>
 
     <div id="friends-top" class="sec-label"><i class="ph-duotone ph-users"></i> Friends</div>
@@ -492,48 +503,48 @@
     </div>
 
     <div id="thegexlab" class="sec-label"><i class="ph-duotone ph-flask"></i> TheGexLab</div>
-    <p class="sec-sub">Not a footnote under PFM above — its own thank-you, for a different kind of tool entirely</p>
+    <p class="sec-sub">TMade Alex partnered with Trader Yush to build TheGexLab - <em>not a footnote under PFM above</em> — its own thank-you, for a different kind of tool entirely <button type="button" class="story-trigger" onclick="openModal('gexlabModal')"><i class="ph-duotone ph-flask"></i> The GEX Deep Dive ↗</button></p>
     <a class="pfm-panel glass gexlab-split" href="https://www.thegexlab.com/tmade" target="_blank" rel="noreferrer">
       <div class="gexlab-banner" style="background-image:url('https://www.thegexlab.com/app/gexlab-shot.jpg');" aria-label="TheGexLab app preview"></div>
       <div class="gexlab-info">
-        <h3><i class="ph-duotone ph-chart-bar-horizontal"></i> TMade × TheGexLab</h3>
-        <p>TMade partnered with Yush to build TheGexLab — real-time dealer positioning (put/call walls, zero gamma, and the regime read that says whether the market's pinned or primed to run) laid directly onto the chart. Their Asia-session read is nicknamed "night-vision" — which lands close to home, since our own ETH-derived ZTH levels in the auto-levels indicator render green vs. cyan for exactly that reason. Years of building this system, and it's still finding new confluence to lean on</p>
-        <p>The underlying idea is gamma exposure (GEX): dealers who sell options have to hedge their own delta by trading the underlying, and the direction of that hedging flips depending on whether they're net long or net short gamma. Net long gamma, dealers hedge against the move — buying dips, selling rallies — which suppresses volatility and tends to pin price near the strikes with the heaviest open interest. Below the "zero gamma" level, that flips: dealers hedge with the move instead of against it, which is what turns an ordinary breakout into a fast, accelerating one. Put/call walls mark where that dealer positioning concentrates — not arbitrary technical levels, but the actual footprint of forced hedging flow, which is why price so often behaves differently above vs. below them</p>
-        <p>Partner access: thegexlab.com/tmade — <i class="ph-duotone ph-detective"></i> <span class="partner-code">code TMADE</span> for 20% off</p>
+        <h3><i class="ph-duotone ph-chart-bar-horizontal"></i> TMade × TheGexLab <i class="ph-duotone ph-gauge"></i></h3>
+        <p>Real-time dealer positioning (put/call walls, zero gamma, and the regime read that says whether the market's pinned or primed to run) laid directly onto the chart.</p>
+        <p>Partner access: thegexlab.com/tmade <span class="partner-code"> <i class="ph-duotone ph-detective"></i> code: TMADE</span> for 20% off</p>
       </div>
     </a>
 
     <div id="copy-trading" class="sec-label"><i class="ph-duotone ph-path"></i> Copy-Trading</div>
-    <p class="sec-sub">Connect Tradovate ↔ NinjaTrader, Rithmic, and TopstepX and handle per-follower quantity multipliers — prop-firm safe and risk-aware by default, replacing the old manual multi-device method</p>
+    <p class="sec-sub">Cross-platform, prop-firm compliant, risk-aware, multi-broker support handling per-follower quantity multipliers — replacing the manual multi-device mirroring method</p>
     <div class="tools-row">
       <div class="tool-card-wrap">
         <a id="tradecopia" class="tool-card featured glass" href="https://tradecopia.com" target="_blank" rel="noreferrer">
           <div class="tool-featured-head">
             <h4><i class="ph-duotone ph-cloud-check"></i> TradeCopia</h4>
-            <span class="tool-badge-live"><i class="ph-duotone ph-sword"></i> Battle-tested — running the account structure today</span>
+            <span class="tool-badge-live"><i class="ph-duotone ph-sword"></i> Battle-tested path — running the cloud-based, browser-driven account structure today <i class="ph-duotone ph-webhooks-logo"></i></span>
           </div>
-          <p>Cloud-based, browser-driven — the upgrade from executing through multiple session instances of TradingView's native single-account-view switcher. Not just an easier, faster version of conducting clean business by hand: an enterprise-grade fix for a growing need — taking human error and lag out of manual mirroring, and moving off Tradovate's own "airplane cockpit" UI, which resets and lacks the drawing tools and TA that stay intact across every TradingView session</p>
+          <p>The upgrade from executing through multiple instances of TradingView's native single-account-view switcher. Not just an easier, faster version of conducting clean business by hand: an enterprise-grade fix for a growing need — taking human error and lag out of manual mirroring, and moving off Tradovate's own "airplane cockpit" UI, which lacks the drawing tools, object tree, indicators, custom pine scripts, webhooks, and technical analysis intact across every TradingView session</p>
           <ul class="tool-strengths">
             <li><i class="ph-duotone ph-shield-check"></i> <span><strong>Hedge prevention</strong> — caps a follower's order at its existing size, never flips it into reverse</span></li>
             <li><i class="ph-duotone ph-scales"></i> <span><strong>Position reconciler</strong> — corrects any follower fill that drifts from the leader, entry or exit</span></li>
             <li><i class="ph-duotone ph-flag"></i> <span><strong>Auto-flatten</strong> the instant the leader goes flat — no stale bracket orders left behind</span></li>
           </ul>
-          <p class="tool-honesty-note"><i class="ph-duotone ph-waveform"></i> Running on TradeCopia's Pro+Lite tier here, not its local low-latency tier — the local-environment instability covered in the backstory above rules that one out, even though it's a feature a lot of people genuinely rely on. One real rough edge: live P&L doesn't always register the instant a position opens or closes, even though the pause/reconnect sounds fire right on cue — every trade so far has still executed exactly as configured regardless. Pro+ might smooth that over; just not an affordable upgrade yet, and the local tier still isn't a fit for laptops or a computer that goes to sleep mid-session</p>
+          <p class="tool-honesty-note"><i class="ph-duotone ph-waveform"></i> Running on TradeCopia's Pro+Lite tier, not its local low-latency tier — the local-environment instability covered in the backstory above rules that one out, even though it's a feature a lot of people genuinely rely on</p>
+          <p class="tool-honesty-note"><i class="ph-duotone ph-spinner-gap"></i> Known edge gaps: live P&L doesn't always register outside the instant a position opens or closes and even though the pause/reconnect sounds fire in the background — every trade so far has still executed exactly as configured regardless. Pro+ might smooth that over; just not an affordable upgrade yet, and the local tier still isn't a fit for laptops that fall to sleep mid-session or local internet and power outages or computer crashes under heavy loads.</p>
           <span class="ext-link-row"><i class="ph-duotone ph-link"></i> tradecopia.com ↗</span>
         </a>
         <div style="text-align:center; margin-top:1rem;">
-          <button type="button" class="story-trigger" onclick="openModal('mirrorBackstoryModal')"><i class="ph-duotone ph-clock-counter-clockwise"></i> How We Got Here ↗</button>
-          <a class="story-trigger" href="copy-trading.html" style="margin-left:.5rem;"><i class="ph-duotone ph-strategy"></i> View Full Copy-Trading Plan ↗</a>
+          <button type="button" class="story-trigger" onclick="openModal('mirrorBackstoryModal')" style="font-size:.86rem; padding:.42rem 1.15rem;"><i class="ph-duotone ph-clock-counter-clockwise"></i> How We Got Here ↗</button>
+          <a class="story-trigger" href="copy-trading.html" style="font-size:.86rem; padding:.42rem 1.15rem; margin-left:.5rem;"><i class="ph-duotone ph-strategy"></i> View Full Copy-Trading Plan ↗</a>
         </div>
       </div>
       <div class="tool-card-wrap">
         <a id="tradesyncer" class="tool-card alt glass" href="https://www.tradesyncer.com" target="_blank" rel="noreferrer">
-          <h4><i class="ph-duotone ph-arrows-clockwise"></i> Tradesyncer <span class="tool-tag-alt"><i class="ph-duotone ph-plugs-connected"></i> Another option</span></h4>
-          <p>Sub-100ms sync speed, with hedge prevention and position sync run through its named feature — <strong>Follower Protection</strong> — a similar control to how TradeCopia solves reconciliation and auto-flattening</p>
+          <h4><i class="ph-duotone ph-arrows-clockwise"></i> Tradesyncer <span class="tool-tag-alt"><i class="ph-duotone ph-plugs-connected"></i> Another option <i class="ph-duotone ph-flow-arrow"></i></span></h4>
+          <p>Sub-100ms sync speed, cloud-based, hedge prevention, position sync run through its named <br>— <strong>Follower Protection</strong> —<br> feature control similar to how TradeCopia solves reconciliation and auto-flattening. No VPS or local software required.</p>
           <span class="ext-link-row"><i class="ph-duotone ph-link"></i> tradesyncer.com ↗</span>
         </a>
         <div style="text-align:center; margin-top:.9rem;">
-          <a class="story-trigger-blue" href="https://help.tradesyncer.com/en/articles/10410714-how-to-use-follower-protection" target="_blank" rel="noreferrer" style="font-size:.82rem; padding:.4rem 1.1rem;"><i class="ph-duotone ph-plugs-connected"></i> Follower Protection ↗</a>
+          <a class="story-trigger-blue" href="https://help.tradesyncer.com/en/articles/10410714-how-to-use-follower-protection" target="_blank" rel="noreferrer" style="font-size:.82rem; padding:.4rem 1.1rem;"><i class="ph-duotone ph-shield-plus"></i> Follower Protection ↗</a>
         </div>
         <p style="font-size:.72rem; color:var(--subtle); text-align:center; margin-top:.6rem;">Not personally run yet — worth knowing about, while TradeCopia is the one actually battle-tested in production right now</p>
       </div>
@@ -572,40 +583,49 @@
       <p><i class="ph-duotone ph-trophy"></i> A free Lucid futures account was won here via an on-stream duck race — first prize surfaced through community, not purchased. PropFirmMatchTV runs live-stream giveaways with a Discord + access-code flow, and this particular race is how Lucid ended up on the roster at all: a redemption code good toward a 25K account, style already decided in the account-structure plan above (25K follows, doesn't lead — see the <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-account-types-comparison.md" target="_blank" rel="noreferrer">comparison doc</a> for the style analysis behind it)</p>
       <p><i class="ph-duotone ph-hands-praying"></i> Why it landed harder than "free 25K account": by July 20, a Lucid account had already been created specifically to dodge the 30-day eval-subscription clock TPT was running — this was around the time Apex Legacy accounts stopped being purchasable outright. Even so, a Lucid eval itself was never actually bought — TopOne's BOGO deal and TPT's 50AND3 offer had already covered enough ground. In a moment of prayer, weighing whether to even enter the giveaway at all while already juggling three funded accounts and two Apex renewals, the honest answer was: enough is enough for now — and that was said out loud, gratefully, as a letting go, not a complaint</p>
       <p><i class="ph-duotone ph-smiley-blank"></i> Then the name got called. During Alex's hosting slot, using the code "tmade" — and hearing it live was genuinely a "wait, seriously?" moment, followed by tears. Not because of the account's dollar value, but because of how the whole journey had been unfolding up to that point. The gratitude here runs deeper than the outcome itself — it's encouragement, hope, and a real opportunity to level up and actually learn TradeCopia, scaling, and Lucid properly, rather than something owed or expected</p>
-      <p><i class="ph-duotone ph-handshake"></i> Dave/MarketButcher and no shortage of other YouTube livestreamers in this space are affiliates too, running their own versions of these fun raffles and giveaway-style engagement while still mentoring — this duck race is one example of a much broader, genuinely fun pattern in this corner of YouTube</p>
+      <p><i class="ph-duotone ph-share-network"></i> Dave/MarketButcher and no shortage of other YouTube livestreamers in this space are affiliates too, running their own versions of these fun raffles and giveaway-style engagement while still mentoring — this duck race is one example of a much broader, genuinely fun pattern in this corner of YouTube</p>
     </div>
   </div>
 
   <div class="modal-overlay" id="itModal" onclick="if(event.target===this)closeModal('itModal')">
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal('itModal')">✕</button>
-      <div class="modal-title"><i class="ph-duotone ph-brain"></i> Inevitrade — The Deeper Story</div>
+      <div class="modal-title"><i class="ph-duotone ph-brain"></i> Inevitrade — The Deeper Story <i class="ph-duotone ph-flame"></i></div>
       <p><i class="ph-duotone ph-currency-btc"></i> Inevitrade's coaching spans both crypto and traditional futures — the same core smart-money framework applies whether the instrument is BTC/ETH or ES/NQ, which is part of why it's been the longest-running relationship in this whole trading arc</p>
-      <p><i class="ph-duotone ph-flow-arrow"></i> Underneath the setups sits a full six-scenario framework spanning both trend-continuation and reversal conditions, filtered through a regime read — trending, weakening, or channeling — before any setup is even considered. Elliott Wave structure, Fibonacci confluence, and Fair Value Gap price-delivery analysis all feed into that read</p>
+      <p><i class="ph-duotone ph-tree-structure"></i> Underneath the setups sits a full six-scenario framework spanning both trend-continuation and reversal conditions, filtered through a regime read — trending, weakening, or channeling — before any setup is even considered. Elliott Wave structure, Fibonacci confluence, and Fair Value Gap price-delivery analysis all feed into that read</p>
       <p><i class="ph-duotone ph-database"></i> It's backed by a real indicator suite — purpose-built oscillators for regime detection, automated Fair Value Gap identification, EMA-fan trend visualization — sitting on top of an extensive internal backtesting data set, with parts of the system increasingly running through in-house strategy bots rather than purely manual execution</p>
-      <p><i class="ph-duotone ph-graduation-cap"></i> None of that replaces the relationship itself, though — Foundation EMAs and SMT divergence were the very first real structure this system ever had, and years later they're still the backbone underneath every session outside the NY AM window</p>
+      <p><i class="ph-duotone ph-mountains"></i> None of that replaces the relationship itself, though — Foundation EMAs and SMT divergence were the very first real structure this system ever had, and years later they're still the backbone underneath every session outside the NY AM window</p>
     </div>
   </div>
 
   <div class="modal-overlay" id="stbModal" onclick="if(event.target===this)closeModal('stbModal')">
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal('stbModal')">✕</button>
-      <div class="modal-title"><i class="ph-duotone ph-book-open-text"></i> SmartTradingBlueprint — The Deeper Story</div>
-      <p><i class="ph-duotone ph-compass"></i> STB isn't really a separate setup so much as the "why" underneath every other one — the ICT/SMC vocabulary is what actually explains why a ZTH level holds or an Inevitrade setup triggers in the first place</p>
-      <p><i class="ph-duotone ph-map-trifold"></i> Fair Value Gaps, Order Blocks, and liquidity sweeps explain where and why price reacts; Kill Zones (Asian, London, NY AM, NY PM) mark when institutional order flow is actually highest; Premium/Discount and the Optimal Trade Entry zone mark where within a range; Power of 3 — accumulation, manipulation, distribution — explains the fake move that happens before the real one</p>
-      <p><i class="ph-duotone ph-scales"></i> SMT divergence across correlated pairs (ES/NQ, BTC/ETH, Gold/Silver) is the tell that a liquidity sweep is actually manipulation and not the real move — and market structure (a Break of Structure vs. a Change of Character) is what confirms whether a trend is continuing or actually reversing</p>
-      <p><i class="ph-duotone ph-chat-circle-text"></i> FCR (First Candle Rule), Opening Range Break, Silver Bullet, and Turtle Soup are STB's own stand-alone setups built on that same foundation — and SmartTraderAI closes the loop with daily pre-market and post-market reviews plus weekly check-ins, which is exactly the format Fortuna's own review pipeline was modeled on</p>
+      <div class="modal-title"><i class="ph-duotone ph-book-open-text"></i> SmartTradingBlueprint — The Deeper Story <i class="ph-duotone ph-fire"></i></div>
+      <p><i class="ph-duotone ph-circuitry"></i> STB isn't really a separate setup so much as the "why" underneath every other one — the ICT/SMC vocabulary is what actually explains why a ZTH level holds or an Inevitrade setup triggers in the first place</p>
+      <p><i class="ph-duotone ph-map-pin"></i> Fair Value Gaps, Order Blocks, and liquidity sweeps explain where and why price reacts; Kill Zones (Asian, London, NY AM, NY PM) mark when institutional order flow is actually highest; Premium/Discount and the Optimal Trade Entry zone mark where within a range; Power of 3 — accumulation, manipulation, distribution — explains the fake move that happens before the real one</p>
+      <p><i class="ph-duotone ph-cell-signal-full"></i> SMT divergence across correlated pairs (ES/NQ, BTC/ETH, Gold/Silver) is the tell that a liquidity sweep is actually manipulation and not the real move — and market structure (a Break of Structure vs. a Change of Character) is what confirms whether a trend is continuing or actually reversing</p>
+      <p><i class="ph-duotone ph-hammer"></i> FCR (First Candle Rule), Opening Range Break, Silver Bullet, and Turtle Soup are STB's own stand-alone setups built on that same foundation — and SmartTraderAI closes the loop with daily pre-market and post-market reviews plus weekly check-ins, which is exactly the format Fortuna's own review pipeline was modeled on</p>
     </div>
   </div>
 
   <div class="modal-overlay" id="zthModal" onclick="if(event.target===this)closeModal('zthModal')">
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal('zthModal')">✕</button>
-      <div class="modal-title"><i class="ph-duotone ph-target"></i> ZeroToHero — The Deeper Story</div>
-      <p><i class="ph-duotone ph-stack"></i> Every ZTH setup starts top-down: a 1-hour read for trend, bias, and key levels, then a 5-minute trigger for the actual entry — never the other way around</p>
+      <div class="modal-title"><i class="ph-duotone ph-target"></i> ZeroToHero — The Deeper Story <i class="ph-duotone ph-campfire"></i></div>
+      <p><i class="ph-duotone ph-stack-minus"></i> Every ZTH setup starts top-down: a 1-hour read for trend, bias, and key levels, then a 5-minute trigger for the actual entry — never the other way around</p>
       <p><i class="ph-duotone ph-crosshair"></i> Six named setups cover almost everything the tape can do — Break & Retest, Pivot Buy & Sell, Bounce, Rejection, the 1-2-3 continuation, and the Swing Failure Pattern (SFP) — each confirmed the same way: multiple touches strengthen a level, volume profile (high-volume nodes and low-volume gaps) adds confluence, and wick behavior tells you whether a level is holding or failing</p>
-      <p><i class="ph-duotone ph-shield-check"></i> Every setup carries the same floor underneath it: minimum 2R before a trade is even considered, 1–3 trades a day maximum, and counter-trend size cut in half — the discipline is the actual product here, arguably more than the setups themselves</p>
-      <p><i class="ph-duotone ph-users"></i> All-day setups, looked for in every session rather than just one window, and a community around it that treated the psychology of trading as seriously as the technical side — that combination is exactly what "securing base hits" was built to protect</p>
+      <p><i class="ph-duotone ph-stack-plus"></i> Every setup carries the same floor underneath it: minimum 2R before a trade is even considered, 1–3 trades a day maximum, and counter-trend size cut in half — the discipline is the actual product here, arguably more than the setups themselves</p>
+      <p><i class="ph-duotone ph-person-simple-tai-chi"></i> All-day setups, looked for in every session rather than just one window, and a community around it that treated the psychology of trading as seriously as the technical side — that combination is exactly what "securing base hits" was built to protect</p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="gexlabModal" onclick="if(event.target===this)closeModal('gexlabModal')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('gexlabModal')">✕</button>
+      <div class="modal-title"><i class="ph-duotone ph-chart-bar-horizontal"></i> The GEX Deep Dive <i class="ph-duotone ph-gauge"></i></div>
+      <p><i class="ph-duotone ph-moon-stars"></i> Their Asia-session read is nicknamed "night-vision" — which lands close to home, since our own ETH-derived ZTH levels in the <a href="https://www.tradingview.com/script/zgY5elbq-Auto-Levels-v2-23/" target="_blank" rel="noreferrer">auto-levels indicator</a> (free reference guide: <a href="https://drasticstatic.github.io/trading-assistant-public-preview/setup/auto-levels.pine_indicator-guide.html" target="_blank" rel="noreferrer">auto-levels.pine indicator guide</a>) render green vs. cyan for exactly that reason. Years of building this system, and it's still finding new confluence to lean on</p>
+      <p><i class="ph-duotone ph-flask"></i> The underlying idea is gamma exposure (GEX): dealers who sell options have to hedge their own delta by trading the underlying, and the direction of that hedging flips depending on whether they're net long or net short gamma. Net long gamma, dealers hedge against the move — buying dips, selling rallies — which suppresses volatility and tends to pin price near the strikes with the heaviest open interest. Below the "zero gamma" level, that flips: dealers hedge with the move instead of against it, which is what turns an ordinary breakout into a fast, accelerating one. Put/call walls mark where that dealer positioning concentrates — not arbitrary technical levels, but the actual footprint of forced hedging flow, which is why price so often behaves differently above vs. below them</p>
     </div>
   </div>
 
@@ -616,7 +636,7 @@
       <p><i class="ph-duotone ph-devices"></i> It started on two machines at once — an iMac and a MacBook Pro, both running TradingView's Desktop App, trying to mirror the same trade by hand. TradingView doesn't allow multiple simultaneous sessions, so the MacBook side got pushed to a browser tab instead — which ran into the same wall from a different angle, since Tradovate was also logged into TradingView across desktop and mobile. Manual mirroring got paused for a while after that</p>
       <p><i class="ph-duotone ph-desktop"></i> Coming back to it meant simplifying to one machine, not two: TPT traded through TradingView's Desktop App, TopOne's BOGO accounts through a browser tab, both under the same login on the same iMac — switching Tradovate's account selector inside TradingView fast enough to never need a second tab. Three evals passed that way, each with multiple entries per account</p>
       <p><i class="ph-duotone ph-cloud-arrow-up"></i> Then TheGexLab needed its own tab, Lucid and Apex both came back into the mix, and leaving all of that to manual habit — on top of Starlink resync pauses and weather-related power outages that can take the whole trading terminal down — stopped feeling survivable. That's the real reason this scaled to TradeCopia's cloud syncing: not a nice-to-have, an enterprise-grade fix for an environment that isn't always stable. Lucid now runs as leader through the Desktop App, TopOne as leader through the browser, Tradovate's own UI still one click away either way — Fortuna's looped in on the plan now, and LittlebirdAI keeps quietly observing</p>
-      <p><i class="ph-duotone ph-lightning"></i> TradingView's reverse-position button was also intentionally disabled to switch over to One-Click Trading instead — instantly placing, editing, canceling, or closing positions without a confirmation prompt — after watching TMade Alex run the same setup on DeepCharts</p>
+      <p><i class="ph-duotone ph-speedometer"></i> TradingView's reverse-position button was also intentionally disabled to switch over to One-Click Trading instead — instantly placing, editing, canceling, or closing positions without a confirmation prompt — after watching TMade Alex run the same setup on DeepCharts</p>
       <p><i class="ph-duotone ph-desktop-tower"></i> Maybe one day there's room for a Windows VM again, in order to have the opportunity to also run DeepCharts for order-flow data and lower latency — TradingView is known to get bloated under load with so many users on it, and both tools have real strengths worth having. For now, the time and attention goes to TheGexLab instead</p>
     </div>
   </div>
