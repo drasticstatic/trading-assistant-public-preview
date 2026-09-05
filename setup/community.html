@@ -149,7 +149,7 @@
       font-size: 2.4rem; overflow: hidden;
     }
     .preview-body { padding: .85rem 1rem .9rem; text-align: center; }
-    .preview-title { font-size: .88rem; font-weight: 800; color: var(--text); margin-bottom: .2rem; display: flex; align-items: center; justify-content: center; gap: .35rem; }
+    .preview-title { font-size: .88rem; font-weight: 800; letter-spacing: .04em; color: var(--text); margin-bottom: .2rem; display: flex; align-items: center; justify-content: center; gap: .35rem; }
     .preview-desc { font-size: .78rem; color: var(--muted); margin-bottom: .5rem; }
 
     /* ── YouTube-branded preview card (MarketButcher) — static preview
@@ -306,13 +306,44 @@
     .friend-link .ph-duotone { font-size: 1.3rem; animation: iconRedGreen 6s ease-in-out infinite; }
     .friend-card:hover .friend-link .ph-duotone { animation: iconRedGreen 6s ease-in-out infinite, iconBounce .65s ease-in-out infinite; }
 
-    /* ── COPY-TRADING TOOLS ── */
-    .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; --accent: var(--blue); }
+    /* ── COPY-TRADING TOOLS — one featured (TradeCopia, actually run in
+       production) stacked above one quieter alt card (Tradesyncer, a
+       real option that just isn't the one running things day to day). ── */
+    .tools-stack { display: flex; flex-direction: column; gap: 1.4rem; }
     .tool-card { display: block; text-decoration: none; color: inherit; padding: 1.1rem 1.2rem; text-align: center; transition: transform .35s var(--spring), border-color .2s; }
     .tool-card:hover { transform: translateY(-3px); border-color: rgba(124,194,255,.4); }
     .tool-card h4 { font-size: .92rem; font-weight: 800; margin-bottom: .35rem; display: flex; align-items: center; justify-content: center; gap: .4rem; }
     .tool-card p { font-size: .82rem; color: var(--muted); margin-bottom: .5rem; }
     .tool-card p:last-child { margin-bottom: 0; }
+
+    .tool-card.featured {
+      text-align: left; padding: 1.5rem 1.7rem; max-width: 720px; margin: 0 auto;
+      border-color: rgba(243,201,105,.4);
+      background: linear-gradient(155deg, rgba(243,201,105,.09), rgba(148,163,184,.03));
+    }
+    .tool-card.featured:hover { border-color: var(--gold); }
+    .tool-card.featured p, .tool-card.featured .ext-link-row { text-align: left; justify-content: flex-start; }
+    .tool-featured-head { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem; margin-bottom: .5rem; }
+    .tool-featured-head h4 { font-size: 1.05rem; justify-content: flex-start; margin-bottom: 0; }
+    .tool-badge-live {
+      display: inline-flex; align-items: center; gap: .3rem;
+      font-size: .68rem; font-weight: 700;
+      padding: .2rem .6rem; border-radius: 999px;
+      background: rgba(73,209,125,.14); color: var(--green); border: 1px solid rgba(73,209,125,.32);
+    }
+    .tool-strengths { list-style: none; margin: .3rem 0 .9rem; padding: 0; display: grid; gap: .6rem; }
+    .tool-strengths li { display: flex; align-items: flex-start; gap: .55rem; font-size: .82rem; color: var(--muted); line-height: 1.5; }
+    .tool-strengths li .ph-duotone { flex-shrink: 0; color: var(--gold); font-size: 1.25em; margin-top: .05em; }
+    .tool-strengths li strong { color: var(--text); }
+
+    .tool-card.alt { text-align: left; padding: 1.1rem 1.3rem; max-width: 640px; margin: 0 auto; }
+    .tool-card.alt h4 { justify-content: flex-start; }
+    .tool-card.alt p, .tool-card.alt .ext-link-row { text-align: left; justify-content: flex-start; }
+    .tool-tag-alt {
+      font-size: .64rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+      color: var(--subtle); background: var(--surface-soft); border: 1px solid var(--border);
+      padding: .15rem .5rem; border-radius: 999px;
+    }
 
     .ext-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: .9rem; }
     .ext-card {
@@ -406,10 +437,11 @@
         <div class="preview-body">
           <div class="yt-brand">YouTube · Channel</div>
           <a class="preview-title" href="https://www.youtube.com/@propfirmmatch" target="_blank" rel="noreferrer"><i class="ph-duotone ph-television"></i> PropFirmMatchTV</a>
-          <p class="preview-desc">Hosts + direct links: see the <a href="#friends-top">Friends marquee</a> above<br>More on the copy-trading plan it kicked off:</p>
+          <p class="preview-desc">Hosts + direct links: see the <a href="#friends-top">Friends marquee</a> above</p>
           <a class="story-trigger" href="https://www.youtube.com/@propfirmmatch" target="_blank" rel="noreferrer"><i class="ph-duotone ph-link"></i> youtube.com/@propfirmmatch ↗</a>
           <a class="story-trigger" href="https://propfirmmatch.com/futures" target="_blank" rel="noreferrer" style="margin-left:.35rem;"><i class="ph-duotone ph-link"></i> propfirmmatch.com ↗</a>
-          <div style="margin-top:.5rem;">
+          <p class="preview-desc" style="margin-top:.6rem;">More on the copy-trading plan it kicked off:</p>
+          <div>
             <a class="story-trigger-blue" href="#copy-trading"><i class="ph-duotone ph-path"></i> The Copy-Trading Plan ↗</a>
           </div>
           <div class="card-socials">
@@ -424,7 +456,7 @@
         <div class="preview-body">
           <div class="yt-brand">YouTube · Channel</div>
           <a class="preview-title" href="https://www.youtube.com/@MarketButcher" target="_blank" rel="noreferrer"><i class="ph-duotone ph-film-slate"></i> <span style="display:flex; flex-direction:column; line-height:1.35;">MarketButcher<br>Dave &amp; Ralph</span></a>
-          <p class="preview-desc">Thanks for the content and perspective<br>after-hours breakdowns that make the grind feel lighter</p>
+          <p class="preview-desc">after-hours content and perspective<br>breakdowns that make the grind feel lighter</p>
           <a class="story-trigger" href="https://www.youtube.com/@MarketButcher" target="_blank" rel="noreferrer"><i class="ph-duotone ph-link"></i> youtube.com/@MarketButcher ↗</a>
           <div class="card-socials">
             <a class="friend-link social-purple" href="https://discord.gg/3xBumtNFXQ" target="_blank" rel="noreferrer" aria-label="MarketButcher Discord" title="MarketButcher Discord"><i class="ph-duotone ph-discord-logo"></i></a>
@@ -445,28 +477,37 @@
     </a>
 
     <div id="copy-trading" class="sec-label"><i class="ph-duotone ph-path"></i> Copy-Trading</div>
-    <p class="sec-sub">Both connect Tradovate ↔ NinjaTrader and handle per-follower quantity multipliers, replacing the old manual multi-device method — what actually sets them apart is below <button type="button" class="story-trigger" onclick="openModal('mirrorBackstoryModal')" style="margin-left:.35rem;"><i class="ph-duotone ph-clock-counter-clockwise"></i> How We Got Here ↗</button></p>
-    <div class="tools-grid">
+    <p class="sec-sub">Connect Tradovate ↔ NinjaTrader and handle per-follower quantity multipliers, replacing the old manual multi-device method <button type="button" class="story-trigger" onclick="openModal('mirrorBackstoryModal')" style="margin-left:.35rem;"><i class="ph-duotone ph-clock-counter-clockwise"></i> How We Got Here ↗</button></p>
+    <div class="tools-stack">
       <div class="tool-card-wrap">
-        <a id="tradecopia" class="tool-card glass" href="https://tradecopia.com" target="_blank" rel="noreferrer">
-          <h4><i class="ph-duotone ph-cloud-check"></i> TradeCopia</h4>
-          <p>Cloud-based, browser-driven, upgrading from Tradovate's native single-account-view switcher. Its own named risk-control set: hedge prevention, a position reconciler, and auto-flatten the moment the leader goes flat — this is the one actually running the full account structure today</p>
+        <a id="tradecopia" class="tool-card featured glass" href="https://tradecopia.com" target="_blank" rel="noreferrer">
+          <div class="tool-featured-head">
+            <h4><i class="ph-duotone ph-cloud-check"></i> TradeCopia</h4>
+            <span class="tool-badge-live"><i class="ph-duotone ph-check-circle"></i> Battle-tested — running the account structure today</span>
+          </div>
+          <p>Cloud-based, browser-driven — the actual upgrade from Tradovate's native single-account-view switcher, not just a faster version of the same manual habit</p>
+          <ul class="tool-strengths">
+            <li><i class="ph-duotone ph-shield-check"></i> <span><strong>Hedge prevention</strong> — caps a follower's order at its existing size, never flips it into reverse</span></li>
+            <li><i class="ph-duotone ph-scales"></i> <span><strong>Position reconciler</strong> — corrects any follower fill that drifts from the leader, entry or exit</span></li>
+            <li><i class="ph-duotone ph-flag"></i> <span><strong>Auto-flatten</strong> the instant the leader goes flat — no stale bracket orders left behind</span></li>
+            <li><i class="ph-duotone ph-currency-dollar"></i> <span>A shared <strong>$555 daily-loss ceiling</strong>, tuned the same across every account on the roster</span></li>
+          </ul>
           <span class="ext-link-row"><i class="ph-duotone ph-link"></i> tradecopia.com ↗</span>
         </a>
-        <div style="text-align:center; margin-top:.9rem;">
+        <div style="text-align:center; margin-top:1rem;">
           <a class="story-trigger" href="copy-trading.html" style="font-size:.82rem; padding:.4rem 1.1rem;"><i class="ph-duotone ph-strategy"></i> View Full Copy-Trading Plan ↗</a>
         </div>
       </div>
       <div class="tool-card-wrap">
-        <a id="tradesyncer" class="tool-card glass" href="https://www.tradesyncer.com" target="_blank" rel="noreferrer">
-          <h4><i class="ph-duotone ph-arrows-clockwise"></i> Tradesyncer</h4>
-          <p>Sub-100ms sync speed. Position sync and hedge prevention run through its own named feature — <strong>Follower Protection</strong> — its own take on the same problem TradeCopia solves with a separate reconciler and auto-flatten controls</p>
+        <a id="tradesyncer" class="tool-card alt glass" href="https://www.tradesyncer.com" target="_blank" rel="noreferrer">
+          <h4><i class="ph-duotone ph-arrows-clockwise"></i> Tradesyncer <span class="tool-tag-alt">Another option</span></h4>
+          <p>Sub-100ms sync speed, with hedge prevention and position sync run through its own named feature — <strong>Follower Protection</strong> — a different take on the same problem TradeCopia solves with its reconciler and auto-flatten controls</p>
           <span class="ext-link-row"><i class="ph-duotone ph-link"></i> tradesyncer.com ↗</span>
         </a>
         <div style="text-align:center; margin-top:.9rem;">
           <a class="story-trigger-blue" href="https://help.tradesyncer.com/en/articles/10410714-how-to-use-follower-protection" target="_blank" rel="noreferrer" style="font-size:.82rem; padding:.4rem 1.1rem;"><i class="ph-duotone ph-plugs-connected"></i> Follower Protection ↗</a>
         </div>
-        <p style="font-size:.72rem; color:var(--subtle); text-align:center; margin-top:.6rem;">Not personally run yet — TradeCopia is the one actually battle-tested in production right now</p>
+        <p style="font-size:.72rem; color:var(--subtle); text-align:center; margin-top:.6rem;">Not personally run yet — worth knowing about, while TradeCopia is the one actually battle-tested in production right now</p>
       </div>
     </div>
 
