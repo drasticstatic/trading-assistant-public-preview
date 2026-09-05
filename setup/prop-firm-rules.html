@@ -9,7 +9,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="assets/favicon.png">
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.js" defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/duotone/style.css">
   <style>
     :root {
       --bg: #09111d; --bg-alt: #0d1625;
@@ -38,8 +38,11 @@
     @media (prefers-reduced-motion: reduce) {
       * { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
     }
-    .lucide { width: 1.3em; height: 1.3em; vertical-align: -.22em; stroke-width: 1.75; display: inline-block; flex-shrink: 0; }
-    h1 .lucide { width: 1em; height: 1em; vertical-align: -.12em; }
+    .ph-duotone { font-size: 1.7em; vertical-align: -.28em; display: inline-block; flex-shrink: 0; }
+    /* Vendor default duotone "ghost" layer is only 20% opacity -- nearly invisible in a
+       light-on-dark palette. Bump it so the two-tone shape is actually perceptible. */
+    .ph-duotone::before { opacity: .55 !important; }
+    h1 .ph-duotone { font-size: 1.15em; vertical-align: -.15em; }
     /* ── Parallax ambient background — separate layer from body so content
        scrolls normally while the gradient glow drifts slower underneath. ── */
     .bg-parallax {
@@ -240,20 +243,20 @@
   <div class="bg-parallax" id="bgParallax"></div>
 
   <nav class="nav">
-    <span class="nav-brand"><i data-lucide="plane"></i> Pre-Flight Checklist</span>
-    <a class="nav-tag" href="../index.html"><i data-lucide="home"></i> Home</a>
-    <a class="nav-tag" href="../data/progression/resources.html"><i data-lucide="book-open"></i> Resources</a>
-    <a class="nav-tag" href="../data/progression/gallery.html"><i data-lucide="trophy"></i> Gallery</a>
-    <a class="nav-tag" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-progression.md" target="_blank" rel="noreferrer"><i data-lucide="landmark"></i> Account Roster</a>
-    <a class="nav-tag" href="community.html"><i data-lucide="hand-heart"></i> Community</a>
+    <span class="nav-brand"><i class="ph-duotone ph-airplane-tilt"></i> Pre-Flight Checklist</span>
+    <a class="nav-tag" href="../index.html"><i class="ph-duotone ph-house"></i> Home</a>
+    <a class="nav-tag" href="../data/progression/resources.html"><i class="ph-duotone ph-book-open"></i> Resources</a>
+    <a class="nav-tag" href="../data/progression/gallery.html"><i class="ph-duotone ph-trophy"></i> Gallery</a>
+    <a class="nav-tag" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-progression.md" target="_blank" rel="noreferrer"><i class="ph-duotone ph-bank"></i> Account Roster</a>
+    <a class="nav-tag" href="community.html"><i class="ph-duotone ph-hand-heart"></i> Community</a>
   </nav>
 
   <main class="content">
     <p class="eyebrow hero-in">Setup · Prop Firm Reference</p>
-    <h1 class="hero-in d1"><i data-lucide="plane"></i> Prop Firm Rules &amp; <span>Pre-Flight Checklist</span></h1>
+    <h1 class="hero-in d1"><i class="ph-duotone ph-airplane-tilt"></i> Prop Firm Rules &amp; <span>Pre-Flight Checklist</span></h1>
     <p class="lede hero-in d2">A quick visual comparison across every prop firm Christopher trades or tracks, plus a daily pre-flight checklist before the market opens. Figures shown are the 50K-tier headline numbers — always verify current rules against the full reference docs linked at the bottom, since prop firm rules change frequently.</p>
 
-    <div class="sec-label"><i data-lucide="plane"></i> Daily Pre-Flight Checklist</div>
+    <div class="sec-label"><i class="ph-duotone ph-airplane-tilt"></i> Daily Pre-Flight Checklist</div>
     <p class="sec-sub">Run through before the open — especially on multi-account days</p>
     <div class="panel">
       <ul class="checklist">
@@ -268,19 +271,19 @@
       </ul>
     </div>
 
-    <div class="sec-label"><i data-lucide="octagon-alert"></i> FOMC / CPI / NFP — News Blackout Rules by Firm</div>
+    <div class="sec-label"><i class="ph-duotone ph-warning-octagon"></i> FOMC / CPI / NFP — News Blackout Rules by Firm</div>
     <p class="sec-sub">Rules diverge sharply by firm — some fully permit news trading, others carry a hard 1-2 minute blackout window. Know which account is live before a red-folder release</p>
     <div class="panel news-panel">
       <div class="news-row">
-        <h4><i data-lucide="banknote"></i> TakeProfitTrader PRO / PRO+</h4>
+        <h4><i class="ph-duotone ph-money"></i> TakeProfitTrader PRO / PRO+</h4>
         <p><strong>Forbidden</strong> 1 minute before, during, and 1 minute after FOMC / CPI / NFP</p>
       </div>
       <div class="news-row">
-        <h4><i data-lucide="medal"></i> TopOneFutures</h4>
+        <h4><i class="ph-duotone ph-medal"></i> TopOneFutures</h4>
         <p><strong>Forbidden only if a position is modified</strong> 2 minutes before/during/after — holding through untouched is fine</p>
       </div>
       <div class="news-row">
-        <h4><i data-lucide="landmark"></i> Apex Trader Funding</h4>
+        <h4><i class="ph-duotone ph-bank"></i> Apex Trader Funding</h4>
         <ul>
           <li>News-event trading is <strong>allowed</strong> as part of a normal strategy</li>
           <li><strong>Prohibited:</strong> pure gambling, "chasing the market," or opposing bracket orders placed to luck into a news breakout</li>
@@ -288,7 +291,7 @@
         </ul>
       </div>
       <div class="news-row">
-        <h4><i data-lucide="droplet"></i> Lucid Trading</h4>
+        <h4><i class="ph-duotone ph-drop"></i> Lucid Trading</h4>
         <ul>
           <li><strong>LucidFlex / Pro / Direct:</strong> news trading fully allowed — enter/exit freely around major releases, no penalty</li>
           <li><strong>LucidDaily:</strong> trading red-folder (high-impact) news is a <strong>hard breach</strong>, not allowed on this variant</li>
@@ -297,7 +300,7 @@
       </div>
     </div>
 
-    <div class="sec-label"><i data-lucide="clock"></i> Daily Close Deadlines — Know Which Account You're In</div>
+    <div class="sec-label"><i class="ph-duotone ph-clock"></i> Daily Close Deadlines — Know Which Account You're In</div>
     <p class="sec-sub">Every firm sets an automatic cutoff to protect both the firm and the trader — a safety net, not a trap. Enforcement style differs though: some auto-flatten cleanly, others carry the <em>possibility</em> of account failure if the close coincides with a slippage/gap event. Confirm which bucket today's account is in before assuming the same habit transfers across accounts</p>
     <div class="panel">
       <div class="tbl-wrap">
@@ -315,38 +318,38 @@
     </div>
     <p class="sec-sub" style="margin-top:.7rem;">TakeProfitTrader updated this policy — previously, holding a position past 17:00 ET was an instant liquidation + failed account; now TPT auto-closes any open position at 16:55 ET and the account simply stays active for the next session. See <a href="#" onclick="event.preventDefault(); openImgLightbox('tptNoticeLightbox')">TPT's rule-update notice ↗</a></p>
 
-    <div class="sec-label"><i data-lucide="scroll-text"></i> Full Rule Reference</div>
+    <div class="sec-label"><i class="ph-duotone ph-scroll"></i> Full Rule Reference</div>
     <div class="doc-grid">
-      <div class="doc-card glass"><div class="fname"><i data-lucide="landmark"></i> Apex — New Rules</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/ApexTrader/apex-rules.md" target="_blank" rel="noreferrer">apex-rules.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname"><i data-lucide="landmark"></i> Apex — Legacy Rules</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/ApexTrader/apex-rules_legacy.md" target="_blank" rel="noreferrer">apex-rules_legacy.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname"><i data-lucide="scale"></i> Apex vs TPT</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/apex-vs-tpt-comparison.md" target="_blank" rel="noreferrer">apex-vs-tpt-comparison.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname"><i data-lucide="scale"></i> Apex Legacy vs New</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/apex-legacy-vs-new-comparison.md" target="_blank" rel="noreferrer">apex-legacy-vs-new-comparison.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname"><i data-lucide="banknote"></i> TakeProfitTrader</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TakeProfitTrader/tpt-rules.md" target="_blank" rel="noreferrer">tpt-rules.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname"><i data-lucide="medal"></i> TopOneFutures</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TopOneFutures/topone-rules.md" target="_blank" rel="noreferrer">topone-rules.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname"><i data-lucide="trending-up"></i> Tradeify</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Tradeify/tradeify-rules.md" target="_blank" rel="noreferrer">tradeify-rules.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname"><i data-lucide="droplet"></i> Lucid <span class="ref-tag">(reference)</span></div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-rules.md" target="_blank" rel="noreferrer">lucid-rules.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname"><i data-lucide="scale"></i> Lucid — Flex vs Daily vs Pro</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-account-types-comparison.md" target="_blank" rel="noreferrer">lucid-account-types-comparison.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname"><i data-lucide="landmark"></i> Account Roster</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-progression.md" target="_blank" rel="noreferrer">prop-firm-progression.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname"><i data-lucide="route"></i> Progression Plan <span class="ref-tag">(original sequencing)</span></div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-progression-plan.md" target="_blank" rel="noreferrer">prop-firm-progression-plan.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname"><i data-lucide="repeat"></i> TradeCopia — Chrome Setup Guide</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-claude-chrome-setup-guide.md" target="_blank" rel="noreferrer">tradecopia-claude-chrome-setup-guide.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname"><i data-lucide="shield-check"></i> TradeCopia — Compliance Memo</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-compliance-memo.md" target="_blank" rel="noreferrer">tradecopia-compliance-memo.md ↗</a></div></div>
-      <div class="doc-card glass"><div class="fname"><i data-lucide="sliders-horizontal"></i> TradeCopia — Risk Toggle Deep Dive</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-risk-toggle-deep-dive.md" target="_blank" rel="noreferrer">tradecopia-risk-toggle-deep-dive.md ↗</a></div></div>
-      <div class="doc-card placeholder"><div class="fname"><i data-lucide="bitcoin"></i> Tradeify — Crypto</div><div class="fmeta">Coming soon — <a href="https://tradeify247.co/" target="_blank" rel="noreferrer">tradeify247.co ↗</a></div></div>
-      <div class="doc-card placeholder"><div class="fname"><i data-lucide="circle-dashed"></i> BreakoutProp</div><div class="fmeta">Coming soon — <a href="https://www.breakoutprop.com/" target="_blank" rel="noreferrer">breakoutprop.com ↗</a></div></div>
-      <div class="doc-card placeholder"><div class="fname"><i data-lucide="circle-dashed"></i> Leveraged <span class="ref-tag">(crypto, unconfirmed)</span></div><div class="fmeta">Coming soon — <a href="https://getleveraged.com/crypto/" target="_blank" rel="noreferrer">getleveraged.com ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i class="ph-duotone ph-bank"></i> Apex — New Rules</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/ApexTrader/apex-rules.md" target="_blank" rel="noreferrer">apex-rules.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i class="ph-duotone ph-bank"></i> Apex — Legacy Rules</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/ApexTrader/apex-rules_legacy.md" target="_blank" rel="noreferrer">apex-rules_legacy.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i class="ph-duotone ph-scales"></i> Apex vs TPT</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/apex-vs-tpt-comparison.md" target="_blank" rel="noreferrer">apex-vs-tpt-comparison.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i class="ph-duotone ph-scales"></i> Apex Legacy vs New</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/apex-legacy-vs-new-comparison.md" target="_blank" rel="noreferrer">apex-legacy-vs-new-comparison.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i class="ph-duotone ph-money"></i> TakeProfitTrader</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TakeProfitTrader/tpt-rules.md" target="_blank" rel="noreferrer">tpt-rules.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i class="ph-duotone ph-medal"></i> TopOneFutures</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TopOneFutures/topone-rules.md" target="_blank" rel="noreferrer">topone-rules.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i class="ph-duotone ph-trend-up"></i> Tradeify</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Tradeify/tradeify-rules.md" target="_blank" rel="noreferrer">tradeify-rules.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i class="ph-duotone ph-drop"></i> Lucid <span class="ref-tag">(reference)</span></div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-rules.md" target="_blank" rel="noreferrer">lucid-rules.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i class="ph-duotone ph-scales"></i> Lucid — Flex vs Daily vs Pro</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-account-types-comparison.md" target="_blank" rel="noreferrer">lucid-account-types-comparison.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i class="ph-duotone ph-bank"></i> Account Roster</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-progression.md" target="_blank" rel="noreferrer">prop-firm-progression.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i class="ph-duotone ph-path"></i> Progression Plan <span class="ref-tag">(original sequencing)</span></div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-progression-plan.md" target="_blank" rel="noreferrer">prop-firm-progression-plan.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i class="ph-duotone ph-arrows-clockwise"></i> TradeCopia — Chrome Setup Guide</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-claude-chrome-setup-guide.md" target="_blank" rel="noreferrer">tradecopia-claude-chrome-setup-guide.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i class="ph-duotone ph-shield-check"></i> TradeCopia — Compliance Memo</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-compliance-memo.md" target="_blank" rel="noreferrer">tradecopia-compliance-memo.md ↗</a></div></div>
+      <div class="doc-card glass"><div class="fname"><i class="ph-duotone ph-sliders-horizontal"></i> TradeCopia — Risk Toggle Deep Dive</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-risk-toggle-deep-dive.md" target="_blank" rel="noreferrer">tradecopia-risk-toggle-deep-dive.md ↗</a></div></div>
+      <div class="doc-card placeholder"><div class="fname"><i class="ph-duotone ph-currency-btc"></i> Tradeify — Crypto</div><div class="fmeta">Coming soon — <a href="https://tradeify247.co/" target="_blank" rel="noreferrer">tradeify247.co ↗</a></div></div>
+      <div class="doc-card placeholder"><div class="fname"><i class="ph-duotone ph-circle-dashed"></i> BreakoutProp</div><div class="fmeta">Coming soon — <a href="https://www.breakoutprop.com/" target="_blank" rel="noreferrer">breakoutprop.com ↗</a></div></div>
+      <div class="doc-card placeholder"><div class="fname"><i class="ph-duotone ph-circle-dashed"></i> Leveraged <span class="ref-tag">(crypto, unconfirmed)</span></div><div class="fmeta">Coming soon — <a href="https://getleveraged.com/crypto/" target="_blank" rel="noreferrer">getleveraged.com ↗</a></div></div>
     </div>
 
-    <div class="sec-label"><i data-lucide="repeat"></i> Copy-Trading</div>
+    <div class="sec-label"><i class="ph-duotone ph-arrows-clockwise"></i> Copy-Trading</div>
     <p class="sec-sub">The short version across every firm on file: copying <em>your own</em> trade decision from one of your own accounts to another is generally fine; mirroring someone else's signals/calls is not</p>
     <div class="panel" style="padding: 1rem 1.2rem;">
       <p style="font-size:.84rem; margin-bottom:.5rem;"><strong>TopOneFutures</strong> explicitly allows copy trading <em>between your own accounts across firms</em>, as long as the trade decision originates on the TOF account itself — mirroring someone else's signals (Discord/Telegram calls, group trading) is prohibited. See <a href="https://help.toponefutures.com/en/articles/11680891-copy-trading-policy" target="_blank" rel="noreferrer">TOF's Copy Trading Policy ↗</a> and the fuller prohibited-practices list in <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TopOneFutures/topone-rules.md" target="_blank" rel="noreferrer">topone-rules.md ↗</a></p>
-      <p style="font-size:.84rem;">The full account-structure plan, the compliance findings behind it, and the risk-limit decisions now live on their own dedicated page — this page stays a pointer to it rather than a second copy: <a href="copy-trading.html"><i data-lucide="repeat"></i> The Copy-Trading Plan ↗</a></p>
+      <p style="font-size:.84rem;">The full account-structure plan, the compliance findings behind it, and the risk-limit decisions now live on their own dedicated page — this page stays a pointer to it rather than a second copy: <a href="copy-trading.html"><i class="ph-duotone ph-arrows-clockwise"></i> The Copy-Trading Plan ↗</a></p>
     </div>
 
-    <div class="sec-label"><i data-lucide="ruler"></i> Account Size Tiers — 25K, 50K &amp; 100K</div>
+    <div class="sec-label"><i class="ph-duotone ph-ruler"></i> Account Size Tiers — 25K, 50K &amp; 100K</div>
     <p class="sec-sub">25K is the incoming Lucid free-account size (from the PFM duck-race win); Apex and TPT scale contracts/targets/fees at 100K on top of the 50K headline numbers below. 50K is the comparison/starting point used throughout this page. Full tier detail is filterable by size in the comparison table below</p>
 
-    <div class="sec-label"><i data-lucide="bar-chart-3"></i> 50K Evaluation — Quick Comparison</div>
+    <div class="sec-label"><i class="ph-duotone ph-chart-bar"></i> 50K Evaluation — Quick Comparison</div>
     <p class="sec-sub">Apex has three paths on file (Legacy, New EOD, New Intraday) since Christopher's original accounts predate the new rules. Lucid figures shown are the 50K LucidFlex tier for apples-to-apples comparison — the account actually held is LucidFlex25 (25K)</p>
     <div class="panel">
       <div class="tbl-wrap tbl-wrap-full">
@@ -414,10 +417,10 @@
     </div>
 
     <p style="margin-top:-.6rem;">
-      <button type="button" class="pill-trigger" onclick="openSpecModal('specModal')"><i data-lucide="layout-grid"></i> View Full Spec Comparison Table — Lucid (25K + 50K) + Apex + TPT + TopOneFutures ↗</button>
+      <button type="button" class="pill-trigger" onclick="openSpecModal('specModal')"><i class="ph-duotone ph-squares-four"></i> View Full Spec Comparison Table — Lucid (25K + 50K) + Apex + TPT + TopOneFutures ↗</button>
     </p>
 
-    <div class="sec-label"><i data-lucide="credit-card"></i> Reset Economics</div>
+    <div class="sec-label"><i class="ph-duotone ph-credit-card"></i> Reset Economics</div>
     <p class="sec-sub">Cost-of-staying-in numbers, for the accounts Christopher actually runs</p>
     <div class="panel" style="padding: 1rem 1.2rem;">
       <p style="font-size:.84rem; margin-bottom:.6rem;"><strong>TakeProfitTrader:</strong> a reset costs $649, capped at 3 resets total. Pricier than starting a fresh instant-funded account elsewhere once you're past reset #1-2 — but Christopher values staying with TPT despite the account-count ceiling, so a reset is still the default move over starting over cold.</p>
@@ -429,7 +432,7 @@
   <div class="spec-modal-overlay" id="specModal" onclick="if(event.target===this)closeSpecModal('specModal')">
     <div class="spec-modal-box">
       <button class="spec-modal-close" onclick="closeSpecModal('specModal')">✕</button>
-      <div class="spec-modal-title"><i data-lucide="layout-grid"></i> Full Spec Cards — Lucid, Apex, TPT &amp; TopOneFutures</div>
+      <div class="spec-modal-title"><i class="ph-duotone ph-squares-four"></i> Full Spec Cards — Lucid, Apex, TPT &amp; TopOneFutures</div>
       <p class="spec-modal-sub">Filterable across firm, size, and eval-vs-funded phase — the same shape as gallery.html's Account Ledger table, instead of clicking through one firm-branded card at a time. Lucid figures transcribed from their own pricing pages, LucidFlex25 (25K Flex) is the account actually held — full comparison: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-account-types-comparison.md" target="_blank" rel="noreferrer">lucid-account-types-comparison.md ↗</a>. Apex/TPT digitized from their pricing-page screenshots — Apex's TradingView/Tradovate/Browser/Mobile/Mac compatibility, Tradovate License, NinjaTrader Platform ($75 value), and Real-Time Data Fees ($55 value) are identical across all three Apex tiers below, omitted from the table to keep it scannable. TopOneFutures Elite ACCESS is the two funded accounts actually held (TOF197288/292) — figures from <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TopOneFutures/topone-rules.md" target="_blank" rel="noreferrer">topone-rules.md ↗</a></p>
 
       <div class="spec-filters" id="specFilters"></div>
@@ -594,13 +597,6 @@
         </tbody>`;
     }
     initSpecFilters();
-
-    // ═══════════════════════════════════════════════════════
-    // Lucide icons + subtle scroll-driven parallax on the ambient
-    // gradient layer (skipped entirely under prefers-reduced-motion).
-    // ═══════════════════════════════════════════════════════
-    if (window.lucide) lucide.createIcons();
-    else document.addEventListener('DOMContentLoaded', () => window.lucide && lucide.createIcons());
 
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       const bgLayer = document.getElementById('bgParallax');

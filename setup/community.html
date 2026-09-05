@@ -9,10 +9,10 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="assets/favicon.png">
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.js" defer></script>
-  <!-- Phosphor "thin" weight — used only for the Friends artwork tiles,
-       a noticeably finer line than Lucide's default stroke. -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/thin/style.css">
+  <!-- Phosphor "duotone" weight — every icon on the page except the Friends artwork tiles. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/duotone/style.css">
+  <!-- Phosphor "light" weight — thinner stroke, used only for the Friends artwork tiles. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/light/style.css">
   <style>
     :root {
       --bg: #09111d; --bg-alt: #0d1625;
@@ -41,8 +41,11 @@
     @media (prefers-reduced-motion: reduce) {
       * { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
     }
-    .lucide { width: 1.3em; height: 1.3em; vertical-align: -.22em; stroke-width: 1.75; display: inline-block; flex-shrink: 0; }
-    h1 .lucide { width: 1em; height: 1em; vertical-align: -.12em; }
+    .ph-duotone { font-size: 1.7em; vertical-align: -.28em; display: inline-block; flex-shrink: 0; }
+    /* Vendor default duotone "ghost" layer is only 20% opacity -- nearly invisible in a
+       light-on-dark palette. Bump it so the two-tone shape is actually perceptible. */
+    .ph-duotone::before { opacity: .55 !important; }
+    h1 .ph-duotone { font-size: 1.15em; vertical-align: -.15em; }
     /* ── Parallax ambient background — separate fixed layer from body so
        content scrolls normally while the gradient glow drifts slower. ── */
     .bg-parallax {
@@ -162,7 +165,7 @@
       display: flex; align-items: center; justify-content: center;
       box-shadow: 0 4px 18px rgba(255,0,0,.4);
     }
-    .yt-play .lucide { width: 1.3rem; height: 1.3rem; color: #fff; margin-left: 2px; }
+    .yt-play .ph-duotone { font-size: 1.5rem; color: #fff; margin-left: 2px; }
     .yt-brand { font-size: .68rem; font-weight: 800; letter-spacing: .06em; color: rgba(255,255,255,.55); text-transform: uppercase; }
 
     /* ── Small content modal (duck-race story) — same HTML-content-modal
@@ -200,7 +203,7 @@
       transition: border-color .2s, background .2s;
     }
     .story-trigger:hover { border-color: var(--rose); background: rgba(255,157,193,.18); }
-    .story-trigger .lucide { width: 1em; height: 1em; vertical-align: -.15em; }
+    .story-trigger .ph-duotone { font-size: 1.15em; vertical-align: -.18em; }
     .story-trigger-blue {
       display: inline-flex; align-items: center; gap: .3rem; margin-top: .3rem;
       padding: .18rem .6rem; border-radius: 999px; font-size: .74rem; font-weight: 700; line-height: 1.4;
@@ -209,7 +212,7 @@
       transition: border-color .2s, background .2s;
     }
     .story-trigger-blue:hover { border-color: #4d94ff; background: rgba(24,100,219,.22); }
-    .story-trigger-blue .lucide { width: 1em; height: 1em; vertical-align: -.15em; }
+    .story-trigger-blue .ph-duotone { font-size: 1.15em; vertical-align: -.18em; }
     .tool-card-wrap { display: flex; flex-direction: column; }
 
     .ext-link-row { display: inline-flex; align-items: center; gap: .3rem; font-size: .72rem; color: var(--blue); margin-top: .4rem; }
@@ -238,7 +241,13 @@
     .friend-card:hover { border-color: var(--gold); transform: translateY(-3px) scale(1.015); }
     .friend-art {
       aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
-      font-size: 2.6rem; filter: saturate(.55) brightness(.72);
+      font-size: 3rem; filter: saturate(.85) brightness(.9);
+      background-image: var(--grad); background-size: 220% 220%;
+      animation: fluidGradient 9s ease-in-out infinite;
+    }
+    @keyframes fluidGradient {
+      0%, 100% { background-position: 0% 0%; }
+      50% { background-position: 100% 100%; }
     }
     /* ── Trippy icon treatment — slow red↔green color modulation (a
        hue-rotate filter did nothing on a near-white icon, since white has
@@ -259,13 +268,13 @@
     .friend-role { font-size: .7rem; color: var(--subtle); margin-bottom: .6rem; }
     .friend-link {
       display: flex; align-items: center; justify-content: center;
-      width: 1.9rem; height: 1.9rem; margin: 0 auto; border-radius: 999px;
+      width: 2.3rem; height: 2.3rem; margin: 0 auto; border-radius: 999px;
       background: var(--surface-soft); border: 1px solid var(--border); color: var(--text);
       transition: border-color .2s, color .2s;
     }
     .friend-link:hover { border-color: var(--blue); color: var(--blue); }
-    .friend-link .lucide { width: 1rem; height: 1rem; animation: iconRedGreen 6s ease-in-out infinite; }
-    .friend-card:hover .friend-link .lucide { animation: iconRedGreen 6s ease-in-out infinite, iconBounce .65s ease-in-out infinite; }
+    .friend-link .ph-duotone { font-size: 1.3rem; animation: iconRedGreen 6s ease-in-out infinite; }
+    .friend-card:hover .friend-link .ph-duotone { animation: iconRedGreen 6s ease-in-out infinite, iconBounce .65s ease-in-out infinite; }
 
     /* ── COPY-TRADING TOOLS ── */
     .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; --accent: var(--blue); }
@@ -314,133 +323,133 @@
   <div class="bg-parallax" id="bgParallax"></div>
 
   <nav class="nav">
-    <span class="nav-brand"><i data-lucide="hand-heart"></i> Community &amp; Thanks</span>
-    <a class="nav-tag" href="../index.html"><i data-lucide="home"></i> Home</a>
-    <a class="nav-tag" href="../data/progression/resources.html"><i data-lucide="book-open"></i> Resources</a>
-    <a class="nav-tag" href="../data/progression/gallery.html"><i data-lucide="trophy"></i> Gallery</a>
-    <a class="nav-tag" href="prop-firm-rules.html"><i data-lucide="plane"></i> Pre-Flight Checklist</a>
+    <span class="nav-brand"><i class="ph-duotone ph-hand-heart"></i> Community &amp; Thanks</span>
+    <a class="nav-tag" href="../index.html"><i class="ph-duotone ph-house"></i> Home</a>
+    <a class="nav-tag" href="../data/progression/resources.html"><i class="ph-duotone ph-book-open"></i> Resources</a>
+    <a class="nav-tag" href="../data/progression/gallery.html"><i class="ph-duotone ph-trophy"></i> Gallery</a>
+    <a class="nav-tag" href="prop-firm-rules.html"><i class="ph-duotone ph-airplane-tilt"></i> Pre-Flight Checklist</a>
   </nav>
 
   <main class="content">
     <p class="eyebrow hero-in">Gratitude · Not a Solo Effort</p>
-    <h1 class="hero-in d1"><i data-lucide="hand-heart"></i> Community &amp; <span>Thanks</span></h1>
+    <h1 class="hero-in d1"><i class="ph-duotone ph-hand-heart"></i> Community &amp; <span>Thanks</span></h1>
     <p class="lede hero-in d2">None of this trading journey happened alone. This page names the people, communities, and platforms that made the difference — coaches, a copy-trading community that turned into an unexpected gift, and the tools this whole build runs on.</p>
 
-    <div class="sec-label"><i data-lucide="graduation-cap"></i> Mentors</div>
+    <div class="sec-label"><i class="ph-duotone ph-graduation-cap"></i> Mentors</div>
     <p class="sec-sub">Three coaching programs, each bringing something different — see <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/progression/pattern_tracker.md" target="_blank" rel="noreferrer">pattern_tracker.md</a>'s "Trading Style" note for how these actually blend day to day</p>
     <div class="thanks-grid">
       <a class="thanks-card glass" href="https://www.trustpilot.com/review/inevitrade.com" target="_blank" rel="noreferrer">
-        <h3><i data-lucide="brain"></i> Inevitrade (IT)</h3>
+        <h3><i class="ph-duotone ph-brain"></i> Inevitrade (IT)</h3>
         <p class="flavor-tag">Smart money</p>
         <p>Foundation EMAs, SMT divergence, and the longest-running relationship in this whole trading arc</p>
-        <span class="review-link"><i data-lucide="star"></i> Trustpilot ↗</span>
+        <span class="review-link"><i class="ph-duotone ph-star"></i> Trustpilot ↗</span>
       </a>
       <a class="thanks-card glass" href="https://www.trustpilot.com/review/smarttradingblueprint.com" target="_blank" rel="noreferrer">
-        <h3><i data-lucide="book-open-text"></i> SmartTradingBlueprint (STB)</h3>
+        <h3><i class="ph-duotone ph-book-open-text"></i> SmartTradingBlueprint (STB)</h3>
         <p class="flavor-tag">Depth</p>
         <p>FCR (First Candle Rule) and the deep case-study habit that shows up throughout this repo</p>
-        <span class="review-link"><i data-lucide="star"></i> Trustpilot ↗</span>
+        <span class="review-link"><i class="ph-duotone ph-star"></i> Trustpilot ↗</span>
       </a>
       <a class="thanks-card glass" href="https://www.trustpilot.com/review/zerotohero.trade" target="_blank" rel="noreferrer">
-        <h3><i data-lucide="target"></i> ZeroToHero (ZTH)</h3>
+        <h3><i class="ph-duotone ph-target"></i> ZeroToHero (ZTH)</h3>
         <p class="flavor-tag">Base-hit-minded</p>
         <p>Setups looked for all session long, and the base-hit discipline behind the "securing base hits" approach</p>
-        <span class="review-link"><i data-lucide="star"></i> Trustpilot ↗</span>
+        <span class="review-link"><i class="ph-duotone ph-star"></i> Trustpilot ↗</span>
       </a>
     </div>
 
-    <div id="friends-top" class="sec-label"><i data-lucide="users"></i> Friends</div>
-    <p class="sec-sub">The people behind the programs, the community, and the tools — direct links, not just program pills. Every card below links to Instagram (<i data-lucide="instagram"></i>)</p>
+    <div id="friends-top" class="sec-label"><i class="ph-duotone ph-users"></i> Friends</div>
+    <p class="sec-sub">The people behind the programs, the community, and the tools — direct links, not just program pills. Every card below links to Instagram (<i class="ph-duotone ph-instagram-logo"></i>)</p>
     <div class="friends-wrap" id="friendsWrap">
       <div class="friends-track" id="friendsTrack"></div>
     </div>
 
-    <div id="pfm" class="sec-label"><i data-lucide="tv"></i> Shoutout</div>
+    <div id="pfm" class="sec-label"><i class="ph-duotone ph-television"></i> Shoutout</div>
     <p class="sec-sub">PropFirmMatchTV's live-stream energy, MarketButcher's after-hours breakdowns — two different formats, the same fun-over-fear spirit</p>
     <div class="preview-grid">
       <div class="preview-card glass">
         <a class="preview-banner youtube" href="https://www.youtube.com/@propfirmmatch" target="_blank" rel="noreferrer" style="background-color:#1a1230;background-image:url('https://yt3.googleusercontent.com/C7qZKkPiURZpfelvBU-nCAr42vMELcKDwEnonNH4N4O0gFLVS6dt-82pBdmCuDzjeabdrIcx_eM=s900-c-k-c0x00ffffff-no-rj');background-size:cover;background-repeat:no-repeat;background-position:center;">
-          <div class="yt-play"><i data-lucide="play"></i></div>
+          <div class="yt-play"><i class="ph-duotone ph-play"></i></div>
         </a>
         <div class="preview-body">
           <div class="yt-brand">YouTube · Channel</div>
-          <a class="preview-title" href="https://www.youtube.com/@propfirmmatch" target="_blank" rel="noreferrer"><i data-lucide="tv"></i> PropFirmMatchTV</a>
+          <a class="preview-title" href="https://www.youtube.com/@propfirmmatch" target="_blank" rel="noreferrer"><i class="ph-duotone ph-television"></i> PropFirmMatchTV</a>
           <p class="preview-desc"><em>Trusted platform to compare trading firms and challenges — verified data and insights, reviews, rules, rankings, loyalty rewards, and tracking.</em></p>
           <p class="preview-desc">A live-stream community built around prop-firm challenges, giveaways, and genuinely fun energy around a grind that can otherwise get heavy. Hosts + direct links: see the <a href="#friends-top">Friends marquee</a> above. More on the copy-trading plan it kicked off: <a href="copy-trading.html">the Copy-Trading plan ↗</a></p>
           <button type="button" class="story-trigger" onclick="openModal('duckModal')">🦆 The Duck Race Story</button>
-          <a class="story-trigger" href="https://propfirmmatch.com/futures" target="_blank" rel="noreferrer" style="margin-left:.35rem;"><i data-lucide="link"></i> propfirmmatch.com ↗</a>
+          <a class="story-trigger" href="https://propfirmmatch.com/futures" target="_blank" rel="noreferrer" style="margin-left:.35rem;"><i class="ph-duotone ph-link"></i> propfirmmatch.com ↗</a>
         </div>
       </div>
       <a class="preview-card glass" href="https://www.youtube.com/@MarketButcher" target="_blank" rel="noreferrer">
         <div class="preview-banner youtube" style="background-color:#1a0505;background-image:url('https://yt3.googleusercontent.com/NzTyeFW5UcEDLlj3WSzji5yBb5tySka510a44aiu_O5_as92jDZDYk8Uva_No0FFp0F1WaL2SQ=s900-c-k-c0x00ffffff-no-rj');background-size:cover;background-repeat:no-repeat;background-position:center;">
-          <div class="yt-play"><i data-lucide="play"></i></div>
+          <div class="yt-play"><i class="ph-duotone ph-play"></i></div>
         </div>
         <div class="preview-body">
           <div class="yt-brand">YouTube · Channel</div>
-          <div class="preview-title"><i data-lucide="clapperboard"></i> Dave Butcher — MarketButcher</div>
+          <div class="preview-title"><i class="ph-duotone ph-film-slate"></i> Dave Butcher — MarketButcher</div>
           <p class="preview-desc">Thanks for the content and perspective</p>
-          <div class="preview-domain"><i data-lucide="link"></i> youtube.com/@MarketButcher</div>
+          <div class="preview-domain"><i class="ph-duotone ph-link"></i> youtube.com/@MarketButcher</div>
         </div>
       </a>
     </div>
 
-    <div id="thegexlab" class="sec-label"><i data-lucide="flask-conical"></i> TheGexLab</div>
+    <div id="thegexlab" class="sec-label"><i class="ph-duotone ph-flask"></i> TheGexLab</div>
     <p class="sec-sub">Not a footnote under PFM above — its own thank-you, for a different kind of tool entirely</p>
     <a class="pfm-panel glass gexlab-split" href="https://www.thegexlab.com/tmade" target="_blank" rel="noreferrer">
       <div class="gexlab-banner" style="background-image:url('https://www.thegexlab.com/app/gexlab-shot.jpg');" aria-label="TheGexLab app preview"></div>
       <div class="gexlab-info">
-        <h3><i data-lucide="flask-conical"></i> TMade × TheGexLab</h3>
+        <h3><i class="ph-duotone ph-flask"></i> TMade × TheGexLab</h3>
         <p>TMade partnered with Yush to build TheGexLab — real-time dealer positioning (put/call walls, zero gamma, and the regime read that says whether the market's pinned or primed to run) laid directly onto the chart. Their Asia-session read is nicknamed "night-vision" — which lands close to home, since our own ETH-derived ZTH levels in the auto-levels indicator render green vs. cyan for exactly that reason. Years of building this system, and it's still finding new confluence to lean on</p>
         <p>Partner access: thegexlab.com/tmade — <span class="partner-code">code TMADE</span> for 20% off. This is a gated partner link, not the public marketing site</p>
       </div>
     </a>
 
-    <div id="copy-trading" class="sec-label"><i data-lucide="repeat"></i> Copy-Trading</div>
+    <div id="copy-trading" class="sec-label"><i class="ph-duotone ph-arrows-clockwise"></i> Copy-Trading</div>
     <p class="sec-sub">Both connect Tradovate ↔ NinjaTrader/Apex and handle per-follower quantity multipliers, replacing the old manual multi-device method (a MacBook, iPhone, and iMac all running at once just to mirror trades by hand) — what actually sets them apart is below</p>
     <div class="tools-grid">
       <div class="tool-card-wrap">
         <a id="tradecopia" class="tool-card glass" href="https://tradecopia.com" target="_blank" rel="noreferrer">
-          <h4><i data-lucide="repeat"></i> TradeCopia</h4>
+          <h4><i class="ph-duotone ph-arrows-clockwise"></i> TradeCopia</h4>
           <p>Cloud-based, browser-driven, upgrading from Tradovate's native single-account-view switcher. Its own named risk-control set: hedge prevention, a position reconciler, and auto-flatten the moment the leader goes flat</p>
-          <span class="ext-link-row"><i data-lucide="link"></i> tradecopia.com ↗</span>
+          <span class="ext-link-row"><i class="ph-duotone ph-link"></i> tradecopia.com ↗</span>
         </a>
         <div style="text-align:center; margin-top:.9rem;">
-          <a class="story-trigger" href="copy-trading.html" style="font-size:.82rem; padding:.4rem 1.1rem;"><i data-lucide="layout-panel-top"></i> View Full Copy-Trading Plan ↗</a>
+          <a class="story-trigger" href="copy-trading.html" style="font-size:.82rem; padding:.4rem 1.1rem;"><i class="ph-duotone ph-browser"></i> View Full Copy-Trading Plan ↗</a>
         </div>
       </div>
       <div class="tool-card-wrap">
         <a id="tradesyncer" class="tool-card glass" href="https://www.tradesyncer.com" target="_blank" rel="noreferrer">
-          <h4><i data-lucide="repeat"></i> Tradesyncer</h4>
+          <h4><i class="ph-duotone ph-arrows-clockwise"></i> Tradesyncer</h4>
           <p>Sub-100ms sync speed. Position sync and hedge prevention run through its own named feature — <strong>Follower Protection</strong> — rather than TradeCopia's separate reconciler/auto-flatten controls</p>
-          <span class="ext-link-row"><i data-lucide="link"></i> tradesyncer.com ↗</span>
+          <span class="ext-link-row"><i class="ph-duotone ph-link"></i> tradesyncer.com ↗</span>
         </a>
         <div style="text-align:center; margin-top:.9rem;">
-          <a class="story-trigger-blue" href="https://help.tradesyncer.com/en/articles/10410714-how-to-use-follower-protection" target="_blank" rel="noreferrer" style="font-size:.82rem; padding:.4rem 1.1rem;"><i data-lucide="shield-check"></i> Follower Protection ↗</a>
+          <a class="story-trigger-blue" href="https://help.tradesyncer.com/en/articles/10410714-how-to-use-follower-protection" target="_blank" rel="noreferrer" style="font-size:.82rem; padding:.4rem 1.1rem;"><i class="ph-duotone ph-shield-check"></i> Follower Protection ↗</a>
         </div>
       </div>
     </div>
 
-    <div class="sec-label"><i data-lucide="wrench"></i> External Resources</div>
+    <div class="sec-label"><i class="ph-duotone ph-wrench"></i> External Resources</div>
     <p class="sec-sub">Thanks to the platforms that make this whole build possible — deeper how-to context for these lives on <a href="../data/progression/resources.html">resources.html</a></p>
     <div class="ext-grid">
       <a class="ext-card" href="https://www.tradingview.com" target="_blank" rel="noreferrer">
-        <h4><i data-lucide="line-chart"></i> TradingView</h4>
+        <h4><i class="ph-duotone ph-chart-line"></i> TradingView</h4>
         <p>Charting, level marking, and screenshot capture for every review in this repo</p>
-        <span class="ext-link-row"><i data-lucide="link"></i> tradingview.com ↗</span>
+        <span class="ext-link-row"><i class="ph-duotone ph-link"></i> tradingview.com ↗</span>
       </a>
       <a class="ext-card" href="https://www.tradezella.com" target="_blank" rel="noreferrer">
-        <h4><i data-lucide="bar-chart-3"></i> TradeZella</h4>
+        <h4><i class="ph-duotone ph-chart-bar"></i> TradeZella</h4>
         <p>Where the trade-journaling habit started — the origin story kept intact on gallery.html</p>
-        <span class="ext-link-row"><i data-lucide="link"></i> tradezella.com ↗</span>
+        <span class="ext-link-row"><i class="ph-duotone ph-link"></i> tradezella.com ↗</span>
       </a>
       <a class="ext-card" href="https://www.btcc.com" target="_blank" rel="noreferrer">
-        <h4><i data-lucide="bitcoin"></i> BTCC</h4>
+        <h4><i class="ph-duotone ph-currency-btc"></i> BTCC</h4>
         <p>Crypto execution venue for SOL/USDT perp trades</p>
-        <span class="ext-link-row"><i data-lucide="link"></i> btcc.com ↗</span>
+        <span class="ext-link-row"><i class="ph-duotone ph-link"></i> btcc.com ↗</span>
       </a>
     </div>
 
-    <div class="sec-label"><i data-lucide="link"></i> Affiliates</div>
+    <div class="sec-label"><i class="ph-duotone ph-link"></i> Affiliates</div>
     <div class="affiliate-panel">
       <p>Not currently affiliated with anyone. Everything above is genuine thanks, not a paid partnership — this section stays honest and empty until (if ever) that changes</p>
     </div>
@@ -457,7 +466,7 @@
   </div>
 
   <footer class="footer">
-    <p><i data-lucide="hand-heart"></i> Community &amp; Thanks · Christopher Wilson · Part of the <a href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer">Trading Assistant</a> public preview</p>
+    <p><i class="ph-duotone ph-hand-heart"></i> Community &amp; Thanks · Christopher Wilson · Part of the <a href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer">Trading Assistant</a> public preview</p>
     <p>Gratitude is the whole point of this page</p>
     <p>Not financial advice — everything here is personal experience and documentation, not a trading or risk-management recommendation. Verify any firm's rules directly before relying on them.</p>
   </footer>
@@ -470,18 +479,19 @@
     // stays natively drag/scroll-able — no real photos on file, so each
     // card uses a stylized gradient + emoji "artwork" tile instead)
     // ═══════════════════════════════════════════════════════
-    // Friend-art icons use Phosphor (thin weight) instead of Lucide — a
-    // finer line that reads less "chunky" for these decorative tiles.
+    // Friend-art icons use Phosphor thin weight — a finer line than the
+    // duotone weight used everywhere else on this page, better suited
+    // to these small decorative tiles.
     const friends = [
-      { name: 'Fabio', role: 'Pre-Dawn · PFM host · ttacapital', pi: 'ph-sun-horizon', grad: 'linear-gradient(135deg,#f3c969,#ff9f67)', href: 'https://www.instagram.com/ttacapital/' },
-      { name: 'Luna Trades', role: 'Early AM · PFM host', pi: 'ph-moon', grad: 'linear-gradient(135deg,#b693ff,#ff9dc1)', href: 'https://www.instagram.com/luna_trades_/' },
-      { name: 'Zarb', role: 'NY Session · PFM host · ZarbsLiquidity', pi: 'ph-waves', grad: 'linear-gradient(135deg,#6ee7f9,#7cc2ff)', href: 'https://www.instagram.com/iamzarb_/' },
-      { name: 'TMade Alex', role: 'Lunchbox VWAP PFM trader · TheGexLab partner', pi: 'ph-lightning', grad: 'linear-gradient(135deg,#ff9f67,#f3c969)', href: 'https://www.instagram.com/tmadealex/' },
-      { name: 'Dave Butcher', role: 'Evening · MarketButcher', pi: 'ph-knife', grad: 'linear-gradient(135deg,#ff9dc1,#ff9f67)', href: 'https://www.instagram.com/market_butcher/' },
-      { name: 'Yush', role: 'TheGexLab co-creator', pi: 'ph-microscope', grad: 'linear-gradient(135deg,#49d17d,#6ee7f9)', href: 'https://www.instagram.com/traderyush_/' },
-      { name: 'Craig', role: 'Inevitrade (IT)', pi: 'ph-brain', grad: 'linear-gradient(135deg,#7cc2ff,#b693ff)', href: 'https://www.instagram.com/craig_percoco/' },
-      { name: 'Jesse', role: 'SmartTradingBlueprint (STB)', pi: 'ph-book-open-text', grad: 'linear-gradient(135deg,#f3c969,#ff9f67)', href: 'https://www.instagram.com/casper_smc/' },
-      { name: 'Omar', role: 'ZeroToHero (ZTH)', pi: 'ph-target', grad: 'linear-gradient(135deg,#49d17d,#f3c969)', href: 'https://www.instagram.com/omarfhafez/' },
+      { name: 'Fabio', role: 'Pre-Dawn · PFM host · ttacapital', pi: 'ph-sun-horizon', grad: 'linear-gradient(135deg,#f3c969,#ff9f67,#ff6b6b)', href: 'https://www.instagram.com/ttacapital/' },
+      { name: 'Luna Trades', role: 'Early AM · PFM host', pi: 'ph-moon', grad: 'linear-gradient(135deg,#7c6fff,#b693ff,#ff9dc1)', href: 'https://www.instagram.com/luna_trades_/' },
+      { name: 'Zarb', role: 'NY Session · PFM host · ZarbsLiquidity', pi: 'ph-waves', grad: 'linear-gradient(135deg,#22d3ee,#6ee7f9,#7cc2ff)', href: 'https://www.instagram.com/iamzarb_/' },
+      { name: 'TMade Alex', role: 'Lunchbox VWAP PFM trader · TheGexLab partner', pi: 'ph-lightning', grad: 'linear-gradient(135deg,#ff9f67,#f3c969,#fde68a)', href: 'https://www.instagram.com/tmadealex/' },
+      { name: 'Dave Butcher', role: 'Evening · MarketButcher', pi: 'ph-knife', grad: 'linear-gradient(135deg,#ff9dc1,#ff9f67,#ff6b6b)', href: 'https://www.instagram.com/market_butcher/' },
+      { name: 'Yush', role: 'TheGexLab co-creator', pi: 'ph-microscope', grad: 'linear-gradient(135deg,#34d399,#49d17d,#6ee7f9)', href: 'https://www.instagram.com/traderyush_/' },
+      { name: 'Craig', role: 'Inevitrade (IT)', pi: 'ph-brain', grad: 'linear-gradient(135deg,#60a5fa,#7cc2ff,#b693ff)', href: 'https://www.instagram.com/craig_percoco/' },
+      { name: 'Jesse', role: 'SmartTradingBlueprint (STB)', pi: 'ph-book-open-text', grad: 'linear-gradient(135deg,#f3c969,#ff9f67,#fbbf24)', href: 'https://www.instagram.com/casper_smc/' },
+      { name: 'Omar', role: 'ZeroToHero (ZTH)', pi: 'ph-target', grad: 'linear-gradient(135deg,#22c55e,#49d17d,#f3c969)', href: 'https://www.instagram.com/omarfhafez/' },
     ];
     // PropFirmMatchTV's daily schedule (Pre-Dawn/Fabio -> Early AM/Luna ->
     // NY Session/Zarb -> Lunchbox/Alex -> Evening/Dave) is baked directly
@@ -499,11 +509,11 @@
         card.style.display = 'block';
         card.style.transitionDelay = (i % items.length) * 0.04 + 's';
         card.innerHTML = `
-          <div class="friend-art" style="background:${item.grad}"><i class="ph-thin ${item.pi}"></i></div>
+          <div class="friend-art" style="--grad:${item.grad}"><i class="ph-light ${item.pi}"></i></div>
           <div class="friend-card-body">
             <div class="friend-name">${item.name}</div>
             <div class="friend-role">${item.role}</div>
-            <span class="friend-link"><i data-lucide="instagram"></i></span>
+            <span class="friend-link"><i class="ph-duotone ph-instagram-logo"></i></span>
           </div>`;
         el.appendChild(card);
         // One orchestrated reveal: cards settle into place right after
@@ -561,15 +571,10 @@
       document.querySelectorAll('.modal-overlay.open').forEach(el => closeModal(el.id));
     });
     // ═══════════════════════════════════════════════════════
-    // Lucide icons (called after renderFriends so
-    // their dynamically-injected <i data-lucide> tags get picked up
-    // too) + subtle scroll-driven parallax on the ambient gradient
-    // layer (skipped entirely under prefers-reduced-motion).
+    // Subtle scroll-driven parallax on the ambient gradient layer
+    // (skipped entirely under prefers-reduced-motion). Icons are pure
+    // CSS/font (Phosphor) now, no JS init needed.
     // ═══════════════════════════════════════════════════════
-    function initIcons() { if (window.lucide) lucide.createIcons(); }
-    if (window.lucide) initIcons();
-    else document.addEventListener('DOMContentLoaded', initIcons);
-
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       const bgLayer = document.getElementById('bgParallax');
       let ticking = false;
