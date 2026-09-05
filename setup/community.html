@@ -156,7 +156,7 @@
        in YouTube's visual language, not a live embed (no video URL to
        embed, only the channel link). ── */
     .preview-banner.youtube {
-      aspect-ratio: auto; min-height: 168px;
+      aspect-ratio: auto; height: 280px;
       background: linear-gradient(160deg, #1a0505, #2b0a0a);
       display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .55rem;
       padding: 1.1rem 1.2rem;
@@ -276,7 +276,13 @@
       0%, 100% { color: var(--violet); filter: drop-shadow(0 1px 4px rgba(0,0,0,.4)); }
       50% { color: var(--rose); filter: drop-shadow(0 1px 4px rgba(0,0,0,.4)); }
     }
-    .friend-link.social-purple .ph-duotone { animation: iconPurplePink 6s ease-in-out infinite; }
+    /* ── Discord badges bounce by default (not just on hover) — most
+       readers of this page are on mobile, where hover never fires. ── */
+    .friend-link.social-purple { width: 2.7rem; height: 2.7rem; }
+    .friend-link.social-purple .ph-duotone {
+      font-size: 1.7rem;
+      animation: iconPurplePink 6s ease-in-out infinite, iconBounce 1.6s ease-in-out infinite;
+    }
     .friend-link.social-purple:hover .ph-duotone,
     .preview-card:hover .friend-link.social-purple .ph-duotone {
       animation: iconPurplePink 6s ease-in-out infinite, iconBounce .65s ease-in-out infinite;
@@ -389,20 +395,23 @@
     </div>
 
     <div id="pfm" class="sec-label"><i class="ph-duotone ph-television"></i> Shoutout</div>
-    <p class="sec-sub">PropFirmMatchTV's live-stream energy, MarketButcher's after-hours breakdowns — two different formats, the same fun-over-fear spirit</p>
+    <p class="sec-sub">PropFirmMatchTV's live-stream energy, MarketButcher's after-hours breakdowns — two different formats, the same fun-over-fear spirit <button type="button" class="story-trigger" onclick="openModal('duckModal')" style="margin-left:.4rem;"><i class="ph-duotone ph-ticket"></i> The Duck Race Story ↗</button></p>
     <div class="preview-grid">
       <div class="preview-card glass">
         <a class="preview-banner youtube" href="https://www.youtube.com/@propfirmmatch" target="_blank" rel="noreferrer" style="background-color:#1a1230;background-image:url('https://yt3.googleusercontent.com/C7qZKkPiURZpfelvBU-nCAr42vMELcKDwEnonNH4N4O0gFLVS6dt-82pBdmCuDzjeabdrIcx_eM=s900-c-k-c0x00ffffff-no-rj');background-size:cover;background-repeat:no-repeat;background-position:center;">
-          <p class="banner-caption">Trusted platform to compare trading firms and challenges — verified data and insights, reviews, rules, rankings, loyalty rewards, and tracking</p>
-          <div class="yt-play"><i class="ph-duotone ph-play"></i></div>
           <p class="banner-caption">A live-stream community built around prop-firm challenges, giveaways, and genuinely fun energy around a grind that can otherwise get heavy</p>
+          <div class="yt-play"><i class="ph-duotone ph-play"></i></div>
+          <p class="banner-caption">Trusted platform to compare trading firms and challenges — verified data and insights, reviews, rules, rankings, loyalty rewards, and tracking</p>
         </a>
         <div class="preview-body">
           <div class="yt-brand">YouTube · Channel</div>
           <a class="preview-title" href="https://www.youtube.com/@propfirmmatch" target="_blank" rel="noreferrer"><i class="ph-duotone ph-television"></i> PropFirmMatchTV</a>
-          <p class="preview-desc">Hosts + direct links: see the <a href="#friends-top">Friends marquee</a> above. More on the copy-trading plan it kicked off: <a href="copy-trading.html">the Copy-Trading plan ↗</a></p>
-          <button type="button" class="story-trigger" onclick="openModal('duckModal')">🦆 The Duck Race Story</button>
+          <p class="preview-desc">Hosts + direct links: see the <a href="#friends-top">Friends marquee</a> above.<br>More on the copy-trading plan it kicked off:</p>
+          <a class="story-trigger" href="https://www.youtube.com/@propfirmmatch" target="_blank" rel="noreferrer"><i class="ph-duotone ph-link"></i> youtube.com/@propfirmmatch ↗</a>
           <a class="story-trigger" href="https://propfirmmatch.com/futures" target="_blank" rel="noreferrer" style="margin-left:.35rem;"><i class="ph-duotone ph-link"></i> propfirmmatch.com ↗</a>
+          <div style="margin-top:.5rem;">
+            <a class="story-trigger-blue" href="#copy-trading"><i class="ph-duotone ph-path"></i> The Copy-Trading Plan ↗</a>
+          </div>
           <div class="card-socials">
             <a class="friend-link social-purple" href="https://discord.gg/propfirmmatch" target="_blank" rel="noreferrer" aria-label="PropFirmMatchTV Discord" title="PropFirmMatchTV Discord"><i class="ph-duotone ph-discord-logo"></i></a>
           </div>
@@ -415,7 +424,7 @@
         <div class="preview-body">
           <div class="yt-brand">YouTube · Channel</div>
           <a class="preview-title" href="https://www.youtube.com/@MarketButcher" target="_blank" rel="noreferrer"><i class="ph-duotone ph-film-slate"></i> Dave Butcher — MarketButcher</a>
-          <p class="preview-desc">Thanks for the content and perspective — after-hours breakdowns that make the grind feel lighter. Dave runs his own 🦆 duck race raffles too, same giveaway energy as PFM above</p>
+          <p class="preview-desc">Thanks for the content and perspective — after-hours breakdowns that make the grind feel lighter</p>
           <a class="story-trigger" href="https://www.youtube.com/@MarketButcher" target="_blank" rel="noreferrer"><i class="ph-duotone ph-link"></i> youtube.com/@MarketButcher ↗</a>
           <div class="card-socials">
             <a class="friend-link social-purple" href="https://discord.gg/3xBumtNFXQ" target="_blank" rel="noreferrer" aria-label="MarketButcher Discord" title="MarketButcher Discord"><i class="ph-duotone ph-discord-logo"></i></a>
@@ -429,23 +438,23 @@
     <a class="pfm-panel glass gexlab-split" href="https://www.thegexlab.com/tmade" target="_blank" rel="noreferrer">
       <div class="gexlab-banner" style="background-image:url('https://www.thegexlab.com/app/gexlab-shot.jpg');" aria-label="TheGexLab app preview"></div>
       <div class="gexlab-info">
-        <h3><i class="ph-duotone ph-flask"></i> TMade × TheGexLab</h3>
+        <h3><i class="ph-duotone ph-chart-bar-horizontal"></i> TMade × TheGexLab</h3>
         <p>TMade partnered with Yush to build TheGexLab — real-time dealer positioning (put/call walls, zero gamma, and the regime read that says whether the market's pinned or primed to run) laid directly onto the chart. Their Asia-session read is nicknamed "night-vision" — which lands close to home, since our own ETH-derived ZTH levels in the auto-levels indicator render green vs. cyan for exactly that reason. Years of building this system, and it's still finding new confluence to lean on</p>
-        <p>Partner access: thegexlab.com/tmade — <span class="partner-code">code TMADE</span> for 20% off. This is a gated partner link, not the public marketing site</p>
+        <p>Partner access: thegexlab.com/tmade — <i class="ph-duotone ph-detective"></i> <span class="partner-code">code TMADE</span> for 20% off. This is a gated partner link, not the public marketing site</p>
       </div>
     </a>
 
-    <div id="copy-trading" class="sec-label"><i class="ph-duotone ph-arrows-clockwise"></i> Copy-Trading</div>
+    <div id="copy-trading" class="sec-label"><i class="ph-duotone ph-path"></i> Copy-Trading</div>
     <p class="sec-sub">Both connect Tradovate ↔ NinjaTrader/Apex and handle per-follower quantity multipliers, replacing the old manual multi-device method (a MacBook, iPhone, and iMac all running at once just to mirror trades by hand) — what actually sets them apart is below</p>
     <div class="tools-grid">
       <div class="tool-card-wrap">
         <a id="tradecopia" class="tool-card glass" href="https://tradecopia.com" target="_blank" rel="noreferrer">
-          <h4><i class="ph-duotone ph-arrows-clockwise"></i> TradeCopia</h4>
+          <h4><i class="ph-duotone ph-cloud-check"></i> TradeCopia</h4>
           <p>Cloud-based, browser-driven, upgrading from Tradovate's native single-account-view switcher. Its own named risk-control set: hedge prevention, a position reconciler, and auto-flatten the moment the leader goes flat</p>
           <span class="ext-link-row"><i class="ph-duotone ph-link"></i> tradecopia.com ↗</span>
         </a>
         <div style="text-align:center; margin-top:.9rem;">
-          <a class="story-trigger" href="copy-trading.html" style="font-size:.82rem; padding:.4rem 1.1rem;"><i class="ph-duotone ph-browser"></i> View Full Copy-Trading Plan ↗</a>
+          <a class="story-trigger" href="copy-trading.html" style="font-size:.82rem; padding:.4rem 1.1rem;"><i class="ph-duotone ph-strategy"></i> View Full Copy-Trading Plan ↗</a>
         </div>
       </div>
       <div class="tool-card-wrap">
@@ -455,12 +464,12 @@
           <span class="ext-link-row"><i class="ph-duotone ph-link"></i> tradesyncer.com ↗</span>
         </a>
         <div style="text-align:center; margin-top:.9rem;">
-          <a class="story-trigger-blue" href="https://help.tradesyncer.com/en/articles/10410714-how-to-use-follower-protection" target="_blank" rel="noreferrer" style="font-size:.82rem; padding:.4rem 1.1rem;"><i class="ph-duotone ph-shield-check"></i> Follower Protection ↗</a>
+          <a class="story-trigger-blue" href="https://help.tradesyncer.com/en/articles/10410714-how-to-use-follower-protection" target="_blank" rel="noreferrer" style="font-size:.82rem; padding:.4rem 1.1rem;"><i class="ph-duotone ph-plugs-connected"></i> Follower Protection ↗</a>
         </div>
       </div>
     </div>
 
-    <div class="sec-label"><i class="ph-duotone ph-wrench"></i> External Resources</div>
+    <div class="sec-label"><i class="ph-duotone ph-puzzle-piece"></i> External Resources</div>
     <p class="sec-sub">Thanks to the platforms that make this whole build possible — deeper how-to context for these lives on <a href="../data/progression/resources.html">resources.html</a></p>
     <div class="ext-grid">
       <a class="ext-card" href="https://www.tradingview.com" target="_blank" rel="noreferrer">
@@ -480,7 +489,7 @@
       </a>
     </div>
 
-    <div class="sec-label"><i class="ph-duotone ph-link"></i> Affiliates</div>
+    <div class="sec-label"><i class="ph-duotone ph-handshake"></i> Affiliates</div>
     <div class="affiliate-panel">
       <p>Not currently affiliated with anyone. Everything above is genuine thanks, not a paid partnership — this section stays honest and empty until (if ever) that changes</p>
     </div>
@@ -489,10 +498,11 @@
   <div class="modal-overlay" id="duckModal" onclick="if(event.target===this)closeModal('duckModal')">
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal('duckModal')">✕</button>
-      <div class="modal-title">🦆 The Duck Race Story</div>
-      <p>🏆 A free Lucid futures account was won here via an on-stream duck race — first prize surfaced through community, not purchased. PropFirmMatchTV runs live-stream giveaways with a Discord + access-code flow, and this particular race is how Lucid ended up on the roster at all: a redemption code good toward a 25K account, style already decided in the account-structure plan above (25K follows, doesn't lead — see the <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-account-types-comparison.md" target="_blank" rel="noreferrer">comparison doc</a> for the style analysis behind it)</p>
-      <p>🙏 Why it landed harder than "free 25K account": by July 20, a Lucid account had already been created specifically to dodge the 30-day eval-subscription clock TPT was running — this was around the time Apex Legacy accounts stopped being purchasable outright. Even so, a Lucid eval itself was never actually bought — TopOne's BOGO deal and TPT's 50AND3 offer had already covered enough ground. In a moment of prayer, weighing whether to even enter the giveaway at all while already juggling three funded accounts and two Apex renewals, the honest answer was: enough is enough for now — and that was said out loud, gratefully, as a letting go, not a complaint</p>
-      <p>😭 Then the name got called. During Alex's hosting slot, using the code "tmade" — and hearing it live was genuinely a "wait, seriously?" moment, followed by tears. Not because of the account's dollar value, but because of how the whole journey had been unfolding up to that point. The gratitude here runs deeper than the outcome itself — it's encouragement, hope, and a real opportunity to level up and actually learn TradeCopia, scaling, and Lucid properly, rather than something owed or expected</p>
+      <div class="modal-title"><i class="ph-duotone ph-bird"></i> The Duck Race Story</div>
+      <p><i class="ph-duotone ph-trophy"></i> A free Lucid futures account was won here via an on-stream duck race — first prize surfaced through community, not purchased. PropFirmMatchTV runs live-stream giveaways with a Discord + access-code flow, and this particular race is how Lucid ended up on the roster at all: a redemption code good toward a 25K account, style already decided in the account-structure plan above (25K follows, doesn't lead — see the <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-account-types-comparison.md" target="_blank" rel="noreferrer">comparison doc</a> for the style analysis behind it)</p>
+      <p><i class="ph-duotone ph-hands-praying"></i> Why it landed harder than "free 25K account": by July 20, a Lucid account had already been created specifically to dodge the 30-day eval-subscription clock TPT was running — this was around the time Apex Legacy accounts stopped being purchasable outright. Even so, a Lucid eval itself was never actually bought — TopOne's BOGO deal and TPT's 50AND3 offer had already covered enough ground. In a moment of prayer, weighing whether to even enter the giveaway at all while already juggling three funded accounts and two Apex renewals, the honest answer was: enough is enough for now — and that was said out loud, gratefully, as a letting go, not a complaint</p>
+      <p><i class="ph-duotone ph-smiley-blank"></i> Then the name got called. During Alex's hosting slot, using the code "tmade" — and hearing it live was genuinely a "wait, seriously?" moment, followed by tears. Not because of the account's dollar value, but because of how the whole journey had been unfolding up to that point. The gratitude here runs deeper than the outcome itself — it's encouragement, hope, and a real opportunity to level up and actually learn TradeCopia, scaling, and Lucid properly, rather than something owed or expected</p>
+      <p><i class="ph-duotone ph-users"></i> Dave/MarketButcher and no shortage of other YouTube livestreamers in this space are affiliates too, running their own versions of these fun raffles and giveaway-style engagement while still mentoring — this duck race is one example of a much broader, genuinely fun pattern in this corner of YouTube</p>
     </div>
   </div>
 
