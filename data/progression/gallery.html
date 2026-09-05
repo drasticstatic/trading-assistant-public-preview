@@ -591,7 +591,6 @@
         </div>
         <div class="carousel-pills">
           <a href="#" class="pill-cta" onclick="openStatsReel(0); return false;"><i class="ph-duotone ph-chart-bar"></i> Extended TradeZella Stats ↗</a>
-          <a href="#" class="pill-cta alt" onclick="openStatsReel(statsReelOriginIndex); return false;"><i class="ph-duotone ph-plant"></i> + Paper Trading Origin – Intro Story Included ↗</a>
         </div>
       </div>
     </div>
@@ -605,6 +604,9 @@
         <div class="carousel-body">
           <div class="carousel-title" id="statsTitle"></div>
           <div class="carousel-meta" id="statsMeta"></div>
+          <div style="text-align:center; margin-bottom:.8rem;">
+            <a href="#" class="pill-cta alt" onclick="jumpToStatsIndex(statsReelOriginIndex); return false;"><i class="ph-duotone ph-plant"></i> Jump to Paper Trading Origin — Intro Story Included ↗</a>
+          </div>
           <div class="carousel-controls">
             <button class="carousel-nav-btn" onclick="carouselNav(statsReelState, -1)">‹</button>
             <div class="carousel-dots" id="statsDots"></div>
@@ -1031,6 +1033,14 @@
       statsReelState.index = index;
       renderCarousel(statsReelState);
       document.getElementById('statsReelAnchor').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    // Jumps within an already-open reel — unlike openStatsReel, never
+    // toggles the panel closed. Used by the in-reel "Paper Trading
+    // Origin" link so it can't be mistaken for a second open/close toggle.
+    function jumpToStatsIndex(index) {
+      pauseCarousel(statsReelState);
+      statsReelState.index = index;
+      renderCarousel(statsReelState);
     }
 
     // ═══════════════════════════════════════════════════════
