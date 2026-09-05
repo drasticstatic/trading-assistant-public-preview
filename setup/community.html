@@ -151,22 +151,32 @@
     .preview-body { padding: .85rem 1rem .9rem; text-align: center; }
     .preview-title { font-size: .88rem; font-weight: 800; color: var(--text); margin-bottom: .2rem; display: flex; align-items: center; justify-content: center; gap: .35rem; }
     .preview-desc { font-size: .78rem; color: var(--muted); margin-bottom: .5rem; }
-    .preview-domain { font-size: .7rem; color: var(--subtle); text-transform: uppercase; letter-spacing: .05em; display: flex; align-items: center; justify-content: center; gap: .3rem; }
 
     /* ── YouTube-branded preview card (MarketButcher) — static preview
        in YouTube's visual language, not a live embed (no video URL to
        embed, only the channel link). ── */
     .preview-banner.youtube {
+      aspect-ratio: auto; min-height: 168px;
       background: linear-gradient(160deg, #1a0505, #2b0a0a);
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .55rem;
+      padding: 1.1rem 1.2rem;
     }
     .yt-play {
-      width: 3rem; height: 3rem; border-radius: 999px; background: #ff0000;
+      width: 3rem; height: 3rem; border-radius: 999px; background: #ff0000; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
       box-shadow: 0 4px 18px rgba(255,0,0,.4);
     }
     .yt-play .ph-duotone { font-size: 1.5rem; color: #fff; margin-left: 2px; }
     .yt-brand { font-size: .68rem; font-weight: 800; letter-spacing: .06em; color: rgba(255,255,255,.55); text-transform: uppercase; }
+    /* ── Caption text laid over the raster banner image, framing the play
+       button top/bottom — a dark scrim keeps it legible against whatever
+       photo sits behind it. ── */
+    .banner-caption {
+      font-size: .72rem; font-weight: 600; line-height: 1.45; color: #f4f6fb;
+      text-align: center; max-width: 94%; margin: 0;
+      background: rgba(5,8,16,.6); border-radius: 10px;
+      padding: .4rem .65rem;
+    }
 
     /* ── Small content modal (duck-race story) — same HTML-content-modal
        pattern as prop-firm-rules.html's spec-card modals, duplicated
@@ -259,6 +269,20 @@
     }
     @keyframes iconBreathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
     @keyframes iconBounce { 0%, 100% { transform: scale(1.15) translateY(0); } 50% { transform: scale(1.22) translateY(-3px); } }
+    /* ── Same red↔green modulation idea, retuned purple↔pink for Discord
+       badges on the Shoutout cards — distinct from the Friends marquee's
+       Instagram badges without introducing a third unrelated hue. ── */
+    @keyframes iconPurplePink {
+      0%, 100% { color: var(--violet); filter: drop-shadow(0 1px 4px rgba(0,0,0,.4)); }
+      50% { color: var(--rose); filter: drop-shadow(0 1px 4px rgba(0,0,0,.4)); }
+    }
+    .friend-link.social-purple .ph-duotone { animation: iconPurplePink 6s ease-in-out infinite; }
+    .friend-link.social-purple:hover .ph-duotone,
+    .preview-card:hover .friend-link.social-purple .ph-duotone {
+      animation: iconPurplePink 6s ease-in-out infinite, iconBounce .65s ease-in-out infinite;
+    }
+    .friend-link.social-purple:hover { border-color: var(--violet); color: var(--violet); }
+    .card-socials { display: flex; align-items: center; justify-content: center; gap: .5rem; margin-top: .7rem; }
     .friend-art i {
       animation: iconRedGreen 5s ease-in-out infinite, iconBreathe 3.2s ease-in-out infinite;
     }
@@ -369,28 +393,35 @@
     <div class="preview-grid">
       <div class="preview-card glass">
         <a class="preview-banner youtube" href="https://www.youtube.com/@propfirmmatch" target="_blank" rel="noreferrer" style="background-color:#1a1230;background-image:url('https://yt3.googleusercontent.com/C7qZKkPiURZpfelvBU-nCAr42vMELcKDwEnonNH4N4O0gFLVS6dt-82pBdmCuDzjeabdrIcx_eM=s900-c-k-c0x00ffffff-no-rj');background-size:cover;background-repeat:no-repeat;background-position:center;">
+          <p class="banner-caption">Trusted platform to compare trading firms and challenges — verified data and insights, reviews, rules, rankings, loyalty rewards, and tracking</p>
           <div class="yt-play"><i class="ph-duotone ph-play"></i></div>
+          <p class="banner-caption">A live-stream community built around prop-firm challenges, giveaways, and genuinely fun energy around a grind that can otherwise get heavy</p>
         </a>
         <div class="preview-body">
           <div class="yt-brand">YouTube · Channel</div>
           <a class="preview-title" href="https://www.youtube.com/@propfirmmatch" target="_blank" rel="noreferrer"><i class="ph-duotone ph-television"></i> PropFirmMatchTV</a>
-          <p class="preview-desc"><em>Trusted platform to compare trading firms and challenges — verified data and insights, reviews, rules, rankings, loyalty rewards, and tracking.</em></p>
-          <p class="preview-desc">A live-stream community built around prop-firm challenges, giveaways, and genuinely fun energy around a grind that can otherwise get heavy. Hosts + direct links: see the <a href="#friends-top">Friends marquee</a> above. More on the copy-trading plan it kicked off: <a href="copy-trading.html">the Copy-Trading plan ↗</a></p>
+          <p class="preview-desc">Hosts + direct links: see the <a href="#friends-top">Friends marquee</a> above. More on the copy-trading plan it kicked off: <a href="copy-trading.html">the Copy-Trading plan ↗</a></p>
           <button type="button" class="story-trigger" onclick="openModal('duckModal')">🦆 The Duck Race Story</button>
           <a class="story-trigger" href="https://propfirmmatch.com/futures" target="_blank" rel="noreferrer" style="margin-left:.35rem;"><i class="ph-duotone ph-link"></i> propfirmmatch.com ↗</a>
+          <div class="card-socials">
+            <a class="friend-link social-purple" href="https://discord.gg/propfirmmatch" target="_blank" rel="noreferrer" aria-label="PropFirmMatchTV Discord" title="PropFirmMatchTV Discord"><i class="ph-duotone ph-discord-logo"></i></a>
+          </div>
         </div>
       </div>
-      <a class="preview-card glass" href="https://www.youtube.com/@MarketButcher" target="_blank" rel="noreferrer">
-        <div class="preview-banner youtube" style="background-color:#1a0505;background-image:url('https://yt3.googleusercontent.com/NzTyeFW5UcEDLlj3WSzji5yBb5tySka510a44aiu_O5_as92jDZDYk8Uva_No0FFp0F1WaL2SQ=s900-c-k-c0x00ffffff-no-rj');background-size:cover;background-repeat:no-repeat;background-position:center;">
+      <div class="preview-card glass">
+        <a class="preview-banner youtube" href="https://www.youtube.com/@MarketButcher" target="_blank" rel="noreferrer" style="background-color:#1a0505;background-image:url('https://yt3.googleusercontent.com/NzTyeFW5UcEDLlj3WSzji5yBb5tySka510a44aiu_O5_as92jDZDYk8Uva_No0FFp0F1WaL2SQ=s900-c-k-c0x00ffffff-no-rj');background-size:cover;background-repeat:no-repeat;background-position:center;">
           <div class="yt-play"><i class="ph-duotone ph-play"></i></div>
-        </div>
+        </a>
         <div class="preview-body">
           <div class="yt-brand">YouTube · Channel</div>
-          <div class="preview-title"><i class="ph-duotone ph-film-slate"></i> Dave Butcher — MarketButcher</div>
-          <p class="preview-desc">Thanks for the content and perspective</p>
-          <div class="preview-domain"><i class="ph-duotone ph-link"></i> youtube.com/@MarketButcher</div>
+          <a class="preview-title" href="https://www.youtube.com/@MarketButcher" target="_blank" rel="noreferrer"><i class="ph-duotone ph-film-slate"></i> Dave Butcher — MarketButcher</a>
+          <p class="preview-desc">Thanks for the content and perspective — after-hours breakdowns that make the grind feel lighter. Dave runs his own 🦆 duck race raffles too, same giveaway energy as PFM above</p>
+          <a class="story-trigger" href="https://www.youtube.com/@MarketButcher" target="_blank" rel="noreferrer"><i class="ph-duotone ph-link"></i> youtube.com/@MarketButcher ↗</a>
+          <div class="card-socials">
+            <a class="friend-link social-purple" href="https://discord.gg/3xBumtNFXQ" target="_blank" rel="noreferrer" aria-label="MarketButcher Discord" title="MarketButcher Discord"><i class="ph-duotone ph-discord-logo"></i></a>
+          </div>
         </div>
-      </a>
+      </div>
     </div>
 
     <div id="thegexlab" class="sec-label"><i class="ph-duotone ph-flask"></i> TheGexLab</div>
