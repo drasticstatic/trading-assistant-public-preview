@@ -216,7 +216,7 @@
 
   <main class="content">
     <p class="eyebrow hero-in">TradeCopia · A Fork in the Road</p>
-    <h1 class="hero-in d1"><i class="ph-duotone ph-rabbit"></i> The Copy-<span>Trading</span> Plan</h1>
+    <h1 class="hero-in d1"><i class="ph-duotone ph-rabbit"></i> The <span>Copy-Trading</span> Plan</h1>
     <p class="lede hero-in d2">The manual method — a MacBook, iPhone, and iMac running at once, alternating live between accounts by hand — got the job done through two evals, but it was never going to scale, and it introduced real human error under pressure. This page is the full, current record of what replaced it: TradeCopia, the account structure behind it, the compliance research that reshaped that structure twice, and the risk-limit decisions that came out of it.</p>
 
     <div class="sec-label"><i class="ph-duotone ph-pipe"></i> The Structure — Two Groups, Two Flips</div>
@@ -234,9 +234,9 @@
             </tr>
             <tr>
               <td class="acct-col">B — TopOne Derived</td>
-              <td>TOF197288 <span class="ref-tag">(Top1 Elite ACCESS, 50K)</span></td>
+              <td>TOF197288 <span class="ref-tag">(TopOne Elite ACCESS, 50K)</span></td>
               <td>TOF197292, Apex-11, Apex-12 <span class="ref-tag">(all 50K, 1x)</span></td>
-              <td>The original plan paired a 50K Top1 leader with a 25K Lucid follower — TopOneFutures' own copy-trading policy prohibits mismatched-size cross-firm copying, and TOF's own AI assistant confirmed that exact pairing is a violation. Rebuilt around matching sizes instead: same-size TOF-to-TOF (TOF's own explicitly-allowed case) and same-size TOF-to-Apex.</td>
+              <td>The original plan paired a 50K TopOne leader with a 25K Lucid follower — TopOneFutures' own copy-trading policy prohibits mismatched-size cross-firm copying, and TOF's own AI assistant confirmed that exact pairing is a violation. Rebuilt around matching sizes instead: same-size TOF-to-TOF (TOF's own explicitly-allowed case) and same-size TOF-to-Apex.</td>
             </tr>
           </tbody>
         </table>
@@ -247,7 +247,7 @@
     <div class="sec-label"><i class="ph-duotone ph-file-magnifying-glass"></i> What the Compliance Research Actually Found</div>
     <p class="sec-sub">Every firm's copy-trading stance is different, and none of it was assumed — each was fetched or asked directly before the structure above was finalized</p>
     <div class="panel" style="--accent: var(--green);">
-      <div class="quote-block">"Cannot copy between different programs or different sizes, even with software." — TopOneFutures' copy-trading policy, confirmed by TOF's own AI assistant to rule out the original Top1→25K-Lucid pairing.</div>
+      <div class="quote-block">"Cannot copy between different programs or different sizes, even with software." — TopOneFutures' copy-trading policy, confirmed by TOF's own AI assistant to rule out the original TopOne→25K-Lucid pairing.</div>
       <div class="quote-block">"You do not need to send a request to use Tradecopia as your trade copier; you may simply use this going forward." — Apex support, resolving `apex-rules_legacy.md`'s "submit for approval" requirement without an actual pre-clearance step.</div>
       <div class="quote-block">TradeCopia is on TakeProfitTrader's own explicit approved-copier list, alongside Tradesyncer and platform-native tools — confirmed directly from TPT's official Trade Copier Policy article, not assumed from the general rules doc.</div>
     </div>
@@ -257,7 +257,7 @@
     <div class="panel" style="--accent: var(--gold);">
       <ul class="toggle-list">
         <li><div class="t-name"><i class="ph-duotone ph-shield-check"></i> Prevent hedging <span class="badge good">ON</span></div><div class="t-desc">Caps a follower's order at its existing position size — never flips it into a reversed direction. Only covers Market-order flips through flat; a Stop/Limit reversal or fresh bracket entry isn't blocked by this alone.</div></li>
-        <li><div class="t-name"><i class="ph-duotone ph-scales"></i> Position reconciler <span class="badge good">ON</span></div><div class="t-desc">Corrects any follower fill that doesn't match the leader — entry or exit, regardless of cause. Recommended kept on by TradeCopia's own guide.</div></li>
+        <li><div class="t-name"><i class="ph-duotone ph-hand-palm"></i> Position reconciler <span class="badge good">ON</span></div><div class="t-desc">Corrects any follower fill that doesn't match the leader — entry or exit, regardless of cause. Recommended kept on by TradeCopia's own guide.</div></li>
         <li><div class="t-name"><i class="ph-duotone ph-pause-circle"></i> Disable replication on breach <span class="badge warn">OFF</span></div><div class="t-desc">The reconciler already corrects any mismatch on its own; this toggle's only added effect is silently pausing a follower's <em>future, clean</em> trades after one incident, until manually re-enabled. Given active monitoring is already the plan, the automatic pause costs more (missed trades) than it protects.</div></li>
         <li><div class="t-name"><i class="ph-duotone ph-flag"></i> Auto-close on leader-flat <span class="badge good">ON</span></div><div class="t-desc">Brackets replicate as individual orders, not one linked group — this is the direct fix for a stale follower order surviving after the leader's TP or SL already closed it out.</div></li>
         <li><div class="t-name"><i class="ph-duotone ph-x-circle"></i> Flatten followers on cancel <span class="badge good">ON</span></div><div class="t-desc">Same cleanup, triggered by a cancel rather than a fill — covers the other path to a clean, flat leader state.</div></li>

@@ -136,6 +136,7 @@
       background-size: cover; background-position: center; background-repeat: no-repeat;
     }
     .gexlab-info { padding: 1.2rem 1.3rem; }
+    .gexlab-partner { border-top: 1px dashed var(--border); padding-top: .7rem; margin-top: .8rem; }
 
     /* ── SOCIAL PREVIEW CARDS (Shoutout section) — an unfurled-link feel:
        wide banner, then a title/domain footer, like the preview Discord
@@ -214,12 +215,23 @@
       transition: border-color .2s, color .2s;
     }
     .modal-close:hover { border-color: var(--gold); color: var(--gold); }
+    /* ── Shared lightbox-style nav for the three mentor "Deeper Story"
+       modals — one modal, prev/next moves through the chronological
+       IT -> ZTH -> STB story regardless of which pill opened it. ── */
+    .modal-nav-row { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1.3rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+    .modal-nav-btn { background: none; border: 1px solid var(--border); border-radius: 999px; width: 2.2rem; height: 2.2rem; color: var(--text); font-size: 1.05rem; cursor: pointer; transition: border-color .2s, color .2s; }
+    .modal-nav-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .modal-nav-counter { font-size: .72rem; color: var(--subtle); min-width: 4.5rem; text-align: center; }
+    /* ── Gentle idle bounce on every pill button on the page — calls
+       attention that these are clickable without being frantic about it. ── */
+    @keyframes pillBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
     .story-trigger {
       display: inline-flex; align-items: center; gap: .3rem; margin-top: .3rem;
       padding: .18rem .6rem; border-radius: 999px; font-size: .74rem; font-weight: 700; line-height: 1.4;
       background: rgba(255,157,193,.1); color: var(--rose); border: 1px solid rgba(255,157,193,.28);
       cursor: pointer; font-family: inherit; box-sizing: border-box; vertical-align: middle;
       transition: border-color .2s, background .2s;
+      animation: pillBounce 2.2s ease-in-out infinite;
     }
     .story-trigger:hover { border-color: var(--rose); background: rgba(255,157,193,.18); }
     .story-trigger .ph-duotone { font-size: 1.15em; vertical-align: -.18em; }
@@ -229,10 +241,14 @@
       background: rgba(24,100,219,.12); color: #4d94ff; border: 1px solid rgba(24,100,219,.35);
       cursor: pointer; font-family: inherit; box-sizing: border-box; vertical-align: middle;
       transition: border-color .2s, background .2s;
+      animation: pillBounce 2.2s ease-in-out infinite;
     }
     .story-trigger-blue:hover { border-color: #4d94ff; background: rgba(24,100,219,.22); }
     .story-trigger-blue .ph-duotone { font-size: 1.15em; vertical-align: -.18em; }
     .tool-card-wrap { display: flex; flex-direction: column; }
+    /* Keeps the "Deeper Story" pills aligned across all three Mentors
+       cards even when one title (STB's 3 icons) wraps to an extra line. */
+    .tool-card-wrap > .thanks-card { flex: 1; }
 
     .ext-link-row { display: inline-flex; align-items: center; gap: .3rem; font-size: .72rem; color: var(--blue); margin-top: .4rem; }
 
@@ -338,8 +354,11 @@
     }
     .tool-card.featured:hover { border-color: var(--gold); }
     .tool-card.featured p, .tool-card.featured .ext-link-row { text-align: left; justify-content: flex-start; }
-    .tool-featured-head { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem; margin-bottom: .5rem; }
-    .tool-featured-head h4 { font-size: 1.05rem; justify-content: flex-start; margin-bottom: 0; }
+    .tool-featured-head { display: flex; align-items: center; flex-wrap: nowrap; gap: .6rem; margin-bottom: .5rem; }
+    .tool-featured-head h4 { font-size: 1.05rem; justify-content: flex-start; margin-bottom: 0; flex-shrink: 0; }
+    /* ── Centers the badge in the space between the title and the
+       container's right edge, rather than flush against either. ── */
+    .tool-badge-slot { flex: 1; display: flex; justify-content: center; min-width: 0; }
     .tool-badge-live {
       display: inline-flex; align-items: center; gap: .3rem;
       font-size: .68rem; font-weight: 700;
@@ -423,40 +442,41 @@
       <div class="tool-card-wrap">
         <a class="thanks-card glass" href="https://www.trustpilot.com/review/inevitrade.com" target="_blank" rel="noreferrer">
           <h3><i class="ph-duotone ph-brain"></i> Inevitrade (IT) <i class="ph-duotone ph-flame"></i></h3>
-          <p class="flavor-tag">Smart money</p>
+          <p class="flavor-tag">Smart Money Concepts & Institutional Order Flow</p>
           <p>Smart-money concepts across both crypto and traditional futures — a purpose-built indicator suite, extensive backtesting, and strategy bots</p>
           <span class="review-link"><i class="ph-duotone ph-star"></i> Trustpilot ↗</span>
         </a>
         <div style="text-align:center; margin-top:.7rem;">
-          <button type="button" class="story-trigger" onclick="openModal('itModal')"><i class="ph-duotone ph-shovel"></i> Deeper Story ↗</button>
+          <button type="button" class="story-trigger" onclick="openMentorStory(0)"><i class="ph-duotone ph-shovel"></i> Deeper Story ↗</button>
         </div>
       </div>
       <div class="tool-card-wrap">
         <a class="thanks-card glass" href="https://www.trustpilot.com/review/zerotohero.trade" target="_blank" rel="noreferrer">
           <h3><i class="ph-duotone ph-target"></i> ZeroToHero (ZTH) <i class="ph-duotone ph-campfire"></i></h3>
-          <p class="flavor-tag">Base-hit-minded</p>
+          <p class="flavor-tag">High-probability Setups & Consistent Execution</p>
           <p>A six-setup, top-down framework — 1-hour bias, 5-minute trigger — built on the discipline behind "securing base hits"</p>
           <span class="review-link"><i class="ph-duotone ph-star"></i> Trustpilot ↗</span>
         </a>
         <div style="text-align:center; margin-top:.7rem;">
-          <button type="button" class="story-trigger" onclick="openModal('zthModal')"><i class="ph-duotone ph-basket"></i> Deeper Story ↗</button>
+          <button type="button" class="story-trigger" onclick="openMentorStory(1)"><i class="ph-duotone ph-blueprint"></i> Deeper Story ↗</button>
         </div>
       </div>
       <div class="tool-card-wrap">
         <a class="thanks-card glass" href="https://www.trustpilot.com/review/smarttradingblueprint.com" target="_blank" rel="noreferrer">
-          <h3><i class="ph-duotone ph-book-open-text"></i> SmartTradingBlueprint (STB) <i class="ph-duotone ph-fire"></i></h3>
-          <p class="flavor-tag">Depth</p>
+          <h3><i class="ph-duotone ph-castle-turret"></i> <i class="ph-duotone ph-book-open-text"></i> SmartTradingBlueprint (STB) <i class="ph-duotone ph-hammer"></i></h3>
+          <p class="flavor-tag">Profundity & Sophisticated Market Insight</p>
           <p>The ICT/SMC vocabulary underneath everything else here, plus four stand-alone setups — FCR, Opening Range Break, Silver Bullet, Turtle Soup</p>
           <span class="review-link"><i class="ph-duotone ph-star"></i> Trustpilot ↗</span>
         </a>
         <div style="text-align:center; margin-top:.7rem;">
-          <button type="button" class="story-trigger" onclick="openModal('stbModal')"><i class="ph-duotone ph-wrench"></i> Deeper Story ↗</button>
+          <button type="button" class="story-trigger" onclick="openMentorStory(2)"><i class="ph-duotone ph-bulldozer"></i> Deeper Story ↗</button>
         </div>
       </div>
     </div>
 
     <div id="friends-top" class="sec-label"><i class="ph-duotone ph-users"></i> Friends</div>
-    <p class="sec-sub">The people behind the programs, the community, and the tools — direct links, not just program pills. Most cards link to Instagram (<i class="ph-duotone ph-instagram-logo"></i>), a few to LinkedIn (<i class="ph-duotone ph-linkedin-logo"></i>) instead — one voice (WhatsApp-only) doesn't have a public profile to link to at all</p>
+    <p class="sec-sub">The people behind the programs, the community, and the tools — direct links, not just program pills
+    <br/>Most cards link to Instagram <i class="ph-duotone ph-instagram-logo"></i>, a few to LinkedIn <i class="ph-duotone ph-linkedin-logo"></i>, and one voice on WhatsApp <i class="ph-duotone ph-whatsapp-logo"></i> who doesn't have a public profile to link but remains a part of my success!</p>
     <div class="friends-wrap" id="friendsWrap">
       <div class="friends-track" id="friendsTrack"></div>
     </div>
@@ -503,15 +523,16 @@
     </div>
 
     <div id="thegexlab" class="sec-label"><i class="ph-duotone ph-flask"></i> TheGexLab</div>
-    <p class="sec-sub">TMade Alex partnered with Trader Yush to build TheGexLab - <em>not a footnote under PFM above</em> — its own thank-you, for a different kind of tool entirely <button type="button" class="story-trigger" onclick="openModal('gexlabModal')"><i class="ph-duotone ph-flask"></i> The GEX Deep Dive ↗</button></p>
-    <a class="pfm-panel glass gexlab-split" href="https://www.thegexlab.com/tmade" target="_blank" rel="noreferrer">
-      <div class="gexlab-banner" style="background-image:url('https://www.thegexlab.com/app/gexlab-shot.jpg');" aria-label="TheGexLab app preview"></div>
+    <p class="sec-sub">TMade Alex partnered with Trader Yush to build TheGexLab - <em>not a footnote under PFM above</em> — its own thank-you, for a different kind of tool entirely</p>
+    <div class="pfm-panel glass gexlab-split">
+      <a class="gexlab-banner" href="https://www.thegexlab.com/tmade" target="_blank" rel="noreferrer" style="background-image:url('https://www.thegexlab.com/app/gexlab-shot.jpg');" aria-label="TheGexLab app preview"></a>
       <div class="gexlab-info">
-        <h3><i class="ph-duotone ph-chart-bar-horizontal"></i> TMade × TheGexLab <i class="ph-duotone ph-gauge"></i></h3>
+        <a href="https://www.thegexlab.com/tmade" target="_blank" rel="noreferrer" style="text-decoration:none; color:inherit;"><h3><i class="ph-duotone ph-chart-bar-horizontal"></i> TMade × TheGexLab <i class="ph-duotone ph-gauge"></i></h3></a>
         <p>Real-time dealer positioning (put/call walls, zero gamma, and the regime read that says whether the market's pinned or primed to run) laid directly onto the chart.</p>
-        <p>Partner access: thegexlab.com/tmade <span class="partner-code"> <i class="ph-duotone ph-detective"></i> code: TMADE</span> for 20% off</p>
+        <button type="button" class="story-trigger" onclick="openModal('gexlabModal')"><i class="ph-duotone ph-rocket-launch"></i> The GEX Deep Dive ↗</button>
+        <p class="gexlab-partner"><i class="ph-duotone ph-tag"></i> Partner access: thegexlab.com/tmade <span class="partner-code"> <i class="ph-duotone ph-detective"></i> code: TMADE</span> for <i class="ph-duotone ph-number-two"></i><i class="ph-duotone ph-number-zero"></i><i class="ph-duotone ph-seal-percent"></i> off</p>
       </div>
-    </a>
+    </div>
 
     <div id="copy-trading" class="sec-label"><i class="ph-duotone ph-path"></i> Copy-Trading</div>
     <p class="sec-sub">Cross-platform, prop-firm compliant, risk-aware, multi-broker support handling per-follower quantity multipliers — replacing the manual multi-device mirroring method</p>
@@ -520,12 +541,14 @@
         <a id="tradecopia" class="tool-card featured glass" href="https://tradecopia.com" target="_blank" rel="noreferrer">
           <div class="tool-featured-head">
             <h4><i class="ph-duotone ph-cloud-check"></i> TradeCopia</h4>
-            <span class="tool-badge-live"><i class="ph-duotone ph-sword"></i> Battle-tested path — running the cloud-based, browser-driven account structure today <i class="ph-duotone ph-webhooks-logo"></i></span>
+            <div class="tool-badge-slot">
+              <span class="tool-badge-live"><i class="ph-duotone ph-sword"></i> Battle-tested path — running the cloud-based, browser-driven account structure today <i class="ph-duotone ph-webhooks-logo"></i></span>
+            </div>
           </div>
           <p>The upgrade from executing through multiple instances of TradingView's native single-account-view switcher. Not just an easier, faster version of conducting clean business by hand: an enterprise-grade fix for a growing need — taking human error and lag out of manual mirroring, and moving off Tradovate's own "airplane cockpit" UI, which lacks the drawing tools, object tree, indicators, custom pine scripts, webhooks, and technical analysis intact across every TradingView session</p>
           <ul class="tool-strengths">
             <li><i class="ph-duotone ph-shield-check"></i> <span><strong>Hedge prevention</strong> — caps a follower's order at its existing size, never flips it into reverse</span></li>
-            <li><i class="ph-duotone ph-scales"></i> <span><strong>Position reconciler</strong> — corrects any follower fill that drifts from the leader, entry or exit</span></li>
+            <li><i class="ph-duotone ph-hand-palm"></i> <span><strong>Position reconciler</strong> — corrects any follower fill that drifts from the leader, entry or exit</span></li>
             <li><i class="ph-duotone ph-flag"></i> <span><strong>Auto-flatten</strong> the instant the leader goes flat — no stale bracket orders left behind</span></li>
           </ul>
           <p class="tool-honesty-note"><i class="ph-duotone ph-waveform"></i> Running on TradeCopia's Pro+Lite tier, not its local low-latency tier — the local-environment instability covered in the backstory above rules that one out, even though it's a feature a lot of people genuinely rely on</p>
@@ -587,36 +610,16 @@
     </div>
   </div>
 
-  <div class="modal-overlay" id="itModal" onclick="if(event.target===this)closeModal('itModal')">
+  <div class="modal-overlay" id="mentorModal" onclick="if(event.target===this)closeModal('mentorModal')">
     <div class="modal-box">
-      <button class="modal-close" onclick="closeModal('itModal')">✕</button>
-      <div class="modal-title"><i class="ph-duotone ph-brain"></i> Inevitrade — The Deeper Story <i class="ph-duotone ph-flame"></i></div>
-      <p><i class="ph-duotone ph-currency-btc"></i> Inevitrade's coaching spans both crypto and traditional futures — the same core smart-money framework applies whether the instrument is BTC/ETH or ES/NQ, which is part of why it's been the longest-running relationship in this whole trading arc</p>
-      <p><i class="ph-duotone ph-tree-structure"></i> Underneath the setups sits a full six-scenario framework spanning both trend-continuation and reversal conditions, filtered through a regime read — trending, weakening, or channeling — before any setup is even considered. Elliott Wave structure, Fibonacci confluence, and Fair Value Gap price-delivery analysis all feed into that read</p>
-      <p><i class="ph-duotone ph-database"></i> It's backed by a real indicator suite — purpose-built oscillators for regime detection, automated Fair Value Gap identification, EMA-fan trend visualization — sitting on top of an extensive internal backtesting data set, with parts of the system increasingly running through in-house strategy bots rather than purely manual execution</p>
-      <p><i class="ph-duotone ph-mountains"></i> None of that replaces the relationship itself, though — Foundation EMAs and SMT divergence were the very first real structure this system ever had, and years later they're still the backbone underneath every session outside the NY AM window</p>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="stbModal" onclick="if(event.target===this)closeModal('stbModal')">
-    <div class="modal-box">
-      <button class="modal-close" onclick="closeModal('stbModal')">✕</button>
-      <div class="modal-title"><i class="ph-duotone ph-book-open-text"></i> SmartTradingBlueprint — The Deeper Story <i class="ph-duotone ph-fire"></i></div>
-      <p><i class="ph-duotone ph-circuitry"></i> STB isn't really a separate setup so much as the "why" underneath every other one — the ICT/SMC vocabulary is what actually explains why a ZTH level holds or an Inevitrade setup triggers in the first place</p>
-      <p><i class="ph-duotone ph-map-pin"></i> Fair Value Gaps, Order Blocks, and liquidity sweeps explain where and why price reacts; Kill Zones (Asian, London, NY AM, NY PM) mark when institutional order flow is actually highest; Premium/Discount and the Optimal Trade Entry zone mark where within a range; Power of 3 — accumulation, manipulation, distribution — explains the fake move that happens before the real one</p>
-      <p><i class="ph-duotone ph-cell-signal-full"></i> SMT divergence across correlated pairs (ES/NQ, BTC/ETH, Gold/Silver) is the tell that a liquidity sweep is actually manipulation and not the real move — and market structure (a Break of Structure vs. a Change of Character) is what confirms whether a trend is continuing or actually reversing</p>
-      <p><i class="ph-duotone ph-hammer"></i> FCR (First Candle Rule), Opening Range Break, Silver Bullet, and Turtle Soup are STB's own stand-alone setups built on that same foundation — and SmartTraderAI closes the loop with daily pre-market and post-market reviews plus weekly check-ins, which is exactly the format Fortuna's own review pipeline was modeled on</p>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="zthModal" onclick="if(event.target===this)closeModal('zthModal')">
-    <div class="modal-box">
-      <button class="modal-close" onclick="closeModal('zthModal')">✕</button>
-      <div class="modal-title"><i class="ph-duotone ph-target"></i> ZeroToHero — The Deeper Story <i class="ph-duotone ph-campfire"></i></div>
-      <p><i class="ph-duotone ph-stack-minus"></i> Every ZTH setup starts top-down: a 1-hour read for trend, bias, and key levels, then a 5-minute trigger for the actual entry — never the other way around</p>
-      <p><i class="ph-duotone ph-crosshair"></i> Six named setups cover almost everything the tape can do — Break & Retest, Pivot Buy & Sell, Bounce, Rejection, the 1-2-3 continuation, and the Swing Failure Pattern (SFP) — each confirmed the same way: multiple touches strengthen a level, volume profile (high-volume nodes and low-volume gaps) adds confluence, and wick behavior tells you whether a level is holding or failing</p>
-      <p><i class="ph-duotone ph-stack-plus"></i> Every setup carries the same floor underneath it: minimum 2R before a trade is even considered, 1–3 trades a day maximum, and counter-trend size cut in half — the discipline is the actual product here, arguably more than the setups themselves</p>
-      <p><i class="ph-duotone ph-person-simple-tai-chi"></i> All-day setups, looked for in every session rather than just one window, and a community around it that treated the psychology of trading as seriously as the technical side — that combination is exactly what "securing base hits" was built to protect</p>
+      <button class="modal-close" onclick="closeModal('mentorModal')">✕</button>
+      <div class="modal-title" id="mentorModalTitle"></div>
+      <div id="mentorModalBody"></div>
+      <div class="modal-nav-row">
+        <button type="button" class="modal-nav-btn" onclick="mentorStoryNav(-1)" aria-label="Previous mentor">‹</button>
+        <span class="modal-nav-counter" id="mentorModalCounter"></span>
+        <button type="button" class="modal-nav-btn" onclick="mentorStoryNav(1)" aria-label="Next mentor">›</button>
+      </div>
     </div>
   </div>
 
@@ -625,7 +628,7 @@
       <button class="modal-close" onclick="closeModal('gexlabModal')">✕</button>
       <div class="modal-title"><i class="ph-duotone ph-chart-bar-horizontal"></i> The GEX Deep Dive <i class="ph-duotone ph-gauge"></i></div>
       <p><i class="ph-duotone ph-moon-stars"></i> Their Asia-session read is nicknamed "night-vision" — which lands close to home, since our own ETH-derived ZTH levels in the <a href="https://www.tradingview.com/script/zgY5elbq-Auto-Levels-v2-23/" target="_blank" rel="noreferrer">auto-levels indicator</a> (free reference guide: <a href="https://drasticstatic.github.io/trading-assistant-public-preview/setup/auto-levels.pine_indicator-guide.html" target="_blank" rel="noreferrer">auto-levels.pine indicator guide</a>) render green vs. cyan for exactly that reason. Years of building this system, and it's still finding new confluence to lean on</p>
-      <p><i class="ph-duotone ph-flask"></i> The underlying idea is gamma exposure (GEX): dealers who sell options have to hedge their own delta by trading the underlying, and the direction of that hedging flips depending on whether they're net long or net short gamma. Net long gamma, dealers hedge against the move — buying dips, selling rallies — which suppresses volatility and tends to pin price near the strikes with the heaviest open interest. Below the "zero gamma" level, that flips: dealers hedge with the move instead of against it, which is what turns an ordinary breakout into a fast, accelerating one. Put/call walls mark where that dealer positioning concentrates — not arbitrary technical levels, but the actual footprint of forced hedging flow, which is why price so often behaves differently above vs. below them</p>
+      <p><i class="ph-duotone ph-lightbulb"></i> The underlying idea is gamma exposure (GEX): dealers who sell options have to hedge their own delta by trading the underlying, and the direction of that hedging flips depending on whether they're net long or net short gamma. Net long gamma, dealers hedge against the move — buying dips, selling rallies — which suppresses volatility and tends to pin price near the strikes with the heaviest open interest. Below the "zero gamma" level, that flips: dealers hedge with the move instead of against it, which is what turns an ordinary breakout into a fast, accelerating one. Put/call walls mark where that dealer positioning concentrates — not arbitrary technical levels, but the actual footprint of forced hedging flow, which is why price so often behaves differently above vs. below them</p>
     </div>
   </div>
 
@@ -738,6 +741,66 @@
     }
     renderFriends('friendsTrack', friends);
     startInfiniteMarquee('friendsWrap', 'friendsTrack');
+
+    // ═══════════════════════════════════════════════════════
+    // Mentor "Deeper Story" modals — one shared lightbox instead of
+    // three independent ones, so prev/next actually tells the real
+    // chronological story: IT (the initial digging) -> ZTH (where the
+    // 1-on-1 coaching + blueprint for going pro actually got laid) ->
+    // STB (arrived later and bulldozed the whole approach with a
+    // refreshed outlook). Whichever pill is clicked just decides the
+    // starting point — the story itself is always in this order.
+    // ═══════════════════════════════════════════════════════
+    const mentorStories = [
+      {
+        titleIcons: ['brain', 'flame'],
+        title: 'Inevitrade — The Deeper Story',
+        paragraphs: [
+          { icon: 'currency-eth', text: "Inevitrade's coaching spans both crypto and traditional futures — the same core smart-money framework applies whether the instrument is SOL/ETH or ES/NQ, which is part of why it's been the longest-running relationship in this whole trading arc" },
+          { icon: 'tree-structure', text: "Underneath the setups sits a full six-scenario framework spanning both trend-continuation and reversal conditions, filtered through a regime read — trending, weakening, or channeling — before any setup is even considered. Elliott Wave structure, Fibonacci confluence, and Fair Value Gap price-delivery analysis all feed into that read" },
+          { icon: 'database', text: "It's backed by a real indicator suite — purpose-built oscillators for regime detection, automated Fair Value Gap identification, EMA-fan trend visualization — sitting on top of an extensive internal backtesting data set, with parts of the system increasingly running through in-house strategy bots rather than purely manual execution" },
+          { icon: 'mountains', text: "None of that replaces the relationship itself, though — Foundation EMAs and SMT divergence were the very first real structure this system ever had, and years later they're still the backbone underneath every session outside the NY AM window" },
+        ],
+      },
+      {
+        titleIcons: ['target', 'campfire'],
+        title: 'ZeroToHero — The Deeper Story',
+        paragraphs: [
+          { icon: 'stack-minus', text: "Every ZTH setup starts top-down: a 1-hour read for trend, bias, and key levels, then a 5-minute trigger for the actual entry — never the other way around" },
+          { icon: 'crosshair', text: "Six named setups cover almost everything the tape can do — Break & Retest, Pivot Buy & Sell, Bounce, Rejection, the 1-2-3 continuation, and the Swing Failure Pattern (SFP) — each confirmed the same way: multiple touches strengthen a level, volume profile (high-volume nodes and low-volume gaps) adds confluence, and wick behavior tells you whether a level is holding or failing" },
+          { icon: 'stack-plus', text: "Every setup carries the same floor underneath it: minimum 2R before a trade is even considered, 1–3 trades a day maximum, and counter-trend size cut in half — the discipline is the actual product here, arguably more than the setups themselves" },
+          { icon: 'person-simple-tai-chi', text: 'All-day setups, looked for in every session rather than just one window, and a community around it that treated the psychology of trading as seriously as the technical side — that combination is exactly what "securing base hits" was built to protect' },
+        ],
+      },
+      {
+        titleIcons: ['castle-turret', 'book-open-text', 'hammer'],
+        title: 'SmartTradingBlueprint — The Deeper Story',
+        paragraphs: [
+          { icon: 'head-circuit', text: 'STB isn\'t really a separate setup so much as the "why" underneath every other one — the ICT/SMC vocabulary is what actually explains why a ZTH level holds or an Inevitrade setup triggers in the first place' },
+          { icon: 'map-pin', text: "Fair Value Gaps, Order Blocks, and liquidity sweeps explain where and why price reacts; Kill Zones (Asian, London, NY AM, NY PM) mark when institutional order flow is actually highest; Premium/Discount and the Optimal Trade Entry zone mark where within a range; Power of 3 — accumulation, manipulation, distribution — explains the fake move that happens before the real one" },
+          { icon: 'cell-signal-full', text: "SMT divergence across correlated pairs (ES/NQ, BTC/ETH, Gold/Silver) is the tell that a liquidity sweep is actually manipulation and not the real move — and market structure (a Break of Structure vs. a Change of Character) is what confirms whether a trend is continuing or actually reversing" },
+          { icon: 'crown-cross', text: "FCR (First Candle Rule), Opening Range Break, Silver Bullet, and Turtle Soup are STB's own stand-alone setups built on that same foundation — and SmartTraderAI closes the loop with daily pre-market and post-market reviews plus weekly check-ins, which is exactly the format Fortuna's own review pipeline was modeled on" },
+        ],
+      },
+    ];
+    let mentorStoryIndex = 0;
+    function renderMentorStory() {
+      const story = mentorStories[mentorStoryIndex];
+      document.getElementById('mentorModalTitle').innerHTML =
+        story.titleIcons.map(i => `<i class="ph-duotone ph-${i}"></i>`).join(' ') + ' ' + story.title;
+      document.getElementById('mentorModalBody').innerHTML =
+        story.paragraphs.map(p => `<p><i class="ph-duotone ph-${p.icon}"></i> ${p.text}</p>`).join('');
+      document.getElementById('mentorModalCounter').textContent = (mentorStoryIndex + 1) + ' / ' + mentorStories.length;
+    }
+    function openMentorStory(index) {
+      mentorStoryIndex = index;
+      renderMentorStory();
+      openModal('mentorModal');
+    }
+    function mentorStoryNav(delta) {
+      mentorStoryIndex = (mentorStoryIndex + delta + mentorStories.length) % mentorStories.length;
+      renderMentorStory();
+    }
 
     // ═══════════════════════════════════════════════════════
     // Small content modal (duck-race story) — same pattern as
