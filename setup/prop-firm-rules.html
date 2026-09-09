@@ -52,13 +52,14 @@
     .bg-parallax {
       position: fixed; inset: -10vh -10vw; z-index: -1; pointer-events: none;
       background:
-        radial-gradient(ellipse 900px 500px at 15% -10%, rgba(167,139,250,0.14), transparent 60%),
-        radial-gradient(ellipse 900px 500px at 100% 10%, rgba(103,232,249,0.10), transparent 60%);
+        radial-gradient(ellipse at 15% -10%, rgba(167,139,250,0.24) 0%, transparent 45%),
+        radial-gradient(ellipse at 100% 10%, rgba(103,232,249,0.20) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 85%, rgba(73,209,125,0.12) 0%, transparent 45%);
       animation: bgBreathe 20s ease-in-out infinite;
     }
     @keyframes bgBreathe {
       0%, 100% { transform: translate3d(0,0,0) scale(1); }
-      50% { transform: translate3d(-1.5%, 1%, 0) scale(1.04); }
+      50% { transform: translate3d(-2.5%, 1.5%, 0) scale(1.06); }
     }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -75,6 +76,12 @@
     .nav-brand { font-size: .82rem; font-weight: 700; color: var(--gold); margin-right: .4rem; display: inline-flex; align-items: center; gap: .35rem; }
     .nav-tag { padding: .22rem .7rem; border: 1px solid var(--border); border-radius: 999px; font-size: .76rem; color: var(--muted); display: inline-flex; align-items: center; gap: .3rem; }
     .nav-tag:hover { border-color: var(--blue); color: var(--text); text-decoration: none; }
+    /* ── Global fluid feel — one shared spring-based press/hover language for
+       every clickable control, site-wide, instead of scroll-triggered reveals
+       on each section. ── */
+    .nav-tag, button { transition: transform .15s var(--spring), border-color .18s, color .18s, background .18s; }
+    .nav-tag:hover { transform: translateY(-1px); }
+    .nav-tag:active, button:active { transform: scale(.96); }
     .nav-hamburger { display: none; }
     .nav-links { display: contents; }
     @media (max-width: 720px) {
@@ -135,23 +142,26 @@
     }
     .tbl-wrap { overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; font-size: .8rem; white-space: nowrap; }
-    /* ── Always-visible tables (no horizontal scroll) — the 50K Quick
-       Comparison table specifically; every other table stays scrollable. ── */
+    /* ── The 50K Quick Comparison table now lives in a lightbox (see
+       #fiftyKModal) instead of always rendering inline — one less
+       thing to scroll past for anyone not currently comparing firms.
+       Card-per-row applies unconditionally, desktop included, same
+       reasoning as mobile: 8 columns squeezed into fixed widths reads
+       as clumsy at any size, a labeled card reads clean at every size. ── */
     .tbl-wrap-full { overflow-x: visible; }
     .tbl-wrap-full table { white-space: normal; table-layout: fixed; }
     .tbl-wrap-full th, .tbl-wrap-full td { word-break: break-word; }
-    /* ── Below 720px, the 8-column table stops being a table entirely —
-       each row becomes its own card, each cell its own labeled block
-       (data-label pulled from the header row it corresponds to), so
-       nothing is squeezed into illegible fixed-width columns. ── */
-    @media (max-width: 720px) {
-      .tbl-wrap-full table, .tbl-wrap-full tbody, .tbl-wrap-full tr, .tbl-wrap-full td { display: block; width: 100%; }
-      .tbl-wrap-full thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
-      .tbl-wrap-full tr { margin-bottom: .9rem; border: 1px solid var(--border); border-radius: var(--radius-md); padding: .7rem .9rem; }
-      .tbl-wrap-full tr:last-child { margin-bottom: 0; }
-      .tbl-wrap-full td { padding: .4rem 0; border-top: none; font-size: .78rem; }
-      .tbl-wrap-full td + td { border-top: 1px dashed var(--border); }
-      .tbl-wrap-full td::before { content: attr(data-label); display: block; font-size: .62rem; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--subtle); margin-bottom: .2rem; }
+    .tbl-wrap-full table, .tbl-wrap-full tbody, .tbl-wrap-full tr, .tbl-wrap-full td { display: block; width: 100%; }
+    .tbl-wrap-full thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+    .tbl-wrap-full tr { margin-bottom: .9rem; border: 1px solid var(--border); border-radius: var(--radius-md); padding: .7rem .9rem; }
+    .tbl-wrap-full tr:last-child { margin-bottom: 0; }
+    .tbl-wrap-full td { padding: .4rem 0; border-top: none; font-size: .78rem; }
+    .tbl-wrap-full td + td { border-top: 1px dashed var(--border); }
+    .tbl-wrap-full td::before { content: attr(data-label); display: block; font-size: .62rem; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--subtle); margin-bottom: .2rem; }
+    @media (min-width: 560px) {
+      /* Two cards per row instead of one long column once there's room. */
+      .tbl-wrap-full tbody { display: grid; grid-template-columns: repeat(2, 1fr); gap: .9rem; }
+      .tbl-wrap-full tr { margin-bottom: 0; }
     }
     th { text-align: left; padding: .65rem .9rem; background: var(--surface-soft); color: var(--muted); text-transform: uppercase; font-size: .66rem; letter-spacing: .06em; border-bottom: 1px solid var(--border); }
     td { padding: .6rem .9rem; border-top: 1px solid var(--border); }
@@ -304,7 +314,12 @@
       <a class="nav-tag" href="../index.html"><i class="ph-duotone ph-house"></i> Home</a>
       <a class="nav-tag" href="../data/progression/resources.html"><i class="ph-duotone ph-book-open"></i> Resources</a>
       <a class="nav-tag" href="../data/progression/gallery.html"><i class="ph-duotone ph-trophy"></i> Gallery</a>
+      <a class="nav-tag" href="../data/progression/portfolio.html"><i class="ph-duotone ph-briefcase"></i> Portfolio</a>
+      <a class="nav-tag" href="../data/tax/tax.html"><i class="ph-duotone ph-currency-dollar"></i> Tax</a>
+      <a class="nav-tag" href="../data/progression/SmartTradingBlueprint/course-workbook.html"><i class="ph-duotone ph-book-open-text"></i> STB</a>
+      <a class="nav-tag" href="../data/progression/inevitrade/inner-circle-workbook.html"><i class="ph-duotone ph-brain"></i> IT</a>
       <a class="nav-tag" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-progression.md" target="_blank" rel="noreferrer"><i class="ph-duotone ph-bank"></i> Account Roster</a>
+      <a class="nav-tag" href="copy-trading.html"><i class="ph-duotone ph-arrows-clockwise"></i> Copy Trading</a>
       <a class="nav-tag" href="community.html"><i class="ph-duotone ph-hand-heart"></i> Community</a>
     </div>
   </nav>
@@ -410,72 +425,9 @@
 
     <div class="sec-label"><i class="ph-duotone ph-git-diff"></i> 50K Evaluation — Quick Comparison</div>
     <p class="sec-sub">Apex has three paths on file (Legacy, New EOD, New Intraday) since Christopher's original accounts predate the new rules. Lucid figures shown are the 50K LucidFlex tier for apples-to-apples comparison — the account actually held is LucidFlex25 (25K)</p>
-    <div class="panel">
-      <div class="tbl-wrap tbl-wrap-full">
-        <table>
-          <thead>
-            <tr>
-              <th>Firm / Path</th><th>Profit Target</th><th>Max Drawdown</th><th>Daily Loss Limit</th>
-              <th>Min Trading Days</th><th>Consistency (Eval)</th><th>Max Contracts</th><th>Time Limit</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="firm-col" data-label="Firm / Path">Apex — Legacy <span class="ref-tag">(Christopher's current)</span></td>
-              <td data-label="Profit Target">$3,000</td><td data-label="Max Drawdown">$2,500 trailing</td><td data-label="Daily Loss Limit"><span class="badge good">None</span></td>
-              <td data-label="Min Trading Days">7 days</td><td data-label="Consistency (Eval)"><span class="badge good">Not applied</span></td><td data-label="Max Contracts">10</td><td data-label="Time Limit">Unlimited (sub)</td>
-            </tr>
-            <tr>
-              <td class="firm-col" data-label="Firm / Path">Apex — New EOD</td>
-              <td data-label="Profit Target">$3,000</td><td data-label="Max Drawdown">$2,000 EOD</td><td data-label="Daily Loss Limit">$1,000</td>
-              <td data-label="Min Trading Days"><span class="badge good">None</span></td><td data-label="Consistency (Eval)"><span class="badge good">Not applied</span></td><td data-label="Max Contracts">6</td><td data-label="Time Limit">30 days</td>
-            </tr>
-            <tr>
-              <td class="firm-col" data-label="Firm / Path">Apex — New Intraday</td>
-              <td data-label="Profit Target">$3,000</td><td data-label="Max Drawdown">$2,000 trailing</td><td data-label="Daily Loss Limit"><span class="badge good">None</span></td>
-              <td data-label="Min Trading Days"><span class="badge good">None</span></td><td data-label="Consistency (Eval)"><span class="badge good">Not applied</span></td><td data-label="Max Contracts">6</td><td data-label="Time Limit">30 days</td>
-            </tr>
-            <tr>
-              <td class="firm-col" data-label="Firm / Path">TakeProfitTrader</td>
-              <td data-label="Profit Target">$3,000</td><td data-label="Max Drawdown">$2,000 EOD trailing</td><td data-label="Daily Loss Limit"><span class="badge good">Removed (all plans)</span></td>
-              <td data-label="Min Trading Days">5 days</td><td data-label="Consistency (Eval)"><span class="badge warn">50%</span></td><td data-label="Max Contracts">6 (60 micros)</td><td data-label="Time Limit"><span class="badge good">No limit</span></td>
-            </tr>
-            <tr>
-              <td class="firm-col" data-label="Firm / Path">TopOneFutures — Elite ACCESS</td>
-              <td data-label="Profit Target">$3,000 (6%)</td><td data-label="Max Drawdown">$2,000 EOD trailing</td><td data-label="Daily Loss Limit"><span class="badge good">None (eval)</span></td>
-              <td data-label="Min Trading Days"><span class="badge good">1 profitable day</span></td><td data-label="Consistency (Eval)"><span class="badge good">Not applied</span></td><td data-label="Max Contracts">—</td><td data-label="Time Limit">30 days</td>
-            </tr>
-            <tr>
-              <td class="firm-col" data-label="Firm / Path">Lucid — LucidDaily <span class="ref-tag">(50K tier shown; account held is LucidFlex25)</span></td>
-              <td data-label="Profit Target">$3,000</td><td data-label="Max Drawdown">$2,000 EOD trailing</td><td data-label="Daily Loss Limit"><span class="badge good">None (eval)</span></td>
-              <td data-label="Min Trading Days"><span class="ref-tag">Not specified — verify live</span></td><td data-label="Consistency (Eval)"><span class="badge warn">50%</span></td><td data-label="Max Contracts">4 (40 micros)</td><td data-label="Time Limit"><span class="badge good">No limit</span></td>
-            </tr>
-            <tr>
-              <td class="firm-col" data-label="Firm / Path">Lucid — LucidFlex <span class="ref-tag">(50K tier shown; actual account is 25K)</span></td>
-              <td data-label="Profit Target">$3,000</td><td data-label="Max Drawdown">$2,000 EOD trailing</td><td data-label="Daily Loss Limit"><span class="badge good">None (eval)</span></td>
-              <td data-label="Min Trading Days"><span class="ref-tag">Not specified — verify live</span></td><td data-label="Consistency (Eval)"><span class="badge warn">50%</span></td><td data-label="Max Contracts">4 (40 micros)</td><td data-label="Time Limit"><span class="badge good">No limit</span></td>
-            </tr>
-            <tr>
-              <td class="firm-col" data-label="Firm / Path">Lucid — LucidPro <span class="ref-tag">(50K tier shown)</span></td>
-              <td data-label="Profit Target">$3,000</td><td data-label="Max Drawdown">$2,000 EOD trailing</td><td data-label="Daily Loss Limit"><span class="badge good">None (eval)</span></td>
-              <td data-label="Min Trading Days"><span class="ref-tag">Not specified — verify live</span></td><td data-label="Consistency (Eval)"><span class="badge warn">50%</span></td><td data-label="Max Contracts">4 (40 micros)</td><td data-label="Time Limit"><span class="badge good">No limit</span></td>
-            </tr>
-            <tr>
-              <td class="firm-col" data-label="Firm / Path">Tradeify — Select Challenge</td>
-              <td data-label="Profit Target">$3,000</td><td data-label="Max Drawdown">$2,000 EOD</td><td data-label="Daily Loss Limit">$1,250</td>
-              <td data-label="Min Trading Days"><span class="badge good">None (3-day eval)</span></td><td data-label="Consistency (Eval)"><span class="badge warn">35%</span></td><td data-label="Max Contracts">4</td><td data-label="Time Limit">—</td>
-            </tr>
-            <tr>
-              <td class="firm-col" data-label="Firm / Path">Tradeify — Growth <span class="ref-tag">(placeholder)</span></td>
-              <td data-label="Profit Target"><span class="ref-tag">Not specified — verify live</span></td><td data-label="Max Drawdown"><span class="ref-tag">Not specified — verify live</span></td><td data-label="Daily Loss Limit"><span class="ref-tag">Not specified — verify live</span></td>
-              <td data-label="Min Trading Days"><span class="ref-tag">Not specified — verify live</span></td><td data-label="Consistency (Eval)"><span class="ref-tag">Not specified — verify live</span></td><td data-label="Max Contracts"><span class="ref-tag">Not specified — verify live</span></td><td data-label="Time Limit"><span class="ref-tag">Not specified — verify live</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
 
     <p style="margin-top:-.6rem;">
+      <button type="button" class="pill-trigger" onclick="openSpecModal('fiftyKModal')"><i class="ph-duotone ph-git-diff"></i> Open the 50K Quick Comparison ↗</button>
       <button type="button" class="pill-trigger" onclick="openSpecModal('specModal')"><i class="ph-duotone ph-binoculars"></i> View Full Spec Comparison Table — Lucid (25K + 50K) + Apex + TPT + TopOneFutures ↗</button>
     </p>
 
@@ -496,6 +448,78 @@
 
       <div class="spec-filters" id="specFilters"></div>
       <div class="spec-table-wrap"><table class="spec-table" id="specTable"></table></div>
+    </div>
+  </div>
+
+  <div class="spec-modal-overlay" id="fiftyKModal" onclick="if(event.target===this)closeSpecModal('fiftyKModal')">
+    <div class="spec-modal-box">
+      <button class="spec-modal-close" onclick="closeSpecModal('fiftyKModal')">✕</button>
+      <div class="spec-modal-title"><i class="ph-duotone ph-git-diff"></i> 50K Evaluation — Quick Comparison</div>
+      <p class="spec-modal-sub">Apex has three paths on file (Legacy, New EOD, New Intraday) since Christopher's original accounts predate the new rules. Lucid figures shown are the 50K LucidFlex tier for apples-to-apples comparison — the account actually held is LucidFlex25 (25K)</p>
+      <div class="panel">
+        <div class="tbl-wrap tbl-wrap-full">
+          <table>
+            <thead>
+              <tr>
+                <th>Firm / Path</th><th>Profit Target</th><th>Max Drawdown</th><th>Daily Loss Limit</th>
+                <th>Min Trading Days</th><th>Consistency (Eval)</th><th>Max Contracts</th><th>Time Limit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="firm-col" data-label="Firm / Path">Apex — Legacy <span class="ref-tag">(Christopher's current)</span></td>
+                <td data-label="Profit Target">$3,000</td><td data-label="Max Drawdown">$2,500 trailing</td><td data-label="Daily Loss Limit"><span class="badge good">None</span></td>
+                <td data-label="Min Trading Days">7 days</td><td data-label="Consistency (Eval)"><span class="badge good">Not applied</span></td><td data-label="Max Contracts">10</td><td data-label="Time Limit">Unlimited (sub)</td>
+              </tr>
+              <tr>
+                <td class="firm-col" data-label="Firm / Path">Apex — New EOD</td>
+                <td data-label="Profit Target">$3,000</td><td data-label="Max Drawdown">$2,000 EOD</td><td data-label="Daily Loss Limit">$1,000</td>
+                <td data-label="Min Trading Days"><span class="badge good">None</span></td><td data-label="Consistency (Eval)"><span class="badge good">Not applied</span></td><td data-label="Max Contracts">6</td><td data-label="Time Limit">30 days</td>
+              </tr>
+              <tr>
+                <td class="firm-col" data-label="Firm / Path">Apex — New Intraday</td>
+                <td data-label="Profit Target">$3,000</td><td data-label="Max Drawdown">$2,000 trailing</td><td data-label="Daily Loss Limit"><span class="badge good">None</span></td>
+                <td data-label="Min Trading Days"><span class="badge good">None</span></td><td data-label="Consistency (Eval)"><span class="badge good">Not applied</span></td><td data-label="Max Contracts">6</td><td data-label="Time Limit">30 days</td>
+              </tr>
+              <tr>
+                <td class="firm-col" data-label="Firm / Path">TakeProfitTrader</td>
+                <td data-label="Profit Target">$3,000</td><td data-label="Max Drawdown">$2,000 EOD trailing</td><td data-label="Daily Loss Limit"><span class="badge good">Removed (all plans)</span></td>
+                <td data-label="Min Trading Days">5 days</td><td data-label="Consistency (Eval)"><span class="badge warn">50%</span></td><td data-label="Max Contracts">6 (60 micros)</td><td data-label="Time Limit"><span class="badge good">No limit</span></td>
+              </tr>
+              <tr>
+                <td class="firm-col" data-label="Firm / Path">TopOneFutures — Elite ACCESS</td>
+                <td data-label="Profit Target">$3,000 (6%)</td><td data-label="Max Drawdown">$2,000 EOD trailing</td><td data-label="Daily Loss Limit"><span class="badge good">None (eval)</span></td>
+                <td data-label="Min Trading Days"><span class="badge good">1 profitable day</span></td><td data-label="Consistency (Eval)"><span class="badge good">Not applied</span></td><td data-label="Max Contracts">—</td><td data-label="Time Limit">30 days</td>
+              </tr>
+              <tr>
+                <td class="firm-col" data-label="Firm / Path">Lucid — LucidDaily <span class="ref-tag">(50K tier shown; account held is LucidFlex25)</span></td>
+                <td data-label="Profit Target">$3,000</td><td data-label="Max Drawdown">$2,000 EOD trailing</td><td data-label="Daily Loss Limit"><span class="badge good">None (eval)</span></td>
+                <td data-label="Min Trading Days"><span class="ref-tag">Not specified — verify live</span></td><td data-label="Consistency (Eval)"><span class="badge warn">50%</span></td><td data-label="Max Contracts">4 (40 micros)</td><td data-label="Time Limit"><span class="badge good">No limit</span></td>
+              </tr>
+              <tr>
+                <td class="firm-col" data-label="Firm / Path">Lucid — LucidFlex <span class="ref-tag">(50K tier shown; actual account is 25K)</span></td>
+                <td data-label="Profit Target">$3,000</td><td data-label="Max Drawdown">$2,000 EOD trailing</td><td data-label="Daily Loss Limit"><span class="badge good">None (eval)</span></td>
+                <td data-label="Min Trading Days"><span class="ref-tag">Not specified — verify live</span></td><td data-label="Consistency (Eval)"><span class="badge warn">50%</span></td><td data-label="Max Contracts">4 (40 micros)</td><td data-label="Time Limit"><span class="badge good">No limit</span></td>
+              </tr>
+              <tr>
+                <td class="firm-col" data-label="Firm / Path">Lucid — LucidPro <span class="ref-tag">(50K tier shown)</span></td>
+                <td data-label="Profit Target">$3,000</td><td data-label="Max Drawdown">$2,000 EOD trailing</td><td data-label="Daily Loss Limit"><span class="badge good">None (eval)</span></td>
+                <td data-label="Min Trading Days"><span class="ref-tag">Not specified — verify live</span></td><td data-label="Consistency (Eval)"><span class="badge warn">50%</span></td><td data-label="Max Contracts">4 (40 micros)</td><td data-label="Time Limit"><span class="badge good">No limit</span></td>
+              </tr>
+              <tr>
+                <td class="firm-col" data-label="Firm / Path">Tradeify — Select Challenge</td>
+                <td data-label="Profit Target">$3,000</td><td data-label="Max Drawdown">$2,000 EOD</td><td data-label="Daily Loss Limit">$1,250</td>
+                <td data-label="Min Trading Days"><span class="badge good">None (3-day eval)</span></td><td data-label="Consistency (Eval)"><span class="badge warn">35%</span></td><td data-label="Max Contracts">4</td><td data-label="Time Limit">—</td>
+              </tr>
+              <tr>
+                <td class="firm-col" data-label="Firm / Path">Tradeify — Growth <span class="ref-tag">(placeholder)</span></td>
+                <td data-label="Profit Target"><span class="ref-tag">Not specified — verify live</span></td><td data-label="Max Drawdown"><span class="ref-tag">Not specified — verify live</span></td><td data-label="Daily Loss Limit"><span class="ref-tag">Not specified — verify live</span></td>
+                <td data-label="Min Trading Days"><span class="ref-tag">Not specified — verify live</span></td><td data-label="Consistency (Eval)"><span class="ref-tag">Not specified — verify live</span></td><td data-label="Max Contracts"><span class="ref-tag">Not specified — verify live</span></td><td data-label="Time Limit"><span class="ref-tag">Not specified — verify live</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 
