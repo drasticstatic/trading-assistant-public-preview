@@ -52,13 +52,14 @@
     .bg-parallax {
       position: fixed; inset: -10vh -10vw; z-index: -1; pointer-events: none;
       background:
-        radial-gradient(ellipse 900px 500px at 15% -10%, rgba(124,194,255,0.10), transparent 60%),
-        radial-gradient(ellipse 900px 500px at 100% 10%, rgba(182,147,255,0.08), transparent 60%);
+        radial-gradient(ellipse at 15% -10%, rgba(124,194,255,0.22) 0%, transparent 45%),
+        radial-gradient(ellipse at 100% 10%, rgba(182,147,255,0.18) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 85%, rgba(73,209,125,0.12) 0%, transparent 45%);
       animation: bgBreathe 20s ease-in-out infinite;
     }
     @keyframes bgBreathe {
       0%, 100% { transform: translate3d(0,0,0) scale(1); }
-      50% { transform: translate3d(-1.5%, 1%, 0) scale(1.04); }
+      50% { transform: translate3d(-2.5%, 1.5%, 0) scale(1.06); }
     }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -76,6 +77,12 @@
     .nav-brand { font-size: .82rem; font-weight: 700; color: var(--blue); margin-right: .4rem; display: inline-flex; align-items: center; gap: .35rem; }
     .nav-tag { padding: .22rem .7rem; border: 1px solid var(--border); border-radius: 999px; font-size: .76rem; color: var(--muted); display: inline-flex; align-items: center; gap: .3rem; }
     .nav-tag:hover { border-color: var(--blue); color: var(--text); text-decoration: none; }
+    /* ── Global fluid feel — one shared spring-based press/hover language for
+       every clickable control, site-wide, instead of scroll-triggered reveals
+       on each section. ── */
+    .nav-tag, button, .click-card { transition: transform .15s var(--spring), border-color .18s, color .18s, background .18s; }
+    .nav-tag:hover, .click-card:hover { transform: translateY(-1px); }
+    .nav-tag:active, button:active, .click-card:active { transform: scale(.96); }
     .nav-hamburger { display: none; }
     .nav-links { display: contents; }
     @media (max-width: 720px) {
@@ -289,6 +296,10 @@
       <a class="nav-tag" href="../index.html"><i class="ph-duotone ph-house"></i> Home</a>
       <a class="nav-tag" href="../data/progression/resources.html"><i class="ph-duotone ph-book-open"></i> Resources</a>
       <a class="nav-tag" href="../data/progression/gallery.html"><i class="ph-duotone ph-trophy"></i> Gallery</a>
+      <a class="nav-tag" href="../data/progression/portfolio.html"><i class="ph-duotone ph-briefcase"></i> Portfolio</a>
+      <a class="nav-tag" href="../data/tax/tax.html"><i class="ph-duotone ph-currency-dollar"></i> Tax</a>
+      <a class="nav-tag" href="../data/progression/SmartTradingBlueprint/course-workbook.html"><i class="ph-duotone ph-book-open-text"></i> STB</a>
+      <a class="nav-tag" href="../data/progression/inevitrade/inner-circle-workbook.html"><i class="ph-duotone ph-brain"></i> IT</a>
       <a class="nav-tag" href="community.html"><i class="ph-duotone ph-hand-heart"></i> Community</a>
       <a class="nav-tag" href="prop-firm-rules.html"><i class="ph-duotone ph-airplane-tilt"></i> Pre-Flight Checklist</a>
     </div>
