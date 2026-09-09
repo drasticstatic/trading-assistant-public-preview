@@ -38,17 +38,27 @@
     @media (prefers-reduced-motion: reduce) {
       * { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
     }
-    .ph-duotone { font-size: 1.7em; vertical-align: -.28em; display: inline-block; flex-shrink: 0; }
+    @keyframes iconBreathe { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 transparent); } 50% { transform: scale(1.07); filter: drop-shadow(0 0 3px currentColor); } }
+    .ph-duotone { font-size: 1.7em; vertical-align: -.28em; display: inline-block; flex-shrink: 0; animation: iconBreathe 5s ease-in-out infinite; }
     /* Vendor default duotone "ghost" layer is only 20% opacity -- nearly invisible in a
        light-on-dark palette. Bump it so the two-tone shape is actually perceptible. */
     .ph-duotone::before { opacity: .55 !important; }
     h1 .ph-duotone { font-size: 1.15em; vertical-align: -.15em; }
+    /* Fixed full-bleed layer, comfortably beyond the viewport on all
+       sides (inset -10vh/-10vw) so the breathing animation below never
+       exposes a bare edge — previously drifted via a scroll-linked JS
+       transform, which on a long page pushed the layer past that
+       buffer and left a hard seam at the top once scrolled. */
     .bg-parallax {
       position: fixed; inset: -10vh -10vw; z-index: -1; pointer-events: none;
       background:
         radial-gradient(ellipse 900px 500px at 15% -10%, rgba(124,194,255,0.10), transparent 60%),
         radial-gradient(ellipse 900px 500px at 100% 10%, rgba(182,147,255,0.08), transparent 60%);
-      will-change: transform;
+      animation: bgBreathe 20s ease-in-out infinite;
+    }
+    @keyframes bgBreathe {
+      0%, 100% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(-1.5%, 1%, 0) scale(1.04); }
     }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -114,6 +124,36 @@
     .doc-card:hover { transform: translateY(-2px); border-color: rgba(124,194,255,.4); }
     .doc-card .fname { font-weight: 700; font-size: .84rem; margin-bottom: .2rem; display: flex; align-items: center; gap: .35rem; }
     .doc-card .fmeta { font-size: .74rem; color: var(--muted); }
+    /* ── "The Day This Was Built" — raster banner + info split, same
+       shape/sizing as community.html's TheGexLab panel, so it gets real
+       room for a video preview instead of squeezing into a one-line
+       doc-card row. ── */
+    .media-split { display: grid; grid-template-columns: minmax(200px, 260px) 1fr; align-items: stretch; margin-top: .8rem; }
+    @media (max-width: 680px) { .media-split { grid-template-columns: 1fr; } }
+    .media-banner {
+      display: block; min-height: 200px; background-color: #0a0a0a;
+      background-size: cover; background-position: center; background-repeat: no-repeat;
+      position: relative;
+    }
+    .media-play {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    }
+    .media-play i {
+      width: 3.2rem; height: 3.2rem; border-radius: 999px; background: #ff0000; color: #fff;
+      display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+      box-shadow: 0 4px 18px rgba(255,0,0,.4);
+    }
+    .media-info { padding: 1.2rem 1.3rem; }
+    .media-info h3 { font-size: 1rem; font-weight: 800; margin-bottom: .5rem; display: flex; align-items: center; gap: .4rem; }
+    .media-info p { font-size: .85rem; color: var(--muted); margin-bottom: .7rem; }
+    .media-links { display: flex; gap: .6rem; flex-wrap: wrap; }
+    .pill-link {
+      display: inline-flex; align-items: center; gap: .35rem; padding: .38rem 1rem;
+      border-radius: 999px; font-size: .78rem; font-weight: 700;
+      border: 1px solid var(--border); color: var(--text); background: var(--surface-soft);
+      transition: border-color .2s, background .2s, color .2s;
+    }
+    .pill-link:hover { border-color: var(--cyan); background: rgba(103,232,249,.12); color: var(--cyan); }
     .toggle-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
     .toggle-list li { padding: .9rem 0; font-size: .84rem; }
     .toggle-list li + li { border-top: 1px dashed var(--border); }
@@ -280,13 +320,20 @@
       <div class="doc-card glass"><div class="fname"><i class="ph-duotone ph-presentation-chart"></i> Full Scaling SOP</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/prop-firm-Scaling-SOP-%26-Implementation.md" target="_blank" rel="noreferrer">Scaling SOP doc ↗</a></div></div>
     </div>
 
-    <a class="doc-card glass" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/overview-summaries/2026/09-Sep/export_20260903_daily-review.md" target="_blank" rel="noreferrer" style="--accent: var(--rose); display: flex; align-items: center; gap: .8rem; margin-top: .8rem; text-decoration: none; color: inherit; transition: transform .35s var(--spring), border-color .2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
-      <i class="ph-duotone ph-calendar-heart" style="width:1.6em; height:1.6em; flex-shrink:0; color: var(--rose);"></i>
-      <span>
-        <span class="fname" style="margin-bottom:.15rem;">Sep 3, 2026 — The Day This Was Built</span>
-        <span class="fmeta">The full daily review — both leader flips, the compliance research, and the $555 decision, written the same day it happened ↗</span>
-      </span>
-    </a>
+    <div class="glass media-split click-card" data-href="https://youtu.be/6i3mMRd5lwY" style="--accent: var(--rose);">
+      <a class="media-banner" href="https://youtu.be/6i3mMRd5lwY" target="_blank" rel="noreferrer" style="background-image:url('https://img.youtube.com/vi/6i3mMRd5lwY/maxresdefault.jpg');" aria-label="Screen recording preview — Fortuna working live in Claude-in-Chrome">
+        <div class="media-play"><i class="ph-duotone ph-play"></i></div>
+      </a>
+      <div class="media-info">
+        <h3><i class="ph-duotone ph-calendar-heart"></i> Sep 3, 2026 — The Day This Was Built</h3>
+        <p>The full daily review — both leader flips, the compliance research, and the $555 decision, written the same day it happened.</p>
+        <p>A screen recording of a session just like this one: Fortuna working live in Claude-in-Chrome, side by side, real-time — including an actual mid-flow interruption to make a change on the fly. Not a scripted demo, just what a normal working session looks like</p>
+        <div class="media-links">
+          <a class="pill-link" href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/overview-summaries/2026/09-Sep/export_20260903_daily-review.md" target="_blank" rel="noreferrer"><i class="ph-duotone ph-file-text"></i> Read the Daily Review ↗</a>
+          <a class="pill-link" href="https://youtu.be/6i3mMRd5lwY" target="_blank" rel="noreferrer"><i class="ph-duotone ph-youtube-logo"></i> Watch on YouTube ↗</a>
+        </div>
+      </div>
+    </div>
 
     <div class="sec-label"><i class="ph-duotone ph-camera"></i> Live Results &amp; Case Studies</div>
     <p class="sec-sub">Real screenshots from the actual TradeCopia dashboard, as they happen — success, edge cases, or anything worth showing. This grows over time rather than staying a one-time proof.</p>
@@ -450,18 +497,21 @@
     ];
     const resultsState = createCarousel('results', resultsItems, 0);
 
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const bgLayer = document.getElementById('bgParallax');
-      let ticking = false;
-      window.addEventListener('scroll', () => {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-          bgLayer.style.transform = `translateY(${window.scrollY * 0.12}px)`;
-          ticking = false;
-        });
-      }, { passive: true });
-    }
+    // Makes every inch of a "click-card" navigate to its data-href,
+    // except real links/buttons nested inside it, which keep handling
+    // their own clicks natively.
+    document.querySelectorAll('.click-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('a, button')) return;
+        const href = card.dataset.href;
+        if (href) window.open(href, '_blank', 'noopener,noreferrer');
+      });
+    });
+
+    // The ambient background now animates via a pure CSS keyframe
+    // (bgBreathe, see .bg-parallax) instead of a scroll-linked JS
+    // transform — no init needed, and prefers-reduced-motion is already
+    // handled globally by the page's top-level animation-duration override.
   </script>
 </body>
 </html>
