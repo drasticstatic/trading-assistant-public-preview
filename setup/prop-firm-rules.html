@@ -341,6 +341,7 @@
         <li><input type="checkbox"><span>Check today's calendar for FOMC / CPI / NFP before the open<span class="sub">TPT blackout ±1 min · TopOneFutures blackout only if a position is modified ±2 min · Apex/Lucid Flex/Pro/Direct allow it · LucidDaily hard-forbids red-folder news</span></span></li>
         <li><input type="checkbox"><span>Cancel all resting/projected orders before stepping away<span class="sub">Pattern 9 — unintentional fills from stale limit orders</span></span></li>
         <li><input type="checkbox"><span>Personal hard-exit time set before the firm's deadline becomes the exit mechanism<span class="sub">Pattern 8 — never let the prop firm's forced close be the trade management plan</span></span></li>
+        <li><input type="checkbox"><span>Weekly inactivity minimum covered on every open account<span class="sub">Rule of thumb across funders: at least one trade per week to avoid an inactivity flag, regardless of eval/funded status — a real reason a smaller, lower-conviction trade sometimes gets taken just to keep an account alive, not because it was A+</span></span></li>
       </ul>
     </div>
 
@@ -419,6 +420,16 @@
       <p style="font-size:.84rem;">The full account-structure plan, the compliance findings behind it, and the risk-limit decisions now live on their own dedicated page — this page stays a pointer to it rather than a second copy</p>
       <a class="pill-trigger" href="copy-trading.html"><i class="ph-duotone ph-arrows-clockwise"></i> The Copy-Trading Plan ↗</a>
     </div>
+    <p class="sec-sub" style="margin-top:1.4rem;">TradeCopia's own live in-app acknowledgment, required before copy-trading — the five rules actually being operated under, not a paraphrase</p>
+    <div class="panel" style="padding: 1rem 1.4rem;">
+      <ul class="checklist">
+        <li><input type="checkbox" checked disabled><span><strong>No flipping.</strong> Prevent hedging caps a follower's order quantity at its existing position size — orders never flip a follower into a reversed direction.</span></li>
+        <li><input type="checkbox" checked disabled><span><strong>Do your due diligence.</strong> Review the Orders view after every leader execution and confirm followers reflect the leader's intent.</span></li>
+        <li><input type="checkbox" checked disabled><span><strong>Flatten whenever you can to start from a clean state.</strong> Stale positions or working orders carried across sessions make anomalies harder to spot.</span></li>
+        <li><input type="checkbox" checked disabled><span><strong>No multi-bracket per order.</strong> Each ATM order must have a single TP and a single SL — you can stack multiple single-bracket ATM orders instead.</span></li>
+        <li><input type="checkbox" checked disabled><span><strong>Be aware of broker API rate limits.</strong> Rapid-fire entries, dense fans of working orders, or heavy reporting requests can throttle or temporarily block an account.</span></li>
+      </ul>
+    </div>
 
     <div class="sec-label"><i class="ph-duotone ph-ruler"></i> Account Size Tiers — 25K, 50K &amp; 100K</div>
     <p class="sec-sub">25K is the incoming Lucid free-account size (from the PFM duck-race win); Apex and TPT scale contracts/targets/fees at 100K on top of the 50K headline numbers below. 50K is the comparison/starting point used throughout this page. Full tier detail is filterable by size in the comparison table below</p>
@@ -484,7 +495,7 @@
               <tr>
                 <td class="firm-col" data-label="Firm / Path">TakeProfitTrader</td>
                 <td data-label="Profit Target">$3,000</td><td data-label="Max Drawdown">$2,000 EOD trailing</td><td data-label="Daily Loss Limit"><span class="badge good">Removed (all plans)</span></td>
-                <td data-label="Min Trading Days">5 days</td><td data-label="Consistency (Eval)"><span class="badge warn">50%</span></td><td data-label="Max Contracts">6 (60 micros)</td><td data-label="Time Limit"><span class="badge good">No limit</span></td>
+                <td data-label="Min Trading Days">5 days</td><td data-label="Consistency (Eval)"><span class="badge warn">50%</span></td><td data-label="Max Contracts">6 (60 micros)</td><td data-label="Time Limit"><span class="badge warn">No limit on Rule 5 itself — separate 30-day multi-account activation clock can disable an inactive passed account</span></td>
               </tr>
               <tr>
                 <td class="firm-col" data-label="Firm / Path">TopOneFutures — Elite ACCESS</td>

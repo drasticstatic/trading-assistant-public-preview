@@ -357,6 +357,35 @@
     </div>
     <p class="sec-sub" style="margin-top:.8rem;">Full worked examples for every toggle, including a plain-language breakdown of what "disable replication on breach" actually costs vs. protects: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-risk-toggle-deep-dive.md" target="_blank" rel="noreferrer">tradecopia-risk-toggle-deep-dive.md ↗</a></p>
 
+    <div class="sec-label"><i class="ph-duotone ph-lightbulb"></i> Lessons From the First Live Week</div>
+    <p class="sec-sub">Everything above was reasoned through before going live. This is what actually happened once real trading started — corrections, not theory.</p>
+    <div class="panel" style="--accent: var(--cyan);">
+      <ul class="toggle-list">
+        <li><div class="t-name"><i class="ph-duotone ph-power"></i> The reconciler has a standalone-follower exception</div><div class="t-desc">TopOneFutures force-closes at 16:10 ET, well ahead of Apex's own ~16:59 ET window. Once the Group B leader (TOF197288) is flat for the day, the Position reconciler reads any new position opened directly on Apex-11/Apex-12 as a mismatch and force-exits it — even though those accounts still have legitimate trading time left. Trading a follower on its own once its leader is done for the day requires toggling the reconciler off for that group first.</div></li>
+        <li><div class="t-name"><i class="ph-duotone ph-arrows-clockwise"></i> Toggling it off mid-session doesn't do what it might seem to</div><div class="t-desc">Tested live during a Friday news window, believing the reconciler needed to be off to manually flatten TPT during its news blackout while leaving LucidFlex25 open. It didn't — manually flattening one account directly on the broker never required that. Turning it back on afterward surfaced the real risk it guards against instead: a leader's fill landing without a matching follower fill, unnoticed, on a trailing-drawdown account.</div></li>
+        <li><div class="t-name"><i class="ph-duotone ph-clock-countdown"></i> A follower can get flattened before its own deadline</div><div class="t-desc">LucidFlex must be flat by 16:45 ET; TPT's own deadline is 16:55 ET. Because TPT follows LucidFlex25 in Group A, "Auto-close follower positions" flattens TPT the moment its leader goes flat — ten minutes before TPT's own firm would actually require it. TradeCopia's per-group Disable control may decouple this; not yet tested live.</div></li>
+        <li><div class="t-name"><i class="ph-duotone ph-warning"></i> A rough Friday, logged honestly</div><div class="t-desc">News-window trading went well. The close didn't — adjusting the reconciler and risk numbers live while trying to recover a TPT drawdown made both TPT and LucidFlex25 slightly worse instead of better. Limited real damage, risk stayed managed, but it broke a green streak and was a genuinely humbling day. In hindsight, stopping entirely after the first loss would have been the better call than trying to actively fix it live.</div></li>
+      </ul>
+    </div>
+    <p class="sec-sub" style="margin-top:.8rem;">Full write-up of all four, plus the exact screenshots behind the $999 daily-loss edge case: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-risk-toggle-deep-dive.md" target="_blank" rel="noreferrer">tradecopia-risk-toggle-deep-dive.md ↗</a></p>
+
+    <div class="sec-label"><i class="ph-duotone ph-stack"></i> Contract Scaling — Why the Leader/Follower Shape Actually Works</div>
+    <p class="sec-sub">Same-size compliance isn't the only constraint behind Group A/B's shape — a follower with a lower max-contract ceiling than what's being mirrored to it simply fails to execute. The leader in each group needs headroom at or above its followers'.</p>
+    <div class="panel" style="--accent: var(--violet); padding: 1.2rem 1.4rem;">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Account</th><th>Eval scaling</th><th>Funded ceiling</th></tr></thead>
+          <tbody>
+            <tr><td class="acct-col" data-label="Account">TopOneFutures 50K <span class="ref-tag">(Group B leader)</span></td><td data-label="Eval scaling">Same tiers apply in eval</td><td data-label="Funded ceiling">$0–$1,499: 1 mini/10 micros · $1,500–$1,999: 2 minis/20 micros · $2,000+: 3 minis/30 micros (full)</td></tr>
+            <tr><td class="acct-col" data-label="Account">Apex 50K <span class="ref-tag">(Group B followers)</span></td><td data-label="Eval scaling">No scaling plan</td><td data-label="Funded ceiling">3 minis/30 micros max, capped at <strong>half</strong> until EOD balance clears initial + trailing DD + $100</td></tr>
+            <tr><td class="acct-col" data-label="Account">TakeProfitTrader 50K <span class="ref-tag">(Group A follower)</span></td><td data-label="Eval scaling">No scaling, ever</td><td data-label="Funded ceiling">Flat 6 contracts/60 micros, always</td></tr>
+            <tr><td class="acct-col" data-label="Account">LucidFlex 25K <span class="ref-tag">(Group A leader)</span></td><td data-label="Eval scaling">No scaling plan</td><td data-label="Funded ceiling">$0–$999: 1 mini/10 micros · $1,000–$1,999: 2 minis/20 micros (25K tier tops out here)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="sec-sub" style="margin-top:.8rem;">Top1 (leader) always has contract headroom at or above Apex (follower); LucidFlex25 (leader, 1-2 minis at 25K) leading into TPT (follower, flat 6 always) means the follower's ceiling is never the constraint either — confirming both groups' leader-from-the-smaller-or-matched account shape holds up on scaling, not just the size-compliance and whole-number-multiplier reasoning above. Full LucidFlex table by account size: <a href="https://support.lucidtrading.com/en/articles/12945808-lucidflex-scaling-plan" target="_blank" rel="noreferrer">LucidFlex Scaling Plan ↗</a></p>
+
     <div class="sec-label"><i class="ph-duotone ph-anchor"></i> Why This Matters Beyond the Settings</div>
     <div class="panel" style="--accent: var(--rose);">
       <p style="font-size:.86rem; color: var(--muted); margin-bottom:.8rem;">The account ledger on the <a href="../data/progression/gallery.html#account-ledger" target="_blank" rel="noreferrer">gallery page</a> carries its own subtitle: <em>"what once looked like a graveyard is a resurrection project."</em> That's not a figure of speech — the recovery arc starts Feb 13, 2026, with a blowup and no rule held. Everything since has been rebuilding discipline one rule at a time.</p>
@@ -537,6 +566,26 @@
     // Newest first, same convention as the TradeZella reel on gallery.html.
     // ═══════════════════════════════════════════════════════
     const resultsItems = [
+      { src: '../data/imports/2026/09-Sep/TradeCopia%20Updates/Screenshot%202026-09-07%20at%2012.58.57.png',
+        title: 'Sep 7, 2026, 12:58 ET — Rebuilding After Friday',
+        meta: '<span>Group A +$260.00 · Group B +$20.52 · TPT back at 2x multiplier · every account green</span>',
+        caption: 'Sep 7, 2026, 12:58 ET — the Monday after a rough Friday close. TPT\'s multiplier is back at 2x and both groups are trading positive again: Group A (LucidFlex25 → TPT) +$260.00, Group B (TOF197288 → TOF197292, Apex-11, Apex-12) +$20.52. Slow rebuild, trending the right direction.' },
+      { src: '../data/imports/2026/09-Sep/TradeCopia%20Updates/Screenshot%202026-09-06%20at%2013.22.40.png',
+        title: 'Sep 6, 2026, 13:22 ET — TPT Sitting Below Start',
+        meta: '<span>TAKEPROFITPRO781112132 progress marker below its starting line · Payout: None yet</span>',
+        caption: 'Sep 6, 2026, 13:22 ET — the account-progress view the morning after Friday\'s rough close. TPT\'s marker sits below its starting point with "None yet" showing for payout, while the eval accounts (LucidFlex25, Apex-11, Apex-12) and the two funded TopOneFutures accounts kept progressing normally. Logged as-is, not smoothed over — this is what the recovery arc actually looked like mid-drawdown.' },
+      { src: '../data/imports/2026/09-Sep/TradeCopia%20Updates/Screenshot%202026-09-06%20at%2013.20.18.png',
+        title: 'Sep 6, 2026, 13:20 ET — The $999 Daily Loss Edge Case',
+        meta: '<span>TAKEPROFITPRO781112132 Daily Loss $999.00 vs. $555.00 on every other account</span>',
+        caption: 'Sep 6, 2026, 13:20 ET — TradeCopia\'s Risk Management panel, caught mid-deviation from the standard $555-everywhere rule. TPT shows a Daily Loss of $999.00 (and a Daily Profit target of $10,000.00) against $555.00 on Apex-11, Apex-12, TOF197288, TOF197292, and LucidFlex25 — a real, in-the-moment change made while nervous in an active TPT trade under Group A\'s 2x multiplier. Reverted since; kept here as the honest edge case, not the standing rule.' },
+      { src: '../data/imports/2026/09-Sep/TradeCopia%20Updates/Screenshot%202026-09-04%20at%2008.10.47.png',
+        title: 'Sep 4, 2026, 08:10 ET — The 2x Multiplier, Live',
+        meta: '<span>Group A: LucidFlex25 leader short 1 MNQU6 · TPT follower short 2 MNQU6 — the 2x multiplier mirroring correctly in real time</span>',
+        caption: 'Sep 4, 2026, 08:10 ET — Group A\'s leader (LucidFlex25) short 1 MNQU6, mirrored to the TPT follower as short 2 MNQU6 — the 2x multiplier working exactly as configured, caught with a live position open. Group B sat flat at this moment, all four accounts connected and ready.' },
+      { src: '../data/imports/2026/09-Sep/TradeCopia%20Updates/Screenshot%202026-09-04%20at%2006.18.46.png',
+        title: 'Sep 4, 2026, 06:18 ET — Pre-Market Progress Tracker',
+        meta: '<span>5 accounts active, 3 funded, 0 requiring action — the first full pre-market check-in after the Sep 3 build-out</span>',
+        caption: 'Sep 4, 2026, 06:18 ET — TradeCopia\'s Progress Tracker before the open on the first full trading day after the Sep 3 build-out: 5 accounts active (eval), 3 funded and live, 0 requiring action. TPT shows "Disconnected — tracking paused" at this moment, a normal pre-market broker-connection state, not an error.' },
       { src: '../data/imports/2026/09-Sep/TradeCopia%20Top1%26TPT%20cleared%20the%20daily%20pNL%20b4%20Apex%20and%20Lucid%202026-09-03%20at%2017.36.57.png',
         title: 'Sep 3, 2026, 17:36 ET — TOF/TPT Daily P&L Already Reset',
         meta: '<span>Total Daily P&L $170.64 · 0 open positions · TOF197288, TPT, and TOF197292 already showing $0.00 (reset), while Apex-11/12 (+$77.32 each) and LucidFlex25 (+$16.00) still show their day\'s gain</span>',
