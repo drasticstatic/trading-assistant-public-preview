@@ -39,8 +39,8 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
     }
-    @keyframes iconBreathe { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 transparent); } 50% { transform: scale(1.07); filter: drop-shadow(0 0 3px currentColor); } }
-    .ph-duotone { font-size: 1.7em; vertical-align: -.28em; display: inline-block; flex-shrink: 0; animation: iconBreathe 5s ease-in-out infinite; }
+    @keyframes iconGlow { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 transparent) hue-rotate(0deg); } 50% { transform: scale(1.14); filter: drop-shadow(0 0 5px currentColor) hue-rotate(20deg); } }
+    .ph-duotone { font-size: 1.7em; vertical-align: -.28em; display: inline-block; flex-shrink: 0; animation: iconGlow 5s ease-in-out infinite; }
     /* Vendor default duotone "ghost" layer is only 20% opacity -- nearly invisible in a
        light-on-dark palette. Bump it so the two-tone shape is actually perceptible. */
     .ph-duotone::before { opacity: .55 !important; }
@@ -97,6 +97,26 @@
       display: inline-flex; align-items: center; gap: .3rem;
     }
     .nav-tag:hover { border-color: var(--purple); color: var(--text); }
+    .nav-hamburger { display: none; }
+    .nav-links { display: contents; }
+    @media (max-width: 720px) {
+      .nav { position: relative; }
+      .nav-brand { flex: 1; margin-right: 0; }
+      .nav-hamburger {
+        display: inline-flex; align-items: center; justify-content: center;
+        background: none; border: 1px solid var(--border); border-radius: 8px;
+        width: 2.2rem; height: 2.2rem; color: var(--text); font-size: 1.2rem; cursor: pointer; flex-shrink: 0;
+      }
+      .nav-hamburger:hover { border-color: var(--gold); color: var(--gold); }
+      .nav-links {
+        display: none; position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; gap: .5rem; padding: .8rem 1.5rem 1.1rem;
+        background: var(--bg-alt); border-bottom: 1px solid var(--border); box-shadow: var(--shadow); z-index: 9;
+      }
+      .nav.nav-open .nav-links { display: flex; }
+      .nav-links .nav-tag { width: 100%; }
+      .nav-space { display: none; }
+    }
     .nav-space { flex: 1; }
 
     /* ── CONTENT ── */
@@ -413,9 +433,19 @@
     }
     .csv-table { width: 100%; border-collapse: collapse; font-size: .76rem; white-space: normal; table-layout: fixed; }
     .csv-table th, .csv-table td { word-break: break-word; }
-    @media (max-width: 900px) {
-      .csv-table { font-size: .68rem; }
-      .csv-table th, .csv-table td { padding: .45rem .5rem; }
+    /* ── Below 720px, this 13-column ledger stops being a table — each
+       row becomes its own tappable card, each cell its own labeled
+       block (data-label set from ledgerColumns in renderLedgerRows()).
+       The colspan detail/totals rows have no data-label, so they just
+       render as plain full-width blocks — exactly what they need. ── */
+    @media (max-width: 720px) {
+      .csv-table, .csv-table tbody, .csv-table tfoot, .csv-table tr, .csv-table td { display: block; width: 100%; }
+      .csv-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+      .csv-table tbody tr:not(.ledger-detail-row) { border: 1px solid var(--border); border-radius: var(--radius-md); padding: .6rem .8rem; margin: .7rem; }
+      .csv-table td { padding: .35rem 0; border-top: none; font-size: .74rem; }
+      .csv-table tbody tr:not(.ledger-detail-row) td + td { border-top: 1px dashed var(--border); }
+      .csv-table td[data-label]::before { content: attr(data-label); display: block; font-size: .6rem; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--subtle); margin-bottom: .15rem; }
+      .csv-table tfoot td { position: static; }
     }
     .csv-table th {
       text-align: left; padding: .6rem .8rem; background: var(--surface-raised);
@@ -508,13 +538,16 @@
   <!-- ── NAV ── -->
   <nav class="nav">
     <span class="nav-brand"><i class="ph-duotone ph-trophy"></i> Gallery</span>
-    <a class="nav-tag" href="../../index.html"><i class="ph-duotone ph-house"></i> Home</a>
-    <a class="nav-tag" href="resources.html"><i class="ph-duotone ph-book-open"></i> Resources</a>
-    <a class="nav-tag" href="portfolio.html"><i class="ph-duotone ph-briefcase"></i> Portfolio</a>
-    <a class="nav-tag" href="SmartTradingBlueprint/course-workbook.html"><i class="ph-duotone ph-book-open-text"></i> STB</a>
-    <a class="nav-tag" href="inevitrade/inner-circle-workbook.html"><i class="ph-duotone ph-brain"></i> IT</a>
-    <a class="nav-tag" href="../../setup/prop-firm-rules.html"><i class="ph-duotone ph-airplane-tilt"></i> Pre-flight Checklist</a>
-    <a class="nav-tag" href="../../setup/community.html"><i class="ph-duotone ph-hand-heart"></i> Community</a>
+    <button type="button" class="nav-hamburger" onclick="document.querySelector('.nav').classList.toggle('nav-open')" aria-label="Menu"><i class="ph-duotone ph-list"></i></button>
+    <div class="nav-links">
+      <a class="nav-tag" href="../../index.html"><i class="ph-duotone ph-house"></i> Home</a>
+      <a class="nav-tag" href="resources.html"><i class="ph-duotone ph-book-open"></i> Resources</a>
+      <a class="nav-tag" href="portfolio.html"><i class="ph-duotone ph-briefcase"></i> Portfolio</a>
+      <a class="nav-tag" href="SmartTradingBlueprint/course-workbook.html"><i class="ph-duotone ph-book-open-text"></i> STB</a>
+      <a class="nav-tag" href="inevitrade/inner-circle-workbook.html"><i class="ph-duotone ph-brain"></i> IT</a>
+      <a class="nav-tag" href="../../setup/prop-firm-rules.html"><i class="ph-duotone ph-airplane-tilt"></i> Pre-flight Checklist</a>
+      <a class="nav-tag" href="../../setup/community.html"><i class="ph-duotone ph-hand-heart"></i> Community</a>
+    </div>
     <div class="nav-space"></div>
   </nav>
 
@@ -1644,19 +1677,19 @@
         if (!isNaN(amt)) totalPaid += amt;
         const fundedFrom = fundedFromNote(r.notes);
         html += `<tr onclick="toggleLedgerDetail(${idx})">` +
-          `<td>${r.firm || '—'}</td>` +
-          `<td>${r.account_number || '—'}${fundedFrom ? `<br><span style="color:var(--dim);font-size:.68rem;">↳ funded from ${fundedFrom}</span>` : ''}</td>` +
-          `<td>${amt ? '$' + amt.toFixed(2) : '—'}</td>` +
-          `<td>${r.coupon_used || '—'}</td>` +
-          `<td>${r.date || '—'}</td>` +
-          `<td>${r.date_funded || '—'}</td>` +
-          `<td>${r.date_purchased_renewed || '—'}</td>` +
-          `<td>${phaseBadge(r.phase)}</td>` +
-          `<td>${formatSize(r.account_size)}</td>` +
-          `<td>${r.drawdown_type || '—'}</td>` +
-          `<td>${r.account_type || '—'}</td>` +
-          `<td>${r.reset_renewed_repurchased || '—'}</td>` +
-          `<td>${outcomeBadge(r.outcome)}</td>` +
+          `<td data-label="${ledgerColumns[0]}">${r.firm || '—'}</td>` +
+          `<td data-label="${ledgerColumns[1]}">${r.account_number || '—'}${fundedFrom ? `<br><span style="color:var(--dim);font-size:.68rem;">↳ funded from ${fundedFrom}</span>` : ''}</td>` +
+          `<td data-label="${ledgerColumns[2]}">${amt ? '$' + amt.toFixed(2) : '—'}</td>` +
+          `<td data-label="${ledgerColumns[3]}">${r.coupon_used || '—'}</td>` +
+          `<td data-label="${ledgerColumns[4]}">${r.date || '—'}</td>` +
+          `<td data-label="${ledgerColumns[5]}">${r.date_funded || '—'}</td>` +
+          `<td data-label="${ledgerColumns[6]}">${r.date_purchased_renewed || '—'}</td>` +
+          `<td data-label="${ledgerColumns[7]}">${phaseBadge(r.phase)}</td>` +
+          `<td data-label="${ledgerColumns[8]}">${formatSize(r.account_size)}</td>` +
+          `<td data-label="${ledgerColumns[9]}">${r.drawdown_type || '—'}</td>` +
+          `<td data-label="${ledgerColumns[10]}">${r.account_type || '—'}</td>` +
+          `<td data-label="${ledgerColumns[11]}">${r.reset_renewed_repurchased || '—'}</td>` +
+          `<td data-label="${ledgerColumns[12]}">${outcomeBadge(r.outcome)}</td>` +
           `</tr>` +
           `<tr class="ledger-detail-row" id="ledgerDetail${idx}" style="display:none;">` +
           `<td colspan="${ledgerColumns.length}"><strong>Paid Via:</strong> ${r.payment_method || '—'} &nbsp; · &nbsp; <strong>Notes:</strong> ${r.notes || '—'}</td>` +

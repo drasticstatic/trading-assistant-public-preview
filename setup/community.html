@@ -44,8 +44,13 @@
     /* A slow, shared "breathing" pulse — the ambient background and every
        static icon on the page move to the same quiet rhythm, so the page
        reads as one calm living surface rather than scattered effects. */
-    @keyframes iconBreathe { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 transparent); } 50% { transform: scale(1.07); filter: drop-shadow(0 0 3px currentColor); } }
-    .ph-duotone { font-size: 1.7em; vertical-align: -.28em; display: inline-block; flex-shrink: 0; animation: iconBreathe 5s ease-in-out infinite; }
+    /* Named iconGlow, not iconBreathe — the page already has a plain
+       scale-only @keyframes iconBreathe (for .friend-art icons); CSS
+       keyframe names aren't selector-scoped, so reusing that name here
+       silently let the later, plainer definition win everywhere and
+       killed the color/glow entirely. */
+    @keyframes iconGlow { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 transparent) hue-rotate(0deg); } 50% { transform: scale(1.14); filter: drop-shadow(0 0 5px currentColor) hue-rotate(20deg); } }
+    .ph-duotone { font-size: 1.7em; vertical-align: -.28em; display: inline-block; flex-shrink: 0; animation: iconGlow 5s ease-in-out infinite; }
     /* Vendor default duotone "ghost" layer is only 20% opacity -- nearly invisible in a
        light-on-dark palette. Bump it so the two-tone shape is actually perceptible. */
     .ph-duotone::before { opacity: .55 !important; }
@@ -84,6 +89,32 @@
     .nav-brand { font-size: .82rem; font-weight: 700; color: var(--rose); margin-right: .4rem; display: inline-flex; align-items: center; gap: .35rem; }
     .nav-tag { padding: .22rem .7rem; border: 1px solid var(--border); border-radius: 999px; font-size: .76rem; color: var(--muted); display: inline-flex; align-items: center; gap: .3rem; }
     .nav-tag:hover { border-color: var(--blue); color: var(--text); text-decoration: none; }
+    /* ── Mobile nav collapses everything but the brand behind a
+       hamburger — the wrapped multi-row tag strip was getting crowded
+       on the pages with more than 3-4 links. ── */
+    .nav-hamburger { display: none; }
+    /* display:contents keeps .nav-links transparent to .nav's own flex
+       layout on desktop, so each .nav-tag still behaves as a direct
+       flex child of .nav — the mobile media query below is what turns
+       it into a real dropdown container. */
+    .nav-links { display: contents; }
+    @media (max-width: 720px) {
+      .nav { position: relative; }
+      .nav-brand { flex: 1; margin-right: 0; }
+      .nav-hamburger {
+        display: inline-flex; align-items: center; justify-content: center;
+        background: none; border: 1px solid var(--border); border-radius: 8px;
+        width: 2.2rem; height: 2.2rem; color: var(--text); font-size: 1.2rem; cursor: pointer; flex-shrink: 0;
+      }
+      .nav-hamburger:hover { border-color: var(--gold); color: var(--gold); }
+      .nav-links {
+        display: none; position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; gap: .5rem; padding: .8rem 1.5rem 1.1rem;
+        background: var(--bg-alt); border-bottom: 1px solid var(--border); box-shadow: var(--shadow); z-index: 9;
+      }
+      .nav.nav-open .nav-links { display: flex; }
+      .nav-links .nav-tag { width: 100%; }
+    }
     .content { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
     .eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
     h1 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: .6rem; }
@@ -130,12 +161,17 @@
     .thanks-card p:last-child { margin-bottom: 0; }
     .thanks-card .review-link { display: inline-flex; align-items: center; gap: .3rem; font-size: .76rem; font-weight: 700; padding: .18rem .6rem; border-radius: 999px; background: rgba(73,209,125,.12); color: var(--green); border: 1px solid rgba(73,209,125,.24); font-family: inherit; cursor: pointer; transition: border-color .2s, background .2s; }
     .thanks-card .flavor-tag { font-size: .72rem; color: var(--subtle); font-style: italic; }
-    /* Both pills sit on one row, pinned to the bottom of the card
-       regardless of copy length above, so all three Mentors cards line
-       up on the same y-axis (same trick as before, just on the wrapper
-       row now that there are two pills instead of one). */
-    .thanks-card-pills { display: flex; justify-content: center; flex-wrap: wrap; gap: .5rem; margin: auto auto 0; padding-top: .5rem; }
-    .thanks-card .deeper-pill { background: rgba(255,157,193,.1); color: var(--rose); border-color: rgba(255,157,193,.28); }
+    /* Pinned to the bottom of the card regardless of copy length above,
+       so all three Mentors cards line up on the same y-axis. Trustpilot
+       and Deeper Story sit on their own rows, not inline — Deeper Story
+       keeps the page's usual pill-bounce so it visually reads as a
+       distinct nested action, not just part of the Trustpilot pill. */
+    .thanks-card-pills { display: flex; justify-content: center; flex-wrap: wrap; gap: .5rem; margin-top: auto; padding-top: .5rem; }
+    .thanks-card-pills.deeper-row { margin-top: .5rem; padding-top: 0; }
+    .thanks-card .deeper-pill {
+      background: rgba(255,157,193,.1); color: var(--rose); border-color: rgba(255,157,193,.28);
+      animation: pillBounce 2.2s ease-in-out infinite;
+    }
     .thanks-card .deeper-pill:hover { border-color: var(--rose); background: rgba(255,157,193,.18); }
 
     .pfm-panel { display: block; text-decoration: none; color: inherit; transition: transform .35s var(--spring), border-color .2s; }
@@ -165,7 +201,8 @@
     @media (max-width: 780px) { .gexlab-cta { border-left: none; border-top: 1px dashed var(--border); } }
     .gexlab-cta .story-trigger {
       flex-direction: column; height: auto; line-height: 1.3; text-align: center;
-      padding: .9rem 1.15rem; gap: .2rem; font-size: .82rem; white-space: normal;
+      padding: .9rem 1.15rem; gap: .3rem; font-size: .82rem; white-space: normal;
+      border-radius: 14px;
     }
 
     /* ── SOCIAL PREVIEW CARDS (Shoutout section) — an unfurled-link feel:
@@ -242,6 +279,11 @@
     }
     .modal-overlay.open .modal-box { transform: scale(1); opacity: 1; }
     .modal-scroll { flex: 1 1 auto; overflow-y: auto; min-height: 0; }
+    /* Soft edge fade wherever there's more content off-screen — a
+       quieter, always-visible companion to the jump button. */
+    .modal-scroll.fade-bottom:not(.fade-top) { -webkit-mask-image: linear-gradient(to bottom, black calc(100% - 26px), transparent 100%); mask-image: linear-gradient(to bottom, black calc(100% - 26px), transparent 100%); }
+    .modal-scroll.fade-top:not(.fade-bottom) { -webkit-mask-image: linear-gradient(to top, black calc(100% - 26px), transparent 100%); mask-image: linear-gradient(to top, black calc(100% - 26px), transparent 100%); }
+    .modal-scroll.fade-top.fade-bottom { -webkit-mask-image: linear-gradient(to bottom, transparent 0, black 26px, black calc(100% - 26px), transparent 100%); mask-image: linear-gradient(to bottom, transparent 0, black 26px, black calc(100% - 26px), transparent 100%); }
     .modal-title { font-size: 1.05rem; font-weight: 800; margin-bottom: 1rem; padding-right: 2.5rem; display: flex; align-items: center; gap: .4rem; }
     .modal-box p { font-size: .86rem; color: var(--muted); line-height: 1.75; }
     .modal-box p + p { margin-top: 1.1rem; }
@@ -263,14 +305,16 @@
        footer controls visibly jump position between stories. A frozen
        header (center-justified, shared across all 3 stories) sits above
        the per-story scroll area. ── */
-    .modal-box.mentor-box { height: min(600px, 80vh); }
+    .modal-box.mentor-box { height: min(660px, 82vh); }
+    /* Header shrunk to just the icon row + a "Dig Deeper" pill — the
+       full narrative paragraph that used to live here moved to its own
+       modal, so the per-story scroll area actually gets room to breathe. */
     .mentor-modal-header {
-      flex-shrink: 0; text-align: center; padding-right: 1.5rem; padding-bottom: 1rem; margin-bottom: 1rem;
+      flex-shrink: 0; text-align: center; padding-right: 1.5rem; padding-bottom: .9rem; margin-bottom: 1rem;
       border-bottom: 1px solid var(--border);
     }
     .mentor-modal-header-icons { display: flex; align-items: center; justify-content: center; gap: .6rem; font-size: 1.3rem; color: var(--gold); margin-bottom: .6rem; }
     .mentor-modal-header-label { font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--subtle); }
-    .mentor-modal-header p { font-size: .78rem; color: var(--muted); line-height: 1.7; margin: 0; text-align: center; }
     /* ── Gentle idle bounce on every pill button on the page — calls
        attention that these are clickable without being frantic about it. ── */
     @keyframes pillBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
@@ -488,10 +532,13 @@
 
   <nav class="nav">
     <span class="nav-brand"><i class="ph-duotone ph-hand-heart"></i> Community &amp; Thanks</span>
-    <a class="nav-tag" href="../index.html"><i class="ph-duotone ph-house"></i> Home</a>
-    <a class="nav-tag" href="../data/progression/resources.html"><i class="ph-duotone ph-book-open"></i> Resources</a>
-    <a class="nav-tag" href="../data/progression/gallery.html"><i class="ph-duotone ph-trophy"></i> Gallery</a>
-    <a class="nav-tag" href="prop-firm-rules.html"><i class="ph-duotone ph-airplane-tilt"></i> Pre-Flight Checklist</a>
+    <button type="button" class="nav-hamburger" onclick="document.querySelector('.nav').classList.toggle('nav-open')" aria-label="Menu"><i class="ph-duotone ph-list"></i></button>
+    <div class="nav-links">
+      <a class="nav-tag" href="../index.html"><i class="ph-duotone ph-house"></i> Home</a>
+      <a class="nav-tag" href="../data/progression/resources.html"><i class="ph-duotone ph-book-open"></i> Resources</a>
+      <a class="nav-tag" href="../data/progression/gallery.html"><i class="ph-duotone ph-trophy"></i> Gallery</a>
+      <a class="nav-tag" href="prop-firm-rules.html"><i class="ph-duotone ph-airplane-tilt"></i> Pre-Flight Checklist</a>
+    </div>
   </nav>
 
   <main class="content">
@@ -509,6 +556,8 @@
           <p>Smart-money concepts across both crypto and traditional futures — a purpose-built indicator suite, extensive backtesting, and strategy bots</p>
           <div class="thanks-card-pills">
             <a class="review-link" href="https://www.trustpilot.com/review/inevitrade.com" target="_blank" rel="noreferrer"><i class="ph-duotone ph-star"></i> Trustpilot ↗</a>
+          </div>
+          <div class="thanks-card-pills deeper-row">
             <button type="button" class="review-link deeper-pill" onclick="openMentorStory(0)"><i class="ph-duotone ph-shovel"></i> Deeper Story ↗</button>
           </div>
         </div>
@@ -520,6 +569,8 @@
           <p>A six-setup, top-down framework — 1-hour bias, 5-minute trigger — built on the discipline behind "securing base hits"</p>
           <div class="thanks-card-pills">
             <a class="review-link" href="https://www.trustpilot.com/review/zerotohero.trade" target="_blank" rel="noreferrer"><i class="ph-duotone ph-star"></i> Trustpilot ↗</a>
+          </div>
+          <div class="thanks-card-pills deeper-row">
             <button type="button" class="review-link deeper-pill" onclick="openMentorStory(1)"><i class="ph-duotone ph-blueprint"></i> Deeper Story ↗</button>
           </div>
         </div>
@@ -531,6 +582,8 @@
           <p>The ICT/SMC vocabulary underneath everything else here, plus four stand-alone setups — FCR, Opening Range Break, Silver Bullet, Turtle Soup</p>
           <div class="thanks-card-pills">
             <a class="review-link" href="https://www.trustpilot.com/review/smarttradingblueprint.com" target="_blank" rel="noreferrer"><i class="ph-duotone ph-star"></i> Trustpilot ↗</a>
+          </div>
+          <div class="thanks-card-pills deeper-row">
             <button type="button" class="review-link deeper-pill" onclick="openMentorStory(2)"><i class="ph-duotone ph-bulldozer"></i> Deeper Story ↗</button>
           </div>
         </div>
@@ -595,7 +648,7 @@
         <p class="gexlab-partner"><i class="ph-duotone ph-tag"></i> Partner access: thegexlab.com/tmade <span class="partner-code"> <i class="ph-duotone ph-detective"></i> code: TMADE</span> for <i class="ph-duotone ph-number-two"></i><i class="ph-duotone ph-number-zero"></i><i class="ph-duotone ph-seal-percent"></i> off</p>
       </div>
       <div class="gexlab-cta">
-        <button type="button" class="story-trigger cyan-hover" onclick="openModal('gexlabModal')"><i class="ph-duotone ph-rocket-launch"></i> The<br>GEX<br>Deep<br>Dive<br>↗</button>
+        <button type="button" class="story-trigger cyan-hover" onclick="openModal('gexlabModal')"><i class="ph-duotone ph-rocket"></i> The GEX<br>Deep Dive ↗</button>
       </div>
     </div>
 
@@ -629,7 +682,7 @@
         <div id="tradesyncer" class="tool-card alt glass click-card" data-href="https://www.tradesyncer.com">
           <h4><i class="ph-duotone ph-arrows-clockwise"></i> Tradesyncer <span class="tool-tag-alt"><i class="ph-duotone ph-plugs-connected"></i> Another option <i class="ph-duotone ph-flow-arrow"></i></span></h4>
           <p>Sub-100ms sync speed, cloud-based, hedge prevention, position sync run through its named <br>— <strong>Follower Protection</strong> —<br> feature control similar to how TradeCopia solves reconciliation and auto-flattening. No VPS or local software required.</p>
-          <span class="ext-link-row"><i class="ph-duotone ph-link"></i> tradesyncer.com ↗</span>
+          <span class="ext-link-row" style="display:flex; justify-content:center;"><i class="ph-duotone ph-link"></i> tradesyncer.com ↗</span>
           <div style="text-align:center; margin-top:.9rem;">
             <a class="story-trigger-blue" href="https://help.tradesyncer.com/en/articles/10410714-how-to-use-follower-protection" target="_blank" rel="noreferrer" style="font-size:.82rem; padding:.4rem 1.1rem;"><i class="ph-duotone ph-shield-plus"></i> Follower Protection ↗</a>
           </div>
@@ -685,7 +738,7 @@
       <button class="modal-close" onclick="closeModal('mentorModal')">✕</button>
       <div class="mentor-modal-header">
         <div class="mentor-modal-header-icons"><i class="ph-duotone ph-hammer"></i> <span class="mentor-modal-header-label">3 mentorships, many phases</span> <i class="ph-duotone ph-castle-turret"></i></div>
-        <p>After a humbling experience on BTCC and the reconnaissance that followed, <strong>Inevitrade</strong> is where the real recovery and strategy digging started — and where continued rigor still lives. <strong>ZeroToHero</strong> showed up next with 1-on-1 coaching and the actual blueprint for turning this into something professional — right as Fortuna spawned to help manage the data and navigate the unknown. <strong>SmartTradingBlueprint</strong> arrived right behind it and bulldozed the whole landscape with a refreshed outlook, one trade at a time through the feedback loop. Inevitrade's Inner Circle bootcamp and auditing then fueled the trifecta for the long haul — and although tuition's still owed and some connections are paused for now, their impact remains, and Fortuna's on a mission to help give that back. WAGMI</p>
+        <button type="button" class="story-trigger cyan-hover" onclick="openModal('mentorDigDeeperModal')"><i class="ph-duotone ph-magnifying-glass-plus"></i> Dig Deeper ↗</button>
       </div>
       <div class="modal-scroll" id="mentorModalScroll">
         <div class="modal-title" id="mentorModalTitle"></div>
@@ -696,6 +749,19 @@
         <span class="modal-nav-counter" id="mentorModalCounter"></span>
         <button type="button" class="modal-nav-btn" onclick="mentorStoryNav(1)" aria-label="Next mentor">›</button>
         <button type="button" class="modal-nav-btn" id="mentorModalJumpBtn" data-dir="down" onclick="jumpModalScroll('mentorModalScroll','mentorModalJumpBtn')" aria-label="Jump"><i class="ph-duotone ph-arrow-line-down"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="mentorDigDeeperModal" onclick="if(event.target===this)closeModal('mentorDigDeeperModal')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('mentorDigDeeperModal')">✕</button>
+      <div class="modal-scroll" id="mentorDigDeeperModalScroll">
+        <div class="modal-title"><i class="ph-duotone ph-hammer"></i> 3 Mentorships, Many Phases <i class="ph-duotone ph-castle-turret"></i></div>
+        <p>After a humbling experience on BTCC and the reconnaissance that followed, <strong>Inevitrade</strong> is where the real recovery and strategy digging started — and where continued rigor still lives. <strong>ZeroToHero</strong> showed up next with 1-on-1 coaching and the actual blueprint for turning this into something professional — right as Fortuna spawned to help manage the data and navigate the unknown. <strong>SmartTradingBlueprint</strong> arrived right behind it and bulldozed the whole landscape with a refreshed outlook, one trade at a time through the feedback loop. Inevitrade's Inner Circle bootcamp and auditing then fueled the trifecta for the long haul — and although tuition's still owed and some connections are paused for now, their impact remains, and Fortuna's on a mission to help give that back. WAGMI</p>
+      </div>
+      <div class="modal-footer-nav">
+        <button type="button" class="modal-nav-btn" id="mentorDigDeeperModalJumpBtn" data-dir="down" onclick="jumpModalScroll('mentorDigDeeperModalScroll','mentorDigDeeperModalJumpBtn')" aria-label="Jump"><i class="ph-duotone ph-arrow-line-down"></i></button>
       </div>
     </div>
   </div>
@@ -749,16 +815,16 @@
     // duotone weight used everywhere else on this page, better suited
     // to these small decorative tiles.
     const friends = [
-      { name: 'Fabio Valentini', role: 'Pre-Dawn · PFM host · Founder of TTACapital & The Trading Academy', pi: 'ph-sun-horizon', grad: 'linear-gradient(135deg,#f3c969,#ff9f67,#ff6b6b)', href: 'https://www.instagram.com/ttacapital/' },
+      { name: 'Fabio Valentini', role: 'Pre-Dawn · PFM host · Founder of TTACapital &<br>The Trading Academy', pi: 'ph-sun-horizon', grad: 'linear-gradient(135deg,#f3c969,#ff9f67,#ff6b6b)', href: 'https://www.instagram.com/ttacapital/' },
       { name: 'Luna Trades', role: 'Early AM · PFM host', pi: 'ph-moon', grad: 'linear-gradient(135deg,#7c6fff,#b693ff,#ff9dc1)', href: 'https://www.instagram.com/luna_trades_/' },
       { name: 'Zach Arbucci', role: 'NY Session · PFM host · Zarbs Liquidity Lab', pi: 'ph-waves', grad: 'linear-gradient(135deg,#22d3ee,#6ee7f9,#7cc2ff)', href: 'https://www.instagram.com/iamzarb_/' },
       { name: 'TMade Alex', role: 'Lunchbox VWAP PFM host · TheGexLab partner', pi: 'ph-lightning', grad: 'linear-gradient(135deg,#ff9f67,#f3c969,#fde68a)', href: 'https://www.instagram.com/tmadealex/' },
       { name: 'Dave Butcher', role: 'Evening · MarketButcher', pi: 'ph-knife', grad: 'linear-gradient(135deg,#ff9dc1,#ff9f67,#ff6b6b)', href: 'https://www.instagram.com/market_butcher/' },
       { name: 'Trader Yush', role: 'TheGexLab co-creator', pi: 'ph-microscope', grad: 'linear-gradient(135deg,#34d399,#49d17d,#6ee7f9)', href: 'https://www.instagram.com/traderyush_/' },
-      { name: 'Craig Percoco', role: 'Inevitrade (IT)', pi: 'ph-brain', grad: 'linear-gradient(135deg,#60a5fa,#7cc2ff,#b693ff)', href: 'https://www.instagram.com/craig_percoco/' },
-      { name: 'Jesse Rogers · CasperSMC', role: 'SmartTradingBlueprint (STB)', pi: 'ph-book-open-text', grad: 'linear-gradient(135deg,#f3c969,#ff9f67,#fbbf24)', href: 'https://www.instagram.com/casper_smc/' },
+      { name: 'Craig Percoco', role: 'Inevitrade (IT) · Founder', pi: 'ph-brain', grad: 'linear-gradient(135deg,#60a5fa,#7cc2ff,#b693ff)', href: 'https://www.instagram.com/craig_percoco/' },
+      { name: 'Jesse Rogers · CasperSMC', role: 'SmartTradingBlueprint (STB) · Founder', pi: 'ph-book-open-text', grad: 'linear-gradient(135deg,#f3c969,#ff9f67,#fbbf24)', href: 'https://www.instagram.com/casper_smc/' },
       { name: 'Boian', role: 'SmartTradingBlueprint (STB) · Success Manager', pi: 'ph-headset', grad: 'linear-gradient(135deg,#2dd4bf,#5eead4,#a7f3d0)', platform: 'whatsapp' },
-      { name: 'Omar Hafez', role: 'Founder · ZeroToHero (ZTH)', pi: 'ph-target', grad: 'linear-gradient(135deg,#22c55e,#49d17d,#f3c969)', href: 'https://www.instagram.com/omarfhafez/' },
+      { name: 'Omar Hafez', role: 'ZeroToHero (ZTH) · Founder', pi: 'ph-target', grad: 'linear-gradient(135deg,#22c55e,#49d17d,#f3c969)', href: 'https://www.instagram.com/omarfhafez/' },
       { name: 'Dario Pirrone', role: 'ZeroToHero (ZTH) · Coach', pi: 'ph-compass', grad: 'linear-gradient(135deg,#60a5fa,#38bdf8,#6ee7f9)', platform: 'linkedin', href: 'https://www.linkedin.com/in/dario-pirrone-b9340199/' },
       { name: 'Chawkat Houri', role: 'ZeroToHero (ZTH) · Accountability Coach', pi: 'ph-alarm', grad: 'linear-gradient(135deg,#fbbf24,#f97316,#ff6b6b)', platform: 'linkedin', href: 'https://www.linkedin.com/in/chawkat-houri-6a384b96/' },
     ];
@@ -840,8 +906,8 @@
     // ═══════════════════════════════════════════════════════
     const mentorStories = [
       {
-        titleIcons: ['brain', 'flame'],
-        title: 'Inevitrade — The Deeper Story',
+        titleIcons: ['flame'],
+        title: 'Inevitrade',
         paragraphs: [
           { icon: 'currency-eth', text: "Inevitrade's coaching spans both crypto and traditional futures — the same core smart-money framework applies whether the instrument is SOL/ETH or ES/NQ, which is part of why it's been the longest-running relationship in this whole trading arc" },
           { icon: 'tree-structure', text: "Underneath the setups sits a full six-scenario framework spanning both trend-continuation and reversal conditions, filtered through a regime read — trending, weakening, or channeling — before any setup is even considered. Elliott Wave structure, Fibonacci confluence, and Fair Value Gap price-delivery analysis all feed into that read" },
@@ -850,8 +916,8 @@
         ],
       },
       {
-        titleIcons: ['target', 'campfire'],
-        title: 'ZeroToHero — The Deeper Story',
+        titleIcons: ['campfire'],
+        title: 'ZeroToHero',
         paragraphs: [
           { icon: 'stack-minus', text: "Every ZTH setup starts top-down: a 1-hour read for trend, bias, and key levels, then a 5-minute trigger for the actual entry — never the other way around" },
           { icon: 'crosshair', text: "Six named setups cover almost everything the tape can do — Break & Retest, Pivot Buy & Sell, Bounce, Rejection, the 1-2-3 continuation, and the Swing Failure Pattern (SFP) — each confirmed the same way: multiple touches strengthen a level, volume profile (high-volume nodes and low-volume gaps) adds confluence, and wick behavior tells you whether a level is holding or failing" },
@@ -860,8 +926,8 @@
         ],
       },
       {
-        titleIcons: ['book-open-text', 'fire'],
-        title: 'SmartTradingBlueprint — The Deeper Story',
+        titleIcons: ['fire'],
+        title: 'SmartTradingBlueprint',
         paragraphs: [
           { icon: 'head-circuit', text: 'STB isn\'t really a separate setup so much as the "why" underneath every other one — the ICT/SMC vocabulary is what actually explains why a ZTH level holds or an Inevitrade setup triggers in the first place' },
           { icon: 'map-pin', text: "Fair Value Gaps, Order Blocks, and liquidity sweeps explain where and why price reacts; Kill Zones (Asian, London, NY AM, NY PM) mark when institutional order flow is actually highest; Premium/Discount and the Optimal Trade Entry zone mark where within a range; Power of 3 — accumulation, manipulation, distribution — explains the fake move that happens before the real one" },
@@ -874,7 +940,7 @@
     function renderMentorStory() {
       const story = mentorStories[mentorStoryIndex];
       document.getElementById('mentorModalTitle').innerHTML =
-        story.titleIcons.map(i => `<i class="ph-duotone ph-${i}"></i>`).join(' ') + ' ' + story.title;
+        story.title + ' ' + story.titleIcons.map(i => `<i class="ph-duotone ph-${i}"></i>`).join(' ');
       document.getElementById('mentorModalBody').innerHTML =
         story.paragraphs.map(p => `<p><i class="ph-duotone ph-${p.icon}"></i> ${p.text}</p>`).join('');
       document.getElementById('mentorModalCounter').textContent = (mentorStoryIndex + 1) + ' / ' + mentorStories.length;
@@ -904,8 +970,13 @@
       if (!el || !btn) return;
       const scrollable = el.scrollHeight - el.clientHeight > 20;
       btn.style.visibility = scrollable ? 'visible' : 'hidden';
-      if (!scrollable) return;
+      if (!scrollable) { el.classList.remove('fade-top', 'fade-bottom'); return; }
       const atBottom = el.scrollHeight - el.scrollTop - el.clientHeight < 20;
+      const atTop = el.scrollTop < 20;
+      // Edge fade doubles as a scroll indicator — a soft cutoff on
+      // whichever side still has more content to see.
+      el.classList.toggle('fade-bottom', !atBottom);
+      el.classList.toggle('fade-top', !atTop);
       btn.dataset.dir = atBottom ? 'up' : 'down';
       btn.innerHTML = atBottom ? '<i class="ph-duotone ph-arrow-line-up"></i>' : '<i class="ph-duotone ph-arrow-line-down"></i>';
       btn.setAttribute('aria-label', atBottom ? 'Jump to top' : 'Jump to bottom');
@@ -939,6 +1010,7 @@
     const MODAL_SCROLL_MAP = {
       duckModal: 'duckModalScroll',
       mentorModal: 'mentorModalScroll',
+      mentorDigDeeperModal: 'mentorDigDeeperModalScroll',
       gexlabModal: 'gexlabModalScroll',
       mirrorBackstoryModal: 'mirrorBackstoryModalScroll',
     };

@@ -38,8 +38,8 @@
     @media (prefers-reduced-motion: reduce) {
       * { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
     }
-    @keyframes iconBreathe { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 transparent); } 50% { transform: scale(1.07); filter: drop-shadow(0 0 3px currentColor); } }
-    .ph-duotone { font-size: 1.7em; vertical-align: -.28em; display: inline-block; flex-shrink: 0; animation: iconBreathe 5s ease-in-out infinite; }
+    @keyframes iconGlow { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 transparent) hue-rotate(0deg); } 50% { transform: scale(1.14); filter: drop-shadow(0 0 5px currentColor) hue-rotate(20deg); } }
+    .ph-duotone { font-size: 1.7em; vertical-align: -.28em; display: inline-block; flex-shrink: 0; animation: iconGlow 5s ease-in-out infinite; }
     /* Vendor default duotone "ghost" layer is only 20% opacity -- nearly invisible in a
        light-on-dark palette. Bump it so the two-tone shape is actually perceptible. */
     .ph-duotone::before { opacity: .55 !important; }
@@ -76,6 +76,25 @@
     .nav-brand { font-size: .82rem; font-weight: 700; color: var(--blue); margin-right: .4rem; display: inline-flex; align-items: center; gap: .35rem; }
     .nav-tag { padding: .22rem .7rem; border: 1px solid var(--border); border-radius: 999px; font-size: .76rem; color: var(--muted); display: inline-flex; align-items: center; gap: .3rem; }
     .nav-tag:hover { border-color: var(--blue); color: var(--text); text-decoration: none; }
+    .nav-hamburger { display: none; }
+    .nav-links { display: contents; }
+    @media (max-width: 720px) {
+      .nav { position: relative; }
+      .nav-brand { flex: 1; margin-right: 0; }
+      .nav-hamburger {
+        display: inline-flex; align-items: center; justify-content: center;
+        background: none; border: 1px solid var(--border); border-radius: 8px;
+        width: 2.2rem; height: 2.2rem; color: var(--text); font-size: 1.2rem; cursor: pointer; flex-shrink: 0;
+      }
+      .nav-hamburger:hover { border-color: var(--gold); color: var(--gold); }
+      .nav-links {
+        display: none; position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; gap: .5rem; padding: .8rem 1.5rem 1.1rem;
+        background: var(--bg-alt); border-bottom: 1px solid var(--border); box-shadow: var(--shadow); z-index: 9;
+      }
+      .nav.nav-open .nav-links { display: flex; }
+      .nav-links .nav-tag { width: 100%; }
+    }
     .content { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
     .eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
     h1 { font-size: clamp(1.6rem, 3.6vw, 2.2rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: .6rem; }
@@ -111,6 +130,22 @@
     table { width: 100%; border-collapse: collapse; font-size: .8rem; }
     th { text-align: left; padding: .6rem .8rem; background: var(--surface-soft); color: var(--muted); text-transform: uppercase; font-size: .64rem; letter-spacing: .06em; border-bottom: 1px solid var(--border); }
     td { padding: .6rem .8rem; border-top: 1px solid var(--border); vertical-align: top; }
+    /* ── Below 720px, the 4-column table (one of those columns being a
+       long paragraph) forced every cell in a row to match that row's
+       tallest cell — the short Group/Leader/Followers cells ended up
+       mostly empty vertical space. Recompose each row as its own card
+       instead: each td becomes its own block, sized to its own content,
+       labeled via data-label since the header row is visually hidden. ── */
+    @media (max-width: 720px) {
+      .tbl-wrap { overflow-x: visible; }
+      .tbl-wrap table, .tbl-wrap tbody, .tbl-wrap tr, .tbl-wrap td { display: block; width: 100%; }
+      .tbl-wrap thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+      .tbl-wrap tr { margin-bottom: 1rem; border: 1px solid var(--border); border-radius: var(--radius-md); padding: .7rem .9rem; }
+      .tbl-wrap tr:last-child { margin-bottom: 0; }
+      .tbl-wrap td { padding: .4rem 0; border-top: none; }
+      .tbl-wrap td + td { border-top: 1px dashed var(--border); }
+      .tbl-wrap td::before { content: attr(data-label); display: block; font-size: .62rem; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--subtle); margin-bottom: .2rem; }
+    }
     tr:hover td { background: rgba(255,255,255,.02); }
     .acct-col { font-weight: 700; color: var(--text); white-space: nowrap; }
     .ref-tag { font-size: .68rem; color: var(--subtle); font-weight: 400; }
@@ -128,10 +163,10 @@
        shape/sizing as community.html's TheGexLab panel, so it gets real
        room for a video preview instead of squeezing into a one-line
        doc-card row. ── */
-    .media-split { display: grid; grid-template-columns: minmax(200px, 260px) 1fr; align-items: stretch; margin-top: .8rem; }
-    @media (max-width: 680px) { .media-split { grid-template-columns: 1fr; } }
+    .media-split { display: grid; grid-template-columns: minmax(280px, 440px) 1fr; align-items: stretch; margin-top: .8rem; }
+    @media (max-width: 780px) { .media-split { grid-template-columns: 1fr; } }
     .media-banner {
-      display: block; min-height: 200px; background-color: #0a0a0a;
+      display: block; min-height: 248px; background-color: #0a0a0a;
       background-size: cover; background-position: center; background-repeat: no-repeat;
       position: relative;
     }
@@ -147,11 +182,13 @@
     .media-info h3 { font-size: 1rem; font-weight: 800; margin-bottom: .5rem; display: flex; align-items: center; gap: .4rem; }
     .media-info p { font-size: .85rem; color: var(--muted); margin-bottom: .7rem; }
     .media-links { display: flex; gap: .6rem; flex-wrap: wrap; }
+    @keyframes pillBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
     .pill-link {
       display: inline-flex; align-items: center; gap: .35rem; padding: .38rem 1rem;
       border-radius: 999px; font-size: .78rem; font-weight: 700;
       border: 1px solid var(--border); color: var(--text); background: var(--surface-soft);
       transition: border-color .2s, background .2s, color .2s;
+      animation: pillBounce 2.2s ease-in-out infinite;
     }
     .pill-link:hover { border-color: var(--cyan); background: rgba(103,232,249,.12); color: var(--cyan); }
     .toggle-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
@@ -247,11 +284,14 @@
 
   <nav class="nav">
     <span class="nav-brand"><i class="ph-duotone ph-arrows-clockwise"></i> Copy-Trading Plan</span>
-    <a class="nav-tag" href="../index.html"><i class="ph-duotone ph-house"></i> Home</a>
-    <a class="nav-tag" href="../data/progression/resources.html"><i class="ph-duotone ph-book-open"></i> Resources</a>
-    <a class="nav-tag" href="../data/progression/gallery.html"><i class="ph-duotone ph-trophy"></i> Gallery</a>
-    <a class="nav-tag" href="community.html"><i class="ph-duotone ph-hand-heart"></i> Community</a>
-    <a class="nav-tag" href="prop-firm-rules.html"><i class="ph-duotone ph-airplane-tilt"></i> Pre-Flight Checklist</a>
+    <button type="button" class="nav-hamburger" onclick="document.querySelector('.nav').classList.toggle('nav-open')" aria-label="Menu"><i class="ph-duotone ph-list"></i></button>
+    <div class="nav-links">
+      <a class="nav-tag" href="../index.html"><i class="ph-duotone ph-house"></i> Home</a>
+      <a class="nav-tag" href="../data/progression/resources.html"><i class="ph-duotone ph-book-open"></i> Resources</a>
+      <a class="nav-tag" href="../data/progression/gallery.html"><i class="ph-duotone ph-trophy"></i> Gallery</a>
+      <a class="nav-tag" href="community.html"><i class="ph-duotone ph-hand-heart"></i> Community</a>
+      <a class="nav-tag" href="prop-firm-rules.html"><i class="ph-duotone ph-airplane-tilt"></i> Pre-Flight Checklist</a>
+    </div>
   </nav>
 
   <main class="content">
@@ -267,16 +307,16 @@
           <thead><tr><th>Group</th><th>Leader</th><th>Followers</th><th>Why this shape</th></tr></thead>
           <tbody>
             <tr>
-              <td class="acct-col">A — Strict News Discipline</td>
-              <td>LucidFlex25 <span class="ref-tag">(25K)</span></td>
-              <td>TPT <span class="ref-tag">(50K, 2x multiplier)</span></td>
-              <td>Originally TPT-led, since TPT's own PRO Account Rules #6 news-blackout obligation gated every trade before it reached either account. Flipped once a 1-micro-contract sizing habit (WASL logic on MNQ/MGC) was found to scale down to 0.5 of a contract at 0.5x — not a valid position. Leading from the smaller account and scaling up guarantees a whole number every time. The tradeoff: TPT's automatic gate is gone; that gap is covered by trading both leaders manually and independently.</td>
+              <td class="acct-col" data-label="Group">A — Strict News Discipline</td>
+              <td data-label="Leader">LucidFlex25 <span class="ref-tag">(25K)</span></td>
+              <td data-label="Followers">TPT <span class="ref-tag">(50K, 2x multiplier)</span></td>
+              <td data-label="Why this shape">Originally TPT-led, since TPT's own PRO Account Rules #6 news-blackout obligation gated every trade before it reached either account. Flipped once a 1-micro-contract sizing habit (WASL logic on MNQ/MGC) was found to scale down to 0.5 of a contract at 0.5x — not a valid position. Leading from the smaller account and scaling up guarantees a whole number every time. The tradeoff: TPT's automatic gate is gone; that gap is covered by trading both leaders manually and independently.</td>
             </tr>
             <tr>
-              <td class="acct-col">B — TopOne Derived</td>
-              <td>TOF197288 <span class="ref-tag">(TopOne Elite ACCESS, 50K)</span></td>
-              <td>TOF197292, Apex-11, Apex-12 <span class="ref-tag">(all 50K, 1x)</span></td>
-              <td>The original plan paired a 50K TopOne leader with a 25K Lucid follower — TopOneFutures' own copy-trading policy prohibits mismatched-size cross-firm copying, and TOF's own AI assistant confirmed that exact pairing is a violation. Rebuilt around matching sizes instead: same-size TOF-to-TOF (TOF's own explicitly-allowed case) and same-size TOF-to-Apex.</td>
+              <td class="acct-col" data-label="Group">B — TopOne Derived</td>
+              <td data-label="Leader">TOF197288 <span class="ref-tag">(TopOne Elite ACCESS, 50K)</span></td>
+              <td data-label="Followers">TOF197292, Apex-11, Apex-12 <span class="ref-tag">(all 50K, 1x)</span></td>
+              <td data-label="Why this shape">The original plan paired a 50K TopOne leader with a 25K Lucid follower — TopOneFutures' own copy-trading policy prohibits mismatched-size cross-firm copying, and TOF's own AI assistant confirmed that exact pairing is a violation. Rebuilt around matching sizes instead: same-size TOF-to-TOF (TOF's own explicitly-allowed case) and same-size TOF-to-Apex.</td>
             </tr>
           </tbody>
         </table>
