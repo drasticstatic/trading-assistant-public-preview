@@ -53,10 +53,10 @@
 
 ## 📊 Trade Log — May 14 – Sep 3, 2026 (technical record, CSV-derived)
 
-*Continuation of the Trade Log above, covering the trade-review backlog processed from the iCloud CSV staging folder (`_csv-2B-filed/`). Behavioral/psychology columns (R:R, Zella, Rating, Entry Filter grade, SL Respected, Stable) are marked pending — narrative journal data for this window hasn't been provided yet; Christopher will sanity-check once it is. Source: [`fortuna-exports/master_trade_ledger_2026-05-14_to_2026-09-01.csv`](../../fortuna-exports/master_trade_ledger_2026-05-14_to_2026-09-01.csv) — 255 trades reconstructed via FIFO fill-matching from Tradovate order exports + BTCC transaction history, cross-validated against confirmed TradeZella/certificate P&L figures (exact match on every account checked). Two commissions-only variances of ~$0.50–$1.40 remain versus platform-reported totals on two accounts — immaterial, not investigated further.*
+*Continuation of the Trade Log above, covering the trade-review backlog processed from the iCloud CSV staging folder (`_csv-2B-filed/`). Behavioral/psychology columns (R:R, Zella, Rating, Entry Filter grade, SL Respected, Stable) are marked pending — narrative journal data for this window hasn't been provided yet; Christopher will sanity-check once it is. Source: [`fortuna-exports/master_trade_ledger_2026-05-14_to_2026-09-01.csv`](../../fortuna-exports/master_trade_ledger_2026-05-14_to_2026-09-01.csv) — 277 trades reconstructed via FIFO fill-matching from Tradovate order exports + BTCC transaction history, cross-validated against confirmed TradeZella/certificate P&L figures (exact match on every account checked). Two commissions-only variances of ~$0.50–$1.40 remain versus platform-reported totals on two accounts — immaterial, not investigated further. The 22 rows added Sep 4-9, 2026 are the first live trading activity since TradeCopia went live Sep 3 — most are one leg of a multi-account mirrored decision; see each row's linked trade review for the full mirror-group breakdown.*
 
 <details>
-<summary>🔽 <strong>Show the full 255-row technical trade log</strong></summary>
+<summary>🔽 <strong>Show the full 277-row technical trade log</strong></summary>
 
 | # | Date | Instrument | Dir | Entry | Exit | P&L | R:R | Zella | Rating | Entry Filter | SL Respected | Stable |
 |---|------|-----------|-----|-------|------|-----|-----|-------|--------|--------------|--------------|--------|
@@ -318,6 +318,28 @@
 | 20260903_MGC-APEX12_001 | Sep 3 | MGC | Short | 4,524.80 | 4,520.80 | **+$80.00** | — | — | — | ⏳ Pending journal data | — | — |
 | 20260903_MYM-TPTPRO_001 | Sep 3 | MYM | Short | 53,737.00 | 53,727.00 | **+$40.00** | — | — | — | ⏳ Pending journal data | — | — |
 | 20260903_MYM-LFE_001 | Sep 3 | MYM | Short | 53,737.00 | 53,727.00 | **+$20.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260904_MNQ-LFE_001 | Sep 4 | MNQ | Short | 29,585.75 | 29,556.00 | **+$59.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260904_MNQ-TPTPRO781112132_002 | Sep 4 | MNQ | Short | 29,586.50 | 29,671.00 | **-$338.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260904_MES-TOF197288_003 | Sep 4 | MES | Short | 7,755.25 | 7,751.50 | **+$75.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260904_MES-TOF197292_004 | Sep 4 | MES | Short | 7,755.25 | 7,751.50 | **+$75.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260904_MES-APEX11_005 | Sep 4 | MES | Short | 7,755.25 | 7,751.50 | **+$75.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260904_MES-APEX12_006 | Sep 4 | MES | Short | 7,755.25 | 7,751.50 | **+$75.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260904_M2K-LFE_007 | Sep 4 | M2K | Short | 2,971.60 | 2,974.90 | **-$66.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260904_M2K-TPTPRO781112132_008 | Sep 4 | M2K | Short | 2,971.60 | 2,974.90 | **-$132.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260904_MGC-LFE_009 | Sep 4 | MGC | Long | 4,482.40 | 4,477.50 | **-$49.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260904_MGC-TPTPRO781112132_010 | Sep 4 | MGC | Long | 4,482.40 | 4,477.60 | **-$96.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260904_M2K-TPTPRO781112132_011 | Sep 4 | M2K | Long | 2,974.10 | 2,973.90 | **-$4.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260904_MGC-TPTPRO781112132_012 | Sep 4 | MGC | Short | 4,475.90 | 4,478.10 | **-$22.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260907_MGC-TOF197288_001 | Sep 7 | MGC | Long | 4,458.90 | 4,459.60 | **+$7.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260907_MGC-TOF197292_002 | Sep 7 | MGC | Long | 4,458.90 | 4,459.60 | **+$7.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260907_MGC-APEX11_003 | Sep 7 | MGC | Long | 4,458.90 | 4,459.60 | **+$7.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260907_MGC-APEX12_004 | Sep 7 | MGC | Long | 4,458.90 | 4,459.60 | **+$7.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260908_MGC-LFE_001 | Sep 8 | MGC | Long | 4,404.70 | 4,415.20 | **+$105.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260908_MGC-TPTPRO781112132_002 | Sep 8 | MGC | Long | 4,404.70 | 4,415.20 | **+$210.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260908_MGC-APEX11_003 | Sep 8 | MGC | Long | 4,404.60 | 4,405.50 | **+$9.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260908_MGC-APEX12_004 | Sep 8 | MGC | Long | 4,404.60 | 4,405.50 | **+$9.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260908_MNQ-APEX11_005 | Sep 8 | MNQ | Short | 29,520.25 | 29,524.75 | **-$9.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260908_MNQ-APEX12_006 | Sep 8 | MNQ | Short | 29,519.75 | 29,524.75 | **-$10.00** | — | — | — | ⏳ Pending journal data | — | — |
 
 </details>
 
@@ -822,6 +844,20 @@ Aug 31 – Sep 1  ████████████████░░  ✅ TA
                                Surfaced in the Sep 1 incremental CSV batch. 3 trades, net +$506.50 (MES +$12.50,
                                MNQ +$230, MNQ +$264) — same eval→funded handoff pattern as 861085464→311919544,
                                almost certainly TAKEPROFIT917806711's funded PRO account from its Aug 28 pass.
+
+Sep 4, 7 & 8   ██████████░░░░░░░░  ⚖️ First live TradeCopia-mirrored trading — net -$5.50 across 22 fills
+                               First live fills since the Sep 3 TradeCopia go-live (Sep 3 itself was pure
+                               infrastructure, 0 trades). 7 distinct trading decisions mirrored across 2-4
+                               linked accounts each (Group A: LucidFlex25 leads TPT PRO 781112132 · Group B:
+                               TOF197288 leads TOF197292/Apex-11/Apex-12) plus 2 solo TPT PRO scalps.
+                               Sep 4 net -$347.50 (MNQ short group split +$59.50 LFE / -$338 TPT — same
+                               signal, very different exit prices, see execution-divergence note on those
+                               reviews; MES short group +$75 x4; afternoon M2K/MGC cluster net -$369).
+                               Sep 7 net +$28 (MGC long x4, clean +$7 each). Sep 8 net +$314 (MGC long x4
+                               group +$333 combined, MNQ short pair -$19). 2 mirrored M2K longs (TPT 8 qty +
+                               Lucid 4 qty, opened Sep 7 00:35) and 2 mirrored MGC shorts (TPT 2 qty + Lucid
+                               1 qty, opened Sep 9 01:44) still open as of the Sep 9 import — see
+                               PENDING-TASKS.md.
 ```
 
 ---
@@ -1199,10 +1235,32 @@ Links to individual reviews:
 </details>
 
 <details>
-<summary>🔽 <strong>Sep 2026</strong> — 2 reviews</summary>
+<summary>🔽 <strong>Sep 2026</strong> — 24 reviews</summary>
 
 - [Sep 1 — MNQ TPTPRO781112132 #001](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260901_MNQ-TPTPRO781112132_001.md)
 - [Sep 1 — MNQ TPTPRO781112132 #002](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260901_MNQ-TPTPRO781112132_002.md)
+- [Sep 4 — MNQ LFE #001](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260904_MNQ-LFE_001.md)
+- [Sep 4 — MNQ TPTPRO781112132 #002](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260904_MNQ-TPTPRO781112132_002.md)
+- [Sep 4 — MES TOF197288 #003](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260904_MES-TOF197288_003.md)
+- [Sep 4 — MES TOF197292 #004](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260904_MES-TOF197292_004.md)
+- [Sep 4 — MES APEX11 #005](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260904_MES-APEX11_005.md)
+- [Sep 4 — MES APEX12 #006](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260904_MES-APEX12_006.md)
+- [Sep 4 — M2K LFE #007](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260904_M2K-LFE_007.md)
+- [Sep 4 — M2K TPTPRO781112132 #008](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260904_M2K-TPTPRO781112132_008.md)
+- [Sep 4 — MGC LFE #009](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260904_MGC-LFE_009.md)
+- [Sep 4 — MGC TPTPRO781112132 #010](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260904_MGC-TPTPRO781112132_010.md)
+- [Sep 4 — M2K TPTPRO781112132 #011](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260904_M2K-TPTPRO781112132_011.md)
+- [Sep 4 — MGC TPTPRO781112132 #012](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260904_MGC-TPTPRO781112132_012.md)
+- [Sep 7 — MGC TOF197288 #001](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260907_MGC-TOF197288_001.md)
+- [Sep 7 — MGC TOF197292 #002](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260907_MGC-TOF197292_002.md)
+- [Sep 7 — MGC APEX11 #003](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260907_MGC-APEX11_003.md)
+- [Sep 7 — MGC APEX12 #004](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260907_MGC-APEX12_004.md)
+- [Sep 8 — MGC LFE #001](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260908_MGC-LFE_001.md)
+- [Sep 8 — MGC TPTPRO781112132 #002](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260908_MGC-TPTPRO781112132_002.md)
+- [Sep 8 — MGC APEX11 #003](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260908_MGC-APEX11_003.md)
+- [Sep 8 — MGC APEX12 #004](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260908_MGC-APEX12_004.md)
+- [Sep 8 — MNQ APEX11 #005](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260908_MNQ-APEX11_005.md)
+- [Sep 8 — MNQ APEX12 #006](../../fortuna-exports/trade-reviews/2026/09-Sep/review_20260908_MNQ-APEX12_006.md)
 
 </details>
 
@@ -1216,5 +1274,5 @@ Links to individual reviews:
 ---
 
 *Produced with 🙏🏼 Fortuna — Wealth Warden | Claude Code CLI*
-*Pattern Tracker · Established Feb 25, 2026 · Updated Sep 4, 2026*
+*Pattern Tracker · Established Feb 25, 2026 · Updated Sep 9, 2026*
 *Updated after each session — append, do not overwrite historical entries*
