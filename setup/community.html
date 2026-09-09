@@ -41,19 +41,31 @@
     @media (prefers-reduced-motion: reduce) {
       * { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
     }
-    .ph-duotone { font-size: 1.7em; vertical-align: -.28em; display: inline-block; flex-shrink: 0; }
+    /* A slow, shared "breathing" pulse — the ambient background and every
+       static icon on the page move to the same quiet rhythm, so the page
+       reads as one calm living surface rather than scattered effects. */
+    @keyframes iconBreathe { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 transparent); } 50% { transform: scale(1.07); filter: drop-shadow(0 0 3px currentColor); } }
+    .ph-duotone { font-size: 1.7em; vertical-align: -.28em; display: inline-block; flex-shrink: 0; animation: iconBreathe 5s ease-in-out infinite; }
     /* Vendor default duotone "ghost" layer is only 20% opacity -- nearly invisible in a
        light-on-dark palette. Bump it so the two-tone shape is actually perceptible. */
     .ph-duotone::before { opacity: .55 !important; }
     h1 .ph-duotone { font-size: 1.15em; vertical-align: -.15em; }
-    /* ── Parallax ambient background — separate fixed layer from body so
-       content scrolls normally while the gradient glow drifts slower. ── */
+    /* ── Ambient background — fixed full-bleed layer, comfortably beyond
+       the viewport on all sides (inset -10vh/-10vw) so the breathing
+       animation below never exposes a bare edge. Previously drifted via
+       a scroll-linked JS transform, which on a long page pushed the
+       layer's translateY well past that buffer and left a hard seam at
+       the top once scrolled; a bounded CSS keyframe replaces it. ── */
     .bg-parallax {
       position: fixed; inset: -10vh -10vw; z-index: -1; pointer-events: none;
       background:
         radial-gradient(ellipse 900px 500px at 15% -10%, rgba(182,147,255,0.10), transparent 60%),
         radial-gradient(ellipse 900px 500px at 100% 10%, rgba(255,157,193,0.08), transparent 60%);
-      will-change: transform;
+      animation: bgBreathe 20s ease-in-out infinite;
+    }
+    @keyframes bgBreathe {
+      0%, 100% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(-1.5%, 1%, 0) scale(1.04); }
     }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -116,8 +128,15 @@
     .thanks-card h3 { font-size: .94rem; font-weight: 800; margin-bottom: .35rem; color: var(--text); display: flex; align-items: center; justify-content: center; gap: .4rem; }
     .thanks-card p { font-size: .82rem; color: var(--muted); margin-bottom: .5rem; }
     .thanks-card p:last-child { margin-bottom: 0; }
-    .thanks-card .review-link { display: inline-flex; align-items: center; gap: .3rem; font-size: .76rem; font-weight: 700; padding: .18rem .6rem; border-radius: 999px; background: rgba(73,209,125,.12); color: var(--green); border: 1px solid rgba(73,209,125,.24); margin: auto auto 0; }
+    .thanks-card .review-link { display: inline-flex; align-items: center; gap: .3rem; font-size: .76rem; font-weight: 700; padding: .18rem .6rem; border-radius: 999px; background: rgba(73,209,125,.12); color: var(--green); border: 1px solid rgba(73,209,125,.24); font-family: inherit; cursor: pointer; transition: border-color .2s, background .2s; }
     .thanks-card .flavor-tag { font-size: .72rem; color: var(--subtle); font-style: italic; }
+    /* Both pills sit on one row, pinned to the bottom of the card
+       regardless of copy length above, so all three Mentors cards line
+       up on the same y-axis (same trick as before, just on the wrapper
+       row now that there are two pills instead of one). */
+    .thanks-card-pills { display: flex; justify-content: center; flex-wrap: wrap; gap: .5rem; margin: auto auto 0; padding-top: .5rem; }
+    .thanks-card .deeper-pill { background: rgba(255,157,193,.1); color: var(--rose); border-color: rgba(255,157,193,.28); }
+    .thanks-card .deeper-pill:hover { border-color: var(--rose); background: rgba(255,157,193,.18); }
 
     .pfm-panel { display: block; text-decoration: none; color: inherit; transition: transform .35s var(--spring), border-color .2s; }
     .pfm-panel:hover { transform: translateY(-3px); border-color: rgba(103,232,249,.4); }
@@ -127,16 +146,27 @@
     .host-chip { display: inline-flex; align-items: center; padding: .16rem .55rem; border-radius: 999px; font-size: .72rem; font-weight: 700; background: rgba(255,157,193,.12); color: var(--rose); border: 1px solid rgba(255,157,193,.24); margin: .1rem .2rem .1rem 0; }
     .partner-code { display: inline-flex; align-items: center; gap: .3rem; padding: .16rem .6rem; border-radius: 999px; font-size: .76rem; font-weight: 800; background: rgba(243,201,105,.12); color: var(--gold); border: 1px solid rgba(243,201,105,.28); font-family: ui-monospace, monospace; }
     #thegexlab + .sec-sub + .glass { --accent: var(--cyan); }
-    /* ── TheGexLab split panel — raster banner left, info right (stacks
-       on mobile), instead of a single text-only card. ── */
-    .gexlab-split { display: grid; grid-template-columns: minmax(220px, 300px) 1fr; align-items: stretch; }
-    @media (max-width: 680px) { .gexlab-split { grid-template-columns: 1fr; } }
+    /* ── TheGexLab three-way split — raster banner, center info
+       (center-justified), and a narrow CTA partition on the right for
+       the deep-dive pill — stacks to one column on mobile. ── */
+    .gexlab-split { display: grid; grid-template-columns: minmax(200px, 260px) 1fr auto; align-items: stretch; }
+    @media (max-width: 780px) { .gexlab-split { grid-template-columns: 1fr; } }
     .gexlab-banner {
       display: block; min-height: 200px; background-color: #08131a;
       background-size: cover; background-position: center; background-repeat: no-repeat;
     }
-    .gexlab-info { padding: 1.2rem 1.3rem; }
+    .gexlab-info { padding: 1.2rem 1.3rem; text-align: center; }
+    .gexlab-info h3 { justify-content: center; }
     .gexlab-partner { border-top: 1px dashed var(--border); padding-top: .7rem; margin-top: .8rem; }
+    .gexlab-cta {
+      display: flex; align-items: center; justify-content: center;
+      padding: 1rem 1.2rem; border-left: 1px dashed var(--border);
+    }
+    @media (max-width: 780px) { .gexlab-cta { border-left: none; border-top: 1px dashed var(--border); } }
+    .gexlab-cta .story-trigger {
+      flex-direction: column; height: auto; line-height: 1.3; text-align: center;
+      padding: .9rem 1.15rem; gap: .2rem; font-size: .82rem; white-space: normal;
+    }
 
     /* ── SOCIAL PREVIEW CARDS (Shoutout section) — an unfurled-link feel:
        wide banner, then a title/domain footer, like the preview Discord
@@ -197,34 +227,61 @@
       align-items: center; justify-content: center; padding: 1.5rem;
     }
     .modal-overlay.open { display: flex; }
+    /* ── Every modal is a flex column: a frozen close button (absolute),
+       an optional frozen header, a scrollable middle (.modal-scroll),
+       and a frozen footer (.modal-footer-nav) carrying a jump-to-top/
+       bottom button that only appears when the content actually
+       overflows. Applies uniformly to every content modal on the page,
+       not just the mentor lightbox. ── */
     .modal-box {
-      max-width: 560px; width: 100%; max-height: 88vh; overflow-y: auto;
+      max-width: 560px; width: 100%; max-height: 88vh; overflow: hidden;
+      display: flex; flex-direction: column;
       background: var(--bg-alt); border: 1px solid var(--border-strong); border-radius: var(--radius-lg);
       padding: 1.6rem 1.6rem 1.8rem; position: relative; box-shadow: var(--shadow);
       transform: scale(.96); opacity: 0; transition: transform .3s var(--spring), opacity .25s;
     }
     .modal-overlay.open .modal-box { transform: scale(1); opacity: 1; }
+    .modal-scroll { flex: 1 1 auto; overflow-y: auto; min-height: 0; }
     .modal-title { font-size: 1.05rem; font-weight: 800; margin-bottom: 1rem; padding-right: 2.5rem; display: flex; align-items: center; gap: .4rem; }
     .modal-box p { font-size: .86rem; color: var(--muted); line-height: 1.75; }
     .modal-box p + p { margin-top: 1.1rem; }
     .modal-box p > strong:first-child { color: var(--text); }
     .modal-close {
-      position: absolute; top: 1.1rem; right: 1.2rem;
+      position: absolute; top: 1.1rem; right: 1.2rem; z-index: 1;
       background: none; border: 1px solid var(--border); border-radius: 999px;
       width: 2.1rem; height: 2.1rem; color: var(--text); font-size: 1rem; cursor: pointer;
       transition: border-color .2s, color .2s;
     }
     .modal-close:hover { border-color: var(--gold); color: var(--gold); }
-    /* ── Shared lightbox-style nav for the three mentor "Deeper Story"
-       modals — one modal, prev/next moves through the chronological
-       IT -> ZTH -> STB story regardless of which pill opened it. ── */
-    .modal-nav-row { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1.3rem; padding-top: 1rem; border-top: 1px solid var(--border); }
-    .modal-nav-btn { background: none; border: 1px solid var(--border); border-radius: 999px; width: 2.2rem; height: 2.2rem; color: var(--text); font-size: 1.05rem; cursor: pointer; transition: border-color .2s, color .2s; }
+    .modal-footer-nav { flex-shrink: 0; display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+    .modal-nav-btn { background: none; border: 1px solid var(--border); border-radius: 999px; width: 2.2rem; height: 2.2rem; flex-shrink: 0; color: var(--text); font-size: 1.05rem; cursor: pointer; transition: border-color .2s, color .2s; }
     .modal-nav-btn:hover { border-color: var(--gold); color: var(--gold); }
     .modal-nav-counter { font-size: .72rem; color: var(--subtle); min-width: 4.5rem; text-align: center; }
+    /* ── The mentor "Deeper Story" lightbox specifically: a fixed (not
+       auto) height so page 1/2/3 render at the identical total modal
+       height — otherwise a shorter story's box shrinks to fit and the
+       footer controls visibly jump position between stories. A frozen
+       header (center-justified, shared across all 3 stories) sits above
+       the per-story scroll area. ── */
+    .modal-box.mentor-box { height: min(600px, 80vh); }
+    .mentor-modal-header {
+      flex-shrink: 0; text-align: center; padding-right: 1.5rem; padding-bottom: 1rem; margin-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .mentor-modal-header-icons { display: flex; align-items: center; justify-content: center; gap: .6rem; font-size: 1.3rem; color: var(--gold); margin-bottom: .6rem; }
+    .mentor-modal-header-label { font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--subtle); }
+    .mentor-modal-header p { font-size: .78rem; color: var(--muted); line-height: 1.7; margin: 0; text-align: center; }
     /* ── Gentle idle bounce on every pill button on the page — calls
        attention that these are clickable without being frantic about it. ── */
     @keyframes pillBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+    /* Makes every inch of a card navigate somewhere, without turning the
+       whole card into an <a> (which would make any pill/button inside it
+       invalid HTML) — see the clickCard() JS delegation helper below. */
+    .click-card { cursor: pointer; }
+    /* PFM's/TheGexLab's/TradeCopia's own hover-lift already targets a
+       parent .preview-card/.pfm-panel/.tool-card class; .click-card just
+       adds the pointer cursor on top, no separate hover rule needed. ── */
+    .story-trigger.cyan-hover:hover, .story-trigger-blue.cyan-hover:hover { border-color: var(--cyan); background: rgba(103,232,249,.18); }
     .story-trigger {
       display: inline-flex; align-items: center; gap: .3rem; margin-top: .3rem;
       padding: .18rem .6rem; border-radius: 999px; font-size: .74rem; font-weight: 700; line-height: 1.4;
@@ -339,8 +396,14 @@
     /* ── TradeCopia (featured, ~4/5 width) sits inline with Tradesyncer
        (alt, ~1/5 width) so both cards' pill buttons stay on the same
        row pair without stacking the whole section vertically. ── */
-    .tools-row { display: grid; grid-template-columns: minmax(0,4fr) minmax(200px,1fr); gap: 1.4rem; align-items: start; }
+    .tools-row { display: grid; grid-template-columns: minmax(0,4fr) minmax(200px,1fr); gap: 1.4rem; align-items: stretch; }
     @media (max-width: 680px) { .tools-row { grid-template-columns: 1fr; } }
+    /* Both columns stretch to the row's tallest card (Tradesyncer's
+       card now carries its Follower Protection pill + honesty note
+       inside it, matching TradeCopia's full bento height). */
+    .tools-row .tool-card-wrap { height: 100%; }
+    .tools-row .tool-card-wrap > .tool-card { flex: 1; display: flex; flex-direction: column; }
+    .tool-featured-links { display: flex; align-items: center; justify-content: center; gap: .6rem; flex-wrap: wrap; margin-top: 1rem; }
     .tool-card { display: block; text-decoration: none; color: inherit; padding: 1.1rem 1.2rem; text-align: center; transition: transform .35s var(--spring), border-color .2s; }
     .tool-card:hover { transform: translateY(-3px); border-color: rgba(124,194,255,.4); }
     .tool-card h4 { font-size: .92rem; font-weight: 800; margin-bottom: .35rem; display: flex; align-items: center; justify-content: center; gap: .4rem; }
@@ -440,36 +503,36 @@
     <p class="sec-sub">Three coaching programs, each bringing something different — see <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/data/progression/pattern_tracker.md" target="_blank" rel="noreferrer">pattern_tracker.md</a>'s "Trading Style" note for how these actually blend day to day</p>
     <div class="thanks-grid">
       <div class="tool-card-wrap">
-        <a class="thanks-card glass" href="https://www.trustpilot.com/review/inevitrade.com" target="_blank" rel="noreferrer">
+        <div class="thanks-card glass click-card" data-href="https://www.trustpilot.com/review/inevitrade.com">
           <h3><i class="ph-duotone ph-brain"></i> Inevitrade (IT) <i class="ph-duotone ph-flame"></i></h3>
           <p class="flavor-tag">Smart Money Concepts & Institutional Order Flow</p>
           <p>Smart-money concepts across both crypto and traditional futures — a purpose-built indicator suite, extensive backtesting, and strategy bots</p>
-          <span class="review-link"><i class="ph-duotone ph-star"></i> Trustpilot ↗</span>
-        </a>
-        <div style="text-align:center; margin-top:.7rem;">
-          <button type="button" class="story-trigger" onclick="openMentorStory(0)"><i class="ph-duotone ph-shovel"></i> Deeper Story ↗</button>
+          <div class="thanks-card-pills">
+            <a class="review-link" href="https://www.trustpilot.com/review/inevitrade.com" target="_blank" rel="noreferrer"><i class="ph-duotone ph-star"></i> Trustpilot ↗</a>
+            <button type="button" class="review-link deeper-pill" onclick="openMentorStory(0)"><i class="ph-duotone ph-shovel"></i> Deeper Story ↗</button>
+          </div>
         </div>
       </div>
       <div class="tool-card-wrap">
-        <a class="thanks-card glass" href="https://www.trustpilot.com/review/zerotohero.trade" target="_blank" rel="noreferrer">
+        <div class="thanks-card glass click-card" data-href="https://www.trustpilot.com/review/zerotohero.trade">
           <h3><i class="ph-duotone ph-target"></i> ZeroToHero (ZTH) <i class="ph-duotone ph-campfire"></i></h3>
           <p class="flavor-tag">High-probability Setups & Consistent Execution</p>
           <p>A six-setup, top-down framework — 1-hour bias, 5-minute trigger — built on the discipline behind "securing base hits"</p>
-          <span class="review-link"><i class="ph-duotone ph-star"></i> Trustpilot ↗</span>
-        </a>
-        <div style="text-align:center; margin-top:.7rem;">
-          <button type="button" class="story-trigger" onclick="openMentorStory(1)"><i class="ph-duotone ph-blueprint"></i> Deeper Story ↗</button>
+          <div class="thanks-card-pills">
+            <a class="review-link" href="https://www.trustpilot.com/review/zerotohero.trade" target="_blank" rel="noreferrer"><i class="ph-duotone ph-star"></i> Trustpilot ↗</a>
+            <button type="button" class="review-link deeper-pill" onclick="openMentorStory(1)"><i class="ph-duotone ph-blueprint"></i> Deeper Story ↗</button>
+          </div>
         </div>
       </div>
       <div class="tool-card-wrap">
-        <a class="thanks-card glass" href="https://www.trustpilot.com/review/smarttradingblueprint.com" target="_blank" rel="noreferrer">
-          <h3><i class="ph-duotone ph-castle-turret"></i> <i class="ph-duotone ph-book-open-text"></i> SmartTradingBlueprint (STB) <i class="ph-duotone ph-hammer"></i></h3>
+        <div class="thanks-card glass click-card" data-href="https://www.trustpilot.com/review/smarttradingblueprint.com">
+          <h3><i class="ph-duotone ph-book-open-text"></i> SmartTradingBlueprint (STB) <i class="ph-duotone ph-fire"></i></h3>
           <p class="flavor-tag">Profundity & Sophisticated Market Insight</p>
           <p>The ICT/SMC vocabulary underneath everything else here, plus four stand-alone setups — FCR, Opening Range Break, Silver Bullet, Turtle Soup</p>
-          <span class="review-link"><i class="ph-duotone ph-star"></i> Trustpilot ↗</span>
-        </a>
-        <div style="text-align:center; margin-top:.7rem;">
-          <button type="button" class="story-trigger" onclick="openMentorStory(2)"><i class="ph-duotone ph-bulldozer"></i> Deeper Story ↗</button>
+          <div class="thanks-card-pills">
+            <a class="review-link" href="https://www.trustpilot.com/review/smarttradingblueprint.com" target="_blank" rel="noreferrer"><i class="ph-duotone ph-star"></i> Trustpilot ↗</a>
+            <button type="button" class="review-link deeper-pill" onclick="openMentorStory(2)"><i class="ph-duotone ph-bulldozer"></i> Deeper Story ↗</button>
+          </div>
         </div>
       </div>
     </div>
@@ -484,7 +547,7 @@
     <div id="pfm" class="sec-label"><i class="ph-duotone ph-television"></i> Shoutout</div>
     <p class="sec-sub">PropFirmMatchTV's live-stream energy, MarketButcher's after-hours breakdowns — two different formats, the same fun-over-fear spirit <button type="button" class="story-trigger" onclick="openModal('duckModal')" style="margin-left:.4rem;"><i class="ph-duotone ph-ticket"></i> The Duck Race Story ↗</button></p>
     <div class="preview-grid">
-      <div class="preview-card glass">
+      <div class="preview-card glass click-card" data-href="https://www.youtube.com/@propfirmmatch">
         <a class="preview-banner youtube" href="https://www.youtube.com/@propfirmmatch" target="_blank" rel="noreferrer" style="background-color:#1a1230;background-image:url('https://yt3.googleusercontent.com/C7qZKkPiURZpfelvBU-nCAr42vMELcKDwEnonNH4N4O0gFLVS6dt-82pBdmCuDzjeabdrIcx_eM=s900-c-k-c0x00ffffff-no-rj');background-size:cover;background-repeat:no-repeat;background-position:center;">
           <p class="banner-caption">A live-stream community built around prop-firm challenges, giveaways, and genuinely fun energy around a grind that can otherwise get heavy</p>
           <div class="yt-play"><i class="ph-duotone ph-play"></i></div>
@@ -506,7 +569,7 @@
           </div>
         </div>
       </div>
-      <div class="preview-card glass">
+      <div class="preview-card glass click-card" data-href="https://www.youtube.com/@MarketButcher">
         <a class="preview-banner youtube" href="https://www.youtube.com/@MarketButcher" target="_blank" rel="noreferrer" style="background-color:#1a0505;background-image:url('https://yt3.googleusercontent.com/NzTyeFW5UcEDLlj3WSzji5yBb5tySka510a44aiu_O5_as92jDZDYk8Uva_No0FFp0F1WaL2SQ=s900-c-k-c0x00ffffff-no-rj');background-size:cover;background-repeat:no-repeat;background-position:center;">
           <div class="yt-play"><i class="ph-duotone ph-play"></i></div>
         </a>
@@ -524,13 +587,15 @@
 
     <div id="thegexlab" class="sec-label"><i class="ph-duotone ph-flask"></i> TheGexLab</div>
     <p class="sec-sub">TMade Alex partnered with Trader Yush to build TheGexLab - <em>not a footnote under PFM above</em> — its own thank-you, for a different kind of tool entirely</p>
-    <div class="pfm-panel glass gexlab-split">
+    <div class="pfm-panel glass gexlab-split click-card" data-href="https://www.thegexlab.com/tmade">
       <a class="gexlab-banner" href="https://www.thegexlab.com/tmade" target="_blank" rel="noreferrer" style="background-image:url('https://www.thegexlab.com/app/gexlab-shot.jpg');" aria-label="TheGexLab app preview"></a>
       <div class="gexlab-info">
-        <a href="https://www.thegexlab.com/tmade" target="_blank" rel="noreferrer" style="text-decoration:none; color:inherit;"><h3><i class="ph-duotone ph-chart-bar-horizontal"></i> TMade × TheGexLab <i class="ph-duotone ph-gauge"></i></h3></a>
+        <h3><i class="ph-duotone ph-chart-bar-horizontal"></i> TMade × TheGexLab <i class="ph-duotone ph-gauge"></i></h3>
         <p>Real-time dealer positioning (put/call walls, zero gamma, and the regime read that says whether the market's pinned or primed to run) laid directly onto the chart.</p>
-        <button type="button" class="story-trigger" onclick="openModal('gexlabModal')"><i class="ph-duotone ph-rocket-launch"></i> The GEX Deep Dive ↗</button>
         <p class="gexlab-partner"><i class="ph-duotone ph-tag"></i> Partner access: thegexlab.com/tmade <span class="partner-code"> <i class="ph-duotone ph-detective"></i> code: TMADE</span> for <i class="ph-duotone ph-number-two"></i><i class="ph-duotone ph-number-zero"></i><i class="ph-duotone ph-seal-percent"></i> off</p>
+      </div>
+      <div class="gexlab-cta">
+        <button type="button" class="story-trigger cyan-hover" onclick="openModal('gexlabModal')"><i class="ph-duotone ph-rocket-launch"></i> The<br>GEX<br>Deep<br>Dive<br>↗</button>
       </div>
     </div>
 
@@ -538,7 +603,7 @@
     <p class="sec-sub">Cross-platform, prop-firm compliant, risk-aware, multi-broker support handling per-follower quantity multipliers — replacing the manual multi-device mirroring method</p>
     <div class="tools-row">
       <div class="tool-card-wrap">
-        <a id="tradecopia" class="tool-card featured glass" href="https://tradecopia.com" target="_blank" rel="noreferrer">
+        <div id="tradecopia" class="tool-card featured glass click-card" data-href="https://tradecopia.com">
           <div class="tool-featured-head">
             <h4><i class="ph-duotone ph-cloud-check"></i> TradeCopia</h4>
             <div class="tool-badge-slot">
@@ -553,23 +618,23 @@
           </ul>
           <p class="tool-honesty-note"><i class="ph-duotone ph-waveform"></i> Running on TradeCopia's Pro+Lite tier, not its local low-latency tier — the local-environment instability covered in the backstory above rules that one out, even though it's a feature a lot of people genuinely rely on</p>
           <p class="tool-honesty-note"><i class="ph-duotone ph-spinner-gap"></i> Known edge gaps: live P&L doesn't always register outside the instant a position opens or closes and even though the pause/reconnect sounds fire in the background — every trade so far has still executed exactly as configured regardless. Pro+ might smooth that over; just not an affordable upgrade yet, and the local tier still isn't a fit for laptops that fall to sleep mid-session or local internet and power outages or computer crashes under heavy loads.</p>
-          <span class="ext-link-row"><i class="ph-duotone ph-link"></i> tradecopia.com ↗</span>
-        </a>
-        <div style="text-align:center; margin-top:1rem;">
-          <button type="button" class="story-trigger" onclick="openModal('mirrorBackstoryModal')" style="font-size:.86rem; padding:.42rem 1.15rem;"><i class="ph-duotone ph-clock-counter-clockwise"></i> How We Got Here ↗</button>
-          <a class="story-trigger" href="copy-trading.html" style="font-size:.86rem; padding:.42rem 1.15rem; margin-left:.5rem;"><i class="ph-duotone ph-strategy"></i> View Full Copy-Trading Plan ↗</a>
+          <div class="tool-featured-links">
+            <span class="ext-link-row"><i class="ph-duotone ph-link"></i> tradecopia.com ↗</span>
+            <button type="button" class="story-trigger cyan-hover" onclick="openModal('mirrorBackstoryModal')" style="font-size:.86rem; padding:.42rem 1.15rem;"><i class="ph-duotone ph-clock-counter-clockwise"></i> How We Got Here ↗</button>
+            <a class="story-trigger" href="copy-trading.html" target="_blank" rel="noreferrer" style="font-size:.86rem; padding:.42rem 1.15rem;"><i class="ph-duotone ph-strategy"></i> View Full Copy-Trading Plan ↗</a>
+          </div>
         </div>
       </div>
       <div class="tool-card-wrap">
-        <a id="tradesyncer" class="tool-card alt glass" href="https://www.tradesyncer.com" target="_blank" rel="noreferrer">
+        <div id="tradesyncer" class="tool-card alt glass click-card" data-href="https://www.tradesyncer.com">
           <h4><i class="ph-duotone ph-arrows-clockwise"></i> Tradesyncer <span class="tool-tag-alt"><i class="ph-duotone ph-plugs-connected"></i> Another option <i class="ph-duotone ph-flow-arrow"></i></span></h4>
           <p>Sub-100ms sync speed, cloud-based, hedge prevention, position sync run through its named <br>— <strong>Follower Protection</strong> —<br> feature control similar to how TradeCopia solves reconciliation and auto-flattening. No VPS or local software required.</p>
           <span class="ext-link-row"><i class="ph-duotone ph-link"></i> tradesyncer.com ↗</span>
-        </a>
-        <div style="text-align:center; margin-top:.9rem;">
-          <a class="story-trigger-blue" href="https://help.tradesyncer.com/en/articles/10410714-how-to-use-follower-protection" target="_blank" rel="noreferrer" style="font-size:.82rem; padding:.4rem 1.1rem;"><i class="ph-duotone ph-shield-plus"></i> Follower Protection ↗</a>
+          <div style="text-align:center; margin-top:.9rem;">
+            <a class="story-trigger-blue" href="https://help.tradesyncer.com/en/articles/10410714-how-to-use-follower-protection" target="_blank" rel="noreferrer" style="font-size:.82rem; padding:.4rem 1.1rem;"><i class="ph-duotone ph-shield-plus"></i> Follower Protection ↗</a>
+          </div>
+          <p style="font-size:.72rem; color:var(--subtle); text-align:center; margin-top:.6rem;">Not personally run yet — worth knowing about, while TradeCopia is the one actually battle-tested in production right now</p>
         </div>
-        <p style="font-size:.72rem; color:var(--subtle); text-align:center; margin-top:.6rem;">Not personally run yet — worth knowing about, while TradeCopia is the one actually battle-tested in production right now</p>
       </div>
     </div>
 
@@ -602,23 +667,35 @@
   <div class="modal-overlay" id="duckModal" onclick="if(event.target===this)closeModal('duckModal')">
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal('duckModal')">✕</button>
-      <div class="modal-title"><i class="ph-duotone ph-bird"></i> The Duck Race Story</div>
-      <p><i class="ph-duotone ph-trophy"></i> A free Lucid futures account was won here via an on-stream duck race — first prize surfaced through community, not purchased. PropFirmMatchTV runs live-stream giveaways with a Discord + access-code flow, and this particular race is how Lucid ended up on the roster at all: a redemption code good toward a 25K account, style already decided in the account-structure plan above (25K follows, doesn't lead — see the <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-account-types-comparison.md" target="_blank" rel="noreferrer">comparison doc</a> for the style analysis behind it)</p>
-      <p><i class="ph-duotone ph-hands-praying"></i> Why it landed harder than "free 25K account": by July 20, a Lucid account had already been created specifically to dodge the 30-day eval-subscription clock TPT was running — this was around the time Apex Legacy accounts stopped being purchasable outright. Even so, a Lucid eval itself was never actually bought — TopOne's BOGO deal and TPT's 50AND3 offer had already covered enough ground. In a moment of prayer, weighing whether to even enter the giveaway at all while already juggling three funded accounts and two Apex renewals, the honest answer was: enough is enough for now — and that was said out loud, gratefully, as a letting go, not a complaint</p>
-      <p><i class="ph-duotone ph-smiley-blank"></i> Then the name got called. During Alex's hosting slot, using the code "tmade" — and hearing it live was genuinely a "wait, seriously?" moment, followed by tears. Not because of the account's dollar value, but because of how the whole journey had been unfolding up to that point. The gratitude here runs deeper than the outcome itself — it's encouragement, hope, and a real opportunity to level up and actually learn TradeCopia, scaling, and Lucid properly, rather than something owed or expected</p>
-      <p><i class="ph-duotone ph-share-network"></i> Dave/MarketButcher and no shortage of other YouTube livestreamers in this space are affiliates too, running their own versions of these fun raffles and giveaway-style engagement while still mentoring — this duck race is one example of a much broader, genuinely fun pattern in this corner of YouTube</p>
+      <div class="modal-scroll" id="duckModalScroll">
+        <div class="modal-title"><i class="ph-duotone ph-bird"></i> The Duck Race Story</div>
+        <p><i class="ph-duotone ph-trophy"></i> A free Lucid futures account was won here via an on-stream duck race — first prize surfaced through community, not purchased. PropFirmMatchTV runs live-stream giveaways with a Discord + access-code flow, and this particular race is how Lucid ended up on the roster at all: a redemption code good toward a 25K account, style already decided in the account-structure plan above (25K follows, doesn't lead — see the <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/Lucid/lucid-account-types-comparison.md" target="_blank" rel="noreferrer">comparison doc</a> for the style analysis behind it)</p>
+        <p><i class="ph-duotone ph-hands-praying"></i> Why it landed harder than "free 25K account": by July 20, a Lucid account had already been created specifically to dodge the 30-day eval-subscription clock TPT was running — this was around the time Apex Legacy accounts stopped being purchasable outright. Even so, a Lucid eval itself was never actually bought — TopOne's BOGO deal and TPT's 50AND3 offer had already covered enough ground. In a moment of prayer, weighing whether to even enter the giveaway at all while already juggling three funded accounts and two Apex renewals, the honest answer was: enough is enough for now — and that was said out loud, gratefully, as a letting go, not a complaint</p>
+        <p><i class="ph-duotone ph-smiley-blank"></i> Then the name got called. During Alex's hosting slot, using the code "tmade" — and hearing it live was genuinely a "wait, seriously?" moment, followed by tears. Not because of the account's dollar value, but because of how the whole journey had been unfolding up to that point. The gratitude here runs deeper than the outcome itself — it's encouragement, hope, and a real opportunity to level up and actually learn TradeCopia, scaling, and Lucid properly, rather than something owed or expected</p>
+        <p><i class="ph-duotone ph-share-network"></i> Dave/MarketButcher and no shortage of other YouTube livestreamers in this space are affiliates too, running their own versions of these fun raffles and giveaway-style engagement while still mentoring — this duck race is one example of a much broader, genuinely fun pattern in this corner of YouTube</p>
+      </div>
+      <div class="modal-footer-nav">
+        <button type="button" class="modal-nav-btn" id="duckModalJumpBtn" data-dir="down" onclick="jumpModalScroll('duckModalScroll','duckModalJumpBtn')" aria-label="Jump"><i class="ph-duotone ph-arrow-line-down"></i></button>
+      </div>
     </div>
   </div>
 
   <div class="modal-overlay" id="mentorModal" onclick="if(event.target===this)closeModal('mentorModal')">
-    <div class="modal-box">
+    <div class="modal-box mentor-box">
       <button class="modal-close" onclick="closeModal('mentorModal')">✕</button>
-      <div class="modal-title" id="mentorModalTitle"></div>
-      <div id="mentorModalBody"></div>
-      <div class="modal-nav-row">
+      <div class="mentor-modal-header">
+        <div class="mentor-modal-header-icons"><i class="ph-duotone ph-hammer"></i> <span class="mentor-modal-header-label">3 mentorships, many phases</span> <i class="ph-duotone ph-castle-turret"></i></div>
+        <p>After a humbling experience on BTCC and the reconnaissance that followed, <strong>Inevitrade</strong> is where the real recovery and strategy digging started — and where continued rigor still lives. <strong>ZeroToHero</strong> showed up next with 1-on-1 coaching and the actual blueprint for turning this into something professional — right as Fortuna spawned to help manage the data and navigate the unknown. <strong>SmartTradingBlueprint</strong> arrived right behind it and bulldozed the whole landscape with a refreshed outlook, one trade at a time through the feedback loop. Inevitrade's Inner Circle bootcamp and auditing then fueled the trifecta for the long haul — and although tuition's still owed and some connections are paused for now, their impact remains, and Fortuna's on a mission to help give that back. WAGMI</p>
+      </div>
+      <div class="modal-scroll" id="mentorModalScroll">
+        <div class="modal-title" id="mentorModalTitle"></div>
+        <div id="mentorModalBody"></div>
+      </div>
+      <div class="modal-footer-nav">
         <button type="button" class="modal-nav-btn" onclick="mentorStoryNav(-1)" aria-label="Previous mentor">‹</button>
         <span class="modal-nav-counter" id="mentorModalCounter"></span>
         <button type="button" class="modal-nav-btn" onclick="mentorStoryNav(1)" aria-label="Next mentor">›</button>
+        <button type="button" class="modal-nav-btn" id="mentorModalJumpBtn" data-dir="down" onclick="jumpModalScroll('mentorModalScroll','mentorModalJumpBtn')" aria-label="Jump"><i class="ph-duotone ph-arrow-line-down"></i></button>
       </div>
     </div>
   </div>
@@ -626,21 +703,31 @@
   <div class="modal-overlay" id="gexlabModal" onclick="if(event.target===this)closeModal('gexlabModal')">
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal('gexlabModal')">✕</button>
-      <div class="modal-title"><i class="ph-duotone ph-chart-bar-horizontal"></i> The GEX Deep Dive <i class="ph-duotone ph-gauge"></i></div>
-      <p><i class="ph-duotone ph-moon-stars"></i> Their Asia-session read is nicknamed "night-vision" — which lands close to home, since our own ETH-derived ZTH levels in the <a href="https://www.tradingview.com/script/zgY5elbq-Auto-Levels-v2-23/" target="_blank" rel="noreferrer">auto-levels indicator</a> (free reference guide: <a href="https://drasticstatic.github.io/trading-assistant-public-preview/setup/auto-levels.pine_indicator-guide.html" target="_blank" rel="noreferrer">auto-levels.pine indicator guide</a>) render green vs. cyan for exactly that reason. Years of building this system, and it's still finding new confluence to lean on</p>
-      <p><i class="ph-duotone ph-lightbulb"></i> The underlying idea is gamma exposure (GEX): dealers who sell options have to hedge their own delta by trading the underlying, and the direction of that hedging flips depending on whether they're net long or net short gamma. Net long gamma, dealers hedge against the move — buying dips, selling rallies — which suppresses volatility and tends to pin price near the strikes with the heaviest open interest. Below the "zero gamma" level, that flips: dealers hedge with the move instead of against it, which is what turns an ordinary breakout into a fast, accelerating one. Put/call walls mark where that dealer positioning concentrates — not arbitrary technical levels, but the actual footprint of forced hedging flow, which is why price so often behaves differently above vs. below them</p>
+      <div class="modal-scroll" id="gexlabModalScroll">
+        <div class="modal-title"><i class="ph-duotone ph-chart-bar-horizontal"></i> The GEX Deep Dive <i class="ph-duotone ph-gauge"></i></div>
+        <p><i class="ph-duotone ph-moon-stars"></i> Their Asia-session read is nicknamed "night-vision" — which lands close to home, since our own ETH-derived ZTH levels in the <a href="https://www.tradingview.com/script/zgY5elbq-Auto-Levels-v2-23/" target="_blank" rel="noreferrer">auto-levels indicator</a> (free reference guide: <a href="https://drasticstatic.github.io/trading-assistant-public-preview/setup/auto-levels.pine_indicator-guide.html" target="_blank" rel="noreferrer">auto-levels.pine indicator guide</a>) render green vs. cyan for exactly that reason. Years of building this system, and it's still finding new confluence to lean on</p>
+        <p><i class="ph-duotone ph-lightbulb"></i> The underlying idea is gamma exposure (GEX): dealers who sell options have to hedge their own delta by trading the underlying, and the direction of that hedging flips depending on whether they're net long or net short gamma. Net long gamma, dealers hedge against the move — buying dips, selling rallies — which suppresses volatility and tends to pin price near the strikes with the heaviest open interest. Below the "zero gamma" level, that flips: dealers hedge with the move instead of against it, which is what turns an ordinary breakout into a fast, accelerating one. Put/call walls mark where that dealer positioning concentrates — not arbitrary technical levels, but the actual footprint of forced hedging flow, which is why price so often behaves differently above vs. below them</p>
+      </div>
+      <div class="modal-footer-nav">
+        <button type="button" class="modal-nav-btn" id="gexlabModalJumpBtn" data-dir="down" onclick="jumpModalScroll('gexlabModalScroll','gexlabModalJumpBtn')" aria-label="Jump"><i class="ph-duotone ph-arrow-line-down"></i></button>
+      </div>
     </div>
   </div>
 
   <div class="modal-overlay" id="mirrorBackstoryModal" onclick="if(event.target===this)closeModal('mirrorBackstoryModal')">
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal('mirrorBackstoryModal')">✕</button>
-      <div class="modal-title"><i class="ph-duotone ph-clock-counter-clockwise"></i> How We Got Here</div>
-      <p><i class="ph-duotone ph-devices"></i> It started on two machines at once — an iMac and a MacBook Pro, both running TradingView's Desktop App, trying to mirror the same trade by hand. TradingView doesn't allow multiple simultaneous sessions, so the MacBook side got pushed to a browser tab instead — which ran into the same wall from a different angle, since Tradovate was also logged into TradingView across desktop and mobile. Manual mirroring got paused for a while after that</p>
-      <p><i class="ph-duotone ph-desktop"></i> Coming back to it meant simplifying to one machine, not two: TPT traded through TradingView's Desktop App, TopOne's BOGO accounts through a browser tab, both under the same login on the same iMac — switching Tradovate's account selector inside TradingView fast enough to never need a second tab. Three evals passed that way, each with multiple entries per account</p>
-      <p><i class="ph-duotone ph-cloud-arrow-up"></i> Then TheGexLab needed its own tab, Lucid and Apex both came back into the mix, and leaving all of that to manual habit — on top of Starlink resync pauses and weather-related power outages that can take the whole trading terminal down — stopped feeling survivable. That's the real reason this scaled to TradeCopia's cloud syncing: not a nice-to-have, an enterprise-grade fix for an environment that isn't always stable. Lucid now runs as leader through the Desktop App, TopOne as leader through the browser, Tradovate's own UI still one click away either way — Fortuna's looped in on the plan now, and LittlebirdAI keeps quietly observing</p>
-      <p><i class="ph-duotone ph-speedometer"></i> TradingView's reverse-position button was also intentionally disabled to switch over to One-Click Trading instead — instantly placing, editing, canceling, or closing positions without a confirmation prompt — after watching TMade Alex run the same setup on DeepCharts</p>
-      <p><i class="ph-duotone ph-desktop-tower"></i> Maybe one day there's room for a Windows VM again, in order to have the opportunity to also run DeepCharts for order-flow data and lower latency — TradingView is known to get bloated under load with so many users on it, and both tools have real strengths worth having. For now, the time and attention goes to TheGexLab instead</p>
+      <div class="modal-scroll" id="mirrorBackstoryModalScroll">
+        <div class="modal-title"><i class="ph-duotone ph-clock-counter-clockwise"></i> How We Got Here</div>
+        <p><i class="ph-duotone ph-devices"></i> It started on two machines at once — an iMac and a MacBook Pro, both running TradingView's Desktop App, trying to mirror the same trade by hand. TradingView doesn't allow multiple simultaneous sessions, so the MacBook side got pushed to a browser tab instead — which ran into the same wall from a different angle, since Tradovate was also logged into TradingView across desktop and mobile. Manual mirroring got paused for a while after that</p>
+        <p><i class="ph-duotone ph-desktop"></i> Coming back to it meant simplifying to one machine, not two: TPT traded through TradingView's Desktop App, TopOne's BOGO accounts through a browser tab, both under the same login on the same iMac — switching Tradovate's account selector inside TradingView fast enough to never need a second tab. Three evals passed that way, each with multiple entries per account</p>
+        <p><i class="ph-duotone ph-cloud-arrow-up"></i> Then TheGexLab needed its own tab, Lucid and Apex both came back into the mix, and leaving all of that to manual habit — on top of Starlink resync pauses and weather-related power outages that can take the whole trading terminal down — stopped feeling survivable. That's the real reason this scaled to TradeCopia's cloud syncing: not a nice-to-have, an enterprise-grade fix for an environment that isn't always stable. Lucid now runs as leader through the Desktop App, TopOne as leader through the browser, Tradovate's own UI still one click away either way — Fortuna's looped in on the plan now, and LittlebirdAI keeps quietly observing</p>
+        <p><i class="ph-duotone ph-speedometer"></i> TradingView's reverse-position button was also intentionally disabled to switch over to One-Click Trading instead — instantly placing, editing, canceling, or closing positions without a confirmation prompt — after watching TMade Alex run the same setup on DeepCharts</p>
+        <p><i class="ph-duotone ph-desktop-tower"></i> Maybe one day there's room for a Windows VM again, in order to have the opportunity to also run DeepCharts for order-flow data and lower latency — TradingView is known to get bloated under load with so many users on it, and both tools have real strengths worth having. For now, the time and attention goes to TheGexLab instead</p>
+      </div>
+      <div class="modal-footer-nav">
+        <button type="button" class="modal-nav-btn" id="mirrorBackstoryModalJumpBtn" data-dir="down" onclick="jumpModalScroll('mirrorBackstoryModalScroll','mirrorBackstoryModalJumpBtn')" aria-label="Jump"><i class="ph-duotone ph-arrow-line-down"></i></button>
+      </div>
     </div>
   </div>
 
@@ -671,7 +758,7 @@
       { name: 'Craig Percoco', role: 'Inevitrade (IT)', pi: 'ph-brain', grad: 'linear-gradient(135deg,#60a5fa,#7cc2ff,#b693ff)', href: 'https://www.instagram.com/craig_percoco/' },
       { name: 'Jesse Rogers · CasperSMC', role: 'SmartTradingBlueprint (STB)', pi: 'ph-book-open-text', grad: 'linear-gradient(135deg,#f3c969,#ff9f67,#fbbf24)', href: 'https://www.instagram.com/casper_smc/' },
       { name: 'Boian', role: 'SmartTradingBlueprint (STB) · Success Manager', pi: 'ph-headset', grad: 'linear-gradient(135deg,#2dd4bf,#5eead4,#a7f3d0)', platform: 'whatsapp' },
-      { name: 'Omar Hafez', role: 'ZeroToHero (ZTH)', pi: 'ph-target', grad: 'linear-gradient(135deg,#22c55e,#49d17d,#f3c969)', href: 'https://www.instagram.com/omarfhafez/' },
+      { name: 'Omar Hafez', role: 'Founder · ZeroToHero (ZTH)', pi: 'ph-target', grad: 'linear-gradient(135deg,#22c55e,#49d17d,#f3c969)', href: 'https://www.instagram.com/omarfhafez/' },
       { name: 'Dario Pirrone', role: 'ZeroToHero (ZTH) · Coach', pi: 'ph-compass', grad: 'linear-gradient(135deg,#60a5fa,#38bdf8,#6ee7f9)', platform: 'linkedin', href: 'https://www.linkedin.com/in/dario-pirrone-b9340199/' },
       { name: 'Chawkat Houri', role: 'ZeroToHero (ZTH) · Accountability Coach', pi: 'ph-alarm', grad: 'linear-gradient(135deg,#fbbf24,#f97316,#ff6b6b)', platform: 'linkedin', href: 'https://www.linkedin.com/in/chawkat-houri-6a384b96/' },
     ];
@@ -773,7 +860,7 @@
         ],
       },
       {
-        titleIcons: ['castle-turret', 'book-open-text', 'hammer'],
+        titleIcons: ['book-open-text', 'fire'],
         title: 'SmartTradingBlueprint — The Deeper Story',
         paragraphs: [
           { icon: 'head-circuit', text: 'STB isn\'t really a separate setup so much as the "why" underneath every other one — the ICT/SMC vocabulary is what actually explains why a ZTH level holds or an Inevitrade setup triggers in the first place' },
@@ -791,6 +878,8 @@
       document.getElementById('mentorModalBody').innerHTML =
         story.paragraphs.map(p => `<p><i class="ph-duotone ph-${p.icon}"></i> ${p.text}</p>`).join('');
       document.getElementById('mentorModalCounter').textContent = (mentorStoryIndex + 1) + ' / ' + mentorStories.length;
+      document.getElementById('mentorModalScroll').scrollTop = 0;
+      updateJumpBtn('mentorModalScroll', 'mentorModalJumpBtn');
     }
     function openMentorStory(index) {
       mentorStoryIndex = index;
@@ -803,6 +892,62 @@
     }
 
     // ═══════════════════════════════════════════════════════
+    // Generic scrollable-modal jump button, shared by every content
+    // modal on the page (duck race, mentor lightbox, GEX deep dive, the
+    // TradeCopia backstory). Hidden entirely when there's nothing to
+    // scroll; otherwise flips between "jump to bottom" and "jump to
+    // top" based on where the scroll area actually is right now.
+    // ═══════════════════════════════════════════════════════
+    function updateJumpBtn(scrollId, btnId) {
+      const el = document.getElementById(scrollId);
+      const btn = document.getElementById(btnId);
+      if (!el || !btn) return;
+      const scrollable = el.scrollHeight - el.clientHeight > 20;
+      btn.style.visibility = scrollable ? 'visible' : 'hidden';
+      if (!scrollable) return;
+      const atBottom = el.scrollHeight - el.scrollTop - el.clientHeight < 20;
+      btn.dataset.dir = atBottom ? 'up' : 'down';
+      btn.innerHTML = atBottom ? '<i class="ph-duotone ph-arrow-line-up"></i>' : '<i class="ph-duotone ph-arrow-line-down"></i>';
+      btn.setAttribute('aria-label', atBottom ? 'Jump to top' : 'Jump to bottom');
+    }
+    // Hand-rolled instead of scrollTo({behavior:'smooth'}) — that option
+    // silently no-ops in some browser/automation contexts (confirmed via
+    // testing: scrollTop never moves, no error thrown), which is exactly
+    // why the jump buttons appeared broken. A manual rAF tween has no
+    // dependency on native smooth-scroll support at all.
+    function smoothScrollTo(el, targetTop, duration = 350) {
+      const startTop = el.scrollTop;
+      const delta = targetTop - startTop;
+      if (Math.abs(delta) < 1) return;
+      const startTime = performance.now();
+      function step(now) {
+        const t = Math.min((now - startTime) / duration, 1);
+        const eased = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+        el.scrollTop = startTop + delta * eased;
+        if (t < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    function jumpModalScroll(scrollId, btnId) {
+      const el = document.getElementById(scrollId);
+      const btn = document.getElementById(btnId);
+      smoothScrollTo(el, btn.dataset.dir === 'down' ? el.scrollHeight : 0);
+    }
+    // Every modal-id -> its scroll-area-id, so openModal() below can
+    // recompute jump-button visibility right after the modal becomes
+    // visible (scrollHeight/clientHeight both read 0 while display:none).
+    const MODAL_SCROLL_MAP = {
+      duckModal: 'duckModalScroll',
+      mentorModal: 'mentorModalScroll',
+      gexlabModal: 'gexlabModalScroll',
+      mirrorBackstoryModal: 'mirrorBackstoryModalScroll',
+    };
+    Object.entries(MODAL_SCROLL_MAP).forEach(([modalId, scrollId]) => {
+      const el = document.getElementById(scrollId);
+      if (el) el.addEventListener('scroll', () => updateJumpBtn(scrollId, scrollId.replace('Scroll', 'JumpBtn')));
+    });
+
+    // ═══════════════════════════════════════════════════════
     // Small content modal (duck-race story) — same pattern as
     // prop-firm-rules.html's spec-card modals.
     // ═══════════════════════════════════════════════════════
@@ -810,6 +955,17 @@
       document.getElementById(id).classList.add('open');
       document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
+      const scrollId = MODAL_SCROLL_MAP[id];
+      if (scrollId) {
+        const btnId = scrollId.replace('Scroll', 'JumpBtn');
+        // Double rAF: a single frame after adding .open isn't always
+        // enough for the display:none -> flex + transform/opacity
+        // transition to have actually laid out — measuring too early
+        // read scrollHeight/clientHeight as 0/0, which left the jump
+        // button's data-dir unset and made its very first tap scroll
+        // the wrong way (defaulting to the ternary's "else" branch).
+        requestAnimationFrame(() => requestAnimationFrame(() => updateJumpBtn(scrollId, btnId)));
+      }
     }
     function closeModal(id) {
       document.getElementById(id).classList.remove('open');
@@ -820,23 +976,23 @@
       if (e.key !== 'Escape') return;
       document.querySelectorAll('.modal-overlay.open').forEach(el => closeModal(el.id));
     });
+
     // ═══════════════════════════════════════════════════════
-    // Subtle scroll-driven parallax on the ambient gradient layer
-    // (skipped entirely under prefers-reduced-motion). Icons are pure
-    // CSS/font (Phosphor) now, no JS init needed.
+    // Makes every inch of a "click-card" navigate to its data-href,
+    // except real links/buttons nested inside it (pills, the banner
+    // anchor, etc.), which keep handling their own clicks natively.
     // ═══════════════════════════════════════════════════════
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const bgLayer = document.getElementById('bgParallax');
-      let ticking = false;
-      window.addEventListener('scroll', () => {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-          bgLayer.style.transform = `translateY(${window.scrollY * 0.15}px)`;
-          ticking = false;
-        });
-      }, { passive: true });
-    }
+    document.querySelectorAll('.click-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('a, button')) return;
+        const href = card.dataset.href;
+        if (href) window.open(href, '_blank', 'noopener,noreferrer');
+      });
+    });
+    // The ambient background now animates via a pure CSS keyframe
+    // (bgBreathe, see .bg-parallax) instead of a scroll-linked JS
+    // transform — no init needed, and prefers-reduced-motion is already
+    // handled globally by the page's top-level animation-duration override.
   </script>
 
 </body>
