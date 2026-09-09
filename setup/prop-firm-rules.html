@@ -38,19 +38,27 @@
     @media (prefers-reduced-motion: reduce) {
       * { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
     }
-    .ph-duotone { font-size: 1.7em; vertical-align: -.28em; display: inline-block; flex-shrink: 0; }
+    @keyframes iconBreathe { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 transparent); } 50% { transform: scale(1.07); filter: drop-shadow(0 0 3px currentColor); } }
+    .ph-duotone { font-size: 1.7em; vertical-align: -.28em; display: inline-block; flex-shrink: 0; animation: iconBreathe 5s ease-in-out infinite; }
     /* Vendor default duotone "ghost" layer is only 20% opacity -- nearly invisible in a
        light-on-dark palette. Bump it so the two-tone shape is actually perceptible. */
     .ph-duotone::before { opacity: .55 !important; }
     h1 .ph-duotone { font-size: 1.15em; vertical-align: -.15em; }
-    /* ── Parallax ambient background — separate layer from body so content
-       scrolls normally while the gradient glow drifts slower underneath. ── */
+    /* ── Fixed full-bleed layer, comfortably beyond the viewport on all
+       sides (inset -10vh/-10vw) so the breathing animation below never
+       exposes a bare edge — previously drifted via a scroll-linked JS
+       transform, which on a long page pushed the layer past that
+       buffer and left a hard seam at the top once scrolled. ── */
     .bg-parallax {
       position: fixed; inset: -10vh -10vw; z-index: -1; pointer-events: none;
       background:
         radial-gradient(ellipse 900px 500px at 15% -10%, rgba(167,139,250,0.14), transparent 60%),
         radial-gradient(ellipse 900px 500px at 100% 10%, rgba(103,232,249,0.10), transparent 60%);
-      will-change: transform;
+      animation: bgBreathe 20s ease-in-out infinite;
+    }
+    @keyframes bgBreathe {
+      0%, 100% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(-1.5%, 1%, 0) scale(1.04); }
     }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -610,18 +618,10 @@
     }
     initSpecFilters();
 
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const bgLayer = document.getElementById('bgParallax');
-      let ticking = false;
-      window.addEventListener('scroll', () => {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-          bgLayer.style.transform = `translateY(${window.scrollY * 0.15}px)`;
-          ticking = false;
-        });
-      }, { passive: true });
-    }
+    // The ambient background now animates via a pure CSS keyframe
+    // (bgBreathe, see .bg-parallax) instead of a scroll-linked JS
+    // transform — no init needed, and prefers-reduced-motion is already
+    // handled globally by the page's top-level animation-duration override.
   </script>
 
 </body>

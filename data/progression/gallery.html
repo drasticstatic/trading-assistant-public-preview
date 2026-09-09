@@ -39,20 +39,28 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
     }
-    .ph-duotone { font-size: 1.7em; vertical-align: -.28em; display: inline-block; flex-shrink: 0; }
+    @keyframes iconBreathe { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 transparent); } 50% { transform: scale(1.07); filter: drop-shadow(0 0 3px currentColor); } }
+    .ph-duotone { font-size: 1.7em; vertical-align: -.28em; display: inline-block; flex-shrink: 0; animation: iconBreathe 5s ease-in-out infinite; }
     /* Vendor default duotone "ghost" layer is only 20% opacity -- nearly invisible in a
        light-on-dark palette. Bump it so the two-tone shape is actually perceptible. */
     .ph-duotone::before { opacity: .55 !important; }
     h1 .ph-duotone, .header-title .ph-duotone { font-size: 1.15em; vertical-align: -.15em; }
-    /* ── Parallax ambient background — separate fixed layer from body so
-       content scrolls normally while the gradient glow drifts slower. ── */
+    /* ── Fixed full-bleed layer, comfortably beyond the viewport on all
+       sides (inset -10vh/-10vw) so the breathing animation below never
+       exposes a bare edge — previously drifted via a scroll-linked JS
+       transform, which on a long page pushed the layer past that
+       buffer and left a hard seam at the top once scrolled. ── */
     .bg-parallax {
       position: fixed; inset: -10vh -10vw; z-index: -1; pointer-events: none;
       background:
         radial-gradient(ellipse at 10% 5%, rgba(139,92,246,0.18) 0%, transparent 35%),
         radial-gradient(ellipse at 85% 10%, rgba(56,189,248,0.14) 0%, transparent 30%),
         radial-gradient(ellipse at 50% 80%, rgba(74,222,128,0.08) 0%, transparent 40%);
-      will-change: transform;
+      animation: bgBreathe 20s ease-in-out infinite;
+    }
+    @keyframes bgBreathe {
+      0%, 100% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(-1.5%, 1%, 0) scale(1.04); }
     }
     /* Sticky nav is ~52px tall — keep anchor-scrolled section titles clear of it. */
     [id] { scroll-margin-top: 76px; }
@@ -1694,18 +1702,10 @@
           '<p class="csv-table-note">Live table requires viewing this page over HTTP (e.g. GitHub Pages) — a local file:// preview can\'t fetch the CSV. <a href="assets/prop-firm-account-ledger.csv">View the raw CSV</a> instead.</p>';
       });
 
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const bgLayer = document.getElementById('bgParallax');
-      let ticking = false;
-      window.addEventListener('scroll', () => {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-          bgLayer.style.transform = `translateY(${window.scrollY * 0.15}px)`;
-          ticking = false;
-        });
-      }, { passive: true });
-    }
+    // The ambient background now animates via a pure CSS keyframe
+    // (bgBreathe, see .bg-parallax) instead of a scroll-linked JS
+    // transform — no init needed, and prefers-reduced-motion is already
+    // handled globally by the page's top-level animation-duration override.
   </script>
 
 </body>
