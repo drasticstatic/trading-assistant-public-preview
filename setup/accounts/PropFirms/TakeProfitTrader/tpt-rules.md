@@ -97,8 +97,10 @@
 
 ### Requirement 1: Minimum Trading Days
 - **Minimum 5 trading days** required (a day = any day with at least one trade)
-- No maximum time limit — take as long as needed
+- No maximum time limit *on Rule 5 itself* — take as long as needed to hit the 5-day/50% consistency combination
 - If profit target is hit in 2 days, still need 3 more active trading days
+
+> **Correction, Sep 2026 — a separate 30-day clock does exist and can disable a passed-but-inactive account.** Confirmed via lived account history (an account not blown, but permanently disabled, from not meeting the target within 30 days) and TPT's own [Rules for Multiple Accounts](https://takeprofittraderhelp.zendesk.com/hc/en-us/articles/15172695563933-Rules-for-Multiple-Accounts) article: a trader may activate up to 10 passed-test accounts within any 30 calendar-day window, capped at 5 *active* PRO/PRO+ accounts at once. If a newly-passed test is waiting to activate and the 5-active-account cap is full, TPT disables the oldest-activated account at the 30-day mark of *its own* activation to free the slot — regardless of whether that account ever hit its funded profit target. The "no maximum time limit" language above is accurate for Rule 5's own day-count/consistency math in isolation, but doesn't cover this separate multi-account activation clock — worth re-verifying live if running more than a couple of PRO/PRO+ accounts at once.
 
 ### Requirement 2: Profit Consistency (50% Rule)
 - **No single trading day may account for 50% or more of total net profits**

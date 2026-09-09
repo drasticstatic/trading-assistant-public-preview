@@ -111,3 +111,34 @@ Consistency targets / per-account loss limits (daily loss, weekly loss, trailing
 | Flatten followers on cancel | ON | Keep ON |
 
 Only one toggle needs an active change from default — everything else already matches what you asked for out of the box.
+
+---
+
+## Live Operating Notes — first real trading week (Sep 4-9, 2026)
+
+Everything above was reasoned through before going live. These are the corrections and confirmations that came out of actually trading through it.
+
+### Reconciler #2 has a standalone-follower exception, now confirmed live
+
+The "Position reconciler — default ON" recommendation above assumes leader and follower are meant to stay in lockstep. There's a real exception: **TopOneFutures force-closes daily at 16:10 ET, ahead of Apex's own ~16:59 ET window.** Once Group B's leader (TOF197288) is done for the day and flat, the reconciler reads any new independent position opened directly on Apex-11/Apex-12 as a mismatch against the (now-inactive) leader and force-exits it — even though those Apex accounts still have legitimate trading time left on their own firm's clock. To trade a follower on its own once its leader can no longer trade, **the reconciler has to be toggled off for that group first.** This is the concrete version of the "unless I want to trade a follower by itself sometime" exception noted in toggle #2's original writeup above.
+
+### What toggling the reconciler off does *not* do
+
+Tested live during a Friday news window: toggled the reconciler OFF believing it would otherwise block manually flattening the TPT follower directly on Tradovate during TPT's news blackout, while leaving the LucidFlex25 leader open (LucidFlex allows news trading; TPT's PRO Account Rules #6 forbids open positions through FOMC/CPI/NFP — exactly why this pairing sits in Group A). That reasoning didn't hold up: **manually flattening one account directly on the broker doesn't require the reconciler to be off.** Turning it back on afterward is what actually surfaced the real risk it guards against: if a leader's take-profit fills but a follower's mirrored exit doesn't (a staggered/partial-fill scenario — see toggle #2's SIM-observation note above), and that follower sits on a trailing-drawdown account, an unnoticed mismatched position riding through drawdown room can blow the account outright. **Market-executed reconciler ON is the right default whenever leader and follower are meant to move together; OFF is only for the deliberate standalone-follower case above — not a general news-day workaround.**
+
+### Auto-close follower positions — a follower can flatten earlier than its own deadline
+
+LucidFlex/Pro/Direct accounts must be flat by 16:45 ET; TPT's own actual close deadline is 16:55 ET — ten minutes later. Because TPT follows LucidFlex25 in Group A and "Auto-close follower positions" (toggle #4) fires the instant the leader goes flat, TPT gets force-flattened at 16:45 alongside its leader, ten minutes before TPT's own firm would actually require it. TradeCopia's per-group **Disable** control (next to Flatten All on each group row) may decouple a specific follower from the leader's auto-close for exactly this window — not yet tested live. Worth trying the next time the ten-minute gap matters, and updating this note with the confirmed behavior.
+
+### Contract scaling by firm — the leader/follower shape has to respect each firm's ceiling, not just size-match
+
+TopOneFutures' same-size compliance finding (see the Structure table on `copy-trading.html`) isn't the only constraint that shapes Group A/B — **a follower with a lower max-contract ceiling than what's being mirrored to it will simply fail to execute.** The leader in each group needs headroom at or above its followers':
+
+| Account | Eval scaling | Funded ceiling |
+|---|---|---|
+| TopOneFutures $50K (Group B leader) | Same tiers apply in eval | $0-$1,499: 1 mini/10 micros · $1,500-$1,999: 2 minis/20 micros · $2,000+: 3 minis/30 micros (full) |
+| Apex $50K (Group B followers) | No scaling plan | 3 minis/30 micros max, but capped at **half** until EOD balance clears initial balance + trailing DD + $100 (then full limit unlocks next session) |
+| TakeProfitTrader $50K (Group A follower) | No scaling, ever | Flat 6 contracts/60 micros always |
+| LucidFlex 25K (Group A leader) | No scaling plan | $0-$999: 1 mini/10 micros · $1,000-$1,999: 2 minis/20 micros (25K tier tops out here) |
+
+Top1 (leader) always has contract headroom at or above Apex (follower) — matched, never a bottleneck. LucidFlex25 (leader, 1-2 minis at its 25K tier) leading into TPT (follower, flat 6 contracts always) means the follower's ceiling is never the constraint either — confirming Group A's leader-from-the-smaller-account shape (see the Structure table's "Two Flips" rationale) holds up from a scaling-ceiling angle, not just the whole-number-multiplier reasoning it was originally built on. Full LucidFlex table by account size: [LucidFlex Funded Account Scaling Plan](https://support.lucidtrading.com/en/articles/12945808-lucidflex-scaling-plan).
