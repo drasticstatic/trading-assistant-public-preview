@@ -53,14 +53,14 @@
     .bg-parallax {
       position: fixed; inset: -10vh -10vw; z-index: -1; pointer-events: none;
       background:
-        radial-gradient(ellipse at 10% 5%, rgba(139,92,246,0.18) 0%, transparent 35%),
-        radial-gradient(ellipse at 85% 10%, rgba(56,189,248,0.14) 0%, transparent 30%),
-        radial-gradient(ellipse at 50% 80%, rgba(74,222,128,0.08) 0%, transparent 40%);
+        radial-gradient(ellipse at 10% 5%, rgba(139,92,246,0.24) 0%, transparent 40%),
+        radial-gradient(ellipse at 85% 10%, rgba(56,189,248,0.20) 0%, transparent 35%),
+        radial-gradient(ellipse at 50% 80%, rgba(74,222,128,0.14) 0%, transparent 45%);
       animation: bgBreathe 20s ease-in-out infinite;
     }
     @keyframes bgBreathe {
       0%, 100% { transform: translate3d(0,0,0) scale(1); }
-      50% { transform: translate3d(-1.5%, 1%, 0) scale(1.04); }
+      50% { transform: translate3d(-2.5%, 1.5%, 0) scale(1.06); }
     }
     /* Sticky nav is ~52px tall — keep anchor-scrolled section titles clear of it. */
     [id] { scroll-margin-top: 76px; }
@@ -93,10 +93,11 @@
     }
     .nav-tag {
       padding: .22rem .7rem; border: 1px solid var(--border); border-radius: 999px;
-      font-size: .76rem; color: var(--muted); transition: border-color .15s, color .15s;
+      font-size: .76rem; color: var(--muted); transition: border-color .15s, color .15s, transform .15s var(--spring);
       display: inline-flex; align-items: center; gap: .3rem;
     }
-    .nav-tag:hover { border-color: var(--purple); color: var(--text); }
+    .nav-tag:hover { border-color: var(--purple); color: var(--text); transform: translateY(-1px); }
+    .nav-tag:active { transform: scale(.96); }
     .nav-hamburger { display: none; }
     .nav-links { display: contents; }
     @media (max-width: 720px) {
@@ -546,6 +547,8 @@
       <a class="nav-tag" href="SmartTradingBlueprint/course-workbook.html"><i class="ph-duotone ph-book-open-text"></i> STB</a>
       <a class="nav-tag" href="inevitrade/inner-circle-workbook.html"><i class="ph-duotone ph-brain"></i> IT</a>
       <a class="nav-tag" href="../../setup/prop-firm-rules.html"><i class="ph-duotone ph-airplane-tilt"></i> Pre-flight Checklist</a>
+      <a class="nav-tag" href="../../setup/copy-trading.html"><i class="ph-duotone ph-arrows-clockwise"></i> Copy Trading</a>
+      <a class="nav-tag" href="../tax/tax.html"><i class="ph-duotone ph-currency-dollar"></i> Tax</a>
       <a class="nav-tag" href="../../setup/community.html"><i class="ph-duotone ph-hand-heart"></i> Community</a>
     </div>
     <div class="nav-space"></div>
