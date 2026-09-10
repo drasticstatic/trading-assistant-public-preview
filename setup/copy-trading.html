@@ -361,10 +361,10 @@
     <p class="sec-sub">Everything above was reasoned through before going live. This is what actually happened once real trading started — corrections, not theory.</p>
     <div class="panel" style="--accent: var(--cyan);">
       <ul class="toggle-list">
-        <li><div class="t-name"><i class="ph-duotone ph-power"></i> The reconciler has a standalone-follower exception</div><div class="t-desc">TopOneFutures force-closes at 16:10 ET, well ahead of Apex's own ~16:59 ET window. Once the Group B leader (TOF197288) is flat for the day, the Position reconciler reads any new position opened directly on Apex-11/Apex-12 as a mismatch and force-exits it — even though those accounts still have legitimate trading time left. Trading a follower on its own once its leader is done for the day requires toggling the reconciler off for that group first.</div></li>
-        <li><div class="t-name"><i class="ph-duotone ph-arrows-clockwise"></i> Toggling it off mid-session doesn't do what it might seem to</div><div class="t-desc">Tested live during a Friday news window, believing the reconciler needed to be off to manually flatten TPT during its news blackout while leaving LucidFlex25 open. It didn't — manually flattening one account directly on the broker never required that. Turning it back on afterward surfaced the real risk it guards against instead: a leader's fill landing without a matching follower fill, unnoticed, on a trailing-drawdown account.</div></li>
+        <li><div class="t-name"><i class="ph-duotone ph-exclude"></i> The reconciler has a standalone-follower exception</div><div class="t-desc">TopOneFutures force-closes at 16:10 ET, well ahead of Apex's own ~16:59 ET window. Once the Group B leader (TOF197288) is flat for the day, the Position reconciler reads any new position opened directly on Apex-11/Apex-12 as a mismatch and force-exits it — even though those accounts still have legitimate trading time left. Trading a follower on its own once its leader is done for the day requires toggling the reconciler off for that group first.</div></li>
+        <li><div class="t-name"><i class="ph-duotone ph-toggle-left"></i> Toggling it off mid-session doesn't do what it might seem to</div><div class="t-desc">Tested live during a Friday news window, believing the reconciler needed to be off to manually flatten TPT during its news blackout while leaving LucidFlex25 open. It didn't — manually flattening one account directly on the broker never required that. Turning it back on afterward surfaced the real risk it guards against instead: a leader's fill landing without a matching follower fill, unnoticed, on a trailing-drawdown account.</div></li>
         <li><div class="t-name"><i class="ph-duotone ph-clock-countdown"></i> A follower can get flattened before its own deadline</div><div class="t-desc">LucidFlex must be flat by 16:45 ET; TPT's own deadline is 16:55 ET. Because TPT follows LucidFlex25 in Group A, "Auto-close follower positions" flattens TPT the moment its leader goes flat — ten minutes before TPT's own firm would actually require it. TradeCopia's per-group Disable control may decouple this; not yet tested live.</div></li>
-        <li><div class="t-name"><i class="ph-duotone ph-warning"></i> A rough Friday, logged honestly</div><div class="t-desc">News-window trading went well. The close didn't — adjusting the reconciler and risk numbers live while trying to recover a TPT drawdown made both TPT and LucidFlex25 slightly worse instead of better. Limited real damage, risk stayed managed, but it broke a green streak and was a genuinely humbling day. In hindsight, stopping entirely after the first loss would have been the better call than trying to actively fix it live.</div></li>
+        <li><div class="t-name"><i class="ph-duotone ph-warning"></i> A rough Friday, logged honestly</div><div class="t-desc">News-window trading went well. The close didn't — adjusting the reconciler and risk numbers live while trying to recover a TPT drawdown made both TPT and LucidFlex25 slightly worse instead of better. Limited real damage, risk stayed managed, but it broke a green streak and was a genuinely humbling day. In hindsight, stopping entirely after the first loss would have been the better call than trying to actively fix it live. <strong>Sep 9 update:</strong> came close to needing the same fix again — a trade sat deep enough in drawdown to seriously consider raising the Daily Loss limit for room — but a burst of volatility brought every account back to green without touching a single setting that time. The real lesson: don't let one trade's drawdown pull every mirrored account down together like that again. Leaning toward keeping the Lucid-led group's risk tighter than TopOne's going forward, since TPT already carries a 2x multiplier and Lucid has the small firm DLL — this particular day mirrored full size on both groups at once.</div></li>
       </ul>
     </div>
     <p class="sec-sub" style="margin-top:.8rem;">Full write-up of all four, plus the exact screenshots behind the $999 daily-loss edge case: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-risk-toggle-deep-dive.md" target="_blank" rel="noreferrer">tradecopia-risk-toggle-deep-dive.md ↗</a></p>
@@ -392,7 +392,7 @@
       <p style="font-size:.86rem; color: var(--muted);">TradeCopia's Daily Loss enforcement is the first <strong>automated</strong> backstop for a failure mode personal discipline alone has never fully covered: being physically unable to close a trade in time, whether from a mental-stop habit or a power/internet failure removing the ability to execute manually. Not a replacement for discipline — the next layer on top of it.</p>
     </div>
 
-    <div class="sec-label"><i class="ph-duotone ph-file-archive"></i> Full Documentation</div>
+    <div id="full-documentation" class="sec-label"><i class="ph-duotone ph-file-archive"></i> Full Documentation</div>
     <div class="doc-grid">
       <div class="doc-card glass"><div class="fname"><i class="ph-duotone ph-check-circle"></i> Compliance Memo</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-compliance-memo.md" target="_blank" rel="noreferrer">tradecopia-compliance-memo.md ↗</a></div></div>
       <div class="doc-card glass"><div class="fname"><i class="ph-duotone ph-sliders-horizontal"></i> Risk Toggle Deep Dive</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-risk-toggle-deep-dive.md" target="_blank" rel="noreferrer">tradecopia-risk-toggle-deep-dive.md ↗</a></div></div>
@@ -566,23 +566,39 @@
     // Newest first, same convention as the TradeZella reel on gallery.html.
     // ═══════════════════════════════════════════════════════
     const resultsItems = [
-      { src: '../data/imports/2026/09-Sep/TradeCopia%20Updates/Screenshot%202026-09-07%20at%2012.58.57.png',
+      { src: '../data/imports/2026/09-Sep/TradeCopia_Updates/Screenshot%202026-09-09%20at%2011.35.04.png',
+        title: 'Sep 9, 2026, 11:35 ET — Volatility Delivers a Full Recovery',
+        meta: '<span>Group A +$373.40 · Group B +$496.52 · all six accounts green after a drawdown scare</span>',
+        caption: 'Sep 9, 2026, 11:35 ET — the day a trade sat deep enough in drawdown to seriously consider raising the Daily Loss limit for room. Instead, a burst of volatility carried every account back to green without touching a single risk setting: Group A (LucidFlex25 → TPT) +$373.40, Group B (TOF197288 → TOF197292, Apex-11, Apex-12) +$496.52. A relief, and a reminder not to let one trade\'s drawdown pull every mirrored account down together like that again.' },
+      { src: '../data/imports/2026/09-Sep/TradeCopia_Updates/Screenshot%202026-09-07%20at%2012.58.57.png',
         title: 'Sep 7, 2026, 12:58 ET — Rebuilding After Friday',
         meta: '<span>Group A +$260.00 · Group B +$20.52 · TPT back at 2x multiplier · every account green</span>',
         caption: 'Sep 7, 2026, 12:58 ET — the Monday after a rough Friday close. TPT\'s multiplier is back at 2x and both groups are trading positive again: Group A (LucidFlex25 → TPT) +$260.00, Group B (TOF197288 → TOF197292, Apex-11, Apex-12) +$20.52. Slow rebuild, trending the right direction.' },
-      { src: '../data/imports/2026/09-Sep/TradeCopia%20Updates/Screenshot%202026-09-06%20at%2013.22.40.png',
+      { src: '../data/imports/2026/09-Sep/TradeCopia_Updates/Screenshot%202026-09-06%20at%2013.22.40.png',
         title: 'Sep 6, 2026, 13:22 ET — TPT Sitting Below Start',
         meta: '<span>TAKEPROFITPRO781112132 progress marker below its starting line · Payout: None yet</span>',
         caption: 'Sep 6, 2026, 13:22 ET — the account-progress view the morning after Friday\'s rough close. TPT\'s marker sits below its starting point with "None yet" showing for payout, while the eval accounts (LucidFlex25, Apex-11, Apex-12) and the two funded TopOneFutures accounts kept progressing normally. Logged as-is, not smoothed over — this is what the recovery arc actually looked like mid-drawdown.' },
-      { src: '../data/imports/2026/09-Sep/TradeCopia%20Updates/Screenshot%202026-09-06%20at%2013.20.18.png',
+      { src: '../data/imports/2026/09-Sep/TradeCopia_Updates/Screenshot%202026-09-06%20at%2013.20.18.png',
         title: 'Sep 6, 2026, 13:20 ET — The $999 Daily Loss Edge Case',
         meta: '<span>TAKEPROFITPRO781112132 Daily Loss $999.00 vs. $555.00 on every other account</span>',
         caption: 'Sep 6, 2026, 13:20 ET — TradeCopia\'s Risk Management panel, caught mid-deviation from the standard $555-everywhere rule. TPT shows a Daily Loss of $999.00 (and a Daily Profit target of $10,000.00) against $555.00 on Apex-11, Apex-12, TOF197288, TOF197292, and LucidFlex25 — a real, in-the-moment change made while nervous in an active TPT trade under Group A\'s 2x multiplier. Reverted since; kept here as the honest edge case, not the standing rule.' },
-      { src: '../data/imports/2026/09-Sep/TradeCopia%20Updates/Screenshot%202026-09-04%20at%2008.10.47.png',
+      { src: '../data/imports/2026/09-Sep/TradeCopia_Updates/Screenshot%202026-09-06%20at%2013.15.20.png',
+        title: 'Sep 6, 2026, 13:15 ET — Quiet Before the Week',
+        meta: '<span>Both groups $0.00 · no open positions · a Sunday check-in before Globex reopens</span>',
+        caption: 'Sep 6, 2026 (Sunday), 13:15 ET — both groups sitting flat at $0.00 with no open positions, a quiet check-in before Globex reopens for the week. Not every screenshot here is a trade — sometimes it\'s just confirming everything is exactly where it should be.' },
+      { src: '../data/imports/2026/09-Sep/TradeCopia_Updates/Screenshot%202026-09-04%20at%2008.33.50.png',
+        title: 'Sep 4, 2026, 08:33 ET — The 2x Multiplier\'s Other Edge',
+        meta: '<span>Group A -$282.50 · TPT -$341.00 — the same multiplier that mirrors gains mirrors drawdown too</span>',
+        caption: 'Sep 4, 2026, 08:33 ET — minutes after the multiplier was caught mirroring a position on the way up, the same mechanism showing its other edge: Group A down to -$282.50 as the leader\'s trade moved against it, TPT\'s 2x-mirrored size at -$341.00. Recovered later that day — logged here as a reminder that a multiplier amplifies both directions, not just the ones you\'re hoping for.' },
+      { src: '../data/imports/2026/09-Sep/TradeCopia_Updates/Screenshot%202026-09-04%20at%2008.33.21.png',
+        title: 'Sep 4, 2026, 08:33 ET — Pre-NFP Dashboard Check',
+        meta: '<span>Today P&L -$6.02 · Loss Limit tracking 1% of -$555 · Globex RTH opens in 56m, NFP due later that morning</span>',
+        caption: 'Sep 4, 2026, 08:33 ET — the main Dashboard 56 minutes before the New York open: the Daily Targets widget tracking -$6.02 against the -$555 loss limit (1%), the Market Session panel counting down to RTH, and US NFP data due later that morning. The kind of routine check-in TradeCopia turned into a single screen instead of six separate logins.' },
+      { src: '../data/imports/2026/09-Sep/TradeCopia_Updates/Screenshot%202026-09-04%20at%2008.10.47.png',
         title: 'Sep 4, 2026, 08:10 ET — The 2x Multiplier, Live',
         meta: '<span>Group A: LucidFlex25 leader short 1 MNQU6 · TPT follower short 2 MNQU6 — the 2x multiplier mirroring correctly in real time</span>',
         caption: 'Sep 4, 2026, 08:10 ET — Group A\'s leader (LucidFlex25) short 1 MNQU6, mirrored to the TPT follower as short 2 MNQU6 — the 2x multiplier working exactly as configured, caught with a live position open. Group B sat flat at this moment, all four accounts connected and ready.' },
-      { src: '../data/imports/2026/09-Sep/TradeCopia%20Updates/Screenshot%202026-09-04%20at%2006.18.46.png',
+      { src: '../data/imports/2026/09-Sep/TradeCopia_Updates/Screenshot%202026-09-04%20at%2006.18.46.png',
         title: 'Sep 4, 2026, 06:18 ET — Pre-Market Progress Tracker',
         meta: '<span>5 accounts active, 3 funded, 0 requiring action — the first full pre-market check-in after the Sep 3 build-out</span>',
         caption: 'Sep 4, 2026, 06:18 ET — TradeCopia\'s Progress Tracker before the open on the first full trading day after the Sep 3 build-out: 5 accounts active (eval), 3 funded and live, 0 requiring action. TPT shows "Disconnected — tracking paused" at this moment, a normal pre-market broker-connection state, not an error.' },
@@ -596,6 +612,15 @@
         caption: 'Sep 3, 2026, 16:46 ET — the first live test after today\'s full TradeCopia build-out. Both groups mirrored correctly: LucidFlex25 +$16.00, TOF197288 +$75.20, Apex-11 +$77.32, Apex-12 +$77.32, TPT +$28.00, TOF197292 +$75.20. Total +$349.04 across all six accounts, zero open positions left behind.' },
     ];
     const resultsState = createCarousel('results', resultsItems, 0);
+
+    // Re-run the hash-anchor scroll after the carousel's dynamic thumbnails/dots
+    // are appended — the browser's native on-load anchor scroll fires before
+    // this content exists, so a deep link (e.g. #full-documentation) can land
+    // short once the carousel above it grows the page.
+    if (location.hash) {
+      const hashTarget = document.querySelector(location.hash);
+      if (hashTarget) hashTarget.scrollIntoView();
+    }
 
     // Makes every inch of a "click-card" navigate to its data-href,
     // except real links/buttons nested inside it, which keep handling

@@ -116,6 +116,10 @@ Only one toggle needs an active change from default — everything else already 
 
 ## Live Operating Notes — first real trading week (Sep 4-9, 2026)
 
+### Sep 9 — a drawdown scare resolved by the market, not a setting change
+
+A trade sat deep enough in drawdown to seriously consider reopening the $555 Daily Loss limit again — the same instinct behind the earlier $999 TPT edge case, this time not acted on. A burst of volatility carried it back to green instead: Group A +$373.40, Group B +$496.52, every account positive with no risk setting touched. Worth being honest that this was the market resolving it, not a plan working as intended. The lesson that stuck: both groups were mirrored at full size simultaneously that day, meaning one bad read amplifies across every account in both groups at once rather than staying contained. Leaning toward keeping the Lucid-led group's risk tighter than TopOne's going forward — TPT already carries a 2x multiplier and Lucid has the small firm DLL, less margin for error than Group B's 1x, larger-drawdown accounts.
+
 Everything above was reasoned through before going live. These are the corrections and confirmations that came out of actually trading through it.
 
 ### Reconciler #2 has a standalone-follower exception, now confirmed live
