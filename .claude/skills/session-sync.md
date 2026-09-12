@@ -67,18 +67,21 @@ git commit -m "$(cat <<'EOF'
 - [detail line 1]
 - [detail line 2]
 
-Co-Authored-By: Fortuna · ClaudeCodeCLI · Anthropic Sonnet-5
+Co-Authored-By: Fortuna · ClaudeCodeCLI · Anthropic [Sonnet-5]
+Claude-Session: https://claude.ai/code/session_<full session id>
 EOF
 )"
 git push origin main
 ```
 
-Footer format is `Agent · Engine · Model`. Replace with whichever combination is actually in use:
-- Fortuna-Anthropic (Sonnet): `Fortuna · ClaudeCodeCLI · Anthropic Sonnet-5`
-- Fortuna-Anthropic (Opus): `Fortuna · ClaudeCodeCLI · Anthropic Opus-5`
-- Fortuna-NIM (if testing): `Fortuna · ClaudeCodeCLI · NVIDIA NIM Z-AI GLM-5.2`
+Footer format is **four** fields — `Agent · Engine · Provider [Model]` — with the model in square
+brackets, followed by a **separate** session trailer. Replace with whichever combination is
+actually in use:
+- Fortuna-Anthropic (Sonnet): `Fortuna · ClaudeCodeCLI · Anthropic [Sonnet-5]`
+- Fortuna-Anthropic (Opus): `Fortuna · ClaudeCodeCLI · Anthropic [Opus-5]`
+- Fortuna-NIM (if testing): `Fortuna · ClaudeCodeCLI · NVIDIA NIM [Z-AI GLM-5.2]`
 - Kavanah, Intent chat UI, Anthropic login ("ClaudeMent"): `Kavanah · ClaudeMent · Anthropic [model]`
-- Kavanah, Intent chat UI, native Auggie login: `Kavanah · AugmentIntent · [model]`
+- Kavanah, Intent chat UI, native Auggie login: `Kavanah · AugmentIntent · Augment [model]`
 - Kavanah, terminal instance (macOS/Intent/VSCode), Anthropic login: `Kavanah · ClaudeCodeCLI · Anthropic [model]`
 - Mystarch (rare — app-level cross-workspace reach): same engine options as Kavanah, swap the agent name
 - Auggie (native Augment CLI — currently hibernating, may return): `Auggie · AugmentCLI · [model]`
@@ -90,6 +93,20 @@ for the full rule on which application decides the agent name.
 
 The `<noreply@anthropic.com>` tail is no longer part of the documented convention (dropped
 2026-09-02 — didn't carry useful information). Omit it in new commits going forward.
+
+**The session trailer is a second, separately-keyed line.** Never fold it onto the
+`Co-Authored-By:` line — git parses trailers as one `Key: Value` per line, so folding them breaks
+parsing. Use the full session URL, never a truncated prefix. The key varies by platform:
+`Claude-Session:` for Claude Code CLI, `Cosmos-Session:` for Cosmos.
+
+> **Corrected 2026-09-11.** This section previously read `Agent · Engine · Model` (three fields, no
+> brackets) while the Kavanah entries just above already used `[model]` — the file disagreed with
+> itself, and with the canonical convention. An audit found 183 of 856 commits in this repo with no
+> attribution trailer and 496 carrying the stock Claude Code default, so the instructions were a
+> real source of the drift, not just a typo. Canonical form now lives in
+> [`my-template/AGENT-SYNC/README.md`](https://github.com/drasticstatic/my-template/blob/main/AGENT-SYNC/README.md),
+> and `.githooks/commit-msg` in this repo rejects non-conforming commits. Activate it once per
+> clone with `sh scripts/install-hooks.sh`.
 
 If push fails due to remote changes:
 ```bash
