@@ -28,6 +28,13 @@ style: |
   section.tiny-table blockquote { font-size: 0.88em; margin-top: 0.3em; padding: 0.4em 0.8em; }
 ---
 
+<div class="legacy-notice">
+  <span>
+    ⚠️ <strong>This presentation documents an older, now-superseded skill-file format.</strong>
+    See <a href="https://github.com/drasticstatic/my-template/blob/main/SKILLS_LOCATIONS.md" target="_blank" rel="noopener noreferrer">my-template/SKILLS_LOCATIONS.md</a> for the current cross-tool skill locations and this migration.
+  </span>
+</div>
+
 <!-- _class: title-slide -->
 
 <style scoped>
@@ -49,6 +56,28 @@ section {
 a {
   color: #0366d6;
   text-decoration: none;
+}
+.legacy-notice {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999999;
+  background: #1a1a2e;
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.legacy-notice a {
+  color: #8ab4f8;
 }
 </style>
 
