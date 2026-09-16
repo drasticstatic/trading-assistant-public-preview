@@ -983,9 +983,28 @@
       .page-nav a:active { background: rgba(84, 214, 141, 0.14); border-color: rgba(84, 214, 141, 0.6); color: var(--teal); animation: none; }
     }
 
+    /* ── Ambient background — same bounded-breathing pattern used across
+       the rest of the site, extended here so it's continuous. ── */
+    .bg-parallax {
+      position: fixed; inset: -10vh -10vw; z-index: -1; pointer-events: none;
+      background:
+        radial-gradient(ellipse at 12% -5%, rgba(84,214,141,0.20) 0%, transparent 42%),
+        radial-gradient(ellipse at 92% 8%, rgba(82,214,199,0.16) 0%, transparent 38%),
+        radial-gradient(ellipse at 50% 88%, rgba(243,207,122,0.10) 0%, transparent 45%);
+      animation: bgBreathe 20s ease-in-out infinite;
+    }
+    @keyframes bgBreathe {
+      0%, 100% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(-2.5%, 1.5%, 0) scale(1.06); }
+    }
+    /* ── Scroll-triggered reveal — each section settles into place once
+       as it enters view (IntersectionObserver in a script block below). ── */
+    .section-lead { opacity: 0; transform: translateY(16px); transition: opacity .6s cubic-bezier(.34,1.56,.64,1), transform .6s cubic-bezier(.34,1.56,.64,1); }
+    .section-lead.is-visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
+  <div class="bg-parallax" id="bgParallax"></div>
   <nav class="page-nav" aria-label="Page sections">
     <a href="#quick-start">⚡ Quick Start</a>
     <a href="#settings">⚙️ Settings Map</a>
@@ -1409,6 +1428,43 @@
         });
       }, { rootMargin: '-10% 0px -80% 0px', threshold: 0 });
       sections.forEach(s => observer.observe(s));
+    })();
+  </script>
+<script>
+    (function() {
+      const revealTargets = document.querySelectorAll('.section-lead');
+    // IntersectionObserver only compares state at the start/end of a scroll --
+    // a large/fast jump can move a short section from fully-below to fully-
+    // above the viewport in one reflow, skipping the threshold entirely and
+    // leaving it stuck at opacity:0. Wide rootMargin plus a scroll-listener
+    // catchup (force-reveal anything already scrolled past) closes that gap.
+    if ('IntersectionObserver' in window && revealTargets.length) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0, rootMargin: '200px 0px 200px 0px' });
+      revealTargets.forEach(el => revealObserver.observe(el));
+
+      let revealCatchupPending = false;
+      function revealCatchup() {
+        revealCatchupPending = false;
+        revealTargets.forEach(el => {
+          if (!el.classList.contains('is-visible') && el.getBoundingClientRect().top < window.innerHeight) {
+            el.classList.add('is-visible');
+            revealObserver.unobserve(el);
+          }
+        });
+      }
+      window.addEventListener('scroll', () => {
+        if (!revealCatchupPending) { revealCatchupPending = true; requestAnimationFrame(revealCatchup); }
+      }, { passive: true });
+    } else {
+      revealTargets.forEach(el => el.classList.add('is-visible'));
+    }
     })();
   </script>
 </body>
