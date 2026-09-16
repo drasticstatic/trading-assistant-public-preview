@@ -122,6 +122,12 @@
     .sec-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
     .sec-label:first-of-type { margin-top: 0; }
     .sec-sub { font-size: .82rem; color: var(--muted); margin: -.6rem 0 1rem; max-width: none; }
+    /* ── Scroll-triggered reveal — each section settles in once as it
+       enters view (IntersectionObserver below); the missing "unfold"
+       half of the ambient-background motion pattern this page already
+       has via .bg-parallax/bgBreathe. ── */
+    .sec-label { opacity: 0; transform: translateY(16px); transition: opacity .6s cubic-bezier(.34,1.56,.64,1), transform .6s cubic-bezier(.34,1.56,.64,1); }
+    .sec-label.is-visible { opacity: 1; transform: translateY(0); }
     /* ── Glass card base — frosted, with a thin top-edge light-line
        tinted per section via --accent (set on the wrapping element). ── */
     .glass {
@@ -697,6 +703,24 @@
     // (bgBreathe, see .bg-parallax) instead of a scroll-linked JS
     // transform — no init needed, and prefers-reduced-motion is already
     // handled globally by the page's top-level animation-duration override.
+
+    // Scroll-triggered reveal — see .sec-label rules above. Each section
+    // heading settles into place once, the first time it crosses ~85%
+    // down the viewport, then unobserves itself (no repeat on scroll-back).
+    const revealTargets = document.querySelectorAll('.sec-label');
+    if ('IntersectionObserver' in window && revealTargets.length) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+      revealTargets.forEach(el => revealObserver.observe(el));
+    } else {
+      revealTargets.forEach(el => el.classList.add('is-visible'));
+    }
   </script>
 
 </body>
