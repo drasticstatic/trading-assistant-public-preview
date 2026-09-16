@@ -1,8 +1,9 @@
 # Xato — Rules Reference
 > Compiled from Xato's own site (rules page updated as of August 20, 2026).
-> Inevitrade's actual funding partner — corrects an earlier misidentification (previously logged as "Leveraged" or "BreakoutProp" placeholders on the pre-flight checklist page; not held, not correct).
+> Inevitrade's funding partner — Craig/Inevitrade partnered with Xato for initial testing, tailored to feedback from the community as the platform matures.
 > Not currently an active Christopher account — reference doc, added ahead of opening one.
-> Source: [xato.com/rules](https://xato.com/rules) · [xato.com/how-it-works](https://xato.com/how-it-works)
+> Xato's public site (xato.com) is still rolling out — some pages (e.g. `/how-it-works`) may 404 until it fully publishes. The build/preview site below has the same content live in the meantime.
+> Source: [xato.com/rules](https://xato.com/rules) · [xato.com](https://xato.com) (current live site) · [xato-website.vercel.app](https://xato-website.vercel.app) (build preview — same content, useful if a xato.com page isn't live yet)
 
 ---
 
@@ -74,7 +75,7 @@ Positions may be held over the weekend. Crypto instruments are ~24/7 (barring ma
 
 ## Order Types & Platform
 
-Custom web trading terminal only (no third-party platform support mentioned). Time-in-force: GTC, IOC, ALO (Add Liquidity Only). Partial take-profit / partial close supported.
+Custom web trading terminal only — execution and order management happen on Xato's own site, not a third-party platform. Time-in-force: GTC, IOC, ALO (Add Liquidity Only). Partial take-profit / partial close supported. Since pricing/liquidity routes through Hyperliquid, technical analysis (charting, level marking) can still be done on TradingView synced to Hyperliquid's own exchange data feed — the same pattern now working for BTCC and crypto.com perpetuals (see BTCC's note in the Community &amp; Thanks page and Instrument Reference on resources.html) — even though order execution itself stays on Xato's terminal.
 
 ## Minimum Age & Eligibility
 
