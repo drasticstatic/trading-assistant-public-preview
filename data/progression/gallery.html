@@ -530,6 +530,48 @@
       border-top: 1px solid var(--border); font-size: .78rem; color: var(--dim);
       text-align: center;
     }
+
+    /* ── PNL EQUITY CURVE ── */
+    .pnl-wrap {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 1.1rem 1.2rem 1.3rem;
+    }
+    .pnl-stat-row { display: flex; flex-wrap: wrap; gap: 1.4rem; margin-bottom: .9rem; }
+    .pnl-stat .pnl-stat-label { font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+    .pnl-stat .pnl-stat-value { font-size: 1.3rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+    .pnl-toggle-row { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-bottom: .8rem; }
+    .pnl-toggle {
+      display: inline-flex; align-items: center; gap: .35rem; padding: .28rem .7rem;
+      border: 1px solid var(--border); border-radius: 999px; background: transparent;
+      color: var(--muted); font-size: .74rem; cursor: pointer; transition: border-color .15s, color .15s, background .15s;
+    }
+    .pnl-toggle:hover { color: var(--text); }
+    .pnl-toggle .dot { width: .55rem; height: .55rem; border-radius: 999px; background: currentColor; flex-shrink: 0; }
+    .pnl-toggle.active { color: var(--text); border-color: currentColor; background: rgba(255,255,255,.06); }
+    .pnl-acct-panel { display: none; flex-wrap: wrap; gap: .4rem; padding: .7rem .1rem .2rem; border-top: 1px dashed var(--border); margin-top: .2rem; }
+    .pnl-acct-panel.open { display: flex; }
+    .pnl-acct-group-label { width: 100%; font-size: .66rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--dim); margin: .4rem 0 .1rem; }
+    .pnl-acct-group-label:first-child { margin-top: 0; }
+    .pnl-svg-wrap { position: relative; }
+    .pnl-svg { width: 100%; height: auto; display: block; touch-action: none; }
+    .pnl-svg .zero-line { stroke: var(--dim); stroke-width: 1; stroke-dasharray: 3 3; }
+    .pnl-svg .series-line { fill: none; stroke-width: 2; }
+    .pnl-svg .series-line.combined { stroke-width: 2.5; }
+    .pnl-svg .crosshair { stroke: var(--dim); stroke-width: 1; opacity: 0; pointer-events: none; }
+    .pnl-svg .hover-dot { opacity: 0; pointer-events: none; }
+    .pnl-tooltip {
+      position: absolute; pointer-events: none; z-index: 5; opacity: 0; transition: opacity .1s;
+      background: #0c1220; border: 1px solid var(--border); border-radius: 8px; padding: .5rem .65rem;
+      font-size: .72rem; white-space: nowrap; box-shadow: var(--shadow-md);
+    }
+    .pnl-tooltip .tt-date { color: var(--dim); margin-bottom: .25rem; font-size: .68rem; }
+    .pnl-tooltip .tt-row { display: flex; align-items: center; gap: .35rem; }
+    .pnl-tooltip .tt-row .dot { width: .5rem; height: .5rem; border-radius: 999px; flex-shrink: 0; }
+    .pnl-note { font-size: .7rem; color: var(--dim); margin-top: .6rem; }
+    @media (max-width: 640px) {
+      .pnl-stat-row { gap: .9rem; }
+      .pnl-stat .pnl-stat-value { font-size: 1.08rem; }
+    }
   </style>
 </head>
 <body>
@@ -597,6 +639,22 @@
     <p style="margin-top:.4rem;font-size:.78rem;color:var(--muted);">Also viewable as a scrollable day-strip across the full backlog:</p>
     <div class="heatmap-strip" id="heatmapStrip"><div class="heatmap-track" id="heatmapTrack"></div></div>
     <p style="margin-top:.2rem;font-size:.72rem;color:var(--dim);">Green = net win day · red = net loss day · intensity scales with size. Click a cell for that day's trades, or hover for a quick date + net P&amp;L preview.</p>
+
+    <div class="sec-label"><i class="ph-duotone ph-chart-line-up"></i> Cumulative P&amp;L</div>
+    <p class="sec-sub">Running account-balance curve, built live from the master trade ledger — every fill, every account. Toggle paper trading in or out, or open individual accounts to overlay their own curve against the combined total</p>
+    <div class="pnl-wrap">
+      <div class="pnl-stat-row" id="pnlStatRow"></div>
+      <div class="pnl-toggle-row">
+        <button type="button" class="pnl-toggle" id="pnlPaperToggle" onclick="pnlTogglePaper()"><span class="dot" style="color:var(--red);"></span> Include Paper Trading</button>
+        <button type="button" class="pnl-toggle" id="pnlAcctToggleBtn" onclick="pnlToggleAcctPanel()"><i class="ph-duotone ph-sliders-horizontal" style="font-size:1em;animation:none;"></i> By Account</button>
+      </div>
+      <div class="pnl-acct-panel" id="pnlAcctPanel"></div>
+      <div class="pnl-svg-wrap" id="pnlSvgWrap">
+        <svg class="pnl-svg" id="pnlSvg" viewBox="0 0 900 320" preserveAspectRatio="none" aria-label="Cumulative P&amp;L equity curve"></svg>
+        <div class="pnl-tooltip" id="pnlTooltip"></div>
+      </div>
+      <p class="pnl-note" id="pnlLoadNote">Loading live ledger data…</p>
+    </div>
 
     <div class="sec-label"><i class="ph-duotone ph-chart-scatter"></i> Account Progression</div>
     <p class="sec-sub">Every eval and funded account's balance progression, newest first. TPT statement images (portrait) support a fit ↔ scroll toggle — click once to open full-page, click the image again for a scrollable full-width view</p>
@@ -1814,6 +1872,183 @@
       .catch(() => {
         document.getElementById('ledgerTableWrap').innerHTML =
           '<p class="csv-table-note">Live table requires viewing this page over HTTP (e.g. GitHub Pages) — a local file:// preview can\'t fetch the CSV. <a href="assets/prop-firm-account-ledger.csv">View the raw CSV</a> instead.</p>';
+      });
+
+    // ═══════════════════════════════════════════════════════
+    // CUMULATIVE P&L — built live from the master trade ledger, not a
+    // hand-maintained snapshot. Firm is derived from each account's own
+    // naming convention (APEX*, TAKEPROFIT*, TOF*, LFE*, BTCC), and a
+    // PA- prefix (e.g. PA-APEX-484839-01) flags a paper account — the
+    // one place that convention is authoritative, see fortuna-exports/.
+    // ═══════════════════════════════════════════════════════
+    const PNL_LEDGER_CSV = '../../fortuna-exports/master_trade_ledger_2026-05-14_to_2026-09-01.csv';
+    // NOTE: filename carries the range as of its first export; content has
+    // grown past that date across several import rounds without a rename
+    // (observed precedent this session) — bump this constant if it ever is renamed.
+    const FIRM_COLORS = { Apex: 'var(--purple)', TPT: 'var(--blue)', TopOne: 'var(--cyan)', Lucid: 'var(--green)', BTCC: 'var(--gold)', Other: 'var(--muted)' };
+    function pnlFirmOf(account) {
+      const a = account.replace(/^PA-/, '');
+      if (a.startsWith('APEX')) return 'Apex';
+      if (a.startsWith('TAKEPROFIT')) return 'TPT';
+      if (a.startsWith('TOF')) return 'TopOne';
+      if (a.startsWith('LFE') || a.startsWith('LUCID')) return 'Lucid';
+      if (a === 'BTCC') return 'BTCC';
+      return 'Other';
+    }
+    let pnlTrades = [];      // { account, firm, isPaper, pnl, date }
+    let pnlAccounts = [];    // unique account names, grouped/sorted by firm
+    const pnlState = { includePaper: false, openAccounts: new Set() };
+
+    function pnlCumulative(trades) {
+      const sorted = trades.slice().sort((a, b) => a.date - b.date);
+      let running = 0;
+      return sorted.map(t => { running += t.pnl; return { date: t.date, value: running }; });
+    }
+
+    function pnlActiveSeries() {
+      const combinedTrades = pnlTrades.filter(t => pnlState.includePaper || !t.isPaper);
+      const series = [{ key: 'combined', label: 'All Accounts (Combined)', color: 'var(--text)', points: pnlCumulative(combinedTrades) }];
+      pnlState.openAccounts.forEach(acct => {
+        const trades = pnlTrades.filter(t => t.account === acct);
+        series.push({ key: acct, label: acct, color: FIRM_COLORS[pnlFirmOf(acct)], points: pnlCumulative(trades) });
+      });
+      return series;
+    }
+
+    function pnlRenderStats() {
+      const combined = pnlCumulative(pnlTrades.filter(t => pnlState.includePaper || !t.isPaper));
+      const final = combined.length ? combined[combined.length - 1].value : 0;
+      const tradeCount = pnlTrades.filter(t => pnlState.includePaper || !t.isPaper).length;
+      const best = combined.reduce((m, p, i) => { const prev = i ? combined[i-1].value : 0; return Math.max(m, p.value - prev); }, -Infinity);
+      const fmt = n => (n < 0 ? '-$' : '+$') + Math.abs(n).toFixed(2);
+      document.getElementById('pnlStatRow').innerHTML = `
+        <div class="pnl-stat"><div class="pnl-stat-label">Combined Balance</div><div class="pnl-stat-value" style="color:${final >= 0 ? 'var(--green)' : 'var(--red)'}">${fmt(final)}</div></div>
+        <div class="pnl-stat"><div class="pnl-stat-label">Trades</div><div class="pnl-stat-value">${tradeCount}</div></div>
+        <div class="pnl-stat"><div class="pnl-stat-label">Best Single Trade</div><div class="pnl-stat-value" style="color:var(--green)">${isFinite(best) ? fmt(best) : '—'}</div></div>
+      `;
+    }
+
+    function pnlRenderAcctPanel() {
+      const byFirm = {};
+      pnlAccounts.forEach(a => { const f = pnlFirmOf(a); (byFirm[f] = byFirm[f] || []).push(a); });
+      const order = ['Apex', 'TPT', 'TopOne', 'Lucid', 'BTCC', 'Other'];
+      let html = '';
+      order.forEach(f => {
+        if (!byFirm[f]) return;
+        html += `<div class="pnl-acct-group-label">${f}</div>`;
+        byFirm[f].forEach(a => {
+          const active = pnlState.openAccounts.has(a);
+          html += `<button type="button" class="pnl-toggle${active ? ' active' : ''}" style="color:${FIRM_COLORS[f]}" onclick="pnlToggleAccount('${a}')"><span class="dot"></span>${a}</button>`;
+        });
+      });
+      document.getElementById('pnlAcctPanel').innerHTML = html;
+    }
+
+    function pnlToggleAccount(acct) {
+      if (pnlState.openAccounts.has(acct)) pnlState.openAccounts.delete(acct);
+      else pnlState.openAccounts.add(acct);
+      pnlRenderAcctPanel();
+      pnlDraw();
+    }
+    function pnlTogglePaper() {
+      pnlState.includePaper = !pnlState.includePaper;
+      document.getElementById('pnlPaperToggle').classList.toggle('active', pnlState.includePaper);
+      pnlRenderStats();
+      pnlDraw();
+    }
+    function pnlToggleAcctPanel() {
+      const panel = document.getElementById('pnlAcctPanel');
+      const open = panel.classList.toggle('open');
+      document.getElementById('pnlAcctToggleBtn').classList.toggle('active', open);
+    }
+
+    const PNL_PAD = { l: 54, r: 16, t: 16, b: 28 };
+    const PNL_W = 900, PNL_H = 320;
+    function pnlDraw() {
+      const svg = document.getElementById('pnlSvg');
+      const series = pnlActiveSeries();
+      const allPoints = series.flatMap(s => s.points);
+      if (!allPoints.length) { svg.innerHTML = ''; return; }
+      const xMin = Math.min(...allPoints.map(p => p.date.getTime()));
+      const xMax = Math.max(...allPoints.map(p => p.date.getTime()));
+      const yVals = allPoints.map(p => p.value).concat([0]);
+      let yMin = Math.min(...yVals), yMax = Math.max(...yVals);
+      if (yMin === yMax) { yMin -= 100; yMax += 100; }
+      const yPad = (yMax - yMin) * 0.08;
+      yMin -= yPad; yMax += yPad;
+      const innerW = PNL_W - PNL_PAD.l - PNL_PAD.r, innerH = PNL_H - PNL_PAD.t - PNL_PAD.b;
+      const xScale = t => xMax === xMin ? PNL_PAD.l : PNL_PAD.l + ((t - xMin) / (xMax - xMin)) * innerW;
+      const yScale = v => PNL_PAD.t + innerH - ((v - yMin) / (yMax - yMin)) * innerH;
+      const zeroY = yScale(0);
+
+      let svgHtml = `<line class="zero-line" x1="${PNL_PAD.l}" y1="${zeroY}" x2="${PNL_W - PNL_PAD.r}" y2="${zeroY}"></line>`;
+      // y-axis labels (min/zero/max)
+      [yMax, 0, yMin].forEach(v => {
+        const y = yScale(v);
+        svgHtml += `<text x="${PNL_PAD.l - 8}" y="${y + 3}" text-anchor="end" font-size="10" fill="var(--dim)">${v >= 0 ? '$' : '-$'}${Math.abs(Math.round(v))}</text>`;
+      });
+      // x-axis start/end date labels
+      const dfmt = t => new Date(t).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+      svgHtml += `<text x="${PNL_PAD.l}" y="${PNL_H - 8}" font-size="10" fill="var(--dim)">${dfmt(xMin)}</text>`;
+      svgHtml += `<text x="${PNL_W - PNL_PAD.r}" y="${PNL_H - 8}" text-anchor="end" font-size="10" fill="var(--dim)">${dfmt(xMax)}</text>`;
+
+      series.forEach(s => {
+        if (!s.points.length) return;
+        const d = s.points.map((p, i) => `${i === 0 ? 'M' : 'L'}${xScale(p.date.getTime()).toFixed(1)},${yScale(p.value).toFixed(1)}`).join(' ');
+        svgHtml += `<path class="series-line${s.key === 'combined' ? ' combined' : ''}" d="${d}" style="stroke:${s.color}"></path>`;
+        const last = s.points[s.points.length - 1];
+        svgHtml += `<circle cx="${xScale(last.date.getTime()).toFixed(1)}" cy="${yScale(last.value).toFixed(1)}" r="3.5" fill="${s.color}"></circle>`;
+      });
+      svgHtml += `<line class="crosshair" id="pnlCrosshair" x1="0" y1="${PNL_PAD.t}" x2="0" y2="${PNL_H - PNL_PAD.b}"></line>`;
+      svg.innerHTML = svgHtml;
+
+      // Hover: nearest-point crosshair + tooltip across all active series
+      const wrap = document.getElementById('pnlSvgWrap');
+      const tooltip = document.getElementById('pnlTooltip');
+      svg.onmousemove = svg.ontouchmove = (e) => {
+        const rect = svg.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const px = ((clientX - rect.left) / rect.width) * PNL_W;
+        const t = xMin + ((px - PNL_PAD.l) / innerW) * (xMax - xMin);
+        if (t < xMin || t > xMax) return;
+        const crosshair = document.getElementById('pnlCrosshair');
+        const x = xScale(t);
+        crosshair.setAttribute('x1', x); crosshair.setAttribute('x2', x); crosshair.style.opacity = '1';
+        let rows = '';
+        series.forEach(s => {
+          const before = s.points.filter(p => p.date.getTime() <= t);
+          if (!before.length) return;
+          const v = before[before.length - 1].value;
+          rows += `<div class="tt-row"><span class="dot" style="background:${s.color}"></span>${s.label}: <strong style="margin-left:.2rem;">${v >= 0 ? '+$' : '-$'}${Math.abs(v).toFixed(2)}</strong></div>`;
+        });
+        tooltip.innerHTML = `<div class="tt-date">${dfmt(t)}</div>${rows}`;
+        tooltip.style.opacity = '1';
+        const tRect = wrap.getBoundingClientRect();
+        let left = ((clientX - tRect.left) + 14);
+        if (left + 180 > tRect.width) left = (clientX - tRect.left) - 194;
+        tooltip.style.left = left + 'px';
+        tooltip.style.top = '10px';
+      };
+      svg.onmouseleave = () => { tooltip.style.opacity = '0'; document.getElementById('pnlCrosshair').style.opacity = '0'; };
+    }
+
+    fetch(PNL_LEDGER_CSV)
+      .then(res => { if (!res.ok) throw new Error('fetch failed'); return res.text(); })
+      .then(text => {
+        const lines = text.trim().split('\n');
+        const rows = lines.slice(1).map(parseCSVLine);
+        pnlTrades = rows.map(cells => {
+          const account = cells[0], pnl = parseFloat(cells[9]), exitTime = cells[8];
+          return { account, firm: pnlFirmOf(account), isPaper: account.startsWith('PA-'), pnl: isNaN(pnl) ? 0 : pnl, date: new Date(exitTime) };
+        }).filter(t => !isNaN(t.date.getTime()));
+        pnlAccounts = Array.from(new Set(pnlTrades.map(t => t.account))).sort();
+        document.getElementById('pnlLoadNote').style.display = 'none';
+        pnlRenderStats();
+        pnlRenderAcctPanel();
+        pnlDraw();
+      })
+      .catch(() => {
+        document.getElementById('pnlLoadNote').textContent = 'Live chart requires viewing this page over HTTP (e.g. GitHub Pages) — a local file:// preview can\'t fetch the ledger CSV.';
       });
 
     // The ambient background now animates via a pure CSS keyframe
