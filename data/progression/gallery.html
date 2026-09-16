@@ -674,6 +674,11 @@
       <div class="gallery-grid" id="ledgerGrid"></div>
     </div>
 
+    <div class="sec-label"><i class="ph-duotone ph-table"></i> Trade Ledger <span class="sec-tag">coach-facing — every fill, not just account totals</span></div>
+    <p class="sec-sub">Every individual trade from the master ledger — date, account, instrument, side, entry/exit, and realized P&amp;L. Paper trading excluded by default. <span style="color:var(--dim);">Zella Score per trade is a planned addition, not yet wired up here — TradeZella's own scoring data is archived but not yet joined against this table.</span> (<span id="tradeLedgerCount"></span>)</p>
+    <div class="ledger-filters" id="tradeLedgerFilters"></div>
+    <div class="csv-table-wrap" id="tradeLedgerWrap" style="max-height:640px;overflow-y:auto;"><p class="csv-table-note">Loading trade ledger…</p></div>
+
     <div class="sec-label"><i class="ph-duotone ph-chart-line-up"></i> Legacy TradeZella Archive <span class="sec-tag">how this started — and letting go of it, moving forward</span></div>
     <p class="sec-sub">TradeZella got the habit started: drag-and-drop calendars, Zella Score, AI reviews. This section keeps that record intact — including the paper-trading intro, on purpose, as part of the origin story — while the sections above take over for everything going forward. See also: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/smarttrader-ai/reviews" target="_blank" rel="noreferrer">monthly reviews</a> for the fuller written record behind these screenshots.</p>
     <div class="carousel">
@@ -2046,10 +2051,97 @@
         pnlRenderStats();
         pnlRenderAcctPanel();
         pnlDraw();
+
+        // Full trade-level rows for the Trade Ledger table below — same
+        // fetch/parse pass as pnlTrades above, just keeping every column
+        // instead of collapsing to {account,pnl,date}.
+        tradeLedgerRows = rows.map(cells => ({
+          account: cells[0], product: cells[1], contract: cells[2], direction: cells[3],
+          qty: cells[4], entryPrice: cells[5], entryTime: cells[6], exitPrice: cells[7],
+          exitTime: cells[8], pnl: parseFloat(cells[9]), source: cells[10],
+          firm: pnlFirmOf(cells[0]), isPaper: cells[0].startsWith('PA-'),
+        })).filter(r => !isNaN(new Date(r.exitTime).getTime()));
+        renderTradeLedgerFilters();
+        renderTradeLedgerRows();
       })
       .catch(() => {
         document.getElementById('pnlLoadNote').textContent = 'Live chart requires viewing this page over HTTP (e.g. GitHub Pages) — a local file:// preview can\'t fetch the ledger CSV.';
+        document.getElementById('tradeLedgerWrap').innerHTML =
+          '<p class="csv-table-note">Live table requires viewing this page over HTTP (e.g. GitHub Pages) — a local file:// preview can\'t fetch the CSV. <a href="' + PNL_LEDGER_CSV + '">View the raw CSV</a> instead.</p>';
       });
+
+    // ═══════════════════════════════════════════════════════
+    // TRADE LEDGER — every individual fill, coach-facing detail view.
+    // Reuses the .csv-table/.ledger-filters styling already built for
+    // the account-level ledger above; this is the trade-level twin.
+    // ═══════════════════════════════════════════════════════
+    let tradeLedgerRows = [];
+    let tradeLedgerFilter = { firm: 'all', outcome: 'all' };
+    let tradeLedgerSort = { key: 'date', dir: 'desc' };
+    const TRADE_LEDGER_PAGE_SIZE = 40;
+    let tradeLedgerShown = TRADE_LEDGER_PAGE_SIZE;
+
+    function renderTradeLedgerFilters() {
+      const firms = Array.from(new Set(tradeLedgerRows.map(r => r.firm))).sort();
+      const firmOpts = ['<option value="all">All Firms</option>'].concat(firms.map(f => `<option value="${f}">${f}</option>`)).join('');
+      document.getElementById('tradeLedgerFilters').innerHTML = `
+        <select onchange="tradeLedgerFilter.firm=this.value; tradeLedgerShown=${TRADE_LEDGER_PAGE_SIZE}; renderTradeLedgerRows();">${firmOpts}</select>
+        <select onchange="tradeLedgerFilter.outcome=this.value; tradeLedgerShown=${TRADE_LEDGER_PAGE_SIZE}; renderTradeLedgerRows();">
+          <option value="all">Wins &amp; Losses</option>
+          <option value="win">Wins Only</option>
+          <option value="loss">Losses Only</option>
+        </select>
+        <select onchange="tradeLedgerFilter.paper=this.value; tradeLedgerShown=${TRADE_LEDGER_PAGE_SIZE}; renderTradeLedgerRows();">
+          <option value="exclude">Exclude Paper</option>
+          <option value="all">Include Paper</option>
+        </select>
+      `;
+      tradeLedgerFilter.paper = 'exclude';
+    }
+
+    function renderTradeLedgerRows() {
+      let rows = tradeLedgerRows.filter(r =>
+        (tradeLedgerFilter.firm === 'all' || r.firm === tradeLedgerFilter.firm) &&
+        (tradeLedgerFilter.outcome === 'all' || (tradeLedgerFilter.outcome === 'win' ? r.pnl > 0 : r.pnl < 0)) &&
+        (tradeLedgerFilter.paper === 'all' || !r.isPaper)
+      );
+      rows = rows.slice().sort((a, b) => {
+        if (tradeLedgerSort.key === 'date') {
+          const d = new Date(a.exitTime) - new Date(b.exitTime);
+          return tradeLedgerSort.dir === 'desc' ? -d : d;
+        }
+        if (tradeLedgerSort.key === 'pnl') return tradeLedgerSort.dir === 'desc' ? b.pnl - a.pnl : a.pnl - b.pnl;
+        return 0;
+      });
+      const total = rows.length;
+      const visible = rows.slice(0, tradeLedgerShown);
+      const dfmt = iso => { const d = new Date(iso); return isNaN(d.getTime()) ? '—' : d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }); };
+      const tfmt = iso => { const d = new Date(iso); return isNaN(d.getTime()) ? '' : d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }); };
+      let html = `<table class="csv-table"><thead><tr>
+        <th style="cursor:pointer" onclick="tradeLedgerSort={key:'date',dir:tradeLedgerSort.key==='date'&&tradeLedgerSort.dir==='desc'?'asc':'desc'}; renderTradeLedgerRows();">Date ${tradeLedgerSort.key === 'date' ? (tradeLedgerSort.dir === 'desc' ? '↓' : '↑') : ''}</th>
+        <th>Account</th><th>Instrument</th><th>Side</th><th>Qty</th><th>Entry</th><th>Exit</th>
+        <th style="cursor:pointer" onclick="tradeLedgerSort={key:'pnl',dir:tradeLedgerSort.key==='pnl'&&tradeLedgerSort.dir==='desc'?'asc':'desc'}; renderTradeLedgerRows();">P&amp;L ${tradeLedgerSort.key === 'pnl' ? (tradeLedgerSort.dir === 'desc' ? '↓' : '↑') : ''}</th>
+        <th>Source</th></tr></thead><tbody>`;
+      visible.forEach(r => {
+        html += `<tr>
+          <td data-label="Date">${dfmt(r.exitTime)}<br><span style="color:var(--dim);font-size:.68rem;">${tfmt(r.exitTime)}</span></td>
+          <td data-label="Account">${r.account}${r.isPaper ? ' <span class="badge" style="background:rgba(248,113,113,.15);color:var(--red);">Paper</span>' : ''}</td>
+          <td data-label="Instrument">${r.product} <span style="color:var(--dim);">${r.contract}</span></td>
+          <td data-label="Side"><span class="badge" style="background:${r.direction === 'Long' ? 'rgba(74,222,128,.15)' : 'rgba(248,113,113,.15)'};color:${r.direction === 'Long' ? 'var(--green)' : 'var(--red)'};">${r.direction}</span></td>
+          <td data-label="Qty">${r.qty}</td>
+          <td data-label="Entry">${r.entryPrice}</td>
+          <td data-label="Exit">${r.exitPrice}</td>
+          <td data-label="P&amp;L" style="color:${r.pnl >= 0 ? 'var(--green)' : 'var(--red)'};font-weight:700;">${r.pnl >= 0 ? '+$' : '-$'}${Math.abs(r.pnl).toFixed(2)}</td>
+          <td data-label="Source" style="color:var(--dim);font-size:.7rem;">${r.source}</td>
+        </tr>`;
+      });
+      html += '</tbody></table>';
+      if (total > tradeLedgerShown) {
+        html += `<p style="text-align:center;margin-top:.7rem;"><button type="button" class="pnl-toggle" onclick="tradeLedgerShown+=${TRADE_LEDGER_PAGE_SIZE}; renderTradeLedgerRows();">Show ${Math.min(TRADE_LEDGER_PAGE_SIZE, total - tradeLedgerShown)} More (${total - tradeLedgerShown} remaining)</button></p>`;
+      }
+      document.getElementById('tradeLedgerWrap').innerHTML = html;
+      document.getElementById('tradeLedgerCount').textContent = `${total} trade${total === 1 ? '' : 's'}`;
+    }
 
     // The ambient background now animates via a pure CSS keyframe
     // (bgBreathe, see .bg-parallax) instead of a scroll-linked JS
