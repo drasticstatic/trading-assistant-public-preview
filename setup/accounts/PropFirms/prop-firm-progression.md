@@ -74,6 +74,7 @@ Opening accounts before readiness = unnecessary fees + more rules to track + mor
 | TopOneFutures | Elite ACCESS ×2 (BOGO) | ZeroToHero + STB | ✅ Funded — both eval passed Aug 28, 2026 |
 | Lucid | LucidTrading — style TBD (Flex/Daily/Pro) | Inevitrade + STB | 🦆 Free 25K account code won via PropFirmMatchTV duck race — incoming |
 | Tradeify | Select Challenge | Inevitrade + STB | Planned — Phase 3 |
+| Xato (own terminal) | Xato | Inevitrade + STB | Reference — Inevitrade's actual funding partner (corrects earlier "Leveraged"/"BreakoutProp" placeholder guess); not yet opened |
 
 ---
 
