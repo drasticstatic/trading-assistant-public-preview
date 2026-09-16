@@ -75,7 +75,7 @@ Opening accounts before readiness = unnecessary fees + more rules to track + mor
 | TopOneFutures | Elite ACCESS ×2 (2nd BOGO, TOF218430/431) | ZeroToHero + STB | 🕐 Eval in progress since Sep 15, 2026 — activation code expires Oct 14, 2026 |
 | Lucid | LucidTrading — style TBD (Flex/Daily/Pro) | Inevitrade + STB | 🦆 Free 25K account code won via PropFirmMatchTV duck race — incoming |
 | Tradeify | Select Challenge | Inevitrade + STB | Planned — Phase 3 |
-| Xato (own terminal) | Xato | Inevitrade + STB | Reference — Inevitrade's actual funding partner (corrects earlier "Leveraged"/"BreakoutProp" placeholder guess); not yet opened |
+| Xato (own terminal) | Xato | Inevitrade + STB | Reference — Inevitrade partnered with Xato for initial testing, tailored to community feedback; not yet opened |
 
 ---
 
