@@ -1067,8 +1067,17 @@
     }
 
     // Scroll-triggered reveal — see .section-panel/.hero-shell rules above.
-    // Each section settles in once, the first time it crosses ~85% down
-    // the viewport, then unobserves itself (no repeat replay on scroll-back).
+    // Each section settles in once as it enters the viewport.
+    //
+    // IntersectionObserver only compares state at the start and end of a
+    // scroll -- it doesn't sample in between. A large/fast jump (a real
+    // user mashing Page Down or dragging the scrollbar) can move a short
+    // section from "fully below the viewport" straight to "fully above
+    // it" in one reflow, so its intersection ratio never crosses the
+    // threshold and it's left permanently at opacity:0. A wide rootMargin
+    // makes that far less likely, and the scroll-listener fallback below
+    // catches anything that still slips through by force-revealing any
+    // section whose top has already passed above the viewport.
     const revealTargets = document.querySelectorAll('.section-panel, .hero-shell');
     if ('IntersectionObserver' in window && revealTargets.length) {
       const revealObserver = new IntersectionObserver((entries) => {
@@ -1078,8 +1087,22 @@
             revealObserver.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+      }, { threshold: 0, rootMargin: '200px 0px 200px 0px' });
       revealTargets.forEach(el => revealObserver.observe(el));
+
+      let revealCatchupPending = false;
+      function revealCatchup() {
+        revealCatchupPending = false;
+        revealTargets.forEach(el => {
+          if (!el.classList.contains('is-visible') && el.getBoundingClientRect().top < window.innerHeight) {
+            el.classList.add('is-visible');
+            revealObserver.unobserve(el);
+          }
+        });
+      }
+      window.addEventListener('scroll', () => {
+        if (!revealCatchupPending) { revealCatchupPending = true; requestAnimationFrame(revealCatchup); }
+      }, { passive: true });
     } else {
       revealTargets.forEach(el => el.classList.add('is-visible'));
     }
