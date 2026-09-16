@@ -53,10 +53,10 @@
 
 ## 📊 Trade Log — May 14 – Sep 3, 2026 (technical record, CSV-derived)
 
-*Continuation of the Trade Log above, covering the trade-review backlog processed from the iCloud CSV staging folder (`_csv-2B-filed/`). Behavioral/psychology columns (R:R, Zella, Rating, Entry Filter grade, SL Respected, Stable) are marked pending — narrative journal data for this window hasn't been provided yet; Christopher will sanity-check once it is. Source: [`fortuna-exports/master_trade_ledger_2026-05-14_to_2026-09-01.csv`](../../fortuna-exports/master_trade_ledger_2026-05-14_to_2026-09-01.csv) — 277 trades reconstructed via FIFO fill-matching from Tradovate order exports + BTCC transaction history, cross-validated against confirmed TradeZella/certificate P&L figures (exact match on every account checked). Two commissions-only variances of ~$0.50–$1.40 remain versus platform-reported totals on two accounts — immaterial, not investigated further. The 22 rows added Sep 4-9, 2026 are the first live trading activity since TradeCopia went live Sep 3 — most are one leg of a multi-account mirrored decision; see each row's linked trade review for the full mirror-group breakdown.*
+*Continuation of the Trade Log above, covering the trade-review backlog processed from the iCloud CSV staging folder (`_csv-2B-filed/`). Behavioral/psychology columns (R:R, Zella, Rating, Entry Filter grade, SL Respected, Stable) are marked pending — narrative journal data for this window hasn't been provided yet; Christopher will sanity-check once it is. Source: [`fortuna-exports/master_trade_ledger_2026-05-14_to_2026-09-01.csv`](../../fortuna-exports/master_trade_ledger_2026-05-14_to_2026-09-01.csv) — 320 trades reconstructed via FIFO fill-matching from Tradovate order exports + BTCC transaction history, cross-validated against confirmed TradeZella/certificate P&L figures (exact match on every account checked). Two commissions-only variances of ~$0.50–$1.40 remain versus platform-reported totals on two accounts — immaterial, not investigated further. The 22 rows added Sep 4-9, 2026 and the 34 rows added Sep 9-16, 2026 (incl. 2 rows recovered from a Tradovate re-export cross-check against TradeZella) are the first live trading activity since TradeCopia went live Sep 3 — most are one leg of a multi-account mirrored decision; see each row's linked trade review for the full mirror-group breakdown.*
 
 <details>
-<summary>🔽 <strong>Show the full 277-row technical trade log</strong></summary>
+<summary>🔽 <strong>Show the full 320-row technical trade log</strong></summary>
 
 | # | Date | Instrument | Dir | Entry | Exit | P&L | R:R | Zella | Rating | Entry Filter | SL Respected | Stable |
 |---|------|-----------|-----|-------|------|-----|-----|-------|--------|--------------|--------------|--------|
@@ -340,6 +340,40 @@
 | 20260908_MGC-APEX12_004 | Sep 8 | MGC | Long | 4,404.60 | 4,405.50 | **+$9.00** | — | — | — | ⏳ Pending journal data | — | — |
 | 20260908_MNQ-APEX11_005 | Sep 8 | MNQ | Short | 29,520.25 | 29,524.75 | **-$9.00** | — | — | — | ⏳ Pending journal data | — | — |
 | 20260908_MNQ-APEX12_006 | Sep 8 | MNQ | Short | 29,519.75 | 29,524.75 | **-$10.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260906_M2K-LFE_001 | Sep 6 | M2K | Short | 2,976.20 | 2,971.60 | **+$92.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260906_M2K-TPTPRO781112132_002 | Sep 6 | M2K | Short | 2,976.20 | 2,971.60 | **+$184.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260909_MGC-APEX11_001 | Sep 9 | MGC | Short | 4,438.80 | 4,426.20 | **+$126.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260909_MGC-APEX12_002 | Sep 9 | MGC | Short | 4,438.80 | 4,426.20 | **+$126.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260909_MGC-LFE_003 | Sep 9 | MGC | Short | 4,438.80 | 4,426.20 | **+$126.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260909_MGC-TOF197288_004 | Sep 9 | MGC | Short | 4,438.80 | 4,426.20 | **+$126.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260909_MGC-TOF197292_005 | Sep 9 | MGC | Short | 4,438.80 | 4,426.20 | **+$126.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260909_MGC-TPTPRO781112132_006 | Sep 9 | MGC | Short | 4,438.80 | 4,426.20 | **+$252.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260911_MBT1-APEX11_001 | Sep 11 | MBT1 | Short | 79,965.00 | 78,655.00 | **+$393.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260911_MBT1-APEX12_002 | Sep 11 | MBT1 | Short | 79,965.00 | 78,655.00 | **+$393.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260911_MBT1-TOF197288_003 | Sep 11 | MBT1 | Short | 79,965.00 | 78,655.00 | **+$393.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260911_MBT1-TOF197292_004 | Sep 11 | MBT1 | Short | 79,965.00 | 78,655.00 | **+$393.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260911_M2K-LFE_005 | Sep 11 | M2K | Long | 2,907.00 | 2,905.50 | **-$37.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260911_M2K-TPTPRO781112132_006 | Sep 11 | M2K | Long | 2,907.00 | 2,905.50 | **-$75.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260911_M2K-TPTPRO781112132_007 | Sep 11 | M2K | Long | 2,905.00 | 2,905.10 | **+$2.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260911_MCL-TPTPRO781112132_008 | Sep 11 | MCL | Short | 100.05 | 100.07 | **-$4.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260914_MGC-LFE_001 | Sep 14 | MGC | Long | 4,338.70 | 4,355.30 | **+$166.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260914_MGC-TPTPRO781112132_002 | Sep 14 | MGC | Long | 4,338.60 | 4,355.30 | **+$334.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260914_MBT1-APEX11_003 | Sep 14 | MBT1 | Long | 79,210.00 | 79,355.00 | **+$14.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260914_MBT1-APEX12_004 | Sep 14 | MBT1 | Long | 79,210.00 | 79,355.00 | **+$14.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260914_MBT1-TOF197288_005 | Sep 14 | MBT1 | Long | 79,210.00 | 79,175.00 | **-$3.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260914_MBT1-TOF197292_006 | Sep 14 | MBT1 | Long | 79,210.00 | 79,175.00 | **-$3.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260914_MBT1-APEX12_007 | Sep 14 | MBT1 | Short | 79,750.00 | 79,610.00 | **+$42.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260914_MBT1-APEX11_008 | Sep 14 | MBT1 | Long | 79,615.00 | 79,255.00 | **-$72.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260914_MBT1-APEX11_009 | Sep 14 | MBT1 | Short | 78,690.00 | 78,205.00 | **+$97.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260915_MBT1-APEX11_001 | Sep 15 | MBT1 | Long | 75,175.00 | 75,965.00 | **+$237.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260915_MBT1-APEX12_002 | Sep 15 | MBT1 | Long | 75,175.00 | 75,945.00 | **+$231.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260915_MBT1-TOF197288_003 | Sep 15 | MBT1 | Long | 75,175.00 | 75,990.00 | **+$244.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260915_MBT1-TOF197292_004 | Sep 15 | MBT1 | Long | 75,175.00 | 75,990.00 | **+$244.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260915_MBT1-TOF218430_005 | Sep 15 | MBT1 | Long | 75,175.00 | 75,990.00 | **+$244.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260915_MBT1-TOF218431_006 | Sep 15 | MBT1 | Long | 75,175.00 | 75,990.00 | **+$244.50** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260915_M2K-LFE_007 | Sep 15 | M2K | Long | 2,874.80 | 2,876.60 | **+$18.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260915_M2K-TPTPRO781112132_008 | Sep 15 | M2K | Long | 2,874.80 | 2,876.00 | **+$24.00** | — | — | — | ⏳ Pending journal data | — | — |
+| 20260915_MGC-TPTPRO781112132_009 | Sep 15 | MGC | Short | 4,332.20 | 4,332.80 | **-$6.00** | — | — | — | ⏳ Pending journal data | — | — |
 
 </details>
 
@@ -686,6 +720,8 @@ Not one unified identity — three separate, sometimes-contrasting tactical beha
 3. **Exhaustion-reading on longer runners** — for trades that do run further, watching for price-action exhaustion signals and exiting right there without accepting further drawdown even if price continues, then re-entering or finding a fresh setup rather than holding through a pullback.
 
 **Coaching-community flavor** (how these blend): ZTH = base-hit-minded, IT = smart money, STB = depth, PFM (PropFirmMatchTV) = fun over fear. The combination across all of them — plus Fortuna and the rest of the agent fleet — is what Christopher credits for his current strength as a trader.
+
+**On following strategy as confluence, not rule (Sep 16, 2026):** "I follow strategies but I don't play by those type of strict rules — I take strategies as confluence and, whether it's good or bad, I override to feel/accommodate the live markets and macro economics." This is the connective thread across all three approaches above — none of the three is applied mechanically; which one shows up in a given trade is itself a live, discretionary read of the market in the moment, not a fixed rulebook being executed. Longer-term ambition: get Inevitrade's strategies (STB market depth + IT strategies with ZTH confirmations) rigorous enough to eventually support automated bot execution — not there yet, but the direction the discretionary judgment above is meant to keep pointing toward.
 
 ---
 

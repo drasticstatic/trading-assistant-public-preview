@@ -578,7 +578,7 @@
     </div>
 
     <div class="sec-label"><i class="ph-duotone ph-calendar-dots"></i> Trading Calendar &amp; Metrics <span class="sec-tag">v1 — built from Fortuna's own trade-review data, not TradeZella</span></div>
-    <p class="sec-sub">A homegrown replacement for the TradeZella calendar/stats — driven directly by <code>pattern_tracker.md</code>'s Trade Log so it grows as the <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/fortuna-exports/trade-reviews" target="_blank" rel="noreferrer">trade-review backlog</a> is processed. Currently reflects 277 logged futures trades, Feb 23 – Sep 1, 2026, across every prop firm account — reconstructed from Tradovate order-fill CSVs for the May–Sep window (see <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/master_trade_ledger_2026-05-14_to_2026-09-01.csv" target="_blank" rel="noreferrer">master_trade_ledger</a>). A short May 9–13 gap remains where no CSV export exists.</p>
+    <p class="sec-sub" id="tradeLogSummary">A homegrown replacement for the TradeZella calendar/stats — driven directly by <code>pattern_tracker.md</code>'s Trade Log so it grows as the <a href="https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/fortuna-exports/trade-reviews" target="_blank" rel="noreferrer">trade-review backlog</a> is processed. Reconstructed from Tradovate order-fill CSVs for the May–Sep window (see <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/master_trade_ledger_2026-05-14_to_2026-09-01.csv" target="_blank" rel="noreferrer">master_trade_ledger</a>) plus earlier manually-logged trades predating the CSV pipeline. A short May 9–13 gap remains where no CSV export exists.</p>
     <div class="metrics-strip" id="metricsStrip"></div>
 
     <div class="cal-nav">
@@ -989,13 +989,13 @@
 
     // ── Trading Calendars (legacy carousel) ──
     const calendarMonths = [
-      { src: '../imports/2026/02-Feb/TradeZellaCalendar_Feb.png', label: 'February 2026', note: '-$20.2K net · 18 days traded' },
-      { src: '../imports/2026/03-Mar/TradeZellaCalendar_Mar.png', label: 'March 2026', note: '' },
-      { src: '../imports/2026/04-Apr/TradeZellaCalendar_Apr.png', label: 'April 2026', note: '' },
-      { src: '../imports/2026/05-May/TradeZellaCalendar_May.png', label: 'May 2026', note: '' },
-      { src: '../imports/2026/06-Jun/TradeZellaCalendar_Jun.png', label: 'June 2026', note: '' },
-      { src: '../imports/2026/07-Jul/TradeZellaCalendar_Jul.png', label: 'July 2026', note: '' },
-      { src: '../imports/2026/08-Aug/TradeZellaCalendar_Aug-thru31st.png', label: 'August 2026', note: '$5.03K net · 20 days traded' },
+      { src: '../imports/2026/02-Feb/TradeZella/TradeZellaCalendar_Feb.png', label: 'February 2026', note: '-$20.2K net · 18 days traded' },
+      { src: '../imports/2026/03-Mar/TradeZella/TradeZellaCalendar_Mar.png', label: 'March 2026', note: '' },
+      { src: '../imports/2026/04-Apr/TradeZella/TradeZellaCalendar_Apr.png', label: 'April 2026', note: '' },
+      { src: '../imports/2026/05-May/TradeZella/TradeZellaCalendar_May.png', label: 'May 2026', note: '' },
+      { src: '../imports/2026/06-Jun/TradeZella/TradeZellaCalendar_Jun.png', label: 'June 2026', note: '' },
+      { src: '../imports/2026/07-Jul/TradeZella/TradeZellaCalendar_Jul.png', label: 'July 2026', note: '' },
+      { src: '../imports/2026/08-Aug/TradeZella/TradeZellaCalendar_Aug-thru31st.png', label: 'August 2026', note: '$5.03K net · 20 days traded' },
     ].map(m => ({
       src: m.src,
       title: m.label,
@@ -1006,14 +1006,16 @@
 
     // ── Account Ledger (legacy TradeZella screenshots, toggled) ──
     const ledgerItems = [
-      { src: '../imports/2026/04-Apr/TradeZella_Apr-accounts.png', title: 'Account Ledger — April 2026',
+      { src: '../imports/2026/04-Apr/TradeZella/TradeZella_Apr-accounts.png', title: 'Account Ledger — April 2026',
         caption: 'TradeZella account ledger, snapshot as of April 2026', meta: '<span>Snapshot through late April</span>' },
-      { src: '../imports/2026/08-Aug/TradeZella_Aug-accounts.png', title: 'Account Ledger — August 2026',
+      { src: '../imports/2026/08-Aug/TradeZella/TradeZella_Aug-accounts.png', title: 'Account Ledger — August 2026',
         caption: 'TradeZella account ledger, snapshot as of August 2026', meta: '<span>August snapshot</span>' },
-      { src: '../imports/2026/08-Aug/TradeZella_Aug-accounts-updated.png', title: 'Account Ledger — August 2026 (Updated)',
+      { src: '../imports/2026/08-Aug/TradeZella/TradeZella_Aug-accounts-updated.png', title: 'Account Ledger — August 2026 (Updated)',
         caption: 'TradeZella account ledger, snapshot as of August 2026 — Apex Legacy, TPT, and TopOneFutures Elite Access accounts', meta: '<span>Full history — Apex, TPT, TopOneFutures</span>' },
-      { src: '../imports/2026/08-Aug/TradeZella_Aug-accounts-updated-from first eval passed to now.png', title: 'Account Ledger — August 2026 (Current)',
+      { src: '../imports/2026/08-Aug/TradeZella/TradeZella_Aug-accounts-updated-from first eval passed to now.png', title: 'Account Ledger — August 2026 (Current)',
         caption: 'TradeZella account ledger, updated from first eval passed through the current triple-eval-pass milestone', meta: '<span>Most current snapshot</span>' },
+      { src: '../imports/2026/09-Sep/TradeZella/TradeZella_Aug-accounts_updated-adding-anew-TopOne-x2.png', title: 'Account Ledger — September 2026 (+ 2 New TopOne)',
+        caption: 'TradeZella account list, Sep 15, 2026 — adds the two new TopOneFutures Elite ACCESS evals (TOF218430, TOF218431, $244.50 each) alongside the funded TOF197288/292 ($979 each), TPT-PRO-781112132 ($876), ApexLegacy-484839-11/12 ($831.50/$841.50), and LucidFlex-E02590489830001 ($434)', meta: '<span>Current roster — includes 2 new TopOne Elite ACCESS evals</span>' },
     ];
     const ledgerGrid = document.getElementById('ledgerGrid');
     ledgerItems.forEach((item, i) => {
@@ -1030,37 +1032,43 @@
     });
 
     // ── Extended TradeZella Stats + Paper Trading Origin — one combined reel, newest first ──
-    // Index 0 = most recent (Sept 1, post-repair). Origin/paper-trading section starts at statsReelOriginIndex.
+    // Index 0 = most recent (Sept 15 all-time overview). Origin/paper-trading section starts at statsReelOriginIndex.
     const statsReelItems = [
-      { src: '../imports/2026/09-Sep/TradeZella_Sept1st.png', title: 'September 1, 2026 — First Trading Day, Post-Repair',
+      { src: '../imports/2026/09-Sep/TradeZella/TradeZella_Sept_updated-adding-anew-TopOne-x2.png', title: 'September 15, 2026 — All-Time Overview',
+        meta: '<span>Net P&L $3,944.45 (317 trades) · Trade expectancy $12.48 · Profit factor 1.08 · Win% 62.34% (197W/1/119L) · Avg win/loss 0.65 ($273/-$419) · Zella Score 36.7 — September: $5.05K net, 11 days traded</span>',
+        caption: 'All-time TradeZella overview as of September 15, 2026 — Net P&L $3,944.45 (317 trades) · Trade expectancy $12.48 · Profit factor 1.08 · Win% 62.34% (197W/1/119L) · Avg win/loss 0.65 ($273/-$419) · Zella Score 36.7. September monthly stats: $5.05K net, 11 days traded — daily breakdown Sep 1 +$494, Sep 3 +$380, Sep 4 -$348, Sep 7 +$304, Sep 8 +$314, Sep 9 +$252, Sep 10 +$0.00, Sep 11 +$1.46K, Sep 14 +$715, Sep 15 +$1.48K. Includes the full multi-year TradeZella history (2021 stock trades onward), not just futures — the master trade ledger and gallery calendar above remain the authoritative source for futures-only P&L.' },
+      { src: '../imports/2026/09-Sep/TradeZella/Screenshot 2026-09-15 at 19.39.35.png', title: 'Win % / Avg Win / Avg Loss Trend — All-Time',
+        meta: '<span>All-time Win%/Avg Win/Avg Loss trend + trade-time and trade-duration performance scatter plots, through Sep 15, 2026</span>',
+        caption: 'All-time Win % / Avg Win / Avg Loss trend (both percentage and dollar views), plus trade-time-of-day and trade-duration performance scatter plots, through September 15, 2026' },
+      { src: '../imports/2026/09-Sep/TradeZella/TradeZella_Sept1st.png', title: 'September 1, 2026 — First Trading Day, Post-Repair',
         meta: '<span>Net P&L $6,484.46 (117 trades) · Trade expectancy $55.44 · Profit factor 1.58 · Win% 70.94% · Avg win/loss 0.65 ($212/-$326) · Zella Score 64.3 — Sep 1: +$494, 2 trades, 100% win rate</span>',
         caption: 'All-time TradeZella overview as of September 1, 2026 — Net P&L $6,484.46 (117 trades) · Trade expectancy $55.44 · Profit factor 1.58 · Win% 70.94% · Avg win/loss 0.65 ($212/-$326) · Zella Score 64.3. September calendar: Sep 1 +$494 (2 trades, 100% win rate) — the first trading day captured post-repair.' },
-      { src: '../imports/2026/08-Aug/stats_post-paper-trading/TradeZella_Aug-post-paper.png', title: 'August 2026 — Real Accounts Only',
+      { src: '../imports/2026/08-Aug/TradeZella/stats_post-paper-trading/TradeZella_Aug-post-paper.png', title: 'August 2026 — Real Accounts Only',
         meta: '<span>Net P&L -$1,119.55 · Trade expectancy -$4.39 · Profit factor 0.98 · Win% 60% · Avg win/loss 0.65 ($308/-$473)</span>',
         caption: 'All-time overview, real accounts only — Net P&L -$1,119.55 · Trade expectancy -$4.39 · Profit factor 0.98 · Win% 60% · Avg win/loss 0.65 ($308/-$473)' },
-      { src: '../imports/2026/08-Aug/stats_post-paper-trading/Screenshot 2026-08-29 at 18.38.43.png', title: 'Win % / Avg Win / Avg Loss — Real Accounts',
+      { src: '../imports/2026/08-Aug/TradeZella/stats_post-paper-trading/Screenshot 2026-08-29 at 18.38.43.png', title: 'Win % / Avg Win / Avg Loss — Real Accounts',
         meta: '<span>Trade time/duration performance — real accounts only</span>',
         caption: 'Win%/Avg Win/Avg Loss report + trade time/duration performance — real accounts only' },
-      { src: '../imports/2026/08-Aug/stats_post-paper-trading/Screenshot 2026-08-29 at 18.39.00.png', title: 'Exit-Time Performance — Real Accounts',
+      { src: '../imports/2026/08-Aug/TradeZella/stats_post-paper-trading/Screenshot 2026-08-29 at 18.39.00.png', title: 'Exit-Time Performance — Real Accounts',
         meta: '<span>Trade time performance — exit time — real accounts only</span>',
         caption: 'Trade time performance — exit time — real accounts only' },
-      { src: '../imports/2026/08-Aug/stats-pre-paper-trading/TradeZella_Aug-pre-paper.png', title: 'Origin Story — Including the Paper-Trading Intro',
+      { src: '../imports/2026/08-Aug/TradeZella/stats-pre-paper-trading/TradeZella_Aug-pre-paper.png', title: 'Origin Story — Including the Paper-Trading Intro',
         meta: '<span>All-time overview including paper trading — Net P&L, Zella Score, daily/cumulative P&L, August calendar, progress tracker</span>',
         caption: 'All-time overview, including the paper-trading intro — Net P&L, Zella Score, daily/cumulative P&L, August calendar, progress tracker' },
-      { src: '../imports/2026/08-Aug/stats-pre-paper-trading/Screenshot 2026-08-22 at 00.16.55.png', title: 'Win % / Avg Win / Avg Loss — Including Paper Trading',
+      { src: '../imports/2026/08-Aug/TradeZella/stats-pre-paper-trading/Screenshot 2026-08-22 at 00.16.55.png', title: 'Win % / Avg Win / Avg Loss — Including Paper Trading',
         meta: '<span>All-time trend, including paper trading</span>',
         caption: 'Win % / Avg Win / Avg Loss trend — all-time report, including paper trading' },
-      { src: '../imports/2026/08-Aug/stats-pre-paper-trading/Screenshot 2026-08-22 at 00.17.08.png', title: 'Entry-Time Performance — Including Paper Trading',
+      { src: '../imports/2026/08-Aug/TradeZella/stats-pre-paper-trading/Screenshot 2026-08-22 at 00.17.08.png', title: 'Entry-Time Performance — Including Paper Trading',
         meta: '<span>P&L by entry time of day, including paper trading</span>',
         caption: 'Trade time performance — P&L by entry time of day, including paper trading' },
-      { src: '../imports/2026/08-Aug/stats-pre-paper-trading/Screenshot 2026-08-22 at 00.17.29.png', title: 'Exit-Time Performance — Including Paper Trading',
+      { src: '../imports/2026/08-Aug/TradeZella/stats-pre-paper-trading/Screenshot 2026-08-22 at 00.17.29.png', title: 'Exit-Time Performance — Including Paper Trading',
         meta: '<span>P&L by exit time of day, including paper trading</span>',
         caption: 'Trade time performance — P&L by exit time of day, including paper trading' },
-      { src: '../imports/2026/08-Aug/stats-pre-paper-trading/Screenshot 2026-08-22 at 00.17.39.png', title: 'Hold-Time Performance — Including Paper Trading',
+      { src: '../imports/2026/08-Aug/TradeZella/stats-pre-paper-trading/Screenshot 2026-08-22 at 00.17.39.png', title: 'Hold-Time Performance — Including Paper Trading',
         meta: '<span>P&L by hold time, including paper trading</span>',
         caption: 'Trade duration performance — P&L by hold time, including paper trading' },
     ];
-    const statsReelOriginIndex = 4; // first "pre-paper-trading" / origin-story item
+    const statsReelOriginIndex = 6; // first "pre-paper-trading" / origin-story item
     const statsReelState = createCarousel('stats', statsReelItems, 0);
     function openStatsReel(index) {
       const panel = document.getElementById('statsReelPanel');
@@ -1396,6 +1404,40 @@
       { date: '2026-09-08', instrument: 'MGC', pnl: 9.0 },
       { date: '2026-09-08', instrument: 'MNQ', pnl: -9.0 },
       { date: '2026-09-08', instrument: 'MNQ', pnl: -10.0 },
+      { date: '2026-09-06', instrument: 'M2K', pnl: 92.0 },
+      { date: '2026-09-06', instrument: 'M2K', pnl: 184.0 },
+      { date: '2026-09-09', instrument: 'MGC', pnl: 126.0 },
+      { date: '2026-09-09', instrument: 'MGC', pnl: 126.0 },
+      { date: '2026-09-09', instrument: 'MGC', pnl: 126.0 },
+      { date: '2026-09-09', instrument: 'MGC', pnl: 252.0 },
+      { date: '2026-09-09', instrument: 'MGC', pnl: 126.0 },
+      { date: '2026-09-09', instrument: 'MGC', pnl: 126.0 },
+      { date: '2026-09-11', instrument: 'MBT1', pnl: 393.0 },
+      { date: '2026-09-11', instrument: 'MBT1', pnl: 393.0 },
+      { date: '2026-09-11', instrument: 'MBT1', pnl: 393.0 },
+      { date: '2026-09-11', instrument: 'MBT1', pnl: 393.0 },
+      { date: '2026-09-11', instrument: 'M2K', pnl: -37.5 },
+      { date: '2026-09-11', instrument: 'M2K', pnl: -75.0 },
+      { date: '2026-09-11', instrument: 'M2K', pnl: 2.5 },
+      { date: '2026-09-11', instrument: 'MCL', pnl: -4.0 },
+      { date: '2026-09-14', instrument: 'MGC', pnl: 166.0 },
+      { date: '2026-09-14', instrument: 'MGC', pnl: 334.0 },
+      { date: '2026-09-14', instrument: 'MBT1', pnl: 14.5 },
+      { date: '2026-09-14', instrument: 'MBT1', pnl: 14.5 },
+      { date: '2026-09-14', instrument: 'MBT1', pnl: -3.5 },
+      { date: '2026-09-14', instrument: 'MBT1', pnl: -3.5 },
+      { date: '2026-09-14', instrument: 'MBT1', pnl: 42.0 },
+      { date: '2026-09-14', instrument: 'MBT1', pnl: -72.0 },
+      { date: '2026-09-14', instrument: 'MBT1', pnl: 97.0 },
+      { date: '2026-09-15', instrument: 'MBT1', pnl: 237.0 },
+      { date: '2026-09-15', instrument: 'MBT1', pnl: 231.0 },
+      { date: '2026-09-15', instrument: 'MBT1', pnl: 244.5 },
+      { date: '2026-09-15', instrument: 'MBT1', pnl: 244.5 },
+      { date: '2026-09-15', instrument: 'MBT1', pnl: 244.5 },
+      { date: '2026-09-15', instrument: 'MBT1', pnl: 244.5 },
+      { date: '2026-09-15', instrument: 'M2K', pnl: 18.0 },
+      { date: '2026-09-15', instrument: 'M2K', pnl: 24.0 },
+      { date: '2026-09-15', instrument: 'MGC', pnl: -6.0 },
     ];
 
     function computeMetrics(trades) {
@@ -1473,6 +1515,20 @@
         });
       });
     }
+    function renderTradeLogSummary(trades) {
+      const el = document.getElementById('tradeLogSummary');
+      if (!el || !trades.length) return;
+      const dates = trades.map(t => t.date).sort();
+      const fmt = iso => {
+        const [y, m, d] = iso.split('-').map(Number);
+        return `${MONTH_ABBR[m - 1][0]}${MONTH_ABBR[m - 1].slice(1).toLowerCase()} ${d}`;
+      };
+      const rangeText = `${fmt(dates[0])} – ${fmt(dates[dates.length - 1])}, ${dates[dates.length - 1].slice(0, 4)}`;
+      const span = document.createElement('span');
+      span.textContent = `Currently reflects ${trades.length} logged futures trades, ${rangeText}, across every prop firm account. `;
+      el.prepend(span);
+    }
+    renderTradeLogSummary(loggedTrades);
     renderMetrics(loggedTrades);
     renderHeatmap(loggedTrades);
     startMarqueeAutoplay('heatmapStrip', 'heatmapTrack');
