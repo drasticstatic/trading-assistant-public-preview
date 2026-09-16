@@ -72,6 +72,7 @@ Opening accounts before readiness = unnecessary fees + more rules to track + mor
 | Tradovate | Apex Trader Funding | ZeroToHero + STB | ⚠️ Funded account (PA-01) blown ~Jun 11 · new 50K Legacy evals in progress (07/09/10) |
 | Tradovate | Take Profit Trader | ZeroToHero + STB | ✅ Funded — reset-4 (TAKEPROFIT917806711) passed eval Aug 2026 |
 | TopOneFutures | Elite ACCESS ×2 (BOGO) | ZeroToHero + STB | ✅ Funded — both eval passed Aug 28, 2026 |
+| TopOneFutures | Elite ACCESS ×2 (2nd BOGO, TOF218430/431) | ZeroToHero + STB | 🕐 Eval in progress since Sep 15, 2026 — activation code expires Oct 14, 2026 |
 | Lucid | LucidTrading — style TBD (Flex/Daily/Pro) | Inevitrade + STB | 🦆 Free 25K account code won via PropFirmMatchTV duck race — incoming |
 | Tradeify | Select Challenge | Inevitrade + STB | Planned — Phase 3 |
 | Xato (own terminal) | Xato | Inevitrade + STB | Reference — Inevitrade's actual funding partner (corrects earlier "Leveraged"/"BreakoutProp" placeholder guess); not yet opened |
@@ -142,6 +143,19 @@ TopOneFutures issues a new account ID when an eval converts to funded — the ev
 | Elite ACCESS #2 | TOF189563 | ✅ Passed Aug 28, 2026 10:42 AM — +$3,106.75 | TOF197292 | {FUNDED\|sim} 50K EOD — +$183 as of Aug 29, 5:48 PM |
 
 Certificate issued Aug 28, 2026 references the eval IDs (TOF189562 & TOF189563) since it marks the eval pass, not the funded-account handoff. Both use EOD (end-of-day) drawdown type, believed structurally similar to Apex Legacy. Full rule detail: [`topone-rules.md`](TopOneFutures/topone-rules.md).
+
+### TopOneFutures — Elite ACCESS ×2 (2nd BOGO, +20% activation code)
+
+Two more 50K Elite ACCESS evals added Sep 15, 2026, under a second BOGO deal plus a newly-seen 20%-off activation code (confirmed via email + support chat; Christopher left a Trustpilot review as part of the process).
+
+| Slot | Eval ID | Status | Activation Fee |
+|------|---------|--------|-----------------|
+| Elite ACCESS #3 | TOF218430 | Evaluation in progress (opened Sep 15, 2026) | $151.20 (20% off $189) |
+| Elite ACCESS #4 | TOF218431 | Evaluation in progress (opened Sep 15, 2026) | $151.20 (20% off $189) |
+
+On a 50K account the code brings the activation fee from $189 to $151.20 — a $37.80-per-account saving ($75.60 total), which roughly covers the $39 cost of the combined-evals deal itself. **Code expires Wednesday, October 14, 2026, 11:59pm CT** — TopOne: "we won't be repeating this activation offer." Both accounts need to pass within that window to make the timing work cleanly.
+
+**TopOne Elite ACCESS vs. other reset/renewal options** (context, not yet a decision): a *funded* Elite ACCESS reset costs $499 (EOD drawdown, no MAE) — compare against TPT's $649 reset (capped at 3) and Apex Legacy, which has no funded-reset option at all. Christopher sees Elite ACCESS and Apex Legacy as similar in character, and both are traded together in TradeCopia. TopOne now allows up to 20 linked accounts (previously 10); TPT allows 5. A front-end ROI/cost-analysis view across all of this ("the resurrection graveyard") is a future gallery/portfolio build, not started yet.
 
 ---
 
