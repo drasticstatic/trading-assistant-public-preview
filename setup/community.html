@@ -215,7 +215,8 @@
     /* ── SOCIAL PREVIEW CARDS (Shoutout section) — an unfurled-link feel:
        wide banner, then a title/domain footer, like the preview Discord
        or iMessage would generate, since no real screenshots are on file. ── */
-    .preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; --accent: var(--rose); }
+    .preview-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; --accent: var(--rose); }
+    @media (max-width: 640px) { .preview-grid { grid-template-columns: 1fr; } }
     .preview-card {
       display: flex; flex-direction: column; text-decoration: none; color: inherit;
       transition: transform .35s var(--spring), border-color .2s;
@@ -649,14 +650,16 @@
         </div>
       </div>
       <div class="preview-card glass click-card" data-href="https://www.youtube.com/@LeviCrypto">
-        <a class="preview-banner youtube" href="https://www.youtube.com/@LeviCrypto" target="_blank" rel="noreferrer" style="background-color:#0a1f14;background-image:url('https://yt3.googleusercontent.com/o46PCWxoqUqhjfCjGR4MdMk0aYNg2i022TSC7iuBP-5ycdax3IhDkvD-hhUzv7nZ_gzmWf0f=s900-c-k-c0x00ffffff-no-rj');background-size:cover;background-repeat:no-repeat;background-position:center;">
-          <div class="yt-play"><i class="ph-duotone ph-play"></i></div>
+        <a class="preview-banner youtube" href="https://www.youtube.com/@LeviCrypto" target="_blank" rel="noreferrer" style="background:radial-gradient(ellipse at center, rgba(34,197,94,0.18), transparent 70%), linear-gradient(160deg,#0a1f14,#0d1a2b);">
+          <img src="https://yt3.googleusercontent.com/o46PCWxoqUqhjfCjGR4MdMk0aYNg2i022TSC7iuBP-5ycdax3IhDkvD-hhUzv7nZ_gzmWf0f=s300-c-k-c0x00ffffff-no-rj" alt="" style="width:96px;height:96px;border-radius:999px;object-fit:cover;border:3px solid rgba(255,255,255,.2);box-shadow:0 8px 24px rgba(0,0,0,.4);">
+          <div class="yt-play" style="position:absolute;bottom:.7rem;right:.7rem;width:2.2rem;height:2.2rem;"><i class="ph-duotone ph-play" style="font-size:1.1rem;"></i></div>
         </a>
         <div class="preview-body">
           <div class="yt-brand">YouTube · Channel</div>
           <a class="preview-title" href="https://www.youtube.com/@LeviCrypto" target="_blank" rel="noreferrer"><i class="ph-duotone ph-shield-star"></i> Levi · Crypto Crusaders</a>
-          <p class="preview-desc">XRP/XLM/HBAR-focused crypto content — the voice that got me trading BTCC in the first place</p>
+          <p class="preview-desc">XRP/XLM/HBAR-focused crypto content — the voice that introduced me to BTCC</p>
           <a class="story-trigger" href="https://www.youtube.com/@LeviCrypto" target="_blank" rel="noreferrer"><i class="ph-duotone ph-youtube-logo"></i> youtube.com/@LeviCrypto ↗</a>
+          <a class="story-trigger-blue" href="#btcc" style="margin-top:.4rem;"><i class="ph-duotone ph-currency-btc"></i> Our BTCC bento ↓</a>
           <div class="card-socials">
             <a class="friend-link social-purple" href="https://www.skool.com/@levi-rietveld-9760" target="_blank" rel="noreferrer" aria-label="Levi's Skool community" title="Levi's Skool community"><i class="ph-duotone ph-student"></i></a>
           </div>
@@ -744,7 +747,7 @@
         <p>Where the trade-journaling habit started — the origin story kept intact on gallery.html</p>
         <span class="ext-link-row"><i class="ph-duotone ph-link"></i> tradezella.com ↗</span>
       </a>
-      <a class="ext-card" href="https://www.btcc.com" target="_blank" rel="noreferrer">
+      <a id="btcc" class="ext-card" href="https://www.btcc.com" target="_blank" rel="noreferrer">
         <h4><i class="ph-duotone ph-currency-btc"></i> BTCC</h4>
         <p>Crypto execution venue for SOL/USDT perp trades</p>
         <span class="ext-link-row"><i class="ph-duotone ph-link"></i> btcc.com ↗</span>
@@ -867,7 +870,7 @@
       { name: 'Omar Hafez', role: 'ZeroToHero (ZTH) · Founder', pi: 'ph-target', grad: 'linear-gradient(135deg,#22c55e,#49d17d,#f3c969)', href: 'https://www.instagram.com/omarfhafez/' },
       { name: 'Dario Pirrone', role: 'ZeroToHero (ZTH) · Coach', pi: 'ph-compass', grad: 'linear-gradient(135deg,#60a5fa,#38bdf8,#6ee7f9)', platform: 'linkedin', href: 'https://www.linkedin.com/in/dario-pirrone-b9340199/' },
       { name: 'Chawkat Houri', role: 'ZeroToHero (ZTH) · Accountability Coach', pi: 'ph-alarm', grad: 'linear-gradient(135deg,#fbbf24,#f97316,#ff6b6b)', platform: 'linkedin', href: 'https://www.linkedin.com/in/chawkat-houri-6a384b96/' },
-      { name: 'Levi Rietveld', role: 'Crypto Crusaders · Founder — got me into BTCC back in 2024', pi: 'ph-shield-star', grad: 'linear-gradient(135deg,#22c55e,#38bdf8,#7c6fff)', href: 'https://www.instagram.com/levicryptoinsta/' },
+      { name: 'Levi Rietveld', role: 'Crypto Crusaders · Founder', pi: 'ph-shield-star', grad: 'linear-gradient(135deg,#22c55e,#38bdf8,#7c6fff)', href: 'https://www.instagram.com/levicryptoinsta/' },
     ];
     // PropFirmMatchTV's daily schedule (Pre-Dawn/Fabio -> Early AM/Luna ->
     // NY Session/Zarb -> Lunchbox/Alex -> Evening/Dave) is baked directly
