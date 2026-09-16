@@ -69,6 +69,8 @@ This trade was one leg of a TradeCopia-mirrored MNQ short, Sep 4 03:04 ET open d
 
 *Pending journal data.* No same-day premarket plan, session notes, or TradeZella narrative exists for this trade yet.
 
+**Execution divergence clarified (added 2026-09-16):** this MNQ short exited very differently across the mirror group — LucidFlex25 (this account) closed +$59.50 while TAKEPROFITPRO781112132 closed -$338.00 on the same signal. Christopher's explanation: I was able to hold Lucid through a news event, but had to exit TPT to protect that account by not holding through the news. This was a deliberate, account-specific risk decision (TPT's tighter drawdown tolerance made holding through news too risky there), not an execution error or a bug in the mirror sync.
+
 ---
 
 ## 📸 Screenshot Timeline
