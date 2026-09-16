@@ -8,6 +8,7 @@
   <link rel="icon" href="../../setup/assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="../../setup/assets/favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="../../setup/assets/favicon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/duotone/style.css">
   <style>
     :root {
       --bg:       #07091200;
@@ -261,6 +262,59 @@
     }
     .chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     @media (max-width: 700px) { .chart-row { grid-template-columns: 1fr; } }
+
+    /* ── BTCC cumulative equity curve — the one live account here with
+       real per-trade dates; replaces the old hand-drawn platform-total
+       bar chart, which compared apples (dated trades) to oranges (annual
+       buckets) in a single fixed-pixel SVG that had to be hand-edited
+       every time a number changed. ── */
+    .btcc-stat-row { display: flex; flex-wrap: wrap; gap: 1.4rem; margin-bottom: .9rem; }
+    .btcc-stat-label { font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+    .btcc-stat-value { font-size: 1.25rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+    .btcc-svg-wrap { position: relative; }
+    .btcc-svg { width: 100%; height: auto; display: block; }
+    .btcc-svg .zero-line { stroke: var(--dim); stroke-width: 1; stroke-dasharray: 3 3; }
+    .btcc-svg .curve-line { fill: none; stroke: var(--gold); stroke-width: 2.5; }
+    .btcc-svg .crosshair { stroke: var(--dim); stroke-width: 1; opacity: 0; pointer-events: none; }
+    .btcc-tooltip {
+      position: absolute; pointer-events: none; z-index: 5; opacity: 0; transition: opacity .1s;
+      background: #0c1220; border: 1px solid var(--border); border-radius: 8px; padding: .5rem .65rem;
+      font-size: .72rem; white-space: nowrap; box-shadow: var(--shadow-md);
+    }
+    .btcc-tooltip .tt-date { color: var(--dim); margin-bottom: .2rem; font-size: .68rem; }
+    .other-platform-row { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1rem; }
+    .other-platform-tile {
+      flex: 1; min-width: 140px; background: var(--surface-soft); border: 1px solid var(--border);
+      border-radius: var(--radius-md); padding: .8rem 1rem;
+    }
+    .other-platform-tile .op-label { font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+    .other-platform-tile .op-value { font-size: 1.05rem; font-weight: 800; margin-top: .2rem; }
+    .other-platform-tile .op-note { font-size: .7rem; color: var(--dim); margin-top: .25rem; }
+
+    /* ── Ambient background — same bounded-breathing pattern used on
+       community.html/gallery.html/copy-trading.html/prop-firm-rules.html/
+       index.html, extended here for the "living background" feel that
+       shouldn't stop at just those pages. ── */
+    .bg-parallax {
+      position: fixed; inset: -10vh -10vw; z-index: -1; pointer-events: none;
+      background:
+        radial-gradient(ellipse at 12% -5%, rgba(167,139,250,0.20) 0%, transparent 42%),
+        radial-gradient(ellipse at 92% 8%, rgba(126,200,255,0.16) 0%, transparent 38%),
+        radial-gradient(ellipse at 50% 88%, rgba(74,222,128,0.10) 0%, transparent 45%);
+      animation: bgBreathe 20s ease-in-out infinite;
+    }
+    @keyframes bgBreathe {
+      0%, 100% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(-2.5%, 1.5%, 0) scale(1.06); }
+    }
+
+    /* ── Scroll-triggered reveal — same pattern as index.html: each
+       .section settles into place once as it enters the viewport. ── */
+    .section { opacity: 0; transform: translateY(16px); transition: opacity .6s cubic-bezier(.34,1.56,.64,1), transform .6s cubic-bezier(.34,1.56,.64,1); }
+    .section.is-visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .section { opacity: 1; transform: none; }
+    }
     svg.chart { width: 100%; overflow: visible; }
 
     /* ── TABLE ── */
@@ -363,6 +417,7 @@
   </style>
 </head>
 <body>
+  <div class="bg-parallax" id="bgParallax"></div>
 
   <!-- ── NAV ── -->
   <nav class="nav">
@@ -478,7 +533,7 @@
 
     <!-- ── OVERVIEW STATS ── -->
     <section class="section" id="overview">
-      <div class="sec-label">Overview</div>
+      <div class="sec-label"><i class="ph-duotone ph-squares-four"></i> Overview</div>
       <div class="callout info">
         🏆 Prop-firm eval/funded account data, ledger, and charts now live entirely on the <a href="gallery.html">Progression Gallery →</a> — this page covers everything else: crypto, equities, on-chain, and wallets.
       </div>
@@ -511,70 +566,32 @@
 
     <!-- ── CHARTS ── -->
     <section class="section" id="charts">
-      <div class="sec-label">Analytics</div>
+      <div class="sec-label"><i class="ph-duotone ph-chart-line-up"></i> Analytics</div>
 
-      <div class="chart-row" style="grid-template-columns:1fr;">
-        <!-- Platform Breakdown -->
-        <div class="chart-wrap">
-          <div class="chart-title">All-Time P&L by Platform (Live Accounts)</div>
-          <svg class="chart" viewBox="0 0 340 160" aria-label="Platform P&L breakdown">
-            <!-- Baseline -->
-            <line x1="80" y1="10" x2="80" y2="140" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-
-            <!-- BTCC: -$2,176.06 = full bar 230px -->
-            <text x="74" y="35" font-family="system-ui,sans-serif" font-size="9" fill="#8899b0" text-anchor="end">BTCC</text>
-            <rect x="83" y="22" width="230" height="14" fill="rgba(248,113,113,0.7)" rx="3"/>
-            <text x="319" y="33" font-family="system-ui,sans-serif" font-size="9" fill="#f87171" text-anchor="end">-$2,176</text>
-
-            <!-- PocketOption: -$151.62 = 151.62/2176*230 = ~16px -->
-            <text x="74" y="63" font-family="system-ui,sans-serif" font-size="9" fill="#8899b0" text-anchor="end">Pocket</text>
-            <rect x="83" y="50" width="16" height="14" fill="rgba(248,113,113,0.45)" rx="3"/>
-            <text x="105" y="61" font-family="system-ui,sans-serif" font-size="9" fill="#c86888">-$152</text>
-
-            <!-- CoinLedger: TBD -->
-            <text x="74" y="91" font-family="system-ui,sans-serif" font-size="9" fill="#8899b0" text-anchor="end">On-Chain</text>
-            <rect x="83" y="78" width="60" height="14" fill="rgba(139,153,176,0.15)" stroke="rgba(139,153,176,0.3)" stroke-width="1" rx="3" stroke-dasharray="3,2"/>
-            <text x="149" y="89" font-family="system-ui,sans-serif" font-size="9" fill="#6677888">TBD</text>
-
-            <text x="80" y="155" font-family="system-ui,sans-serif" font-size="8" fill="#3a4d65" text-anchor="middle">$0</text>
-            <text x="310" y="155" font-family="system-ui,sans-serif" font-size="8" fill="#3a4d65" text-anchor="end">-$2,176</text>
-          </svg>
+      <div class="chart-wrap">
+        <div class="chart-title">BTCC Cumulative P&amp;L (via trading-matrices)</div>
+        <div class="btcc-stat-row" id="btccStatRow"></div>
+        <div class="btcc-svg-wrap" id="btccSvgWrap">
+          <svg class="btcc-svg" id="btccSvg" viewBox="0 0 900 260" preserveAspectRatio="none" aria-label="BTCC cumulative P&amp;L"></svg>
+          <div class="btcc-tooltip" id="btccTooltip"></div>
         </div>
+        <p style="font-size:.72rem;color:var(--dim);margin-top:.6rem;">2024/2025/thru-Mar-26 are single annual/baseline checkpoints (BTCC's own realized-P&amp;L export doesn't carry per-trade dates for that period) — the 3 points after Jul 24, 2026 are real dated fills from the master trade ledger. Source: <code>data/progression/assets/trading-matrices/account-summary.json</code>.</p>
       </div>
 
-      <!-- BTCC All-Time Yearly Breakdown -->
       <div class="chart-wrap">
-        <div class="chart-title">BTCC Crypto — Yearly Realized P&L (via trading-matrices)</div>
-        <svg class="chart" viewBox="0 0 500 130" aria-label="BTCC yearly P&L">
-          <!-- Scale max: 2115, chart width 380, baseline at y=80 -->
-          <line x1="80" y1="10" x2="80" y2="100" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-          <line x1="80" y1="100" x2="480" y2="100" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-
-          <!-- 2024: -2115 → full width 380px -->
-          <text x="74" y="37" font-family="system-ui,sans-serif" font-size="10" fill="#8899b0" text-anchor="end">2024</text>
-          <rect x="83" y="24" width="380" height="18" fill="rgba(248,113,113,0.65)" rx="3"/>
-          <text x="469" y="37" font-family="system-ui,sans-serif" font-size="9" fill="#f87171" text-anchor="end">~-$2,115</text>
-
-          <!-- 2025: -82 → 82/2115*380 = 14.7px -->
-          <text x="74" y="66" font-family="system-ui,sans-serif" font-size="10" fill="#8899b0" text-anchor="end">2025</text>
-          <rect x="83" y="53" width="15" height="18" fill="rgba(248,113,113,0.45)" rx="3"/>
-          <text x="104" y="66" font-family="system-ui,sans-serif" font-size="9" fill="#c86888">~-$82</text>
-
-          <!-- 2026: +20.94 net (Mar 26 baseline -27.50 + 3 new SOLUSDT ledger trades +48.44) -->
-          <text x="74" y="96" font-family="system-ui,sans-serif" font-size="10" fill="#8899b0" text-anchor="end">2026</text>
-          <rect x="83" y="83" width="4" height="14" fill="rgba(74,222,128,0.55)" rx="2"/>
-          <text x="94"  y="94" font-family="system-ui,sans-serif" font-size="9" fill="#4ade80">+$20.94</text>
-          <text x="200" y="94" font-family="system-ui,sans-serif" font-size="8" fill="#5a8a6a">(Mar 26 baseline -$27.50 + 3 new SOLUSDT trades +$48.44)</text>
-
-          <text x="80" y="118" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="middle">0</text>
-          <text x="480" y="118" font-family="system-ui,sans-serif" font-size="8" fill="#4a5a70" text-anchor="end">-$2,115</text>
-        </svg>
+        <div class="chart-title">Other Live Platforms — Known Totals</div>
+        <p style="font-size:.72rem;color:var(--dim);margin-bottom:.4rem;">Shown as totals, not a curve — PocketOption/CoinLedger don't have per-trade dated exports the way BTCC's ledger rows do, so a line here would imply granularity the data doesn't have.</p>
+        <div class="other-platform-row">
+          <div class="other-platform-tile"><div class="op-label">PocketOption</div><div class="op-value" style="color:var(--red);">-$151.62</div><div class="op-note">Binary options, 2025</div></div>
+          <div class="other-platform-tile"><div class="op-label">CoinLedger (On-Chain)</div><div class="op-value" style="color:var(--dim);">TBD</div><div class="op-note">18 sources, cost-basis in progress</div></div>
+          <div class="other-platform-tile"><div class="op-label">Robinhood Divs</div><div class="op-value" style="color:var(--green);">+$101.80</div><div class="op-note">554 records, all-time</div></div>
+        </div>
       </div>
     </section>
 
     <!-- ── CRYPTO DETAIL ── -->
     <section class="section" id="crypto">
-      <div class="sec-label">Crypto · BTCC Perpetuals</div>
+      <div class="sec-label"><i class="ph-duotone ph-currency-btc"></i> Crypto · BTCC Perpetuals</div>
       <div class="stat-grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));">
         <div class="stat loss"><div class="stat-label">All-Time</div><div class="stat-val down">~-$2,176</div><div class="stat-sub">Dec 2024 → Sep 2026 · via trading-matrices</div></div>
         <div class="stat loss"><div class="stat-label">2024</div><div class="stat-val down">~-$2,115</div><div class="stat-sub">Dec mass liquidation</div></div>
@@ -646,7 +663,7 @@
 
     <!-- ── POCKETOPTION ── -->
     <section class="section" id="pocketoption">
-      <div class="sec-label">Binary Options · PocketOption</div>
+      <div class="sec-label"><i class="ph-duotone ph-coin"></i> Binary Options · PocketOption</div>
       <div class="stat-grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));">
         <div class="stat loss"><div class="stat-label">2025 Net</div><div class="stat-val down">-$151.62</div><div class="stat-sub">May–Dec 2025</div></div>
         <div class="stat neutral"><div class="stat-label">Trades</div><div class="stat-val blue">~741</div><div class="stat-sub">Avg $1–2 each</div></div>
@@ -657,7 +674,7 @@
 
     <!-- ── COINLEDGER ── -->
     <section class="section" id="onchain">
-      <div class="sec-label">On-Chain · CoinLedger</div>
+      <div class="sec-label"><i class="ph-duotone ph-link"></i> On-Chain · CoinLedger</div>
       <div class="stat-grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));">
         <div class="stat neutral"><div class="stat-label">Total Transactions</div><div class="stat-val blue">2,666</div><div class="stat-sub">2020–2025 · all platforms</div></div>
         <div class="stat neutral"><div class="stat-label">Income Events</div><div class="stat-val gold">2,005</div><div class="stat-sub">Staking · interest · rewards</div></div>
@@ -783,7 +800,7 @@
 
     <!-- ── LIVE BALANCES ── -->
     <section class="section" id="live-balances">
-      <div class="sec-label">Live Web3 Balances</div>
+      <div class="sec-label"><i class="ph-duotone ph-wallet"></i> Live Web3 Balances</div>
 
       <div id="lb-config-banner" class="callout warn" style="display:none;">
         ⚙️ <strong>No wallet addresses configured.</strong> Add your public addresses to the <code>WALLET_CONFIG</code> block in the script below to see live balances. Addresses are read-only — no private keys needed or used.
@@ -819,7 +836,7 @@
 
     <!-- ── ROBINHOOD EQUITIES ── -->
     <section class="section" id="robinhood">
-      <div class="sec-label">Robinhood · Equities Portfolio</div>
+      <div class="sec-label"><i class="ph-duotone ph-trend-up"></i> Robinhood · Equities Portfolio</div>
 
       <div class="callout warn" style="margin-bottom:1rem;">
         ⚠ <strong>Positions liquidated, recent (date/amounts TBC):</strong> Christopher closed out a significant number of these positions to cover groceries and prop firm eval fees as cash needs grew — the figures below (Apr 5, 2026 snapshot) are historical, not current holdings. As the Robinhood cash runway dwindled, he moved to disbursing the separate Acorns IRA (see <a href="#acorns">Acorns</a> below) — 401(k)s were already fully dispersed prior to this. This sequence is being documented for Domestic Relations/IRS reporting under the TraderTaxStatus framework; see <a href="../tax/tax.html">tax.html</a> for the CPA-question tracking.
@@ -909,7 +926,7 @@
 
     <!-- ── ACORNS ── -->
     <section class="section" id="acorns">
-      <div class="sec-label">Acorns · Invest/IRA</div>
+      <div class="sec-label"><i class="ph-duotone ph-plant"></i> Acorns · Invest/IRA</div>
       <div class="callout warn">
         ⚠ <strong>No MCP connection yet</strong> — unlike Robinhood, Acorns has no live data integration. Christopher is currently disbursing this IRA account as Robinhood cash ran down (401(k)s already fully dispersed prior to this). Balance, disbursement dates, and amounts to be provided manually and entered here once available. Tracked for TraderTaxStatus documentation — see <a href="../tax/tax.html">tax.html</a>.
       </div>
@@ -917,7 +934,7 @@
 
     <!-- ── TAX SUMMARY ── -->
     <section class="section" id="tax">
-      <div class="sec-label">Tax Summary · Working Estimates</div>
+      <div class="sec-label"><i class="ph-duotone ph-receipt"></i> Tax Summary · Working Estimates</div>
       <div class="panel-block">
         <div class="tbl-wrap">
           <table>
@@ -954,7 +971,7 @@
 
     <!-- ── SOURCES ── -->
     <section class="section" id="sources">
-      <div class="sec-label">Source Files</div>
+      <div class="sec-label"><i class="ph-duotone ph-folder-open"></i> Source Files</div>
       <div class="panel-block">
         <div class="tbl-wrap">
           <table>
@@ -1298,6 +1315,150 @@ function donCopy(btn, addr) {
     setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1800);
   });
 }
+
+// Scroll-triggered reveal — same pattern as index.html: each .section
+// settles into place once as it enters the viewport.
+//
+// IntersectionObserver only compares state at the start and end of a
+// scroll -- it doesn't sample in between. A large/fast jump (a real
+// user mashing Page Down or dragging the scrollbar, not just a script)
+// can move a short .section from "fully below the viewport" straight to
+// "fully above it" in one reflow, so its intersection ratio never
+// crosses the threshold and it's left permanently at opacity:0. A wide
+// rootMargin makes that far less likely (the detection zone reaches well
+// past the actual viewport), and the scroll-listener fallback below
+// catches anything that still slips through by force-revealing any
+// .section whose top has already passed above the viewport.
+const revealTargets = document.querySelectorAll('.section');
+if ('IntersectionObserver' in window && revealTargets.length) {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0, rootMargin: '200px 0px 200px 0px' });
+  revealTargets.forEach(el => revealObserver.observe(el));
+
+  let revealCatchupPending = false;
+  function revealCatchup() {
+    revealCatchupPending = false;
+    revealTargets.forEach(el => {
+      if (!el.classList.contains('is-visible') && el.getBoundingClientRect().top < window.innerHeight) {
+        el.classList.add('is-visible');
+        revealObserver.unobserve(el);
+      }
+    });
+  }
+  window.addEventListener('scroll', () => {
+    if (!revealCatchupPending) { revealCatchupPending = true; requestAnimationFrame(revealCatchup); }
+  }, { passive: true });
+} else {
+  revealTargets.forEach(el => el.classList.add('is-visible'));
+}
+
+// ═══════════════════════════════════════════════════════
+// BTCC CUMULATIVE P&L — the one live account here with real per-trade
+// dates. Built from data/progression/assets/trading-matrices/
+// account-summary.json's btcc_crypto block (see scripts/
+// build-trading-matrices.py for how that's derived): 3 annual/baseline
+// checkpoints (no per-trade dates available for that period) plus the
+// 3 individually-dated ledger fills since Mar 26, 2026.
+// ═══════════════════════════════════════════════════════
+const BTCC_PAD = { l: 60, r: 16, t: 16, b: 28 };
+const BTCC_W = 900, BTCC_H = 260;
+
+function btccBuildSeries(btcc) {
+  const b = btcc.baseline;
+  let running = 0;
+  const points = [];
+  points.push({ date: new Date('2024-12-31T12:00:00'), value: (running += b['2024_net_pnl']), label: '2024 (annual)' });
+  points.push({ date: new Date('2025-12-31T12:00:00'), value: (running += b['2025_net_pnl']), label: '2025 (annual)' });
+  points.push({ date: new Date(b.as_of + 'T12:00:00'), value: (running += b['2026_net_pnl_thru_baseline_date']), label: 'Baseline (' + b.as_of + ')' });
+  (btcc.ledger_trades_since_baseline || []).forEach(t => {
+    points.push({ date: new Date(t.exit_time), value: (running += t.pnl), label: t.product + ' ' + t.direction });
+  });
+  return points;
+}
+
+function btccRenderStats(btcc, points) {
+  const final = points.length ? points[points.length - 1].value : 0;
+  const fmt = n => (n < 0 ? '-$' : '+$') + Math.abs(n).toFixed(2);
+  document.getElementById('btccStatRow').innerHTML = `
+    <div><div class="btcc-stat-label">All-Time</div><div class="btcc-stat-value" style="color:${final >= 0 ? 'var(--green)' : 'var(--red)'}">${fmt(final)}</div></div>
+    <div><div class="btcc-stat-label">Since Baseline (Ledger Fills)</div><div class="btcc-stat-value" style="color:var(--green)">${fmt(btcc.ledger_trades_net_pnl)}</div></div>
+    <div><div class="btcc-stat-label">Dated Fills</div><div class="btcc-stat-value">${(btcc.ledger_trades_since_baseline || []).length}</div></div>
+  `;
+}
+
+function btccDraw(points) {
+  const svg = document.getElementById('btccSvg');
+  if (!points.length) { svg.innerHTML = ''; return; }
+  const xMin = points[0].date.getTime(), xMax = points[points.length - 1].date.getTime();
+  const yVals = points.map(p => p.value).concat([0]);
+  let yMin = Math.min(...yVals), yMax = Math.max(...yVals);
+  if (yMin === yMax) { yMin -= 100; yMax += 100; }
+  const yPad = (yMax - yMin) * 0.1;
+  yMin -= yPad; yMax += yPad;
+  const innerW = BTCC_W - BTCC_PAD.l - BTCC_PAD.r, innerH = BTCC_H - BTCC_PAD.t - BTCC_PAD.b;
+  const xScale = t => xMax === xMin ? BTCC_PAD.l : BTCC_PAD.l + ((t - xMin) / (xMax - xMin)) * innerW;
+  const yScale = v => BTCC_PAD.t + innerH - ((v - yMin) / (yMax - yMin)) * innerH;
+  const zeroY = yScale(0);
+
+  let html = `<line class="zero-line" x1="${BTCC_PAD.l}" y1="${zeroY}" x2="${BTCC_W - BTCC_PAD.r}" y2="${zeroY}"></line>`;
+  [yMax, 0, yMin].forEach(v => {
+    const y = yScale(v);
+    html += `<text x="${BTCC_PAD.l - 8}" y="${y + 3}" text-anchor="end" font-size="10" fill="var(--dim)">${v >= 0 ? '$' : '-$'}${Math.abs(Math.round(v))}</text>`;
+  });
+  const dfmt = t => new Date(t).toLocaleDateString('en-US', { year: '2-digit', month: 'short', day: 'numeric' });
+  html += `<text x="${BTCC_PAD.l}" y="${BTCC_H - 8}" font-size="10" fill="var(--dim)">${dfmt(xMin)}</text>`;
+  html += `<text x="${BTCC_W - BTCC_PAD.r}" y="${BTCC_H - 8}" text-anchor="end" font-size="10" fill="var(--dim)">${dfmt(xMax)}</text>`;
+
+  const d = points.map((p, i) => `${i === 0 ? 'M' : 'L'}${xScale(p.date.getTime()).toFixed(1)},${yScale(p.value).toFixed(1)}`).join(' ');
+  html += `<path class="curve-line" d="${d}"></path>`;
+  points.forEach(p => {
+    html += `<circle cx="${xScale(p.date.getTime()).toFixed(1)}" cy="${yScale(p.value).toFixed(1)}" r="3.5" fill="var(--gold)"></circle>`;
+  });
+  html += `<line class="crosshair" id="btccCrosshair" x1="0" y1="${BTCC_PAD.t}" x2="0" y2="${BTCC_H - BTCC_PAD.b}"></line>`;
+  svg.innerHTML = html;
+
+  const wrap = document.getElementById('btccSvgWrap');
+  const tooltip = document.getElementById('btccTooltip');
+  svg.onmousemove = svg.ontouchmove = (e) => {
+    const rect = svg.getBoundingClientRect();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const px = ((clientX - rect.left) / rect.width) * BTCC_W;
+    const t = xMin + ((px - BTCC_PAD.l) / innerW) * (xMax - xMin);
+    if (t < xMin || t > xMax) return;
+    let nearest = points[0];
+    points.forEach(p => { if (Math.abs(p.date.getTime() - t) < Math.abs(nearest.date.getTime() - t)) nearest = p; });
+    const crosshair = document.getElementById('btccCrosshair');
+    const x = xScale(nearest.date.getTime());
+    crosshair.setAttribute('x1', x); crosshair.setAttribute('x2', x); crosshair.style.opacity = '1';
+    const fmt = n => (n >= 0 ? '+$' : '-$') + Math.abs(n).toFixed(2);
+    tooltip.innerHTML = `<div class="tt-date">${dfmt(nearest.date.getTime())} — ${nearest.label}</div><strong>${fmt(nearest.value)}</strong>`;
+    tooltip.style.opacity = '1';
+    const tRect = wrap.getBoundingClientRect();
+    let left = ((clientX - tRect.left) + 14);
+    if (left + 180 > tRect.width) left = (clientX - tRect.left) - 194;
+    tooltip.style.left = left + 'px';
+    tooltip.style.top = '10px';
+  };
+  svg.onmouseleave = () => { tooltip.style.opacity = '0'; document.getElementById('btccCrosshair').style.opacity = '0'; };
+}
+
+fetch('assets/trading-matrices/account-summary.json')
+  .then(res => { if (!res.ok) throw new Error('fetch failed'); return res.json(); })
+  .then(data => {
+    const points = btccBuildSeries(data.btcc_crypto);
+    btccRenderStats(data.btcc_crypto, points);
+    btccDraw(points);
+  })
+  .catch(() => {
+    document.getElementById('btccSvgWrap').innerHTML =
+      '<p style="font-size:.78rem;color:var(--dim);">Live chart requires viewing this page over HTTP (e.g. GitHub Pages) — a local file:// preview can\'t fetch the trading-matrices JSON.</p>';
+  });
 </script>
 
 </body>
