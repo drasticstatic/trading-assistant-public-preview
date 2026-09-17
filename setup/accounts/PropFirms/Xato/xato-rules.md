@@ -11,6 +11,8 @@
 
 A one-step, single-account evaluation covering stocks, commodities, and crypto together — not a futures-only firm like Apex/TPT/TopOne/Tradeify. All instruments trade as perpetual markets through crypto infrastructure (Hyperliquid is the current reference/liquidity source), so trading is available 24/7 including weekends. Balances in both the evaluation and funded stages are simulated — no trader capital is deposited. Funded payouts settle in real USDT (ERC-20, via Fireblocks).
 
+**Important — trading is fully simulated, not routed to a live venue.** Xato's own words: "The trading engine records orders, positions, profit and loss, fees, funding, and account-rule outcomes internally. It does not route or copy trader orders to a live venue." No external venue is the trader's live counterparty and no venue holds trading capital. Hyperliquid is only the **reference source** for prices, instrument info, funding data, and best-bid/offer — a trader's order is never actually submitted to Hyperliquid as a live-funded order. Xato can add/remove/change its reference markets or execution model at any time, and prices on an external chart (e.g. TradingView pulling Hyperliquid data) may not match Xato's own terminal exactly — Xato's own account records are what govern program calculations, not the external chart.
+
 ## Account Sizes, Fees & Core Limits
 
 | Account size | Evaluation fee | Profit target | Max drawdown (static, 6%) | Max daily loss (3%) |
@@ -75,7 +77,16 @@ Positions may be held over the weekend. Crypto instruments are ~24/7 (barring ma
 
 ## Order Types & Platform
 
-Custom web trading terminal only — execution and order management happen on Xato's own site, not a third-party platform. Time-in-force: GTC, IOC, ALO (Add Liquidity Only). Partial take-profit / partial close supported. Since pricing/liquidity routes through Hyperliquid, technical analysis (charting, level marking) can still be done on TradingView synced to Hyperliquid's own exchange data feed — the same pattern now working for BTCC and crypto.com perpetuals (see BTCC's note in the Community &amp; Thanks page and Instrument Reference on resources.html) — even though order execution itself stays on Xato's terminal.
+Custom web trading terminal only — execution and order management happen on Xato's own site, not a third-party platform (see the simulated-execution note above — there's no live venue to route to anyway). Time-in-force:
+- **GTC (Good Til Canceled)** — remains active until filled or canceled
+- **IOC (Immediate Or Cancel)** — fills any immediately available quantity, cancels the remainder
+- **ALO (Add Liquidity Only)** — posts only if it can add liquidity rather than immediately take it (won't cross the spread)
+
+Partial take-profit / partial close is supported (reduce-only, any amount up to the open position size, itself subject to available liquidity).
+
+**Position size limits:** max order/position size depends on the instrument, available margin, leverage, current price, existing exposure, fee reserves, and provider constraints — the terminal shows what's currently tradable, may shrink an order to fit available margin, reject it outright, or leave a limit order resting until its price condition is met.
+
+Charting/technical analysis can still be done on TradingView — since Hyperliquid is Xato's reference price feed, TradingView charts synced to Hyperliquid's data will track closely (same pattern now working for BTCC and crypto.com perpetuals — see the Community & Thanks page and resources.html's Instrument Reference), even though actual order placement stays on Xato's own terminal and Xato's own account records are the authority for program calculations, not the external chart.
 
 ## Minimum Age & Eligibility
 
