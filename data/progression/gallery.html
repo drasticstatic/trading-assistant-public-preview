@@ -464,6 +464,20 @@
       .csv-table tbody tr:not(.ledger-detail-row) td + td { border-top: 1px dashed var(--border); }
       .csv-table td[data-label]::before { content: attr(data-label); display: block; font-size: .6rem; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--subtle); margin-bottom: .15rem; }
       .csv-table tfoot td { position: static; }
+      /* Accordion: below 720px, a row shows only its "primary" fields
+         (marked with .csv-table-secondary on everything else) until
+         tapped -- 9-13 stacked fields per row was the "not elegant"
+         complaint; 2-3 glanceable fields + tap-to-expand fixes it. */
+      .csv-table tbody tr.row-collapsible td.csv-table-secondary { display: none; }
+      .csv-table tbody tr.row-collapsible.row-expanded td.csv-table-secondary { display: block; }
+      .csv-table tbody tr.row-collapsible td:first-child { position: relative; padding-right: 1.4rem; }
+      .csv-table tbody tr.row-collapsible td:first-child::after { content: '›'; position: absolute; right: 0; top: .35rem; color: var(--subtle); font-size: 1rem; }
+      .csv-table tbody tr.row-collapsible.row-expanded td:first-child::after { content: '‹'; }
+    }
+    @media (min-width: 721px) {
+      /* Desktop keeps every column visible as a normal table row --
+         the accordion is a narrow-viewport-only affordance. */
+      .csv-table tbody tr.row-collapsible td.csv-table-secondary { display: table-cell; }
     }
     .csv-table th {
       text-align: left; padding: .6rem .8rem; background: var(--surface-raised);
@@ -1870,19 +1884,19 @@
         const amt = parseFloat(r.amount_paid);
         if (!isNaN(amt)) totalPaid += amt;
         const fundedFrom = fundedFromNote(r.notes);
-        html += `<tr onclick="toggleLedgerDetail(${idx})">` +
+        html += `<tr class="row-collapsible" onclick="this.classList.toggle('row-expanded'); toggleLedgerDetail(${idx})">` +
           `<td data-label="${ledgerColumns[0]}">${r.firm || '—'}</td>` +
-          `<td data-label="${ledgerColumns[1]}">${r.account_number || '—'}${fundedFrom ? `<br><span style="color:var(--dim);font-size:.68rem;">↳ funded from ${fundedFrom}</span>` : ''}</td>` +
-          `<td data-label="${ledgerColumns[2]}">${amt ? '$' + amt.toFixed(2) : '—'}</td>` +
-          `<td data-label="${ledgerColumns[3]}">${r.coupon_used || '—'}</td>` +
-          `<td data-label="${ledgerColumns[4]}">${r.date || '—'}</td>` +
-          `<td data-label="${ledgerColumns[5]}">${r.date_funded || '—'}</td>` +
-          `<td data-label="${ledgerColumns[6]}">${r.date_purchased_renewed || '—'}</td>` +
-          `<td data-label="${ledgerColumns[7]}">${phaseBadge(r.phase)}</td>` +
-          `<td data-label="${ledgerColumns[8]}">${formatSize(r.account_size)}</td>` +
-          `<td data-label="${ledgerColumns[9]}">${r.drawdown_type || '—'}</td>` +
-          `<td data-label="${ledgerColumns[10]}">${r.account_type || '—'}</td>` +
-          `<td data-label="${ledgerColumns[11]}">${r.reset_renewed_repurchased || '—'}</td>` +
+          `<td class="csv-table-secondary" data-label="${ledgerColumns[1]}">${r.account_number || '—'}${fundedFrom ? `<br><span style="color:var(--dim);font-size:.68rem;">↳ funded from ${fundedFrom}</span>` : ''}</td>` +
+          `<td class="csv-table-secondary" data-label="${ledgerColumns[2]}">${amt ? '$' + amt.toFixed(2) : '—'}</td>` +
+          `<td class="csv-table-secondary" data-label="${ledgerColumns[3]}">${r.coupon_used || '—'}</td>` +
+          `<td class="csv-table-secondary" data-label="${ledgerColumns[4]}">${r.date || '—'}</td>` +
+          `<td class="csv-table-secondary" data-label="${ledgerColumns[5]}">${r.date_funded || '—'}</td>` +
+          `<td class="csv-table-secondary" data-label="${ledgerColumns[6]}">${r.date_purchased_renewed || '—'}</td>` +
+          `<td class="csv-table-secondary" data-label="${ledgerColumns[7]}">${phaseBadge(r.phase)}</td>` +
+          `<td class="csv-table-secondary" data-label="${ledgerColumns[8]}">${formatSize(r.account_size)}</td>` +
+          `<td class="csv-table-secondary" data-label="${ledgerColumns[9]}">${r.drawdown_type || '—'}</td>` +
+          `<td class="csv-table-secondary" data-label="${ledgerColumns[10]}">${r.account_type || '—'}</td>` +
+          `<td class="csv-table-secondary" data-label="${ledgerColumns[11]}">${r.reset_renewed_repurchased || '—'}</td>` +
           `<td data-label="${ledgerColumns[12]}">${outcomeBadge(r.outcome)}</td>` +
           `</tr>` +
           `<tr class="ledger-detail-row" id="ledgerDetail${idx}" style="display:none;">` +
@@ -2248,16 +2262,16 @@
         <th style="cursor:pointer" onclick="tradeLedgerSort={key:'pnl',dir:tradeLedgerSort.key==='pnl'&&tradeLedgerSort.dir==='desc'?'asc':'desc'}; renderTradeLedgerRows();">P&amp;L ${tradeLedgerSort.key === 'pnl' ? (tradeLedgerSort.dir === 'desc' ? '↓' : '↑') : ''}</th>
         <th>Source</th></tr></thead><tbody>`;
       visible.forEach(r => {
-        html += `<tr>
+        html += `<tr class="row-collapsible" onclick="this.classList.toggle('row-expanded')">
           <td data-label="Date">${dfmt(r.exitTime)}<br><span style="color:var(--dim);font-size:.68rem;">${tfmt(r.exitTime)}</span></td>
-          <td data-label="Account">${r.account}${r.isPaper ? ' <span class="badge" style="background:rgba(248,113,113,.15);color:var(--red);">Paper</span>' : ''}</td>
+          <td class="csv-table-secondary" data-label="Account">${r.account}${r.isPaper ? ' <span class="badge" style="background:rgba(248,113,113,.15);color:var(--red);">Paper</span>' : ''}</td>
           <td data-label="Instrument">${r.product} <span style="color:var(--dim);">${r.contract}</span></td>
-          <td data-label="Side"><span class="badge" style="background:${r.direction === 'Long' ? 'rgba(74,222,128,.15)' : 'rgba(248,113,113,.15)'};color:${r.direction === 'Long' ? 'var(--green)' : 'var(--red)'};">${r.direction}</span></td>
-          <td data-label="Qty">${r.qty}</td>
-          <td data-label="Entry">${r.entryPrice}</td>
-          <td data-label="Exit">${r.exitPrice}</td>
+          <td class="csv-table-secondary" data-label="Side"><span class="badge" style="background:${r.direction === 'Long' ? 'rgba(74,222,128,.15)' : 'rgba(248,113,113,.15)'};color:${r.direction === 'Long' ? 'var(--green)' : 'var(--red)'};">${r.direction}</span></td>
+          <td class="csv-table-secondary" data-label="Qty">${r.qty}</td>
+          <td class="csv-table-secondary" data-label="Entry">${r.entryPrice}</td>
+          <td class="csv-table-secondary" data-label="Exit">${r.exitPrice}</td>
           <td data-label="P&amp;L" style="color:${r.pnl >= 0 ? 'var(--green)' : 'var(--red)'};font-weight:700;">${r.pnl >= 0 ? '+$' : '-$'}${Math.abs(r.pnl).toFixed(2)}</td>
-          <td data-label="Source" style="color:var(--dim);font-size:.7rem;">${sourceLinkFor(r.exitTime, r.source)}</td>
+          <td class="csv-table-secondary" data-label="Source" style="color:var(--dim);font-size:.7rem;">${sourceLinkFor(r.exitTime, r.source)}</td>
         </tr>`;
       });
       html += '</tbody></table>';
