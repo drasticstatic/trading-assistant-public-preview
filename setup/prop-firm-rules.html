@@ -466,6 +466,72 @@
       <p style="font-size:.84rem; margin-bottom:.6rem;"><strong>TakeProfitTrader:</strong> a reset costs $649, capped at 3 resets total. Pricier than starting a fresh instant-funded account elsewhere once you're past reset #1-2 — but Christopher values staying with TPT despite the account-count ceiling, so a reset is still the default move over starting over cold.</p>
       <p style="font-size:.84rem;"><strong>Apex Legacy renewal nuance:</strong> renewing a Legacy account rolls existing profits into the next 30-day cycle rather than zeroing them out. New Apex products (EOD/Intraday) don't carry this — missing the 30-day profit target on those simply fails the account, no renewal-with-profits-intact option</p>
     </div>
+
+    <div class="sec-label"><i class="ph-duotone ph-sliders-horizontal"></i> Crypto Exchange Execution Mechanics — Multi-Broker TradingView Notes</div>
+    <p class="sec-sub">As of Sep 2026, BTCC and crypto.com perpetuals/spot are tradable directly from TradingView, and Coinbase's live balance is visible too — but each exchange's TradingView execution panel exposes different settings than the others, and different from Tradovate's TradFi-futures panel. Notes from live testing (1x and 5x leverage, both directions) so the differences don't have to be re-discovered each time</p>
+    <div class="panel">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Setting</th><th>BTCC</th><th>Crypto.com</th><th>Coinbase</th><th>Tradovate (TradFi Futures)</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="firm-col">Margin type shown</td>
+              <td><span class="ref-tag">Not exposed in TradingView's panel</span> — isolated margin is newly available natively on BTCC (didn't exist when Christopher first started there), but TradingView doesn't surface the cross/isolated toggle for BTCC specifically</td>
+              <td>Cross / Isolated / None — shown directly</td>
+              <td><span class="ref-tag">No leverage/margin concept shown at all</span></td>
+              <td>N/A — futures margin works differently (per-contract, not a leverage slider)</td>
+            </tr>
+            <tr>
+              <td class="firm-col">Position sizing method</td>
+              <td>Slider with 4 modes — see breakdown below. Cannot change leverage while already in a trade</td>
+              <td>Direct quantity entry (like BTCC's own native app)</td>
+              <td>Direct quantity entry</td>
+              <td>Direct contract-count entry</td>
+            </tr>
+            <tr>
+              <td class="firm-col">Order types</td>
+              <td>Market, Limit, Stop</td>
+              <td>Market, Limit, Stop, <strong>Stop-Limit</strong></td>
+              <td>Market, Limit, Stop</td>
+              <td>Market, Limit, Stop</td>
+            </tr>
+            <tr>
+              <td class="firm-col">Post-only</td>
+              <td><span class="badge warn">Not available</span></td>
+              <td><span class="badge good">Available</span></td>
+              <td><span class="badge good">Available</span></td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td class="firm-col">Time-in-force</td>
+              <td>Good Til Cancel <span class="ref-tag">only option — dropdown greyed out</span></td>
+              <td>Good Til Cancelled (default), Immediate or Cancel, Fill or Kill</td>
+              <td>Good Till Cancelled (default), Good Till Time, Immediate or Cancel</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td class="firm-col">TP/SL bracket display</td>
+              <td><span class="badge good">Shows the actual $ P&amp;L the bracket represents</span></td>
+              <td><span class="ref-tag">Not yet compared</span></td>
+              <td><span class="ref-tag">Not yet compared</span></td>
+              <td><span class="badge warn">Only shows "buy/sell limit" — no computed P&amp;L preview on the bracket itself</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p class="sec-sub" style="margin-top:.7rem;">One more BTCC quirk worth remembering: TP/SL orders placed manually inside BTCC's own native app show up in a <strong>different menu</strong> than TP/SL brackets placed through TradingView's execution panel — same account, two places to check depending on which surface you set the bracket from.</p>
+
+    <div class="panel" style="padding: 1rem 1.2rem; margin-top: .8rem;">
+      <p style="font-size:.8rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin-bottom:.5rem;">BTCC's 4 TradingView Position-Sizing Modes</p>
+      <p style="font-size:.84rem; margin-bottom:.4rem;"><strong>USDT Margin</strong> — order size entered as a cash (USDT) equivalent</p>
+      <p style="font-size:.84rem; margin-bottom:.4rem;"><strong>% Balance</strong> — order size entered as a percentage of account equity</p>
+      <p style="font-size:.84rem; margin-bottom:.4rem;"><strong>Risk | USDT</strong> — order size derived from a dollar risk amount against the current stop-loss price; moving either the risk amount or the SL price recalculates quantity automatically</p>
+      <p style="font-size:.84rem; margin-bottom:.6rem;"><strong>Risk | % Balance</strong> — same as above, but the risk input is a percentage of equity instead of a dollar amount</p>
+      <p style="font-size:.82rem; color:var(--muted);">The Risk-based modes are the closest crypto equivalent to the WASL-style position sizing already used on the futures side (risk defined in position sizing up front, not a mental stop) — see <code>pattern_tracker.md</code>'s trading-style note for the fuller framework this slots into. Practice so far: size via Risk | %Balance, always set a real TP (letting winners run has produced larger losers in hindsight more often than it's paid off), don't run with a mental-only stop.</p>
+    </div>
+
+    <p class="sec-sub" style="margin-top:.7rem;"><i class="ph-duotone ph-info"></i> One setting easy to confuse across platforms: the slot where TradFi futures and crypto.com show <strong>"SL enables quantity in risk"</strong> (link stop-loss distance to position sizing) is occupied on Coinbase by an unrelated toggle, <strong>"show order confirmation"</strong> — same panel position, completely different function. Worth a second look before assuming it's the same setting by muscle memory.</p>
   </main>
 
   <!-- ── SPEC-CARD MODALS (HTML content, not image lightboxes — opened via .pill-trigger buttons) ── -->
