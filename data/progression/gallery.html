@@ -650,6 +650,12 @@
     <p class="sec-sub">Running account-balance curve, built live from the master trade ledger — every fill, every account. Toggle paper trading in or out, or open individual accounts to overlay their own curve against the combined total</p>
     <div class="pnl-wrap">
       <div class="pnl-stat-row" id="pnlStatRow"></div>
+      <div class="pnl-toggle-row" id="pnlTimeframeRow">
+        <button type="button" class="pnl-toggle pnl-tf-btn active" data-tf="all" onclick="pnlSetTimeframe('all')">All-Time</button>
+        <button type="button" class="pnl-toggle pnl-tf-btn" data-tf="30d" onclick="pnlSetTimeframe('30d')">30D</button>
+        <button type="button" class="pnl-toggle pnl-tf-btn" data-tf="90d" onclick="pnlSetTimeframe('90d')">90D</button>
+        <button type="button" class="pnl-toggle pnl-tf-btn" data-tf="ytd" onclick="pnlSetTimeframe('ytd')">YTD</button>
+      </div>
       <div class="pnl-toggle-row">
         <button type="button" class="pnl-toggle" id="pnlPaperToggle" onclick="pnlTogglePaper()"><span class="dot" style="color:var(--red);"></span> Include Paper Trading</button>
         <button type="button" class="pnl-toggle" id="pnlAcctToggleBtn" onclick="pnlToggleAcctPanel()"><i class="ph-duotone ph-sliders-horizontal" style="font-size:1em;animation:none;"></i> By Account</button>
@@ -660,6 +666,7 @@
         <div class="pnl-tooltip" id="pnlTooltip"></div>
       </div>
       <p class="pnl-note" id="pnlLoadNote">Loading live ledger data…</p>
+      <p class="pnl-note">Chart begins May 14, 2026 — the earliest date with full per-trade CSV detail (see <code>master_trade_ledger</code>). The calendar above goes back further (Feb 23) using earlier manually-logged totals without full trade-level granularity, so it isn't part of this chart.</p>
     </div>
 
     <div class="sec-label"><i class="ph-duotone ph-chart-scatter"></i> Account Progression</div>
@@ -1908,10 +1915,31 @@
     }
     let pnlTrades = [];      // { account, firm, isPaper, pnl, date }
     let pnlAccounts = [];    // unique account names, grouped/sorted by firm
-    const pnlState = { includePaper: false, openAccounts: new Set() };
+    const pnlState = { includePaper: false, openAccounts: new Set(), timeframe: 'all' };
+    const PNL_TIMEFRAMES = [
+      { key: 'all', label: 'All-Time' },
+      { key: '30d', label: '30D' },
+      { key: '90d', label: '90D' },
+      { key: 'ytd', label: 'YTD' },
+    ];
+
+    // Windowed views (30D/90D/YTD) re-baseline to $0 at the window start --
+    // they show the CHANGE within that period, not the account's absolute
+    // balance (which is only meaningful cumulated from the true first trade).
+    // "Now" is the latest trade date in the data, not the real calendar date,
+    // since this is historical/backfilled data, not a live feed.
+    function pnlTimeframeTrades(trades) {
+      if (pnlState.timeframe === 'all' || !trades.length) return trades;
+      const latest = Math.max(...pnlTrades.map(t => t.date.getTime()));
+      let cutoff;
+      if (pnlState.timeframe === '30d') cutoff = latest - 30 * 86400000;
+      else if (pnlState.timeframe === '90d') cutoff = latest - 90 * 86400000;
+      else if (pnlState.timeframe === 'ytd') cutoff = new Date(new Date(latest).getFullYear(), 0, 1).getTime();
+      return trades.filter(t => t.date.getTime() >= cutoff);
+    }
 
     function pnlCumulative(trades) {
-      const sorted = trades.slice().sort((a, b) => a.date - b.date);
+      const sorted = pnlTimeframeTrades(trades).slice().sort((a, b) => a.date - b.date);
       let running = 0;
       return sorted.map(t => { running += t.pnl; return { date: t.date, value: running }; });
     }
@@ -1926,14 +1954,22 @@
       return series;
     }
 
+    function pnlSetTimeframe(tf) {
+      pnlState.timeframe = tf;
+      document.querySelectorAll('.pnl-tf-btn').forEach(b => b.classList.toggle('active', b.dataset.tf === tf));
+      pnlRenderStats();
+      pnlDraw();
+    }
+
     function pnlRenderStats() {
       const combined = pnlCumulative(pnlTrades.filter(t => pnlState.includePaper || !t.isPaper));
       const final = combined.length ? combined[combined.length - 1].value : 0;
-      const tradeCount = pnlTrades.filter(t => pnlState.includePaper || !t.isPaper).length;
+      const tradeCount = pnlTimeframeTrades(pnlTrades.filter(t => pnlState.includePaper || !t.isPaper)).length;
       const best = combined.reduce((m, p, i) => { const prev = i ? combined[i-1].value : 0; return Math.max(m, p.value - prev); }, -Infinity);
       const fmt = n => (n < 0 ? '-$' : '+$') + Math.abs(n).toFixed(2);
+      const balanceLabel = pnlState.timeframe === 'all' ? 'Combined Balance' : 'Change This Period';
       document.getElementById('pnlStatRow').innerHTML = `
-        <div class="pnl-stat"><div class="pnl-stat-label">Combined Balance</div><div class="pnl-stat-value" style="color:${final >= 0 ? 'var(--green)' : 'var(--red)'}">${fmt(final)}</div></div>
+        <div class="pnl-stat"><div class="pnl-stat-label">${balanceLabel}</div><div class="pnl-stat-value" style="color:${final >= 0 ? 'var(--green)' : 'var(--red)'}">${fmt(final)}</div></div>
         <div class="pnl-stat"><div class="pnl-stat-label">Trades</div><div class="pnl-stat-value">${tradeCount}</div></div>
         <div class="pnl-stat"><div class="pnl-stat-label">Best Single Trade</div><div class="pnl-stat-value" style="color:var(--green)">${isFinite(best) ? fmt(best) : '—'}</div></div>
       `;
@@ -2005,10 +2041,27 @@
 
       series.forEach(s => {
         if (!s.points.length) return;
-        const d = s.points.map((p, i) => `${i === 0 ? 'M' : 'L'}${xScale(p.date.getTime()).toFixed(1)},${yScale(p.value).toFixed(1)}`).join(' ');
-        svgHtml += `<path class="series-line${s.key === 'combined' ? ' combined' : ''}" d="${d}" style="stroke:${s.color}"></path>`;
+        if (s.key === 'combined') {
+          // Combined line: segment-colored green/red by up/down move so the
+          // headline "is this trending up or down right now" reads at a
+          // glance -- a single <path> can't have per-segment color, so each
+          // consecutive pair of points gets its own short path.
+          for (let i = 1; i < s.points.length; i++) {
+            const a = s.points[i - 1], b = s.points[i];
+            const up = b.value >= a.value;
+            const d = `M${xScale(a.date.getTime()).toFixed(1)},${yScale(a.value).toFixed(1)} L${xScale(b.date.getTime()).toFixed(1)},${yScale(b.value).toFixed(1)}`;
+            svgHtml += `<path class="series-line combined" d="${d}" style="stroke:${up ? 'var(--green)' : 'var(--red)'}"></path>`;
+          }
+          if (s.points.length === 1) {
+            // Single point, nothing to segment -- draw a dot only, handled below.
+          }
+        } else {
+          const d = s.points.map((p, i) => `${i === 0 ? 'M' : 'L'}${xScale(p.date.getTime()).toFixed(1)},${yScale(p.value).toFixed(1)}`).join(' ');
+          svgHtml += `<path class="series-line" d="${d}" style="stroke:${s.color}"></path>`;
+        }
         const last = s.points[s.points.length - 1];
-        svgHtml += `<circle cx="${xScale(last.date.getTime()).toFixed(1)}" cy="${yScale(last.value).toFixed(1)}" r="3.5" fill="${s.color}"></circle>`;
+        const lastColor = s.key === 'combined' ? (s.points.length > 1 && last.value >= s.points[s.points.length - 2].value ? 'var(--green)' : s.points.length > 1 ? 'var(--red)' : s.color) : s.color;
+        svgHtml += `<circle cx="${xScale(last.date.getTime()).toFixed(1)}" cy="${yScale(last.value).toFixed(1)}" r="3.5" fill="${lastColor}"></circle>`;
       });
       svgHtml += `<line class="crosshair" id="pnlCrosshair" x1="0" y1="${PNL_PAD.t}" x2="0" y2="${PNL_H - PNL_PAD.b}"></line>`;
       svg.innerHTML = svgHtml;
