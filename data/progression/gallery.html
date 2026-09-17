@@ -343,10 +343,21 @@
       margin: .2rem 0 .8rem;
     }
     .cal-month-label { font-size: .88rem; font-weight: 700; color: var(--text); min-width: 9rem; text-align: center; }
+    /* The 8th (weekly-total) column made the grid tight below ~700px --
+       scroll horizontally with a legible minimum width instead of
+       squishing every cell (this grid had no mobile handling before,
+       adding the 8th column just made the gap impossible to ignore). */
+    .cal-grid-scroll { overflow-x: auto; margin-bottom: .4rem; }
     .cal-grid {
-      display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px;
-      margin-bottom: .4rem;
+      display: grid; grid-template-columns: repeat(7, 1fr) 1.15fr; gap: 4px;
+      min-width: 560px;
     }
+    @media (max-width: 640px) { .cal-grid { min-width: 620px; } }
+    /* Weekly summary cell (8th column) -- same shape as a day cell, but a
+       flat accent border marks it as a rollup rather than another day. */
+    .cal-cell.week-total { border-left: 2px solid var(--gold); background: var(--surface-raised); }
+    .cal-cell.week-total .cal-cell-daynum { color: var(--gold); text-transform: uppercase; font-size: .58rem; letter-spacing: .04em; }
+    .cal-week-trades { font-size: .54rem; color: var(--dim); }
     .cal-dow {
       font-size: .62rem; text-transform: uppercase; letter-spacing: .06em;
       color: var(--muted); text-align: center; padding-bottom: .2rem;
@@ -634,7 +645,7 @@
       <span class="cal-month-label" id="calMonthLabel"></span>
       <button class="carousel-nav-btn" onclick="calNav(1)">›</button>
     </div>
-    <div class="cal-grid" id="calGrid"></div>
+    <div class="cal-grid-scroll"><div class="cal-grid" id="calGrid"></div></div>
     <div class="modal-overlay" id="dayModal" onclick="if(event.target===this)closeModal('dayModal')">
       <div class="modal-box">
         <button class="modal-close" onclick="closeModal('dayModal')">✕</button>
@@ -1638,7 +1649,7 @@
       document.getElementById('calMonthLabel').textContent = monthLabel;
       const grid = document.getElementById('calGrid');
       grid.innerHTML = '';
-      ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].forEach(dow => {
+      ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Week'].forEach(dow => {
         const d = document.createElement('div');
         d.className = 'cal-dow';
         d.textContent = dow;
@@ -1646,10 +1657,22 @@
       });
       const firstDow = new Date(year, month - 1, 1).getDay();
       const daysInMonth = new Date(year, month, 0).getDate();
+      let dowCounter = 0;
+      let weekNet = 0, weekTrades = 0, weekHasData = false;
+      function appendWeekTotal() {
+        const cell = document.createElement('div');
+        cell.className = 'cal-cell week-total' + (weekHasData ? ' has-trades-summary' : '');
+        cell.innerHTML = weekHasData
+          ? `<span class="cal-cell-daynum">Week</span><span class="cal-net ${weekNet >= 0 ? 'pos' : 'neg'}">${fmtMoney(weekNet)}</span><span class="cal-week-trades">${weekTrades} trade${weekTrades === 1 ? '' : 's'}</span>`
+          : `<span class="cal-cell-daynum">Week</span><span class="cal-net" style="color:var(--dim);">—</span>`;
+        grid.appendChild(cell);
+        weekNet = 0; weekTrades = 0; weekHasData = false;
+      }
       for (let i = 0; i < firstDow; i++) {
         const d = document.createElement('div');
         d.className = 'cal-cell empty';
         grid.appendChild(d);
+        dowCounter++;
       }
       for (let day = 1; day <= daysInMonth; day++) {
         const dateStr = `${ym}-${String(day).padStart(2, '0')}`;
@@ -1665,6 +1688,9 @@
           cell.style.background = info.net === 0 ? 'rgba(255,255,255,0.05)' : (isWin
             ? `rgba(74,222,128,${0.06 + intensity * 0.22})`
             : `rgba(248,113,113,${0.06 + intensity * 0.22})`);
+          weekNet += info.net;
+          weekTrades += info.wins + info.losses;
+          weekHasData = true;
         }
         const dots = info ? Array.from({ length: Math.min(info.wins, 5) }, () => '<span class="cal-dot win"></span>').join('')
           + Array.from({ length: Math.min(info.losses, 5) }, () => '<span class="cal-dot loss"></span>').join('') : '';
@@ -1672,6 +1698,17 @@
           (info ? `<span class="cal-dots">${dots}</span><span class="cal-net ${info.net >= 0 ? 'pos' : 'neg'}">${fmtMoney(info.net)}</span>` : '');
         if (info) cell.onclick = () => showDayPanel(dateStr);
         grid.appendChild(cell);
+        dowCounter++;
+        if (dowCounter % 7 === 0) appendWeekTotal();
+      }
+      if (dowCounter % 7 !== 0) {
+        const remaining = 7 - (dowCounter % 7);
+        for (let i = 0; i < remaining; i++) {
+          const d = document.createElement('div');
+          d.className = 'cal-cell empty';
+          grid.appendChild(d);
+        }
+        appendWeekTotal();
       }
     }
     // ── Weekly-stub linking (Phase 6) — closing Sundays that have a real
