@@ -634,7 +634,7 @@
           </div>
           <p class="preview-desc" style="margin-top:.6rem;">More on the copy-trading plan it kicked off:</p>
           <div>
-            <a class="story-trigger-blue" href="#copy-trading"><i class="ph-duotone ph-path"></i> The Copy-Trading Plan ↗</a>
+            <a class="story-trigger-blue" href="#copy-trading"><i class="ph-duotone ph-path"></i> View the TradFi Futures Copy-Trading Recipe ↗</a>
           </div>
           <div class="card-socials">
             <a class="friend-link social-purple" href="https://discord.gg/propfirmmatch" target="_blank" rel="noreferrer" aria-label="PropFirmMatchTV Discord" title="PropFirmMatchTV Discord"><i class="ph-duotone ph-discord-logo"></i></a>
@@ -664,7 +664,7 @@
           <a class="preview-title" href="https://www.youtube.com/@LeviCrypto" target="_blank" rel="noreferrer"><i class="ph-duotone ph-shield-star"></i> Levi · Crypto Crusaders</a>
           <p class="preview-desc">XRP/XLM/HBAR-focused crypto content — the voice that introduced me to BTCC</p>
           <a class="story-trigger" href="https://www.youtube.com/@LeviCrypto" target="_blank" rel="noreferrer"><i class="ph-duotone ph-youtube-logo"></i> youtube.com/@LeviCrypto ↗</a>
-          <a class="story-trigger-blue" href="#btcc" style="margin-top:.4rem;"><i class="ph-duotone ph-currency-btc"></i> Jump to BTCC bento ↓</a>
+          <a class="story-trigger-blue" href="#btcc" style="margin-top:.4rem;"><i class="ph-duotone ph-currency-btc"></i> Jump to the Perpetual Crypto Futures Recipe ↓</a>
           <div class="card-socials">
             <a class="friend-link social-purple" href="https://www.skool.com/@levi-rietveld-9760" target="_blank" rel="noreferrer" aria-label="Levi's Skool community" title="Levi's Skool community"><i class="ph-duotone ph-student"></i></a>
           </div>
@@ -752,17 +752,45 @@
         <p>Where the trade-journaling habit started — the origin story kept intact on gallery.html</p>
         <span class="ext-link-row"><i class="ph-duotone ph-link"></i> tradezella.com ↗</span>
       </a>
+      <div class="ext-card click-card" data-href="https://www.deepcharts.com">
+        <h4><i class="ph-duotone ph-waveform"></i> DeepCharts</h4>
+        <p>Order-flow data and lower-latency charting — the tool TMade Alex runs One-Click Trading on. Full backstory: <button type="button" class="story-trigger" style="display:inline-flex;font-size:.78rem;padding:.15rem .5rem;" onclick="openModal('mirrorBackstoryModal')">How We Got Here ↗</button></p>
+        <span class="ext-link-row"><i class="ph-duotone ph-link"></i> deepcharts.com ↗</span>
+      </div>
+    </div>
+
+    <div id="crypto-exchanges" class="sec-label"><i class="ph-duotone ph-currency-btc"></i><i class="ph-duotone ph-coin"></i> Crypto Exchanges</div>
+    <p class="sec-sub">TradingView, TradeZella, and DeepCharts above aren't just for futures — as of Sep 2026, several crypto exchanges connect live to TradingView too, so the same charting/journaling home-base now spans TradFi and crypto. Xato (see the Pre-Flight Checklist) is the U.S.-friendly fit here — Hyperliquid's own order books, no perp-access restriction the way some CEXs carry</p>
+    <div class="ext-grid">
       <a id="btcc" class="ext-card" href="https://www.btcc.com" target="_blank" rel="noreferrer">
         <h4><i class="ph-duotone ph-currency-btc"></i> BTCC</h4>
-        <p>Crypto execution venue for SOL/USDT perp trades — as of Sep 2026, BTCC perpetuals are also tradable directly from TradingView (synced live exchange data, instant execution, works on mobile too). Spot isn't connected yet, only perpetuals</p>
+        <p>Main perp venue — SOL/USDT perpetuals, now tradable directly from TradingView (synced live exchange data, instant execution, works on mobile). Account shows as "Perpetual Account USDT" with an accurate live balance. Spot isn't connected yet, only perpetuals</p>
         <span class="ext-link-row"><i class="ph-duotone ph-link"></i> btcc.com ↗</span>
       </a>
       <a class="ext-card" href="https://crypto.com" target="_blank" rel="noreferrer">
         <h4><i class="ph-duotone ph-coin"></i> Crypto.com</h4>
-        <p>Also newly connected to TradingView — spot trading synced (perpetuals not yet). Holds a spot balance here with no perp balance yet, the inverse of the BTCC account, while testing how the two complement each other</p>
+        <p>Also newly connected to TradingView — spot trading synced (perpetuals not yet). Holds a spot balance with no perp balance yet, the inverse of the BTCC account, while testing how the two complement each other. Shows as "Master Account USD" — currently $0 while funds get positioned</p>
         <span class="ext-link-row"><i class="ph-duotone ph-link"></i> crypto.com ↗</span>
       </a>
+      <a class="ext-card" href="https://www.coinbase.com" target="_blank" rel="noreferrer">
+        <h4><i class="ph-duotone ph-currency-circle-dollar"></i> Coinbase</h4>
+        <p>Newest TradingView connection — live balance visible, previously only available for derivatives here, now spot access too. Still testing spot trading through it before relying on it day to day</p>
+        <span class="ext-link-row"><i class="ph-duotone ph-link"></i> coinbase.com ↗</span>
+      </a>
+      <div class="ext-card" style="opacity:.6;">
+        <h4><i class="ph-duotone ph-clock-clockwise"></i> Bybit</h4>
+        <p>To come — on the list to test next as another major CEX option</p>
+      </div>
+      <div class="ext-card" style="opacity:.6;">
+        <h4><i class="ph-duotone ph-clock-clockwise"></i> Phemex</h4>
+        <p>Considered, not yet in rotation — liquidity is noticeably thinner than the exchanges above, so this stays a "maybe later" rather than an active venue for now</p>
+      </div>
+      <div class="ext-card" style="opacity:.6;">
+        <h4><i class="ph-duotone ph-clock-clockwise"></i> CEX.io</h4>
+        <p>Spot trading available and already KYC'd — perpetuals aren't permitted in this jurisdiction on this exchange specifically, so this one stays spot-only</p>
+      </div>
     </div>
+    <p class="sec-sub" style="margin-top:.6rem;"><i class="ph-duotone ph-signpost"></i> In addition to these centralized exchanges (CEX) — stay tuned for DEX (decentralized exchange) info as that side of the picture fills in</p>
 
     <div class="sec-label"><i class="ph-duotone ph-handshake"></i> Affiliates</div>
     <div class="affiliate-panel">
