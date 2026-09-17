@@ -2177,6 +2177,35 @@
     const TRADE_LEDGER_PAGE_SIZE = 40;
     let tradeLedgerShown = TRADE_LEDGER_PAGE_SIZE;
 
+    // The ledger's own `source` field is the pre-archival staging filename
+    // (e.g. "Orders-6.csv") -- those are auto-numbered by the export tool
+    // and get REUSED across different import batches (confirmed: several
+    // "Orders-1.csv" values point at different dates in this same ledger),
+    // so the string itself can't be resolved back to one archived file.
+    // Instead, look up the archived Tradovate CSV(s) for that row's own
+    // exit date -- usually exactly one file, occasionally a few (see
+    // scripts/build-tradovate-archive-manifest.py).
+    let tradovateArchiveManifest = {};
+    const GH_BLOB = 'https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/';
+    const GH_TREE = 'https://github.com/drasticstatic/trading-assistant-public-preview/tree/main/';
+    function sourceLinkFor(exitTimeIso, fallbackLabel) {
+      const d = new Date(exitTimeIso);
+      if (isNaN(d.getTime())) return fallbackLabel;
+      const ymd = `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}`;
+      const files = tradovateArchiveManifest[ymd];
+      if (!files || !files.length) return fallbackLabel;
+      if (files.length === 1) {
+        const name = files[0].split('/').pop();
+        return `<a href="${GH_BLOB}${files[0]}" target="_blank" rel="noreferrer">${name} ↗</a>`;
+      }
+      const folder = files[0].split('/').slice(0, -1).join('/');
+      return `<a href="${GH_TREE}${folder}" target="_blank" rel="noreferrer">${files.length} files this day ↗</a>`;
+    }
+    fetch('assets/trading-matrices/tradovate-archive-manifest.json')
+      .then(res => res.ok ? res.json() : {})
+      .then(json => { tradovateArchiveManifest = json; if (tradeLedgerRows.length) renderTradeLedgerRows(); })
+      .catch(() => {});
+
     function renderTradeLedgerFilters() {
       const firms = Array.from(new Set(tradeLedgerRows.map(r => r.firm))).sort();
       const firmOpts = ['<option value="all">All Firms</option>'].concat(firms.map(f => `<option value="${f}">${f}</option>`)).join('');
@@ -2228,7 +2257,7 @@
           <td data-label="Entry">${r.entryPrice}</td>
           <td data-label="Exit">${r.exitPrice}</td>
           <td data-label="P&amp;L" style="color:${r.pnl >= 0 ? 'var(--green)' : 'var(--red)'};font-weight:700;">${r.pnl >= 0 ? '+$' : '-$'}${Math.abs(r.pnl).toFixed(2)}</td>
-          <td data-label="Source" style="color:var(--dim);font-size:.7rem;">${r.source}</td>
+          <td data-label="Source" style="color:var(--dim);font-size:.7rem;">${sourceLinkFor(r.exitTime, r.source)}</td>
         </tr>`;
       });
       html += '</tbody></table>';
