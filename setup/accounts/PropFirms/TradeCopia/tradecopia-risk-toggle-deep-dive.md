@@ -114,6 +114,12 @@ Only one toggle needs an active change from default — everything else already 
 
 ---
 
+## Live Operating Notes — Sep 4 onward
+
+### Sep 14-16 — the standalone-follower exception tested live, Group B grows to 5 followers
+
+The standalone-follower exception documented below (toggle the reconciler/replication off to trade a follower independently once its leader can't) got a real, deliberate test on Sep 14: Apex-11 and Apex-12's replication toggles were switched to "Off" — TradeCopia's own tooltip confirms it plainly, "Manually disabled by user" — and both traded independently of the TOF197288 leader for several hours, closing roughly +$86 and flat respectively. Reverted to standard "On Submit" replication by the next morning; a bounded test, not a lasting change. Separately, Group B grew from 3 followers to 5 on Sep 15: TOF218430 and TOF218431 (a second BOGO+20%-off TopOne Elite ACCESS pair) joined as followers under TOF197288, live at full size by that evening. Also observed, not yet explained: TPT's replication dropdown switched from "On Submit" to "On Fill" sometime between Sep 15 and Sep 16 — a real setting, reasoning not yet confirmed.
+
 ## Live Operating Notes — first real trading week (Sep 4-9, 2026)
 
 ### Sep 9 — a drawdown scare resolved by the market, not a setting change
