@@ -881,6 +881,17 @@ Aug 31 – Sep 1  ████████████████░░  ✅ TA
                                MNQ +$230, MNQ +$264) — same eval→funded handoff pattern as 861085464→311919544,
                                almost certainly TAKEPROFIT917806711's funded PRO account from its Aug 28 pass.
 
+Sep 18  ████░░░░░░░░░░░░░░░░  🚩 FLAG — rough day, -$6,675.68 across 30 fills, not a blowup
+                               Risk parameters opened up; a WASL setup on MGC micro contracts with no
+                               hard SL moved hard against it — exited before real tilt, but the wider
+                               risk limit is exactly why it cost more than it would have otherwise.
+                               A second phase followed (Group B briefly restructured, Apex-11 leading
+                               Apex-12 into short MBT) where TradeCopia's already-tight risk parameters
+                               blocked further execution before it compounded. Every account survived.
+                               Full story intentionally deferred — Christopher plans to tell the fuller
+                               version himself; see the Sep 2026 trading-resurrect handoff for the
+                               complete corrected account. This is a pointer, not the narrative.
+
 Sep 4, 7 & 8   ██████████░░░░░░░░  ⚖️ First live TradeCopia-mirrored trading — net -$5.50 across 22 fills
                                First live fills since the Sep 3 TradeCopia go-live (Sep 3 itself was pure
                                infrastructure, 0 trades). 7 distinct trading decisions mirrored across 2-4

@@ -347,7 +347,7 @@
         <li><input type="checkbox"><span>Check today's calendar for FOMC / CPI / NFP before the open<span class="sub">TPT blackout ±1 min · TopOneFutures blackout only if a position is modified ±2 min · Apex/Lucid Flex/Pro/Direct allow it · LucidDaily hard-forbids red-folder news</span></span></li>
         <li><input type="checkbox"><span>Cancel all resting/projected orders before stepping away<span class="sub">Pattern 9 — unintentional fills from stale limit orders</span></span></li>
         <li><input type="checkbox"><span>Personal hard-exit time set before the firm's deadline becomes the exit mechanism<span class="sub">Pattern 8 — never let the prop firm's forced close be the trade management plan</span></span></li>
-        <li><input type="checkbox"><span>Weekly inactivity minimum covered on every open account<span class="sub">Rule of thumb across funders: at least one trade per week to avoid an inactivity flag, regardless of eval/funded status — a real reason a smaller, lower-conviction trade sometimes gets taken just to keep an account alive, not because it was A+</span></span></li>
+        <li><input type="checkbox"><span>Minimum activity covered on every open account<span class="sub">Firm-specific, not a rule of thumb — see the Minimum Trading Activity table below for exact requirements/timeframes/penalties per firm</span></span></li>
       </ul>
     </div>
 
@@ -408,6 +408,31 @@
     </div>
     <p class="sec-sub" style="margin-top:.7rem;">TakeProfitTrader updated this policy — previously, holding a position past 17:00 ET was an instant liquidation + failed account; now TPT auto-closes any open position at 16:55 ET and the account simply stays active for the next session. See <a href="#" onclick="event.preventDefault(); openImgLightbox('tptNoticeLightbox')">TPT's rule-update notice ↗</a></p>
 
+    <div id="minimum-activity" class="sec-label"><i class="ph-duotone ph-calendar-x"></i> Minimum Trading Activity — Avoid an Inactivity Violation</div>
+    <p class="sec-sub">Distinct from the daily close deadlines above — this is about staying active enough over time, not closing out fast enough on any given day. Firm-sourced, not a rule of thumb</p>
+    <div class="panel">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Firm</th><th>Activity Requirement</th><th>Timeframe</th><th>Penalty for Failure</th></tr></thead>
+          <tbody>
+            <tr><td class="firm-col">Lucid Trading</td><td>At least $1 of net profit or loss on an executed trade</td><td>Every 30 calendar days</td><td><span class="badge bad">Permanent, irreversible account deletion</span></td></tr>
+            <tr><td class="firm-col">LegendsTrading</td><td>Highly correlated with Lucid's structure — standard 30-day activity checks assumed to avoid a dormancy flag <span class="ref-tag">unconfirmed, verify live</span></td><td>Every 30 calendar days</td><td><span class="badge bad">Account closure</span></td></tr>
+            <tr><td class="firm-col">TakeProfitTrader</td><td>At least one round-trip trade</td><td>Every calendar week (Sun–Fri)</td><td><span class="badge warn">Account closure — support accommodates exceptions for life circumstances if contacted beforehand</span></td></tr>
+            <tr><td class="firm-col">Apex Trader Funding</td><td>2 trading days with $50+ net profit each <span class="ref-tag">(older Legacy accounts: 1 day with $150+)</span></td><td>Continuous rolling 30-day window</td><td><span class="badge bad">Permanent closure — dormancy warnings fire on days 15 and 20</span></td></tr>
+            <tr><td class="firm-col">TopOneFutures</td><td>At least one trade placed</td><td>Every 30 calendar days <span class="ref-tag">(the TopOne Futures futures wing shortens this to 14 days)</span></td><td><span class="badge bad">Hard breach — permanent loss of progress and account deletion</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel" style="--accent: var(--rose); margin: .8rem 0 0; padding: .8rem 1rem;">
+        <p style="font-size:.84rem; margin: 0 0 .4rem;"><i class="ph-duotone ph-warning-octagon"></i> <strong>Crucial details, not obvious from the table alone:</strong></p>
+        <ul style="font-size:.84rem; margin: 0 0 0 1.1rem; padding: 0;">
+          <li style="margin-bottom:.4rem;"><strong>Apex is the strictest.</strong> A single micro-lot trade opened and instantly closed doesn't reset the clock — $50 in net profit has to actually land, across two <em>different</em> days within any rolling 30-day window, or the account closes permanently.</li>
+          <li style="margin-bottom:.4rem;"><strong>Lucid's $1 rule is literal.</strong> A $0 scratch trade (open and close at the same price) doesn't count as activity — the trade has to clear at least +$1 or -$1 to register.</li>
+          <li><strong>TopOneFutures' clock starts at purchase, not first trade.</strong> The 30-day (14-day for the futures wing) countdown begins the moment the account is bought — sitting on a sale-priced account for a month without placing a single trade breaches it before trading even begins.</li>
+        </ul>
+      </div>
+    </div>
+
     <div class="sec-label"><i class="ph-duotone ph-scroll"></i> Full Rule Reference</div>
     <div class="doc-grid">
       <div class="doc-card glass" style="grid-column:1; grid-row:1;"><div class="fname"><i class="ph-duotone ph-crown"></i> Apex — Legacy Rules</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/ApexTrader/apex-rules_legacy.md" target="_blank" rel="noreferrer">apex-rules_legacy.md ↗</a></div></div>
@@ -429,15 +454,26 @@
       <div class="doc-card glass" style="grid-column:4; grid-row:2;"><div class="fname"><i class="ph-duotone ph-cursor-click"></i> TradeCopia — Chrome Setup Guide</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-claude-chrome-setup-guide.md" target="_blank" rel="noreferrer">tradecopia-claude-chrome-setup-guide.md ↗</a></div></div>
       <div class="doc-card glass" style="grid-column:4; grid-row:3;"><div class="fname"><i class="ph-duotone ph-sliders-horizontal"></i> TradeCopia — Risk Toggle Deep Dive</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-risk-toggle-deep-dive.md" target="_blank" rel="noreferrer">tradecopia-risk-toggle-deep-dive.md ↗</a></div></div>
       <div class="doc-card glass" style="grid-column:4; grid-row:4;"><div class="fname"><i class="ph-duotone ph-check-circle"></i> TradeCopia — Compliance Memo</div><div class="fmeta"><a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-compliance-memo.md" target="_blank" rel="noreferrer">tradecopia-compliance-memo.md ↗</a></div></div>
+      <div class="doc-card placeholder" style="grid-column:4; grid-row:5;"><div class="fname"><i class="ph-duotone ph-crown"></i> LegendsTrading <span class="ref-tag">(won via KnightTrader giveaway)</span></div><div class="fmeta">Rules ingestion pending — <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/LegendsTrading/legends-rules.md" target="_blank" rel="noreferrer">legends-rules.md ↗</a></div></div>
     </div>
 
-    <div class="sec-label"><i class="ph-duotone ph-wrench"></i> Copy-Trading</div>
-    <p class="sec-sub">The short version across every firm on file: copying <em>your own</em> trade decision from one of your own accounts to another is generally fine; mirroring someone else's signals/calls is not</p>
+    <div id="copy-trading" class="sec-label"><i class="ph-duotone ph-wrench"></i> Copy-Trading</div>
+    <p class="sec-sub">The short version across every firm on file: copying <em>your own</em> trade decision from one of your own accounts to another is generally fine; mirroring someone else's signals/calls is not. This section goes into the actual operating detail — the full origin story and compliance research live on the dedicated <a href="copy-trading.html">Copy-Trading Plan ↗</a> page; this is the checklist-ready version for quick reference before trading</p>
     <div class="panel" style="padding: 1rem 1.2rem;">
       <p style="font-size:.84rem; margin-bottom:.5rem;"><strong>TopOneFutures</strong> explicitly allows copy trading <em>between your own accounts across firms</em>, as long as the trade decision originates on the TOF account itself — mirroring someone else's signals (Discord/Telegram calls, group trading) is prohibited. See <a href="https://help.toponefutures.com/en/articles/11680891-copy-trading-policy" target="_blank" rel="noreferrer">TOF's Copy Trading Policy ↗</a> and the fuller prohibited-practices list in <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TopOneFutures/topone-rules.md" target="_blank" rel="noreferrer">topone-rules.md ↗</a></p>
-      <p style="font-size:.84rem;">The full account-structure plan, the compliance findings behind it, and the risk-limit decisions now live on their own dedicated page — this page stays a pointer to it rather than a second copy</p>
-      <a class="pill-trigger" href="copy-trading.html"><i class="ph-duotone ph-arrows-clockwise"></i> The Copy-Trading Plan ↗</a>
+      <a class="pill-trigger" href="copy-trading.html"><i class="ph-duotone ph-arrows-clockwise"></i> The Full Copy-Trading Plan ↗</a>
     </div>
+
+    <p class="sec-sub" style="margin-top:1.4rem;">Why the two TradeCopia groups are shaped the way they are — the reasoning behind each group choice, condensed for quick reference</p>
+    <div class="panel" style="padding: 1rem 1.2rem;">
+      <p style="font-size:.84rem; margin-bottom:.6rem;"><strong>Group A</strong> — LucidFlex25 leads TPT and LegendsTrading (both 2x). Led from the smaller Lucid account specifically because scaling a small leader size up by a whole-number multiplier always lands on a valid contract count; leading from TPT and scaling <em>down</em> to Lucid's size risked a sub-1-contract, invalid position. In-app group name: <span class="ref-tag">"NoNews:TPT&amp;LGNDMaxFund | LFlex=NewsAllowed; Lucid/LGND=NoMBT"</span>.</p>
+      <p style="font-size:.84rem; margin-bottom:.6rem;"><strong>Group B</strong> — TOF197288 leads TOF197292, Apex-11, Apex-12, TOF218430, and TOF218431 (all 1x). Every follower is 50K, matching the leader exactly. In-app group name: <span class="ref-tag">"TopOneAccessElite*MustLead &amp; ONLYsameTypeTop1Acct can follow"</span>.</p>
+      <div class="panel" style="--accent: var(--rose); margin: .8rem 0; padding: .8rem 1rem;">
+        <p style="font-size:.84rem; margin: 0;"><i class="ph-duotone ph-warning-octagon"></i> <strong>What the shorthand doesn't fully spell out — must still be honored:</strong> TopOneFutures' actual rule (per TOF's own Copy Trading Policy, confirmed by TOF's own AI assistant) is that cross-firm copying is only permitted between accounts of the identical <strong>size</strong> — the group name above says "same-Top1Acct" / "sameType," which reads more loosely than the real rule. Read it as <strong>same size, always</strong>, not just "similar" or "same category." A TOF leader can never be paired with a mismatched-size follower, even temporarily, even manually — that's the one rule the compressed name has to be trusted to mean precisely, not casually.</p>
+      </div>
+      <p style="font-size:.84rem; margin-bottom:0;"><strong>Trading a follower independently, when the plan is to trade through news or otherwise diverge from the leader on purpose:</strong> two ways this actually gets done. (1) Toggle that follower's replication to "Off" within the group — TradeCopia's own UI confirms it with a "Manually disabled by user" tooltip, and the account keeps its group membership but stops mirroring until switched back on. (2) The safer version: pull the account out of the group entirely rather than leaving it in and just muting replication — this has been the preferred approach for TPT and LegendsTrading specifically when trading Lucid through news that TPT/Legends themselves can't take. Either way, the Position reconciler will otherwise force-exit any position that doesn't match the leader — see <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/TradeCopia/tradecopia-risk-toggle-deep-dive.md" target="_blank" rel="noreferrer">tradecopia-risk-toggle-deep-dive.md ↗</a> for the full worked examples.</p>
+    </div>
+
     <p class="sec-sub" style="margin-top:1.4rem;">TradeCopia's own live in-app acknowledgment, required before copy-trading — the five rules actually being operated under, not a paraphrase</p>
     <div class="panel" style="padding: 1rem 1.4rem;">
       <ul class="checklist">
@@ -447,6 +483,20 @@
         <li><input type="checkbox" checked disabled><span><strong>No multi-bracket per order.</strong> Each ATM order must have a single TP and a single SL — you can stack multiple single-bracket ATM orders instead.</span></li>
         <li><input type="checkbox" checked disabled><span><strong>Be aware of broker API rate limits.</strong> Rapid-fire entries, dense fans of working orders, or heavy reporting requests can throttle or temporarily block an account.</span></li>
       </ul>
+    </div>
+
+    <div id="permissible-products" class="sec-label"><i class="ph-duotone ph-list-checks"></i> Permissible Products By Firm</div>
+    <p class="sec-sub">The fallback reference for anything a compressed Copia group name can't fit — what's tradeable where, beyond the group-name fail-safes above</p>
+    <div class="panel" style="padding: 1rem 1.2rem;">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Instrument</th><th>Not Permitted</th><th>Permitted</th></tr></thead>
+          <tbody>
+            <tr><td class="firm-col">MBT / MBT1 <span class="ref-tag">(Micro Bitcoin futures)</span></td><td><span class="badge bad">Lucid, LegendsTrading</span></td><td><span class="badge good">TPT, Apex, TopOneFutures</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="sec-sub" style="margin: .7rem 0 0;">Only one row so far — add more as new product restrictions surface. This exists specifically because a group's compressed in-app name has limited character space; when a restriction doesn't fit there, it lives here instead, not nowhere.</p>
     </div>
 
     <div class="sec-label"><i class="ph-duotone ph-ruler"></i> Account Size Tiers — 25K, 50K &amp; 100K</div>
