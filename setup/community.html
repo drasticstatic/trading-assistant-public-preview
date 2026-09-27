@@ -795,6 +795,51 @@
         <p>Spot trading available and already KYC'd — perpetuals aren't permitted in this jurisdiction on this exchange specifically, so this one stays spot-only</p>
         <button type="button" class="story-trigger" style="display:inline-flex;font-size:.74rem;padding:.15rem .5rem;margin-top:.4rem;" onclick="openModal('cexioModal')">Why perps are blocked ↗</button>
       </div>
+      <div class="ext-card" style="opacity:.6;">
+        <h4><i class="ph-duotone ph-globe"></i> Binance</h4>
+        <p>Binance.US account held (spot only) — a completely separate entity from global Binance, which is one of the largest perp markets in the world but geoblocks the US entirely. No perps exist on Binance.US at all, not a restriction, just not offered</p>
+        <button type="button" class="story-trigger" style="display:inline-flex;font-size:.74rem;padding:.15rem .5rem;margin-top:.4rem;" onclick="openModal('binanceModal')">US regulatory status ↗</button>
+      </div>
+      <div class="ext-card" style="opacity:.6;">
+        <h4><i class="ph-duotone ph-anchor"></i> Kraken Pro</h4>
+        <p>Not currently held — a fully CFTC-compliant reference venue via its Kraken Derivatives US / Bitnomial infrastructure, worth evaluating alongside Coinbase Advanced as a compliant path</p>
+        <button type="button" class="story-trigger" style="display:inline-flex;font-size:.74rem;padding:.15rem .5rem;margin-top:.4rem;" onclick="openModal('krakenModal')">US regulatory status ↗</button>
+      </div>
+      <div class="ext-card" style="opacity:.6;">
+        <h4><i class="ph-duotone ph-gavel"></i> Kalshi</h4>
+        <p>Not currently held — started as a prediction-market platform, now the first venue with landmark CFTC approval for regulated crypto perpetual contracts in the US</p>
+        <button type="button" class="story-trigger" style="display:inline-flex;font-size:.74rem;padding:.15rem .5rem;margin-top:.4rem;" onclick="openModal('kalshiModal')">US regulatory status ↗</button>
+      </div>
+      <div class="ext-card" style="opacity:.6;">
+        <h4><i class="ph-duotone ph-bird"></i> Robinhood Derivatives</h4>
+        <p>The equities/options Robinhood account is active elsewhere — the crypto-derivatives side specifically isn't yet, since it's currently CME futures and prediction markets, not true perpetuals</p>
+        <button type="button" class="story-trigger" style="display:inline-flex;font-size:.74rem;padding:.15rem .5rem;margin-top:.4rem;" onclick="openModal('robinhoodDerivModal')">US regulatory status ↗</button>
+      </div>
+      <div class="ext-card" style="opacity:.6;">
+        <h4><i class="ph-duotone ph-prohibit"></i> MEXC</h4>
+        <p>Not used — explicitly names the US in its own prohibited-jurisdictions list, enforced with facial recognition and mandatory KYC</p>
+        <button type="button" class="story-trigger" style="display:inline-flex;font-size:.74rem;padding:.15rem .5rem;margin-top:.4rem;" onclick="openModal('mexcModal')">Why it's not an option ↗</button>
+      </div>
+      <div class="ext-card" style="opacity:.6;">
+        <h4><i class="ph-duotone ph-prohibit"></i> Blofin</h4>
+        <p>Not used — bans all US users outright in its own Terms of Use, every state and territory</p>
+        <button type="button" class="story-trigger" style="display:inline-flex;font-size:.74rem;padding:.15rem .5rem;margin-top:.4rem;" onclick="openModal('blofinModal')">Why it's not an option ↗</button>
+      </div>
+      <div class="ext-card" style="opacity:.6;">
+        <h4><i class="ph-duotone ph-cube"></i> dYdX</h4>
+        <p>Not used — a DeFi perp DEX, front-end geoblocked for US IPs. The underlying contracts are technically reachable via direct RPC connection, at the cost of losing every exchange-side safety net</p>
+        <button type="button" class="story-trigger" style="display:inline-flex;font-size:.74rem;padding:.15rem .5rem;margin-top:.4rem;" onclick="openModal('dydxModal')">The geoblock-vs-RPC tradeoff ↗</button>
+      </div>
+      <div class="ext-card" style="opacity:.6;">
+        <h4><i class="ph-duotone ph-drop-half"></i> Hyperliquid</h4>
+        <p>Not used — same DeFi-DEX shape as dYdX, notable as the venue Robinhood Wallet's own perps tab routes through (and blocks for US users)</p>
+        <button type="button" class="story-trigger" style="display:inline-flex;font-size:.74rem;padding:.15rem .5rem;margin-top:.4rem;" onclick="openModal('hyperliquidModal')">The geoblock-vs-RPC tradeoff ↗</button>
+      </div>
+      <div class="ext-card" style="opacity:.6;">
+        <h4><i class="ph-duotone ph-chart-line"></i> GMX</h4>
+        <p>Not used — a multi-asset-collateral DeFi perp DEX, same US front-end geoblock as dYdX and Hyperliquid</p>
+        <button type="button" class="story-trigger" style="display:inline-flex;font-size:.74rem;padding:.15rem .5rem;margin-top:.4rem;" onclick="openModal('gmxModal')">The geoblock-vs-RPC tradeoff ↗</button>
+      </div>
     </div>
     <p class="sec-sub" style="margin-top:.6rem;"><i class="ph-duotone ph-signpost"></i> In addition to these centralized exchanges (CEX) — stay tuned for DEX (decentralized exchange) info as that side of the picture fills in. Full regulatory research behind every "US regulatory status" link above: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/crypto/cex/us-crypto-derivatives-regulatory-landscape.md" target="_blank" rel="noreferrer">us-crypto-derivatives-regulatory-landscape.md ↗</a></p>
 
@@ -974,6 +1019,138 @@
     </div>
   </div>
 
+  <div class="modal-overlay" id="binanceModal" onclick="if(event.target===this)closeModal('binanceModal')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('binanceModal')">✕</button>
+      <div class="modal-scroll" id="binanceModalScroll">
+        <div class="modal-title"><i class="ph-duotone ph-globe"></i> Binance — US Regulatory Status</div>
+        <p><i class="ph-duotone ph-warning"></i> Binance.US is a fully separate entity from global Binance, operating under a strict crypto-only spot framework with zero CFTC derivatives clearance — no perps exist on Binance.US at all, not a restriction to work around, just not offered</p>
+        <p><i class="ph-duotone ph-prohibit"></i> Global Binance holds one of the largest perp markets in the world, but aggressively geoblocks and KYC-screens the US. VPN access triggers automated compliance flags and can lock capital behind a non-US verification wall — don't conflate the two brands</p>
+        <p style="font-size:.8rem;"><i class="ph-duotone ph-file-text"></i> Full writeup: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/crypto/cex/binance/binance-status.md" target="_blank" rel="noreferrer">binance-status.md ↗</a></p>
+      </div>
+      <div class="modal-footer-nav">
+        <button type="button" class="modal-nav-btn" id="binanceModalJumpBtn" data-dir="down" onclick="jumpModalScroll('binanceModalScroll','binanceModalJumpBtn')" aria-label="Jump"><i class="ph-duotone ph-arrow-line-down"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="krakenModal" onclick="if(event.target===this)closeModal('krakenModal')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('krakenModal')">✕</button>
+      <div class="modal-scroll" id="krakenModalScroll">
+        <div class="modal-title"><i class="ph-duotone ph-anchor"></i> Kraken Pro — US Regulatory Status</div>
+        <p><i class="ph-duotone ph-check-circle"></i> Fully CFTC-compliant, one of only a few domestic options. Kraken's parent (Payward) acquired Bitnomial Exchange, a CFTC-regulated DCM; perps are offered via NinjaTrader Clearing, LLC (d/b/a Kraken Derivatives US), a registered FCM, sitting directly inside the main Kraken Pro dashboard alongside spot/margin</p>
+        <p><i class="ph-duotone ph-identification-badge"></i> Requires a Futures Eligibility Check plus full KYC before the Perps tab unlocks; some states carry additional local restrictions on top of the federal framework. Worth evaluating alongside Coinbase Advanced if BTCC access ever becomes untenable</p>
+        <p style="font-size:.8rem;"><i class="ph-duotone ph-file-text"></i> Full writeup: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/crypto/cex/kraken/kraken-status.md" target="_blank" rel="noreferrer">kraken-status.md ↗</a></p>
+      </div>
+      <div class="modal-footer-nav">
+        <button type="button" class="modal-nav-btn" id="krakenModalJumpBtn" data-dir="down" onclick="jumpModalScroll('krakenModalScroll','krakenModalJumpBtn')" aria-label="Jump"><i class="ph-duotone ph-arrow-line-down"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="kalshiModal" onclick="if(event.target===this)closeModal('kalshiModal')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('kalshiModal')">✕</button>
+      <div class="modal-scroll" id="kalshiModalScroll">
+        <div class="modal-title"><i class="ph-duotone ph-gavel"></i> Kalshi — US Regulatory Status</div>
+        <p><i class="ph-duotone ph-check-circle"></i> Started as a prediction-market platform, then secured landmark CFTC approval to list regulated Bitcoin and Ethereum perpetual futures directly for American traders — the first fully CFTC-compliant crypto perpetual contract approved for domestic listing (mid-2026)</p>
+        <p><i class="ph-duotone ph-lightbulb"></i> A genuinely novel compliant path, worth evaluating both as a crypto-perp venue and as a prediction-market platform — also relevant to the jev-ops prediction-market research track</p>
+        <p style="font-size:.8rem;"><i class="ph-duotone ph-file-text"></i> Full writeup: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/crypto/cex/kalshi/kalshi-status.md" target="_blank" rel="noreferrer">kalshi-status.md ↗</a></p>
+      </div>
+      <div class="modal-footer-nav">
+        <button type="button" class="modal-nav-btn" id="kalshiModalJumpBtn" data-dir="down" onclick="jumpModalScroll('kalshiModalScroll','kalshiModalJumpBtn')" aria-label="Jump"><i class="ph-duotone ph-arrow-line-down"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="robinhoodDerivModal" onclick="if(event.target===this)closeModal('robinhoodDerivModal')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('robinhoodDerivModal')">✕</button>
+      <div class="modal-scroll" id="robinhoodDerivModalScroll">
+        <div class="modal-title"><i class="ph-duotone ph-bird"></i> Robinhood Derivatives — US Regulatory Status</div>
+        <p><i class="ph-duotone ph-info"></i> Robinhood Derivatives, LLC is a registered CFTC FCM. Today's offering is standard (non-perpetual) CME Bitcoin/Ethereum futures plus crypto prediction markets cleared via partners including Kalshi — not true perpetuals yet</p>
+        <p><i class="ph-duotone ph-rocket-launch"></i> Robinhood has stated intent to launch fully regulated domestic perps and took an equity stake in OG.com toward that approval. Separately, the standalone Robinhood Wallet's own perps tab (via the Lighter DEX) is blocked for US residents since Lighter has no CFTC clearance — worth watching for a future launch rather than treating this as active today</p>
+        <p style="font-size:.8rem;"><i class="ph-duotone ph-file-text"></i> Full writeup: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/crypto/cex/robinhood-derivatives/robinhood-derivatives-status.md" target="_blank" rel="noreferrer">robinhood-derivatives-status.md ↗</a></p>
+      </div>
+      <div class="modal-footer-nav">
+        <button type="button" class="modal-nav-btn" id="robinhoodDerivModalJumpBtn" data-dir="down" onclick="jumpModalScroll('robinhoodDerivModalScroll','robinhoodDerivModalJumpBtn')" aria-label="Jump"><i class="ph-duotone ph-arrow-line-down"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="mexcModal" onclick="if(event.target===this)closeModal('mexcModal')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('mexcModal')">✕</button>
+      <div class="modal-scroll" id="mexcModalScroll">
+        <div class="modal-title"><i class="ph-duotone ph-prohibit"></i> MEXC — Why It's Not an Option</div>
+        <p><i class="ph-duotone ph-warning"></i> Explicitly names the US in its own prohibited-jurisdictions list, and uses AI-powered facial recognition plus mandatory KYC to block US registration and access to its derivatives dashboard. Comes up in coaching-community conversation (Inevitrade/Craig trades from NYC using MEXC/Bybit/Blofin abroad) but isn't a viable path here</p>
+        <p style="font-size:.8rem;"><i class="ph-duotone ph-file-text"></i> Full writeup: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/crypto/cex/mexc/mexc-status.md" target="_blank" rel="noreferrer">mexc-status.md ↗</a></p>
+      </div>
+      <div class="modal-footer-nav">
+        <button type="button" class="modal-nav-btn" id="mexcModalJumpBtn" data-dir="down" onclick="jumpModalScroll('mexcModalScroll','mexcModalJumpBtn')" aria-label="Jump"><i class="ph-duotone ph-arrow-line-down"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="blofinModal" onclick="if(event.target===this)closeModal('blofinModal')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('blofinModal')">✕</button>
+      <div class="modal-scroll" id="blofinModalScroll">
+        <div class="modal-title"><i class="ph-duotone ph-prohibit"></i> Blofin — Why It's Not an Option</div>
+        <p><i class="ph-duotone ph-warning"></i> Explicitly bans all US users — every state and territory — directly in its own Terms of Use, citing licensing exclusions, and actively geoblocks US IP addresses. Reference only, not a viable path</p>
+        <p style="font-size:.8rem;"><i class="ph-duotone ph-file-text"></i> Full writeup: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/crypto/cex/blofin/blofin-status.md" target="_blank" rel="noreferrer">blofin-status.md ↗</a></p>
+      </div>
+      <div class="modal-footer-nav">
+        <button type="button" class="modal-nav-btn" id="blofinModalJumpBtn" data-dir="down" onclick="jumpModalScroll('blofinModalScroll','blofinModalJumpBtn')" aria-label="Jump"><i class="ph-duotone ph-arrow-line-down"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="dydxModal" onclick="if(event.target===this)closeModal('dydxModal')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('dydxModal')">✕</button>
+      <div class="modal-scroll" id="dydxModalScroll">
+        <div class="modal-title"><i class="ph-duotone ph-cube"></i> dYdX — The Geoblock-vs-RPC Tradeoff</div>
+        <p><i class="ph-duotone ph-info"></i> The front-end website is geoblocked for US IPs, but the underlying protocol is just public blockchain code — it can't itself block a wallet-signed transaction. Technically bypassable via a direct RPC-node connection, but that forfeits any exchange-side safety net</p>
+        <p><i class="ph-duotone ph-warning-octagon"></i> Direct-RPC access carries real oracle-manipulation/exploit risk with zero customer support or regulatory recourse if something goes wrong — not treated as practical given the CFTC-compliant alternatives already available (Coinbase Advanced, Kraken Pro)</p>
+        <p style="font-size:.8rem;"><i class="ph-duotone ph-file-text"></i> Full writeup: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/crypto/dex/dydx/dydx-status.md" target="_blank" rel="noreferrer">dydx-status.md ↗</a></p>
+      </div>
+      <div class="modal-footer-nav">
+        <button type="button" class="modal-nav-btn" id="dydxModalJumpBtn" data-dir="down" onclick="jumpModalScroll('dydxModalScroll','dydxModalJumpBtn')" aria-label="Jump"><i class="ph-duotone ph-arrow-line-down"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="hyperliquidModal" onclick="if(event.target===this)closeModal('hyperliquidModal')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('hyperliquidModal')">✕</button>
+      <div class="modal-scroll" id="hyperliquidModalScroll">
+        <div class="modal-title"><i class="ph-duotone ph-drop-half"></i> Hyperliquid — The Geoblock-vs-RPC Tradeoff</div>
+        <p><i class="ph-duotone ph-info"></i> Same shape as dYdX and GMX: front-end geoblocked for US IPs, underlying contracts technically reachable via direct RPC bypass at the cost of losing any exchange-side safety net</p>
+        <p><i class="ph-duotone ph-star"></i> Notable specifically as the DEX Robinhood Wallet's own perps tab routes through — and blocks for US users, since Hyperliquid itself has no CFTC clearance</p>
+        <p style="font-size:.8rem;"><i class="ph-duotone ph-file-text"></i> Full writeup: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/crypto/dex/hyperliquid/hyperliquid-status.md" target="_blank" rel="noreferrer">hyperliquid-status.md ↗</a></p>
+      </div>
+      <div class="modal-footer-nav">
+        <button type="button" class="modal-nav-btn" id="hyperliquidModalJumpBtn" data-dir="down" onclick="jumpModalScroll('hyperliquidModalScroll','hyperliquidModalJumpBtn')" aria-label="Jump"><i class="ph-duotone ph-arrow-line-down"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="gmxModal" onclick="if(event.target===this)closeModal('gmxModal')">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('gmxModal')">✕</button>
+      <div class="modal-scroll" id="gmxModalScroll">
+        <div class="modal-title"><i class="ph-duotone ph-chart-line"></i> GMX — The Geoblock-vs-RPC Tradeoff</div>
+        <p><i class="ph-duotone ph-info"></i> Same US front-end geoblock as dYdX and Hyperliquid, with the same direct-RPC-bypass-vs-safety-net tradeoff. A multi-asset-collateral pool model distinguishes it technically, but the US-access picture is identical</p>
+        <p style="font-size:.8rem;"><i class="ph-duotone ph-file-text"></i> Full writeup: <a href="https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/crypto/dex/gmx/gmx-status.md" target="_blank" rel="noreferrer">gmx-status.md ↗</a></p>
+      </div>
+      <div class="modal-footer-nav">
+        <button type="button" class="modal-nav-btn" id="gmxModalJumpBtn" data-dir="down" onclick="jumpModalScroll('gmxModalScroll','gmxModalJumpBtn')" aria-label="Jump"><i class="ph-duotone ph-arrow-line-down"></i></button>
+      </div>
+    </div>
+  </div>
+
   <footer class="footer">
     <p><i class="ph-duotone ph-hand-heart"></i> Community &amp; Thanks · Christopher Wilson · Part of the <a href="https://github.com/drasticstatic/trading-assistant-public-preview" target="_blank" rel="noreferrer">Trading Assistant</a> public preview</p>
     <p>Gratitude is the whole point of this page</p>
@@ -1005,8 +1182,8 @@
       { name: 'Dario Pirrone', role: 'ZeroToHero (ZTH) · Coach', pi: 'ph-compass', grad: 'linear-gradient(135deg,#60a5fa,#38bdf8,#6ee7f9)', platform: 'linkedin', href: 'https://www.linkedin.com/in/dario-pirrone-b9340199/' },
       { name: 'Chawkat Houri', role: 'ZeroToHero (ZTH) · Accountability Coach', pi: 'ph-alarm', grad: 'linear-gradient(135deg,#fbbf24,#f97316,#ff6b6b)', platform: 'linkedin', href: 'https://www.linkedin.com/in/chawkat-houri-6a384b96/' },
       { name: 'Levi Rietveld', role: 'Crypto Crusaders · Founder', pi: 'ph-shield-star', grad: 'linear-gradient(135deg,#22c55e,#38bdf8,#7c6fff)', href: 'https://www.instagram.com/levicryptoinsta/' },
-      { name: 'Christopher Creamer', role: 'Orderflow Trader · Thraxx trades', pi: 'ph-pulse', grad: 'linear-gradient(135deg,#ff6b6b,#ff9f67,#7c6fff)', href: 'https://www.instagram.com/thraxxtrades/' },
-      { name: 'Erkan', role: 'Zach/Zarb\'s Liquidity Lab · Coach<br>SushiBox (Asia session) host', pi: 'ph-fish', grad: 'linear-gradient(135deg,#ff6b6b,#fde68a,#49d17d)', href: 'https://www.instagram.com/market.athlete/' },
+      { name: 'Christopher Creamer', role: 'Orderflow Trader (Auction Resolution) · Thraxx trades', pi: 'ph-flow-arrow', grad: 'linear-gradient(135deg,#ff6b6b,#ff9f67,#7c6fff)', href: 'https://www.instagram.com/thraxxtrades/' },
+      { name: 'Erkan', role: 'Zarb\'s Liquidity Lab · Coach<br>SushiBox (Asia session) host on TMade Alex\'s channel', pi: 'ph-fish', grad: 'linear-gradient(135deg,#ff6b6b,#fde68a,#49d17d)', href: 'https://www.instagram.com/market.athlete/' },
     ];
     // PropFirmMatchTV's daily schedule (Pre-Dawn/Fabio -> Early AM/Luna ->
     // NY Session/Zarb -> Lunchbox/Alex -> Evening/Dave) is baked directly
@@ -1202,6 +1379,15 @@
       bybitModal: 'bybitModalScroll',
       phemexModal: 'phemexModalScroll',
       cexioModal: 'cexioModalScroll',
+      binanceModal: 'binanceModalScroll',
+      krakenModal: 'krakenModalScroll',
+      kalshiModal: 'kalshiModalScroll',
+      robinhoodDerivModal: 'robinhoodDerivModalScroll',
+      mexcModal: 'mexcModalScroll',
+      blofinModal: 'blofinModalScroll',
+      dydxModal: 'dydxModalScroll',
+      hyperliquidModal: 'hyperliquidModalScroll',
+      gmxModal: 'gmxModalScroll',
     };
     Object.entries(MODAL_SCROLL_MAP).forEach(([modalId, scrollId]) => {
       const el = document.getElementById(scrollId);
