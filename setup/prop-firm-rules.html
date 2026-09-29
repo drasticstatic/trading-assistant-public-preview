@@ -169,6 +169,13 @@
       .tbl-wrap-full tbody { display: grid; grid-template-columns: repeat(2, 1fr); gap: .9rem; }
       .tbl-wrap-full tr { margin-bottom: 0; }
     }
+    /* ── Cheat-sheet density: a real table, not stacked cards — for the two
+       reference tables meant to be scanned at a glance. Cell text is kept
+       short; the full detail rides along as a native title tooltip. ── */
+    .tbl-wrap-compact table { white-space: normal; }
+    .tbl-wrap-compact th, .tbl-wrap-compact td { padding: .45rem .65rem; font-size: .74rem; }
+    .tbl-wrap-compact .firm-col { white-space: nowrap; }
+    .tbl-wrap-compact .badge { cursor: help; }
     th { text-align: left; padding: .65rem .9rem; background: var(--surface-soft); color: var(--muted); text-transform: uppercase; font-size: .66rem; letter-spacing: .06em; border-bottom: 1px solid var(--border); }
     td { padding: .6rem .9rem; border-top: 1px solid var(--border); }
     tr:hover td { background: rgba(255,255,255,.02); }
@@ -395,18 +402,18 @@
     <div class="sec-label"><i class="ph-duotone ph-clock"></i> Daily Close Deadlines — Know Which Account You're In</div>
     <p class="sec-sub">Every firm sets an automatic cutoff to protect both the firm and the trader — a safety net, not a trap. Enforcement style differs though: some auto-flatten cleanly, others carry the <em>possibility</em> of account failure if the close coincides with a slippage/gap event. Confirm which bucket today's account is in before assuming the same habit transfers across accounts</p>
     <div class="panel">
-      <div class="tbl-wrap tbl-wrap-full">
+      <div class="tbl-wrap tbl-wrap-compact">
         <table>
           <thead><tr><th>Firm</th><th>Close Deadline</th><th>Enforcement</th></tr></thead>
           <tbody>
-            <tr><td class="firm-col" data-label="Firm">Apex (all paths)</td><td data-label="Close Deadline">~16:59 ET</td><td data-label="Enforcement"><span class="badge warn">Auto-flatten — failure possible only if execution slips/gaps through the close</span></td></tr>
-            <tr><td class="firm-col" data-label="Firm">TakeProfitTrader</td><td data-label="Close Deadline">16:55 ET auto-close</td><td data-label="Enforcement"><span class="badge good">Soft — auto-closed, no more failed accounts for a missed manual close</span></td></tr>
-            <tr><td class="firm-col" data-label="Firm">TopOneFutures</td><td data-label="Close Deadline">16:10 ET</td><td data-label="Enforcement"><span class="badge warn">Force-closed daily (no overnight holds, any account type)</span></td></tr>
-            <tr><td class="firm-col" data-label="Firm">Lucid</td><td data-label="Close Deadline">16:45 ET</td><td data-label="Enforcement"><span class="badge good">Soft — auto-flatten, non-punitive</span></td></tr>
-            <tr><td class="firm-col" data-label="Firm">LegendsTrading</td><td data-label="Close Deadline">15:55 CT (16:55 ET) — MOC Liquidation</td><td data-label="Enforcement"><span class="badge good">Same close time as TakeProfitTrader</span></td></tr>
-            <tr><td class="firm-col" data-label="Firm">Tradeify</td><td data-label="Close Deadline"><span class="ref-tag">Not specified in current docs — verify live</span></td><td data-label="Enforcement">—</td></tr>
-            <tr><td class="firm-col" data-label="Firm">Xato</td><td data-label="Close Deadline">None — positions may be held over the weekend</td><td data-label="Enforcement"><span class="badge good">Crypto instruments ~24/7 (barring maintenance); stocks/commodities follow their underlying reference market's own hours</span></td></tr>
-            <tr><td class="firm-col" data-label="Firm">BTCC <span class="ref-tag">(personal account, not an evaluation)</span></td><td data-label="Close Deadline">None — no firm-imposed close</td><td data-label="Enforcement"><span class="badge good">Personal crypto exchange account, not a funded eval with a daily-cutoff rule — included here for contrast with the firms above</span></td></tr>
+            <tr><td class="firm-col">Apex (all paths)</td><td>~16:59 ET</td><td><span class="badge warn" title="Auto-flatten — failure possible only if execution slips/gaps through the close">Auto-flatten</span></td></tr>
+            <tr><td class="firm-col">TakeProfitTrader</td><td>16:55 ET auto-close</td><td><span class="badge good" title="Soft — auto-closed, no more failed accounts for a missed manual close">Auto-closed (soft)</span></td></tr>
+            <tr><td class="firm-col">TopOneFutures</td><td>16:10 ET</td><td><span class="badge warn" title="Force-closed daily (no overnight holds, any account type)">Force-closed daily</span></td></tr>
+            <tr><td class="firm-col">Lucid</td><td>16:45 ET</td><td><span class="badge good" title="Soft — auto-flatten, non-punitive">Auto-flatten (soft)</span></td></tr>
+            <tr><td class="firm-col">LegendsTrading</td><td>15:55 CT (16:55 ET)</td><td><span class="badge good" title="Same close time as TakeProfitTrader">MOC Liquidation</span></td></tr>
+            <tr><td class="firm-col">Tradeify</td><td><span class="ref-tag">Not specified — verify live</span></td><td>—</td></tr>
+            <tr><td class="firm-col">Xato</td><td>None — may hold over weekend</td><td><span class="badge good" title="Crypto instruments ~24/7 (barring maintenance); stocks/commodities follow their underlying reference market's own hours">~24/7 (crypto)</span></td></tr>
+            <tr><td class="firm-col">BTCC <span class="ref-tag">(personal, not an eval)</span></td><td>None — no firm-imposed close</td><td><span class="badge good" title="Personal crypto exchange account, not a funded eval with a daily-cutoff rule — included here for contrast with the firms above">No cutoff</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -416,15 +423,15 @@
     <div id="minimum-activity" class="sec-label"><i class="ph-duotone ph-calendar-x"></i> Minimum Trading Activity — Avoid an Inactivity Violation</div>
     <p class="sec-sub">Distinct from the daily close deadlines above — this is about staying active enough over time, not closing out fast enough on any given day. Firm-sourced, not a rule of thumb</p>
     <div class="panel">
-      <div class="tbl-wrap tbl-wrap-full">
+      <div class="tbl-wrap tbl-wrap-compact">
         <table>
-          <thead><tr><th>Firm</th><th>Activity Requirement</th><th>Timeframe</th><th>Penalty for Failure</th></tr></thead>
+          <thead><tr><th>Firm</th><th>Activity Requirement</th><th>Timeframe</th><th>Penalty</th></tr></thead>
           <tbody>
-            <tr><td class="firm-col" data-label="Firm">Lucid Trading</td><td data-label="Activity Requirement">At least $1 of net profit or loss on an executed trade</td><td data-label="Timeframe">Every 30 calendar days</td><td data-label="Penalty for Failure"><span class="badge bad">Permanent, irreversible account deletion</span></td></tr>
-            <tr><td class="firm-col" data-label="Firm">LegendsTrading</td><td data-label="Activity Requirement">Highly correlated with Lucid's structure — standard 30-day activity checks assumed to avoid a dormancy flag <span class="ref-tag">unconfirmed, verify live</span></td><td data-label="Timeframe">Every 30 calendar days</td><td data-label="Penalty for Failure"><span class="badge bad">Account closure</span></td></tr>
-            <tr><td class="firm-col" data-label="Firm">TakeProfitTrader</td><td data-label="Activity Requirement">At least one round-trip trade</td><td data-label="Timeframe">Every calendar week (Sun–Fri)</td><td data-label="Penalty for Failure"><span class="badge warn">Account closure — support accommodates exceptions for life circumstances if contacted beforehand</span></td></tr>
-            <tr><td class="firm-col" data-label="Firm">Apex Trader Funding</td><td data-label="Activity Requirement">2 trading days with $50+ net profit each <span class="ref-tag">(older Legacy accounts: 1 day with $150+)</span></td><td data-label="Timeframe">Continuous rolling 30-day window</td><td data-label="Penalty for Failure"><span class="badge bad">Permanent closure — dormancy warnings fire on days 15 and 20</span></td></tr>
-            <tr><td class="firm-col" data-label="Firm">TopOneFutures</td><td data-label="Activity Requirement">At least one trade placed</td><td data-label="Timeframe">Every 30 calendar days <span class="ref-tag">(the TopOne Futures futures wing shortens this to 14 days)</span></td><td data-label="Penalty for Failure"><span class="badge bad">Hard breach — permanent loss of progress and account deletion</span></td></tr>
+            <tr><td class="firm-col">Lucid Trading</td><td>$1+ net P/L on a trade</td><td>Every 30 days</td><td><span class="badge bad" title="Permanent, irreversible account deletion">Permanent deletion</span></td></tr>
+            <tr><td class="firm-col">LegendsTrading</td><td title="Highly correlated with Lucid's structure — standard 30-day activity checks assumed to avoid a dormancy flag, unconfirmed, verify live">~Lucid's structure <span class="ref-tag">unconfirmed</span></td><td>Every 30 days</td><td><span class="badge bad">Account closure</span></td></tr>
+            <tr><td class="firm-col">TakeProfitTrader</td><td>1 round-trip trade</td><td>Every week (Sun–Fri)</td><td><span class="badge warn" title="Account closure — support accommodates exceptions for life circumstances if contacted beforehand">Closure (exceptions possible)</span></td></tr>
+            <tr><td class="firm-col">Apex Trader Funding</td><td title="2 trading days with $50+ net profit each. Older Legacy accounts: 1 day with $150+">2 days, $50+ profit each</td><td>Rolling 30-day window</td><td><span class="badge bad" title="Permanent closure — dormancy warnings fire on days 15 and 20">Permanent closure</span></td></tr>
+            <tr><td class="firm-col">TopOneFutures</td><td>1 trade placed</td><td title="The TopOne Futures futures wing shortens this to 14 days">Every 30 days <span class="ref-tag">(14d futures wing)</span></td><td><span class="badge bad" title="Hard breach — permanent loss of progress and account deletion">Hard breach</span></td></tr>
           </tbody>
         </table>
       </div>
