@@ -238,7 +238,8 @@
     .carousel-body { padding-top: 1rem; }
     .carousel-title { font-size: .92rem; font-weight: 700; color: var(--text); margin-bottom: .2rem; text-align: center; }
     .carousel-meta { font-size: .74rem; color: var(--muted); display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; margin-bottom: .9rem; }
-    .carousel-caption { font-size: .8rem; color: var(--muted); text-align: center; max-width: 640px; margin: -.3rem auto 1rem; line-height: 1.5; }
+    .carousel-caption-hint { font-size: .74rem; color: var(--subtle); text-align: center; margin: -.4rem 0 .9rem; }
+    .carousel-caption-hint i { color: var(--cyan); }
     .carousel-controls { display: flex; align-items: center; justify-content: center; gap: .55rem; flex-wrap: wrap; }
     .carousel-nav-btn, .carousel-play-btn {
       background: var(--surface-soft); border: 1px solid var(--border); color: var(--text);
@@ -469,7 +470,7 @@
       <div class="carousel-body">
         <div class="carousel-title" id="resultsTitle"></div>
         <div class="carousel-meta" id="resultsMeta"></div>
-        <div class="carousel-caption" id="resultsCaption"></div>
+        <p class="carousel-caption-hint"><i class="ph-duotone ph-cursor-click"></i> Click the image for the full story ↗</p>
         <div class="carousel-controls">
           <button class="carousel-nav-btn" onclick="carouselNav(resultsState, -1)">‹</button>
           <div class="carousel-dots" id="resultsDots"></div>
@@ -604,7 +605,6 @@
       document.getElementById(state.prefix + 'Img').alt = item.title;
       document.getElementById(state.prefix + 'Title').textContent = item.title;
       document.getElementById(state.prefix + 'Meta').innerHTML = item.meta;
-      document.getElementById(state.prefix + 'Caption').textContent = item.caption;
       document.getElementById(state.prefix + 'Counter').textContent = `${state.index + 1} / ${state.items.length}`;
       document.querySelectorAll(`#${state.prefix}Dots .carousel-dot`).forEach((d, i) => d.classList.toggle('active', i === state.index));
       document.querySelectorAll(`#${state.prefix}Thumbstrip .carousel-thumb`).forEach((t, i) => t.classList.toggle('active', i === state.index));
