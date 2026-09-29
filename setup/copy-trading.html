@@ -238,6 +238,7 @@
     .carousel-body { padding-top: 1rem; }
     .carousel-title { font-size: .92rem; font-weight: 700; color: var(--text); margin-bottom: .2rem; text-align: center; }
     .carousel-meta { font-size: .74rem; color: var(--muted); display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; margin-bottom: .9rem; }
+    .carousel-caption { font-size: .8rem; color: var(--muted); text-align: center; max-width: 640px; margin: -.3rem auto 1rem; line-height: 1.5; }
     .carousel-controls { display: flex; align-items: center; justify-content: center; gap: .55rem; flex-wrap: wrap; }
     .carousel-nav-btn, .carousel-play-btn {
       background: var(--surface-soft); border: 1px solid var(--border); color: var(--text);
@@ -288,6 +289,37 @@
       padding: .3rem .85rem; border-radius: 999px; display: none;
     }
 
+    /* ── Pill trigger + spec-card content modal (HTML content, not an image lightbox) ── */
+    .pill-trigger {
+      display: inline-flex; align-items: center; gap: .35rem; margin-top: .5rem;
+      padding: .4rem .9rem; border-radius: 999px; font-size: .78rem; font-weight: 700;
+      background: rgba(103,232,249,.1); color: var(--cyan); border: 1px solid rgba(103,232,249,.28);
+      cursor: pointer; font-family: inherit; transition: border-color .2s, background .2s, transform .35s var(--spring);
+    }
+    .pill-trigger:hover { border-color: var(--cyan); background: rgba(103,232,249,.18); transform: translateY(-2px); }
+    .spec-modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 500;
+      background: rgba(2,6,14,.86); backdrop-filter: blur(6px);
+      align-items: center; justify-content: center; padding: 1.5rem;
+    }
+    .spec-modal-overlay.open { display: flex; }
+    .spec-modal-box {
+      max-width: 780px; width: 100%; max-height: 88vh; overflow-y: auto;
+      background: var(--bg-alt); border: 1px solid var(--border-strong); border-radius: var(--radius-lg);
+      padding: 1.6rem 1.6rem 1.8rem; position: relative; box-shadow: var(--shadow);
+      transform: scale(.96); opacity: 0; transition: transform .3s var(--spring), opacity .25s;
+    }
+    .spec-modal-overlay.open .spec-modal-box { transform: scale(1); opacity: 1; }
+    .spec-modal-title { font-size: 1.05rem; font-weight: 800; margin-bottom: .3rem; padding-right: 2.5rem; }
+    .spec-modal-sub { font-size: .84rem; color: var(--muted); line-height: 1.6; }
+    .spec-modal-close {
+      position: absolute; top: 1.1rem; right: 1.2rem;
+      background: none; border: 1px solid var(--border); border-radius: 999px;
+      width: 2.1rem; height: 2.1rem; color: var(--text); font-size: 1rem; cursor: pointer;
+      transition: border-color .2s, color .2s;
+    }
+    .spec-modal-close:hover { border-color: var(--gold); color: var(--gold); }
+
     .footer { max-width: 1100px; margin: 0 auto 2rem; padding: 1.2rem 1.5rem; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); font-size: .8rem; color: var(--subtle); text-align: center; }
     .footer p { margin: 0; }
     .footer p + p { margin-top: .5rem; }
@@ -328,13 +360,17 @@
               <td class="acct-col" data-label="Group">A — Strict News Discipline</td>
               <td data-label="Leader">LucidFlex25 <span class="ref-tag">(25K)</span></td>
               <td data-label="Followers">TPT <span class="ref-tag">(50K, 2x multiplier)</span>, LegendsTrading <span class="ref-tag">(50K, 2x multiplier)</span></td>
-              <td data-label="Why this shape">Originally TPT-led, since TPT's own PRO Account Rules #6 news-blackout obligation gated every trade before it reached either account. Flipped once a 1-micro-contract sizing habit (WASL logic on MNQ/MGC) was found to scale down to 0.5 of a contract at 0.5x — not a valid position. Leading from the smaller account and scaling up guarantees a whole number every time. The tradeoff: TPT's automatic gate is gone; that gap is covered by trading both leaders manually and independently. LegendsTrading (won via a KnightTrader giveaway) joined as a second follower Sep 25, 2026 — rules ingestion in progress, see the placeholder in Full Documentation below. As of Sep 23, 2026 this group's literal in-app name reads <span class="ref-tag">"NoNews:TPT&amp;LGNDMaxFund | LFlex=NewsAllowed; Lucid/LGND=NoMBT"</span> — a personal fail-safe reminder, not just a label: TPT and Legends (once max-funded) must not trade through news, LucidFlex itself is allowed to, and Lucid-style accounts including Legends cannot trade MBT (Micro Bitcoin) contracts. See the Copy-Trading section of the <a href="prop-firm-rules.html#copy-trading">Pre-Flight Checklist ↗</a> for the full detail this shorthand doesn't have room to spell out.</td>
+              <td data-label="Why this shape">Flipped from TPT-led to Lucid-led once a micro-contract sizing habit stopped scaling cleanly under TPT. LegendsTrading joined as a second follower Sep 25, 2026.
+                <br><button type="button" class="pill-trigger" onclick="openSpecModal('groupAHistoryModal')"><i class="ph-duotone ph-clock-counter-clockwise"></i> Full history ↗</button>
+              </td>
             </tr>
             <tr>
               <td class="acct-col" data-label="Group">B — TopOne Derived</td>
               <td data-label="Leader">TOF197288 <span class="ref-tag">(TopOne Elite ACCESS, 50K)</span></td>
               <td data-label="Followers">TOF197292, Apex-11, Apex-12, TOF218430, TOF218431 <span class="ref-tag">(all 50K, 1x)</span></td>
-              <td data-label="Why this shape">The original plan paired a 50K TopOne leader with a 25K Lucid follower — TopOneFutures' own copy-trading policy prohibits mismatched-size cross-firm copying, and TOF's own AI assistant confirmed that exact pairing is a violation. Rebuilt around matching sizes instead: same-size TOF-to-TOF (TOF's own explicitly-allowed case) and same-size TOF-to-Apex. TOF218430/TOF218431 (a second BOGO+20%-off Elite ACCESS pair) joined as followers Sep 15, 2026, growing the group from 3 followers to 5. This group's literal in-app name reads <span class="ref-tag">"TopOneAccessElite*MustLead &amp; ONLYsameTypeTop1Acct can follow"</span> — same-size still the operative word even though the shorthand says "type."</td>
+              <td data-label="Why this shape">Rebuilt from a mismatched-size TopOne→Lucid pairing (a policy violation) into same-size-only TOF-to-TOF/TOF-to-Apex copying. Now 5 followers.
+                <br><button type="button" class="pill-trigger" onclick="openSpecModal('groupBHistoryModal')"><i class="ph-duotone ph-clock-counter-clockwise"></i> Full history ↗</button>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -433,6 +469,7 @@
       <div class="carousel-body">
         <div class="carousel-title" id="resultsTitle"></div>
         <div class="carousel-meta" id="resultsMeta"></div>
+        <div class="carousel-caption" id="resultsCaption"></div>
         <div class="carousel-controls">
           <button class="carousel-nav-btn" onclick="carouselNav(resultsState, -1)">‹</button>
           <div class="carousel-dots" id="resultsDots"></div>
@@ -456,6 +493,22 @@
     </div>
     <button class="lightbox-nav-btn next" id="lightboxNext" onclick="lightboxStep(1)">›</button>
     <span class="lightbox-counter" id="lightboxCounter"></span>
+  </div>
+
+  <!-- ── GROUP HISTORY MODALS (HTML content, not image lightboxes — opened via .pill-trigger buttons) ── -->
+  <div class="spec-modal-overlay" id="groupAHistoryModal" onclick="if(event.target===this)closeSpecModal('groupAHistoryModal')">
+    <div class="spec-modal-box">
+      <button class="spec-modal-close" onclick="closeSpecModal('groupAHistoryModal')">✕</button>
+      <div class="spec-modal-title"><i class="ph-duotone ph-pipe"></i> Group A — Strict News Discipline: Full History</div>
+      <p class="spec-modal-sub">Originally TPT-led, since TPT's own PRO Account Rules #6 news-blackout obligation gated every trade before it reached either account. Flipped once a 1-micro-contract sizing habit (WASL logic on MNQ/MGC) was found to scale down to 0.5 of a contract at 0.5x — not a valid position. Leading from the smaller account and scaling up guarantees a whole number every time. The tradeoff: TPT's automatic gate is gone; that gap is covered by trading both leaders manually and independently. LegendsTrading (won via a KnightTrader giveaway) joined as a second follower Sep 25, 2026 — rules ingestion in progress, see the placeholder in Full Documentation below. As of Sep 23, 2026 this group's literal in-app name reads <span class="ref-tag">"NoNews:TPT&amp;LGNDMaxFund | LFlex=NewsAllowed; Lucid/LGND=NoMBT"</span> — a personal fail-safe reminder, not just a label: TPT and Legends (once max-funded) must not trade through news, LucidFlex itself is allowed to, and Lucid-style accounts including Legends cannot trade MBT (Micro Bitcoin) contracts. See the Copy-Trading section of the <a href="prop-firm-rules.html#copy-trading">Pre-Flight Checklist ↗</a> for the full detail this shorthand doesn't have room to spell out.</p>
+    </div>
+  </div>
+  <div class="spec-modal-overlay" id="groupBHistoryModal" onclick="if(event.target===this)closeSpecModal('groupBHistoryModal')">
+    <div class="spec-modal-box">
+      <button class="spec-modal-close" onclick="closeSpecModal('groupBHistoryModal')">✕</button>
+      <div class="spec-modal-title"><i class="ph-duotone ph-pipe"></i> Group B — TopOne Derived: Full History</div>
+      <p class="spec-modal-sub">The original plan paired a 50K TopOne leader with a 25K Lucid follower — TopOneFutures' own copy-trading policy prohibits mismatched-size cross-firm copying, and TOF's own AI assistant confirmed that exact pairing is a violation. Rebuilt around matching sizes instead: same-size TOF-to-TOF (TOF's own explicitly-allowed case) and same-size TOF-to-Apex. TOF218430/TOF218431 (a second BOGO+20%-off Elite ACCESS pair) joined as followers Sep 15, 2026, growing the group from 3 followers to 5. This group's literal in-app name reads <span class="ref-tag">"TopOneAccessElite*MustLead &amp; ONLYsameTypeTop1Acct can follow"</span> — same-size still the operative word even though the shorthand says "type."</p>
+    </div>
   </div>
 
   <footer class="footer">
@@ -502,11 +555,24 @@
       updateLightboxCounter();
     }
     document.addEventListener('keydown', (e) => {
-      if (!document.getElementById('lightboxOverlay').classList.contains('open')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') lightboxStep(-1);
-      if (e.key === 'ArrowRight') lightboxStep(1);
+      if (document.getElementById('lightboxOverlay').classList.contains('open')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') lightboxStep(-1);
+        if (e.key === 'ArrowRight') lightboxStep(1);
+      }
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.spec-modal-overlay.open').forEach(el => closeSpecModal(el.id));
+      }
     });
+
+    function openSpecModal(id) {
+      document.getElementById(id).classList.add('open');
+      lockScroll();
+    }
+    function closeSpecModal(id) {
+      document.getElementById(id).classList.remove('open');
+      unlockScroll();
+    }
 
     // ═══════════════════════════════════════════════════════
     // CAROUSEL (same generic helper as gallery.html — keyed by id
@@ -538,6 +604,7 @@
       document.getElementById(state.prefix + 'Img').alt = item.title;
       document.getElementById(state.prefix + 'Title').textContent = item.title;
       document.getElementById(state.prefix + 'Meta').innerHTML = item.meta;
+      document.getElementById(state.prefix + 'Caption').textContent = item.caption;
       document.getElementById(state.prefix + 'Counter').textContent = `${state.index + 1} / ${state.items.length}`;
       document.querySelectorAll(`#${state.prefix}Dots .carousel-dot`).forEach((d, i) => d.classList.toggle('active', i === state.index));
       document.querySelectorAll(`#${state.prefix}Thumbstrip .carousel-thumb`).forEach((t, i) => t.classList.toggle('active', i === state.index));
