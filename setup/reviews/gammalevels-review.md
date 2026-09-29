@@ -23,6 +23,17 @@ TheGexLab's Asia-session read carries its own nickname internally — **"night-v
 
 ---
 
+## 🧪 Beyond the Basics — a Few Things Worth Knowing About GEX
+
+A few extra layers I've picked up going deeper into this, beyond what's on the tin — genuinely useful context whether or not you ever open TheGexLab:
+
+- **⚡ 0DTE options changed the game.** Same-day-expiry options now make up a huge share of SPX/SPY volume, and they compress the entire gamma-hedging cycle into hours instead of days. Dealer gamma exposure can swing hard *intraday* as those options race toward expiry — which is exactly why a tool built to re-read GEX live, not just once at the open, matters more now than it did a few years ago.
+- **🌀 Vanna and charm are gamma's quieter cousins.** Gamma isn't the only Greek driving dealer hedging — **vanna** (how delta shifts as implied volatility changes) and **charm** (how delta decays purely with time, independent of price) both add their own hedging flows on top of gamma's. A sharp IV crush after a news event, for instance, can move dealer hedging even with price barely moving — worth knowing exists, even if it's not the headline number.
+- **🚀 A "gamma squeeze" is this mechanism running in reverse, fast.** When enough call buying pushes dealers deep into short-gamma territory below the zero gamma line, their forced hedging *adds fuel* to a rally instead of dampening it — the mechanic behind the more dramatic short-squeeze-adjacent moves that make headlines. Same underlying flip described above, just with real momentum behind it.
+- **🌐 GEX is aggregate, not personal.** The number reflects *all* dealer positioning across the street for that underlying — it doesn't know or care about any one trader's thesis. That's exactly why it works well as a structural backdrop layered under your own setup, rather than a signal to trade on its own.
+
+---
+
 ## 🔬 Why I Actually Trust It — An Independent Confluence Test, Not a Testimonial
 
 Anyone can say a tool "works." Here's the actual test I ran, and why it means something.
@@ -45,6 +56,14 @@ This isn't a tool I tried once and shelved. It's part of the live daily-driver s
 
 That page anchor drops you directly onto the live card — click through into **"The GEX Deep Dive"** modal there for the same dealer-hedging mechanics explained in the actual context of my trading setup, plus the **"How We Got Here"** modal covering the real hardware/workflow evolution that led to running TheGexLab alongside TradeCopia's cloud-synced multi-account structure in the first place. It's not a hypothetical fit — you can see exactly where it sits next to everything else.
 
+### 📸 A couple of real sessions, screenshotted straight off the terminal
+
+![TheGexLab — QQQ/NQ + GLD/GC, Night Vision mode, 2×2 custom split](assets/Screenshot%202026-09-27%20at%2021.15.35_GexLab-QQQ-GLD-NightVision.png)
+*Night Vision mode on, running QQQ→NQ against GLD→GC side by side, 5-min timeframe. Call walls, the zero-gamma line, and put walls are all labeled live on the chart itself (CW/CW2, ZG, PW/PW2) alongside the Asia-session VAH/POC/VAL/HI/LO levels — the same "night-vision" read referenced above, on an actual overnight session, not a marketing screenshot.*
+
+![TheGexLab — SPY/ES + GLD/GC, 0DTE expiry, standard view](assets/Screenshot%202026-09-28%20at%2014.47.44_GexLab-SPY-GLD.png)
+*Same custom-split layout, this time SPY→ES against GLD→GC on 0DTE expiry with Night Vision off — the CALL WALL / ZERO GAMMA / PUT WALL levels spelled out explicitly, plus the intraday Max Δ GEX breakdown (1m/5m/10m/15m/30m) in the top-left corner. That breakdown is the live version of the "0DTE compresses the hedging cycle" point above — you can watch dealer gamma exposure actually shift within the same session.*
+
 ---
 
 ## ✅ What I'd Tell Someone On the Fence
@@ -52,6 +71,8 @@ That page anchor drops you directly onto the live card — click through into **
 This isn't a black-box indicator you're asked to blindly trust. The GEX framework has real, explainable mechanics behind it — dealer hedging flow, not folklore — and *that's* exactly why it held up when I checked it against a system I already trusted, built from an entirely different angle.
 
 If you already run a level system you rely on: **don't replace it blind.** Run the same test I did — check GammaLevels against it, honestly, side by side. That's the real test, not a five-star rating.
+
+🛠️ **This isn't a finished product coasting on launch.** Yush is actively shipping upgrades to the terminal, there's a live [feature-request / bug-report portal](https://www.thegexlab.com/app/suggest.html) where users directly shape what gets built next, and Yush himself has said there's more in the pipeline that hasn't been revealed yet. Worth staying tuned for.
 
 🎁 **Partner access + discount:** [thegexlab.com/tmade](https://www.thegexlab.com/tmade) — code `TMADE`. The discount isn't the reason to use this. The mechanics are.
 
