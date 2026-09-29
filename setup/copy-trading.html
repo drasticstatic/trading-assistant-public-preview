@@ -260,10 +260,11 @@
       display: none; position: fixed; inset: 0; z-index: 500;
       background: rgba(0,0,0,.94);
       align-items: center; justify-content: center; padding: 1.2rem;
+      overflow-y: auto;
     }
     .lightbox-overlay.open { display: flex; }
-    .lightbox-box { max-width: 98vw; max-height: 98vh; display: flex; flex-direction: column; align-items: center; gap: .5rem; }
-    .lightbox-box img { max-width: 98vw; max-height: 88vh; width: auto; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow); }
+    .lightbox-box { max-width: 98vw; max-height: none; display: flex; flex-direction: column; align-items: center; gap: .5rem; margin: auto; }
+    .lightbox-box img { max-width: 98vw; max-height: 78vh; width: auto; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow); flex-shrink: 0; }
     .lightbox-caption { color: var(--muted); font-size: .85rem; text-align: center; max-width: 90vw; }
     .lightbox-close {
       position: fixed; top: 1.2rem; right: 1.5rem; z-index: 503;
