@@ -189,6 +189,7 @@ Homepage sale prices with the current `PERPS` code on Oct 22: Elite 3% DLL $36 /
 - **Trigger source:** last traded price on Binance/Bybit/Hyperliquid (one small print touching the level is enough — no candle close needed); mid on Veranta/Ostium. Liquidation and loss monitoring use separate references.
 - **Adding to a position with a new attached TP/SL replaces the old exits** for the full resulting size (after confirmation). Adding without one resizes the existing exits.
 - **Isolated vs cross margin** is stored per position; adds and reversals must match the position's mode.
+- **⚠ Chart drawing tools can drag resting TP/SL lines** (happened Oct 23: a BTC take profit got bumped while drawing). Turn on the TP/SL **chart-drag confirmation** in [Trading Settings](https://docs.myfundedperpetuals.com/settings/trading) so a stray drag asks before it moves an exit.
 - **Exposure caps** count long + short notional across your matching accounts (same product and size), valued at fill price. Over-cap orders are rejected, not resized. Reductions free capacity at the next refresh (~10s). Competition accounts use a **separate** allowance from purchased accounts.
 
 ---
