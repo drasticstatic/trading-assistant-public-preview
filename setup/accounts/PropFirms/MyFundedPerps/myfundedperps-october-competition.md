@@ -120,6 +120,22 @@ Because ranking uses **absolute equity**, Whale starts with a $50K head start ov
 
 ---
 
+## Active Watchlist (the check-in reads this section)
+
+*Updated Oct 23, 01:55 ET.* Chart data comes from Hyperliquid public candles: the `xyz:` markets for indices, oil and gold, plus BTC/ETH/SOL. Execution levels come from the MFP quote; Binance CL and XAU trade within about $0.11 and $6 of the Hyperliquid prints.
+
+| Market (MFP id) | Chart feed | Bias | Armed setup | Invalidation / targets |
+|---|---|---|---|---|
+| ETH (`binance\|ETHUSDT`) | `ETH` | Bear (4H+1H stacks) | Short on a sweep of $2,416.6 into $2,420–2,424, then a 15m close back below $2,416 · Long on a sweep-and-reclaim of the $2,380 equal lows | Short stop above the sweep high · TP $2,380, then $2,359 |
+| BTC (`binance\|BTCUSDT`) | `BTC` | Range / bear lean | **Inherited long being managed** (stop $81,185, TPs $82,130 / $83,092.88). No BTC short: it would flip the long. | — |
+| Gold (`binance\|XAUUSDT`) | `xyz:GOLD` | Bear (all TFs) | Short on a sweep of the $4,034 equal highs (1H EMA20 ~$4,038), then a 15m close back below | Stop above the sweep high · TP $4,005, then the $3,989 PDL |
+| Crude (`binance\|CLUSDT`) + Brent SMT (`hyperliquid\|xyz:BRENTOIL`) | `xyz:CL`, `xyz:BRENTOIL` | Bull (all TFs) | Long on a pullback into ~$100.00–100.10 that holds the $99.89 higher low, with a bullish 15m reaction. A+ if Brent holds its own higher low ($109.03) while CL dips. | Stop under $99.70 · TP $100.95 PDH, then $101.35 |
+| Nasdaq-100 (`hyperliquid\|xyz:XYZ100`) + S&P (`hyperliquid\|xyz:SP500`) | same | Bear (4H+1H), overnight bullish SMT (NQ LL 28,855 vs ES HL 7,644) | **FCR at the NY open:** mark the 9:30–9:45 ET candle; trade displacement outside it, gated by the EMAs, with NQ↔ES SMT as the tiebreaker | Stop beyond the opposite side of the first candle (or the FVG) · TP = next liquidity |
+
+Not on the list: Dow (`ostium|DJI`) has a 23/5 session and the Friday 16:45 ET auto-close. Usable for an FCR confirmation read, not a weekend hold.
+
+---
+
 ## Trade Ledger
 
 Every trade gets a full 9-section review in `fortuna-exports/trade-reviews/2026/10-Oct/` (`review_YYYYMMDD_[SYMBOL]-MFPCOMP_NNN.md`). Times are ET; P&L is net of commissions and swap.
