@@ -130,7 +130,7 @@ Because ranking uses **absolute equity**, Whale starts with a $50K head start ov
 | **SOL** ⭐ (`binance\|SOLUSDT`, max 5×) | `SOL` | Bear (4H+1H stacks) | Short on a sweep of $104.80 into $104.90–105.20 (1H EMA50 plus week open), then a 15m close back below $104.80 · Long on a sweep-and-reclaim of the $102.98 PDL | Short stop above the sweep high · TP $103.80, then $102.98 · Long TP $104.21 midnight open. **ETH and SOL in the same direction count as one position**; take whichever triggers or grades better. |
 | BTC (`binance\|BTCUSDT`) | `BTC` | Range / bear lean | **Inherited long being managed** (stop $81,185, TPs $82,130 / $83,092.88). No BTC short: it would flip the long. | — |
 | Gold (`binance\|XAUUSDT`) | `xyz:GOLD` | Bear (all TFs) | Short on a sweep of the $4,034 equal highs (1H EMA20 ~$4,038), then a 15m close back below | Stop above the sweep high · TP $4,005, then the $3,989 PDL |
-| Crude (`binance\|CLUSDT`) + Brent SMT (`hyperliquid\|xyz:BRENTOIL`) | `xyz:CL`, `xyz:BRENTOIL` | Bull (all TFs) | Long on a pullback into ~$100.00–100.10 that holds the $99.89 higher low, with a bullish 15m reaction. A+ if Brent holds its own higher low ($109.03) while CL dips. | Stop under $99.70 · TP $100.95 PDH, then $101.35 |
+| Crude (`binance\|CLUSDT`) + Brent SMT (`hyperliquid\|xyz:BRENTOIL`) | `xyz:CL`, `xyz:BRENTOIL` | Bull (all TFs) | **🟢 LIVE — trade #1 (Oct 23 05:02 ET):** long 2,127 @ $100.33 MFP. Trigger: the 04:45 hammer (low 99.941 held the 99.89 higher low, close 100.23) plus bullish SMT (Brent swept its higher low and reclaimed it). MFP runs ≈ +$0.13 over the `xyz:CL` print. | **MFP prices:** stop $99.93 · TP1 $101.08 × 1,063.5 · TP2 $101.48 × 1,063.5. **At +1R ($100.73 MFP), move the stop to breakeven-plus-fees (~$100.35) under structure.** |
 | Nasdaq-100 (`hyperliquid\|xyz:XYZ100`) + S&P (`hyperliquid\|xyz:SP500`) | same | Bear (4H+1H), overnight bullish SMT (NQ LL 28,855 vs ES HL 7,644) | **FCR at the NY open:** mark the 9:30–9:45 ET candle; trade displacement outside it, gated by the EMAs, with NQ↔ES SMT as the tiebreaker | Stop beyond the opposite side of the first candle (or the FVG) · TP = next liquidity |
 
 Not on the list:
@@ -180,7 +180,7 @@ No fill and no fees. This proved the create → read → recover → cancel loop
 
 | # | Date | Market | Side | Grade | Risk | Entry → Exit | R | Net P&L | Equity after | Review |
 |---|---|---|---|---|---|---|---|---|---|---|
-| — | | | | | | | | | | |
+| 1 | Oct 23 | CL (`binance\|CLUSDT`) | Long | B | 0.85% ($851) | 2,127 @ $100.33 (05:02 ET) → *open* | — | *open* | — | *on close* |
 
 ### Daily summary
 
