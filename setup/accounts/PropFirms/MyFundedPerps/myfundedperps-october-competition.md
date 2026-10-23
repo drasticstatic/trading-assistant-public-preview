@@ -182,7 +182,7 @@ No fill and no fees. This proved the create → read → recover → cancel loop
 | # | Date | Market | Side | Grade | Risk | Entry → Exit | R | Net P&L | Equity after | Review |
 |---|---|---|---|---|---|---|---|---|---|---|
 | 1 | Oct 23 | CL (`binance\|CLUSDT`) | Long | B | 0.85% ($851) | 2,127 @ $100.33 (05:02 ET) → TP1 1,063.5 @ $101.08 (05:23) · TP2 1,063.5 @ $101.47 (08:07) | **+2.33R** | **+$1,986.56** | $101,990.77 | [review](../../../../fortuna-exports/trade-reviews/2026/10-Oct/review_20261023_CL-MFPCOMP_001.md) |
-| 2 | Oct 23 | Gold (`binance\|XAUUSDT`) | Short | B | 0.78% ($793) | 165.289 @ $4,037.45 (09:01 ET) → **stopped 09:22 @ $4,042.49** (stop $4,042.25; second sweep of the highs, then price fell $16) | **−1.13R** | **−$899.83** | $101,090.93 | *review in progress* |
+| 2 | Oct 23 | Gold (`binance\|XAUUSDT`) | Short | B | 0.78% ($793) | 165.289 @ $4,037.45 (09:01 ET) → **stopped 09:22 @ $4,042.49** (stop $4,042.25; second sweep of the highs, then price fell $16) | **−1.13R** | **−$899.83** | $101,090.93 | [review](../../../../fortuna-exports/trade-reviews/2026/10-Oct/review_20261023_XAU-MFPCOMP_002.md) |
 
 ### Daily summary
 
