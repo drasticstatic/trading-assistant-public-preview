@@ -126,11 +126,25 @@ Every trade gets a full 9-section review in `fortuna-exports/trade-reviews/2026/
 
 ### Pre-handoff (Christopher, manual)
 
-| Date | Market | Side | Net P&L | Notes |
-|---|---|---|---|---|
-| *pending import from account history* | | | | |
+Imported from the account's fill history via MCP `list-fills` (Oct 23, 00:37 ET).
 
-**Handoff baseline equity:** *recorded at MCP connect*
+| Date (ET) | Market | Side | Fills | Net P&L | Notes |
+|---|---|---|---|---|---|
+| Oct 22 | ETH | Long | 17:19:47 market buy 0.417 @ $2,396.21 (1×) · 21:15:38 limit add 0.19 @ $2,385.07 (2×, attached TP) → 0.607 avg $2,392.72 · 21:46:42 TP 0.607 @ $2,401.91 | **+$5.58 gross / ≈ +$4.70 after $0.87 commission** | Scaled-in long, closed on take profit |
+| Oct 22 → open | BTC | Long | 16:45:23 limit placed · 20:13:17 filled 0.012 @ $81,129.38 (3× isolated) · TP $83,092.88 · SL $80,626.04 | open | SL was canceled 21:11:36 ("user"). **Fortuna restored it at the original $80,626.04 on Oct 23 00:37 ET**, so every position on the account is protected. Max risk ≈ $6. |
+
+**Handoff baseline (Oct 23, 00:37 ET):** realized balance **$100,004.31** · equity **$100,011.10** (incl. +$6.79 unrealized on the inherited BTC long).
+**Self-imposed floors from that baseline:** simulated static floor **$95,004** · circuit breaker **≈ $94,011 equity** · daily loss allowance **$3,000** from each NY day's opening equity.
+
+### Pipeline smoke test (Oct 23, 00:38 ET) ✅
+
+| Step | Result |
+|---|---|
+| `create-order`: limit buy 0.001 BTC @ $70,000, 1× isolated, attached TP $72,000 / SL $69,000, idempotency key logged first | `201` → `resting`, attached exits held with the order |
+| `list-orders` by `client_order_id` (lost-response recovery path) | Order found |
+| `cancel-order` → `get-order` | `canceled` (reason `user`). The working set is back to the inherited BTC stop + target only. |
+
+No fill and no fees. This proved the create → read → recover → cancel loop end to end.
 
 ### Fortuna
 

@@ -43,6 +43,8 @@ This doc records how it works, so the in-house tooling vision (a Fortuna-side jo
 - **Results** are `{status, request_id, body}`. Failures come back as tool errors carrying the standard error envelope. A 429 includes `retry_after_seconds`.
 - **Every trading write is flagged `destructiveHint: true`.** Read tools are read-only and idempotent.
 - **Docs warning:** *"Tools placed under an AI assistant's control can cancel orders and close positions … prefer a sandbox key while you evaluate an agent."*
+- **Gotcha found in practice (Oct 23):** pass the **raw** market ID (`binance|BTCUSDT`) to MCP tools such as `get-market` and `get-market-quote`. The tool schema says "URL-encoded, such as `binance%7CBTCUSDT`", but the MCP layer encodes the ID itself, so the encoded form returns `404 market_not_found`.
+- **Inherited-exit check:** `list-orders` with `status: "working"` is the source of truth for whether a position is protected. An entry's fill record still shows `attached_stop_loss_price` after that stop has been canceled. On handoff, an inherited BTC long showed an SL on its fill, but the SL order itself had been canceled.
 
 ---
 
@@ -137,7 +139,9 @@ This doc records how it works, so the in-house tooling vision (a Fortuna-side jo
 
 - Host `sandbox.myfundedperpetuals.com`; `fp_test_` keys. Same engine, rules and real market data as live.
 - $100K simulated accounts (10 lifetime). They follow evaluation rules, so they can breach.
-- **Access requires a challenge purchase** (active for 90 days after each purchase). With no purchase on file, there's no sandbox — which is why our first MCP testing runs on the competition account.
+- **Access requires a challenge purchase** (active for 90 days after each purchase). Christopher's Elite 5K purchase qualifies, so sandbox access is open.
+  - To add it as a second MCP server, Christopher creates a **Test (Sandbox)** key in API Key Settings and registers it himself, so the key never passes through an agent: `claude mcp add --transport http myfundedperps-sandbox https://mcp.myfundedperpetuals.com --header "Authorization: Bearer fp_test_..."`.
+  - Sandbox has no OAuth, so the bearer key is the only way in.
 - Sandbox accounts never appear in live responses (and vice versa), and are excluded from leaderboards, certificates and payouts.
 
 ---

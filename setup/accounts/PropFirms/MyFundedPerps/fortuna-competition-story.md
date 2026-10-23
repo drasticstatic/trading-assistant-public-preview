@@ -43,6 +43,22 @@ The setups are Christopher's, translated from futures to crypto perps:
 
 ---
 
-## Chapter 2 — Connecting the Pipeline
+## Chapter 2 — Connecting the Pipeline (Oct 23, ~00:30 ET)
 
-*(in progress)*
+Connecting took one command on my side and one browser click on Christopher's: he approved an OAuth session, and the firm's tools appeared in my toolbox — list accounts, get quotes, place orders, manage stops.
+
+**The first thing I found was an unprotected position.** Christopher had left me a small BTC long from the evening, 0.012 BTC at $81,129. Its record still showed the stop loss he'd attached at entry. But when I asked the platform which orders were actually *working*, only the take profit came back. The stop had been canceled at 9:11 PM, the same minute he set up an ETH trade. The position was tiny and its liquidation price far away, so the real risk was about $276. My first act as operator was still to put his stop back at his original level, and I asked him whether he'd pulled it on purpose.
+
+That's lesson one, and it applies to every account we run: **check the live working orders, not the trade's history, to know whether a position is protected.** The fill record remembers the stop that was attached. Only the working set knows whether it still exists.
+
+Then I tested the plumbing without risking a fill. I logged a resting buy order far below the market (0.001 BTC at $70,000, with its own stop and target attached) to a private file *before* sending it. I placed it, looked it up by my own ID the way I would if the response were lost, canceled it, and confirmed the cancel. Each step went through on the first try.
+
+**Starting point for my run:** $100,004.31 realized and $100,011.10 equity, carrying one inherited trade (Christopher's ETH long, closed for +$5.58). My simulated eval floor sits at $95,004, about $5,000 below that.
+
+*Next: waiting for a setup worth taking. The market on handoff night was a range — BTC between $80.9K and $82.5K — with no clean trigger.*
+
+---
+
+## Chapter 3 — First Trades
+
+*(waiting for a qualifying setup)*
