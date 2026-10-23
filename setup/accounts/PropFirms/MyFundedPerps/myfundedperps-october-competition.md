@@ -131,7 +131,7 @@ Because ranking uses **absolute equity**, Whale starts with a $50K head start ov
 | **SOL** ⭐ (`binance\|SOLUSDT`, max 5×) | `SOL` | Bear (4H+1H stacks) | Short on a sweep of $104.80 into $104.90–105.20 (1H EMA50 plus week open), then a 15m close back below $104.80 · Long on a sweep-and-reclaim of the $102.98 PDL | Short stop above the sweep high · TP $103.80, then $102.98 · Long TP $104.21 midnight open. **ETH and SOL in the same direction count as one position**; take whichever triggers or grades better. |
 | BTC (`binance\|BTCUSDT`) | `BTC` | Range / bear lean | **Inherited long being managed** (stop $81,185, TPs $82,130 / $83,092.88). No BTC short: it would flip the long. | — |
 | Gold (`binance\|XAUUSDT`) | `xyz:GOLD` | Bear (all TFs) | Short on a sweep of the $4,034 equal highs (1H EMA20 ~$4,038), then a 15m close back below | Stop above the sweep high · TP $4,005, then the $3,989 PDL |
-| Crude (`binance\|CLUSDT`) + Brent SMT (`hyperliquid\|xyz:BRENTOIL`) | `xyz:CL`, `xyz:BRENTOIL` | Bull (all TFs) | **🟢 LIVE — trade #1 (Oct 23 05:02 ET):** long 2,127 @ $100.33 MFP. Trigger: the 04:45 hammer (low 99.941 held the 99.89 higher low, close 100.23) plus bullish SMT (Brent swept its higher low and reclaimed it). MFP runs ≈ +$0.13 over the `xyz:CL` print. | **MFP prices:** stop **$100.21** (trailed at +1R, 05:20 ET: just under the 05:00 higher low, risk ≈ −0.3R) · TP1 $101.08 × 1,063.5 · TP2 $101.48 × 1,063.5. **Next:** stop to breakeven-plus-fees (~$100.35) once a 15m higher low forms above $100.35 MFP. |
+| Crude (`binance\|CLUSDT`) + Brent SMT (`hyperliquid\|xyz:BRENTOIL`) | `xyz:CL`, `xyz:BRENTOIL` | Bull (all TFs) | ✅ **Trade #1 closed +$1,986.56 (+2.33R), both targets filled.** No new CL setup armed: price is extended above the PDH ($100.95). Re-arm on the next pullback to the 15m EMA50 or the reclaimed PDH, with Brent SMT again. MFP runs ≈ +$0.06–0.16 over the `xyz:CL` print. | — |
 | Nasdaq-100 (`hyperliquid\|xyz:XYZ100`) + S&P (`hyperliquid\|xyz:SP500`) | same | Bear (4H+1H), overnight bullish SMT (NQ LL 28,855 vs ES HL 7,644) | **FCR at the NY open:** mark the 9:30–9:45 ET candle; trade displacement outside it, gated by the EMAs, with NQ↔ES SMT as the tiebreaker | Stop beyond the opposite side of the first candle (or the FVG) · TP = next liquidity |
 
 Not on the list:
@@ -181,10 +181,10 @@ No fill and no fees. This proved the create → read → recover → cancel loop
 
 | # | Date | Market | Side | Grade | Risk | Entry → Exit | R | Net P&L | Equity after | Review |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 1 | Oct 23 | CL (`binance\|CLUSDT`) | Long | B | 0.85% ($851) | 2,127 @ $100.33 (05:02 ET) → **TP1 1,063.5 @ $101.08 (05:23 ET, +$797.63)** · runner 1,063.5 *open* (stop at breakeven $100.35, TP2 $101.48) | TP1 +1.9R | *open* (≥ ≈ +$780 locked) | — | *on close* |
+| 1 | Oct 23 | CL (`binance\|CLUSDT`) | Long | B | 0.85% ($851) | 2,127 @ $100.33 (05:02 ET) → TP1 1,063.5 @ $101.08 (05:23) · TP2 1,063.5 @ $101.47 (08:07) | **+2.33R** | **+$1,986.56** | $101,990.77 | [review](../../../../fortuna-exports/trade-reviews/2026/10-Oct/review_20261023_CL-MFPCOMP_001.md) |
 
 ### Daily summary
 
 | NY day | Trades | Net P&L | Equity close | Self-DLL used | Floor buffer | Note |
 |---|---|---|---|---|---|---|
-| — | | | | | | |
+| Fri Oct 23 *(in progress)* | 1 (CL ✅) | +$1,986.56 | $101,996 @ 08:09 ET | $0 of $3,000 | +$6,986 above the $95,004 floor | First Fortuna trade: +2.33R. Inherited BTC long still open, risk-free. |

@@ -89,4 +89,16 @@ The stop sat on the platform from the first millisecond. Half the position targe
 
 **The part I didn't plan.** Christopher had fallen asleep on his ZeroToHero call, watching crude with Coach Justine. He woke up to his own take-profit sound. Independently, on his futures accounts, he'd placed a limit buy on micro crude (MCL) at $100.18 at 4:43 AM and sold at $100.87 at 5:22. **Same market, same pullback, same morning, one minute apart on the exit**, and his trade was on before mine. In his words: *"this is exactly how I hoped this would work."* Two traders reading the same structure separately and getting the same answer is worth more to me than either fill.
 
-*(runner result and full review on close)*
+**07:30–07:45 —** the test. Crude pulled back hard and the runner gave up most of its open profit, dipping to within about 15 cents of the breakeven stop. Christopher was watching: *"I was nervous for a minute."* This is the exact moment a stop gets pulled or a trade gets closed early. Neither happened, because the stop was on the platform and the target hadn't changed.
+
+**08:07 —** the runner filled at **$101.47**.
+
+| Trade #1 | |
+|---|---|
+| Result | **+$1,986.56 net (+2.33R)** on $851 of risk |
+| Hold | 3 hours 5 minutes, one position, two targets, zero overrides |
+| Account | $100,004 at handoff → **$101,991** |
+
+*"I was nervous for a minute but I watched it hit TP!"* — that was the whole trade, really. The plan decided the outcome, and both of us just watched it happen.
+
+Full review: [`review_20261023_CL-MFPCOMP_001.md`](../../../../fortuna-exports/trade-reviews/2026/10-Oct/review_20261023_CL-MFPCOMP_001.md)
