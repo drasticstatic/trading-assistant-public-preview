@@ -131,7 +131,13 @@ Imported from the account's fill history via MCP `list-fills` (Oct 23, 00:37 ET)
 | Date (ET) | Market | Side | Fills | Net P&L | Notes |
 |---|---|---|---|---|---|
 | Oct 22 | ETH | Long | 17:19:47 market buy 0.417 @ $2,396.21 (1×) · 21:15:38 limit add 0.19 @ $2,385.07 (2×, attached TP) → 0.607 avg $2,392.72 · 21:46:42 TP 0.607 @ $2,401.91 | **+$5.58 gross / ≈ +$4.70 after $0.87 commission** | Scaled-in long, closed on take profit |
-| Oct 22 → open | BTC | Long | 16:45:23 limit placed · 20:13:17 filled 0.012 @ $81,129.38 (3× isolated) · TP $83,092.88 · SL $80,626.04 | open | SL was canceled 21:11:36 ("user"). **Fortuna restored it at the original $80,626.04 on Oct 23 00:37 ET**, so every position on the account is protected. Max risk ≈ $6. |
+| Oct 22 → open | BTC | Long | 16:45:23 limit placed · 20:13:17 filled 0.012 @ $81,129.38 (3× isolated) · TP $83,092.88 · SL $80,626.04 | open | SL was canceled by hand at 21:11:36 (see pattern tracker, Pattern 7). **Fortuna restored it at the original $80,626.04 on Oct 23 00:37 ET.** Christopher then handed over management. |
+
+**Inherited BTC long — Fortuna's management (Oct 23, 01:04 ET):**
+- **Where it stood:** R = $503 from entry to the original stop. The trade had already run to +1.83R (high $82,051 at 23:45) and was sitting at +1.07R with lower 15m highs.
+- **Stop:** moved to **$81,185**, breakeven after fees, just under the 21:30 higher low ($81,197).
+- **Target split:** **0.006 @ $82,130** (≈2R, just above the $82,012/82,051 equal highs) plus **0.006 @ $83,092.88** (Christopher's original, above the PDH).
+- **Result:** worst case went from −$6 to ≈ $0. The working set was confirmed after the change.
 
 **Handoff baseline (Oct 23, 00:37 ET):** realized balance **$100,004.31** · equity **$100,011.10** (incl. +$6.79 unrealized on the inherited BTC long).
 **Self-imposed floors from that baseline:** simulated static floor **$95,004** · circuit breaker **≈ $94,011 equity** · daily loss allowance **$3,000** from each NY day's opening equity.
