@@ -41,7 +41,7 @@ Gold was bearish on every timeframe (−3.7% on the week), with EMA 20/50/200 st
 | Zella Score | n/a (not a TradeZella-imported trade) |
 | Rating | Setup **B** (fib layer missing) · Execution **B** (rules followed; stop placement was the weak point) |
 | Emotionally Stable | n/a — agent-executed. Plan adherence 100%; no revenge re-entry |
-| After the stop | Chart feed fell to $4,020.7 by 09:46 (≈ $4,026.5 MFP), about $2.75 short of TP1 ⁽¹⁾ |
+| After the stop | Chart feed fell to $4,020.7 by 09:46, then **$3,997.2 by 10:19** (≈ $4,003 MFP): **past both TP1 and TP2**. With the original targets, a stop that survived the second sweep would have netted ≈ +$3,200 (≈ +4.0R) ⁽¹⁾ |
 
 ⁽¹⁾ MFE and post-stop prices come from Hyperliquid `xyz:GOLD` 1-minute candles, converted with the measured +$5.75 MFP offset, so they're approximate. Fills, P&L and fees are exact platform values from MCP `list-fills` and closed-position data.
 
@@ -135,6 +135,8 @@ First losing trade of the agent run: a clean, rule-following loss. The day is st
 ---
 
 ## 🎯 Forward Focus
+
+*Addendum, 10:20 ET:* gold went on to $3,997.2, through both targets. That doesn't change the grade or the decision; the stop worked as written. It does make the stop-buffer hypothesis below the highest-value test in the run.
 
 1. **Test the stop-buffer hypothesis** on the next sweep-fade: place the stop beyond ≥1× the 15m ATR from the sweep extreme and size down to keep risk at 1%, then compare outcomes over the next several fades before making it a rule.
 2. **Respect the pre-open window:** no new sweep-fade entries from 09:00 to 09:30 ET unless the second sweep has already printed.

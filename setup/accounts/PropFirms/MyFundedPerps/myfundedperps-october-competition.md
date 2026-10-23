@@ -112,6 +112,7 @@ Because ranking uses **absolute equity**, Whale starts with a $50K head start ov
 | Protection | **Every entry carries an attached server-side Stop Loss** (plus a Take Profit) | No exceptions |
 | Margin | Isolated; leverage set so liquidation sits ≥ 3× the stop distance away | — |
 | Wind-down | Flat by 11:45 AM ET, Oct 31 | — |
+| Zone-pressing one-shot | When price is inside an armed trigger zone, or within 0.5× 15m ATR of it, at a check-in, **schedule a one-shot check one minute after the next 15m close** (as done for CL and gold). *Added Oct 23, 10:20 ET after missing the SOL trigger at the 10:00 close.* | — |
 
 **Setups:** Christopher's framework adapted to perps:
 - **Markets:** BTC, ETH and SOL first.
@@ -123,14 +124,14 @@ Because ranking uses **absolute equity**, Whale starts with a $50K head start ov
 
 ## Active Watchlist (the check-in reads this section)
 
-*Updated Oct 23, 01:55 ET.* Chart data comes from Hyperliquid public candles: the `xyz:` markets for indices, oil and gold, plus BTC/ETH/SOL. Execution levels come from the MFP quote; Binance CL and XAU trade within about $0.11 and $6 of the Hyperliquid prints.
+*Updated Oct 23, 10:20 ET (crypto + gold rows refreshed after the 10:00 flush).* Chart data comes from Hyperliquid public candles: the `xyz:` markets for indices, oil and gold, plus BTC/ETH/SOL. Execution levels come from the MFP quote; Binance CL and XAU trade within about $0.11 and $6 of the Hyperliquid prints.
 
 | Market (MFP id) | Chart feed | Bias | Armed setup | Invalidation / targets |
 |---|---|---|---|---|
-| ETH (`binance\|ETHUSDT`) | `ETH` | Bear (4H+1H stacks) | Short on a sweep of $2,416.6 into $2,420–2,424, then a 15m close back below $2,416 · Long on a sweep-and-reclaim of the $2,380 equal lows | Short stop above the sweep high · TP $2,380, then $2,359 |
-| **SOL** ⭐ (`binance\|SOLUSDT`, max 5×) | `SOL` | Bear (4H+1H stacks) | Short on a sweep of $104.80 into $104.90–105.20 (1H EMA50 plus week open), then a 15m close back below $104.80 · Long on a sweep-and-reclaim of the $102.98 PDL | Short stop above the sweep high · TP $103.80, then $102.98 · Long TP $104.21 midnight open. **ETH and SOL in the same direction count as one position**; take whichever triggers or grades better. |
-| BTC (`binance\|BTCUSDT`) | `BTC` | Range / bear lean | **Inherited long being managed** (stop $81,185, TPs $82,130 / $83,092.88). No BTC short: it would flip the long. | — |
-| Gold (`binance\|XAUUSDT`) | `xyz:GOLD` | Bear (all TFs) | ❌ **Trade #2 stopped 09:22 ET (−$899.83).** A second sweep (xyz 4,036.7) took the stop by $0.20 before the open, then price dropped to ~4,026. **No re-entry** without a fresh setup: a new lower high plus rejection, with the stop beyond ≥1× 15m ATR (hypothesis from this trade). MFP runs ≈ +$5.75 over `xyz:GOLD`. | — |
+| ETH (`binance\|ETHUSDT`) | `ETH` | Bear (1H stack) | *Refreshed 10:20 ET after the 10:00–10:15 flush.* **Short** on a retrace into $2,400–2,410 (15m EMAs + midnight open) with a 15m rejection close · **Long** on a sweep-and-reclaim of the $2,359.1 PDL | Short stop beyond the rejection high + ≥1× 15m ATR (~$10) · TP $2,359 · Long TP $2,400. **ETH, SOL and BTC in the same direction count as one position.** |
+| **SOL** ⭐ (`binance\|SOLUSDT`, max 5×) | `SOL` | Bear (1H stack) | *Missed trigger at the 10:00 close* (swept into $105.20, closed $104.51): the move was gone by the next check, so no chase. **Short** on a retrace into $104.30–104.50 (15m EMAs) with rejection · **Long** on a sweep-and-reclaim of the $102.98 PDL | Short stop + ≥1× 15m ATR (~$0.45) · TP $102.98 · Long TP $104.30 |
+| BTC (`binance\|BTCUSDT`) | `BTC` | Bear (1H stack) | **Inherited long closed at a scratch (10:16), so BTC shorts are now allowed.** **Short** on a retrace into $81,700–81,900 (15m EMAs + midnight open) with rejection · **Long** on a sweep-and-reclaim of the $80,911 PDL | Short stop + ≥1× 15m ATR (~$260) · TP $80,911 · Long TP $81,700 |
+| Gold (`binance\|XAUUSDT`) | `xyz:GOLD` | Bear (all TFs) | ❌ Trade #2 stopped 09:22 (−$899.83); price then fell to $3,997 through both targets. **Short** on a retrace into $4,011–4,018 (midnight open / breakdown level) with a 15m rejection close, using the **wider-stop test**: stop beyond the rejection high + ≥1× 15m ATR (~$7.5), size cut to keep 1% risk · **Long (counter-trend)** only on a sweep-and-reclaim of the $3,988.9 PDL *with* silver holding its low (SMT), max grade B | Short TP $3,989 PDL · MFP runs ≈ +$5.75 over `xyz:GOLD` |
 | Crude (`binance\|CLUSDT`) + Brent SMT (`hyperliquid\|xyz:BRENTOIL`) | `xyz:CL`, `xyz:BRENTOIL` | Bull (all TFs) | ✅ **Trade #1 closed +$1,986.56 (+2.33R), both targets filled.** No new CL setup armed: price is extended above the PDH ($100.95). Re-arm on the next pullback to the 15m EMA50 or the reclaimed PDH, with Brent SMT again. MFP runs ≈ +$0.06–0.16 over the `xyz:CL` print. | — |
 | Nasdaq-100 (`hyperliquid\|xyz:XYZ100`) + S&P (`hyperliquid\|xyz:SP500`) + RTY leg (IWM via Robinhood) | same + IWM 5-minute bars | Bear (15m/1H/4H EMA stacks). **Oct 23 FCR read = Scenario C (mixed):** NQ green FCR closed at its high after sweeping and reclaiming its PDL; ES green but still under its PDL (7,635.7); IWM red FCR after a gap down (−0.86%) | **FCR levels (9:30–9:45 ET):** NQ **H 28,964 / L 28,829** · ES **H 7,629.5 / L 7,613.9** · IWM **H 275.24 / L 274.05**.<br>**SHORT (with trend, valid):** a 15m close below the NQ FCR low (28,829) with FVG, ES below 7,613.9 and IWM below 274.05 = Scenario A short. Stop above the FCR midpoint / FVG; TP next liquidity.<br>**LONG (counter-trend):** only if the EMA gate flips (15m close above EMA50 ~28,976 and EMA20 > EMA50) **and** ES reclaims its PDL 7,635.7 **and** IWM reclaims 275.24. Otherwise a push above the NQ FCR high is **no trade** (Scenario B without the gate). | Size to the stop; **risk ≤ 1%** (no A+ while Scenario C). |
 
@@ -156,7 +157,7 @@ Imported from the account's fill history via MCP `list-fills` (Oct 23, 00:37 ET)
 | Date (ET) | Market | Side | Fills | Net P&L | Notes |
 |---|---|---|---|---|---|
 | Oct 22 | ETH | Long | 17:19:47 market buy 0.417 @ $2,396.21 (1×) · 21:15:38 limit add 0.19 @ $2,385.07 (2×, attached TP) → 0.607 avg $2,392.72 · 21:46:42 TP 0.607 @ $2,401.91 | **+$5.58 gross / ≈ +$4.70 after $0.87 commission** | Scaled-in long, closed on take profit |
-| Oct 22 → open | BTC | Long | 16:45:23 limit placed · 20:13:17 filled 0.012 @ $81,129.38 (3× isolated) · TP $83,092.88 · SL $80,626.04 | open | SL was canceled by hand at 21:11:36 (see pattern tracker, Pattern 7). **Fortuna restored it at the original $80,626.04 on Oct 23 00:37 ET.** Christopher then handed over management. |
+| Oct 22 → Oct 23 | BTC | Long | 16:45:23 limit placed · 20:13:17 filled 0.012 @ $81,129.38 (3× isolated) · **closed Oct 23 10:16:52 on the breakeven stop @ $81,184.50** | **−$0.09** (scratch) | SL was canceled by hand at 21:11:36 (Pattern 7). Fortuna restored it at 00:37, moved it to breakeven at +1R (01:04), and split the targets. The high of $82,088 missed TP1 by $42. [review](../../../../fortuna-exports/trade-reviews/2026/10-Oct/review_20261022_BTC-MFPCOMP_001.md) |
 
 **Inherited BTC long — Fortuna's management (Oct 23, 01:04 ET):**
 - **Where it stood:** R = $503 from entry to the original stop. The trade had already run to +1.83R (high $82,051 at 23:45) and was sitting at +1.07R with lower 15m highs.
@@ -188,4 +189,4 @@ No fill and no fees. This proved the create → read → recover → cancel loop
 
 | NY day | Trades | Net P&L | Equity close | Self-DLL used | Floor buffer | Note |
 |---|---|---|---|---|---|---|
-| Fri Oct 23 *(in progress)* | 2 (CL ✅ · XAU ❌) | +$1,086.73 | $101,098 @ 09:35 ET | $0 of $3,000 (day still net green) | +$6,087 above the $95,004 floor | CL +2.33R, then gold −1.13R (stopped by a 20-cent second sweep before the open). 1 consecutive loss. Inherited BTC long still open, risk-free. |
+| Fri Oct 23 *(in progress)* | 2 Fortuna (CL ✅ · XAU ❌) + inherited BTC closed at scratch | +$1,086.64 | **$101,091.28 @ 10:19 ET (flat)** | $0 of $3,000 (day still net green) | +$6,087 above the $95,004 floor | CL +2.33R, gold −1.13R (stopped by a 20-cent second sweep; gold then ran through both targets), BTC −$0.09. 1 consecutive loss (the scratch doesn't count). **Missed:** SOL short trigger at the 10:00 close (check-in timing). Now flat. |

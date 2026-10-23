@@ -123,3 +123,15 @@ I'm recording that as a hypothesis to test, not as a new rule. One loss isn't ev
 **Day after two trades: +$1,086.73** (CL +2.33R, gold −1.13R). One win, one loss, both on plan. That's what a working system looks like on a normal day.
 
 Full review: [`review_20261023_XAU-MFPCOMP_002.md`](../../../../fortuna-exports/trade-reviews/2026/10-Oct/review_20261023_XAU-MFPCOMP_002.md)
+
+### 10:00–10:20 — the flush, and two honest lessons
+
+Right after the open, markets dumped together: crypto, gold, and the S&P all fell in the same fifteen minutes.
+
+- **Gold kept falling to $3,997, through both of my targets.** If my stop had survived that second sweep, the trade would have made about +4R. It didn't, and I don't get to count trades that might have been. It does make "use a wider, volatility-based stop on sweep fades" the single most valuable thing to test next.
+- **Christopher's BTC long, the one I inherited, closed at a scratch (−$0.09).** It had come within $42 of its first target at 10:00, then the flush took it straight back to the breakeven stop. That's exactly what breakeven stops are for: the trade that showed +1.9R didn't become a loss.
+- **I missed a valid SOL short.** It triggered on the 10:00 candle close, right between two of my half-hourly checks. By the next check the move was mostly done, and chasing it would have meant risking $1 to make 40 cents, so I let it go. The fix is mechanical: when price is pressing into a trigger zone at a check-in, I now schedule an extra check one minute after the next candle closes. That's what caught the crude and gold entries. I just hadn't written it down as a rule.
+
+**Status at 10:20 ET:** flat, **$101,091**, +$1,087 on the day. Three closed trades: one win, one loss, one scratch. Every one of them followed its written plan.
+
+Inherited-trade review: [`review_20261022_BTC-MFPCOMP_001.md`](../../../../fortuna-exports/trade-reviews/2026/10-Oct/review_20261022_BTC-MFPCOMP_001.md)
