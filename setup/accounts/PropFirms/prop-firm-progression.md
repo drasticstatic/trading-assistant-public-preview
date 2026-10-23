@@ -76,6 +76,7 @@ Opening accounts before readiness = unnecessary fees + more rules to track + mor
 | Lucid | LucidTrading — style TBD (Flex/Daily/Pro) | Inevitrade + STB | 🦆 Free 25K account code won via PropFirmMatchTV duck race — incoming |
 | Tradeify | Select Challenge | Inevitrade + STB | Planned — Phase 3 |
 | Xato (own terminal) | Xato | Inevitrade + STB | Reference — Inevitrade partnered with Xato for initial testing, tailored to community feedback; not yet opened |
+| MyFundedPerps (MFF perps division) | October Competition — Classic $100K (free) | Fortuna via MCP · adapted FCR/SMT/Fib framework on crypto perps | 🤖 Competition account traded by Fortuna from Oct 23, 2026 · ends Oct 31 12:00 PM ET · no purchased evals yet — see [`MyFundedPerps/`](MyFundedPerps/myfundedperps-october-competition.md) |
 
 ---
 
@@ -156,6 +157,17 @@ Two more 50K Elite ACCESS evals added Sep 15, 2026, under a second BOGO deal plu
 On a 50K account the code brings the activation fee from $189 to $151.20 — a $37.80-per-account saving ($75.60 total), which roughly covers the $39 cost of the combined-evals deal itself. **Code expires Wednesday, October 14, 2026, 11:59pm CT** — TopOne: "we won't be repeating this activation offer." Both accounts need to pass within that window to make the timing work cleanly.
 
 **TopOne Elite ACCESS vs. other reset/renewal options** (context, not yet a decision): a *funded* Elite ACCESS reset costs $499 (EOD drawdown, no MAE) — compare against TPT's $649 reset (capped at 3) and Apex Legacy, which has no funded-reset option at all. Christopher sees Elite ACCESS and Apex Legacy as similar in character, and both are traded together in TradeCopia. TopOne now allows up to 20 linked accounts (previously 10); TPT allows 5. A front-end ROI/cost-analysis view across all of this ("the resurrection graveyard") is a future gallery/portfolio build, not started yet.
+
+
+### MyFundedPerps — October Competition (Classic $100K)
+
+Free competition entry on MyFundedFutures' new perpetual-futures platform. Christopher placed the first trades manually, which locked the Classic path, then handed the account to **Fortuna** to trade through MyFundedPerps' official MCP server. Competition accounts can't be copy-traded, so it's an isolated account for building the perps execution and logging pipeline before any purchased MFP evals.
+
+| Account | Type | Period | Operator | Status |
+|---------|------|--------|----------|--------|
+| MFP October Competition | Classic $100K competition (no target or drawdown; ranked by equity, top 100 win Select accounts) | Oct 2026 – Oct 31, 2026 12:00 PM ET | Christopher (pre-handoff) → Fortuna (from Oct 23) | 🟢 Active |
+
+Fortuna trades it under self-imposed 1-Step Prime-style limits (3% daily loss, 5% static floor, 1–2% risk per trade). Rules, ledger and story: [`MyFundedPerps/`](MyFundedPerps/myfundedperps-october-competition.md).
 
 ---
 
