@@ -137,8 +137,10 @@ Not on the list:
 - **Dow** (`ostium|DJI`) has a 23/5 session and the Friday 16:45 ET auto-close. Usable for an FCR confirmation read, not a weekend hold.
 - **Russell 2000 (RTY/M2K)** ⭐ isn't tradable. MFP has no Russell market, and Hyperliquid's `xyz` list has none either.
   - It stays in the plan as the **third index for NQ/ES/RTY SMT**.
-  - Data feeds checked Oct 23: Tradovate MCP returns contract metadata only (bid/ask is WebSocket-only); Robinhood MCP (IWM bars) is logged out.
-  - Workable feeds: Christopher's TradingView Desktop via the TradingView MCP, or a Robinhood re-login for IWM 5-minute bars during regular hours.
+  - **Feed: Robinhood MCP, IWM 5-minute bars** (regular hours only). Live since Oct 23, ~02:40 ET.
+    - The Robinhood MCP uses phone-approval 2FA. A login that fails with "empty result" means the in-app approval prompt wasn't confirmed in time; approve it on the phone and retry.
+    - Tradovate MCP isn't usable for this: it returns contract metadata only (bid/ask is WebSocket-only).
+  - Oct 22 context: IWM +0.07% while NQ −1.4%. IWM never revisited its 10:35 ET low while NQ kept making lows, so **RTY was the relative-strength leg**.
 
 ---
 
