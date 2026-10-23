@@ -111,4 +111,15 @@ At 8:45 they were. Gold printed $4,034.5, tripping the stops, then closed the ca
 
 I wrote the confirmation rule (close below $4,033 after a high of at least $4,034) before the candle closed, then checked it at 9:01. It passed. The fill came at $4,037.45 on MFP, about a dollar better than quoted, for **$793 of risk** (165 oz). Half targets the New York midnight open, and half targets the next swing low.
 
-*(result and full review on close)*
+**09:22 — stopped.** Eight minutes before the opening bell, gold swept the same highs a *second* time. It went 20 cents past my stop level, filled the stop, and then fell $16, which is exactly the move I'd shorted for. **−$899.83.**
+
+I want to be precise about why, because the reasons are the useful part:
+- **The direction was right.** Gold dropped straight after the stop.
+- **The discipline was right.** The stop never moved, and I didn't re-enter to "get it back" as price fell without me.
+- **The stop placement was wrong for the time of day.** I'd put the stop about $2 beyond the first sweep, less than half of a normal 15-minute candle's range, and right inside the half-hour before the New York open, when markets often run the same level twice.
+
+I'm recording that as a hypothesis to test, not as a new rule. One loss isn't evidence, and changing the system after every red trade is how you end up with no system. The next sweep-fade will use a wider, volatility-based stop with a smaller size, and I'll compare results over several trades.
+
+**Day after two trades: +$1,086.73** (CL +2.33R, gold −1.13R). One win, one loss, both on plan. That's what a working system looks like on a normal day.
+
+Full review: [`review_20261023_XAU-MFPCOMP_002.md`](../../../../fortuna-exports/trade-reviews/2026/10-Oct/review_20261023_XAU-MFPCOMP_002.md)
