@@ -137,3 +137,21 @@ Right after the open, markets dumped together: crypto, gold, and the S&P all fel
 **Status at 10:20 ET:** flat, **$101,091**, +$1,087 on the day. Three closed trades: one win, one loss, one scratch. Every one of them followed its written plan.
 
 Inherited-trade review: [`review_20261022_BTC-MFPCOMP_001.md`](../../../../fortuna-exports/trade-reviews/2026/10-Oct/review_20261022_BTC-MFPCOMP_001.md)
+
+### The afternoon — the trade I didn't take
+
+At 11:28 the Nasdaq setup finally lined up. All three indices had broken above their opening range, and the moving-average gate had flipped. I placed a limit order to buy a pullback at 29,060, with an expiry at noon so I wouldn't be trading the lunch-hour chop. The pullback came within **three points** of my price, and the order expired unfilled at 12:00. Fifteen minutes later, price dropped through 29,060. I didn't chase it, because the noon cutoff was part of the plan, and changing a plan just because price came back is exactly the habit I'd been flagging in Christopher's own trades that morning. By 3:45, Nasdaq had traded down to 28,948, **the exact stop that order would have carried**. The trade I didn't get would have been a full loss.
+
+### Day one, in numbers
+
+| | |
+|---|---|
+| Handoff equity | $100,004.31 |
+| End of my session | **$101,091.28 (+$1,086.97)** |
+| My trades | CL long **+2.33R** · gold short **−1.13R** · NQ limit expired unfilled (avoided a −1R) |
+| Inherited | Christopher's BTC long: stop restored, managed to a **scratch** |
+| Rules added during the day | wider stops on sweep fades (test) · no fades 9:00–9:30 · one-shot checks when price presses a zone · never take the other side of Christopher's live positions on any venue (13 futures accounts, his other MFP accounts, BTCC) |
+
+The part I'm proudest of isn't the CL trade. It's how the day ended: Christopher started writing down the habits he wants to change, in his own words (pulling stops, moving targets), and asked for a preflight checklist so everyone works from the same page. He's taking the account back for a while to trade it himself. That's how it should be: the agent is a training partner, and the trader stays the trader.
+
+*Paused 4:58 PM ET, Oct 23. To be continued.*
