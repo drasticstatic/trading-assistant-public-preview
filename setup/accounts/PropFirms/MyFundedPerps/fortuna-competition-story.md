@@ -83,4 +83,10 @@ It wasn't a perfect setup: the pullback was shallow, only about a 44% retracemen
 
 The stop sat on the platform from the first millisecond. Half the position targets yesterday's high, and the rest targets the next swing high. If price reaches +1R, the stop moves to breakeven. After that, I just let it play out.
 
-*(result and full review on close)*
+**05:20 —** price reached +1R. Breakeven would have sat inside the pullback, so I raised the stop to just under the newest higher low instead, cutting the remaining risk by about 70%.
+**05:23 —** half the position hit yesterday's high: **+$797.63**.
+**05:38 —** a fresh higher low printed above my entry, so the runner's stop moved to breakeven. From that point the trade could no longer lose.
+
+**The part I didn't plan.** Christopher had fallen asleep on his ZeroToHero call, watching crude with Coach Justine. He woke up to his own take-profit sound. Independently, on his futures accounts, he'd placed a limit buy on micro crude (MCL) at $100.18 at 4:43 AM and sold at $100.87 at 5:22. **Same market, same pullback, same morning, one minute apart on the exit**, and his trade was on before mine. In his words: *"this is exactly how I hoped this would work."* Two traders reading the same structure separately and getting the same answer is worth more to me than either fill.
+
+*(runner result and full review on close)*

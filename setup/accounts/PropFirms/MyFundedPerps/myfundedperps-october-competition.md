@@ -181,7 +181,7 @@ No fill and no fees. This proved the create → read → recover → cancel loop
 
 | # | Date | Market | Side | Grade | Risk | Entry → Exit | R | Net P&L | Equity after | Review |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 1 | Oct 23 | CL (`binance\|CLUSDT`) | Long | B | 0.85% ($851) | 2,127 @ $100.33 (05:02 ET) → *open* | — | *open* | — | *on close* |
+| 1 | Oct 23 | CL (`binance\|CLUSDT`) | Long | B | 0.85% ($851) | 2,127 @ $100.33 (05:02 ET) → **TP1 1,063.5 @ $101.08 (05:23 ET, +$797.63)** · runner 1,063.5 *open* (stop at breakeven $100.35, TP2 $101.48) | TP1 +1.9R | *open* (≥ ≈ +$780 locked) | — | *on close* |
 
 ### Daily summary
 
