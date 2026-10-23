@@ -127,12 +127,18 @@ Because ranking uses **absolute equity**, Whale starts with a $50K head start ov
 | Market (MFP id) | Chart feed | Bias | Armed setup | Invalidation / targets |
 |---|---|---|---|---|
 | ETH (`binance\|ETHUSDT`) | `ETH` | Bear (4H+1H stacks) | Short on a sweep of $2,416.6 into $2,420–2,424, then a 15m close back below $2,416 · Long on a sweep-and-reclaim of the $2,380 equal lows | Short stop above the sweep high · TP $2,380, then $2,359 |
+| **SOL** ⭐ (`binance\|SOLUSDT`, max 5×) | `SOL` | Bear (4H+1H stacks) | Short on a sweep of $104.80 into $104.90–105.20 (1H EMA50 plus week open), then a 15m close back below $104.80 · Long on a sweep-and-reclaim of the $102.98 PDL | Short stop above the sweep high · TP $103.80, then $102.98 · Long TP $104.21 midnight open. **ETH and SOL in the same direction count as one position**; take whichever triggers or grades better. |
 | BTC (`binance\|BTCUSDT`) | `BTC` | Range / bear lean | **Inherited long being managed** (stop $81,185, TPs $82,130 / $83,092.88). No BTC short: it would flip the long. | — |
 | Gold (`binance\|XAUUSDT`) | `xyz:GOLD` | Bear (all TFs) | Short on a sweep of the $4,034 equal highs (1H EMA20 ~$4,038), then a 15m close back below | Stop above the sweep high · TP $4,005, then the $3,989 PDL |
 | Crude (`binance\|CLUSDT`) + Brent SMT (`hyperliquid\|xyz:BRENTOIL`) | `xyz:CL`, `xyz:BRENTOIL` | Bull (all TFs) | Long on a pullback into ~$100.00–100.10 that holds the $99.89 higher low, with a bullish 15m reaction. A+ if Brent holds its own higher low ($109.03) while CL dips. | Stop under $99.70 · TP $100.95 PDH, then $101.35 |
 | Nasdaq-100 (`hyperliquid\|xyz:XYZ100`) + S&P (`hyperliquid\|xyz:SP500`) | same | Bear (4H+1H), overnight bullish SMT (NQ LL 28,855 vs ES HL 7,644) | **FCR at the NY open:** mark the 9:30–9:45 ET candle; trade displacement outside it, gated by the EMAs, with NQ↔ES SMT as the tiebreaker | Stop beyond the opposite side of the first candle (or the FVG) · TP = next liquidity |
 
-Not on the list: Dow (`ostium|DJI`) has a 23/5 session and the Friday 16:45 ET auto-close. Usable for an FCR confirmation read, not a weekend hold.
+Not on the list:
+- **Dow** (`ostium|DJI`) has a 23/5 session and the Friday 16:45 ET auto-close. Usable for an FCR confirmation read, not a weekend hold.
+- **Russell 2000 (RTY/M2K)** ⭐ isn't tradable. MFP has no Russell market, and Hyperliquid's `xyz` list has none either.
+  - It stays in the plan as the **third index for NQ/ES/RTY SMT**.
+  - Data feeds checked Oct 23: Tradovate MCP returns contract metadata only (bid/ask is WebSocket-only); Robinhood MCP (IWM bars) is logged out.
+  - Workable feeds: Christopher's TradingView Desktop via the TradingView MCP, or a Robinhood re-login for IWM 5-minute bars during regular hours.
 
 ---
 
