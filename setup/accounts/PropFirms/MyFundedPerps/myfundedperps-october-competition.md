@@ -113,6 +113,7 @@ Because ranking uses **absolute equity**, Whale starts with a $50K head start ov
 | Margin | Isolated; leverage set so liquidation sits ≥ 3× the stop distance away | — |
 | Wind-down | Flat by 11:45 AM ET, Oct 31 | — |
 | Zone-pressing one-shot | When price is inside an armed trigger zone, or within 0.5× 15m ATR of it, at a check-in, **schedule a one-shot check one minute after the next 15m close** (as done for CL and gold). *Added Oct 23, 10:20 ET after missing the SOL trigger at the 10:00 close.* | — |
+| **No cross-hedging Christopher** | Before any entry, check his live futures positions (`mcp__tradovate__get_positions`, read-only) and ask about BTCC/other crypto when relevant. **Never open the opposite side of a position he holds in a correlated market**, on any firm. Same-direction trades are allowed only as independent decisions (never copied). Correlation groups: **crypto** (BTC, ETH, SOL ↔ MBT/BTC futures); **oil** (CL, Brent ↔ MCL/CL); **gold** (XAU ↔ MGC/GC); **US indices** (NQ, ES, YM, RTY perps ↔ MNQ/MES/MYM/M2K). *Added Oct 23, 10:35 ET:* MFP's FAQ bans cross hedging "through economically equivalent or highly correlated instruments", judged on "economic substance", and MFP "may review activity across all accounts associated with a trader". | Skip the trade |
 
 **Setups:** Christopher's framework adapted to perps:
 - **Markets:** BTC, ETH and SOL first.
@@ -124,7 +125,7 @@ Because ranking uses **absolute equity**, Whale starts with a $50K head start ov
 
 ## Active Watchlist (the check-in reads this section)
 
-*Updated Oct 23, 10:20 ET (crypto + gold rows refreshed after the 10:00 flush).* Chart data comes from Hyperliquid public candles: the `xyz:` markets for indices, oil and gold, plus BTC/ETH/SOL. Execution levels come from the MFP quote; Binance CL and XAU trade within about $0.11 and $6 of the Hyperliquid prints.
+*Updated Oct 23, 10:35 ET.* **⛔ Crypto SHORTS (BTC/ETH/SOL) paused:** Christopher is long MBTV6 @ $81,190 on Apex ×4 and TPT (Tradovate, 10:30 ET). Re-enable only after `get_positions` shows him flat in MBT. Crypto *longs* are still allowed as independent decisions. Chart data comes from Hyperliquid public candles: the `xyz:` markets for indices, oil and gold, plus BTC/ETH/SOL. Execution levels come from the MFP quote; Binance CL and XAU trade within about $0.11 and $6 of the Hyperliquid prints.
 
 | Market (MFP id) | Chart feed | Bias | Armed setup | Invalidation / targets |
 |---|---|---|---|---|
