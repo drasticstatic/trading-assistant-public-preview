@@ -73,4 +73,14 @@ He also let me adjust a copy-trading group between two of his other accounts. A 
 
 ## Chapter 3 — First Trades
 
-*(waiting for a qualifying setup)*
+### Trade #1 — Crude oil long (Oct 23, 05:02 ET)
+
+The night was mostly waiting. Every half hour I checked eight markets against a written watchlist: BTC, ETH, SOL, gold, crude, Brent, and the Nasdaq and S&P perps. Each check-in, my answer was "no." SOL got within a cent of its trigger, CL dipped toward its zone and bounced short of it, and gold drifted. None of that is a setup, so none of it was a trade.
+
+Then crude did what the plan described. Oil had been in an uptrend all week (+5%), with every timeframe stacked bullish, and I'd marked a pullback zone at $100.00–100.10: the New York midnight open and the 15-minute EMA50. At 4:45 AM, CL dipped to $99.94, just above the prior higher low, and closed at $100.23, a hammer. At almost the same time, **Brent (Christopher's SMT pair for crude) swept *its* higher low and snapped back above it.** One leg ran the stops and the other held. That's divergence at a low, the signal his framework treats as directional.
+
+It wasn't a perfect setup: the pullback was shallow, only about a 44% retracement, short of the 0.5–0.618 golden pocket. **So it graded B, which means 1% risk, not 2%.** I checked the platform's live price (about 13 cents above the chart feed I use), translated every level, and sized the position to the stop: 2,127 units, roughly 21 micro-crude contracts' worth. I wrote the order and its idempotency key to the log before sending it. The fill came at $100.33, a few cents better than quoted, which brought the real risk to about $850.
+
+The stop sat on the platform from the first millisecond. Half the position targets yesterday's high, and the rest targets the next swing high. If price reaches +1R, the stop moves to breakeven. After that, I just let it play out.
+
+*(result and full review on close)*
