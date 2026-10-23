@@ -130,7 +130,7 @@ Because ranking uses **absolute equity**, Whale starts with a $50K head start ov
 | ETH (`binance\|ETHUSDT`) | `ETH` | Bear (4H+1H stacks) | Short on a sweep of $2,416.6 into $2,420–2,424, then a 15m close back below $2,416 · Long on a sweep-and-reclaim of the $2,380 equal lows | Short stop above the sweep high · TP $2,380, then $2,359 |
 | **SOL** ⭐ (`binance\|SOLUSDT`, max 5×) | `SOL` | Bear (4H+1H stacks) | Short on a sweep of $104.80 into $104.90–105.20 (1H EMA50 plus week open), then a 15m close back below $104.80 · Long on a sweep-and-reclaim of the $102.98 PDL | Short stop above the sweep high · TP $103.80, then $102.98 · Long TP $104.21 midnight open. **ETH and SOL in the same direction count as one position**; take whichever triggers or grades better. |
 | BTC (`binance\|BTCUSDT`) | `BTC` | Range / bear lean | **Inherited long being managed** (stop $81,185, TPs $82,130 / $83,092.88). No BTC short: it would flip the long. | — |
-| Gold (`binance\|XAUUSDT`) | `xyz:GOLD` | Bear (all TFs) | Short on a sweep of the $4,034 equal highs (1H EMA20 ~$4,038), then a 15m close back below | Stop above the sweep high · TP $4,005, then the $3,989 PDL |
+| Gold (`binance\|XAUUSDT`) | `xyz:GOLD` | Bear (all TFs) | **🟢 LIVE — trade #2 (Oct 23 09:01 ET):** short 165.289 @ $4,037.45 MFP. Trigger: the 08:45 15m swept the $4,034 equal highs (H 4,034.5) and closed back inside at 4,029.1, with bearish silver SMT (silver made lower highs). MFP runs ≈ +$5.75 over the `xyz:GOLD` print. | **MFP prices:** stop $4,042.25 · TP1 $4,023.75 × 82.644 · TP2 $4,010.75 × 82.645. **At +1R ($4,032.65 MFP), move the stop to breakeven-plus-fees (~$4,037.05), or just above the nearest lower high if breakeven would sit inside it.** |
 | Crude (`binance\|CLUSDT`) + Brent SMT (`hyperliquid\|xyz:BRENTOIL`) | `xyz:CL`, `xyz:BRENTOIL` | Bull (all TFs) | ✅ **Trade #1 closed +$1,986.56 (+2.33R), both targets filled.** No new CL setup armed: price is extended above the PDH ($100.95). Re-arm on the next pullback to the 15m EMA50 or the reclaimed PDH, with Brent SMT again. MFP runs ≈ +$0.06–0.16 over the `xyz:CL` print. | — |
 | Nasdaq-100 (`hyperliquid\|xyz:XYZ100`) + S&P (`hyperliquid\|xyz:SP500`) | same | Bear (4H+1H), overnight bullish SMT (NQ LL 28,855 vs ES HL 7,644) | **FCR at the NY open:** mark the 9:30–9:45 ET candle; trade displacement outside it, gated by the EMAs, with NQ↔ES SMT as the tiebreaker | Stop beyond the opposite side of the first candle (or the FVG) · TP = next liquidity |
 
@@ -182,6 +182,7 @@ No fill and no fees. This proved the create → read → recover → cancel loop
 | # | Date | Market | Side | Grade | Risk | Entry → Exit | R | Net P&L | Equity after | Review |
 |---|---|---|---|---|---|---|---|---|---|---|
 | 1 | Oct 23 | CL (`binance\|CLUSDT`) | Long | B | 0.85% ($851) | 2,127 @ $100.33 (05:02 ET) → TP1 1,063.5 @ $101.08 (05:23) · TP2 1,063.5 @ $101.47 (08:07) | **+2.33R** | **+$1,986.56** | $101,990.77 | [review](../../../../fortuna-exports/trade-reviews/2026/10-Oct/review_20261023_CL-MFPCOMP_001.md) |
+| 2 | Oct 23 | Gold (`binance\|XAUUSDT`) | Short | B | 0.78% ($793) | 165.289 @ $4,037.45 (09:01 ET) → *open* (stop $4,042.25 · TP1 $4,023.75 · TP2 $4,010.75) | — | *open* | — | *on close* |
 
 ### Daily summary
 

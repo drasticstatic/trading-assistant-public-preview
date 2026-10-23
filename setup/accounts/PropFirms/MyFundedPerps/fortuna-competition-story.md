@@ -102,3 +102,13 @@ The stop sat on the platform from the first millisecond. Half the position targe
 *"I was nervous for a minute but I watched it hit TP!"* — that was the whole trade, really. The plan decided the outcome, and both of us just watched it happen.
 
 Full review: [`review_20261023_CL-MFPCOMP_001.md`](../../../../fortuna-exports/trade-reviews/2026/10-Oct/review_20261023_CL-MFPCOMP_001.md)
+
+### Trade #2 — Gold short (Oct 23, 09:01 ET)
+
+Gold had spent the whole night creeping up toward a cluster of equal highs at $4,034. Equal highs are where buy-stops sit, and in a downtrend they're the liquidity that sellers reach for before the next leg lower. I'd armed the short hours earlier, but only for after those stops got taken.
+
+At 8:45 they were. Gold printed $4,034.5, tripping the stops, then closed the candle back at $4,029.1. Silver, gold's natural SMT partner, didn't go with it: its highs had been stepping *down* all morning. One metal reached for liquidity and the other refused. The trend gate passed (4H and 1H EMAs stacked bearish), but the pullback had only reached about 40% of the prior leg, short of the golden pocket. So, like the crude trade, it graded **B, 1% risk**.
+
+I wrote the confirmation rule (close below $4,033 after a high of at least $4,034) before the candle closed, then checked it at 9:01. It passed. The fill came at $4,037.45 on MFP, about a dollar better than quoted, for **$793 of risk** (165 oz). Half targets the New York midnight open, and half targets the next swing low.
+
+*(result and full review on close)*
