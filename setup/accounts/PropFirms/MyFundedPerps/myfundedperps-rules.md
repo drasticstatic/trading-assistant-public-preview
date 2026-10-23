@@ -1,7 +1,13 @@
 # MyFundedPerps — Rules Reference
 > Compiled from the official MyFundedPerps documentation ([docs.myfundedperpetuals.com](https://docs.myfundedperpetuals.com)) and Terms of Use ([myfundedperpetuals.com/terms](https://myfundedperpetuals.com/terms)).
 > MyFundedPerps (MFP) is the perpetual-futures division of the MyFundedFutures family: simulated perps on crypto, stocks, indices, FX and commodities, priced from real venue order books (Binance, Bybit, Hyperliquid, Veranta, Ostium).
-> **Status:** Christopher holds a free **October Competition** account (Classic $100K), traded by Fortuna via MCP. See [`myfundedperps-october-competition.md`](myfundedperps-october-competition.md). No purchased evaluations yet.
+> **Status (Oct 23, 2026):** Christopher holds three MFP accounts:
+> - a free **October Competition** account (Classic $100K), traded by Fortuna via MCP — see [`myfundedperps-october-competition.md`](myfundedperps-october-competition.md);
+> - a **1K Select** prize account;
+> - an **Elite 5K 3% DLL (80/20)** evaluation.
+>
+> A native copy group has the Elite 5K leading and the 1K Select following at a 100% balance-adjusted multiplier. No MyFundedFutures (futures) accounts yet.
+> The Elite purchase also unlocks the **API sandbox for 90 days** (free $100K test accounts).
 > Last updated: October 23, 2026 — the platform and its developer API are new (API in beta), so re-verify anything money-related against the live docs before acting.
 
 **Companion docs in this folder:**
@@ -25,7 +31,16 @@ Every sold challenge is a **1-Step evaluation**. No minimum trading days, no eva
 | Elite, 3% DLL | $5K / $10K / $25K / $50K | 10% | 3% | 5% | None |
 | Elite, No DLL | $5K / $10K / $25K / $50K | 10% | None | 5% | None |
 
-- **$1K and $2.5K Select** accounts are giveaway/promo prizes only (can't be bought). Select rules, 90/10 split, paid entirely as store credit.
+- **$1K and $2.5K Select** accounts are giveaway/promo prizes only (can't be bought). Select rules, 90/10 split, paid entirely as store credit:
+
+  | Rule | 1K Select | 2.5K Select |
+  |---|---|---|
+  | Max drawdown (3% static) | floor $970 — **$30 of room** | floor $2,425 — $75 of room |
+  | Daily loss (3%, on equity) | $30 | $75 |
+  | Profit target (9%) | $1,090 | $2,725 |
+  | Minimum payout | $30 | $50 |
+  | Payout form | Store credit only (expires 45 days) | Store credit only |
+  | News | Funded news restriction applies | Same |
 - **Daily loss reset:** midnight New York time (04:00 UTC in EDT, 05:00 UTC in EST). The new day's reference is equity *including* open P&L, taken after the midnight swap charge. A daily reset never reopens a failed account.
 - **Static drawdown** — the MLL floor is starting balance minus the allowance and **does not trail** intraday or end-of-day highs. This is the big structural difference from most CeFi futures firms (Apex/TPT-style trailing drawdown).
 - **Withdrawal lock (Select / Prime / Signature):** on the first withdrawal the MLL floor locks *permanently* to the starting balance. Before the lock, touching a floor breaches; after it, equity exactly at the floor is allowed. **Elite has no lock** — its floor stays at start − 5% for life.
@@ -77,8 +92,32 @@ A passed account that would exceed a funded limit goes to **Funding Review** ins
 Homepage sale prices with the current `PERPS` code on Oct 22: Elite 3% DLL $36 / $71 / $186 / $371 (~25% off). Select / Prime / Signature prices: check the [challenge selector](https://myfundedperpetuals.com/#pricing) — not published in the docs.
 
 - **`PERPS` code** — must be entered manually; larger discount on the first purchase. Percentage codes don't stack; an affiliate code gives whichever first-purchase discount is larger.
-- **⏰ Reduced Fees free launch week — Oct 21, 9 AM ET → Oct 28, 2026, 9 AM ET.** The Reduced Fees add-on (halves every commission and swap fee for the life of the account, *including the funded account issued after a pass*) is free at checkout on up to **3** Select/Prime/Signature accounts total. Not available on Elite. After the window it's a paid add-on.
-- **Second Chance offer** — submit proof of an account bought at another crypto/perps/CFD prop firm → one-time **35% off** your first MFP account. **One submission per MFP account, ever** (a rejected submission can't be retried). Evidence: purchase email, dashboard screenshot, or invoice (PNG/JPG/PDF, ≤5 files). Code expires **72 hours** after issue, doesn't stack. *Open question:* the page says "crypto, perpetuals, or CFD prop firm" — whether a futures prop firm (Apex/TPT/TopOne) qualifies is unconfirmed; ask MFP before using the one shot.
+- **⏰ Reduced Fees free launch week — Oct 21, 9 AM ET → Oct 28, 2026, 9 AM ET.** The Reduced Fees add-on (halves every commission and swap fee for the life of the account, *including the funded account issued after a pass*) is free at checkout on up to **3** Select/Prime/Signature accounts per customer. Not available on Elite. **After the window it costs +10% of the discounted challenge price ($10 minimum).**
+- **Second Chance offer** ([page](https://myfundedperpetuals.com/second-chance)) — submit proof of an account bought at another **crypto, perpetuals, or CFD** prop firm → one-time **35% off your *first* MFP account**. **One submission per MFP account, ever** (a rejected submission can't be retried). Evidence: purchase email, dashboard screenshot, or invoice (PNG/JPG/PDF, ≤5 files, no edited/AI images). Code expires **72 hours** after issue, doesn't stack. **Likely not usable for us:** (1) it's worded for the *first* MFP account, and Christopher already bought the Elite 5K; (2) our other prop firms are *futures* firms, not crypto/perps/CFD firms. Ask support before spending the one submission.
+- **Refunds:** within 48 hours of purchase only if the challenge has had **no activity at all** (no trades, positions, or even market-data access), minus a $25 fee.
+- **Store credit expires after 45 days** · **FP Points expire after 90 days**. Store-credit payouts get a +10% boost (except on the 1K/2.5K Select prize accounts, which are store-credit-only at 90%).
+
+---
+
+## Which Plan Fits Us? (Fortuna's analysis, Oct 23, 2026)
+
+**All four MFP plans use static drawdown.** Static vs trailing doesn't separate them. What does is the drawdown room relative to the target, what happens to the floor after the first payout, and fees on the markets we trade.
+
+| | Select | Prime | Signature | Elite |
+|---|---|---|---|---|
+| Target ÷ drawdown room | 9% / 3% = **3.0×** (hardest) | 12% / 5% = 2.4× | 10% / 6% = **1.67×** (easiest) | 10% / 5% = 2.0× |
+| Floor after first payout | Locks to starting balance | Locks | Locks | **Never moves** |
+| Payout cadence | 1 per NY day | 1/day | 1/day | **On demand** |
+| Index / gold / oil leverage | Standard | Standard | Standard | **40× / 20× / 10×** |
+| Commission on NAS100, SP500, Gold, WTI | 0.005% (0.0025% with Reduced Fees) | same | same | **0.001%** |
+| Crypto commission | 0.03% (**0.015% with Reduced Fees**) | same | same | 0.03% |
+| Sizes | 10K–100K | 10K–100K | 10K–100K | 5K–50K |
+
+**Read:**
+- **Elite fits a futures trader's playbook best.** Its MNQ/MES/MGC/MCL-equivalent markets are where its near-zero fees and higher leverage apply. Its floor never locks after a payout, so the cushion survives withdrawals; on Select/Prime/Signature, the first payout leaves only retained profit above the floor. Payouts are on demand. The 3% DLL option is cheaper and doubles as a tilt brake.
+- **Select is the tightest plan** — 3% room for a 9% target, and the 1K Select prize has only **$30** of room. The free Reduced Fees add-on mainly helps *crypto* traders, since index/commodity fees are already small. It isn't a strong reason to buy another Select.
+- **If a standard plan gets bought during the free Reduced Fees week (ends Oct 28, 9 AM ET), Signature is the better pick** — the most drawdown room per unit of target. Lifetime half-price crypto fees would then carry into its funded account.
+- **Copy-group caution (Elite 5K → 1K Select at 100%):** the follower mirrors the lead's percentage moves, but its limits are tighter. A **−3%** cumulative move fails the Select (3% max drawdown) while the Elite still has 2% of room; a single −3% day breaches both DLLs. On the way up, the Select passes first (+9% vs +10%), and a pass stops the group. Small sizes on a $1K account can also round to the market's size step, so the follower's fills may not scale cleanly.
 
 ---
 
@@ -174,8 +213,42 @@ Homepage sale prices with the current `PERPS` code on Oct 22: Elite 3% DLL $36 /
 - Wash trading, collusion, opposite-position schemes, artificial volume, or abusive concentration or sizing undertaken to exploit the simulated or payout environment.
 - Trading during a Platform-designated restricted news or event window in violation of the published policy.
 
+### FAQ additions ([myfundedperpetuals.com/faq](https://myfundedperpetuals.com/faq), fetched Oct 23, 2026)
+
+**"Is automated trading allowed?"** — *"Automated trading must use the documented MyFundedPerps API. You must not attempt to access or call the internal APIs used by the website … The use of automation does not exempt a trader from any trading rule. Any algorithm, bot, Expert Advisor, API strategy, script, **trading agent**, or other automated system that engages in prohibited activity remains prohibited."* MFP may add limits on automation that uses excessive infrastructure.
+
+**"Can someone else trade my account?"** — No. *"The individual who completes account registration and identity verification must be the person making the trading decisions and controlling the account."* This bars friends, family, mentors, signal providers, account managers, third-party traders, passing services, and selling or renting the account. Credentials, sessions, API keys and auth tokens must stay under the account holder's exclusive control. VPNs, proxies and remote desktops that disguise who or where the trader is aren't allowed.
+
+**Funded-stage news restriction** (all funded accounts, including the 1K/2.5K Select prizes; evaluations are unrestricted). For every high-impact red-folder event — FOMC, CPI, PPI, NFP, GDP, Retail Sales, employment, PCE, ECB/BOE/BOJ rate decisions — plus earnings on single-stock perps:
+
+| Window around release | Allowed |
+|---|---|
+| > 10 min before | Normal trading. Positions already open may be held through the release. |
+| 10 → 2 min before | **No new exposure** (no new positions, adds, or reversals) in the affected market |
+| 2 min before → 2 min after | **No manual trades of any kind** |
+
+**Named prohibited strategies (FAQ):**
+- Cross hedging across any accounts, including correlated-instrument hedges.
+- HFT.
+- Latency arbitrage.
+- Exploiting the price feed or execution.
+- Quote stuffing.
+- Spoofing and layering.
+- Wash trading.
+- Group hedging.
+- **Account cycling / sacrificial accounts.**
+- **Evaluation gambling** — repeatedly buying or resetting evaluations to place max-risk, all-or-nothing trades. *"We may review activity across all accounts associated with a trader."*
+- Risk-free exploitation.
+- Exploiting bugs or loopholes (report them instead).
+
+**Lifetime cap detail:** once combined payouts reach $100K you've "graduated" and can't buy new accounts. Existing funded accounts keep trading and paying out.
+
 **How this reads for us (Fortuna's interpretation — not legal advice, verify with MFP support before relying on it):**
-- **An AI agent trading the owner's own account through MFP's official MCP is the documented, intended use** — the MCP docs name Claude Code explicitly. The bot clause targets bots that overwhelm the platform, chase a latency edge, or evade controls, not automation itself.
+- **An AI agent trading the owner's own account through MFP's official MCP is the documented, intended use.**
+  - The MCP docs name Claude Code explicitly.
+  - The FAQ's automated-trading answer names "trading agent" as a permitted form of automation, provided it uses the documented API and stays clear of prohibited strategies.
+  - The bot clause targets bots that overwhelm the platform, chase a latency edge, or evade controls, not automation itself.
+- **The tension worth one support question:** the "someone else trade my account" answer says the verified individual must be *the person making the trading decisions*. It's written about other *people*, and Christopher configured, authorized and supervises this agent. Before running an agent autonomously on a **funded** account with payouts, get a one-line written confirmation from support. The competition account carries the least at stake.
 - **Do not share API keys** with anyone or any third-party service.
 - **TradeCopia, a vendor copier, or a signal service mirroring futures trades into MFP accounts sits close to the "external copy trading … third party" clause.** An in-house, same-owner copier is a grey area. Ask MFP support in writing before building or connecting one.
 - **News restriction:** only Sim Funded **Elite** has a high-impact news restriction; evaluations (and the competition) don't.
