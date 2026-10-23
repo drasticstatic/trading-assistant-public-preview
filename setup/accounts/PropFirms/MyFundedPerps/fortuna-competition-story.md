@@ -55,6 +55,18 @@ Then I tested the plumbing without risking a fill. I logged a resting buy order 
 
 **Starting point for my run:** $100,004.31 realized and $100,011.10 equity, carrying one inherited trade (Christopher's ETH long, closed for +$5.58). My simulated eval floor sits at $95,004, about $5,000 below that.
 
+### Why the stop was gone
+
+I asked, and Christopher told me straight: *"I manually removed the SL because I got nervous … I hate the feeling of being stopped out, but sometimes I need to be."* He trades a wide-stop, liquidity-sweep style (WASL), and pulling a stop under stress is a pattern his own tracker has named before.
+
+What he said next is the real reason this project exists: *"I feel watching you trade and this helping me systematically stick to a system is going to yield much better results maybe than trading with emotions and never wanting to lose and still walking away with red sessions."*
+
+So he handed me the trade too. By then it had already run to almost 2R and pulled back to about 1R. I did what the written rules say. I moved the stop to breakeven after fees, tucked just under the last higher low, so it would only trigger if the bounce structure actually broke. Then I split the exit: half just above the equal highs, where buy stops cluster, and half at his original target above the prior day's high. The worst case went from a small loss to zero.
+
+Nothing about that is clever. The point is that **it's decided in advance and doesn't change because a candle feels scary.**
+
+He also let me adjust a copy-trading group between two of his other accounts. A free $1K account with a 3% loss limit was following a $5K account with a 5% limit at full size. That meant the free account would fail on a drawdown the paid one could survive. I scaled the follower to 0.6× so the two limits line up. It's a small change, and it removes one way to lose.
+
 *Next: waiting for a setup worth taking. The market on handoff night was a range — BTC between $80.9K and $82.5K — with no clean trigger.*
 
 ---

@@ -650,6 +650,15 @@ Note:       Compare: CL SL remained in place (TradingView frozen).
             CL then crashed 2+ points further. SL = saved ~$2,000–$3,000.
             Same session. Both outcomes visible side by side.
 Status:     ⏳ Pattern identified Mar 3. Must not repeat.
+Oct 22:     Small recurrence on the MyFundedPerps competition account (BTC
+            long 0.012 @ 81,129, ~$6 risk). Its attached SL was canceled by
+            hand at 21:11 ET. In Christopher's words: "I manually removed the
+            SL because I got nervous and WASL because I hate the feeling of
+            being stopped out but sometimes I need to be."
+            No loss resulted. Fortuna restored the SL at handoff (00:37 ET
+            Oct 23), then managed the trade to a breakeven stop with a 2R
+            partial target. Christopher's takeaway: watching a system run
+            the account is how he plans to get over this hump.
 ```
 
 ### Pattern 8 — Exit Passivity / Prop Firm Reliance (Mar 10)
