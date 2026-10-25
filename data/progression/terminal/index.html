@@ -184,6 +184,14 @@
 
     footer { margin-top: 2.5rem; border-top: 1px solid var(--line); padding-top: 1.1rem; font-size: .7rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; justify-content: space-between; }
     .empty { padding: 1rem; color: var(--muted); font-size: .74rem; text-align: center; }
+    .st-find { padding: .8rem .9rem .4rem; font-size: clamp(.9rem, 1.3vw, 1.05rem); line-height: 1.45; color: #fff; font-weight: 500; }
+    .st-find b { color: #c7d2fe; font-family: var(--mono); font-weight: 600; }
+    .st-note { padding: 0 .9rem .6rem; font-size: .7rem; color: var(--muted); line-height: 1.5; }
+    .st-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .5rem; padding: .3rem .9rem .8rem; }
+    .st { border: 1px solid var(--line); border-radius: var(--r); padding: .5rem .6rem; font-size: .68rem; color: var(--muted); }
+    .st b { display: block; color: #fff; font-size: .76rem; margin-bottom: .2rem; }
+    .st .bar { height: 4px; border-radius: 999px; background: rgba(255,255,255,.07); margin: .3rem 0; position: relative; }
+    .st .bar i { position: absolute; top: 0; bottom: 0; border-radius: 999px; }
     /* alerts */
     .al { display: grid; grid-template-columns: 8px 1fr; gap: .6rem; padding: .55rem .9rem; border-bottom: 1px solid var(--line); font-size: .74rem; align-items: start; }
     .al:last-child { border-bottom: none; }
@@ -252,6 +260,7 @@
         </section>
         <section class="panel" id="zones"><div class="ph"><i class="ph-duotone ph-crosshair"></i> Zones radar <span class="sub">live price against every armed zone, in MFP terms</span></div><div id="zr"></div></section>
         <section class="panel" id="scanner"><div class="ph"><i class="ph-duotone ph-scan"></i> Scanner <span class="sub" id="scan-sub">mechanical read: sweeps · reclaims · SMT · sessions</span></div><div id="scan-body"></div></section>
+        <section class="panel" id="study"><div class="ph"><i class="ph-duotone ph-flask"></i> Edge study <span class="sub" id="study-sub">does the sweep-and-reclaim trigger pay, mechanically?</span></div><div id="study-body"></div></section>
         <section class="panel" id="watchlist"><div class="ph"><i class="ph-duotone ph-binoculars"></i> Watchlist <span class="sub">the setups each check-in reads</span></div><div class="tbl" id="wl"></div></section>
         <section class="panel" id="preflight"><div class="ph"><i class="ph-duotone ph-airplane-takeoff"></i> Perps Preflight <span class="sub">the agent's list, before every order</span><span class="sp"></span><span class="sub" id="pf-count"></span><button class="btn" id="pf-reset" type="button">reset</button></div><div class="pf" id="pf"></div></section>
       </div>
@@ -530,12 +539,27 @@
     [eq, risk, lev, en, st].forEach(i => i.addEventListener('input', calc)); acct.addEventListener('change', fill); fill();
   }
 
+
+  /* ── edge study (study.json from study.py) ── */
+  async function renderStudy() {
+    let T = null; try { T = await loadJSON('data/study.json'); } catch (e) {}
+    if (!T) { $('#study-body').innerHTML = '<div class="empty">No study published yet.</div>'; return; }
+    const o = T.overall; const f = (x) => x && x.n ? `${x.expectancy > 0 ? '+' : ''}${x.expectancy.toFixed(2)}R` : '—';
+    const bh = o.by_stop['1.0'], bht = o.by_stop['0.25'], rf = o.range_first_with ? o.range_first_with['0.25'] : null;
+    $('#study-sub').textContent = `${T.days} days of 1H candles · ${bh.n * 3} simulated trades · ${fmtET(T.asof, {hour: undefined, minute: undefined})}`;
+    const find = `Taken on <b>every</b> prior-day sweep, the reclaim trigger has no edge: <b>${f(bh)}</b> per trade with the 1× ATR stop (win rate ${(bh.win_rate * 100).toFixed(0)}%), <b>${f(bht)}</b> with the tight ¼ ATR stop. The best mechanical pocket, first sweep of the day with the trend and a target at the opposite day level, is only <b>${f(rf)}</b> (n ${rf ? rf.n : 0}). The edge, if there is one, lives in what the trigger does not see: higher-timeframe liquidity, displacement, the calendar.`;
+    const mk = Object.entries(T.markets).map(([name, m]) => { const best = Object.entries({...Object.fromEntries(Object.entries(m.by_stop).map(([k, v]) => ['base-hit · ' + k + '× ATR', v])), ...Object.fromEntries(Object.entries(m.range_first || {}).map(([k, v]) => ['range · first · ' + k + '× ATR', v]))}).filter(([, v]) => v.n >= 20).sort((a, b) => b[1].expectancy - a[1].expectancy)[0];
+      const e = best ? best[1].expectancy : 0; const w = Math.min(100, Math.abs(e) / 0.5 * 50);
+      return `<div class="st"><b>${esc(name)}</b>base-hit 1× ATR: <span class="${cls(m.by_stop['1.0'].expectancy)}">${f(m.by_stop['1.0'])}</span> · n ${m.by_stop['1.0'].n}<div class="bar"><i style="${e >= 0 ? 'left:50%' : 'right:50%'};width:${w}%;background:${e >= 0 ? 'var(--green)' : 'var(--red)'}"></i></div>best variant: ${best ? esc(best[0]) + ' <span class="' + cls(e) + '">' + f(best[1]) + '</span> (n ' + best[1].n + ')' : '—'}</div>`; }).join('');
+    $('#study-body').innerHTML = `<div class="st-find">${find}</div><div class="st-note">${esc(T.rule)}. Conservative: a candle touching both stop and target counts as a stop. Pockets under n ≈ 60 are noise until proven otherwise. This is why Fortuna grades setups instead of auto-firing them; the study reruns as the sample grows.</div><div class="st-grid">${mk}</div>`;
+  }
+
   function renderLive() { renderTape(); renderPositions(); renderZones(); renderPulse(); renderAlerts(); }
   (async () => {
     try { [S, L] = await Promise.all([loadJSON('data/state.json'), loadJSON('data/levels.json')]); G = await loadJSON('data/signals.json').catch(() => null); }
     catch (e) { $('#take .lead').textContent = 'Could not load the terminal data (' + e.message + '). Open this page from the published site, not from a local file.'; return; }
     renderClock(); setInterval(renderClock, 1000); renderHeader(); setInterval(renderHeader, 60000);
-    renderTake(); renderAccounts(); renderFeed(); renderWatchlist(); renderPreflight(); renderLedger(); renderLanes(); renderWhere(); renderScanner(); renderSizer(); setupNotify();
+    renderTake(); renderAccounts(); renderFeed(); renderWatchlist(); renderPreflight(); renderLedger(); renderLanes(); renderWhere(); renderScanner(); try { renderSizer(); } catch (e) { console.error(e); } setupNotify(); renderStudy().catch(console.error);
     const first = S.watchlist.find(w => w.status === 'armed' || w.status === 'watch'); cur.market = first ? first.market : L.levels[0].market;
     await fetchMids(); renderLive(); loadCandles();
     $('#iv-ctl').querySelectorAll('.btn').forEach(b => b.addEventListener('click', () => { const on = $('#iv-ctl .on'); if (on) on.classList.remove('on'); b.classList.add('on'); cur.iv = b.dataset.iv; loadCandles(); }));
