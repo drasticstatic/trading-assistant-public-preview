@@ -1,9 +1,9 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-25T14:55-04:00",
+ "generated": "2026-10-25T15:54-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
-  "scope": "Live operations surface for Fortuna's perpetual-futures work on MyFundedPerps, plus the cross-venue position co-pilot and the tandem DEX-arbitrage lane. Data is republished from Fortuna's session at every check-in; prices update live from Hyperliquid's public API in your browser.",
+  "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
   "cadence": "Weekend swing cadence: a check-in every 2 hours, plus one-shot checks one minute after a candle close when price presses an armed zone. Weekday cadence: every 30 minutes."
  },
  "offsets": {
@@ -19,7 +19,9 @@
   "elite_doc": "https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/MyFundedPerps/myfundedperps-elite-5k-program.md",
   "rules_doc": "https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/setup/accounts/PropFirms/MyFundedPerps/myfundedperps-rules.md",
   "reviews": "https://github.com/drasticstatic/trading-assistant-public-preview/blob/main/fortuna-exports/trade-reviews/2026/10-Oct/",
-  "repo": "https://github.com/drasticstatic/trading-assistant-public-preview"
+  "repo": "https://github.com/drasticstatic/trading-assistant-public-preview",
+  "futures_gallery": "../gallery.html",
+  "copy_trading": "../../../setup/copy-trading.html"
  },
  "accounts": [
   {
@@ -127,9 +129,10 @@
    "tp": 111.1,
    "liq": 96.92,
    "live": false,
-   "public": false,
-   "note": "As reported Oct 25 08:35 ET. Market take-profit only, no stop. Read-only: Fortuna alerts, never executes here.",
-   "asof": "2026-10-25T14:31-04:00"
+   "public": true,
+   "note": "Market take-profit at 111.10, no stop. Read-only: Fortuna alerts, never executes here.",
+   "asof": "2026-10-25T14:31-04:00",
+   "plan": "Christopher (Oct 25): aiming for the prior-day highs; unsure of the weekend tape (exchange maintenance, macro) and willing to step aside if the market displaces down for liquidity."
   },
   {
    "owner": "Christopher",
@@ -145,7 +148,8 @@
    "live": true,
    "public": true,
    "note": "Cross margin 3×. Resting take-profit, no stop. Christopher's trade; Fortuna does not touch it.",
-   "asof": "2026-10-25T14:31-04:00"
+   "asof": "2026-10-25T14:31-04:00",
+   "plan": "Resting take-profit at 104.38. Christopher's trade; same PDH intent as the BTCC long."
   },
   {
    "owner": "Christopher",
@@ -161,7 +165,8 @@
    "live": true,
    "public": true,
    "note": "Copy follower of the Elite position.",
-   "asof": "2026-10-25T14:31-04:00"
+   "asof": "2026-10-25T14:31-04:00",
+   "plan": "Mirrors the Elite exit at 0.6×."
   }
  ],
  "watchlist": [
@@ -479,5 +484,85 @@
    "repo": "https://github.com/drasticstatic/trading-bot-arbitrage-public",
    "asof": "2026-10-25T14:31-04:00"
   }
+ ],
+ "futures": {
+  "asof": "2026-10-25T15:40-04:00",
+  "source": "Tradovate (read-only MCP, 6 firms / 13 accounts)",
+  "trader": "Christopher via TradeCopia",
+  "firms": [
+   {
+    "firm": "Apex",
+    "accounts": 4,
+    "open": 0
+   },
+   {
+    "firm": "TakeProfitTrader",
+    "accounts": 1,
+    "open": 0
+   },
+   {
+    "firm": "TopOneFutures",
+    "accounts": 4,
+    "open": 0
+   },
+   {
+    "firm": "Lucid",
+    "accounts": 1,
+    "open": 0
+   },
+   {
+    "firm": "LegendsTrading",
+    "accounts": 2,
+    "open": 0
+   },
+   {
+    "firm": "IQ Capital",
+    "accounts": 1,
+    "open": 0
+   }
+  ],
+  "positions": [],
+  "note": "Flat across every firm this weekend (CME closed until Sunday 18:00 ET). Fortuna reads these to enforce the no-cross-hedge rule; execution stays Christopher's."
+ },
+ "equities": {
+  "asof": "2026-10-25T15:40-04:00",
+  "venue": "Robinhood",
+  "equity": 543.66,
+  "prev_close": 548.69,
+  "holdings": 45,
+  "top": [
+   {
+    "sym": "JCI",
+    "equity": 72.53,
+    "pct": 129.9
+   },
+   {
+    "sym": "KMT",
+    "equity": 69.42,
+    "pct": -13.8
+   },
+   {
+    "sym": "MIELY",
+    "equity": 60.51,
+    "pct": 91.9
+   },
+   {
+    "sym": "SPOT",
+    "equity": 58.34,
+    "pct": 87.3
+   },
+   {
+    "sym": "MPWR",
+    "equity": 57.16,
+    "pct": 206.5
+   }
+  ],
+  "note": "A legacy portfolio from 2021, kept as part of the journey. Read-only."
+ },
+ "next_up": [
+  "Acorns Invest / IRA",
+  "Telegram (Lighter perps)",
+  "DEX-arb study stats (results only, never the bot's method)",
+  "Coach-session notes (far out)"
  ]
 }
