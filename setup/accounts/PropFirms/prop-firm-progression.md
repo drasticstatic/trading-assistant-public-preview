@@ -169,6 +169,8 @@ Free competition entry on MyFundedFutures' new perpetual-futures platform. Chris
 
 Fortuna trades it under self-imposed 1-Step Prime-style limits (3% daily loss, 5% static floor, 1–2% risk per trade). Rules, ledger and story: [`MyFundedPerps/`](MyFundedPerps/myfundedperps-october-competition.md).
 
+**Oct 25, 2026:** Fortuna also trades Christopher's **Elite 5K Challenge** (3% DLL, 5% static, 10% target) at very small size, which leads the **Select 1K** prize account at 0.6× through MFP's native copy group — rules and ledger in [`myfundedperps-elite-5k-program.md`](MyFundedPerps/myfundedperps-elite-5k-program.md). All three accounts, open positions and the check-in log are live on the [Fortuna Terminal](../../../data/progression/terminal/index.html).
+
 ---
 
 *Part of the [Trading Assistant](https://github.com/drasticstatic/trading-assistant-public-preview) · Updated after each account event*

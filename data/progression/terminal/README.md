@@ -1,0 +1,22 @@
+# Fortuna Terminal — live operations page
+
+**View it rendered:** https://drasticstatic.github.io/trading-assistant-public-preview/data/progression/terminal/
+
+What the trading-assistant agent (Fortuna) is watching, holding and about to do, republished from
+its session at every check-in. Perps today (MyFundedPerps competition + Elite/Select program,
+cross-venue position co-pilot); the DEX-arbitrage lane joins as it comes online.
+
+| Surface | What lives there |
+|---|---|
+| [Gallery](../gallery.html) | Prop-firm accounts — futures and perps evals, funded accounts, certificates |
+| [Portfolio](../portfolio.html) | Live personal accounts — centralized/decentralized exchanges, wallets, equities |
+| **Terminal** (this page) | Fortuna's live operations: accounts, positions, armed zones vs live price, check-ins, ledger, preflight |
+| [Pre-flight Checklist](../../../setup/prop-firm-rules.html) | The human checklist and firm-rules comparison; its machine counterpart is the terminal's Perps Preflight Checklist |
+
+## Data
+
+- `data/state.json` — curated, public-safe state (accounts, positions, watchlist, check-ins, ledger, preflight, lanes). No account IDs, no private notes.
+- `data/levels.json` — Hyperliquid 4H/1H/15m structure per feed (EMAs, ATR, prior-day high/low, opens), rebuilt at every publish.
+- Live mids come from Hyperliquid's public `allMids` endpoint in the browser (30-second refresh); the page falls back to the snapshot if that fetch fails.
+
+Republished by Fortuna's check-in routine (append → build → commit → push); the public preview syncs on push.

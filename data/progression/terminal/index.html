@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fortuna Terminal — Perps</title>
+  <meta name="description" content="Live operations surface for Fortuna, the trading-assistant agent: MyFundedPerps accounts, cross-venue positions, armed zones against live prices, check-in log, trade ledger and the Perps Preflight Checklist.">
+  <link rel="icon" href="../../../setup/assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../../setup/assets/favicon.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="../../../setup/assets/favicon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/duotone/style.css">
+  <style>
+    :root {
+      --bg-base:  #080c18;
+      --surface:  rgba(255,255,255,0.04);
+      --surface-soft: rgba(255,255,255,0.025);
+      --surface-raised: rgba(255,255,255,0.065);
+      --border:   rgba(255,255,255,0.09);
+      --text:     #dce6f4;
+      --muted:    #8899b0;
+      --dim:      rgba(255,255,255,0.28);
+      --blue:     #7ec8ff;
+      --purple:   #a78bfa;
+      --indigo:   #818cf8;
+      --cyan:     #67e8f9;
+      --green:    #4ade80;
+      --red:      #f87171;
+      --gold:     #fbbf24;
+      --radius-xl: 22px;
+      --radius-lg: 16px;
+      --radius-md: 10px;
+      --shadow-md: 0 8px 32px rgba(0,0,0,0.4);
+      --glass: rgba(255,255,255,0.045);
+      --glass-border: rgba(255,255,255,0.12);
+      --spring: cubic-bezier(.34, 1.56, .64, 1);
+      --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+    }
+    .ph-duotone { font-size: 1.5em; vertical-align: -.25em; display: inline-block; flex-shrink: 0; }
+    .ph-duotone::before { opacity: .55 !important; }
+    .bg-parallax {
+      position: fixed; inset: -10vh -10vw; z-index: -1; pointer-events: none;
+      background:
+        radial-gradient(ellipse at 10% 5%, rgba(139,92,246,0.22) 0%, transparent 40%),
+        radial-gradient(ellipse at 85% 10%, rgba(56,189,248,0.18) 0%, transparent 35%),
+        radial-gradient(ellipse at 50% 85%, rgba(74,222,128,0.12) 0%, transparent 45%);
+      animation: bgBreathe 22s ease-in-out infinite;
+    }
+    @keyframes bgBreathe { 0%,100% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(-2.5%,1.5%,0) scale(1.06); } }
+    [id] { scroll-margin-top: 76px; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg-base); color: var(--text); min-height: 100vh; font-size: 14px; line-height: 1.6;
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { color: var(--cyan); }
+    .num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+
+    /* ── NAV (shared with the Gallery / Portfolio pages) ── */
+    .nav { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; padding: .65rem 1.5rem; background: rgba(8,12,24,0.8); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .nav-brand { font-size: .82rem; font-weight: 700; letter-spacing: .02em; background: linear-gradient(90deg, var(--purple), var(--blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-right: .4rem; }
+    .nav-tag { padding: .22rem .7rem; border: 1px solid var(--border); border-radius: 999px; font-size: .76rem; color: var(--muted); transition: border-color .15s, color .15s, transform .15s var(--spring); display: inline-flex; align-items: center; gap: .3rem; }
+    .nav-tag:hover { border-color: var(--purple); color: var(--text); transform: translateY(-1px); }
+    .nav-hamburger { display: none; }
+    .nav-links { display: contents; }
+    .nav-space { flex: 1; }
+    @media (max-width: 720px) {
+      .nav { position: relative; }
+      .nav-brand { flex: 1; margin-right: 0; }
+      .nav-hamburger { display: inline-flex; align-items: center; justify-content: center; background: none; border: 1px solid var(--border); border-radius: 8px; width: 2.2rem; height: 2.2rem; color: var(--text); font-size: 1.2rem; cursor: pointer; flex-shrink: 0; }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: .5rem; padding: .8rem 1.5rem 1.1rem; background: var(--bg-base); border-bottom: 1px solid var(--border); box-shadow: var(--shadow-md); z-index: 9; }
+      .nav.nav-open .nav-links { display: flex; }
+      .nav-links .nav-tag { width: 100%; }
+      .nav-space { display: none; }
+    }
+
+    .content { max-width: 1240px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+    @media (max-width: 720px) { .content { padding: 1.4rem 1rem 4rem; } }
+
+    /* ── HEADER ── */
+    .header-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; }
+    .header-title { font-size: clamp(1.6rem, 3.6vw, 2.3rem); font-weight: 800; letter-spacing: -.03em; margin-bottom: .4rem; color: #fff; }
+    .header-title span { background: linear-gradient(120deg, var(--gold), var(--green)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .header-sub { font-size: .88rem; color: var(--muted); max-width: 70ch; }
+    .status-row { display: flex; gap: .5rem; flex-wrap: wrap; margin: 1rem 0 1.4rem; align-items: center; }
+    @keyframes riseIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-in { animation: riseIn .6s var(--spring) both; }
+    .hero-in.d1 { animation-delay: .05s; } .hero-in.d2 { animation-delay: .14s; } .hero-in.d3 { animation-delay: .22s; }
+
+    .pill { display: inline-flex; align-items: center; gap: .35rem; padding: .2rem .65rem; border-radius: 999px; font-size: .72rem; font-weight: 700; border: 1px solid var(--border); color: var(--muted); background: var(--surface); white-space: nowrap; }
+    .pill .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; box-shadow: 0 0 8px currentColor; }
+    .pill.ok   { color: var(--green); border-color: rgba(74,222,128,.3); background: rgba(74,222,128,.08); }
+    .pill.warn { color: var(--gold);  border-color: rgba(251,191,36,.3);  background: rgba(251,191,36,.08); }
+    .pill.bad  { color: var(--red);   border-color: rgba(248,113,113,.3); background: rgba(248,113,113,.08); }
+    .pill.info { color: var(--indigo); border-color: rgba(129,140,248,.35); background: rgba(129,140,248,.08); }
+    .pill.live .dot { animation: pulse 1.6s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+
+    /* ── Takeaway (the one sentence that matters) ── */
+    .takeaway { background: linear-gradient(135deg, rgba(129,140,248,.10), rgba(167,139,250,.04)); border: 1px solid rgba(129,140,248,.22); border-radius: var(--radius-lg); padding: 1.1rem 1.3rem; margin-bottom: 1.6rem; }
+    .takeaway .lead { font-size: clamp(1.02rem, 1.6vw, 1.22rem); line-height: 1.45; color: #fff; font-weight: 500; }
+    .takeaway .meta { font-size: .74rem; color: var(--muted); margin-top: .5rem; display: flex; gap: .8rem; flex-wrap: wrap; }
+
+    /* ── Sections ── */
+    .sec-label { font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; color: var(--purple); margin: 2.2rem 0 .9rem; display: flex; align-items: center; gap: .6rem; }
+    .sec-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+    .sec-label .sec-tag { font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--dim); font-size: .85em; }
+    .sec-sub { font-size: .82rem; color: var(--muted); margin: -.4rem 0 .9rem; max-width: 90ch; }
+
+    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .card { background: var(--glass); backdrop-filter: blur(16px) saturate(150%); -webkit-backdrop-filter: blur(16px) saturate(150%); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: 1rem 1.1rem; transition: border-color .2s, transform .35s var(--spring); }
+    .card:hover { border-color: rgba(167,139,250,.45); transform: translateY(-2px); }
+    .card h3 { font-size: .92rem; font-weight: 700; color: #fff; display: flex; align-items: center; gap: .45rem; margin-bottom: .2rem; }
+    .card .sub { font-size: .74rem; color: var(--muted); }
+    .card .big { font-size: 1.65rem; font-weight: 800; letter-spacing: -.02em; color: #fff; margin: .55rem 0 .1rem; }
+    .delta { font-size: .8rem; font-weight: 700; }
+    .pos { color: var(--green); } .neg { color: var(--red); } .flat { color: var(--muted); }
+
+    .where { display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .where a.card { display: block; color: inherit; padding: .9rem 1rem; }
+    .where .k { font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); display: flex; gap: .4rem; align-items: center; }
+    .where .k.here { color: var(--green); }
+    .where p { font-size: .78rem; color: var(--muted); margin-top: .35rem; line-height: 1.5; }
+
+    .meter { height: 7px; border-radius: 999px; background: rgba(255,255,255,.07); overflow: hidden; margin-top: .3rem; }
+    .meter > i { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--green), var(--cyan)); transition: width .6s ease; }
+    .meter.warn > i { background: linear-gradient(90deg, var(--gold), var(--red)); }
+    .meter.bad > i { background: var(--red); }
+    .kv { display: flex; justify-content: space-between; gap: .6rem; font-size: .76rem; color: var(--muted); margin-top: .6rem; }
+    .kv b { color: var(--text); font-weight: 600; }
+    .rule { font-size: .74rem; color: var(--muted); border-top: 1px solid var(--border); margin-top: .8rem; padding-top: .7rem; line-height: 1.5; }
+    .rule b { color: var(--text); }
+
+    /* ── Tables ── */
+    .tbl-wrap { overflow-x: auto; border: 1px solid var(--glass-border); border-radius: var(--radius-lg); background: var(--glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    table { width: 100%; border-collapse: collapse; font-size: .8rem; }
+    th { text-align: left; font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding: .7rem .8rem; border-bottom: 1px solid var(--border); white-space: nowrap; font-weight: 700; }
+    td { padding: .6rem .8rem; border-bottom: 1px solid rgba(255,255,255,.05); vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    tr.inside td:first-child { box-shadow: inset 3px 0 0 var(--gold); }
+    tr.critical td:first-child { box-shadow: inset 3px 0 0 var(--red); }
+    tr.caution td:first-child { box-shadow: inset 3px 0 0 var(--gold); }
+    td.note { color: var(--muted); font-size: .76rem; max-width: 46ch; }
+    .side-long { color: var(--green); font-weight: 700; } .side-short { color: var(--red); font-weight: 700; }
+    .tag { display: inline-block; padding: .08rem .5rem; border-radius: 999px; font-size: .66rem; font-weight: 700; border: 1px solid var(--border); color: var(--muted); white-space: nowrap; }
+    .tag.armed { color: var(--green); border-color: rgba(74,222,128,.35); }
+    .tag.watch { color: var(--gold); border-color: rgba(251,191,36,.35); }
+    .tag.paused, .tag.wait { color: var(--muted); }
+    .tag.triggered { color: var(--cyan); border-color: rgba(103,232,249,.4); }
+    .tag.comp { color: var(--purple); border-color: rgba(167,139,250,.4); }
+    .tag.elite5k { color: var(--blue); border-color: rgba(126,200,255,.4); }
+    .tag.select1k { color: var(--cyan); border-color: rgba(103,232,249,.35); }
+    .tag.btcc { color: var(--gold); border-color: rgba(251,191,36,.35); }
+    .empty { padding: 1.2rem; color: var(--muted); font-size: .8rem; text-align: center; }
+
+    /* ── Chart ── */
+    .chart { background: var(--glass); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: 1rem 1rem .6rem; }
+    .chart svg { width: 100%; height: 220px; display: block; overflow: visible; }
+    .chart .axis text { fill: var(--muted); font-size: 10px; font-family: var(--mono); }
+    .chart .axis line, .chart .axis path { stroke: rgba(255,255,255,.08); }
+    .chart .legend { display: flex; gap: 1rem; font-size: .72rem; color: var(--muted); margin-top: .5rem; flex-wrap: wrap; }
+    .chart .legend i { display: inline-block; width: 14px; height: 2px; vertical-align: middle; margin-right: .35rem; background: var(--indigo); }
+    .chart .legend i.dash { background: repeating-linear-gradient(90deg, var(--gold) 0 4px, transparent 4px 7px); }
+    .tip { position: fixed; pointer-events: none; background: rgba(8,12,24,.95); border: 1px solid var(--glass-border); border-radius: 8px; padding: .4rem .6rem; font-size: .72rem; color: var(--text); display: none; z-index: 50; white-space: nowrap; }
+
+    /* ── Preflight ── */
+    .pf { display: grid; gap: .6rem; }
+    .pf label { display: grid; grid-template-columns: 1.4rem 1fr; gap: .7rem; align-items: start; background: var(--glass); border: 1px solid var(--glass-border); border-radius: var(--radius-md); padding: .75rem .9rem; cursor: pointer; transition: border-color .15s; }
+    .pf label:hover { border-color: rgba(167,139,250,.45); }
+    .pf label.done { border-color: rgba(74,222,128,.35); background: rgba(74,222,128,.05); }
+    .pf input { width: 1.1rem; height: 1.1rem; margin-top: .15rem; accent-color: var(--green); }
+    .pf .t { font-size: .84rem; color: var(--text); }
+    .pf label.done .t { color: var(--muted); text-decoration: line-through; text-decoration-color: rgba(74,222,128,.5); }
+    .pf .w { font-size: .72rem; color: var(--dim); margin-top: .2rem; }
+    .pf-head { display: flex; justify-content: space-between; align-items: center; gap: .8rem; flex-wrap: wrap; margin-bottom: .7rem; font-size: .8rem; color: var(--muted); }
+    .btn { background: none; border: 1px solid var(--border); border-radius: 999px; color: var(--muted); font-size: .72rem; padding: .22rem .7rem; cursor: pointer; }
+    .btn:hover { border-color: var(--purple); color: var(--text); }
+
+    /* ── Check-in log ── */
+    .log { display: grid; gap: .5rem; }
+    .log .row { display: grid; grid-template-columns: 7.2rem 1fr auto; gap: .8rem; align-items: start; background: var(--glass); border: 1px solid var(--glass-border); border-radius: var(--radius-md); padding: .65rem .9rem; font-size: .8rem; }
+    .log .when { color: var(--muted); font-family: var(--mono); font-size: .72rem; display: flex; gap: .4rem; align-items: center; }
+    .log .when .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 6px var(--green); flex-shrink: 0; }
+    .log .when .dot.alert { background: var(--gold); box-shadow: 0 0 6px var(--gold); }
+    .log .when .dot.trade { background: var(--cyan); box-shadow: 0 0 6px var(--cyan); }
+    .log .eq { font-family: var(--mono); font-size: .74rem; color: var(--muted); white-space: nowrap; text-align: right; }
+    @media (max-width: 640px) { .log .row { grid-template-columns: 1fr; } .log .eq { text-align: left; } }
+
+    footer { margin-top: 3.5rem; border-top: 1px solid var(--border); padding-top: 1.4rem; font-size: .76rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: .8rem 1.6rem; align-items: center; justify-content: space-between; }
+    footer .brand { background: linear-gradient(90deg, var(--indigo), var(--purple), #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="bg-parallax" aria-hidden="true"></div>
+  <nav class="nav">
+    <span class="nav-brand"><i class="ph-duotone ph-radar"></i> Terminal</span>
+    <button type="button" class="nav-hamburger" onclick="document.querySelector('.nav').classList.toggle('nav-open')" aria-label="Menu"><i class="ph-duotone ph-list"></i></button>
+    <div class="nav-links">
+      <a class="nav-tag" href="../../../index.html"><i class="ph-duotone ph-house"></i> Home</a>
+      <a class="nav-tag" href="../gallery.html"><i class="ph-duotone ph-trophy"></i> Gallery</a>
+      <a class="nav-tag" href="../portfolio.html"><i class="ph-duotone ph-briefcase"></i> Portfolio</a>
+      <a class="nav-tag" href="../../../setup/prop-firm-rules.html"><i class="ph-duotone ph-airplane-tilt"></i> Pre-flight Checklist</a>
+      <a class="nav-tag" href="../../../setup/copy-trading.html"><i class="ph-duotone ph-arrows-clockwise"></i> Copy Trading</a>
+      <a class="nav-tag" href="../resources.html"><i class="ph-duotone ph-book-open"></i> Resources</a>
+      <a class="nav-tag" href="../../../setup/community.html"><i class="ph-duotone ph-hand-heart"></i> Community</a>
+    </div>
+    <div class="nav-space"></div>
+  </nav>
+
+  <main class="content">
+    <div class="header-eyebrow hero-in"><i class="ph-duotone ph-shield-star"></i> Fortuna · Wealth Warden · live operations</div>
+    <h1 class="header-title hero-in d1">Fortuna Terminal <span>Perps</span></h1>
+    <p class="header-sub hero-in d2" id="program-scope"></p>
+    <div class="status-row hero-in d3">
+      <span class="pill" id="age-pill"><span class="dot"></span> loading…</span>
+      <span class="pill" id="live-pill"><span class="dot"></span> prices</span>
+      <span class="pill info" id="cadence-pill"><i class="ph-duotone ph-clock"></i> <span></span></span>
+      <span class="pill info" id="ends-pill"><i class="ph-duotone ph-flag-checkered"></i> <span></span></span>
+    </div>
+
+    <section class="takeaway hero-in d3" id="takeaway">
+      <div class="lead">Loading the latest check-in…</div>
+      <div class="meta"></div>
+    </section>
+
+    <div class="sec-label">Where things live <span class="sec-tag">· three public surfaces, one repo</span></div>
+    <div class="where" id="where"></div>
+
+    <div class="sec-label" id="accounts">Accounts <span class="sec-tag">· MyFundedPerps, as of the last check-in</span></div>
+    <p class="sec-sub">Prop-firm accounts (perps and futures) are showcased on the <a href="../gallery.html">Gallery</a>. Fortuna trades the competition account autonomously, and from Oct 25 joins the Elite 5K at very small size. The Select 1K only ever follows the Elite.</p>
+    <div class="grid" id="accounts-grid"></div>
+
+    <div class="sec-label" id="positions">Open positions <span class="sec-tag">· cross-venue co-pilot view, marked live</span></div>
+    <p class="sec-sub">Everything Christopher or Fortuna holds that could interact: the no-cross-hedge rule is checked against this list before any entry. Real-money venues show direction and distance only.</p>
+    <div class="tbl-wrap" id="positions-tbl"></div>
+
+    <div class="sec-label" id="equity">Competition equity <span class="sec-tag">· one point per check-in</span></div>
+    <div class="chart" id="equity-chart"></div>
+
+    <div class="sec-label" id="zones">Armed zones vs live price <span class="sec-tag">· distance in dollars and 1H ATRs</span></div>
+    <p class="sec-sub">Live mids from Hyperliquid's public API, translated to MyFundedPerps prices with the offset measured at the last check-in. Inside a zone, or within half an ATR of one, Fortuna schedules a one-shot check after the next candle close.</p>
+    <div class="tbl-wrap" id="zones-tbl"></div>
+
+    <div class="sec-label" id="watchlist">Watchlist <span class="sec-tag">· the setups the check-in reads</span></div>
+    <div class="tbl-wrap" id="watchlist-tbl"></div>
+
+    <div class="sec-label" id="preflight">Perps Preflight Checklist <span class="sec-tag">· the agent's run-every-time list</span></div>
+    <p class="sec-sub">The human pre-flight (habits, patterns, the firm comparison) lives on the <a href="../../../setup/prop-firm-rules.html">Pre-flight Checklist</a> page. This is its machine counterpart: what Fortuna verifies before every order, on every account. Tick boxes reset daily and stay in your browser only.</p>
+    <div class="pf-head"><span id="pf-count"></span><button class="btn" type="button" id="pf-reset">Reset today</button></div>
+    <div class="pf" id="pf-list"></div>
+
+    <div class="sec-label" id="checkins">Check-in log <span class="sec-tag">· newest first</span></div>
+    <div class="log" id="checkin-log"></div>
+
+    <div class="sec-label" id="ledger">Trade ledger <span class="sec-tag">· every order, cancels and misses included</span></div>
+    <div class="tbl-wrap" id="ledger-tbl"></div>
+
+    <div class="sec-label" id="lanes">Lanes <span class="sec-tag">· tandem sessions, one agent</span></div>
+    <div class="grid" id="lanes-grid"></div>
+
+    <footer>
+      <span><span class="brand">⚡ Fortuna Terminal</span> · the Trading Assistant's live-operations page</span>
+      <span>Founded by <a href="https://github.com/drasticstatic">@drasticstatic</a> · built with 💜 alongside Claude · <a id="repo-link" href="#">source</a> · <a id="story-link" href="#">Fortuna's story</a></span>
+    </footer>
+  </main>
+  <div class="tip" id="tip"></div>
+
+<script>
+(() => {
+  const $ = (s) => document.querySelector(s);
+  const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const usd = (v, d = 2) => v == null ? '—' : (v < 0 ? '−' : '') + '$' + Math.abs(v).toLocaleString('en-US', {minimumFractionDigits: d, maximumFractionDigits: d});
+  const sgn = (v, d = 2) => v == null ? '—' : (v > 0 ? '+' : v < 0 ? '−' : '') + '$' + Math.abs(v).toLocaleString('en-US', {minimumFractionDigits: d, maximumFractionDigits: d});
+  const px = (v) => v == null ? '—' : Number(v).toLocaleString('en-US', {maximumFractionDigits: v >= 1000 ? 1 : v >= 100 ? 2 : 3});
+  const cls = (v) => v > 0 ? 'pos' : v < 0 ? 'neg' : 'flat';
+  const NY = 'America/New_York';
+  const fmtET = (iso, opts = {}) => {
+    const d = new Date(iso); if (isNaN(d)) return esc(iso);
+    return d.toLocaleString('en-US', {timeZone: NY, month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', ...opts}) + ' ET';
+  };
+  const nyDay = (iso) => new Date(iso).toLocaleDateString('en-CA', {timeZone: NY});
+  const HL = 'https://api.hyperliquid.xyz/info';
+  const FEED_SYMBOL = {SOL: 'SOL', BTC: 'BTC', ETH: 'ETH'};
+  let S = null, L = null, mids = {};
+
+  async function loadJSON(p) { const r = await fetch(p, {cache: 'no-store'}); if (!r.ok) throw new Error(p + ' ' + r.status); return r.json(); }
+
+  async function fetchMids() {
+    try {
+      const [a, b] = await Promise.all([
+        fetch(HL, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({type: 'allMids'})}).then(r => r.json()),
+        fetch(HL, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({type: 'allMids', dex: 'xyz'})}).then(r => r.json()),
+      ]);
+      mids = Object.assign({}, a, b); for (const k in mids) mids[k] = parseFloat(mids[k]);
+      const p = $('#live-pill'); p.className = 'pill ok live'; p.innerHTML = '<span class="dot"></span> live prices · Hyperliquid · ' + new Date().toLocaleTimeString('en-US', {timeZone: NY, hour: 'numeric', minute: '2-digit', second: '2-digit'}) + ' ET';
+      return true;
+    } catch (e) {
+      mids = {}; const p = $('#live-pill'); p.className = 'pill warn'; p.innerHTML = '<span class="dot"></span> live prices unavailable · showing the snapshot';
+      return false;
+    }
+  }
+  const lastFor = (lv) => (lv && mids[lv.feed] != null) ? mids[lv.feed] : (lv ? lv.last : null);
+  const levelFor = (market) => L.levels.find(l => l.market === market);
+
+  function renderHeader() {
+    $('#program-scope').textContent = S.program.scope;
+    $('#cadence-pill span').textContent = S.program.cadence.split('.')[0];
+    const comp = S.accounts.find(a => a.key === 'comp');
+    if (comp && comp.ends) {
+      const ms = new Date(comp.ends) - Date.now(); const d = Math.floor(ms / 864e5), h = Math.floor((ms % 864e5) / 36e5);
+      $('#ends-pill span').textContent = ms > 0 ? `competition ends in ${d}d ${h}h` : 'competition closed';
+    } else $('#ends-pill').remove();
+    const gen = new Date(S.generated); const mins = Math.round((Date.now() - gen) / 6e4);
+    const p = $('#age-pill'); const st = mins < 135 ? 'ok' : mins <= 180 ? 'warn' : 'bad';
+    p.className = 'pill ' + st + (st === 'ok' ? ' live' : '');
+    p.innerHTML = `<span class="dot"></span> data ${mins < 60 ? mins + ' min' : (mins / 60).toFixed(1) + ' h'} old · published ${fmtET(S.generated)}`;
+    const links = S.links; $('#repo-link').href = links.repo; $('#story-link').href = links.story;
+  }
+
+  function renderTakeaway() {
+    const c = [...S.checkins].sort((a, b) => new Date(b.at) - new Date(a.at))[0];
+    if (!c) return;
+    const acct = S.accounts.find(a => a.key === c.account);
+    $('#takeaway .lead').textContent = c.note;
+    $('#takeaway .meta').innerHTML = `<span><i class="ph-duotone ph-clock"></i> ${fmtET(c.at)}</span><span>${esc(acct ? acct.name : c.account)} · equity <b class="num">${usd(c.equity)}</b></span><span>${c.open_positions} open · ${c.working_orders} working</span><span>next: ${esc(c.action)}</span>`;
+  }
+
+  function renderWhere() {
+    const k = S.links;
+    $('#where').innerHTML = `
+      <a class="card" href="${k.gallery}"><div class="k"><i class="ph-duotone ph-trophy"></i> Gallery</div><p><b>Prop-firm accounts</b>: futures and perps evaluations, funded accounts and certificates (Apex, TakeProfitTrader, TopOne, Lucid, MyFundedPerps…). The progression story in screenshots.</p></a>
+      <a class="card" href="${k.portfolio}"><div class="k"><i class="ph-duotone ph-briefcase"></i> Portfolio</div><p><b>Live personal accounts</b>: centralized exchanges (BTCC, Crypto.com, Coinbase…), decentralized venues and on-chain wallets, equities. Real money, outside the prop firms.</p></a>
+      <a class="card" href="#accounts"><div class="k here"><i class="ph-duotone ph-radar"></i> Terminal · you are here</div><p><b>Fortuna's live operations</b>: what the agent is watching, holding and about to do, republished at every check-in. Perps today; the DEX-arbitrage lane joins as it comes online.</p></a>
+      <a class="card" href="${k.preflight_human}"><div class="k"><i class="ph-duotone ph-airplane-tilt"></i> Pre-flight (human)</div><p><b>The trader's checklist</b> and the firm-rules comparison. Its machine counterpart, the Perps Preflight Checklist, is further down this page.</p></a>`;
+  }
+
+  function dayPnl(acct) {
+    const rows = S.checkins.filter(c => c.account === acct.key).sort((a, b) => new Date(a.at) - new Date(b.at));
+    if (!rows.length) return null;
+    const last = rows[rows.length - 1]; const day = nyDay(last.at);
+    const first = rows.find(c => nyDay(c.at) === day);
+    return last.equity - first.equity;
+  }
+
+  function renderAccounts() {
+    const html = S.accounts.map(a => {
+      const d = a.equity - a.start; const pct = d / a.start * 100;
+      let meters = '';
+      if (a.key === 'comp') {
+        const sl = a.self_limits; const dp = dayPnl(a); const dllUsed = dp != null && dp < 0 ? -dp : 0; const dllPct = Math.min(100, dllUsed / sl.dll_usd * 100);
+        const floorRoom = a.equity - sl.floor_usd; const floorSpan = a.handoff - sl.floor_usd; const floorPct = Math.max(0, Math.min(100, floorRoom / floorSpan * 100));
+        meters = `
+          <div class="kv"><span>Since handoff (${usd(a.handoff)})</span><b class="num ${cls(a.equity - a.handoff)}">${sgn(a.equity - a.handoff)}</b></div>
+          <div class="kv"><span>Today vs self-imposed 3% limit</span><b class="num ${cls(dp ?? 0)}">${dp == null ? '—' : sgn(dp)} <span class="flat">/ −${usd(sl.dll_usd, 0)}</span></b></div>
+          <div class="meter ${dllPct > 66 ? 'bad' : dllPct > 33 ? 'warn' : ''}"><i style="width:${dllPct}%"></i></div>
+          <div class="kv"><span>Room to the ${esc(sl.floor_label)}</span><b class="num">${usd(floorRoom, 0)}</b></div>
+          <div class="meter ${floorPct < 34 ? 'bad' : floorPct < 67 ? 'warn' : ''}"><i style="width:${floorPct}%"></i></div>
+          <div class="rule"><b>Risk</b> ${esc(sl.risk)} · <b>breaker</b> ${esc(sl.breaker)}<br><b>Markets</b> ${esc(a.markets)}</div>`;
+      } else {
+        const tgtSpan = a.target_equity - a.start; const tgtPct = Math.max(0, Math.min(100, (a.equity - a.start) / tgtSpan * 100));
+        const limits = a.firm_limits.match(/(\d+)% daily/); const dllLimit = limits ? a.start * parseInt(limits[1]) / 100 : null;
+        const dllPct = dllLimit ? Math.max(0, Math.min(100, a.dll_room / dllLimit * 100)) : 0;
+        const mddSpan = a.start - a.mdd_floor; const mddPct = Math.max(0, Math.min(100, a.mdd_room / mddSpan * 100));
+        const sl = a.self_limits;
+        meters = `
+          <div class="kv"><span>To the target (${usd(a.target_equity, 0)})</span><b class="num">${usd(a.remaining_profit)} to go</b></div>
+          <div class="meter"><i style="width:${tgtPct}%"></i></div>
+          <div class="kv"><span>Daily-loss room</span><b class="num">${usd(a.dll_room)}</b></div>
+          <div class="meter ${dllPct < 34 ? 'bad' : dllPct < 67 ? 'warn' : ''}"><i style="width:${dllPct}%"></i></div>
+          <div class="kv"><span>Drawdown room (floor ${usd(a.mdd_floor, 0)})</span><b class="num">${usd(a.mdd_room)}</b></div>
+          <div class="meter ${mddPct < 34 ? 'bad' : mddPct < 67 ? 'warn' : ''}"><i style="width:${mddPct}%"></i></div>
+          <div class="rule">${Object.entries(sl).map(([k, v]) => `<b>${esc(k.replace(/_/g, ' '))}</b> ${esc(v)}`).join(' · ')}<br><b>Markets</b> ${esc(a.markets)}</div>`;
+      }
+      return `<div class="card">
+        <h3><i class="ph-duotone ${a.kind === 'competition' ? 'ph-medal' : 'ph-chart-line-up'}"></i> ${esc(a.name)} <span class="tag ${a.key}">${esc(a.firm)}</span></h3>
+        <div class="sub">${esc(a.path)} · ${esc(a.role)}</div>
+        <div class="big num">${usd(a.equity)}</div>
+        <div class="delta num ${cls(d)}">${sgn(d)} (${pct >= 0 ? '+' : '−'}${Math.abs(pct).toFixed(2)}%) from ${usd(a.start, 0)} · ${a.upnl ? 'unrealized ' + sgn(a.upnl) : 'flat'}</div>
+        ${meters}
+        <div class="rule" style="border-top:none;padding-top:.2rem;margin-top:.4rem">${esc(a.note)} <span class="flat">· as of ${fmtET(a.asof)}</span></div>
+      </div>`;
+    }).join('');
+    $('#accounts-grid').innerHTML = html;
+  }
+
+  function renderPositions() {
+    const rows = S.positions;
+    if (!rows.length) { $('#positions-tbl').innerHTML = '<div class="empty">Flat everywhere.</div>'; return; }
+    const body = rows.map(p => {
+      const lv = levelFor(FEED_SYMBOL[p.symbol] || p.symbol); const mark = lastFor(lv);
+      const dir = p.side === 'long' ? 1 : -1;
+      const upnl = mark != null ? (mark - p.entry) * p.size * dir : null;
+      const liqDist = (mark != null && p.liq) ? (mark - p.liq) / mark * 100 * dir : null;
+      const crit = liqDist != null && liqDist < 1.5 ? 'critical' : (!p.stop ? 'caution' : '');
+      const hide = p.public === false;
+      return `<tr class="${crit}">
+        <td><span class="tag ${p.account}">${esc(p.venue)}</span><div class="note" style="margin-top:.2rem">${esc(p.owner)}${p.live ? '' : ' · as reported'}</div></td>
+        <td><b>${esc(p.symbol)}</b> <span class="side-${p.side}">${p.side}</span></td>
+        <td class="num">${hide ? '<span class="flat">hidden</span>' : p.size}</td>
+        <td class="num">${px(p.entry)}</td>
+        <td class="num">${mark != null ? px(mark) : '—'}</td>
+        <td class="num ${cls(upnl)}">${hide ? '<span class="flat">hidden</span>' : (upnl == null ? '—' : sgn(upnl))}</td>
+        <td class="num">${p.stop ? px(p.stop) : '<span class="neg">none</span>'}</td>
+        <td class="num">${p.tp ? px(p.tp) : '—'}</td>
+        <td class="num">${p.liq ? px(p.liq) + (liqDist != null ? ` <span class="${liqDist < 1.5 ? 'neg' : liqDist < 3 ? 'flat' : 'pos'}">(${liqDist.toFixed(1)}% away)</span>` : '') : '—'}</td>
+        <td class="note">${esc(p.note)}</td></tr>`;
+    }).join('');
+    $('#positions-tbl').innerHTML = `<table><thead><tr><th>Venue</th><th>Market</th><th>Size</th><th>Entry</th><th>Mark</th><th>Unrealized</th><th>Stop</th><th>Target</th><th>Liquidation</th><th>Note</th></tr></thead><tbody>${body}</tbody></table>`;
+  }
+
+  function renderChart() {
+    const comp = S.accounts.find(a => a.key === 'comp');
+    const rows = S.checkins.filter(c => c.account === 'comp').sort((a, b) => new Date(a.at) - new Date(b.at));
+    const el = $('#equity-chart');
+    if (rows.length < 2) { el.innerHTML = '<div class="empty">Not enough check-ins yet.</div>'; return; }
+    const W = 900, H = 220, m = {t: 14, r: 16, b: 28, l: 64};
+    const xs = rows.map(r => new Date(r.at).getTime()); const ys = rows.map(r => r.equity).concat([comp.handoff]);
+    const x0 = Math.min(...xs), x1 = Math.max(...xs); let y0 = Math.min(...ys), y1 = Math.max(...ys); const pad = Math.max((y1 - y0) * .25, 150); y0 -= pad; y1 += pad;
+    const X = (t) => m.l + (t - x0) / Math.max(1, x1 - x0) * (W - m.l - m.r); const Y = (v) => m.t + (1 - (v - y0) / (y1 - y0)) * (H - m.t - m.b);
+    const path = rows.map((r, i) => (i ? 'L' : 'M') + X(xs[i]).toFixed(1) + ',' + Y(r.equity).toFixed(1)).join(' ');
+    const area = path + ` L${X(x1).toFixed(1)},${(H - m.b).toFixed(1)} L${X(x0).toFixed(1)},${(H - m.b).toFixed(1)} Z`;
+    const yt = 4; let yTicks = ''; for (let i = 0; i <= yt; i++) { const v = y0 + (y1 - y0) * i / yt; yTicks += `<line x1="${m.l}" x2="${W - m.r}" y1="${Y(v)}" y2="${Y(v)}"/><text x="${m.l - 8}" y="${Y(v) + 3}" text-anchor="end">${usd(v, 0)}</text>`; }
+    let lastX = -1e9; const xTicks = rows.map((r, i) => { const x = X(xs[i]); if (x - lastX < 90) return ''; lastX = x; return `<text x="${x}" y="${H - 8}" text-anchor="middle">${new Date(r.at).toLocaleString('en-US', {timeZone: NY, weekday: 'short', hour: 'numeric'})}</text>`; }).join('');
+    const dots = rows.map((r, i) => `<circle cx="${X(xs[i])}" cy="${Y(r.equity)}" r="4" fill="#0b1020" stroke="var(--indigo)" stroke-width="2" data-i="${i}"/>`).join('');
+    el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="Competition equity per check-in">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--indigo)" stop-opacity=".35"/><stop offset="1" stop-color="var(--indigo)" stop-opacity="0"/></linearGradient></defs>
+      <g class="axis">${yTicks}${xTicks}</g>
+      <line x1="${m.l}" x2="${W - m.r}" y1="${Y(comp.handoff)}" y2="${Y(comp.handoff)}" stroke="var(--gold)" stroke-dasharray="4 4" stroke-width="1.2"/>
+      <text x="${W - m.r}" y="${Y(comp.handoff) - 5}" text-anchor="end" fill="var(--gold)" font-size="10" font-family="var(--mono)">handoff ${usd(comp.handoff)}</text>
+      <path d="${area}" fill="url(#g)"/><path d="${path}" fill="none" stroke="var(--indigo)" stroke-width="2.2" stroke-linejoin="round"/>${dots}</svg>
+      <div class="legend"><span><i></i>equity at each check-in</span><span><i class="dash"></i>handoff baseline</span><span>self-imposed floor ${usd(comp.self_limits.floor_usd, 0)} · daily limit −${usd(comp.self_limits.dll_usd, 0)}</span></div>`;
+    const tip = $('#tip');
+    el.querySelectorAll('circle').forEach(c => {
+      c.addEventListener('mousemove', (e) => { const r = rows[+c.dataset.i]; tip.style.display = 'block'; tip.style.left = (e.clientX + 12) + 'px'; tip.style.top = (e.clientY - 10) + 'px'; tip.innerHTML = `<b class="num">${usd(r.equity)}</b> · ${fmtET(r.at)}<br>${esc(r.action)}`; c.setAttribute('r', 6); });
+      c.addEventListener('mouseleave', () => { tip.style.display = 'none'; c.setAttribute('r', 4); });
+    });
+  }
+
+  function renderZones() {
+    const rows = S.watchlist.filter(w => w.zone_lo != null);
+    const body = rows.map(w => {
+      const lv = levelFor(w.market); const last = lastFor(lv); const off = (S.offsets || {})[w.market] || 0;
+      if (last == null) return '';
+      const mfp = last + off; const lo = w.zone_lo, hi = w.zone_hi; const atr = lv.atr_1h || 0;
+      const inside = mfp >= lo && mfp <= hi; const dist = inside ? 0 : (mfp < lo ? lo - mfp : mfp - hi);
+      const atrs = atr ? dist / atr : null; const cl = inside ? 'inside' : (atrs != null && atrs <= 0.5 ? 'caution' : '');
+      const where = inside ? '<span class="pos">inside the zone</span>' : (mfp < lo ? `${px(dist)} below` : `${px(dist)} above`);
+      return `<tr class="${cl}"><td><b>${esc(w.market)}</b> <span class="tag ${w.account}">${esc(acctName(w.account))}</span></td>
+        <td class="num">${px(last)}${off ? ` <span class="flat">+${px(off)}</span>` : ''}</td>
+        <td class="num"><b>${px(mfp)}</b></td>
+        <td>${esc(w.direction)}</td>
+        <td class="num">${px(lo)} – ${px(hi)}</td>
+        <td class="num">${where}${atrs != null && !inside ? ` <span class="flat">· ${atrs.toFixed(1)}× ATR</span>` : ''}</td>
+        <td class="num">${px(atr)} <span class="flat">· ${esc(lv.bias_1h)} 1H / ${esc(lv.bias_4h)} 4H</span></td>
+        <td><span class="tag ${esc(w.status)}">${esc(w.status)}</span></td></tr>`;
+    }).join('');
+    $('#zones-tbl').innerHTML = body ? `<table><thead><tr><th>Market</th><th>Feed · offset</th><th>MFP est.</th><th>Direction</th><th>Zone (MFP)</th><th>Distance</th><th>1H ATR · bias</th><th>Status</th></tr></thead><tbody>${body}</tbody></table>` : '<div class="empty">No armed zones.</div>';
+  }
+  const acctName = (k) => ({comp: 'Competition', elite5k: 'Elite 5K', select1k: 'Select 1K', btcc: 'BTCC'}[k] || k);
+
+  function renderWatchlist() {
+    const body = S.watchlist.map(w => `<tr><td><b>${esc(w.market)}</b><div style="margin-top:.2rem"><span class="tag ${w.account}">${esc(acctName(w.account))}</span> <span class="tag ${esc(w.status)}">${esc(w.status)}</span></div></td>
+      <td>${esc(w.direction)}${w.grade_max ? ` <span class="flat">· max ${esc(w.grade_max)}</span>` : ''}</td>
+      <td class="note">${esc(w.setup)}</td>
+      <td class="num">${w.zone_lo != null ? px(w.zone_lo) + ' – ' + px(w.zone_hi) : '—'}</td>
+      <td class="note">${esc(w.stop_rule)}<br><span class="flat">${esc(w.targets)}</span></td>
+      <td class="note">${esc(w.note)}<div class="flat" style="margin-top:.2rem">${fmtET(w.updated)}</div></td></tr>`).join('');
+    $('#watchlist-tbl').innerHTML = `<table><thead><tr><th>Market</th><th>Direction</th><th>Setup</th><th>Zone</th><th>Stop · targets</th><th>Note</th></tr></thead><tbody>${body}</tbody></table>`;
+  }
+
+  function renderPreflight() {
+    const key = 'fortuna-pf-' + new Date().toLocaleDateString('en-CA', {timeZone: NY});
+    let done = {}; try { done = JSON.parse(localStorage.getItem(key) || '{}'); } catch (e) {}
+    const save = () => { try { localStorage.setItem(key, JSON.stringify(done)); } catch (e) {} };
+    const list = $('#pf-list');
+    const draw = () => {
+      list.innerHTML = S.preflight.map((p, i) => `<label class="${done[p.id] ? 'done' : ''}"><input type="checkbox" data-id="${esc(p.id)}" ${done[p.id] ? 'checked' : ''}><span><div class="t">${i + 1}. ${esc(p.text)}</div><div class="w">${esc(p.why)}</div></span></label>`).join('');
+      const n = S.preflight.filter(p => done[p.id]).length;
+      $('#pf-count').innerHTML = `<b>${n} / ${S.preflight.length}</b> checked today${n === S.preflight.length ? ' · <span class="pos">cleared for the order</span>' : ''}`;
+      list.querySelectorAll('input').forEach(cb => cb.addEventListener('change', () => { done[cb.dataset.id] = cb.checked; save(); draw(); }));
+    };
+    draw();
+    $('#pf-reset').addEventListener('click', () => { done = {}; save(); draw(); });
+  }
+
+  function renderCheckins() {
+    const rows = [...S.checkins].sort((a, b) => new Date(b.at) - new Date(a.at));
+    $('#checkin-log').innerHTML = rows.map(c => {
+      const kind = /trade|fill|placed|stopped|closed/i.test(c.action) ? 'trade' : /alert|one-shot|breach/i.test(c.action) ? 'alert' : '';
+      return `<div class="row"><div class="when"><span class="dot ${kind}"></span>${fmtET(c.at, {month: undefined, day: undefined, weekday: 'short'})}</div><div>${esc(c.note)}<div class="flat" style="font-size:.72rem;margin-top:.15rem">${esc(acctName(c.account))} · ${c.open_positions} open · ${c.working_orders} working · ${esc(c.action)}</div></div><div class="eq">${usd(c.equity)}</div></div>`;
+    }).join('');
+  }
+
+  function renderLedger() {
+    const rows = S.ledger; const rev = S.links.reviews;
+    const body = rows.map(l => `<tr><td class="num">${l.n || '—'}</td><td class="num">${esc(l.date)}</td><td><span class="tag ${l.account}">${esc(acctName(l.account))}</span></td>
+      <td><b>${esc(l.market)}</b> <span class="side-${l.side}">${esc(l.side)}</span></td><td>${esc(l.owner)}</td><td>${esc(l.grade)}</td>
+      <td class="num">${l.risk_usd ? usd(l.risk_usd, 0) : '—'}</td><td class="note">${esc(l.entry)}</td><td class="note">${esc(l.exit)}</td>
+      <td class="num ${cls(l.r)}">${l.r == null ? '—' : (l.r > 0 ? '+' : '') + l.r.toFixed(2) + 'R'}</td>
+      <td class="num ${cls(l.pnl)}">${sgn(l.pnl)}</td><td class="num">${usd(l.equity_after)}</td>
+      <td class="note">${esc(l.note)}${l.review ? ` · <a href="${rev}${esc(l.review)}" target="_blank" rel="noreferrer">review ↗</a>` : ''}</td></tr>`).join('');
+    const mine = rows.filter(l => l.owner === 'Fortuna' && l.r); const w = mine.filter(l => l.r > 0).length, lo = mine.filter(l => l.r < 0).length;
+    const totR = mine.reduce((s, l) => s + l.r, 0), net = rows.filter(l => l.owner === 'Fortuna').reduce((s, l) => s + (l.pnl || 0), 0);
+    $('#ledger-tbl').innerHTML = `<table><thead><tr><th>#</th><th>Date</th><th>Account</th><th>Market</th><th>Owner</th><th>Grade</th><th>Risk</th><th>Entry</th><th>Exit</th><th>R</th><th>P&amp;L</th><th>Equity after</th><th>Note</th></tr></thead><tbody>${body}</tbody>
+      <tfoot><tr><td colspan="13" class="note">Fortuna's record: <b>${w}W – ${lo}L</b> · <b class="${cls(totR)}">${totR >= 0 ? '+' : ''}${totR.toFixed(2)}R</b> · net <b class="${cls(net)}">${sgn(net)}</b> · misses and scratches logged, never hidden.</td></tr></tfoot></table>`;
+  }
+
+  function renderLanes() {
+    $('#lanes-grid').innerHTML = S.lanes.map(l => `<div class="card"><h3><i class="ph-duotone ${/ARB/.test(l.name) ? 'ph-swap' : 'ph-radar'}"></i> ${esc(l.name)} <span class="pill ${l.status === 'live' ? 'ok live' : 'info'}"><span class="dot"></span> ${esc(l.status)}</span></h3>
+      <div class="sub">${esc(l.what)}</div><div class="rule">${esc(l.detail)}<br>${l.url ? `<a href="${esc(l.url)}" target="_blank" rel="noreferrer">dashboard ↗</a> · ` : ''}<a href="${esc(l.repo)}" target="_blank" rel="noreferrer">repo ↗</a> <span class="flat">· ${fmtET(l.asof)}</span></div></div>`).join('');
+  }
+
+  function renderLive() { renderPositions(); renderZones(); }
+
+  (async () => {
+    try { [S, L] = await Promise.all([loadJSON('data/state.json'), loadJSON('data/levels.json')]); }
+    catch (e) { $('#takeaway .lead').textContent = 'Could not load the terminal data (' + e.message + '). Open this page from the published site, not from a local file.'; return; }
+    renderHeader(); renderTakeaway(); renderWhere(); renderAccounts(); renderChart(); renderWatchlist(); renderPreflight(); renderCheckins(); renderLedger(); renderLanes();
+    await fetchMids(); renderLive();
+    setInterval(async () => { if (await fetchMids()) renderLive(); }, 30000);
+    setInterval(renderHeader, 60000);
+  })();
+})();
+</script>
+</body>
+</html>
