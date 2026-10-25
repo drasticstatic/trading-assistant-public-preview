@@ -184,6 +184,29 @@
 
     footer { margin-top: 2.5rem; border-top: 1px solid var(--line); padding-top: 1.1rem; font-size: .7rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; justify-content: space-between; }
     .empty { padding: 1rem; color: var(--muted); font-size: .74rem; text-align: center; }
+    /* alerts */
+    .al { display: grid; grid-template-columns: 8px 1fr; gap: .6rem; padding: .55rem .9rem; border-bottom: 1px solid var(--line); font-size: .74rem; align-items: start; }
+    .al:last-child { border-bottom: none; }
+    .al i.d { width: 8px; height: 8px; border-radius: 50%; margin-top: .35rem; display: block; background: var(--indigo); box-shadow: 0 0 6px var(--indigo); }
+    .al.warn i.d { background: var(--gold); box-shadow: 0 0 6px var(--gold); } .al.critical i.d { background: var(--red); box-shadow: 0 0 8px var(--red); animation: pulse 1s infinite; }
+    .al small { display: block; color: var(--muted); font-size: .64rem; font-family: var(--mono); }
+    /* scanner */
+    .sc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: .5rem; padding: .7rem .9rem; }
+    .sc { border: 1px solid var(--line); border-radius: var(--r); padding: .55rem .65rem; font-size: .7rem; }
+    .sc .h { display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: #fff; font-size: .78rem; }
+    .sc .fl { display: flex; gap: .3rem; flex-wrap: wrap; margin: .35rem 0; }
+    .fl b { font-size: .6rem; padding: .05rem .4rem; border-radius: 999px; border: 1px solid var(--line); color: var(--dim); font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+    .fl b.on { color: var(--green); border-color: rgba(74,222,128,.5); } .fl b.hot { color: var(--gold); border-color: rgba(251,191,36,.5); } .fl b.trig { color: #06111a; background: var(--cyan); border-color: var(--cyan); }
+    .sc p { color: var(--muted); line-height: 1.45; }
+    .sc-foot { padding: .2rem .9rem .8rem; font-size: .68rem; color: var(--muted); line-height: 1.6; }
+    .sc-foot b { color: var(--text); font-weight: 600; }
+    /* sizer */
+    .sz { display: grid; grid-template-columns: 1fr 1fr; gap: .45rem .6rem; font-size: .7rem; }
+    .sz label { display: grid; gap: .15rem; color: var(--muted); }
+    .sz input, .sz select { background: rgba(255,255,255,.05); border: 1px solid var(--line); border-radius: 8px; color: var(--text); font: 500 .78rem var(--mono); padding: .3rem .45rem; width: 100%; }
+    .sz-out { margin-top: .6rem; display: grid; gap: .3rem; font-size: .7rem; color: var(--muted); }
+    .sz-out div { display: flex; justify-content: space-between; gap: .6rem; } .sz-out b { color: var(--text); font-family: var(--mono); font-weight: 500; }
+    .sz-out .bad b { color: var(--red); } .sz-out .ok b { color: var(--green); }
   </style>
 </head>
 <body>
@@ -214,6 +237,7 @@
     <div class="cols">
       <div class="stack c-left">
         <section class="panel" id="accounts"><div class="ph"><i class="ph-duotone ph-bank"></i> Accounts <span class="sub">MyFundedPerps</span></div><div id="acct-list"></div></section>
+        <section class="panel" id="sizer"><div class="ph"><i class="ph-duotone ph-calculator"></i> Sizer <span class="sub">risk → size, leverage, copy check</span></div><div class="pb" id="sizer-body"></div></section>
         <section class="panel" id="pulse"><div class="ph"><i class="ph-duotone ph-pulse"></i> Journey pulse <span class="sub">every venue, one story</span></div><div class="pulse" id="pulse-list"></div></section>
       </div>
 
@@ -227,11 +251,13 @@
           <div class="lg"><span><i style="background:var(--cyan)"></i>EMA 20</span><span><i style="background:var(--purple)"></i>EMA 50</span><span><i style="background:var(--pink)"></i>EMA 200</span><span><i style="background:var(--gold)"></i>armed zone</span><span><i style="background:var(--blue)"></i>PDH / PDL</span><span><i style="background:var(--muted)"></i>midnight · week open</span><span><i style="background:var(--green)"></i>position entry / target</span><span><i style="background:var(--red)"></i>stop / liquidation</span></div>
         </section>
         <section class="panel" id="zones"><div class="ph"><i class="ph-duotone ph-crosshair"></i> Zones radar <span class="sub">live price against every armed zone, in MFP terms</span></div><div id="zr"></div></section>
+        <section class="panel" id="scanner"><div class="ph"><i class="ph-duotone ph-scan"></i> Scanner <span class="sub" id="scan-sub">mechanical read: sweeps · reclaims · SMT · sessions</span></div><div id="scan-body"></div></section>
         <section class="panel" id="watchlist"><div class="ph"><i class="ph-duotone ph-binoculars"></i> Watchlist <span class="sub">the setups each check-in reads</span></div><div class="tbl" id="wl"></div></section>
         <section class="panel" id="preflight"><div class="ph"><i class="ph-duotone ph-airplane-takeoff"></i> Perps Preflight <span class="sub">the agent's list, before every order</span><span class="sp"></span><span class="sub" id="pf-count"></span><button class="btn" id="pf-reset" type="button">reset</button></div><div class="pf" id="pf"></div></section>
       </div>
 
       <div class="stack c-right">
+        <section class="panel" id="alerts"><div class="ph"><i class="ph-duotone ph-bell-ringing"></i> Alerts <span class="sub">live, from your browser</span><span class="sp"></span><button class="btn" id="notify-btn" type="button">enable notifications</button></div><div id="alert-list"></div></section>
         <section class="panel" id="positions"><div class="ph"><i class="ph-duotone ph-steering-wheel"></i> Co-pilot <span class="sub">open positions, every venue</span></div><div id="pos-list"></div></section>
         <section class="panel" id="feed"><div class="ph"><i class="ph-duotone ph-list-dashes"></i> Feed <span class="sub">check-ins · trades · alerts</span></div><div class="feed" id="feed-list"></div></section>
       </div>
@@ -265,7 +291,8 @@
   const HL = 'https://api.hyperliquid.xyz/info';
   const post = (body) => fetch(HL, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)}).then(r => r.json());
   const ACCT = {comp: 'Competition', elite5k: 'Elite 5K', select1k: 'Select 1K', btcc: 'BTCC'};
-  let S, L, mids = {}, cur = {market: null, iv: '1h', candles: null};
+  let S, L, G = null, mids = {}, cur = {market: null, iv: '1h', candles: null};
+  const fired = new Set(); let notifyOn = false;
   const lv = (m) => L.levels.find(l => l.market === m);
   const live = (l) => (l && mids[l.feed] != null) ? mids[l.feed] : (l ? l.last : null);
   const off = (m) => (S.offsets || {})[m] || 0;
@@ -441,12 +468,74 @@
     const k = S.links; $('#where-list').innerHTML = `<a href="${k.gallery}"><div class="k"><i class="ph-duotone ph-trophy"></i> Gallery</div><p><b>Prop-firm accounts</b>, futures and perps: evaluations, funded accounts, certificates.</p></a><a href="${k.portfolio}"><div class="k"><i class="ph-duotone ph-briefcase"></i> Portfolio</div><p><b>Live personal accounts</b>: exchanges, wallets, equities. Real money outside the prop firms.</p></a><a href="#accounts"><div class="k here"><i class="ph-duotone ph-radar"></i> Terminal · here</div><p><b>Fortuna's live operations</b>, republished at every check-in. Perps now; the DEX lane as it comes online.</p></a><a href="${k.preflight_human}"><div class="k"><i class="ph-duotone ph-airplane-tilt"></i> Pre-flight (human)</div><p><b>The trader's checklist</b> and firm-rules comparison. Its machine twin is the Perps Preflight above.</p></a>`;
   }
 
-  function renderLive() { renderTape(); renderPositions(); renderZones(); renderPulse(); }
+
+  /* ── scanner (signals.json from scan.py) ── */
+  function renderScanner() {
+    if (!G) { $('#scan-body').innerHTML = '<div class="empty">No scan published yet.</div>'; return; }
+    $('#scan-sub').textContent = 'mechanical read · ' + fmtET(G.asof);
+    const cards = G.watchlist.filter(w => w.zone_lo != null).map(w => { const f = G.feeds[w.market] || {};
+      const fl = [['pressing', w.pressing ? 'hot' : ''], ['swept', w.swept ? 'on' : ''], ['reclaimed', w.reclaimed ? 'on' : ''], ['SMT', w.smt_ok ? 'on' : w.smt_ok === false ? '' : ''], ['last 1H ' + (w.last_close_bull ? '▲' : '▼'), '']];
+      return `<div class="sc"><div class="h"><span>${esc(w.market)} <span class="tag ${esc(w.status)}">${esc(w.status)}</span></span><span class="num flat">${px(w.mfp_est)}</span></div>
+        <div class="fl">${w.trigger ? '<b class="trig">trigger</b>' : ''}${fl.map(([t, c]) => `<b class="${c}">${t}</b>`).join('')}</div>
+        <p>${esc(w.read)}${f.sweeps && f.sweeps.length ? '<br>' + f.sweeps.map(x => `swept ${esc(x.level)} ${px(x.price)} (${x.depth_atr}× ATR), closed ${px(x.close)}`).join('; ') : ''}</p></div>`; }).join('');
+    const smt = G.smt.length ? G.smt.map(x => `<b>${esc(x.pair)}</b> ${esc(x.read)}`).join(' · ') : 'no SMT divergence on the last three 1H candles';
+    const sess = Object.entries(G.feeds).filter(([k]) => ['Gold', 'Crude', 'Nasdaq-100', 'SOL'].includes(k)).map(([k, f]) => { const ss = f.sessions || {}; return `<b>${esc(k)}</b> ` + Object.entries(ss).map(([n, r]) => `${n} ${px(r.low)}–${px(r.high)}`).join(' · '); }).join('<br>');
+    $('#scan-body').innerHTML = `<div class="sc-grid">${cards}</div><div class="sc-foot"><b>SMT</b> ${smt}<br>${sess}</div>`;
+  }
+
+  /* ── live alerts ── */
+  function computeAlerts() {
+    const out = [];
+    S.watchlist.filter(w => w.zone_lo != null && ['armed', 'watch'].includes(w.status)).forEach(w => { const l = lv(w.market); const p = live(l); if (p == null) return; const mfp = p + off(w.market); const atr = l.atr_1h || 1;
+      if (mfp >= w.zone_lo && mfp <= w.zone_hi) out.push({key: 'zone-' + w.market, level: 'warn', text: `${w.market} is inside its ${w.direction} zone (${px(w.zone_lo)}–${px(w.zone_hi)} MFP)`});
+      else { const d = mfp < w.zone_lo ? w.zone_lo - mfp : mfp - w.zone_hi; if (d / atr <= .5) out.push({key: 'near-' + w.market, level: 'info', text: `${w.market} is ${(d / atr).toFixed(1)}× ATR from its ${w.direction} zone`}); } });
+    S.positions.forEach(p => { const l = lv(SYM[p.symbol] || p.symbol); const mark = live(l); if (mark == null) return; const d = p.side === 'long' ? 1 : -1;
+      if (p.liq) { const ld = (mark - p.liq) / mark * 100 * d; if (ld < 1.5) out.push({key: 'liq-' + p.venue, level: 'critical', text: `${p.venue} ${p.symbol} ${p.side} is ${ld.toFixed(1)}% from liquidation ${px(p.liq)}`}); else if (ld < 3) out.push({key: 'liqw-' + p.venue, level: 'warn', text: `${p.venue} ${p.symbol} ${p.side} is ${ld.toFixed(1)}% from liquidation ${px(p.liq)}`}); }
+      if (p.tp && ((p.side === 'long' && mark >= p.tp) || (p.side === 'short' && mark <= p.tp))) out.push({key: 'tp-' + p.venue, level: 'info', text: `${p.venue} ${p.symbol} is at the target ${px(p.tp)}`});
+      if (l && l.pdl && p.side === 'long' && mark < l.pdl) out.push({key: 'pdl-' + p.venue, level: 'warn', text: `${p.venue} ${p.symbol} is trading below the prior-day low ${px(l.pdl)}`}); });
+    (G ? G.alerts : []).forEach((a, i) => out.push({key: 'scan-' + i + a.text, level: a.level, text: a.text, src: 'scan ' + fmtET(G.asof, {month: undefined, day: undefined})}));
+    return out;
+  }
+  function renderAlerts() {
+    const al = computeAlerts(); const order = {critical: 0, warn: 1, info: 2}; al.sort((a, b) => order[a.level] - order[b.level]);
+    $('#alert-list').innerHTML = al.length ? al.map(a => `<div class="al ${a.level}"><i class="d"></i><div>${esc(a.text)}<small>${a.src || 'live · ' + new Date().toLocaleTimeString('en-US', {timeZone: NY, hour: 'numeric', minute: '2-digit'}) + ' ET'}</small></div></div>`).join('') : '<div class="empty">Quiet. Nothing pressing, nothing near liquidation.</div>';
+    if (notifyOn) al.filter(a => a.level !== 'info' && !fired.has(a.key)).forEach(a => { fired.add(a.key); try { new Notification('Fortuna Terminal · ' + a.level, {body: a.text}); } catch (e) {} });
+  }
+  function setupNotify() {
+    const b = $('#notify-btn'); if (!('Notification' in window)) { b.textContent = 'notifications unsupported'; b.disabled = true; return; }
+    const sync = () => { notifyOn = Notification.permission === 'granted'; b.textContent = notifyOn ? 'notifications on' : 'enable notifications'; b.classList.toggle('on', notifyOn); };
+    sync(); b.addEventListener('click', async () => { await Notification.requestPermission(); sync(); if (notifyOn) try { new Notification('Fortuna Terminal', {body: 'Alerts on: zone entries, liquidation distance under 3%, targets reached.'}); } catch (e) {} });
+  }
+
+  /* ── sizer ── */
+  function renderSizer() {
+    const b = $('#sizer-body');
+    b.innerHTML = `<div class="sz">
+      <label>account<select id="sz-acct"><option value="elite5k">Elite 5K (0.25%)</option><option value="comp">Competition (1%)</option><option value="custom">custom</option></select></label>
+      <label>equity $<input id="sz-eq" type="number" step="0.01"></label>
+      <label>risk %<input id="sz-risk" type="number" step="0.05" value="0.25"></label>
+      <label>max leverage<input id="sz-lev" type="number" step="1" value="5"></label>
+      <label>entry<input id="sz-entry" type="number" step="any" placeholder="price"></label>
+      <label>stop<input id="sz-stop" type="number" step="any" placeholder="price"></label>
+    </div><div class="sz-out" id="sz-out"></div>`;
+    const acct = $('#sz-acct'), eq = $('#sz-eq'), risk = $('#sz-risk'), lev = $('#sz-lev'), en = $('#sz-entry'), st = $('#sz-stop');
+    const fill = () => { const a = S.accounts.find(x => x.key === acct.value); if (a) { eq.value = a.equity.toFixed(2); risk.value = acct.value === 'comp' ? 1 : 0.25; } calc(); };
+    const calc = () => { const E = +eq.value, R = +risk.value / 100, e = +en.value, s = +st.value, L = +lev.value; if (!(E > 0 && R > 0 && e > 0 && s > 0 && e !== s)) { $('#sz-out').innerHTML = '<div><span>enter an entry and a stop</span></div>'; return; }
+      const riskUsd = E * R, dist = Math.abs(e - s), distPct = dist / e; const size = riskUsd / dist, notional = size * e; const levNeeded = notional / E;
+      const maxLev3x = 0.85 / (3 * distPct); const useLev = Math.min(L, maxLev3x); const liqDist = 0.85 / useLev; const margin = notional / useLev; const sel = acct.value === 'elite5k';
+      const rows = [['risk', usd(riskUsd)], ['stop distance', `${px(dist)} (${(distPct * 100).toFixed(2)}%)`], ['size', `${size.toFixed(size < 1 ? 4 : 2)} units`], ['notional', usd(notional)], ['leverage to use (3× liq rule)', `${useLev.toFixed(1)}× · margin ${usd(margin)}`], ['liquidation ≈', `${(liqDist * 100).toFixed(1)}% away (${(liqDist / distPct).toFixed(1)}× the stop)`], ['1R / 2R targets', `${px(e + (e > s ? dist : -dist))} / ${px(e + (e > s ? 2 * dist : -2 * dist))}`]];
+      if (sel) rows.push(['Select copy at 0.6×', `${(size * .6).toFixed(4)} units · ${usd(notional * .6)} ${notional * .6 >= 10 ? '' : '· under the $10 minimum'}`], ['lead floor ≥ $84', notional >= 84 ? 'ok' : 'too small: raise size or widen the stop']);
+      if (levNeeded > L) rows.push(['note', `needs ${levNeeded.toFixed(1)}× at full size; cap at ${L}× means ${(E * L / e).toFixed(4)} units max`]);
+      $('#sz-out').innerHTML = rows.map(([k, v]) => `<div class="${/too small|under the/.test(v) ? 'bad' : v === 'ok' ? 'ok' : ''}"><span>${k}</span><b>${v}</b></div>`).join(''); };
+    [eq, risk, lev, en, st].forEach(i => i.addEventListener('input', calc)); acct.addEventListener('change', fill); fill();
+  }
+
+  function renderLive() { renderTape(); renderPositions(); renderZones(); renderPulse(); renderAlerts(); }
   (async () => {
-    try { [S, L] = await Promise.all([loadJSON('data/state.json'), loadJSON('data/levels.json')]); }
+    try { [S, L] = await Promise.all([loadJSON('data/state.json'), loadJSON('data/levels.json')]); G = await loadJSON('data/signals.json').catch(() => null); }
     catch (e) { $('#take .lead').textContent = 'Could not load the terminal data (' + e.message + '). Open this page from the published site, not from a local file.'; return; }
     renderClock(); setInterval(renderClock, 1000); renderHeader(); setInterval(renderHeader, 60000);
-    renderTake(); renderAccounts(); renderFeed(); renderWatchlist(); renderPreflight(); renderLedger(); renderLanes(); renderWhere();
+    renderTake(); renderAccounts(); renderFeed(); renderWatchlist(); renderPreflight(); renderLedger(); renderLanes(); renderWhere(); renderScanner(); renderSizer(); setupNotify();
     const first = S.watchlist.find(w => w.status === 'armed' || w.status === 'watch'); cur.market = first ? first.market : L.levels[0].market;
     await fetchMids(); renderLive(); loadCandles();
     $('#iv-ctl').querySelectorAll('.btn').forEach(b => b.addEventListener('click', () => { const on = $('#iv-ctl .on'); if (on) on.classList.remove('on'); b.classList.add('on'); cur.iv = b.dataset.iv; loadCandles(); }));
