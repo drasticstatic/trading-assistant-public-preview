@@ -1,14 +1,14 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-25T16:32-04:00",
+ "generated": "2026-10-25T18:54-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
   "cadence": "Weekend swing cadence: a check-in every 2 hours, plus one-shot checks one minute after a candle close when price presses an armed zone. Weekday cadence: every 30 minutes."
  },
  "offsets": {
-  "Gold": 1.75,
-  "Crude": 0.145
+  "Gold": 3.7,
+  "Crude": 0.065
  },
  "links": {
   "gallery": "../gallery.html",
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-25T16:32-04:00"
+   "asof": "2026-10-25T18:54-04:00"
   },
   {
    "key": "elite5k",
@@ -64,13 +64,13 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 4995.18,
+   "equity": 4995.15,
    "balance": 4999.78,
-   "upnl": -4.6,
+   "upnl": -4.63,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 148.33,
-   "mdd_room": 245.18,
+   "dll_room": 148.3,
+   "mdd_room": 245.15,
    "mdd_floor": 4750,
    "target_equity": 5500,
    "remaining_profit": 500.22,
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-25T16:32-04:00"
+   "asof": "2026-10-25T18:54-04:00"
   },
   {
    "key": "select1k",
@@ -113,7 +113,7 @@
    },
    "markets": "Whatever the Elite trades, at 0.6×.",
    "note": "Prize account from MFP. The 0.6× multiplier aligns its 3% floor with the Elite's 5%.",
-   "asof": "2026-10-25T16:32-04:00"
+   "asof": "2026-10-25T18:54-04:00"
   }
  ],
  "positions": [
@@ -333,6 +333,18 @@
    "note": "16:32 check-in: crude is pressing the long zone (15:00 closed 102.59 feed, inside 102.73–102.94 MFP) but has not closed back above Friday low 102.94; Brent swept 109.99 and rallied to 111.15, a bullish SMT forming. Gold is breaking out above the short zone (16:00 high 4,004.5 feed), so the short stays unarmed. BTC and ETH sit 4+ ATRs above their Elite long zones. All accounts flat for Fortuna; Christopher SOL longs 4.7% above the BTCC liquidation.",
    "action": "one-shot 17:01",
    "at": "2026-10-25T16:32-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 101091.28,
+   "balance": 101091.28,
+   "upnl": 0,
+   "open_positions": 0,
+   "working_orders": 0,
+   "status": "ok",
+   "note": "18:53 check-in: crude fell out of the long zone after two rejections at Friday low (now 1.3 ATR below it, MFP 102.22); gold keeps grinding higher above the short zone (MFP 4,008). BTC swept its 1H swing low at 80,206 and closed back above, but sits 3.5 ATRs above the Elite zone; nothing closed-candle qualifies on any account. CME reopens at 18:00 ET; Tradovate still flat.",
+   "action": "none",
+   "at": "2026-10-25T18:54-04:00"
   }
  ],
  "ledger": [
