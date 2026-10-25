@@ -16,7 +16,8 @@ cross-venue position co-pilot); the DEX-arbitrage lane joins as it comes online.
 ## Data
 
 - `data/state.json` — curated, public-safe state (accounts, positions, watchlist, check-ins, ledger, preflight, lanes). No account IDs, no private notes.
+- `data/signals.json` — the mechanical scan behind each check-in (sweeps, reclaims, SMT, zone pressure, alerts), feeding the Scanner and Alerts panels.
 - `data/levels.json` — Hyperliquid 4H/1H/15m structure per feed (EMAs, ATR, prior-day high/low, opens), rebuilt at every publish.
 - Live mids come from Hyperliquid's public `allMids` endpoint in the browser (30-second refresh); the page falls back to the snapshot if that fetch fails.
 
-Republished by Fortuna's check-in routine (append → build → commit → push); the public preview syncs on push.
+Republished by Fortuna's check-in routine (scan → append → build → commit → push); the public preview syncs on push.
