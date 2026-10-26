@@ -1,6 +1,6 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-25T20:55-04:00",
+ "generated": "2026-10-25T22:05-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
@@ -40,7 +40,7 @@
    "balance": 101091.28,
    "upnl": 0,
    "open_positions": 0,
-   "working_orders": 0,
+   "working_orders": 1,
    "firm_limits": "No profit target, daily loss limit or drawdown (ranked by equity). Fees, slippage, liquidation and leverage caps still apply.",
    "self_limits": {
     "dll_pct": 3,
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-25T20:55-04:00"
+   "asof": "2026-10-25T22:05-04:00"
   },
   {
    "key": "elite5k",
@@ -64,16 +64,16 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 4993.99,
-   "balance": 4999.77,
-   "upnl": -5.78,
+   "equity": 4993.54,
+   "balance": 4999.76,
+   "upnl": -6.22,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 147.14,
-   "mdd_room": 243.99,
+   "dll_room": 146.69,
+   "mdd_room": 243.54,
    "mdd_floor": 4750,
    "target_equity": 5500,
-   "remaining_profit": 500.23,
+   "remaining_profit": 500.24,
    "firm_limits": "3% daily loss ($150 from the day's start), 5% static max drawdown (floor $4,750), 10% profit target ($5,500). Leads the Select 1K in a native copy group at 0.6×.",
    "self_limits": {
     "risk": "0.25% ($12.50) per trade · 0.5% for A+",
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-25T20:55-04:00"
+   "asof": "2026-10-25T22:05-04:00"
   },
   {
    "key": "select1k",
@@ -119,24 +119,24 @@
  "positions": [
   {
    "owner": "Christopher",
-   "venue": "BTCC (real)",
+   "venue": "BTCC",
    "account": "btcc",
-   "symbol": "SOL",
+   "symbol": "SOL/USDT",
    "side": "long",
    "size": 6,
    "entry": 105.22,
    "stop": null,
-   "tp": 111.1,
+   "tp": null,
    "liq": 96.92,
-   "live": false,
+   "live": true,
    "public": true,
-   "note": "Market take-profit at 111.10, no stop. Read-only: Fortuna alerts, never executes here.",
-   "asof": "2026-10-25T14:31-04:00",
-   "plan": "Christopher (Oct 25): aiming for the prior-day highs; unsure of the weekend tape (exchange maintenance, macro) and willing to step aside if the market displaces down for liquidity."
+   "plan": "aiming for the prior-day highs; unsure of the weekend tape — willing to step aside if the market displaces lower",
+   "note": "real money · read-only for Fortuna",
+   "asof": "2026-10-25T20:53-04:00"
   },
   {
    "owner": "Christopher",
-   "venue": "MFP Elite 5K",
+   "venue": "MyFundedPerps",
    "account": "elite5k",
    "symbol": "SOL",
    "side": "long",
@@ -147,26 +147,26 @@
    "liq": null,
    "live": true,
    "public": true,
-   "note": "Cross margin 3×. Resting take-profit, no stop. Christopher's trade; Fortuna does not touch it.",
-   "asof": "2026-10-25T14:31-04:00",
-   "plan": "Resting take-profit at 104.38. Christopher's trade; same PDH intent as the BTCC long."
+   "plan": "TP resting at 104.38; leads the Select 1K copy at 0.6×",
+   "note": "Christopher's own position — Fortuna never touches it",
+   "asof": "2026-10-25T22:01-04:00"
   },
   {
-   "owner": "Christopher",
-   "venue": "MFP Select 1K",
-   "account": "select1k",
-   "symbol": "SOL",
-   "side": "long",
-   "size": 0.22,
-   "entry": 103.6,
-   "stop": null,
-   "tp": null,
+   "owner": "Fortuna",
+   "venue": "MyFundedPerps",
+   "account": "comp",
+   "symbol": "Gold",
+   "side": "short",
+   "size": 63.182,
+   "entry": 4003,
+   "stop": 4011,
+   "tp": 3979,
    "liq": null,
-   "live": true,
+   "live": false,
    "public": true,
-   "note": "Copy follower of the Elite position.",
-   "asof": "2026-10-25T14:31-04:00",
-   "plan": "Mirrors the Elite exit at 0.6×."
+   "plan": "RESTING limit short at the translated Friday high · stop 4,011 · TP 3,979 (3R) · BE at +1R, half at 2R · expires 00:02 ET if unfilled",
+   "note": "failed-breakout retest · 0.5% risk (thin Sunday book)",
+   "asof": "2026-10-25T22:04-04:00"
   }
  ],
  "watchlist": [
@@ -212,7 +212,7 @@
    "stop_rule": "sweep low − 1× ATR",
    "targets": "TP1 80,051 · TP2 80,828",
    "note": "Elite base-hit program: 0.25% risk, half off at 1R.",
-   "updated": "2026-10-25T08:35:00-04:00",
+   "updated": "2026-10-25T22:05-04:00",
    "account": "elite5k"
   },
   {
@@ -222,12 +222,12 @@
    "setup": "Retrace into $3,999–4,002 (PDH / 1H EMA50) with a rejection close back below; counter-trend long only on sweep-and-reclaim of $3,975 with silver SMT",
    "zone_lo": 3999,
    "zone_hi": 4002,
-   "status": "armed",
+   "status": "triggered",
    "grade_max": "B",
    "stop_rule": "rejection high + 1× ATR, min $5",
    "targets": "TP 3,975",
    "note": "Two hourly closes above the swept Friday high (Oct 25 12:00, 13:00) with silver at new highs: the short is unarmed until a rejection close back under 3,999 (feed).",
-   "updated": "2026-10-25T20:55-04:00",
+   "updated": "2026-10-25T22:05-04:00",
    "account": "comp"
   },
   {
@@ -357,6 +357,18 @@
    "note": "Risk-off Sunday evening: gold failed its breakout above Friday high and fell back under the short zone (retrace short re-armed, no chase), BTC/ETH sliding toward the Elite long zones at ~1.3–2 ATR away, crude two ATRs under its zone. No trade. One-shot read after the 21:00 close.",
    "action": "one-shot 22:01",
    "at": "2026-10-25T20:55-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 101091.28,
+   "balance": 101091.28,
+   "upnl": 0,
+   "open_positions": 0,
+   "working_orders": 1,
+   "status": "ok",
+   "note": "Gold failed breakout confirmed on the 22:00 close (21:15 wick to the Friday high, 15m and 1H closes back under 3,996 feed). First competition order since handoff: a resting LIMIT SHORT at the MFP-translated Friday high (4,003) with attached stop 4,011 and target 3,979 (3R), risk cut to 0.5% for the thin Sunday-night book and a silver SMT that did not diverge; expires 00:02 ET if untouched. BTC is pressing the Elite long zone (0.4 ATR above) — one-shot at 23:01.",
+   "action": "trade",
+   "at": "2026-10-25T22:05-04:00"
   }
  ],
  "ledger": [
