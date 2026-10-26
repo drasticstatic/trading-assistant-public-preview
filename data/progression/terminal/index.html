@@ -57,6 +57,7 @@
     .tape::before { left: 0; background: linear-gradient(90deg, var(--bg) 10%, transparent); } .tape::after { right: 0; background: linear-gradient(270deg, var(--bg) 10%, transparent); }
     .tape-track { display: flex; width: max-content; animation: marquee var(--tape-dur, 70s) linear infinite; will-change: transform; }
     .tape:hover .tape-track { animation-play-state: paused; }
+    .tape { cursor: grab; touch-action: pan-y; } .tape:active { cursor: grabbing; }
     .tape-set { display: flex; gap: .5rem; padding-right: .5rem; }
     @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     @media (prefers-reduced-motion: reduce) { .tape { overflow-x: auto; padding: .6rem 1.2rem; } .tape-track { animation: none; } .tape::before, .tape::after { display: none; } }
@@ -291,7 +292,7 @@
           </div>
           <div class="chart-wrap"><svg id="csvg" role="img" aria-label="Live candles with Fortuna's levels"></svg></div>
           <div class="ohlc" id="ohlc"></div>
-          <div class="lg"><span><i style="background:var(--cyan)"></i>EMA 20</span><span><i style="background:var(--purple)"></i>EMA 50</span><span><i style="background:var(--pink)"></i>EMA 200</span><span><i style="background:var(--gold)"></i>armed zone</span><span><i style="background:var(--blue)"></i>PDH / PDL</span><span><i style="background:var(--muted)"></i>midnight · week open</span><span><i style="background:var(--green)"></i>position entry / target</span><span><i style="background:var(--red)"></i>stop / liquidation</span><span class="chint">scroll to zoom · drag to pan · drag an axis to scale · double-click to fit</span></div>
+          <div class="lg"><span><i style="background:var(--cyan)"></i>EMA 20</span><span><i style="background:var(--purple)"></i>EMA 50</span><span><i style="background:var(--pink)"></i>EMA 200</span><span><i style="background:var(--gold)"></i>armed zone</span><span><i style="background:var(--blue)"></i>PDH / PDL</span><span><i style="background:var(--muted)"></i>midnight · week open</span><span><i style="background:var(--green)"></i>position entry / target</span><span><i style="background:var(--red)"></i>stop / liquidation</span><span class="chint">scroll to zoom · drag to pan · drag an axis to scale · double-click to fit · tape: drag or scroll</span></div>
         </section>
         <section class="panel" id="zones"><div class="ph"><i class="ph-duotone ph-crosshair"></i> Zones radar <span class="sub">live price against every armed zone, in MFP terms</span></div><div id="zr"></div></section>
         <section class="panel" id="scanner"><div class="ph"><i class="ph-duotone ph-scan"></i> Scanner <span class="sub" id="scan-sub">mechanical read: sweeps · reclaims · SMT · sessions</span></div><div id="scan-body"></div></section>
@@ -328,7 +329,8 @@
   const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const usd = (v, d = 2) => v == null ? '—' : (v < 0 ? '−' : '') + '$' + Math.abs(v).toLocaleString('en-US', {minimumFractionDigits: d, maximumFractionDigits: d});
   const sgn = (v, d = 2) => v == null ? '—' : (v > 0 ? '+' : v < 0 ? '−' : '') + '$' + Math.abs(v).toLocaleString('en-US', {minimumFractionDigits: d, maximumFractionDigits: d});
-  const px = (v, d) => v == null ? '—' : Number(v).toLocaleString('en-US', {maximumFractionDigits: d ?? (v >= 1000 ? 1 : v >= 100 ? 2 : 3), minimumFractionDigits: 0});
+  const px = (v, d) => v == null ? '—' : Number(v).toLocaleString('en-US', {maximumFractionDigits: d ?? (v >= 1000 ? 1 : v >= 100 ? 2 : v >= 10 ? 3 : 4), minimumFractionDigits: 0});
+  const pxu = (l, v) => l && l.unit === '$T' ? '$' + px(v, 3) + 'T' : px(v);
   const pct = (v) => v == null ? '—' : (v > 0 ? '+' : v < 0 ? '−' : '') + Math.abs(v).toFixed(2) + '%';
   const cls = (v) => v > 0 ? 'pos' : v < 0 ? 'neg' : 'flat';
   const NY = 'America/New_York';
@@ -345,8 +347,12 @@
   const SYM = {SOL: 'SOL', BTC: 'BTC', ETH: 'ETH'};
 
   async function loadJSON(p) { const r = await fetch(p, {cache: 'no-store'}); if (!r.ok) throw new Error(p + ' ' + r.status); return r.json(); }
+  let total2 = null;
+  async function fetchTotal2() {
+    try { const g = (await fetch('https://api.coingecko.com/api/v3/global').then(r => r.json())).data; total2 = g.total_market_cap.usd * (1 - g.market_cap_percentage.btc / 100) / 1e12; mids['coingecko:total2'] = total2; } catch (e) {}
+  }
   async function fetchMids() {
-    try { const [a, b] = await Promise.all([post({type: 'allMids'}), post({type: 'allMids', dex: 'xyz'})]); mids = Object.assign({}, a, b); for (const k in mids) mids[k] = parseFloat(mids[k]);
+    try { const [a, b] = await Promise.all([post({type: 'allMids'}), post({type: 'allMids', dex: 'xyz'})]); mids = Object.assign({}, a, b); for (const k in mids) mids[k] = parseFloat(mids[k]); if (total2 != null) mids['coingecko:total2'] = total2;
       const c = $('#feedchip'); c.className = 'chip ok live'; c.innerHTML = '<span class="dot"></span> live · Hyperliquid'; return true; }
     catch (e) { mids = {}; const c = $('#feedchip'); c.className = 'chip warn'; c.innerHTML = '<span class="dot"></span> live feed offline · snapshot'; return false; }
   }
@@ -379,14 +385,29 @@
   function renderTape() {  // built once as two identical sets so the marquee loops seamlessly; prices are patched in place afterwards
     const armed = new Set(S.watchlist.filter(w => w.status === 'armed' || w.status === 'triggered').map(w => w.market));
     const set = L.levels.map(l => { const [p, ch] = tkChg(l);
-      return `<div class="tk ${cur.market === l.market ? 'on' : ''}" data-m="${esc(l.market)}"><div class="n">${esc(l.market)}${armed.has(l.market) ? '<span class="arm">armed</span>' : ''}</div>${spark(l.spark, 72, 30, ch >= 0 ? 'var(--green)' : 'var(--red)')}<div class="p num">${px(p)}</div><div class="c num ${cls(ch)}">${pct(ch)} <span class="flat">24h</span></div></div>`; }).join('');
+      return `<div class="tk ${cur.market === l.market ? 'on' : ''}" data-m="${esc(l.market)}"><div class="n">${esc(l.market)}${armed.has(l.market) ? '<span class="arm">armed</span>' : ''}</div>${spark(l.spark, 72, 30, ch >= 0 ? 'var(--green)' : 'var(--red)')}<div class="p num">${pxu(l, p)}</div><div class="c num ${cls(ch)}">${pct(ch)} <span class="flat">${l.src === 'yahoo' ? 'snap' : '24h'}</span></div></div>`; }).join('');
     $('#tape').innerHTML = `<div class="tape-track"><div class="tape-set">${set}</div><div class="tape-set" aria-hidden="true">${set}</div></div>`;
     $('#tape').style.setProperty('--tape-dur', Math.round(L.levels.length * 9) + 's');
-    $('#tape').querySelectorAll('.tk').forEach(t => t.addEventListener('click', () => selectMarket(t.dataset.m)));
+    $('#tape').querySelectorAll('.tk').forEach(t => t.addEventListener('click', (ev) => { if (tapeDrag && tapeDrag.moved) return; selectMarket(t.dataset.m); }));
+    setupTapeScroll();
+  }
+  let tapeDrag = null, tapeTimer = null;
+  function setupTapeScroll() {
+    const tape = $('#tape'), track = $('#tape .tape-track'); if (!track || track.dataset.wired) return; track.dataset.wired = '1';
+    const half = () => track.scrollWidth / 2;
+    const offsetNow = () => { const m = getComputedStyle(track).transform; if (!m || m === 'none') return 0; return -parseFloat(m.split(',')[4]); };
+    const freeze = (off) => { track.style.animation = 'none'; track.style.transform = `translateX(${-off}px)`; };
+    const resume = () => { const off = ((offsetNow() % half()) + half()) % half(); const dur = parseFloat(getComputedStyle(tape).getPropertyValue('--tape-dur')) || 70; track.style.transform = ''; track.style.animation = 'none'; void track.offsetWidth; track.style.animation = `marquee ${dur}s linear infinite`; track.style.animationDelay = `${-(off / half()) * dur}s`; };
+    const nudge = (dx) => { const off = ((offsetNow() + dx) % half() + half()) % half(); freeze(off); clearTimeout(tapeTimer); tapeTimer = setTimeout(resume, 2500); };
+    tape.addEventListener('wheel', (ev) => { const d = Math.abs(ev.deltaX) > Math.abs(ev.deltaY) ? ev.deltaX : ev.deltaY; if (!d) return; ev.preventDefault(); nudge(d); }, {passive: false});
+    tape.addEventListener('pointerdown', (ev) => { if (ev.button !== 0) return; tapeDrag = {x: ev.clientX, off: offsetNow(), moved: false}; freeze(tapeDrag.off); clearTimeout(tapeTimer); });
+    tape.addEventListener('pointermove', (ev) => { if (!tapeDrag) return; const dx = tapeDrag.x - ev.clientX; if (Math.abs(dx) > 3) tapeDrag.moved = true; freeze(((tapeDrag.off + dx) % half() + half()) % half()); });
+    const end = () => { if (!tapeDrag) return; const d = tapeDrag; tapeDrag = null; clearTimeout(tapeTimer); tapeTimer = setTimeout(resume, 2500); setTimeout(() => { d.moved = false; }, 0); };
+    tape.addEventListener('pointerup', end); tape.addEventListener('pointercancel', end); tape.addEventListener('pointerleave', end);
   }
   function updateTape() {
     if (!$('#tape .tk')) return renderTape();
-    $('#tape').querySelectorAll('.tk').forEach(t => { const l = lv(t.dataset.m); if (!l) return; const [p, ch] = tkChg(l); t.classList.toggle('on', cur.market === l.market); t.querySelector('.p').textContent = px(p); const c = t.querySelector('.c'); c.className = 'c num ' + cls(ch); c.innerHTML = `${pct(ch)} <span class="flat">24h</span>`; });
+    $('#tape').querySelectorAll('.tk').forEach(t => { const l = lv(t.dataset.m); if (!l) return; const [p, ch] = tkChg(l); t.classList.toggle('on', cur.market === l.market); t.querySelector('.p').textContent = pxu(l, p); const c = t.querySelector('.c'); c.className = 'c num ' + cls(ch); c.innerHTML = `${pct(ch)} <span class="flat">24h</span>`; });
   }
 
   /* ── takeaway ── */
@@ -452,9 +473,11 @@
   const view = {n: 150, end: null, follow: true, yauto: true, ylo: null, yhi: null};
   function resetView() { view.n = VIEW_N(); view.end = null; view.follow = true; view.yauto = true; view.ylo = view.yhi = null; syncChartBtns(); }
   function syncChartBtns() { $('#y-auto').classList.toggle('on', view.yauto); $('#x-follow').classList.toggle('on', view.follow); }
+  const aggC = (bars, ms) => { const out = new Map(); bars.forEach(b => { const k = b.t - b.t % ms; const o = out.get(k); if (!o) out.set(k, {t: k, o: b.o, h: b.h, l: b.l, c: b.c}); else { o.h = Math.max(o.h, b.h); o.l = Math.min(o.l, b.l); o.c = b.c; } }); return [...out.values()].sort((a, b) => a.t - b.t); };
   async function loadCandles() {
     const l = lv(cur.market); if (!l) return; const hours = IV_H[cur.iv] * 600; const now = Date.now();
     const endT = (!view.follow && cur.candles && view.end) ? cur.candles[view.end - 1].t : null;
+    if (l.candles) { cur.candles = aggC(l.candles, IV_H[cur.iv] * 36e5); drawChart(); return; }
     try { const rows = await post({type: 'candleSnapshot', req: {coin: l.feed, interval: cur.iv, startTime: now - hours * 36e5, endTime: now}});
       cur.candles = rows.map(r => ({t: r.t, o: +r.o, h: +r.h, l: +r.l, c: +r.c}));
       if (endT != null) { const i = cur.candles.findIndex(c => c.t === endT); if (i >= 0) view.end = i + 1; }
@@ -498,7 +521,7 @@
     if (!view.follow) g += `<text x="${W - m.r - 6}" y="${H - m.b - 6}" text-anchor="end" class="cx" fill="var(--indigo)">◀ ${all.length - view.end} newer</text>`;
     g += `<g id="xh"></g>`;
     svg.innerHTML = g; cur.geo = {m, n, iw, ih, W, H, lo, hi, cs, X, Y, o};
-    $('#chart-title').textContent = `${cur.market} · ${l.feed}`; $('#chart-sub').textContent = `${cur.iv.toUpperCase()} · ${o ? 'MFP ≈ feed + ' + px(o) : 'no venue offset'} · ${l.bias_1h} 1H / ${l.bias_4h} 4H · ATR 1H ${px(l.atr_1h)}`;
+    $('#chart-title').textContent = `${cur.market} · ${l.feed}`; $('#chart-sub').textContent = l.src ? `${cur.iv.toUpperCase()} · ${esc(l.note || '')}` : `${cur.iv.toUpperCase()} · ${o ? 'MFP ≈ feed + ' + px(o) : 'no venue offset'} · ${l.bias_1h} 1H / ${l.bias_4h} 4H · ATR 1H ${px(l.atr_1h)}`;
     showOHLC(cs[cs.length - 1]);
   }
   function showOHLC(c) { const o = off(cur.market); $('#ohlc').innerHTML = `<span>${fmtET(c.t)}</span><span>O <b>${px(c.o)}</b></span><span>H <b>${px(c.h)}</b></span><span>L <b>${px(c.l)}</b></span><span>C <b class="${cls(c.c - c.o)}">${px(c.c)}</b></span><span>Δ <b class="${cls(c.c - c.o)}">${pct((c.c / c.o - 1) * 100)}</b></span>${o ? `<span>MFP est. <b>${px(c.c + o)}</b></span>` : ''}`; }
@@ -660,7 +683,7 @@
     catch (e) { $('#take .lead').textContent = 'Could not load the terminal data (' + e.message + '). Open this page from the published site, not from a local file.'; return; }
     renderClock(); setInterval(renderClock, 1000); renderHeader(); setInterval(renderHeader, 60000);
     renderTake(); renderAccounts(); renderFeed(); renderWatchlist(); renderPreflight(); renderLedger(); renderLanes(); renderWhere(); renderScanner(); try { renderSizer(); } catch (e) { console.error(e); } setupNotify(); renderStudy().catch(console.error);
-    const first = S.watchlist.find(w => w.status === 'armed' || w.status === 'watch'); cur.market = first ? first.market : L.levels[0].market;
+    const qm = new URLSearchParams(location.search).get('m'); const first = S.watchlist.find(w => w.status === 'armed' || w.status === 'watch'); cur.market = (qm && lv(qm)) ? qm : first ? first.market : L.levels[0].market;
     await fetchMids(); renderTape(); renderLive(); setupChartInteractions(); loadCandles();
     $('#iv-ctl').querySelectorAll('.btn').forEach(b => b.addEventListener('click', () => { const on = $('#iv-ctl .on'); if (on) on.classList.remove('on'); b.classList.add('on'); cur.iv = b.dataset.iv; resetView(); loadCandles(); }));
     $('#refresh').addEventListener('click', refreshAll);
@@ -668,6 +691,7 @@
     $('#pos-list').addEventListener('click', (ev) => { const c = ev.target.closest('.pos-card'); if (c) c.classList.toggle('open'); });
     $('#feed-list').addEventListener('click', (ev) => { const c = ev.target.closest('.fi'); if (c) c.classList.toggle('open'); });
     setInterval(async () => { if (await fetchMids()) renderLive(); }, 30000);
+    fetchTotal2().then(updateTape); setInterval(() => fetchTotal2().then(updateTape), 300000);
     setInterval(loadCandles, 60000);
     window.addEventListener('resize', () => cur.candles && drawChart());
   })();
