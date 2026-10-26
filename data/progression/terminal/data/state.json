@@ -1,6 +1,6 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-26T09:48-04:00",
+ "generated": "2026-10-26T10:02-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-26T09:48-04:00"
+   "asof": "2026-10-26T10:02-04:00"
   },
   {
    "key": "elite5k",
@@ -477,6 +477,18 @@
    "note": "NY open: the 09:30 candles on NQ (29,019–29,182) and ES (7,640–7,662) were wide and two-sided with closes near their opens, scenario C, so no first-candle trade; the rails are marked and a 15m close through one with the Russell confirming is the next read. Gold broke under its short zone during the 09:00–09:30 no-fade window and ran to 4,002 without me, which is the rule doing its job after two stop-outs there. The A-grade read stands (KEY level inside the zone, silver confirming, 4H bear), so a limit short rests at the zone-floor retest, 4,021, stop 4,040 beyond the high cluster plus an ATR, target 3,989, expiring 11:30 if untouched.",
    "action": "trade",
    "at": "2026-10-26T09:48-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 100555.77,
+   "balance": 100555.77,
+   "upnl": 0,
+   "open_positions": 0,
+   "working_orders": 1,
+   "status": "ok",
+   "note": "The 09:00 hour closed gold at 3,994 on the feed, 2.4 ATR of displacement under the zone, with silver taking its own low. The retest short still rests at 4,021 and expires at 11:30 if the pullback never comes. Crude closed its hour through the 5/5 at 101.45 with Brent holding, but it ran 0.4 past it, so the long waits for a pullback that holds rather than a chase. BTC is half an ATR above the Elite zone.",
+   "action": "one-shot 11:01",
+   "at": "2026-10-26T10:02-04:00"
   }
  ],
  "ledger": [
