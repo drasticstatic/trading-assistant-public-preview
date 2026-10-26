@@ -20,7 +20,13 @@
       --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
       --r: 12px; --r-lg: 16px; --spring: cubic-bezier(.34,1.56,.64,1);
+      /* type scale (Inter for words, JetBrains Mono only for numbers) and spacing scale, written once */
+      --t-xs: .68rem; --t-sm: .74rem; --t-base: .82rem; --t-md: .92rem; --t-lg: 1.1rem; --t-xl: 1.5rem; --t-hero: 1.6rem;
+      --s-1: .25rem; --s-2: .5rem; --s-3: .75rem; --s-4: 1rem; --s-5: 1.5rem;
+      --focus: 0 0 0 2px var(--bg), 0 0 0 4px rgba(129,140,248,.8);
     }
+    :focus-visible { outline: none; box-shadow: var(--focus); border-radius: 8px; }
+    button, a, input, select, [tabindex] { outline-offset: 2px; }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
@@ -38,7 +44,7 @@
     /* ── Top bar ── */
     .top { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; gap: .7rem; flex-wrap: wrap; padding: .55rem 1.2rem; background: rgba(7,10,20,.82); backdrop-filter: blur(18px); border-bottom: 1px solid var(--line); }
     .brand { display: flex; align-items: center; gap: .5rem; font-weight: 800; letter-spacing: .02em; font-size: .9rem; }
-    .brand b { background: linear-gradient(90deg, var(--indigo), var(--purple), var(--pink)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .brand b { background: linear-gradient(90deg, var(--indigo), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .brand small { font-weight: 500; color: var(--muted); font-size: .7rem; letter-spacing: 0; }
     .top .sp { flex: 1; }
     .chip { display: inline-flex; align-items: center; gap: .38rem; padding: .22rem .6rem; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); font-size: .7rem; font-weight: 600; color: var(--muted); white-space: nowrap; }
@@ -70,13 +76,14 @@
     .tk .arm { font-size: .6rem; padding: 0 .35rem; border-radius: 999px; border: 1px solid rgba(74,222,128,.4); color: var(--green); margin-left: .3rem; vertical-align: middle; }
 
     .wrap { max-width: 1480px; margin: 0 auto; padding: 1rem 1.2rem 4rem; }
-    @media (max-width: 720px) { .wrap { padding: .8rem .9rem 3rem; } .tape, .top { padding-left: .9rem; padding-right: .9rem; } }
+    @media (max-width: 720px) { .wrap { padding: .8rem .9rem 3rem; } .tape, .top { padding-left: .9rem; padding-right: .9rem; } .tk { width: 182px; } .take { grid-template-columns: 1fr; } .take .ic { display: none; } .sc-grid, .st-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .sc-grid, .st-grid { grid-template-columns: 1fr; } .acct .eq { font-size: var(--t-xl); } }
 
     /* ── Takeaway ── */
     .take { display: grid; grid-template-columns: auto 1fr; gap: .9rem; align-items: start; padding: .95rem 1.1rem; border: 1px solid rgba(129,140,248,.25); border-radius: var(--r-lg); background: linear-gradient(135deg, rgba(129,140,248,.12), rgba(167,139,250,.03)); margin-bottom: 1rem; animation: rise .6s var(--spring) both; }
     @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
     .take .ic { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; background: rgba(129,140,248,.15); color: var(--indigo); font-size: 1.3rem; }
-    .take .lead { font-size: clamp(.98rem, 1.5vw, 1.15rem); line-height: 1.45; color: #fff; font-weight: 500; }
+    .take .lead { font-size: clamp(1rem, 1.5vw, 1.18rem); line-height: 1.45; color: #fff; font-weight: 500; max-width: 78ch; }
     .take .meta { font-size: .72rem; color: var(--muted); margin-top: .4rem; display: flex; gap: .9rem; flex-wrap: wrap; }
 
     /* ── Panels ── */
@@ -182,7 +189,7 @@
     @keyframes pop { from { transform: translateY(10px) scale(.98); opacity: 0; } }
     .mh { display: flex; justify-content: space-between; align-items: center; gap: .6rem; padding: .8rem 1rem; border-bottom: 1px solid var(--line); font-size: .92rem; position: sticky; top: 0; background: var(--bg-2); } .mh b { color: #fff; }
     .mb { padding: .9rem 1rem 1.1rem; font-size: .8rem; }
-    .kv { display: grid; grid-template-columns: 88px 1fr; gap: .5rem .8rem; margin: 0; } .kv dt { font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 700; padding-top: .15rem; } .kv dd { margin: 0; color: var(--text); line-height: 1.5; }
+    .kv { display: grid; grid-template-columns: 88px 1fr; gap: .5rem .8rem; margin: 0; } .kv dt { font-size: var(--t-xs); letter-spacing: 0; text-transform: none; color: var(--muted); font-weight: 600; padding-top: .15rem; } .kv dd { margin: 0; color: var(--text); line-height: 1.5; }
     .mact { margin-top: 1rem; display: flex; gap: .5rem; flex-wrap: wrap; }
     .mtabs { display: flex; gap: .4rem; margin-bottom: .8rem; flex-wrap: wrap; }
     .ld-legs { display: grid; gap: .3rem; margin-top: .5rem; } .ld-leg { display: grid; grid-template-columns: 60px 1fr 90px; gap: .4rem; align-items: center; font-size: .7rem; color: var(--muted); } .ld-leg input, .ld-fib input { background: rgba(255,255,255,.05); border: 1px solid var(--line); border-radius: 8px; color: var(--text); font: 500 .74rem var(--mono); padding: .28rem .45rem; width: 100%; min-width: 0; }
@@ -236,7 +243,7 @@
     /* tables */
     .tbl { overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; font-size: .75rem; }
-    th { text-align: left; font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding: .55rem .8rem; border-bottom: 1px solid var(--line); white-space: nowrap; font-weight: 700; }
+    th { text-align: left; font-size: var(--t-xs); letter-spacing: 0; text-transform: none; color: var(--muted); padding: .55rem .8rem; border-bottom: 1px solid var(--line); white-space: nowrap; font-weight: 600; }
     td { padding: .5rem .8rem; border-bottom: 1px solid rgba(255,255,255,.045); vertical-align: top; }
     tr:last-child td { border-bottom: none; }
     td.note { color: var(--muted); font-size: .7rem; max-width: 44ch; }
@@ -273,7 +280,8 @@
     .st-find b { color: #c7d2fe; font-family: var(--mono); font-weight: 600; }
     .st-note { padding: 0 .9rem .6rem; font-size: .7rem; color: var(--muted); line-height: 1.5; }
     .st-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .5rem; padding: .3rem .9rem .8rem; }
-    .st { border: 1px solid var(--line); border-radius: var(--r); padding: .5rem .6rem; font-size: .68rem; color: var(--muted); }
+    .st { border: 1px solid var(--line); border-radius: var(--r); padding: .55rem .65rem; font-size: var(--t-xs); color: var(--muted); background: var(--panel-2); }
+    .st .big { font-family: var(--mono); font-size: var(--t-lg); font-weight: 600; line-height: 1.1; margin: .15rem 0; }
     .st b { display: block; color: #fff; font-size: .76rem; margin-bottom: .2rem; }
     .st .bar { height: 4px; border-radius: 999px; background: rgba(255,255,255,.07); margin: .3rem 0; position: relative; }
     .st .bar i { position: absolute; top: 0; bottom: 0; border-radius: 999px; }
@@ -285,10 +293,13 @@
     .al small { display: block; color: var(--muted); font-size: .64rem; font-family: var(--mono); }
     /* scanner */
     .sc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: .5rem; padding: .7rem .9rem; }
-    .sc { border: 1px solid var(--line); border-radius: var(--r); padding: .55rem .65rem; font-size: .7rem; }
-    .sc .h { display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: #fff; font-size: .78rem; }
+    .sc { border: 1px solid var(--line); border-radius: var(--r); padding: .6rem .7rem .55rem; font-size: var(--t-xs); background: var(--panel-2); display: grid; gap: .3rem; align-content: start; }
+    .sc .h { display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: #fff; font-size: var(--t-base); }
+    .sc .big { display: flex; align-items: baseline; gap: .4rem; } .sc .big b { font-family: var(--mono); font-size: var(--t-xl); font-weight: 600; color: #fff; line-height: 1.1; letter-spacing: -.01em; } .sc .big small { color: var(--muted); font-size: var(--t-xs); }
+    .sc .big b.in { color: var(--gold); } .sc .big b.trig { color: var(--cyan); }
+    .sc p { color: var(--muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.4; }
     .sc .fl { display: flex; gap: .3rem; flex-wrap: wrap; margin: .35rem 0; }
-    .fl b { font-size: .6rem; padding: .05rem .4rem; border-radius: 999px; border: 1px solid var(--line); color: var(--dim); font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+    .fl b { font-size: .62rem; padding: .08rem .45rem; border-radius: 6px; border: 0; background: rgba(255,255,255,.05); color: var(--dim); font-weight: 600; letter-spacing: 0; text-transform: lowercase; }
     .fl b.on { color: var(--green); border-color: rgba(74,222,128,.5); } .fl b.hot { color: var(--gold); border-color: rgba(251,191,36,.5); } .fl b.trig { color: #06111a; background: var(--cyan); border-color: var(--cyan); }
     .sc p { color: var(--muted); line-height: 1.45; }
     .sc-foot { padding: .2rem .9rem .8rem; font-size: .68rem; color: var(--muted); line-height: 1.6; }
@@ -793,10 +804,12 @@
     $('#scan-sub').textContent = 'mechanical read · ' + fmtET(G.asof);
     const cards = G.watchlist.filter(w => w.zone_lo != null).map(w => { const f = G.feeds[w.market] || {};
       const fl = [['pressing', w.pressing ? 'hot' : ''], ['swept', w.swept ? 'on' : ''], ['reclaimed', w.reclaimed ? 'on' : ''], ['SMT', w.smt_ok ? 'on' : w.smt_ok === false ? '' : ''], ['last 1H ' + (w.last_close_bull ? '▲' : '▼'), '']];
-      return `<div class="sc" data-m="${esc(w.market)}"><div class="h"><span>${esc(w.market)} <span class="tag ${esc(w.status)}">${esc(w.status)}</span><button class="cta" type="button"><i class="ph-duotone ph-list-magnifying-glass"></i> read</button></span><span class="num flat">${w.confluence ? `<span class="conf" title="Auto Levels within ½ ATR of the zone">◈ ${w.confluence}</span> ` : ''}${px(w.mfp_est)}</span></div>
+      const big = w.trigger ? ['trigger', 'sweep + reclaim' + (w.smt_ok ? ' + SMT' : ''), 'trig'] : w.inside ? ['inside', 'the zone, no reclaim yet', 'in'] : [w.dist_atr != null ? w.dist_atr.toFixed(1) + '×' : '—', 'ATR from the zone' + (w.pressing ? ' · pressing' : ''), w.pressing ? 'in' : ''];
+      return `<div class="sc" data-m="${esc(w.market)}"><div class="h"><span>${esc(w.market)} <span class="tag ${esc(w.status)}">${esc(w.status)}</span></span><span class="num flat">${px(w.mfp_est)}</span></div>
+        <div class="big"><b class="${big[2]}">${esc(big[0])}</b><small>${esc(big[1])}${w.confluence ? ` · <span class="conf" title="Auto Levels within ½ ATR of the zone">◈ ${w.confluence}</span>` : ''}</small></div>
         <div class="fl">${w.trigger ? '<b class="trig">trigger</b>' : ''}${fl.map(([t, c]) => `<b class="${c}">${t}</b>`).join('')}</div>
         ${f.regime && f.regime['1h'] ? `<div class="rg"><span class="chip2"><b>1H</b>${esc(f.regime['1h'].regime.label)} ${f.regime['1h'].regime.dir === 'up' ? '▲' : '▼'} · ADX ${f.regime['1h'].regime.adx ?? '—'}</span><span class="chip2"><b>EMAs</b>${esc(f.regime['1h'].align.label)}${f.regime['1h'].align.fanned ? ' · fanned' : ''}</span>${f.inev ? `<span class="chip2 ${f.inev.eligible.length ? 'ok' : ''}"><b>IT</b>${f.inev.table !== '—' ? f.inev.table + ' · ' : ''}${f.inev.eligible.length ? 'eligible: ' + f.inev.eligible.join(', ') : 'not eligible'}</span>` : ''}${f.regime['1h'].impulse ? `<span class="chip2"><b>fib</b>${f.regime['1h'].impulse.retrace != null ? (f.regime['1h'].impulse.retrace * 100).toFixed(0) + '% retrace · near ' + f.regime['1h'].impulse.nearestFib : '—'}</span>` : ''}</div>` : ''}
-        <p>${esc(w.read)}${f.sweeps && f.sweeps.length ? '<br>' + f.sweeps.map(x => `swept ${esc(x.level)} ${px(x.price)} (${x.depth_atr}× ATR), closed ${px(x.close)}`).join('; ') : ''}</p></div>`; }).join('');
+        <p>${f.sweeps && f.sweeps.length ? f.sweeps.map(x => `swept ${esc(x.level)} ${px(x.price)} (${x.depth_atr}× ATR), closed ${px(x.close)}`).join('; ') : esc(w.read)}</p><div><button class="cta" type="button"><i class="ph-duotone ph-list-magnifying-glass"></i> read</button></div></div>`; }).join('');
     const smt = G.smt.length ? G.smt.map(x => `<b>${esc(x.pair)}</b> ${esc(x.read)}`).join(' · ') : 'no SMT divergence on the last three 1H candles';
     const sess = Object.entries(G.feeds).filter(([k]) => ['Gold', 'Crude', 'Nasdaq-100', 'SOL'].includes(k)).map(([k, f]) => { const ss = f.sessions || {}; return `<b>${esc(k)}</b> ` + Object.entries(ss).map(([n, r]) => `${n} ${px(r.low)}–${px(r.high)}`).join(' · '); }).join('<br>');
     $('#scan-body').innerHTML = `<div class="sc-grid">${cards}</div><div class="sc-foot"><b>SMT</b> ${smt}<br>${sess}</div>`;
@@ -901,7 +914,7 @@
     const find = `Taken on <b>every</b> prior-day sweep, the reclaim trigger has no edge: <b>${f(bh)}</b> per trade with the 1× ATR stop (win rate ${(bh.win_rate * 100).toFixed(0)}%), <b>${f(bht)}</b> with the tight ¼ ATR stop. The best mechanical pocket, first sweep of the day with the trend and a target at the opposite day level, is only <b>${f(rf)}</b> (n ${rf ? rf.n : 0}). The edge, if there is one, lives in what the trigger does not see: higher-timeframe liquidity, displacement, the calendar.`;
     const mk = Object.entries(T.markets).map(([name, m]) => { const best = Object.entries({...Object.fromEntries(Object.entries(m.by_stop).map(([k, v]) => ['base-hit · ' + k + '× ATR', v])), ...Object.fromEntries(Object.entries(m.range_first || {}).map(([k, v]) => ['range · first · ' + k + '× ATR', v]))}).filter(([, v]) => v.n >= 20).sort((a, b) => b[1].expectancy - a[1].expectancy)[0];
       const e = best ? best[1].expectancy : 0; const w = Math.min(100, Math.abs(e) / 0.5 * 50);
-      return `<div class="st" data-m="${esc(name)}"><b>${esc(name)} <button class="cta" type="button"><i class="ph-duotone ph-table"></i> variants</button></b>base-hit 1× ATR: <span class="${cls(m.by_stop['1.0'].expectancy)}">${f(m.by_stop['1.0'])}</span> · n ${m.by_stop['1.0'].n}<div class="bar"><i style="${e >= 0 ? 'left:50%' : 'right:50%'};width:${w}%;background:${e >= 0 ? 'var(--green)' : 'var(--red)'}"></i></div>best variant: ${best ? esc(best[0]) + ' <span class="' + cls(e) + '">' + f(best[1]) + '</span> (n ' + best[1].n + ')' : '—'}</div>`; }).join('');
+      return `<div class="st" data-m="${esc(name)}"><b style="color:#fff">${esc(name)}</b><div class="big ${cls(m.by_stop['1.0'].expectancy)}">${f(m.by_stop['1.0'])}</div>base-hit · 1× ATR stop · n ${m.by_stop['1.0'].n}<div class="bar"><i style="${e >= 0 ? 'left:50%' : 'right:50%'};width:${w}%;background:${e >= 0 ? 'var(--green)' : 'var(--red)'}"></i></div>best: ${best ? esc(best[0]) + ' <span class="' + cls(e) + '">' + f(best[1]) + '</span> (n ' + best[1].n + ')' : '—'}<div style="margin-top:.35rem"><button class="cta" type="button"><i class="ph-duotone ph-table"></i> variants</button></div></div>`; }).join('');
     $('#study-body').innerHTML = `<div class="st-find clamp" title="click to expand">${find}</div><div class="st-note">${esc(T.rule)}. Conservative: a candle touching both stop and target counts as a stop. Pockets under n ≈ 60 are noise until proven otherwise. This is why Fortuna grades setups instead of auto-firing them; the study reruns as the sample grows.</div><div class="st-grid">${mk}</div>`;
   }
 
