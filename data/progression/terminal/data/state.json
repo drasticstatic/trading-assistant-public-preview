@@ -1,6 +1,6 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-26T08:54-04:00",
+ "generated": "2026-10-26T09:48-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
@@ -40,7 +40,7 @@
    "balance": 100555.77,
    "upnl": 0,
    "open_positions": 0,
-   "working_orders": 0,
+   "working_orders": 1,
    "firm_limits": "No profit target, daily loss limit or drawdown (ranked by equity). Fees, slippage, liquidation and leverage caps still apply.",
    "self_limits": {
     "dll_pct": 3,
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-26T08:54-04:00"
+   "asof": "2026-10-26T09:48-04:00"
   },
   {
    "key": "elite5k",
@@ -64,16 +64,16 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 4995.16,
-   "balance": 4999.74,
-   "upnl": -4.58,
+   "equity": 4993.6,
+   "balance": 4999.73,
+   "upnl": -6.13,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 153.6,
-   "mdd_room": 245.16,
+   "dll_room": 152.04,
+   "mdd_room": 243.6,
    "mdd_floor": 4750,
    "target_equity": 5500,
-   "remaining_profit": 500.26,
+   "remaining_profit": 500.27,
    "firm_limits": "3% daily loss ($150 from the day's start), 5% static max drawdown (floor $4,750), 10% profit target ($5,500). Leads the Select 1K in a native copy group at 0.6×.",
    "self_limits": {
     "risk": "0.25% ($12.50) per trade · 0.5% for A+",
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-26T08:54-04:00"
+   "asof": "2026-10-26T09:48-04:00"
   },
   {
    "key": "select1k",
@@ -149,7 +149,24 @@
    "public": true,
    "plan": "TP resting at 104.38; leads the Select 1K copy at 0.6×",
    "note": "Christopher's own position — Fortuna never touches it",
-   "asof": "2026-10-25T23:01-04:00"
+   "asof": "2026-10-26T09:46-04:00"
+  },
+  {
+   "owner": "Fortuna",
+   "venue": "MyFundedPerps",
+   "account": "comp",
+   "symbol": "Gold",
+   "side": "short",
+   "size": 52.924,
+   "entry": 4021,
+   "stop": 4040,
+   "tp": 3989,
+   "liq": null,
+   "live": false,
+   "public": true,
+   "plan": "RESTING limit short at the zone-floor retest · stop 4,040 (beyond the high cluster + 1 ATR) · TP1 3,989 (1.7R) · TP2 3,979 · BE at +1R · cancel if a 15m closes back above 4,026.7 feed · expires 11:30 ET",
+   "note": "A-grade read: KEY level in the zone, silver SMT, 4H bear · 1% risk · 10× isolated",
+   "asof": "2026-10-26T09:48-04:00"
   }
  ],
  "watchlist": [
@@ -205,12 +222,12 @@
    "setup": "Monday: the 01:00 hour swept Sunday's high (feed 4,018.2) while silver held its own — a bearish SMT — and closed back under it. The short is a retrace into that high with a 1H rejection close back under it AND silver still not confirming on the same candle. After two straight gold stop-outs this one must read A: no chase, no thin-tape entry; London 03:00 read first.",
    "zone_lo": 4021,
    "zone_hi": 4025,
-   "status": "watch",
+   "status": "triggered",
    "grade_max": "A",
    "stop_rule": "beyond the cluster of highs (feed 4,018–4,021) + 1× 1H ATR ≈ 4,036 MFP; size down to fit the risk cap",
    "targets": "TP1 4,006 (the Friday high retest, MFP) · TP2 3,989 (Sunday's low translated)",
    "note": "Gold now runs about +6 over the chart feed (measured 02:54 ET). Two straight gold losses by Fortuna: next competition entry is A-quality or it waits.",
-   "updated": "2026-10-26T02:55-04:00",
+   "updated": "2026-10-26T09:48-04:00",
    "account": "comp"
   },
   {
@@ -448,6 +465,18 @@
    "note": "NY pre-market: gold has pushed to the top of its short zone and slightly through it without a single hourly close under the floor, so the A-only short stays unarmed while silver lags; crude keeps reclaiming Sunday low with Brent holding, a mechanical candidate the confluence rule holds until price closes through the 5/5 at 101.45. Indices lifted into the open: NQ 29,146, ES 7,646. Flat; the 09:01 read and the 09:46 first-candle read are set.",
    "action": "one-shot 09:01",
    "at": "2026-10-26T08:54-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 100555.77,
+   "balance": 100555.77,
+   "upnl": 0,
+   "open_positions": 0,
+   "working_orders": 1,
+   "status": "ok",
+   "note": "NY open: the 09:30 candles on NQ (29,019–29,182) and ES (7,640–7,662) were wide and two-sided with closes near their opens, scenario C, so no first-candle trade; the rails are marked and a 15m close through one with the Russell confirming is the next read. Gold broke under its short zone during the 09:00–09:30 no-fade window and ran to 4,002 without me, which is the rule doing its job after two stop-outs there. The A-grade read stands (KEY level inside the zone, silver confirming, 4H bear), so a limit short rests at the zone-floor retest, 4,021, stop 4,040 beyond the high cluster plus an ATR, target 3,989, expiring 11:30 if untouched.",
+   "action": "trade",
+   "at": "2026-10-26T09:48-04:00"
   }
  ],
  "ledger": [
