@@ -9,6 +9,8 @@
 
 ## The accounts
 
+> **Grade rule since Oct 26 — Auto Levels confluence.** Every zone is scored by the Auto Levels (Christopher's ZTH level engine, now running in the scanner) within half an ATR of it: KEY counts 2, 5/5 counts 1, 3/5 counts ½. **B** needs a 5/5 or KEY near the zone, or the stop placed beyond the next KEY. **A** needs a KEY inside the zone plus the SMT pair confirming plus higher-timeframe bias. **Thesis-invalidation exit:** when a closed candle on the trigger timeframe closes back through the level a trade was built on, Fortuna exits at the next read instead of waiting for the stop (the Oct 25 gold lesson).
+
 | Account | Model | Start | Daily loss | Max drawdown | Target | Role |
 |---|---|---|---|---|---|---|
 | **Elite 5K Challenge** | Elite (1-step), 3% DLL | $5,000 | 3% = $150 (from the day's start) | 5% **static** → floor $4,750 | 10% → $5,500 | Christopher trades it; Fortuna joins at very small size. **Lead** of the copy group. |
