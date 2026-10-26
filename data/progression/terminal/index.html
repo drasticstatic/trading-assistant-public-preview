@@ -52,8 +52,14 @@
     @media (max-width: 900px) { .navl { width: 100%; order: 9; } }
 
     /* ── Tape ── */
-    .tape { display: flex; gap: .5rem; overflow-x: auto; padding: .6rem 1.2rem; border-bottom: 1px solid var(--line); scrollbar-width: thin; }
-    .tape::-webkit-scrollbar { height: 4px; } .tape::-webkit-scrollbar-thumb { background: rgba(255,255,255,.12); border-radius: 4px; }
+    .tape { overflow: hidden; padding: .6rem 0; border-bottom: 1px solid var(--line); position: relative; }
+    .tape::before, .tape::after { content: ''; position: absolute; top: 0; bottom: 0; width: 64px; z-index: 2; pointer-events: none; }
+    .tape::before { left: 0; background: linear-gradient(90deg, var(--bg) 10%, transparent); } .tape::after { right: 0; background: linear-gradient(270deg, var(--bg) 10%, transparent); }
+    .tape-track { display: flex; width: max-content; animation: marquee var(--tape-dur, 70s) linear infinite; will-change: transform; }
+    .tape:hover .tape-track { animation-play-state: paused; }
+    .tape-set { display: flex; gap: .5rem; padding-right: .5rem; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .tape { overflow-x: auto; padding: .6rem 1.2rem; } .tape-track { animation: none; } .tape::before, .tape::after { display: none; } }
     .tk { flex: 0 0 auto; display: grid; grid-template-columns: auto 72px; gap: .15rem .6rem; align-items: center; padding: .4rem .7rem; border: 1px solid var(--line); border-radius: var(--r); background: var(--panel); min-width: 196px; cursor: pointer; transition: border-color .15s, transform .25s var(--spring); }
     .tk:hover, .tk.on { border-color: rgba(129,140,248,.6); transform: translateY(-1px); }
     .tk .n { font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
@@ -103,7 +109,9 @@
     .rules { font-size: .68rem; color: var(--muted); margin-top: .5rem; line-height: 1.5; } .rules b { color: var(--text); font-weight: 600; }
 
     /* chart */
-    .ctl { display: flex; gap: .3rem; flex-wrap: wrap; align-items: center; }
+    .ctl { display: flex; gap: .3rem; flex-wrap: nowrap; flex: 0 0 auto; align-items: center; }
+    .ph .sub { flex: 0 1 auto; }
+    @media (max-width: 760px) { .ph { flex-wrap: wrap; white-space: normal; } }
     .btn { background: none; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font: 600 .68rem var(--sans); padding: .18rem .55rem; cursor: pointer; transition: all .15s; }
     .btn:hover { border-color: var(--purple); color: var(--text); } .btn.on { border-color: var(--indigo); color: #fff; background: rgba(129,140,248,.15); }
     .chart-wrap { position: relative; padding: .5rem .6rem .3rem; }
@@ -115,6 +123,31 @@
     .lg i { display: inline-block; width: 12px; height: 2px; vertical-align: middle; margin-right: .3rem; }
     .cx { font-family: var(--mono); font-size: 10px; fill: var(--muted); }
     .cz { pointer-events: none; }
+    .chart-wrap svg { cursor: crosshair; touch-action: none; user-select: none; -webkit-user-select: none; }
+    .chart-wrap svg.drag { cursor: grabbing; }
+    .pin { font-size: 9.5px; font-weight: 700; }
+    .chint { margin-left: auto; color: var(--dim); font-style: italic; }
+    @keyframes spin { to { transform: rotate(360deg); } } .btn.spin i { display: inline-block; animation: spin .9s linear infinite; }
+    .btn i { vertical-align: -1px; }
+    /* modal */
+    .modal { position: fixed; inset: 0; z-index: 200; background: rgba(4,6,14,.72); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; padding: 1rem; }
+    .modal[hidden] { display: none; }
+    .mbox { width: min(600px, 100%); max-height: 86vh; overflow: auto; background: var(--bg-2); border: 1px solid var(--line-2); border-radius: var(--r-lg); box-shadow: 0 30px 90px rgba(0,0,0,.65); animation: pop .25s var(--spring); }
+    @keyframes pop { from { transform: translateY(10px) scale(.98); opacity: 0; } }
+    .mh { display: flex; justify-content: space-between; align-items: center; gap: .6rem; padding: .8rem 1rem; border-bottom: 1px solid var(--line); font-size: .92rem; position: sticky; top: 0; background: var(--bg-2); } .mh b { color: #fff; }
+    .mb { padding: .9rem 1rem 1.1rem; font-size: .8rem; }
+    .kv { display: grid; grid-template-columns: 88px 1fr; gap: .5rem .8rem; margin: 0; } .kv dt { font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 700; padding-top: .15rem; } .kv dd { margin: 0; color: var(--text); line-height: 1.5; }
+    .mact { margin-top: 1rem; display: flex; gap: .5rem; flex-wrap: wrap; }
+    /* watchlist cards */
+    .wlg { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: .5rem; padding: .7rem .9rem; }
+    .wlc { text-align: left; background: var(--panel-2); border: 1px solid var(--line); border-radius: var(--r); padding: .55rem .65rem; color: var(--text); font: inherit; cursor: pointer; transition: border-color .15s, transform .25s var(--spring); display: grid; gap: .25rem; align-content: start; }
+    .wlc:hover { border-color: rgba(129,140,248,.6); transform: translateY(-1px); }
+    .wlc .h { display: flex; justify-content: space-between; align-items: center; gap: .3rem; } .wlc .h b { color: #fff; font-size: .85rem; }
+    .wlc .d { font-size: .68rem; color: var(--muted); } .wlc .z { font-size: .78rem; } .wlc .a { display: flex; gap: .4rem; align-items: center; justify-content: space-between; font-size: .64rem; }
+    .wlc .more { font-size: .62rem; color: var(--indigo); }
+    /* clamped prose: click to expand */
+    .clamp { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; cursor: pointer; }
+    .open .clamp, .clamp.open { -webkit-line-clamp: unset; display: block; }
 
     /* zones radar */
     .zrow { display: grid; grid-template-columns: 120px 1fr 110px; gap: .7rem; align-items: center; padding: .5rem .9rem; border-bottom: 1px solid var(--line); font-size: .74rem; cursor: pointer; }
@@ -226,6 +259,7 @@
     <span class="chip" id="age"><span class="dot"></span> loading</span>
     <span class="chip" id="feedchip"><span class="dot"></span> prices</span>
     <span class="chip info" id="ends"><i class="ph-duotone ph-flag-checkered"></i> <span></span></span>
+    <button class="btn" id="refresh" type="button" title="reload the data files, live prices and candles"><i class="ph-duotone ph-arrows-clockwise"></i> refresh</button>
     <span class="sp"></span>
     <nav class="navl">
       <a href="../../../index.html"><i class="ph-duotone ph-house"></i> Home</a>
@@ -253,10 +287,11 @@
         <section class="panel" id="chart">
           <div class="ph"><i class="ph-duotone ph-chart-line"></i> <span id="chart-title">Chart</span> <span class="sub" id="chart-sub"></span><span class="sp"></span>
             <div class="ctl" id="iv-ctl"><button class="btn" data-iv="15m">15m</button><button class="btn on" data-iv="1h">1H</button><button class="btn" data-iv="4h">4H</button><button class="btn" data-iv="1d">D</button></div>
+            <div class="ctl" id="view-ctl"><button class="btn on" id="y-auto" type="button" title="auto-scale the price axis to the visible candles">auto</button><button class="btn on" id="x-follow" type="button" title="keep the latest candle on the right edge">follow</button><button class="btn" id="fit" type="button" title="snap to fit (or double-click the chart)"><i class="ph-duotone ph-arrows-out"></i></button></div>
           </div>
           <div class="chart-wrap"><svg id="csvg" role="img" aria-label="Live candles with Fortuna's levels"></svg></div>
           <div class="ohlc" id="ohlc"></div>
-          <div class="lg"><span><i style="background:var(--cyan)"></i>EMA 20</span><span><i style="background:var(--purple)"></i>EMA 50</span><span><i style="background:var(--pink)"></i>EMA 200</span><span><i style="background:var(--gold)"></i>armed zone</span><span><i style="background:var(--blue)"></i>PDH / PDL</span><span><i style="background:var(--muted)"></i>midnight · week open</span><span><i style="background:var(--green)"></i>position entry / target</span><span><i style="background:var(--red)"></i>stop / liquidation</span></div>
+          <div class="lg"><span><i style="background:var(--cyan)"></i>EMA 20</span><span><i style="background:var(--purple)"></i>EMA 50</span><span><i style="background:var(--pink)"></i>EMA 200</span><span><i style="background:var(--gold)"></i>armed zone</span><span><i style="background:var(--blue)"></i>PDH / PDL</span><span><i style="background:var(--muted)"></i>midnight · week open</span><span><i style="background:var(--green)"></i>position entry / target</span><span><i style="background:var(--red)"></i>stop / liquidation</span><span class="chint">scroll to zoom · drag to pan · drag an axis to scale · double-click to fit</span></div>
         </section>
         <section class="panel" id="zones"><div class="ph"><i class="ph-duotone ph-crosshair"></i> Zones radar <span class="sub">live price against every armed zone, in MFP terms</span></div><div id="zr"></div></section>
         <section class="panel" id="scanner"><div class="ph"><i class="ph-duotone ph-scan"></i> Scanner <span class="sub" id="scan-sub">mechanical read: sweeps · reclaims · SMT · sessions</span></div><div id="scan-body"></div></section>
@@ -284,6 +319,8 @@
       <span>Founded by <a href="https://github.com/drasticstatic">@drasticstatic</a> · built with 💜 alongside Claude · <a id="repo-link" href="#">source</a> · <a id="story-link" href="#">Fortuna's story</a></span>
     </footer>
   </main>
+
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true"><div class="mbox"><div class="mh"><b id="m-title"></b><button class="btn" id="m-close" type="button">✕ close</button></div><div class="mb" id="m-body"></div></div></div>
 
 <script>
 (() => {
@@ -338,11 +375,18 @@
     const d = vals.map((v, i) => (i ? 'L' : 'M') + X(i).toFixed(1) + ',' + Y(v).toFixed(1)).join(' ');
     return `<svg viewBox="0 0 ${w} ${h}"><path d="${d} L${w},${h} L0,${h} Z" fill="${color}" opacity=".12"/><path d="${d}" fill="none" stroke="${color}" stroke-width="1.5"/></svg>`;
   }
-  function renderTape() {
-    const armed = new Set(S.watchlist.filter(w => w.status === 'armed').map(w => w.market));
-    $('#tape').innerHTML = L.levels.map(l => { const p = live(l); const ref = l.spark && l.spark[l.spark.length - 25]; const ch = ref ? (p / ref - 1) * 100 : l.chg_24h;
+  const tkChg = (l) => { const p = live(l); const ref = l.spark && l.spark[l.spark.length - 25]; return [p, ref ? (p / ref - 1) * 100 : l.chg_24h]; };
+  function renderTape() {  // built once as two identical sets so the marquee loops seamlessly; prices are patched in place afterwards
+    const armed = new Set(S.watchlist.filter(w => w.status === 'armed' || w.status === 'triggered').map(w => w.market));
+    const set = L.levels.map(l => { const [p, ch] = tkChg(l);
       return `<div class="tk ${cur.market === l.market ? 'on' : ''}" data-m="${esc(l.market)}"><div class="n">${esc(l.market)}${armed.has(l.market) ? '<span class="arm">armed</span>' : ''}</div>${spark(l.spark, 72, 30, ch >= 0 ? 'var(--green)' : 'var(--red)')}<div class="p num">${px(p)}</div><div class="c num ${cls(ch)}">${pct(ch)} <span class="flat">24h</span></div></div>`; }).join('');
+    $('#tape').innerHTML = `<div class="tape-track"><div class="tape-set">${set}</div><div class="tape-set" aria-hidden="true">${set}</div></div>`;
+    $('#tape').style.setProperty('--tape-dur', Math.round(L.levels.length * 9) + 's');
     $('#tape').querySelectorAll('.tk').forEach(t => t.addEventListener('click', () => selectMarket(t.dataset.m)));
+  }
+  function updateTape() {
+    if (!$('#tape .tk')) return renderTape();
+    $('#tape').querySelectorAll('.tk').forEach(t => { const l = lv(t.dataset.m); if (!l) return; const [p, ch] = tkChg(l); t.classList.toggle('on', cur.market === l.market); t.querySelector('.p').textContent = px(p); const c = t.querySelector('.c'); c.className = 'c num ' + cls(ch); c.innerHTML = `${pct(ch)} <span class="flat">24h</span>`; });
   }
 
   /* ── takeaway ── */
@@ -390,7 +434,7 @@
     $('#pos-list').innerHTML = S.positions.map(p => { const l = lv(SYM[p.symbol] || p.symbol); const mark = live(l); const dir = p.side === 'long' ? 1 : -1; const up = mark != null ? (mark - p.entry) * p.size * dir : null; const ld = (mark && p.liq) ? (mark - p.liq) / mark * 100 * dir : null; const hide = p.public === false; const c = ld != null && ld < 1.5 ? 'crit' : (!p.stop ? 'caution' : '');
       return `<div class="pos-card ${c}"><div class="h"><span><span class="tag ${p.account}">${esc(p.venue)}</span> <b>${esc(p.symbol)}</b> <span class="side-${p.side}">${p.side}</span></span><span class="num ${cls(up)}">${hide ? '' : (up == null ? '' : sgn(up))}</span></div>
         <div class="g"><span>size<b>${hide ? '·' : p.size}</b></span><span>entry<b>${px(p.entry)}</b></span><span>mark<b>${mark != null ? px(mark) : '—'}</b></span><span>stop<b class="${p.stop ? '' : 'neg'}">${p.stop ? px(p.stop) : 'none'}</b></span><span>target<b>${p.tp ? px(p.tp) : '—'}</b></span><span>liq<b class="${ld != null ? (ld < 1.5 ? 'neg' : ld < 3 ? 'gold' : 'pos') : ''}">${p.liq ? px(p.liq) + (ld != null ? ' · ' + ld.toFixed(1) + '%' : '') : '—'}</b></span></div>
-        ${p.plan ? `<div class="plan"><b style="color:var(--indigo)">plan</b> ${esc(p.plan)}</div>` : ''}<div class="plan" style="border-color:var(--line)">${esc(p.owner)}${p.live ? '' : ' · as reported'} · ${esc(p.note)}</div></div>`; }).join('');
+        ${p.plan ? `<div class="plan clamp"><b style="color:var(--indigo)">plan</b> ${esc(p.plan)}</div>` : ''}<div class="plan clamp" style="border-color:var(--line)">${esc(p.owner)}${p.live ? '' : ' · as reported'} · ${esc(p.note)}</div></div>`; }).join('');
   }
 
   /* ── feed ── */
@@ -398,49 +442,95 @@
     const items = S.checkins.map(c => ({t: new Date(c.at).getTime(), kind: /trade|fill|placed|stopped|closed/i.test(c.action) ? 'trade' : /alert|one-shot|breach/i.test(c.action) ? 'alert' : '', who: ACCT[c.account] || c.account, text: c.note, tail: `${c.open_positions} open · ${c.working_orders} working · ${c.action}`, eq: c.equity, at: c.at}))
       .concat(S.ledger.filter(l => l.n).map(l => ({t: new Date(l.date + 'T23:59:00-04:00').getTime(), kind: l.r < 0 ? 'loss' : 'trade', who: ACCT[l.account] || l.account, text: `Trade #${l.n} · ${l.market} ${l.side} (${l.grade}) · ${l.entry} → ${l.exit}`, tail: `${l.r == null ? '' : (l.r > 0 ? '+' : '') + l.r.toFixed(2) + 'R · '}${sgn(l.pnl)} · ${l.note}`, eq: l.equity_after, at: l.date})))
       .sort((a, b) => b.t - a.t);
-    $('#feed-list').innerHTML = items.map(i => `<div class="fi"><span class="dot ${i.kind}"></span><div><div class="w"><span>${esc(i.who)} · ${fmtET(i.at, {month: 'short', day: 'numeric'})}</span><span>${usd(i.eq)}</span></div><div class="x">${esc(i.text)}</div><div class="w" style="margin-top:.2rem;justify-content:flex-start">${esc(i.tail)}</div></div></div>`).join('');
+    $('#feed-list').innerHTML = items.map(i => `<div class="fi"><span class="dot ${i.kind}"></span><div><div class="w"><span>${esc(i.who)} · ${fmtET(i.at, {month: 'short', day: 'numeric'})}</span><span>${usd(i.eq)}</span></div><div class="x clamp">${esc(i.text)}</div><div class="w" style="margin-top:.2rem;justify-content:flex-start">${esc(i.tail)}</div></div></div>`).join('');
   }
 
   /* ── chart ── */
   const EMA = (vals, n) => { const k = 2 / (n + 1); const out = []; let e = null; vals.forEach(v => { e = e == null ? v : v * k + e * (1 - k); out.push(e); }); return out; };
   const IV_H = {'15m': 0.25, '1h': 1, '4h': 4, '1d': 24};
+  const VIEW_N = () => ({'15m': 120, '1h': 100, '4h': 120, '1d': 120})[cur.iv] || 120;
+  const view = {n: 150, end: null, follow: true, yauto: true, ylo: null, yhi: null};
+  function resetView() { view.n = VIEW_N(); view.end = null; view.follow = true; view.yauto = true; view.ylo = view.yhi = null; syncChartBtns(); }
+  function syncChartBtns() { $('#y-auto').classList.toggle('on', view.yauto); $('#x-follow').classList.toggle('on', view.follow); }
   async function loadCandles() {
-    const l = lv(cur.market); if (!l) return; const hours = IV_H[cur.iv] * 330; const now = Date.now();
+    const l = lv(cur.market); if (!l) return; const hours = IV_H[cur.iv] * 600; const now = Date.now();
+    const endT = (!view.follow && cur.candles && view.end) ? cur.candles[view.end - 1].t : null;
     try { const rows = await post({type: 'candleSnapshot', req: {coin: l.feed, interval: cur.iv, startTime: now - hours * 36e5, endTime: now}});
-      cur.candles = rows.map(r => ({t: r.t, o: +r.o, h: +r.h, l: +r.l, c: +r.c})); drawChart(); }
+      cur.candles = rows.map(r => ({t: r.t, o: +r.o, h: +r.h, l: +r.l, c: +r.c}));
+      if (endT != null) { const i = cur.candles.findIndex(c => c.t === endT); if (i >= 0) view.end = i + 1; }
+      drawChart(); }
     catch (e) { $('#csvg').innerHTML = `<text x="20" y="40" class="cx">live candles unavailable (${esc(e.message)})</text>`; }
   }
   function drawChart() {
-    const l = lv(cur.market); const all = cur.candles || []; const n = Math.min(all.length, cur.iv === '1d' ? 120 : 150); const cs = all.slice(-n); if (!cs.length) return;
+    const l = lv(cur.market); const all = cur.candles || []; if (!all.length || !l) return;
+    view.n = Math.max(12, Math.min(view.n, all.length));
+    if (view.follow || view.end == null) view.end = all.length; view.end = Math.max(view.n, Math.min(all.length, view.end));
+    const i0 = view.end - view.n, cs = all.slice(i0, view.end), n = cs.length;
     const svg = $('#csvg'); const W = svg.clientWidth || 900, H = svg.clientHeight || 420; svg.setAttribute('viewBox', `0 0 ${W} ${H}`); const m = {t: 14, r: 66, b: 24, l: 8}; const iw = W - m.l - m.r, ih = H - m.t - m.b;
-    const closes = all.map(c => c.c); const e20 = EMA(closes, 20).slice(-n), e50 = EMA(closes, 50).slice(-n), e200 = all.length >= 200 ? EMA(closes, 200).slice(-n) : null;
+    const closes = all.map(c => c.c); const sl = (a) => a.slice(i0, view.end); const e20 = sl(EMA(closes, 20)), e50 = sl(EMA(closes, 50)), e200 = all.length >= 200 ? sl(EMA(closes, 200)) : null;
     const o = off(cur.market); const toFeed = (v) => v == null ? null : v - o;
     const wz = S.watchlist.filter(w => w.market === cur.market && w.zone_lo != null).map(w => ({lo: toFeed(w.zone_lo), hi: toFeed(w.zone_hi), dir: w.direction, st: w.status}));
     const poss = S.positions.filter(p => (SYM[p.symbol] || p.symbol) === cur.market);
-    let lo = Math.min(...cs.map(c => c.l)), hi = Math.max(...cs.map(c => c.h));
-    wz.forEach(z => { lo = Math.min(lo, z.lo); hi = Math.max(hi, z.hi); });
-    poss.forEach(p => { [p.liq, p.tp, p.entry, p.stop].forEach(v => { if (v != null) { lo = Math.min(lo, v); hi = Math.max(hi, v); } }); });
-    const pad = (hi - lo) * .06; lo -= pad; hi += pad;
+    let lo, hi;
+    if (view.yauto || view.ylo == null) { lo = Math.min(...cs.map(c => c.l)); hi = Math.max(...cs.map(c => c.h)); const pad = (hi - lo) * .08 || Math.abs(hi) * .002 || 1; lo -= pad; hi += pad; view.ylo = lo; view.yhi = hi; }
+    else { lo = view.ylo; hi = view.yhi; }
     const X = (i) => m.l + (i + .5) / n * iw, Y = (v) => m.t + (1 - (v - lo) / (hi - lo)) * ih; const cw = Math.max(1.5, iw / n * .62);
-    let g = '';
+    let g = `<defs><clipPath id="plotclip"><rect x="${m.l}" y="${m.t}" width="${iw}" height="${ih}"/></clipPath></defs>`;
     for (let i = 0; i <= 6; i++) { const v = lo + (hi - lo) * i / 6; g += `<line x1="${m.l}" x2="${W - m.r}" y1="${Y(v)}" y2="${Y(v)}" stroke="rgba(255,255,255,.05)"/><text x="${W - m.r + 6}" y="${Y(v) + 3}" class="cx">${px(v)}</text>`; }
     let lastX = -1e9; cs.forEach((c, i) => { const x = X(i); if (x - lastX < 110) return; lastX = x; const d = new Date(c.t); const lab = cur.iv === '1d' ? d.toLocaleDateString('en-US', {timeZone: NY, month: 'short', day: 'numeric'}) : d.toLocaleString('en-US', {timeZone: NY, weekday: 'short', hour: 'numeric'}); g += `<text x="${x}" y="${H - 6}" text-anchor="middle" class="cx">${lab}</text>`; });
-    wz.forEach(z => { g += `<rect x="${m.l}" y="${Y(z.hi)}" width="${iw}" height="${Math.max(1, Y(z.lo) - Y(z.hi))}" fill="rgba(251,191,36,.12)" stroke="rgba(251,191,36,.5)" stroke-dasharray="3 3" class="cz"/><text x="${m.l + 6}" y="${Y(z.hi) - 4}" class="cx" fill="var(--gold)">${esc(z.dir)} zone · ${esc(z.st)}</text>`; });
-    [[l.pdh, 'PDH', 'var(--blue)'], [l.pdl, 'PDL', 'var(--blue)'], [l.midnight_open, 'midnight', 'var(--muted)'], [l.week_open, 'week open', 'var(--muted)']].forEach(([v, lab, col]) => { if (v == null || v < lo || v > hi) return; g += `<line x1="${m.l}" x2="${W - m.r}" y1="${Y(v)}" y2="${Y(v)}" stroke="${col}" stroke-width="1" stroke-dasharray="6 4" opacity=".7"/><text x="${W - m.r - 4}" y="${Y(v) - 3}" text-anchor="end" class="cx" fill="${col}">${lab} ${px(v)}</text>`; });
-    poss.forEach(p => { [[p.entry, 'entry · ' + p.venue, 'var(--green)', '0'], [p.tp, 'target', 'var(--green)', '4 3'], [p.stop, 'stop', 'var(--red)', '0'], [p.liq, 'liq', 'var(--red)', '2 3']].forEach(([v, lab, col, dash]) => { if (v == null || v < lo || v > hi) return; g += `<line x1="${m.l}" x2="${W - m.r}" y1="${Y(v)}" y2="${Y(v)}" stroke="${col}" stroke-width="1" opacity=".75" stroke-dasharray="${dash}"/><text x="${m.l + 6}" y="${Y(v) + 10}" class="cx" fill="${col}">${esc(lab)} ${px(v)}</text>`; }); });
+    // levels: drawn inside the range, pinned to the chart edge when outside it (so the candles are never squashed to fit them)
+    const pins = {top: 0, bot: 0};
+    const pin = (v, lab, col, side) => { const up = v > hi; const y = up ? m.t + 11 + pins.top++ * 12 : H - m.b - 5 - pins.bot++ * 12; const x = side === 'r' ? W - m.r - 4 : m.l + 6; g += `<text x="${x}" y="${y}" class="cx pin" ${side === 'r' ? 'text-anchor="end"' : ''} fill="${col}" opacity=".85">${up ? '▲' : '▼'} ${esc(lab)} ${px(v)}</text>`; };
+    const hline = (v, lab, col, dash, side) => { if (v == null) return; if (v < lo || v > hi) return pin(v, lab, col, side);
+      g += `<line x1="${m.l}" x2="${W - m.r}" y1="${Y(v)}" y2="${Y(v)}" stroke="${col}" stroke-width="1" opacity=".75" stroke-dasharray="${dash}"/>`;
+      g += side === 'r' ? `<text x="${W - m.r - 4}" y="${Y(v) - 3}" text-anchor="end" class="cx" fill="${col}">${esc(lab)} ${px(v)}</text>` : `<text x="${m.l + 6}" y="${Y(v) + 10}" class="cx" fill="${col}">${esc(lab)} ${px(v)}</text>`; };
+    wz.forEach(z => { if (z.hi < lo || z.lo > hi) return pin(z.lo > hi ? z.lo : z.hi, `${z.dir} zone`, 'var(--gold)', 'l');
+      const yT = Y(Math.min(hi, z.hi)), yB = Y(Math.max(lo, z.lo)); g += `<rect x="${m.l}" y="${yT}" width="${iw}" height="${Math.max(1, yB - yT)}" fill="rgba(251,191,36,.12)" stroke="rgba(251,191,36,.5)" stroke-dasharray="3 3" class="cz"/><text x="${m.l + 6}" y="${Math.max(m.t + 10, yT - 4)}" class="cx" fill="var(--gold)">${esc(z.dir)} zone · ${esc(z.st)}</text>`; });
+    [[l.pdh, 'PDH', 'var(--blue)'], [l.pdl, 'PDL', 'var(--blue)'], [l.midnight_open, 'midnight', 'var(--muted)'], [l.week_open, 'week open', 'var(--muted)']].forEach(([v, lab, col]) => hline(v, lab, col, '6 4', 'r'));
+    poss.forEach(p => { [[p.entry, (p.side === 'short' ? 'short' : 'long') + ' · ' + p.venue, 'var(--green)', '0'], [p.tp, 'target', 'var(--green)', '4 3'], [p.stop, 'stop', 'var(--red)', '0'], [p.liq, 'liq', 'var(--red)', '2 3']].forEach(([v, lab, col, dash]) => hline(v, lab, col, dash, 'l')); });
+    g += '<g clip-path="url(#plotclip)">';
     cs.forEach((c, i) => { const x = X(i), up = c.c >= c.o; const col = up ? 'var(--green)' : 'var(--red)'; g += `<line x1="${x}" x2="${x}" y1="${Y(c.h)}" y2="${Y(c.l)}" stroke="${col}" stroke-width="1"/><rect x="${x - cw / 2}" y="${Y(Math.max(c.o, c.c))}" width="${cw}" height="${Math.max(1, Math.abs(Y(c.o) - Y(c.c)))}" fill="${col}" opacity=".88"/>`; });
     const line = (arr, col) => `<path d="${arr.map((v, i) => (i ? 'L' : 'M') + X(i).toFixed(1) + ',' + Y(v).toFixed(1)).join(' ')}" fill="none" stroke="${col}" stroke-width="1.3" opacity=".9"/>`;
-    g += line(e20, 'var(--cyan)') + line(e50, 'var(--purple)') + (e200 ? line(e200, 'var(--pink)') : '');
-    const last = cs[cs.length - 1].c; g += `<line x1="${m.l}" x2="${W - m.r}" y1="${Y(last)}" y2="${Y(last)}" stroke="var(--cyan)" stroke-width=".8" opacity=".5"/><rect x="${W - m.r + 2}" y="${Y(last) - 8}" width="${m.r - 4}" height="16" rx="3" fill="var(--cyan)"/><text x="${W - m.r + 6}" y="${Y(last) + 4}" class="cx" fill="#06111a" font-weight="700">${px(last)}</text>`;
-    g += `<rect id="hit" x="${m.l}" y="${m.t}" width="${iw}" height="${ih}" fill="transparent"/>`;
-    svg.innerHTML = g;
+    g += line(e20, 'var(--cyan)') + line(e50, 'var(--purple)') + (e200 ? line(e200, 'var(--pink)') : '') + '</g>';
+    const last = all[all.length - 1].c; const yl = Math.max(m.t, Math.min(H - m.b, Y(last)));
+    if (last >= lo && last <= hi) g += `<line x1="${m.l}" x2="${W - m.r}" y1="${yl}" y2="${yl}" stroke="var(--cyan)" stroke-width=".8" opacity=".5"/>`;
+    g += `<rect x="${W - m.r + 2}" y="${yl - 8}" width="${m.r - 4}" height="16" rx="3" fill="var(--cyan)"/><text x="${W - m.r + 6}" y="${yl + 4}" class="cx" fill="#06111a" font-weight="700">${px(last)}</text>`;
+    if (!view.follow) g += `<text x="${W - m.r - 6}" y="${H - m.b - 6}" text-anchor="end" class="cx" fill="var(--indigo)">◀ ${all.length - view.end} newer</text>`;
+    g += `<g id="xh"></g>`;
+    svg.innerHTML = g; cur.geo = {m, n, iw, ih, W, H, lo, hi, cs, X, Y, o};
     $('#chart-title').textContent = `${cur.market} · ${l.feed}`; $('#chart-sub').textContent = `${cur.iv.toUpperCase()} · ${o ? 'MFP ≈ feed + ' + px(o) : 'no venue offset'} · ${l.bias_1h} 1H / ${l.bias_4h} 4H · ATR 1H ${px(l.atr_1h)}`;
-    const show = (c) => { $('#ohlc').innerHTML = `<span>${fmtET(c.t)}</span><span>O <b>${px(c.o)}</b></span><span>H <b>${px(c.h)}</b></span><span>L <b>${px(c.l)}</b></span><span>C <b class="${cls(c.c - c.o)}">${px(c.c)}</b></span><span>Δ <b class="${cls(c.c - c.o)}">${pct((c.c / c.o - 1) * 100)}</b></span>${o ? `<span>MFP est. <b>${px(c.c + o)}</b></span>` : ''}`; };
-    show(cs[cs.length - 1]);
-    const hit = $('#hit'); hit.addEventListener('mousemove', (ev) => { const r = svg.getBoundingClientRect(); const i = Math.max(0, Math.min(n - 1, Math.floor((ev.clientX - r.left - m.l) / iw * n))); show(cs[i]); });
-    hit.addEventListener('mouseleave', () => show(cs[cs.length - 1]));
+    showOHLC(cs[cs.length - 1]);
   }
-  function selectMarket(mk) { cur.market = mk; renderTape(); loadCandles(); }
+  function showOHLC(c) { const o = off(cur.market); $('#ohlc').innerHTML = `<span>${fmtET(c.t)}</span><span>O <b>${px(c.o)}</b></span><span>H <b>${px(c.h)}</b></span><span>L <b>${px(c.l)}</b></span><span>C <b class="${cls(c.c - c.o)}">${px(c.c)}</b></span><span>Δ <b class="${cls(c.c - c.o)}">${pct((c.c / c.o - 1) * 100)}</b></span>${o ? `<span>MFP est. <b>${px(c.c + o)}</b></span>` : ''}`; }
+  function hover(p) { const G = cur.geo; if (!G) return; const xh = $('#xh'); if (!xh) return;
+    const inPlot = p.y >= G.m.t && p.y <= G.H - G.m.b && p.x >= G.m.l && p.x <= G.W - G.m.r; if (!inPlot) { xh.innerHTML = ''; return; }
+    const i = Math.max(0, Math.min(G.n - 1, Math.floor((p.x - G.m.l) / G.iw * G.n))); showOHLC(G.cs[i]); const price = G.hi - (p.y - G.m.t) / G.ih * (G.hi - G.lo);
+    xh.innerHTML = `<line x1="${G.X(i)}" x2="${G.X(i)}" y1="${G.m.t}" y2="${G.H - G.m.b}" stroke="rgba(255,255,255,.2)" stroke-dasharray="3 3"/><line x1="${G.m.l}" x2="${G.W - G.m.r}" y1="${p.y}" y2="${p.y}" stroke="rgba(255,255,255,.2)" stroke-dasharray="3 3"/><rect x="${G.W - G.m.r + 2}" y="${p.y - 8}" width="${G.m.r - 4}" height="16" rx="3" fill="rgba(255,255,255,.14)"/><text x="${G.W - G.m.r + 6}" y="${p.y + 4}" class="cx" fill="var(--text)">${px(price)}${G.o ? ' ' : ''}</text>`; }
+  function clearHover() { const xh = $('#xh'); if (xh) xh.innerHTML = ''; const G = cur.geo; if (G) showOHLC(G.cs[G.cs.length - 1]); }
+  function setupChartInteractions() {
+    const svg = $('#csvg'); let drag = null;
+    const region = (ev) => { const r = svg.getBoundingClientRect(); const x = ev.clientX - r.left, y = ev.clientY - r.top; const G = cur.geo; if (!G) return {x, y, zone: 'plot'}; return {x, y, zone: x > G.W - G.m.r ? 'y' : y > G.H - G.m.b ? 'x' : 'plot'}; };
+    svg.addEventListener('pointerdown', (ev) => { if (ev.button !== 0 || !cur.geo) return; const p = region(ev); drag = {...p, n: view.n, end: view.end, ylo: view.ylo, yhi: view.yhi}; svg.setPointerCapture(ev.pointerId); svg.classList.add('drag'); $('#xh').innerHTML = ''; });
+    svg.addEventListener('pointermove', (ev) => { const G = cur.geo; if (!G) return; const p = region(ev);
+      if (!drag) return hover(p);
+      const dx = p.x - drag.x, dy = p.y - drag.y;
+      if (drag.zone === 'plot') { const per = G.iw / drag.n; const end = Math.max(drag.n, Math.min(cur.candles.length, drag.end + Math.round(-dx / per))); view.end = end; view.follow = end >= cur.candles.length;
+        if (Math.abs(dy) > 2) { const span = drag.yhi - drag.ylo; const dp = dy / G.ih * span; view.yauto = false; view.ylo = drag.ylo + dp; view.yhi = drag.yhi + dp; } }
+      else if (drag.zone === 'y') { const span = drag.yhi - drag.ylo, c = (drag.yhi + drag.ylo) / 2, f = Math.exp(dy / 140); view.yauto = false; view.ylo = c - span / 2 * f; view.yhi = c + span / 2 * f; }
+      else { view.n = Math.round(drag.n * Math.exp(-dx / 220)); }
+      syncChartBtns(); drawChart(); });
+    const endDrag = () => { if (!drag) return; drag = null; svg.classList.remove('drag'); };
+    svg.addEventListener('pointerup', endDrag); svg.addEventListener('pointercancel', endDrag); svg.addEventListener('pointerleave', () => { if (!drag) clearHover(); });
+    svg.addEventListener('wheel', (ev) => { const G = cur.geo; if (!G) return; ev.preventDefault(); const p = region(ev); const f = Math.exp(ev.deltaY * 0.0015);
+      if (p.zone === 'y') { const span = view.yhi - view.ylo, c = (view.yhi + view.ylo) / 2; view.yauto = false; view.ylo = c - span / 2 * f; view.yhi = c + span / 2 * f; }
+      else { const before = view.n; view.n = Math.round(view.n * f); if (!view.follow) { const frac = Math.max(0, Math.min(1, (p.x - G.m.l) / G.iw)); view.end = Math.round(view.end - (before - view.n) * (1 - frac)); } }
+      syncChartBtns(); drawChart(); }, {passive: false});
+    svg.addEventListener('dblclick', () => { resetView(); drawChart(); });
+    $('#fit').addEventListener('click', () => { resetView(); drawChart(); });
+    $('#y-auto').addEventListener('click', () => { view.yauto = !view.yauto; syncChartBtns(); drawChart(); });
+    $('#x-follow').addEventListener('click', () => { view.follow = !view.follow; if (view.follow) view.end = null; syncChartBtns(); drawChart(); });
+  }
+  function selectMarket(mk) { cur.market = mk; resetView(); updateTape(); loadCandles(); }
 
   /* ── zones radar ── */
   function renderZones() {
@@ -454,8 +544,14 @@
   }
 
   /* ── watchlist / preflight / ledger / lanes / where ── */
+  function openModal(title, html) { $('#m-title').innerHTML = title; $('#m-body').innerHTML = html; $('#modal').hidden = false; document.body.style.overflow = 'hidden'; }
+  function closeModal() { $('#modal').hidden = true; document.body.style.overflow = ''; }
   function renderWatchlist() {
-    $('#wl').innerHTML = `<table><thead><tr><th>Market</th><th>Direction</th><th>Setup</th><th>Zone · stop · targets</th><th>Note</th></tr></thead><tbody>${S.watchlist.map(w => `<tr><td><b>${esc(w.market)}</b><div><span class="tag ${w.account}">${esc(ACCT[w.account])}</span> <span class="tag ${esc(w.status)}">${esc(w.status)}</span></div></td><td>${esc(w.direction)}${w.grade_max ? `<div class="flat">max ${esc(w.grade_max)}</div>` : ''}</td><td class="note">${esc(w.setup)}</td><td class="note num">${w.zone_lo != null ? px(w.zone_lo) + ' – ' + px(w.zone_hi) : '—'}<div class="flat">${esc(w.stop_rule)}</div><div class="flat">${esc(w.targets)}</div></td><td class="note">${esc(w.note)}<div class="flat">${fmtET(w.updated)}</div></td></tr>`).join('')}</tbody></table>`;
+    $('#wl').innerHTML = `<div class="wlg">${S.watchlist.map((w, i) => `<button class="wlc" data-i="${i}" type="button"><div class="h"><b>${esc(w.market)}</b><span class="tag ${esc(w.status)}">${esc(w.status)}</span></div><div class="d">${esc(w.direction)}</div><div class="z num">${w.zone_lo != null ? px(w.zone_lo) + ' – ' + px(w.zone_hi) : '—'}</div><div class="a"><span class="tag ${w.account}">${esc(ACCT[w.account])}</span><span class="more">details ›</span></div></button>`).join('')}</div>`;
+    $('#wl').querySelectorAll('.wlc').forEach(b => b.addEventListener('click', () => { const w = S.watchlist[+b.dataset.i];
+      openModal(`${esc(w.market)} · ${esc(w.direction)} <span class="tag ${esc(w.status)}">${esc(w.status)}</span>`,
+        `<dl class="kv"><dt>Setup</dt><dd>${esc(w.setup)}</dd><dt>Zone</dt><dd class="num">${w.zone_lo != null ? px(w.zone_lo) + ' – ' + px(w.zone_hi) + ' <span class="flat">MFP terms</span>' : '—'}</dd><dt>Stop</dt><dd>${esc(w.stop_rule)}</dd><dt>Targets</dt><dd>${esc(w.targets)}</dd><dt>Note</dt><dd>${esc(w.note)}</dd><dt>Account</dt><dd>${esc(ACCT[w.account])}${w.grade_max ? ' · max grade ' + esc(w.grade_max) : ''}</dd><dt>Updated</dt><dd>${fmtET(w.updated)}</dd></dl><div class="mact"><button class="btn" id="m-chart" type="button"><i class="ph-duotone ph-chart-line"></i> show on chart</button></div>`);
+      $('#m-chart').addEventListener('click', () => { closeModal(); selectMarket(w.market); $('#chart').scrollIntoView({behavior: 'smooth', block: 'start'}); }); }));
   }
   function renderPreflight() {
     const key = 'fortuna-pf-' + new Date().toLocaleDateString('en-CA', {timeZone: NY}); let done = {}; try { done = JSON.parse(localStorage.getItem(key) || '{}'); } catch (e) {}
@@ -554,15 +650,23 @@
     $('#study-body').innerHTML = `<div class="st-find">${find}</div><div class="st-note">${esc(T.rule)}. Conservative: a candle touching both stop and target counts as a stop. Pockets under n ≈ 60 are noise until proven otherwise. This is why Fortuna grades setups instead of auto-firing them; the study reruns as the sample grows.</div><div class="st-grid">${mk}</div>`;
   }
 
-  function renderLive() { renderTape(); renderPositions(); renderZones(); renderPulse(); renderAlerts(); }
+  function renderLive() { updateTape(); renderPositions(); renderZones(); renderPulse(); renderAlerts(); }
+  async function refreshAll() { const b = $('#refresh'); b.disabled = true; b.classList.add('spin');
+    try { [S, L] = await Promise.all([loadJSON('data/state.json'), loadJSON('data/levels.json')]); G = await loadJSON('data/signals.json').catch(() => null);
+      renderHeader(); renderTake(); renderAccounts(); renderFeed(); renderWatchlist(); renderLedger(); renderLanes(); renderScanner(); renderStudy().catch(console.error); await fetchMids(); renderTape(); renderLive(); await loadCandles(); }
+    catch (e) { console.error(e); } finally { b.disabled = false; b.classList.remove('spin'); } }
   (async () => {
     try { [S, L] = await Promise.all([loadJSON('data/state.json'), loadJSON('data/levels.json')]); G = await loadJSON('data/signals.json').catch(() => null); }
     catch (e) { $('#take .lead').textContent = 'Could not load the terminal data (' + e.message + '). Open this page from the published site, not from a local file.'; return; }
     renderClock(); setInterval(renderClock, 1000); renderHeader(); setInterval(renderHeader, 60000);
     renderTake(); renderAccounts(); renderFeed(); renderWatchlist(); renderPreflight(); renderLedger(); renderLanes(); renderWhere(); renderScanner(); try { renderSizer(); } catch (e) { console.error(e); } setupNotify(); renderStudy().catch(console.error);
     const first = S.watchlist.find(w => w.status === 'armed' || w.status === 'watch'); cur.market = first ? first.market : L.levels[0].market;
-    await fetchMids(); renderLive(); loadCandles();
-    $('#iv-ctl').querySelectorAll('.btn').forEach(b => b.addEventListener('click', () => { const on = $('#iv-ctl .on'); if (on) on.classList.remove('on'); b.classList.add('on'); cur.iv = b.dataset.iv; loadCandles(); }));
+    await fetchMids(); renderTape(); renderLive(); setupChartInteractions(); loadCandles();
+    $('#iv-ctl').querySelectorAll('.btn').forEach(b => b.addEventListener('click', () => { const on = $('#iv-ctl .on'); if (on) on.classList.remove('on'); b.classList.add('on'); cur.iv = b.dataset.iv; resetView(); loadCandles(); }));
+    $('#refresh').addEventListener('click', refreshAll);
+    $('#m-close').addEventListener('click', closeModal); $('#modal').addEventListener('click', (ev) => { if (ev.target.id === 'modal') closeModal(); }); document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') closeModal(); });
+    $('#pos-list').addEventListener('click', (ev) => { const c = ev.target.closest('.pos-card'); if (c) c.classList.toggle('open'); });
+    $('#feed-list').addEventListener('click', (ev) => { const c = ev.target.closest('.fi'); if (c) c.classList.toggle('open'); });
     setInterval(async () => { if (await fetchMids()) renderLive(); }, 30000);
     setInterval(loadCandles, 60000);
     window.addEventListener('resize', () => cur.candles && drawChart());
