@@ -1,14 +1,14 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-26T02:54-04:00",
+ "generated": "2026-10-26T06:23-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
   "cadence": "Weekend swing cadence: a check-in every 2 hours, plus one-shot checks one minute after a candle close when price presses an armed zone. Weekday cadence: every 30 minutes."
  },
  "offsets": {
-  "Gold": 6.3,
-  "Crude": 0.13
+  "Gold": 5.9,
+  "Crude": 0.11
  },
  "links": {
   "gallery": "../gallery.html",
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-26T02:54-04:00"
+   "asof": "2026-10-26T06:23-04:00"
   },
   {
    "key": "elite5k",
@@ -64,13 +64,13 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 4993.32,
+   "equity": 4994.16,
    "balance": 4999.75,
-   "upnl": -6.44,
+   "upnl": -5.59,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 151.76,
-   "mdd_room": 243.32,
+   "dll_room": 152.6,
+   "mdd_room": 244.16,
    "mdd_floor": 4750,
    "target_equity": 5500,
    "remaining_profit": 500.25,
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-26T02:54-04:00"
+   "asof": "2026-10-26T06:23-04:00"
   },
   {
    "key": "select1k",
@@ -97,13 +97,13 @@
    "trader": "Follower",
    "status": "active",
    "start": 1000,
-   "equity": 999.39,
+   "equity": 999.46,
    "balance": 999.98,
-   "upnl": -0.59,
+   "upnl": -0.51,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 30.16,
-   "mdd_room": 29.39,
+   "dll_room": 30.24,
+   "mdd_room": 29.46,
    "mdd_floor": 970,
    "target_equity": 1090,
    "remaining_profit": 90.02,
@@ -113,7 +113,7 @@
    },
    "markets": "Whatever the Elite trades, at 0.6×.",
    "note": "Prize account from MFP. The 0.6× multiplier aligns its 3% floor with the Elite's 5%.",
-   "asof": "2026-10-26T02:54-04:00"
+   "asof": "2026-10-26T06:23-04:00"
   }
  ],
  "positions": [
@@ -412,6 +412,18 @@
    "note": "Pre-London: gold swept Sunday's high at 01:00 while silver held (a bearish SMT) and closed back under it, then eased to 4,010 on the feed. Not chased: after two straight gold stops the next competition entry must read A, so the short zone moves up to a retrace of that high with a rejection close and silver still lagging. BTC and ETH sit 1.3–1.5 ATR above the Elite zones, crude 2.7 ATR under its own. Flat, no trade; London read at the 03:53 one-shot is not needed, the 04:53 run covers it.",
    "action": "none",
    "at": "2026-10-26T02:54-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 100555.77,
+   "balance": 100555.77,
+   "upnl": 0,
+   "open_positions": 0,
+   "working_orders": 0,
+   "status": "ok",
+   "note": "London: gold ran straight through the short zone to 4,024 on the feed without a rejection candle, which voids the setup rather than triggering it; no chase. BTC and ETH sit 1.7 to 1.9 ATR above the Elite zones, crude 3.3 ATR under its own. Flat everywhere Fortuna trades. Between reads: the Auto Levels engine is live on the chart and in the scanner, and the next phase (confluence grading, the Inevitrade read, calculators, a TradingView-grade chart engine) is planned and approved.",
+   "action": "none",
+   "at": "2026-10-26T06:23-04:00"
   }
  ],
  "ledger": [
