@@ -137,6 +137,12 @@
     .pfc .i { background: none; border: 1px solid var(--line); border-radius: 999px; width: 1.15rem; height: 1.15rem; color: var(--muted); font-size: .62rem; cursor: pointer; } .pfc .i:hover { color: var(--text); border-color: var(--purple); }
     .fi .w em { font-style: normal; margin-left: .35rem; font-size: .66rem; }
     .st-find.clamp { -webkit-line-clamp: 3; }
+    .cta { background: rgba(129,140,248,.14); border: 1px solid rgba(129,140,248,.45); color: #c7d2fe; border-radius: 999px; font: 700 .6rem var(--sans); padding: .1rem .5rem; cursor: pointer; letter-spacing: .03em; white-space: nowrap; } .cta:hover { background: rgba(129,140,248,.28); color: #fff; }
+    .tk .w .cta { font-size: .58rem; padding: .05rem .45rem; }
+    .sc .h .cta, .pos-card .h .cta, .st .cta { margin-left: .4rem; } .sc, .st { cursor: pointer; } .sc:hover, .st:hover { border-color: rgba(129,140,248,.5); }
+    .dl { display: flex; gap: .4rem; align-items: center; margin-top: .8rem; font-size: .7rem; color: var(--muted); } .dl input { flex: 1; min-width: 0; background: rgba(255,255,255,.05); border: 1px solid var(--line); border-radius: 8px; color: var(--text); font: 500 .7rem var(--mono); padding: .3rem .45rem; }
+    .alh { border-top: 1px dashed var(--line); } .alh .al { opacity: .75; } .alh-t { padding: .4rem .9rem; font-size: .64rem; color: var(--muted); cursor: pointer; display: flex; justify-content: space-between; } .alh-t:hover { color: var(--text); }
+    .tblm { width: 100%; border-collapse: collapse; font-size: .7rem; } .tblm th, .tblm td { padding: .3rem .5rem; border-bottom: 1px solid var(--line); text-align: right; } .tblm th:first-child, .tblm td:first-child { text-align: left; }
     .chart-wrap svg { cursor: crosshair; touch-action: none; user-select: none; -webkit-user-select: none; }
     .chart-wrap svg.drag { cursor: grabbing; }
     .pin { font-size: 9.5px; font-weight: 700; }
@@ -282,6 +288,8 @@
       <a href="../../../setup/prop-firm-rules.html"><i class="ph-duotone ph-airplane-tilt"></i> Pre-flight</a>
       <a href="../../../setup/copy-trading.html"><i class="ph-duotone ph-arrows-clockwise"></i> Copy Trading</a>
       <a href="../../../setup/community.html"><i class="ph-duotone ph-hand-heart"></i> Community</a>
+      <a href="https://myfundedperpetuals.com/" target="_blank" rel="noopener" title="MyFundedPerps login"><i class="ph-duotone ph-sign-in"></i> MFP ↗</a>
+      <a href="https://www.btcc.com/en-US/trade/perpetual/SOLUSDT" target="_blank" rel="noopener" title="BTCC login"><i class="ph-duotone ph-sign-in"></i> BTCC ↗</a>
     </nav>
   </header>
 
@@ -301,7 +309,7 @@
         <section class="panel" id="chart">
           <div class="ph"><i class="ph-duotone ph-chart-line"></i> <span id="chart-title">Chart</span> <span class="sub" id="chart-sub"></span><span class="sp"></span>
             <div class="ctl" id="iv-ctl"><button class="btn" data-iv="15m">15m</button><button class="btn on" data-iv="1h">1H</button><button class="btn" data-iv="4h">4H</button><button class="btn" data-iv="1d">D</button></div>
-            <div class="ctl" id="view-ctl"><button class="btn on" id="y-auto" type="button" title="auto-scale the price axis to the visible candles">auto</button><button class="btn on" id="x-follow" type="button" title="keep the latest candle on the right edge">follow</button><button class="btn" id="fit" type="button" title="snap to fit (or double-click the chart)"><i class="ph-duotone ph-arrows-out"></i></button></div>
+            <div class="ctl" id="view-ctl"><button class="btn on" id="y-auto" type="button" title="auto-scale the price axis to the visible candles">auto</button><button class="btn on" id="x-follow" type="button" title="keep the latest candle on the right edge">follow</button><button class="btn" id="fit" type="button" title="snap to fit (or double-click the chart)"><i class="ph-duotone ph-arrows-out"></i></button><button class="btn" id="mode" type="button" title="candles ↔ line / area">line</button><button class="btn on" id="vol" type="button" title="volume histogram + volume profile">vol</button></div>
           </div>
           <div class="chart-wrap"><svg id="csvg" role="img" aria-label="Live candles with Fortuna's levels"></svg></div>
           <div class="ohlc" id="ohlc"></div>
@@ -397,7 +405,7 @@
   function renderTape() {  // built once as two identical sets so the marquee loops seamlessly; prices are patched in place afterwards
     const armed = new Set(S.watchlist.filter(w => w.status === 'armed' || w.status === 'triggered').map(w => w.market));
     const set = L.levels.map(l => { const [p, ch] = tkChg(l);
-      return `<div class="tk ${cur.market === l.market ? 'on' : ''}" data-m="${esc(l.market)}"><div class="n">${esc(l.market)}${armed.has(l.market) ? '<span class="arm">armed</span>' : ''}</div>${spark(l.spark, 72, 30, ch >= 0 ? 'var(--green)' : 'var(--red)')}<div class="p num">${pxu(l, p)}</div><div class="c num ${cls(ch)}">${pct(ch)} <span class="flat">${l.src === 'yahoo' ? 'snap' : '24h'}</span></div>${(() => { const w = wlFor(l); return w ? `<div class="w"><span>${esc(w.direction)}${w.zone_lo != null ? ' · ' + px(w.zone_lo) + '–' + px(w.zone_hi) : ''}</span><span><span class="tag ${esc(w.status)}">${esc(w.status)}</span> <button type="button" data-w="${S.watchlist.indexOf(w)}" title="setup details">ⓘ</button></span></div>` : ''; })()}</div>`; }).join('');
+      return `<div class="tk ${cur.market === l.market ? 'on' : ''}" data-m="${esc(l.market)}"><div class="n">${esc(l.market)}${armed.has(l.market) ? '<span class="arm">armed</span>' : ''}</div>${spark(l.spark, 72, 30, ch >= 0 ? 'var(--green)' : 'var(--red)')}<div class="p num">${pxu(l, p)}</div><div class="c num ${cls(ch)}">${pct(ch)} <span class="flat">${l.src === 'yahoo' ? 'snap' : '24h'}</span></div>${(() => { const w = wlFor(l); return w ? `<div class="w"><span>${esc(w.direction)}${w.zone_lo != null ? ' · ' + px(w.zone_lo) + '–' + px(w.zone_hi) : ''}</span><span><span class="tag ${esc(w.status)}">${esc(w.status)}</span> <button type="button" class="cta" data-w="${S.watchlist.indexOf(w)}" title="setup details">details ›</button></span></div>` : ''; })()}</div>`; }).join('');
     $('#tape').innerHTML = `<div class="tape-track"><div class="tape-set">${set}</div><div class="tape-set" aria-hidden="true">${set}</div></div>`;
     $('#tape').style.setProperty('--tape-dur', Math.round(L.levels.length * 9) + 's');
     $('#tape').querySelectorAll('.tk').forEach(t => t.addEventListener('click', (ev) => { if (tapeDrag && tapeDrag.moved) return; if (ev.target.closest('[data-w]')) { ev.stopPropagation(); openWatch(S.watchlist[+ev.target.closest('[data-w]').dataset.w]); return; } selectMarket(t.dataset.m); }));
@@ -466,7 +474,7 @@
   function renderPositions() {
     if (!S.positions.length) { $('#pos-list').innerHTML = '<div class="empty">Flat everywhere.</div>'; return; }
     $('#pos-list').innerHTML = S.positions.map(p => { const l = lv(SYM[p.symbol] || p.symbol); const mark = live(l); const dir = p.side === 'long' ? 1 : -1; const up = mark != null ? (mark - p.entry) * p.size * dir : null; const ld = (mark && p.liq) ? (mark - p.liq) / mark * 100 * dir : null; const hide = p.public === false; const c = ld != null && ld < 1.5 ? 'crit' : (!p.stop ? 'caution' : '');
-      return `<div class="pos-card ${c}"><div class="h"><span><span class="tag ${p.account}">${esc(p.venue)}</span> <b>${esc(p.symbol)}</b> <span class="side-${p.side}">${p.side}</span></span><span class="num ${cls(up)}">${hide ? '' : (up == null ? '' : sgn(up))}</span></div>
+      return `<div class="pos-card ${c}" data-i="${S.positions.indexOf(p)}"><div class="h"><span><span class="tag ${p.account}">${esc(p.venue)}</span> <b>${esc(p.symbol)}</b> <span class="side-${p.side}">${p.side}</span><button class="cta" type="button" data-pos="${S.positions.indexOf(p)}">details ›</button></span><span class="num ${cls(up)}">${hide ? '' : (up == null ? '' : sgn(up))}</span></div>
         <div class="g"><span>size<b>${hide ? '·' : p.size}</b></span><span>entry<b>${px(p.entry)}</b></span><span>mark<b>${mark != null ? px(mark) : '—'}</b></span><span>stop<b class="${p.stop ? '' : 'neg'}">${p.stop ? px(p.stop) : 'none'}</b></span><span>target<b>${p.tp ? px(p.tp) : '—'}</b></span><span>liq<b class="${ld != null ? (ld < 1.5 ? 'neg' : ld < 3 ? 'gold' : 'pos') : ''}">${p.liq ? px(p.liq) + (ld != null ? ' · ' + ld.toFixed(1) + '%' : '') : '—'}</b></span></div>
         ${p.plan ? `<div class="plan clamp"><b style="color:var(--indigo)">plan</b> ${esc(p.plan)}</div>` : ''}<div class="plan clamp" style="border-color:var(--line)">${esc(p.owner)}${p.live ? '' : ' · as reported'} · ${esc(p.note)}</div></div>`; }).join('');
   }
@@ -475,25 +483,26 @@
   function renderFeed() {
     const prevEq = {}; S.checkins.slice().sort((a, b) => new Date(a.at) - new Date(b.at)).forEach(c => { c._d = prevEq[c.account] != null ? c.equity - prevEq[c.account] : null; prevEq[c.account] = c.equity; });
     const items = S.checkins.map(c => ({d: c._d, t: new Date(c.at).getTime(), kind: /trade|fill|placed|stopped|closed/i.test(c.action) ? 'trade' : /alert|one-shot|breach/i.test(c.action) ? 'alert' : '', who: ACCT[c.account] || c.account, text: c.note, tail: `${c.open_positions} open · ${c.working_orders} working · ${c.action}`, eq: c.equity, at: c.at}))
+      .concat(AH.filter(a => a.level !== 'info').map(a => ({t: new Date(a.at).getTime(), kind: 'alert', who: 'alert · ' + (ACCT[a.venue] || a.venue), text: a.text, tail: a.level + ' · pushed to the phone topic', eq: null, at: a.at})))
       .concat(S.ledger.filter(l => l.n).map(l => ({t: new Date(l.date + 'T23:59:00-04:00').getTime(), kind: l.r < 0 ? 'loss' : 'trade', who: ACCT[l.account] || l.account, text: `Trade #${l.n} · ${l.market} ${l.side} (${l.grade}) · ${l.entry} → ${l.exit}`, tail: `${l.r == null ? '' : (l.r > 0 ? '+' : '') + l.r.toFixed(2) + 'R · '}${sgn(l.pnl)} · ${l.note}`, eq: l.equity_after, at: l.date})))
       .sort((a, b) => b.t - a.t);
-    $('#feed-list').innerHTML = items.map(i => `<div class="fi"><span class="dot ${i.kind}"></span><div><div class="w"><span>${esc(i.who)} · ${fmtET(i.at, {month: 'short', day: 'numeric'})}</span><span>${usd(i.eq)}${i.d ? `<em class="${cls(i.d)}">${sgn(i.d)}</em>` : ''}</span></div><div class="x clamp">${esc(i.text)}</div><div class="w" style="margin-top:.2rem;justify-content:flex-start">${esc(i.tail)}</div></div></div>`).join('');
+    $('#feed-list').innerHTML = items.map(i => `<div class="fi"><span class="dot ${i.kind}"></span><div><div class="w"><span>${esc(i.who)} · ${fmtET(i.at, {month: 'short', day: 'numeric'})}</span><span>${i.eq != null ? usd(i.eq) : ''}${i.d ? `<em class="${cls(i.d)}">${sgn(i.d)}</em>` : ''}</span></div><div class="x clamp">${esc(i.text)}</div><div class="w" style="margin-top:.2rem;justify-content:flex-start">${esc(i.tail)}</div></div></div>`).join('');
   }
 
   /* ── chart ── */
   const EMA = (vals, n) => { const k = 2 / (n + 1); const out = []; let e = null; vals.forEach(v => { e = e == null ? v : v * k + e * (1 - k); out.push(e); }); return out; };
   const IV_H = {'15m': 0.25, '1h': 1, '4h': 4, '1d': 24};
   const VIEW_N = () => ({'15m': 120, '1h': 100, '4h': 120, '1d': 120})[cur.iv] || 120;
-  const view = {n: 150, end: null, follow: true, yauto: true, ylo: null, yhi: null};
-  function resetView() { view.n = VIEW_N(); view.end = null; view.follow = true; view.yauto = true; view.ylo = view.yhi = null; syncChartBtns(); }
-  function syncChartBtns() { $('#y-auto').classList.toggle('on', view.yauto); $('#x-follow').classList.toggle('on', view.follow); }
-  const aggC = (bars, ms) => { const out = new Map(); bars.forEach(b => { const k = b.t - b.t % ms; const o = out.get(k); if (!o) out.set(k, {t: k, o: b.o, h: b.h, l: b.l, c: b.c}); else { o.h = Math.max(o.h, b.h); o.l = Math.min(o.l, b.l); o.c = b.c; } }); return [...out.values()].sort((a, b) => a.t - b.t); };
+  const view = {n: 150, end: null, follow: true, yauto: true, ylo: null, yhi: null, mode: 'candles', vol: true};
+  function resetView() { view.n = VIEW_N(); view.end = null; view.follow = true; view.yauto = true; view.ylo = view.yhi = null; const l = lv(cur.market); view.mode = l && l.line ? 'line' : 'candles'; syncChartBtns(); }
+  function syncChartBtns() { $('#y-auto').classList.toggle('on', view.yauto); $('#x-follow').classList.toggle('on', view.follow); $('#mode').textContent = view.mode === 'line' ? 'candles' : 'line'; $('#mode').title = view.mode === 'line' ? 'switch to candles' : 'switch to line / area'; $('#vol').classList.toggle('on', view.vol); }
+  const aggC = (bars, ms) => { const out = new Map(); bars.forEach(b => { const k = b.t - b.t % ms; const o = out.get(k); if (!o) out.set(k, {t: k, o: b.o, h: b.h, l: b.l, c: b.c, v: b.v || 0}); else { o.h = Math.max(o.h, b.h); o.l = Math.min(o.l, b.l); o.c = b.c; o.v += b.v || 0; } }); return [...out.values()].sort((a, b) => a.t - b.t); };
   async function loadCandles() {
     const l = lv(cur.market); if (!l) return; const hours = IV_H[cur.iv] * 600; const now = Date.now();
     const endT = (!view.follow && cur.candles && view.end) ? cur.candles[view.end - 1].t : null;
     if (l.candles) { cur.candles = aggC(l.candles, IV_H[cur.iv] * 36e5); drawChart(); return; }
     try { const rows = await post({type: 'candleSnapshot', req: {coin: l.feed, interval: cur.iv, startTime: now - hours * 36e5, endTime: now}});
-      cur.candles = rows.map(r => ({t: r.t, o: +r.o, h: +r.h, l: +r.l, c: +r.c}));
+      cur.candles = rows.map(r => ({t: r.t, o: +r.o, h: +r.h, l: +r.l, c: +r.c, v: +r.v || 0}));
       if (endT != null) { const i = cur.candles.findIndex(c => c.t === endT); if (i >= 0) view.end = i + 1; }
       drawChart(); }
     catch (e) { $('#csvg').innerHTML = `<text x="20" y="40" class="cx">live candles unavailable (${esc(e.message)})</text>`; }
@@ -503,7 +512,8 @@
     view.n = Math.max(12, Math.min(view.n, all.length));
     if (view.follow || view.end == null) view.end = all.length; view.end = Math.max(view.n, Math.min(all.length, view.end));
     const i0 = view.end - view.n, cs = all.slice(i0, view.end), n = cs.length;
-    const svg = $('#csvg'); const W = svg.clientWidth || 900, H = svg.clientHeight || 420; svg.setAttribute('viewBox', `0 0 ${W} ${H}`); const m = {t: 14, r: 66, b: 24, l: 8}; const iw = W - m.l - m.r, ih = H - m.t - m.b;
+    const svg = $('#csvg'); const W = svg.clientWidth || 900, H = svg.clientHeight || 420; svg.setAttribute('viewBox', `0 0 ${W} ${H}`); const m = {t: 14, r: 66, b: 24, l: 8};
+    const hasVol = view.vol && cs.some(c => c.v > 0); const VH = hasVol ? 54 : 0; const iw = W - m.l - m.r, ih = H - m.t - m.b - VH;
     const closes = all.map(c => c.c); const sl = (a) => a.slice(i0, view.end); const e20 = sl(EMA(closes, 20)), e50 = sl(EMA(closes, 50)), e200 = all.length >= 200 ? sl(EMA(closes, 200)) : null;
     const o = off(cur.market); const toFeed = (v) => v == null ? null : v - o;
     const wz = S.watchlist.filter(w => w.market === cur.market && w.zone_lo != null).map(w => ({lo: toFeed(w.zone_lo), hi: toFeed(w.zone_hi), dir: w.direction, st: w.status}));
@@ -512,7 +522,8 @@
     if (view.yauto || view.ylo == null) { lo = Math.min(...cs.map(c => c.l)); hi = Math.max(...cs.map(c => c.h)); const pad = (hi - lo) * .08 || Math.abs(hi) * .002 || 1; lo -= pad; hi += pad; view.ylo = lo; view.yhi = hi; }
     else { lo = view.ylo; hi = view.yhi; }
     const X = (i) => m.l + (i + .5) / n * iw, Y = (v) => m.t + (1 - (v - lo) / (hi - lo)) * ih; const cw = Math.max(1.5, iw / n * .62);
-    let g = `<defs><clipPath id="plotclip"><rect x="${m.l}" y="${m.t}" width="${iw}" height="${ih}"/></clipPath></defs>`;
+    let g = `<defs><clipPath id="plotclip"><rect x="${m.l}" y="${m.t}" width="${iw}" height="${ih + VH}"/></clipPath></defs>`;
+    const used = {l: [], r: []}; const place = (y, side) => { let yy = y; for (let k = 0; k < 8; k++) { if (used[side].every(u => Math.abs(u - yy) >= 11)) break; yy += 11; } used[side].push(yy); return yy; };  // stack labels that would overlap
     for (let i = 0; i <= 6; i++) { const v = lo + (hi - lo) * i / 6; g += `<line x1="${m.l}" x2="${W - m.r}" y1="${Y(v)}" y2="${Y(v)}" stroke="rgba(255,255,255,.05)"/><text x="${W - m.r + 6}" y="${Y(v) + 3}" class="cx">${px(v)}</text>`; }
     let lastX = -1e9; cs.forEach((c, i) => { const x = X(i); if (x - lastX < 110) return; lastX = x; const d = new Date(c.t); const lab = cur.iv === '1d' ? d.toLocaleDateString('en-US', {timeZone: NY, month: 'short', day: 'numeric'}) : d.toLocaleString('en-US', {timeZone: NY, weekday: 'short', hour: 'numeric'}); g += `<text x="${x}" y="${H - 6}" text-anchor="middle" class="cx">${lab}</text>`; });
     // levels: drawn inside the range, pinned to the chart edge when outside it (so the candles are never squashed to fit them)
@@ -520,13 +531,21 @@
     const pin = (v, lab, col, side) => { const up = v > hi; const y = up ? m.t + 11 + pins.top++ * 12 : H - m.b - 5 - pins.bot++ * 12; const x = side === 'r' ? W - m.r - 4 : m.l + 6; g += `<text x="${x}" y="${y}" class="cx pin" ${side === 'r' ? 'text-anchor="end"' : ''} fill="${col}" opacity=".85">${up ? '▲' : '▼'} ${esc(lab)} ${px(v)}</text>`; };
     const hline = (v, lab, col, dash, side) => { if (v == null) return; if (v < lo || v > hi) return pin(v, lab, col, side);
       g += `<line x1="${m.l}" x2="${W - m.r}" y1="${Y(v)}" y2="${Y(v)}" stroke="${col}" stroke-width="1" opacity=".75" stroke-dasharray="${dash}"/>`;
-      g += side === 'r' ? `<text x="${W - m.r - 4}" y="${Y(v) - 3}" text-anchor="end" class="cx" fill="${col}">${esc(lab)} ${px(v)}</text>` : `<text x="${m.l + 6}" y="${Y(v) + 10}" class="cx" fill="${col}">${esc(lab)} ${px(v)}</text>`; };
+      g += side === 'r' ? `<text x="${W - m.r - 4}" y="${place(Y(v) - 3, 'r')}" text-anchor="end" class="cx" fill="${col}">${esc(lab)} ${px(v)}</text>` : `<text x="${m.l + 6}" y="${place(Y(v) + 10, 'l')}" class="cx" fill="${col}">${esc(lab)} ${px(v)}</text>`; };
     wz.forEach(z => { if (z.hi < lo || z.lo > hi) return pin(z.lo > hi ? z.lo : z.hi, `${z.dir} zone`, 'var(--gold)', 'l');
-      const yT = Y(Math.min(hi, z.hi)), yB = Y(Math.max(lo, z.lo)); g += `<rect x="${m.l}" y="${yT}" width="${iw}" height="${Math.max(1, yB - yT)}" fill="rgba(251,191,36,.12)" stroke="rgba(251,191,36,.5)" stroke-dasharray="3 3" class="cz"/><text x="${m.l + 6}" y="${Math.max(m.t + 10, yT - 4)}" class="cx" fill="var(--gold)">${esc(z.dir)} zone · ${esc(z.st)}</text>`; });
+      const yT = Y(Math.min(hi, z.hi)), yB = Y(Math.max(lo, z.lo)); g += `<rect x="${m.l}" y="${yT}" width="${iw}" height="${Math.max(1, yB - yT)}" fill="rgba(251,191,36,.12)" stroke="rgba(251,191,36,.5)" stroke-dasharray="3 3" class="cz"/><text x="${m.l + 6}" y="${place(Math.max(m.t + 10, yT - 4), 'l')}" class="cx" fill="var(--gold)">${esc(z.dir)} zone · ${esc(z.st)}</text>`; });
     [[l.pdh, 'PDH', 'var(--blue)'], [l.pdl, 'PDL', 'var(--blue)'], [l.midnight_open, 'midnight', 'var(--muted)'], [l.week_open, 'week open', 'var(--muted)']].forEach(([v, lab, col]) => hline(v, lab, col, '6 4', 'r'));
     poss.forEach(p => { [[p.entry, (p.side === 'short' ? 'short' : 'long') + ' · ' + p.venue, 'var(--green)', '0'], [p.tp, 'target', 'var(--green)', '4 3'], [p.stop, 'stop', 'var(--red)', '0'], [p.liq, 'liq', 'var(--red)', '2 3']].forEach(([v, lab, col, dash]) => hline(v, lab, col, dash, 'l')); });
     g += '<g clip-path="url(#plotclip)">';
-    if (l.line) { const d = cs.map((c, i) => (i ? 'L' : 'M') + X(i).toFixed(1) + ',' + Y(c.c).toFixed(1)).join(' '); const col = cs[cs.length - 1].c >= cs[0].c ? 'var(--green)' : 'var(--red)'; g += `<path d="${d} L${X(n - 1).toFixed(1)},${H - m.b} L${X(0).toFixed(1)},${H - m.b} Z" fill="${col}" opacity=".08"/><path d="${d}" fill="none" stroke="${col}" stroke-width="1.6"/>`; }
+    if (hasVol) {  // volume histogram in its own lane, volume profile as faint bars along the right edge of the price area
+      const vmax = Math.max(...cs.map(c => c.v)) || 1; const y0 = H - m.b;
+      cs.forEach((c, i) => { const hh = c.v / vmax * (VH - 6); g += `<rect x="${X(i) - cw / 2}" y="${y0 - hh}" width="${cw}" height="${hh}" fill="${c.c >= c.o ? 'var(--green)' : 'var(--red)'}" opacity=".35"/>`; });
+      g += `<line x1="${m.l}" x2="${W - m.r}" y1="${y0 - VH + 2}" y2="${y0 - VH + 2}" stroke="rgba(255,255,255,.08)"/><text x="${m.l + 4}" y="${y0 - VH + 12}" class="cx">vol</text>`;
+      const B = 24, bins = new Array(B).fill(0); cs.forEach(c => { const k = Math.max(0, Math.min(B - 1, Math.floor((c.c - lo) / (hi - lo) * B))); bins[k] += c.v; }); const bmax = Math.max(...bins) || 1; const bh = ih / B; const poc = bins.indexOf(bmax);
+      bins.forEach((v, k) => { const w = v / bmax * iw * .16; const y = m.t + ih - (k + 1) * bh; g += `<rect x="${W - m.r - w}" y="${y}" width="${w}" height="${Math.max(1, bh - 1)}" fill="${k === poc ? 'rgba(251,191,36,.45)' : 'rgba(129,140,248,.18)'}"/>`; });
+      g += `<text x="${W - m.r - 4}" y="${m.t + ih - (poc + .5) * bh + 3}" text-anchor="end" class="cx" fill="var(--gold)">POC ${px(lo + (poc + .5) / B * (hi - lo))}</text>`;
+    }
+    if (view.mode === 'line') { const d = cs.map((c, i) => (i ? 'L' : 'M') + X(i).toFixed(1) + ',' + Y(c.c).toFixed(1)).join(' '); const col = cs[cs.length - 1].c >= cs[0].c ? 'var(--green)' : 'var(--red)'; g += `<path d="${d} L${X(n - 1).toFixed(1)},${m.t + ih} L${X(0).toFixed(1)},${m.t + ih} Z" fill="${col}" opacity=".08"/><path d="${d}" fill="none" stroke="${col}" stroke-width="1.6"/>`; }
     else cs.forEach((c, i) => { const x = X(i), up = c.c >= c.o; const col = up ? 'var(--green)' : 'var(--red)'; g += `<line x1="${x}" x2="${x}" y1="${Y(c.h)}" y2="${Y(c.l)}" stroke="${col}" stroke-width="1"/><rect x="${x - cw / 2}" y="${Y(Math.max(c.o, c.c))}" width="${cw}" height="${Math.max(1, Math.abs(Y(c.o) - Y(c.c)))}" fill="${col}" opacity=".88"/>`; });
     const line = (arr, col) => `<path d="${arr.map((v, i) => (i ? 'L' : 'M') + X(i).toFixed(1) + ',' + Y(v).toFixed(1)).join(' ')}" fill="none" stroke="${col}" stroke-width="1.3" opacity=".9"/>`;
     g += line(e20, 'var(--cyan)') + line(e50, 'var(--purple)') + (e200 ? line(e200, 'var(--pink)') : '') + '</g>';
@@ -539,7 +558,7 @@
     $('#chart-title').textContent = `${cur.market} · ${l.feed}`; $('#chart-sub').textContent = l.src ? `${cur.iv.toUpperCase()} · ${esc(l.note || '')}` : `${cur.iv.toUpperCase()} · ${o ? 'MFP ≈ feed + ' + px(o) : 'no venue offset'} · ${l.bias_1h} 1H / ${l.bias_4h} 4H · ATR 1H ${px(l.atr_1h)}`;
     showOHLC(cs[cs.length - 1]);
   }
-  function showOHLC(c) { const o = off(cur.market); $('#ohlc').innerHTML = `<span>${fmtET(c.t)}</span><span>O <b>${px(c.o)}</b></span><span>H <b>${px(c.h)}</b></span><span>L <b>${px(c.l)}</b></span><span>C <b class="${cls(c.c - c.o)}">${px(c.c)}</b></span><span>Δ <b class="${cls(c.c - c.o)}">${pct((c.c / c.o - 1) * 100)}</b></span>${o ? `<span>MFP est. <b>${px(c.c + o)}</b></span>` : ''}`; }
+  function showOHLC(c) { const o = off(cur.market); $('#ohlc').innerHTML = `<span>${fmtET(c.t)}</span><span>O <b>${px(c.o)}</b></span><span>H <b>${px(c.h)}</b></span><span>L <b>${px(c.l)}</b></span><span>C <b class="${cls(c.c - c.o)}">${px(c.c)}</b></span><span>Δ <b class="${cls(c.c - c.o)}">${pct((c.c / c.o - 1) * 100)}</b></span>${c.v ? `<span>V <b>${c.v >= 1e6 ? (c.v / 1e6).toFixed(2) + 'M' : c.v >= 1e3 ? (c.v / 1e3).toFixed(1) + 'K' : c.v.toFixed(0)}</b></span>` : ''}${o ? `<span>MFP est. <b>${px(c.c + o)}</b></span>` : ''}`; }
   function hover(p) { const G = cur.geo; if (!G) return; const xh = $('#xh'); if (!xh) return;
     const inPlot = p.y >= G.m.t && p.y <= G.H - G.m.b && p.x >= G.m.l && p.x <= G.W - G.m.r; if (!inPlot) { xh.innerHTML = ''; return; }
     const i = Math.max(0, Math.min(G.n - 1, Math.floor((p.x - G.m.l) / G.iw * G.n))); showOHLC(G.cs[i]); const price = G.hi - (p.y - G.m.t) / G.ih * (G.hi - G.lo);
@@ -567,6 +586,8 @@
     $('#fit').addEventListener('click', () => { resetView(); drawChart(); });
     $('#y-auto').addEventListener('click', () => { view.yauto = !view.yauto; syncChartBtns(); drawChart(); });
     $('#x-follow').addEventListener('click', () => { view.follow = !view.follow; if (view.follow) view.end = null; syncChartBtns(); drawChart(); });
+    $('#mode').addEventListener('click', () => { view.mode = view.mode === 'line' ? 'candles' : 'line'; syncChartBtns(); drawChart(); });
+    $('#vol').addEventListener('click', () => { view.vol = !view.vol; syncChartBtns(); drawChart(); });
   }
   const resolveMarket = (mk) => { if (lv(mk)) return mk; for (const part of String(mk || '').split(/[\/·,]/)) { const p = part.trim().toLowerCase(); if (!p) continue; const hit = L.levels.find(l => l.market.toLowerCase() === p || l.market.toLowerCase().startsWith(p)); if (hit) return hit.market; } return null; };
   function selectMarket(mk) { const m = resolveMarket(mk); if (!m) return; cur.market = m; resetView(); updateTape(); loadCandles(); }
@@ -590,8 +611,32 @@
     openModal(`${esc(w.market)} · ${esc(w.direction)} <span class="tag ${esc(w.status)}">${esc(w.status)}</span>`,
       `<dl class="kv"><dt>Setup</dt><dd>${esc(w.setup)}</dd><dt>Zone</dt><dd class="num">${w.zone_lo != null ? px(w.zone_lo) + ' – ' + px(w.zone_hi) + ' <span class="flat">MFP terms</span>' : '—'}</dd><dt>Stop</dt><dd>${esc(w.stop_rule)}</dd><dt>Targets</dt><dd>${esc(w.targets)}</dd><dt>Note</dt><dd>${esc(w.note)}</dd><dt>Account</dt><dd>${esc(ACCT[w.account])}${w.grade_max ? ' · max grade ' + esc(w.grade_max) : ''}</dd><dt>Updated</dt><dd>${fmtET(w.updated)}</dd></dl><div class="mact">${resolveMarket(w.market) ? '<button class="btn" id="m-chart" type="button"><i class="ph-duotone ph-chart-line"></i> show on chart</button>' : ''}</div>`);
     const b = $('#m-chart'); if (b) b.addEventListener('click', () => { closeModal(); selectMarket(w.market); $('#chart').scrollIntoView({behavior: 'smooth', block: 'start'}); });
+    deepLink(resolveMarket(w.market));
   }
-  function renderWatchlist() { /* the watchlist lives on the tape (zone line + ⓘ on each ticker) */ }
+  function deepLink(mk) { if (!mk) return; const url = location.origin + location.pathname + '?m=' + encodeURIComponent(mk); $('#m-body').insertAdjacentHTML('beforeend', `<div class="dl"><span>link to this chart</span><input readonly value="${esc(url)}"><button class="btn" type="button" id="m-copy">copy</button></div>`); $('#m-copy').addEventListener('click', async () => { try { await navigator.clipboard.writeText(url); $('#m-copy').textContent = 'copied'; } catch (e) { $('#m-body input').select(); } }); }
+  function renderWatchlist() { /* the watchlist lives on the tape (zone line + details CTA on each ticker) */ }
+  function openPosition(p) {
+    const l = lv(SYM[p.symbol] || p.symbol); const mark = live(l); const dir = p.side === 'long' ? 1 : -1; const up = mark != null ? (mark - p.entry) * p.size * dir : null; const ld = (mark && p.liq) ? (mark - p.liq) / mark * 100 * dir : null; const hide = p.public === false;
+    const rr = (p.stop && p.tp) ? Math.abs(p.tp - p.entry) / Math.abs(p.entry - p.stop) : null;
+    openModal(`${esc(p.venue)} · ${esc(p.symbol)} <span class="side-${p.side}">${p.side}</span>`,
+      `<dl class="kv"><dt>Owner</dt><dd>${esc(p.owner)}${p.live ? '' : ' · as reported'}</dd><dt>Size</dt><dd class="num">${hide ? 'private' : p.size}</dd><dt>Entry</dt><dd class="num">${px(p.entry)}</dd><dt>Mark</dt><dd class="num">${mark != null ? px(mark) + (up != null && !hide ? ' · <span class="' + cls(up) + '">' + sgn(up) + '</span>' : '') : '—'}</dd><dt>Stop</dt><dd class="num ${p.stop ? '' : 'neg'}">${p.stop ? px(p.stop) + ' (' + pct((p.stop / p.entry - 1) * 100) + ')' : 'none'}</dd><dt>Target</dt><dd class="num">${p.tp ? px(p.tp) + ' (' + pct((p.tp / p.entry - 1) * 100) + ')' + (rr ? ' · ' + rr.toFixed(1) + 'R' : '') : '—'}</dd><dt>Liquidation</dt><dd class="num">${p.liq ? px(p.liq) + (ld != null ? ' · ' + ld.toFixed(1) + '% away' : '') : '—'}</dd>${p.plan ? `<dt>Plan</dt><dd>${esc(p.plan)}</dd>` : ''}<dt>Note</dt><dd>${esc(p.note)}</dd><dt>As of</dt><dd>${fmtET(p.asof)}</dd></dl><div class="mact">${resolveMarket(SYM[p.symbol] || p.symbol) ? '<button class="btn" id="m-chart" type="button"><i class="ph-duotone ph-chart-line"></i> show on chart</button>' : ''}</div>`);
+    const b = $('#m-chart'); if (b) b.addEventListener('click', () => { closeModal(); selectMarket(SYM[p.symbol] || p.symbol); $('#chart').scrollIntoView({behavior: 'smooth', block: 'start'}); });
+  }
+  function openScan(w) {
+    const f = G.feeds[w.market] || {}; const t1 = f.tf_1h || {}, t4 = f.tf_4h || {}; const lc = f.last_closed_1h || {};
+    const sess = f.sessions ? Object.entries(f.sessions).map(([n, r]) => `${n} ${px(r.low)}–${px(r.high)}`).join(' · ') : '—';
+    openModal(`Scanner · ${esc(w.market)} <span class="tag ${esc(w.status)}">${esc(w.status)}</span>`,
+      `<dl class="kv"><dt>Read</dt><dd>${esc(w.read)}</dd><dt>Flags</dt><dd>${['pressing', 'swept', 'reclaimed', 'smt_ok', 'trigger'].map(k => `<span class="tag ${w[k] ? 'armed' : ''}">${k.replace('_ok', '')}</span>`).join(' ')}</dd><dt>Zone</dt><dd class="num">${px(w.zone_lo)}–${px(w.zone_hi)} · ${esc(w.direction)} · ${w.dist != null ? px(w.dist) + ' away (' + (w.dist_atr || 0).toFixed(1) + '× ATR)' : ''}</dd><dt>Bias</dt><dd>1H ${esc(t1.bias || '—')} · 4H ${esc(t4.bias || '—')} · ATR 1H ${px(f.atr_1h)}</dd><dt>Last 1H</dt><dd class="num">${lc.o != null ? `O ${px(lc.o)} H ${px(lc.h)} L ${px(lc.l)} C ${px(lc.c)} · ${lc.bull ? '▲' : '▼'} ${lc.range_atr}× ATR` : '—'}</dd><dt>Day levels</dt><dd class="num">PDH ${px(f.pdh)} · PDL ${px(f.pdl)}${f.today_high ? ` · today ${px(f.today_low)}–${px(f.today_high)}` : ''}</dd><dt>Sweeps</dt><dd>${f.sweeps && f.sweeps.length ? f.sweeps.map(x => `swept ${esc(x.level)} ${px(x.price)} (${x.depth_atr}× ATR), closed ${px(x.close)}`).join('<br>') : 'none in the last six closed hours'}</dd><dt>Sessions</dt><dd class="num">${sess}</dd><dt>Scan</dt><dd>${fmtET(G.asof)}</dd></dl><div class="mact">${resolveMarket(w.market) ? '<button class="btn" id="m-chart" type="button"><i class="ph-duotone ph-chart-line"></i> show on chart</button>' : ''}</div>`);
+    const b = $('#m-chart'); if (b) b.addEventListener('click', () => { closeModal(); selectMarket(w.market); $('#chart').scrollIntoView({behavior: 'smooth', block: 'start'}); });
+  }
+  let STUDY = null;
+  function openStudy(name) {
+    const m = STUDY && STUDY.markets[name]; if (!m) return; const f = (x) => x && x.n ? `${x.expectancy > 0 ? '+' : ''}${x.expectancy.toFixed(2)}R` : '—';
+    const isStat = (v) => v && typeof v === 'object' && 'n' in v && 'expectancy' in v;
+    const groups = Object.entries(m).filter(([, v]) => v && typeof v === 'object' && !isStat(v) && Object.values(v).some(isStat));
+    const tbl = groups.map(([g, v]) => `<h4 style="margin:.8rem 0 .3rem;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">${esc(g.replace(/_/g, ' '))}</h4><table class="tblm"><tr><th>variant</th><th>n</th><th>win</th><th>exp.</th></tr>${Object.entries(v).filter(([, s]) => isStat(s)).map(([k, s]) => `<tr><td>${esc(k)}</td><td>${s.n}</td><td>${(s.win_rate * 100).toFixed(0)}%</td><td class="${cls(s.expectancy)}">${f(s)}</td></tr>`).join('')}</table>`).join('');
+    openModal(`Edge study · ${esc(name)}`, `<p class="flat" style="font-size:.7rem">Mechanical replay of the sweep-and-reclaim trigger over ${STUDY.days} days of 1H candles. Expectancy is in R after 0.1R fees; a candle touching both stop and target counts as a stop. Pockets under n ≈ 60 are noise.</p>${tbl || '<div class="empty">No variant table for this market.</div>'}`);
+  }
   function renderPreflight() {
     const key = 'fortuna-pf-' + new Date().toLocaleDateString('en-CA', {timeZone: NY}); let done = {}; try { done = JSON.parse(localStorage.getItem(key) || '{}'); } catch (e) {}
     const save = () => { try { localStorage.setItem(key, JSON.stringify(done)); } catch (e) {} };
@@ -621,7 +666,7 @@
     $('#scan-sub').textContent = 'mechanical read · ' + fmtET(G.asof);
     const cards = G.watchlist.filter(w => w.zone_lo != null).map(w => { const f = G.feeds[w.market] || {};
       const fl = [['pressing', w.pressing ? 'hot' : ''], ['swept', w.swept ? 'on' : ''], ['reclaimed', w.reclaimed ? 'on' : ''], ['SMT', w.smt_ok ? 'on' : w.smt_ok === false ? '' : ''], ['last 1H ' + (w.last_close_bull ? '▲' : '▼'), '']];
-      return `<div class="sc"><div class="h"><span>${esc(w.market)} <span class="tag ${esc(w.status)}">${esc(w.status)}</span></span><span class="num flat">${px(w.mfp_est)}</span></div>
+      return `<div class="sc" data-m="${esc(w.market)}"><div class="h"><span>${esc(w.market)} <span class="tag ${esc(w.status)}">${esc(w.status)}</span><button class="cta" type="button">read ›</button></span><span class="num flat">${px(w.mfp_est)}</span></div>
         <div class="fl">${w.trigger ? '<b class="trig">trigger</b>' : ''}${fl.map(([t, c]) => `<b class="${c}">${t}</b>`).join('')}</div>
         <p>${esc(w.read)}${f.sweeps && f.sweeps.length ? '<br>' + f.sweeps.map(x => `swept ${esc(x.level)} ${px(x.price)} (${x.depth_atr}× ATR), closed ${px(x.close)}`).join('; ') : ''}</p></div>`; }).join('');
     const smt = G.smt.length ? G.smt.map(x => `<b>${esc(x.pair)}</b> ${esc(x.read)}`).join(' · ') : 'no SMT divergence on the last three 1H candles';
@@ -642,9 +687,13 @@
     (G ? G.alerts : []).forEach((a, i) => out.push({key: 'scan-' + i + a.text, level: a.level, text: a.text, src: 'scan ' + fmtET(G.asof, {month: undefined, day: undefined})}));
     return out;
   }
+  let AH = [], ahOpen = false;
   function renderAlerts() {
     const al = computeAlerts(); const order = {critical: 0, warn: 1, info: 2}; al.sort((a, b) => order[a.level] - order[b.level]);
-    $('#alert-list').innerHTML = al.length ? al.map(a => `<div class="al ${a.level}"><i class="d"></i><div>${esc(a.text)}<small>${a.src || 'live · ' + new Date().toLocaleTimeString('en-US', {timeZone: NY, hour: 'numeric', minute: '2-digit'}) + ' ET'}</small></div></div>`).join('') : '<div class="empty">Quiet. Nothing pressing, nothing near liquidation.</div>';
+    const hist = AH.slice(-20).reverse();
+    $('#alert-list').innerHTML = (al.length ? al.map(a => `<div class="al ${a.level}"><i class="d"></i><div>${esc(a.text)}<small>${a.src || 'live · ' + new Date().toLocaleTimeString('en-US', {timeZone: NY, hour: 'numeric', minute: '2-digit'}) + ' ET'}</small></div></div>`).join('') : '<div class="empty">Quiet. Nothing pressing, nothing near liquidation.</div>')
+      + (hist.length ? `<div class="alh"><div class="alh-t" id="alh-t"><span>past alerts · ${AH.length} logged</span><span>${ahOpen ? 'hide ▴' : 'show ▾'}</span></div>${ahOpen ? hist.map(a => `<div class="al ${a.level}"><i class="d"></i><div>${esc(a.text)}<small>${esc(a.venue)} · ${fmtET(a.at)}</small></div></div>`).join('') : ''}</div>` : '');
+    const t = $('#alh-t'); if (t) t.addEventListener('click', () => { ahOpen = !ahOpen; renderAlerts(); });
     if (notifyOn) al.filter(a => a.level !== 'info' && !fired.has(a.key)).forEach(a => { fired.add(a.key); try { new Notification('Fortuna Terminal · ' + a.level, {body: a.text}); } catch (e) {} });
   }
   function setupNotify() {
@@ -680,6 +729,7 @@
   /* ── edge study (study.json from study.py) ── */
   async function renderStudy() {
     let T = null; try { T = await loadJSON('data/study.json'); } catch (e) {}
+    STUDY = T;
     if (!T) { $('#study-body').innerHTML = '<div class="empty">No study published yet.</div>'; return; }
     const o = T.overall; const f = (x) => x && x.n ? `${x.expectancy > 0 ? '+' : ''}${x.expectancy.toFixed(2)}R` : '—';
     const bh = o.by_stop['1.0'], bht = o.by_stop['0.25'], rf = o.range_first_with ? o.range_first_with['0.25'] : null;
@@ -687,17 +737,17 @@
     const find = `Taken on <b>every</b> prior-day sweep, the reclaim trigger has no edge: <b>${f(bh)}</b> per trade with the 1× ATR stop (win rate ${(bh.win_rate * 100).toFixed(0)}%), <b>${f(bht)}</b> with the tight ¼ ATR stop. The best mechanical pocket, first sweep of the day with the trend and a target at the opposite day level, is only <b>${f(rf)}</b> (n ${rf ? rf.n : 0}). The edge, if there is one, lives in what the trigger does not see: higher-timeframe liquidity, displacement, the calendar.`;
     const mk = Object.entries(T.markets).map(([name, m]) => { const best = Object.entries({...Object.fromEntries(Object.entries(m.by_stop).map(([k, v]) => ['base-hit · ' + k + '× ATR', v])), ...Object.fromEntries(Object.entries(m.range_first || {}).map(([k, v]) => ['range · first · ' + k + '× ATR', v]))}).filter(([, v]) => v.n >= 20).sort((a, b) => b[1].expectancy - a[1].expectancy)[0];
       const e = best ? best[1].expectancy : 0; const w = Math.min(100, Math.abs(e) / 0.5 * 50);
-      return `<div class="st"><b>${esc(name)}</b>base-hit 1× ATR: <span class="${cls(m.by_stop['1.0'].expectancy)}">${f(m.by_stop['1.0'])}</span> · n ${m.by_stop['1.0'].n}<div class="bar"><i style="${e >= 0 ? 'left:50%' : 'right:50%'};width:${w}%;background:${e >= 0 ? 'var(--green)' : 'var(--red)'}"></i></div>best variant: ${best ? esc(best[0]) + ' <span class="' + cls(e) + '">' + f(best[1]) + '</span> (n ' + best[1].n + ')' : '—'}</div>`; }).join('');
+      return `<div class="st" data-m="${esc(name)}"><b>${esc(name)} <button class="cta" type="button">variants ›</button></b>base-hit 1× ATR: <span class="${cls(m.by_stop['1.0'].expectancy)}">${f(m.by_stop['1.0'])}</span> · n ${m.by_stop['1.0'].n}<div class="bar"><i style="${e >= 0 ? 'left:50%' : 'right:50%'};width:${w}%;background:${e >= 0 ? 'var(--green)' : 'var(--red)'}"></i></div>best variant: ${best ? esc(best[0]) + ' <span class="' + cls(e) + '">' + f(best[1]) + '</span> (n ' + best[1].n + ')' : '—'}</div>`; }).join('');
     $('#study-body').innerHTML = `<div class="st-find clamp" title="click to expand">${find}</div><div class="st-note">${esc(T.rule)}. Conservative: a candle touching both stop and target counts as a stop. Pockets under n ≈ 60 are noise until proven otherwise. This is why Fortuna grades setups instead of auto-firing them; the study reruns as the sample grows.</div><div class="st-grid">${mk}</div>`;
   }
 
   function renderLive() { updateTape(); renderPositions(); renderZones(); renderPulse(); renderAlerts(); }
   async function refreshAll() { const b = $('#refresh'); b.disabled = true; b.classList.add('spin');
-    try { [S, L] = await Promise.all([loadJSON('data/state.json'), loadJSON('data/levels.json')]); G = await loadJSON('data/signals.json').catch(() => null);
+    try { [S, L] = await Promise.all([loadJSON('data/state.json'), loadJSON('data/levels.json')]); G = await loadJSON('data/signals.json').catch(() => null); AH = await loadJSON('data/alerts.json').catch(() => AH);
       renderHeader(); renderTake(); renderAccounts(); renderFeed(); renderWatchlist(); renderLedger(); renderLanes(); renderScanner(); renderStudy().catch(console.error); await fetchMids(); renderTape(); renderLive(); await loadCandles(); }
     catch (e) { console.error(e); } finally { b.disabled = false; b.classList.remove('spin'); } }
   (async () => {
-    try { [S, L] = await Promise.all([loadJSON('data/state.json'), loadJSON('data/levels.json')]); G = await loadJSON('data/signals.json').catch(() => null); }
+    try { [S, L] = await Promise.all([loadJSON('data/state.json'), loadJSON('data/levels.json')]); G = await loadJSON('data/signals.json').catch(() => null); AH = await loadJSON('data/alerts.json').catch(() => []); }
     catch (e) { $('#take .lead').textContent = 'Could not load the terminal data (' + e.message + '). Open this page from the published site, not from a local file.'; return; }
     renderClock(); setInterval(renderClock, 1000); renderHeader(); setInterval(renderHeader, 60000);
     renderTake(); renderAccounts(); renderFeed(); renderWatchlist(); renderPreflight(); renderLedger(); renderLanes(); renderWhere(); renderScanner(); try { renderSizer(); } catch (e) { console.error(e); } setupNotify(); renderStudy().catch(console.error);
@@ -713,10 +763,12 @@
         <li>The ntfy app on a phone subscribed to the topic shows it on the lock screen.</li>
       </ol>
       <p><b>Follow Fortuna's alerts yourself:</b> install ntfy (iOS, Android or web), subscribe to the topic <code>fortuna-terminal-live</code>, done. Christopher's own phone uses a separate private topic; the public mirror carries the same alerts. A public topic can be posted to by anyone, so treat it as a feed, never as instructions.</p>
-      <p style="margin-top:.6rem"><a class="btn" href="PHONE-ALERTS.md">the write-up, as markdown ↗</a> <a class="btn" href="https://docs.ntfy.sh" target="_blank" rel="noopener">ntfy docs ↗</a></p>`));
+      <p style="margin-top:.6rem"><a class="btn" href="phone-alerts.html">the full write-up ↗</a> <a class="btn" href="PHONE-ALERTS.md">markdown source</a> <a class="btn" href="https://docs.ntfy.sh" target="_blank" rel="noopener">ntfy docs ↗</a></p>`));
     $('#study-body').addEventListener('click', (ev) => { const f = ev.target.closest('.st-find'); if (f) f.classList.toggle('open'); });
     $('#m-close').addEventListener('click', closeModal); $('#modal').addEventListener('click', (ev) => { if (ev.target.id === 'modal') closeModal(); }); document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') closeModal(); });
-    $('#pos-list').addEventListener('click', (ev) => { const c = ev.target.closest('.pos-card'); if (c) c.classList.toggle('open'); });
+    $('#pos-list').addEventListener('click', (ev) => { const b = ev.target.closest('[data-pos]'); if (b) { openPosition(S.positions[+b.dataset.pos]); return; } const c = ev.target.closest('.pos-card'); if (c) c.classList.toggle('open'); });
+    $('#scan-body').addEventListener('click', (ev) => { const c = ev.target.closest('.sc'); if (!c || !G) return; const w = G.watchlist.find(x => x.market === c.dataset.m); if (w) openScan(w); });
+    $('#study-body').addEventListener('click', (ev) => { const c = ev.target.closest('.st'); if (c && c.dataset.m) openStudy(c.dataset.m); });
     $('#feed-list').addEventListener('click', (ev) => { const c = ev.target.closest('.fi'); if (c) c.classList.toggle('open'); });
     setInterval(async () => { if (await fetchMids()) renderLive(); }, 30000);
     fetchTotal2().then(updateTape); setInterval(() => fetchTotal2().then(updateTape), 300000);
