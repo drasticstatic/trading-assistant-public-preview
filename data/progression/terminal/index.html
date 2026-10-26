@@ -119,6 +119,10 @@
     .pb { padding: .8rem .9rem; }
     .row { display: grid; gap: 1rem; margin-top: 1rem; }
         .row.three { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .stack > .row.two { grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); margin-top: 0; align-items: start; }
+    .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; } .seg button { background: none; border: 0; color: var(--muted); font: 600 .68rem var(--sans); padding: .2rem .6rem; cursor: pointer; transition: all .15s; } .seg button + button { border-left: 1px solid var(--line); } .seg button.on { color: #fff; background: rgba(129,140,248,.18); } .seg button:hover { color: var(--text); }
+    .gexc { padding: .55rem .9rem .75rem; display: grid; gap: .6rem; } .gexc .m { display: grid; gap: .2rem; border: 1px solid var(--line); border-radius: var(--r); padding: .5rem .6rem .45rem; background: var(--panel-2); } .gexc .h { display: flex; justify-content: space-between; align-items: center; gap: .5rem; font-size: var(--t-sm); color: #fff; font-weight: 700; } .gexc .h small { color: var(--muted); font-weight: 500; font-family: var(--mono); }
+    .gexc svg { width: 100%; height: 48px; display: block; } .gexc .k { display: flex; flex-wrap: wrap; gap: .25rem .7rem; font-size: var(--t-xs); font-family: var(--mono); color: var(--muted); } .gexc .k .sp { margin-left: auto; }
 
     /* accounts */
     .acct { padding: .75rem .9rem; border-bottom: 1px solid var(--line); }
@@ -358,7 +362,7 @@
         <section class="panel" id="chart">
           <div class="ph"><i class="ph-duotone ph-chart-line"></i> <span id="chart-title">Chart</span> <span class="sub" id="chart-sub"></span><span class="sp"></span>
             <div class="dd" id="iv-dd"><button class="btn on" id="iv-btn" type="button" aria-haspopup="menu">1H ▾</button><div class="dd-menu" id="iv-menu" hidden role="menu"><button data-iv="5m">5 min</button><button data-iv="15m">15 min</button><button data-iv="1h" class="on">1 hour</button><button data-iv="4h">4 hours</button><button data-iv="1d">Daily</button></div></div>
-            <div class="ctl" id="view-ctl"><button class="btn on" id="y-auto" type="button" title="auto-scale the price axis to the visible candles">auto</button><button class="btn on" id="x-follow" type="button" title="keep the latest candle on the right edge">follow</button><button class="btn" id="fit" type="button" title="snap to fit (or double-click the chart)"><i class="ph-duotone ph-arrows-in-line-horizontal"></i> fit</button><button class="btn" id="engine" type="button" title="chart engine: Fortuna's SVG renderer or TradingView's Lightweight Charts">SVG</button><button class="btn" id="mode" type="button" title="candles ↔ line / area">line</button><div class="dd" id="ov-dd"><button class="btn on" id="ov-btn" type="button" aria-haspopup="menu"><i class="ph-duotone ph-stack"></i> overlays ▾</button><div class="dd-menu ov-menu" id="ov-menu" hidden role="menu">
+            <div class="ctl" id="view-ctl"><button class="btn on" id="y-auto" type="button" title="auto-scale the price axis to the visible candles">auto</button><button class="btn on" id="x-follow" type="button" title="keep the latest candle on the right edge">follow</button><button class="btn" id="fit" type="button" title="snap to fit (or double-click the chart)"><i class="ph-duotone ph-arrows-in-line-horizontal"></i> fit</button><div class="seg" id="engine-seg" role="group" aria-label="chart engine"><button type="button" data-eng="lw" title="TradingView's open-source Lightweight Charts renderer">TradingView</button><button type="button" data-eng="svg" title="Fortuna's own SVG renderer, the one its background analysis draws with">SVG</button></div><button class="btn" id="mode" type="button" title="candles ↔ line / area">line</button><div class="dd" id="ov-dd"><button class="btn on" id="ov-btn" type="button" aria-haspopup="menu"><i class="ph-duotone ph-stack"></i> overlays ▾</button><div class="dd-menu ov-menu" id="ov-menu" hidden role="menu">
                 <label><input type="checkbox" data-ov="zth" checked> Auto Levels <small>KEY · 5/5 · 3/5 · ghost</small></label>
                 <label><input type="checkbox" data-ov="rails"> Session rails <small>FCR 9:30 · 4/5 opens and closes</small></label>
                 <label><input type="checkbox" data-ov="fvg"> Fair value gaps <small>3-candle gaps on this timeframe</small></label>
@@ -366,19 +370,22 @@
                 <label><input type="checkbox" data-ov="fibs"> Fib ladder <small>of the last impulse leg</small></label>
                 <label><input type="checkbox" data-ov="bands"> ATR bands <small>around each Auto Level</small></label>
                 <label><input type="checkbox" data-ov="bb"> Bollinger bands <small>20 · 2σ on price, the OG basis / upper / lower</small></label>
+                <label><input type="checkbox" data-ov="gex" checked> Gamma walls <small>call wall · put wall · flip · top strikes, shifted by basis</small></label>
+                <label><input type="checkbox" data-ov="prints" checked> Large prints <small>biggest taker prints of the last 15 min</small></label>
                 <label><input type="checkbox" data-ov="vol" checked> Volume <small>histogram + profile</small></label>
               </div></div><button class="btn" id="zth" type="button" hidden></button><button class="btn" id="fibs" type="button" hidden></button><button class="btn" id="vol" type="button" hidden></button><button class="btn" id="chart-full" type="button" title="open the chart in a lightbox (Esc closes)"><i class="ph-duotone ph-arrows-out-simple"></i> expand</button></div>
           </div>
           <div class="chart-wrap"><svg id="csvg" role="img" aria-label="Live candles with Fortuna's levels"></svg><div id="lwc" hidden></div></div>
           <div class="osc-wrap"><svg id="osc" role="img" aria-label="Money flow, RSI and Bollinger reversal events"></svg></div>
           <div class="ohlc" id="ohlc"></div>
-          <div class="lg"><span><i style="background:var(--cyan)"></i>EMA 20</span><span><i style="background:var(--purple)"></i>EMA 50</span><span><i style="background:var(--pink)"></i>EMA 200</span><span><i style="background:var(--gold)"></i>armed zone</span><span><i style="background:var(--blue)"></i>PDH / PDL</span><span><i style="background:var(--muted)"></i>midnight · week open</span><span><i style="background:var(--green)"></i>position entry / target</span><span><i style="background:var(--red)"></i>stop / liquidation</span><span><i style="background:var(--cyan);height:3px"></i>Auto Levels KEY · 5/5 · 3/5 · <span style="color:#a78bfa">ghost</span> <button class="cta" id="zth-how" type="button" title="how these levels are found"><i class="ph-duotone ph-question"></i> how</button></span><span><i style="background:var(--gold);height:1px"></i>fibs of the last impulse</span><span><i style="background:#4ade80;height:2px"></i>FCR ▲ / <i style="background:#f87171;height:2px"></i>▼ 9:30 rail · <i style="background:#089981;height:1px"></i>4/5 session rails</span><span><i style="background:rgba(74,222,128,.5)"></i>fair value gaps</span><span style="color:#9b59b6">BRK/RT</span> <span style="color:#e74c3c">R</span> <span style="color:#2ecc71">B</span> <span style="color:#ff6b6b">SFP</span> <span style="color:#f39c12">1-2-3</span> <span style="color:#00bcd4">P</span><span class="chint">scroll to zoom · drag to pan · drag an axis to scale · double-click to fit · tape: drag or scroll</span></div>
+          <div class="lg"><span><i style="background:var(--cyan)"></i>EMA 20</span><span><i style="background:var(--purple)"></i>EMA 50</span><span><i style="background:var(--pink)"></i>EMA 200</span><span><i style="background:var(--gold)"></i>armed zone</span><span><i style="background:var(--blue)"></i>PDH / PDL</span><span><i style="background:var(--muted)"></i>midnight · week open</span><span><i style="background:var(--green)"></i>position entry / target</span><span><i style="background:var(--red)"></i>stop / liquidation</span><span><i style="background:var(--cyan);height:3px"></i>Auto Levels KEY · 5/5 · 3/5 · <span style="color:#a78bfa">ghost</span> <button class="cta" id="zth-how" type="button" title="how these levels are found"><i class="ph-duotone ph-question"></i> how</button></span><span><i style="background:var(--gold);height:1px"></i>fibs of the last impulse</span><span><i style="background:#4ade80;height:2px"></i>FCR ▲ / <i style="background:#f87171;height:2px"></i>▼ 9:30 rail · <i style="background:#089981;height:1px"></i>4/5 session rails</span><span><i style="background:rgba(74,222,128,.5)"></i>fair value gaps</span><span><i style="background:var(--green);height:1px"></i>call wall · <i style="background:var(--red);height:1px"></i>put wall · <i style="background:var(--gold);height:1px"></i>gamma flip</span><span><span style="color:var(--green)">●</span> <span style="color:var(--red)">●</span> large prints</span><span style="color:#9b59b6">BRK/RT</span> <span style="color:#e74c3c">R</span> <span style="color:#2ecc71">B</span> <span style="color:#ff6b6b">SFP</span> <span style="color:#f39c12">1-2-3</span> <span style="color:#00bcd4">P</span><span class="chint">scroll to zoom · drag to pan · drag an axis to scale · double-click to fit · tape: drag or scroll</span></div>
         </section>
         <section class="panel" id="zones"><div class="ph"><i class="ph-duotone ph-crosshair"></i> Zones radar <span class="sub">live price against every armed zone, in MFP terms</span></div><div id="zr"></div></section>
+        <div class="row two">
         <section class="panel" id="flow"><div class="ph"><i class="ph-duotone ph-waves"></i> Order flow <span class="sub" id="flow-sub">live trades and book, Hyperliquid</span><span class="sp"></span><span class="chip info" id="flow-chip"><span class="dot"></span> connecting</span></div><div id="flow-body"><div class="empty">Waiting for the first trades…</div></div></section>
         <section class="panel" id="gamma"><div class="ph"><i class="ph-duotone ph-chart-bar-horizontal"></i> Gamma <span class="sub" id="gex-sub">dealer gamma by strike, delayed public data</span></div><div id="gex-body"></div></section>
+        </div>
         <section class="panel" id="scanner"><div class="ph"><i class="ph-duotone ph-scan"></i> Scanner <span class="sub" id="scan-sub">mechanical read: sweeps · reclaims · SMT · sessions</span></div><div id="scan-body"></div></section>
-        <section class="panel" id="study"><div class="ph"><i class="ph-duotone ph-flask"></i> Edge study <span class="sub" id="study-sub">does the sweep-and-reclaim trigger pay, mechanically?</span></div><div id="study-body"></div></section>
       </div>
 
       <div class="stack c-right">
@@ -393,6 +400,7 @@
 
     <div class="row three">
       <section class="panel" id="lanes"><div class="ph"><i class="ph-duotone ph-git-branch"></i> Lanes <span class="sub">tandem sessions, one agent</span></div><div id="lane-list"></div></section>
+      <section class="panel" id="study"><div class="ph"><i class="ph-duotone ph-flask"></i> Edge study <span class="sub" id="study-sub">does the sweep-and-reclaim trigger pay, mechanically?</span></div><div id="study-body"></div></section>
       <section class="panel" id="where"><div class="ph"><i class="ph-duotone ph-map-trifold"></i> Where things live <span class="sub">three public surfaces, one repo</span></div><div class="where" id="where-list"></div></section>
     </div>
 
@@ -564,10 +572,21 @@
   const IV_H = {'5m': 1 / 12, '15m': 0.25, '1h': 1, '4h': 4, '1d': 24};
   const IV_LABEL = {'5m': '5m', '15m': '15m', '1h': '1H', '4h': '4H', '1d': 'D'};
   const VIEW_N = () => ({'5m': 120, '15m': 120, '1h': 100, '4h': 120, '1d': 120})[cur.iv] || 120;
-  const view = {n: 150, end: null, follow: true, yauto: true, ylo: null, yhi: null, mode: 'candles', vol: true, zth: true, fibs: false, rails: false, fvg: false, marks: false, bands: false, bb: false, engine: 'svg'};
-  try { view.engine = localStorage.getItem('fortuna-engine') === 'lw' && window.LWEngine ? 'lw' : 'svg'; } catch (e) {}
+  const view = {n: 150, end: null, follow: true, yauto: true, ylo: null, yhi: null, mode: 'candles', vol: true, zth: true, fibs: false, rails: false, fvg: false, marks: false, bands: false, bb: false, gex: true, prints: true, engine: window.LWEngine ? 'lw' : 'svg'};
+  try { const sv = localStorage.getItem('fortuna-engine'); view.engine = window.LWEngine && sv !== 'svg' ? 'lw' : 'svg'; } catch (e) {}
+  let GEX = null;  // gamma snapshot (data/gex.json), drawn on the chart as walls
+  function gexFor(mk) { if (!GEX || !cur.candles || !cur.candles.length) return null; const g = GEX.markets.find(x => x.market === mk); if (!g || !g.strikes.length) return null;
+    let basis = 0; if (g.feed && g.feed.startsWith('xyz:')) { const at = Date.parse(GEX.asof); const c = cur.candles.slice().reverse().find(c => c.t <= at) || cur.candles[0]; basis = c.c - g.spot; }
+    const walls = []; const tag = basis ? ` · basis ${basis > 0 ? '+' : ''}${px(basis)}` : '';
+    if (g.call_wall != null) walls.push({price: g.call_wall + basis, label: 'call wall ' + px(g.call_wall) + tag, color: '#4ade80', dash: [6, 3], width: 1.3});
+    if (g.put_wall != null) walls.push({price: g.put_wall + basis, label: 'put wall ' + px(g.put_wall) + tag, color: '#f87171', dash: [6, 3], width: 1.3});
+    if (g.flip != null) walls.push({price: g.flip + basis, label: 'gamma flip ' + px(g.flip), color: '#fbbf24', dash: [2, 4], width: 1});
+    g.strikes.slice().sort((a, b) => Math.abs(b.gex) - Math.abs(a.gex)).slice(0, 4).forEach(s => { if (s.strike === g.call_wall || s.strike === g.put_wall) return; walls.push({price: s.strike + basis, label: `γ ${px(s.strike)} ${s.gex >= 0 ? '+' : ''}${s.gex}M`, color: s.gex >= 0 ? 'rgba(74,222,128,.55)' : 'rgba(248,113,113,.55)', dash: [1, 3], width: 1}); });
+    return {walls, basis, g}; }
+  function bigPrints() { if (!FLOW || !FLOW.trades.length || FLOW.coin !== flowCoin()) return []; const now = Date.now(); return FLOW.trades.filter(t => now - t.t < 15 * 60000).sort((a, b) => b.sz * b.px - a.sz * a.px).slice(0, 6); }
+  const candleAt = (all, t) => { let lo = 0, hi = all.length - 1, j = -1; while (lo <= hi) { const m = (lo + hi) >> 1; if (all[m].t <= t) { j = m; lo = m + 1; } else hi = m - 1; } return j; };
   let LWC = null;  // the Lightweight Charts adapter, created on first use
-  function ensureLW() { if (LWC || !window.LWEngine) return LWC; LWC = LWEngine.create($('#lwc'), cur.iv); LWC.onCrosshair(c => { if (c) showOHLC(c); else if (cur.geo || cur.candles) showOHLC(cur.candles[cur.candles.length - 1]); }); return LWC; }
+  function ensureLW() { if (LWC || !window.LWEngine) return LWC; LWC = LWEngine.create($('#lwc'), cur.iv); LWC.chart.timeScale().subscribeVisibleLogicalRangeChange(() => { if (view.engine === 'lw') { try { drawOsc(); } catch (e) {} } }); LWC.onCrosshair(c => { if (c) showOHLC(c); else if (cur.geo || cur.candles) showOHLC(cur.candles[cur.candles.length - 1]); }); return LWC; }
   function drawLW() {
     const l = lv(cur.market); const all = cur.candles || []; if (!all.length || !l) return; const E = ensureLW(); if (!E) return;
     E.setInterval(cur.iv); E.setBars(all, view.mode); const closes = all.map(c => c.c); E.setEMAs([EMA(closes, 20), EMA(closes, 50), all.length >= 200 ? EMA(closes, 200) : null], all); E.setVolume(view.vol);
@@ -583,11 +602,14 @@
     const hs = M15[cur.market]; if (view.rails && hs && hs.sessions.length && IV_H[cur.iv] <= 1) hs.sessions.forEach((d, k) => { const a = k === 0 ? 1 : k === 1 ? .55 : .35; const dash = k === 0 ? [] : [5, 4]; if (d.fcr) { rays.push({t0: d.fcr.t / 1000, price: d.fcr.high, color: '#4ade80', width: k === 0 ? 2 : 1, dash, alpha: a, label: 'FCR ▲ ' + d.day.slice(5)}); rays.push({t0: d.fcr.t / 1000, price: d.fcr.low, color: '#f87171', width: k === 0 ? 2 : 1, dash, alpha: a, label: 'FCR ▼ ' + d.day.slice(5)}); } [[d.open930, '4/5 9:30 open'], [d.close1600, '4/5 16:00 close'], [d.close1700, '4/5 17:00 close'], [d.open1800, '4/5 18:00 open']].forEach(([s, t]) => { if (s) rays.push({t0: s.t / 1000, price: s.price, color: k === 0 ? '#089981' : '#22d3ee', width: 1, dash: [4, 3], alpha: a * .8, label: t + (k ? ' · ' + d.day.slice(5) : ''), labelPos: 'right'}); }); });
     if (view.fvg && window.AutoLevels) AutoLevels.fvgs(closed, 0, 0).slice(-40).forEach(f => { const t1 = closed[Math.min(closed.length - 1, f.i + 5)]; boxes.push({t0: f.t / 1000, t1: t1 ? t1.t / 1000 : null, p0: f.bot, p1: f.top, fill: f.dir === 'bull' ? 'rgba(74,222,128,.14)' : 'rgba(248,113,113,.14)'}); });
     if (view.marks && window.AutoLevels && hz) { const tick = AutoLevels.TICKS[cur.market] || Math.max(1e-6, closed[closed.length - 1].c * 1e-5); AutoLevels.patterns(closed, hz.levels, tick).forEach(p => marks.push({t: p.t / 1000, price: p.price, side: p.side, text: p.tags.join('·'), color: p.tags.includes('BRK') || p.tags.includes('RT') ? '#9b59b6' : p.tags.includes('R') ? '#e74c3c' : p.tags.includes('B') ? '#2ecc71' : p.tags.includes('SFP') ? '#ff6b6b' : p.tags.includes('1-2-3') ? '#f39c12' : '#00bcd4'})); }
+    if (view.gex) { const gx = gexFor(cur.market); if (gx) gx.walls.forEach(w => rays.push({price: w.price, color: w.color, width: w.width, dash: w.dash, alpha: .9, label: w.label, labelPos: 'left'})); }
+    if (view.prints) bigPrints().forEach(t => { const j = candleAt(all, t.t); if (j < 0) return; marks.push({t: all[j].t / 1000, price: t.px, side: t.buy ? 'low' : 'high', text: '●', color: t.buy ? '#4ade80' : '#f87171'}); });
     E.setOverlays({boxes, rays, marks});
+    try { drawOsc(); } catch (e) { console.error(e); }
     $('#chart-title').textContent = `${cur.market} · ${l.feed}`; $('#chart-sub').textContent = l.src ? `${cur.iv.toUpperCase()} · ${esc(l.note || '')}` : `${cur.iv.toUpperCase()} · ${o ? 'MFP ≈ feed + ' + px(o) : 'no venue offset'} · ${l.bias_1h} 1H / ${l.bias_4h} 4H · ATR 1H ${px(l.atr_1h)} · TradingView engine`;
     showOHLC(all[all.length - 1]);
   }
-  function applyEngine() { const lw = view.engine === 'lw' && window.LWEngine; $('#csvg').style.display = lw ? 'none' : ''; $('#lwc').hidden = !lw; $('#osc').style.display = lw ? 'none' : ''; $('#engine').textContent = lw ? 'TradingView' : 'SVG'; $('#engine').classList.toggle('on', !!lw); try { localStorage.setItem('fortuna-engine', lw ? 'lw' : 'svg'); } catch (e) {} if (cur.candles) drawChart(); }
+  function applyEngine() { const lw = view.engine === 'lw' && window.LWEngine; $('#csvg').style.display = lw ? 'none' : ''; $('#lwc').hidden = !lw; $('#engine-seg').querySelectorAll('button').forEach(b => b.classList.toggle('on', (b.dataset.eng === 'lw') === !!lw)); $('#engine-seg').querySelector('[data-eng=lw]').disabled = !window.LWEngine; try { localStorage.setItem('fortuna-engine', lw ? 'lw' : 'svg'); } catch (e) {} if (cur.candles) drawChart(); }
   const M15 = {};  // 15-minute cache per market for the session rails
   async function loadM15(mk) { const l = lv(mk); if (!l) return null; const c = M15[mk]; if (c && Date.now() - c.at < 120000) return c; let rows = null;
     if (l.candles) rows = aggC(l.candles, 9e5); else { try { const now = Date.now(); const r = await post({type: 'candleSnapshot', req: {coin: l.feed, interval: '15m', startTime: now - 5 * 864e5, endTime: now}}); rows = r.map(x => ({t: x.t, o: +x.o, h: +x.h, l: +x.l, c: +x.c})); } catch (e) { return null; } }
@@ -648,6 +670,7 @@
     wz.forEach(z => { if (z.hi < lo || z.lo > hi) return pin(z.lo > hi ? z.lo : z.hi, `${z.dir} zone`, 'var(--gold)', 'l');
       const yT = Y(Math.min(hi, z.hi)), yB = Y(Math.max(lo, z.lo)); g += `<rect x="${m.l}" y="${yT}" width="${iw}" height="${Math.max(1, yB - yT)}" fill="rgba(251,191,36,.12)" stroke="rgba(251,191,36,.5)" stroke-dasharray="3 3" class="cz"/><text x="${m.l + 6}" y="${place(Math.max(m.t + 10, yT - 4), 'l')}" class="cx" fill="var(--gold)">${esc(z.dir)} zone · ${esc(z.st)}</text>`; });
     [[l.pdh, 'PDH', 'var(--blue)'], [l.pdl, 'PDL', 'var(--blue)'], [l.midnight_open, 'midnight', 'var(--muted)'], [l.week_open, 'week open', 'var(--muted)']].forEach(([v, lab, col]) => hline(v, lab, col, '6 4', 'r'));
+    if (view.gex) { const gx = gexFor(cur.market); if (gx) gx.walls.forEach(w => hline(w.price, w.label, w.color, w.dash.join(' '), 'l')); }
     poss.forEach(p => { [[p.entry, (p.side === 'short' ? 'short' : 'long') + ' · ' + p.venue, 'var(--green)', '0'], [p.tp, 'target', 'var(--green)', '4 3'], [p.stop, 'stop', 'var(--red)', '0'], [p.liq, 'liq', 'var(--red)', '2 3']].forEach(([v, lab, col, dash]) => hline(v, lab, col, dash, 'l')); });
     g += '<g clip-path="url(#plotclip)">';
     const hs = M15[cur.market]; if (view.rails && hs && hs.sessions.length && IV_H[cur.iv] <= 1) {
@@ -685,6 +708,7 @@
     if (last >= lo && last <= hi) g += `<line x1="${m.l}" x2="${W - m.r}" y1="${yl}" y2="${yl}" stroke="var(--cyan)" stroke-width=".8" opacity=".5"/>`;
     g += `<rect x="${W - m.r + 2}" y="${yl - 8}" width="${m.r - 4}" height="16" rx="3" fill="var(--cyan)"/><text x="${W - m.r + 6}" y="${yl + 4}" class="cx" fill="#06111a" font-weight="700">${px(last)}</text>`;
     if (!view.follow && view.end < all.length) g += `<text x="${W - m.r - 6}" y="${H - m.b - 6}" text-anchor="end" class="cx" fill="var(--indigo)">◀ ${all.length - view.end} newer</text>`;
+    if (view.prints) bigPrints().forEach(t => { const k = candleAt(all, t.t) - i0; if (k < 0 || k >= n || t.px < lo || t.px > hi) return; const r = 2.5 + Math.min(4, Math.log10(Math.max(1, t.sz * t.px / 1e4))); g += `<circle cx="${X(k)}" cy="${Y(t.px)}" r="${r.toFixed(1)}" fill="${t.buy ? '#4ade80' : '#f87171'}" opacity=".8"><title>${t.buy ? 'buy' : 'sell'} $${(t.sz * t.px / 1e3).toFixed(0)}K @ ${px(t.px)}</title></circle>`; });
     g += `<g id="xh"></g>`;
     svg.innerHTML = g; cur.geo = {m, n, iw, ih, W, H, lo, hi, cs, X, Y, o, slot};
     try { drawOsc(); } catch (e) { console.error(e); }
@@ -692,9 +716,12 @@
     showOHLC(cs[cs.length - 1]);
   }
   function drawOsc() {
-    const svg = $('#osc'); const all = cur.candles || []; if (!all.length || !window.Regime || view.engine === 'lw') { svg.innerHTML = ''; return; }
-    const o = Regime.og(all); if (!o) { svg.innerHTML = ''; return; } const G = cur.geo; if (!G) return; const W = G.W, H = 110, m = {t: 6, b: 6, l: G.m.l, r: G.m.r}; svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
-    const Y = (v) => m.t + (1 - v / 100) * (H - m.t - m.b); const X = G.X; const i0 = view.end - view.n; let g = '';
+    const svg = $('#osc'); const all = cur.candles || []; if (!all.length || !window.Regime) { svg.innerHTML = ''; return; }
+    const o = Regime.og(all); if (!o) { svg.innerHTML = ''; return; } let G = cur.geo, i0;
+    if (view.engine === 'lw' && window.LWEngine && LWC) { const ts = LWC.chart.timeScale(); const r = ts.getVisibleLogicalRange(); if (!r) { svg.innerHTML = ''; return; } const W = $('#lwc').clientWidth || 600; const pw = LWC.chart.priceScale('right').width() || 60; i0 = Math.max(0, Math.floor(r.from)); const n = Math.max(1, Math.min(all.length - 1, Math.ceil(r.to)) - i0 + 1); G = {W, m: {l: 0, r: pw}, n, X: (k) => { const x = ts.logicalToCoordinate(i0 + k); return x == null ? -20 : x; }}; }
+    else { if (!G) return; i0 = view.end - view.n; }
+    const W = G.W, H = 110, m = {t: 6, b: 6, l: G.m.l, r: G.m.r}; svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    const Y = (v) => m.t + (1 - v / 100) * (H - m.t - m.b); const X = G.X; let g = '';
     [[80, '#8b93a7'], [50, 'rgba(255,255,255,.25)'], [20, '#8b93a7']].forEach(([v, c]) => { g += `<line x1="${m.l}" x2="${W - m.r}" y1="${Y(v)}" y2="${Y(v)}" stroke="${c}" stroke-dasharray="3 3" opacity=".6"/><text x="${W - m.r + 6}" y="${Y(v) + 3}" class="cx">${v}</text>`; });
     o.events.forEach(e => { const k = e.i - i0; if (k < 0 || k >= G.n) return; g += `<rect x="${X(k) - 1.5}" y="${m.t}" width="3" height="${H - m.t - m.b}" fill="${e.side === 'long' ? '#4ade80' : '#f87171'}" opacity=".7"/>`; });
     const mf = o.series.mfi, rs = o.series.rsi; const col = (i) => mf[i] >= 50 ? (mf[i] >= mf[i - 1] ? '#2dd4bf' : '#99f6e4') : (mf[i] <= mf[i - 1] ? '#f87171' : '#fecaca');
@@ -733,7 +760,7 @@
     $('#x-follow').addEventListener('click', () => { view.follow = !view.follow; if (view.follow) view.end = null; syncChartBtns(); drawChart(); if (view.follow && view.engine === 'lw' && LWC) LWC.scrollToEnd(); });
     $('#mode').addEventListener('click', () => { view.mode = view.mode === 'line' ? 'candles' : 'line'; syncChartBtns(); drawChart(); });
 
-    $('#engine').addEventListener('click', () => { view.engine = view.engine === 'lw' ? 'svg' : 'lw'; applyEngine(); }); applyEngine();
+    $('#engine-seg').querySelectorAll('button').forEach(b => b.addEventListener('click', () => { view.engine = b.dataset.eng; applyEngine(); })); applyEngine();
     $('#ov-btn').addEventListener('click', (ev) => { ev.stopPropagation(); $('#ov-menu').hidden = !$('#ov-menu').hidden; });
     $('#ov-menu').addEventListener('click', (ev) => ev.stopPropagation()); document.addEventListener('click', () => { $('#ov-menu').hidden = true; });
     $('#ov-menu').querySelectorAll('[data-ov]').forEach(cb => cb.addEventListener('change', () => { view[cb.dataset.ov] = cb.checked; if (cb.dataset.ov === 'rails' && cb.checked) loadM15(cur.market).then(() => drawChart()); drawChart(); }));
@@ -977,6 +1004,7 @@
     const big = win.slice().sort((a, b) => b.sz * b.px - a.sz * a.px).slice(0, 6);
     const usdk = (v) => v >= 1e6 ? '$' + (v / 1e6).toFixed(2) + 'M' : '$' + (v / 1e3).toFixed(0) + 'K';
     $('#flow-sub').textContent = `${FLOW.coin} · ${T.length} trades held · last 15 min`;
+    if (view.prints && cur.candles && Date.now() - (FLOW.drawn || 0) > 45000) { FLOW.drawn = Date.now(); try { drawChart(); } catch (e) {} }
     $('#flow-body').innerHTML = `<div class="flow">
       <div class="t">book imbalance <b class="${B ? cls(B.imb) : ''}">${B ? (B.imb >= 0 ? '+' : '') + (B.imb * 100).toFixed(0) + '%' : '—'}</b>top 10 levels · bid ${B ? usdk(B.bid) : '—'} / ask ${B ? usdk(B.ask) : '—'}<div class="gauge"><i style="left:${B ? 50 + B.imb * 50 : 50}%"></i></div></div>
       <div class="t">taker flow, 15 min <b class="${cls(buy - sell)}">${sgn(buy - sell, 0)}</b>buys ${usdk(buy)} · sells ${usdk(sell)}${bars}</div>
@@ -987,10 +1015,20 @@
   async function renderGex() {
     let X = null; try { X = await loadJSON('data/gex.json'); } catch (e) {}
     if (!X || !X.markets.length) { $('#gex-body').innerHTML = '<div class="empty">No gamma snapshot yet.</div>'; return; }
-    $('#gex-sub').textContent = `${X.source} · ${fmtET(X.asof)}`;
-    $('#gex-body').innerHTML = `<div class="gex">${X.markets.map(mk => { const mx = Math.max(1, ...mk.strikes.map(s => Math.abs(s.gex))); const rows = mk.strikes.slice().sort((a, b) => b.strike - a.strike); let spotRow = false;
-      return `<div class="m" data-m="${esc(mk.market)}"><div class="h"><span>${esc(mk.market)} <small>spot ${px(mk.spot)} · net ${sgn(mk.total_gex, 0).replace('$', '')}M per 1%${mk.flip ? ' · flip ' + px(mk.flip) : ''}</small></span><small>call wall ${px(mk.call_wall)} · put wall ${px(mk.put_wall)}</small></div>${rows.map(s => { let pre = ''; if (!spotRow && s.strike < mk.spot) { spotRow = true; pre = `<div class="row spot"><span>${px(mk.spot)}</span><span>— spot —</span></div>`; } const w = Math.abs(s.gex) / mx * 50; return pre + `<div class="row"><span>${px(s.strike)}</span><div class="bar"><i style="${s.gex >= 0 ? 'left:50%' : 'right:50%'};width:${w}%;background:${s.gex >= 0 ? 'var(--green)' : 'var(--red)'}"></i></div></div>`; }).join('')}</div>`; }).join('')}</div>`;
+    GEX = X; $('#gex-sub').textContent = `${X.source} · ${fmtET(X.asof)}`;
+    $('#gex-body').innerHTML = `<div class="gexc">${X.markets.map(mk => { const ks = mk.strikes; const lo = Math.min(mk.spot, ...ks.map(s => s.strike)), hi = Math.max(mk.spot, ...ks.map(s => s.strike)); const mx = Math.max(1, ...ks.map(s => Math.abs(s.gex))); const Xp = (v) => 6 + (v - lo) / (hi - lo || 1) * 288;
+      const bars = ks.map(s => { const h = Math.abs(s.gex) / mx * 20; return `<rect x="${(Xp(s.strike) - 2.5).toFixed(1)}" y="${(s.gex >= 0 ? 24 - h : 24).toFixed(1)}" width="5" height="${Math.max(1, h).toFixed(1)}" rx="1" fill="${s.gex >= 0 ? 'var(--green)' : 'var(--red)'}" opacity=".85"><title>${px(s.strike)} ${s.gex >= 0 ? '+' : ''}${s.gex}M</title></rect>`; }).join('');
+      return `<div class="m" data-m="${esc(mk.market)}"><div class="h"><span>${esc(mk.market)} <small>spot ${px(mk.spot)} · net ${sgn(mk.total_gex, 0).replace('$', '')}M per 1%</small></span><button class="cta" type="button"><i class="ph-duotone ph-chart-bar-horizontal"></i> strikes</button></div>
+        <svg viewBox="0 0 300 48" preserveAspectRatio="none" role="img" aria-label="gamma by strike"><line x1="6" x2="294" y1="24" y2="24" stroke="rgba(255,255,255,.12)"/>${bars}<line x1="${Xp(mk.spot).toFixed(1)}" x2="${Xp(mk.spot).toFixed(1)}" y1="0" y2="48" stroke="var(--cyan)" stroke-dasharray="3 3"/>${mk.flip != null && mk.flip >= lo && mk.flip <= hi ? `<line x1="${Xp(mk.flip).toFixed(1)}" x2="${Xp(mk.flip).toFixed(1)}" y1="0" y2="48" stroke="var(--gold)" stroke-dasharray="2 4"/>` : ''}</svg>
+        <div class="k"><span>${px(lo)}</span><span class="pos">call wall ${px(mk.call_wall)}</span><span class="neg">put wall ${px(mk.put_wall)}</span>${mk.flip != null ? `<span style="color:var(--gold)">flip ${px(mk.flip)}</span>` : ''}<span class="sp">${px(hi)}</span></div></div>`; }).join('')}</div>`;
+    $('#gex-body').querySelectorAll('.m .cta').forEach(b => b.addEventListener('click', () => openGex(b.closest('.m').dataset.m)));
+    if (cur.candles) { try { drawChart(); } catch (e) {} }
   }
+  function openGex(name) { const mk = GEX && GEX.markets.find(x => x.market === name); if (!mk) return; const mx = Math.max(1, ...mk.strikes.map(s => Math.abs(s.gex))); const rows = mk.strikes.slice().sort((a, b) => b.strike - a.strike); let spotRow = false;
+    openModal(`<i class="ph-duotone ph-chart-bar-horizontal"></i> ${esc(mk.market)} gamma by strike`, `<p class="note">Dealer gamma exposure per strike from ${esc(GEX.source)}, as of ${fmtET(GEX.asof)}, strikes within 6% of spot. Positive bars (calls) tend to pin price, negative bars (puts) tend to accelerate it; the flip is where the net sign changes. ${mk.feed && mk.feed.startsWith('xyz:') ? 'Index strikes are shifted by the futures basis when drawn on the chart.' : ''} Unit: ${esc(mk.unit)}.</p>
+      <div class="gex"><div class="m"><div class="h"><span>spot ${px(mk.spot)} · net ${sgn(mk.total_gex, 0).replace('$', '')}M per 1%${mk.flip ? ' · flip ' + px(mk.flip) : ''}</span><small>call wall ${px(mk.call_wall)} · put wall ${px(mk.put_wall)}</small></div>${rows.map(s => { let pre = ''; if (!spotRow && s.strike < mk.spot) { spotRow = true; pre = `<div class="row spot"><span>${px(mk.spot)}</span><span>— spot —</span></div>`; } const w = Math.abs(s.gex) / mx * 50; return pre + `<div class="row"><span>${px(s.strike)}</span><div class="bar"><i style="${s.gex >= 0 ? 'left:50%' : 'right:50%'};width:${w}%;background:${s.gex >= 0 ? 'var(--green)' : 'var(--red)'}"></i></div></div>`; }).join('')}</div></div>
+      <p style="margin-top:.6rem"><button class="cta" type="button" id="gex-chart"><i class="ph-duotone ph-chart-line"></i> show on the chart</button></p>`);
+    $('#gex-chart').addEventListener('click', () => { closeModal(); view.gex = true; syncChartBtns(); selectMarket(mk.market); }); }
   function renderLive() { updateTape(); renderPositions(); renderZones(); renderPulse(); renderAlerts(); }
   async function refreshAll() { const b = $('#refresh'); b.disabled = true; b.classList.add('spin');
     try { [S, L] = await Promise.all([loadJSON('data/state.json'), loadJSON('data/levels.json')]); G = await loadJSON('data/signals.json').catch(() => null); AH = await loadJSON('data/alerts.json').catch(() => AH);
