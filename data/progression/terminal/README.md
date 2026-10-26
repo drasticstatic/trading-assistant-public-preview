@@ -21,3 +21,10 @@ cross-venue position co-pilot); the DEX-arbitrage lane joins as it comes online.
 - Live mids come from Hyperliquid's public `allMids` endpoint in the browser (30-second refresh); the page falls back to the snapshot if that fetch fails.
 
 Republished by Fortuna's check-in routine (scan → append → build → commit → push); the public preview syncs on push.
+
+## Extra feeds and phone alerts (Oct 25)
+
+- **TOTAL2** (crypto total market cap excluding BTC) comes from CoinGecko's public `global` endpoint: the build stores one point per run in `data/total2_history.json` (so its sparkline grows over time) and the page refreshes the live value every 5 minutes.
+- **Russell 2000** is the RTY futures contract from Yahoo Finance 15m bars, aggregated to hourly candles at build time. The browser has no CORS path to it, so it is a snapshot that refreshes with each check-in (tagged `snap` on the tape). It is the third index for the NQ/ES/RTY SMT read; M2K is the micro.
+- The tape is an infinite marquee: hover pauses it, drag or scroll it with the mouse, and it resumes from where you left it. `?m=<market>` opens the page on that market.
+- **Phone lock-screen alerts:** browser notifications only work while the page is open on a desktop. `scripts/fortuna-terminal/notify.py` bridges to [ntfy](https://ntfy.sh) (free app, private topic) so the scanner's warn/critical alerts and every trade check-in can reach a phone. It is silent until a topic is configured (see the script header); the topic name is never printed or logged.
