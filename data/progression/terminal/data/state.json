@@ -1,6 +1,6 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-25T22:54-04:00",
+ "generated": "2026-10-25T23:04-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
@@ -36,11 +36,11 @@
    "ends": "2026-10-31T12:00-04:00",
    "start": 100000,
    "handoff": 100004.31,
-   "equity": 100842.65,
-   "balance": 101078.64,
-   "upnl": -235.98,
-   "open_positions": 1,
-   "working_orders": 2,
+   "equity": 100555.77,
+   "balance": 100555.77,
+   "upnl": 0,
+   "open_positions": 0,
+   "working_orders": 0,
    "firm_limits": "No profit target, daily loss limit or drawdown (ranked by equity). Fees, slippage, liquidation and leverage caps still apply.",
    "self_limits": {
     "dll_pct": 3,
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-25T22:54-04:00"
+   "asof": "2026-10-25T23:04-04:00"
   },
   {
    "key": "elite5k",
@@ -64,13 +64,13 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 4992.22,
+   "equity": 4993.18,
    "balance": 4999.76,
-   "upnl": -7.54,
+   "upnl": -6.58,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 145.38,
-   "mdd_room": 242.22,
+   "dll_room": 146.34,
+   "mdd_room": 243.18,
    "mdd_floor": 4750,
    "target_equity": 5500,
    "remaining_profit": 500.24,
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-25T22:54-04:00"
+   "asof": "2026-10-25T23:04-04:00"
   },
   {
    "key": "select1k",
@@ -149,24 +149,7 @@
    "public": true,
    "plan": "TP resting at 104.38; leads the Select 1K copy at 0.6×",
    "note": "Christopher's own position — Fortuna never touches it",
-   "asof": "2026-10-25T22:01-04:00"
-  },
-  {
-   "owner": "Fortuna",
-   "venue": "MyFundedPerps",
-   "account": "comp",
-   "symbol": "Gold",
-   "side": "short",
-   "size": 63.182,
-   "entry": 4003,
-   "stop": 4011,
-   "tp": 3979,
-   "liq": 4343.26,
-   "live": true,
-   "public": true,
-   "plan": "FILLED 22:05 ET at 4,003 (maker) · stop 4,011 · TP 3,979 (3R) · BE on a closed 1H ≤ 3,995 · half off at 3,987 · runner to target · reassess Mon 08:00 ET if still open",
-   "note": "failed-breakout retest · 0.5% risk · 10× isolated",
-   "asof": "2026-10-25T22:20-04:00"
+   "asof": "2026-10-25T23:01-04:00"
   }
  ],
  "watchlist": [
@@ -222,12 +205,12 @@
    "setup": "Retrace into $3,999–4,002 (PDH / 1H EMA50) with a rejection close back below; counter-trend long only on sweep-and-reclaim of $3,975 with silver SMT",
    "zone_lo": 3999,
    "zone_hi": 4002,
-   "status": "triggered",
+   "status": "watch",
    "grade_max": "B",
    "stop_rule": "rejection high + 1× ATR, min $5",
    "targets": "TP 3,975",
    "note": "Two hourly closes above the swept Friday high (Oct 25 12:00, 13:00) with silver at new highs: the short is unarmed until a rejection close back under 3,999 (feed).",
-   "updated": "2026-10-25T22:05-04:00",
+   "updated": "2026-10-25T23:04-04:00",
    "account": "comp"
   },
   {
@@ -393,6 +376,18 @@
    "note": "Gold is retesting the entry from above: the 22:00 hour pushed back up to the Friday high and the short sits about $236 against, 4 points from the 4,011 stop. The stop stays where it was planned. BTC is inside the Elite long zone without a reclaim yet and ETH is half an ATR above its zone; the 23:01 one-shot reads the 22:00 close for all three.",
    "action": "one-shot 23:01",
    "at": "2026-10-25T22:54-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 100555.77,
+   "balance": 100555.77,
+   "upnl": 0,
+   "open_positions": 0,
+   "working_orders": 0,
+   "status": "ok",
+   "note": "Gold short stopped at 4,011.05 for −$535 (−1.06R at half risk): the 22:00 hour closed back above the Friday high and the 23:00 hour ran the 18:00 swing high, one tick under the stop. Gold back to watch, no re-entry tonight. Two lessons written up: stops beyond the cluster of highs plus an ATR, and an exit at the next read when a closed candle invalidates the idea. BTC still pressing the Elite long zone; one-shot at 00:01.",
+   "action": "trade",
+   "at": "2026-10-25T23:04-04:00"
   }
  ],
  "ledger": [
@@ -478,6 +473,23 @@
    "equity_after": 101091.28,
    "note": "Missed by 3 pts; price later hit the would-be stop",
    "account": "comp"
+  },
+  {
+   "n": 4,
+   "date": "2026-10-25",
+   "account": "comp",
+   "market": "Gold",
+   "side": "short",
+   "owner": "Fortuna",
+   "grade": "B",
+   "risk_usd": 505,
+   "entry": "limit 4,003 (22:05)",
+   "exit": "stop 4,011.05 (23:01)",
+   "r": -1.06,
+   "pnl": -535.51,
+   "equity_after": 100555.77,
+   "note": "Failed-breakout retest; stop sat on the 18:00 swing high, 22:00 hour closed back above PDH",
+   "review": "https://drasticstatic.github.io/trading-assistant-public-preview/fortuna-exports/trade-reviews/2026/10-Oct/review_20261025_XAU-MFPCOMP_001.md"
   }
  ],
  "preflight": [
