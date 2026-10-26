@@ -87,14 +87,17 @@
     .take .meta { font-size: .72rem; color: var(--muted); margin-top: .4rem; display: flex; gap: .9rem; flex-wrap: wrap; }
 
     /* ── Panels ── */
-    .cols { display: grid; grid-template-columns: 300px minmax(0, 1fr) 320px; gap: 1rem; align-items: start; }
-    @media (max-width: 1180px) { .cols { grid-template-columns: 1fr 1fr; } .cols > .c-mid { grid-column: 1 / -1; order: -1; } }
-    @media (max-width: 760px) { .cols { grid-template-columns: 1fr; } }
+    /* the panels flow through balanced columns so every column ends at the same line: no tail gaps */
+    .cols { column-count: 3; column-gap: 1rem; margin-top: 1rem; }
+    .cols > .stack { display: block; } .cols .panel, .cols .row.two { break-inside: avoid; margin: 0 0 1rem; display: block; } .cols .row.two { display: grid; }
+    @media (max-width: 1180px) { .cols { column-count: 2; } }
+    @media (max-width: 760px) { .cols { column-count: 1; } }
+    #chart-row { margin-top: 1rem; }
     .stack { display: grid; gap: 1rem; }
     .panel { border: 1px solid var(--line); border-radius: var(--r-lg); background: rgba(12,17,34,.72); overflow: hidden; }
     #chart.full { position: fixed; inset: 12px; z-index: 160; background: var(--bg-2); box-shadow: 0 40px 120px rgba(0,0,0,.7); display: flex; flex-direction: column; }
     #chart.full .chart-wrap { flex: 1; min-height: 0; } #chart.full .chart-wrap svg, #chart.full .chart-wrap #lwc { height: 100%; }
-    #lwc { width: 100%; height: 420px; } @media (max-width: 760px) { #lwc { height: 300px; } } #lwc[hidden] { display: none; }
+    #lwc { width: 100%; height: clamp(380px, 58vh, 720px); } @media (max-width: 760px) { #lwc { height: 320px; } } #lwc[hidden] { display: none; }
     .chart-wrap svg[hidden] { display: none; }
     body.chart-open::after { content: ''; position: fixed; inset: 0; background: rgba(4,6,14,.7); z-index: 150; }
     .dd { position: relative; } .dd-menu { position: absolute; right: 0; top: calc(100% + 6px); z-index: 50; min-width: 130px; background: var(--bg-2); border: 1px solid var(--line-2); border-radius: 12px; padding: .3rem; box-shadow: 0 18px 50px rgba(0,0,0,.55); display: grid; gap: .1rem; }
@@ -148,8 +151,8 @@
     .btn { background: none; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font: 600 .68rem var(--sans); padding: .18rem .55rem; cursor: pointer; transition: all .15s; }
     .btn:hover { border-color: var(--purple); color: var(--text); } .btn.on { border-color: var(--indigo); color: #fff; background: rgba(129,140,248,.15); }
     .chart-wrap { position: relative; padding: .5rem .6rem .3rem; }
-    .chart-wrap svg { width: 100%; height: 420px; display: block; }
-    @media (max-width: 760px) { .chart-wrap svg { height: 300px; } }
+    .chart-wrap svg { width: 100%; height: clamp(380px, 58vh, 720px); display: block; }
+    @media (max-width: 760px) { .chart-wrap svg { height: 320px; } }
     .ohlc { display: flex; gap: .9rem; flex-wrap: wrap; padding: .35rem .9rem .6rem; font-size: .68rem; color: var(--muted); font-family: var(--mono); }
     .ohlc b { color: var(--text); font-weight: 500; }
     .lg { display: flex; gap: .8rem; flex-wrap: wrap; padding: 0 .9rem .7rem; font-size: .66rem; color: var(--muted); }
@@ -352,14 +355,8 @@
   <main class="wrap">
     <section class="take" id="take"><div class="ic"><i class="ph-duotone ph-chat-centered-text"></i></div><div><div class="lead">Loading the latest check-in…</div><div class="meta"></div></div></section>
 
-    <div class="cols">
-      <div class="stack c-left">
-        <section class="panel" id="accounts"><div class="ph"><i class="ph-duotone ph-bank"></i> Accounts <span class="sub">MyFundedPerps</span></div><div id="acct-list"></div></section>
-        <section class="panel" id="pulse"><div class="ph"><i class="ph-duotone ph-pulse"></i> Journey pulse <span class="sub">every venue, one story</span></div><div class="pulse" id="pulse-list"></div></section>
-      </div>
-
-      <div class="stack c-mid">
-        <section class="panel" id="chart">
+    <div class="row" id="chart-row">
+      <section class="panel" id="chart">
           <div class="ph"><i class="ph-duotone ph-chart-line"></i> <span id="chart-title">Chart</span> <span class="sub" id="chart-sub"></span><span class="sp"></span>
             <div class="dd" id="iv-dd"><button class="btn on" id="iv-btn" type="button" aria-haspopup="menu">1H ▾</button><div class="dd-menu" id="iv-menu" hidden role="menu"><button data-iv="5m">5 min</button><button data-iv="15m">15 min</button><button data-iv="1h" class="on">1 hour</button><button data-iv="4h">4 hours</button><button data-iv="1d">Daily</button></div></div>
             <div class="ctl" id="view-ctl"><button class="btn on" id="y-auto" type="button" title="auto-scale the price axis to the visible candles">auto</button><button class="btn on" id="x-follow" type="button" title="keep the latest candle on the right edge">follow</button><button class="btn" id="fit" type="button" title="snap to fit (or double-click the chart)"><i class="ph-duotone ph-arrows-in-line-horizontal"></i> fit</button><div class="seg" id="engine-seg" role="group" aria-label="chart engine"><button type="button" data-eng="lw" title="TradingView's open-source Lightweight Charts renderer">TradingView</button><button type="button" data-eng="svg" title="Fortuna's own SVG renderer, the one its background analysis draws with">SVG</button></div><button class="btn" id="mode" type="button" title="candles ↔ line / area">line</button><div class="dd" id="ov-dd"><button class="btn on" id="ov-btn" type="button" aria-haspopup="menu"><i class="ph-duotone ph-stack"></i> overlays ▾</button><div class="dd-menu ov-menu" id="ov-menu" hidden role="menu">
@@ -380,19 +377,22 @@
           <div class="ohlc" id="ohlc"></div>
           <div class="lg"><span><i style="background:var(--cyan)"></i>EMA 20</span><span><i style="background:var(--purple)"></i>EMA 50</span><span><i style="background:var(--pink)"></i>EMA 200</span><span><i style="background:var(--gold)"></i>armed zone</span><span><i style="background:var(--blue)"></i>PDH / PDL</span><span><i style="background:var(--muted)"></i>midnight · week open</span><span><i style="background:var(--green)"></i>position entry / target</span><span><i style="background:var(--red)"></i>stop / liquidation</span><span><i style="background:var(--cyan);height:3px"></i>Auto Levels KEY · 5/5 · 3/5 · <span style="color:#a78bfa">ghost</span> <button class="cta" id="zth-how" type="button" title="how these levels are found"><i class="ph-duotone ph-question"></i> how</button></span><span><i style="background:var(--gold);height:1px"></i>fibs of the last impulse</span><span><i style="background:#4ade80;height:2px"></i>FCR ▲ / <i style="background:#f87171;height:2px"></i>▼ 9:30 rail · <i style="background:#089981;height:1px"></i>4/5 session rails</span><span><i style="background:rgba(74,222,128,.5)"></i>fair value gaps</span><span><i style="background:var(--green);height:1px"></i>call wall · <i style="background:var(--red);height:1px"></i>put wall · <i style="background:var(--gold);height:1px"></i>gamma flip</span><span><span style="color:var(--green)">●</span> <span style="color:var(--red)">●</span> large prints</span><span style="color:#9b59b6">BRK/RT</span> <span style="color:#e74c3c">R</span> <span style="color:#2ecc71">B</span> <span style="color:#ff6b6b">SFP</span> <span style="color:#f39c12">1-2-3</span> <span style="color:#00bcd4">P</span><span class="chint">scroll to zoom · drag to pan · drag an axis to scale · double-click to fit · tape: drag or scroll</span></div>
         </section>
+    </div>
+
+    <div class="cols">
+      <div class="stack c-all">
+        <section class="panel" id="alerts"><div class="ph"><i class="ph-duotone ph-bell-ringing"></i> Alerts <span class="sub">live, from your browser</span><span class="sp"></span><button class="btn" id="phone-btn" type="button" title="lock-screen alerts on a phone, and how to follow them"><i class="ph-duotone ph-device-mobile"></i> phone</button><button class="btn" id="notify-btn" type="button">enable notifications</button></div><div id="alert-list"></div></section>
+        <section class="panel" id="positions"><div class="ph"><i class="ph-duotone ph-steering-wheel"></i> Co-pilot <span class="sub">open positions, every venue</span></div><div id="pos-list"></div></section>
+        <section class="panel" id="accounts"><div class="ph"><i class="ph-duotone ph-bank"></i> Accounts <span class="sub">MyFundedPerps</span></div><div id="acct-list"></div></section>
         <section class="panel" id="zones"><div class="ph"><i class="ph-duotone ph-crosshair"></i> Zones radar <span class="sub">live price against every armed zone, in MFP terms</span></div><div id="zr"></div></section>
         <div class="row two">
         <section class="panel" id="flow"><div class="ph"><i class="ph-duotone ph-waves"></i> Order flow <span class="sub" id="flow-sub">live trades and book, Hyperliquid</span><span class="sp"></span><span class="chip info" id="flow-chip"><span class="dot"></span> connecting</span></div><div id="flow-body"><div class="empty">Waiting for the first trades…</div></div></section>
         <section class="panel" id="gamma"><div class="ph"><i class="ph-duotone ph-chart-bar-horizontal"></i> Gamma <span class="sub" id="gex-sub">dealer gamma by strike, delayed public data</span></div><div id="gex-body"></div></section>
         </div>
         <section class="panel" id="scanner"><div class="ph"><i class="ph-duotone ph-scan"></i> Scanner <span class="sub" id="scan-sub">mechanical read: sweeps · reclaims · SMT · sessions</span></div><div id="scan-body"></div></section>
-      </div>
-
-      <div class="stack c-right">
-        <section class="panel" id="alerts"><div class="ph"><i class="ph-duotone ph-bell-ringing"></i> Alerts <span class="sub">live, from your browser</span><span class="sp"></span><button class="btn" id="phone-btn" type="button" title="lock-screen alerts on a phone, and how to follow them"><i class="ph-duotone ph-device-mobile"></i> phone</button><button class="btn" id="notify-btn" type="button">enable notifications</button></div><div id="alert-list"></div></section>
-        <section class="panel" id="positions"><div class="ph"><i class="ph-duotone ph-steering-wheel"></i> Co-pilot <span class="sub">open positions, every venue</span></div><div id="pos-list"></div></section>
         <section class="panel" id="preflight"><div class="ph"><i class="ph-duotone ph-airplane-takeoff"></i> Perps Preflight<span class="sp"></span><span class="sub" id="pf-count"></span><button class="btn" id="pf-reset" type="button">reset</button></div><div class="pfc" id="pf"></div></section>
         <section class="panel" id="feed"><div class="ph"><i class="ph-duotone ph-list-dashes"></i> Feed <span class="sub">check-ins · trades · alerts</span></div><div class="feed" id="feed-list"></div></section>
+        <section class="panel" id="pulse"><div class="ph"><i class="ph-duotone ph-pulse"></i> Journey pulse <span class="sub">every venue, one story</span></div><div class="pulse" id="pulse-list"></div></section>
       </div>
     </div>
 
@@ -412,11 +412,11 @@
 
 <div class="modal" id="modal" hidden role="dialog" aria-modal="true"><div class="mbox"><div class="mh"><b id="m-title"></b><button class="btn" id="m-close" type="button">✕ close</button></div><div class="mb" id="m-body"></div></div></div>
 
-<script src="autolevels.js"></script>
-<script src="regime.js"></script>
-<script src="calc.js"></script>
+<script src="autolevels.js?v=20261026c"></script>
+<script src="regime.js?v=20261026c"></script>
+<script src="calc.js?v=20261026c"></script>
 <script src="vendor/lightweight-charts.standalone.production.js"></script>
-<script src="lwchart.js"></script>
+<script src="lwchart.js?v=20261026c"></script>
 <script>
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
@@ -605,6 +605,7 @@
     if (view.gex) { const gx = gexFor(cur.market); if (gx) gx.walls.forEach(w => rays.push({price: w.price, color: w.color, width: w.width, dash: w.dash, alpha: .9, label: w.label, labelPos: 'left'})); }
     if (view.prints) bigPrints().forEach(t => { const j = candleAt(all, t.t); if (j < 0) return; marks.push({t: all[j].t / 1000, price: t.px, side: t.buy ? 'low' : 'high', text: '●', color: t.buy ? '#4ade80' : '#f87171'}); });
     E.setOverlays({boxes, rays, marks});
+    E.setBB(view.bb && window.Regime ? Regime.bollinger(all) : null, all);
     try { drawOsc(); } catch (e) { console.error(e); }
     $('#chart-title').textContent = `${cur.market} · ${l.feed}`; $('#chart-sub').textContent = l.src ? `${cur.iv.toUpperCase()} · ${esc(l.note || '')}` : `${cur.iv.toUpperCase()} · ${o ? 'MFP ≈ feed + ' + px(o) : 'no venue offset'} · ${l.bias_1h} 1H / ${l.bias_4h} 4H · ATR 1H ${px(l.atr_1h)} · TradingView engine`;
     showOHLC(all[all.length - 1]);

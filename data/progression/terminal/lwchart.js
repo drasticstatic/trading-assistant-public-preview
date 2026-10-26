@@ -42,11 +42,13 @@
     const main = chart.addSeries(LW.CandlestickSeries, {upColor: '#4ade80', downColor: '#f87171', borderVisible: false, wickUpColor: '#4ade80', wickDownColor: '#f87171', priceLineColor: '#22d3ee', priceLineWidth: 1});
     const vol = chart.addSeries(LW.HistogramSeries, {priceFormat: {type: 'volume'}, priceScaleId: 'vol', lastValueVisible: false, priceLineVisible: false}); chart.priceScale('vol').applyOptions({scaleMargins: {top: .84, bottom: 0}});
     const emas = ['#22d3ee', '#a78bfa', '#f472b6'].map(c => chart.addSeries(LW.LineSeries, {color: c, lineWidth: 1, priceLineVisible: false, lastValueVisible: false, crosshairMarkerVisible: false}));
+    const bbS = [['#f59e0b', 1.2], ['#fbbf24', .8], ['#fbbf24', .8]].map(([c, w]) => chart.addSeries(LW.LineSeries, {color: c, lineWidth: w, lineStyle: LW.LineStyle.Dotted, priceLineVisible: false, lastValueVisible: false, crosshairMarkerVisible: false}));
     const boxes = new Boxes(); main.attachPrimitive(boxes); const profile = new Profile(); main.attachPrimitive(profile);
     const lines = []; let lineMode = false, lineSeries = null;
     const api = {chart, main, vol, emas, boxes, profile,
       setBars(bars, mode) { const pts = bars.map(b => ({time: b.t / 1000, open: b.o, high: b.h, low: b.l, close: b.c})); if (mode === 'line') { if (!lineSeries) lineSeries = chart.addSeries(LW.AreaSeries, {lineColor: '#22d3ee', topColor: 'rgba(34,211,238,.25)', bottomColor: 'rgba(34,211,238,0)', lineWidth: 2, priceLineVisible: false}); lineSeries.setData(bars.map(b => ({time: b.t / 1000, value: b.c}))); lineSeries.applyOptions({visible: true}); main.applyOptions({visible: false}); } else { if (lineSeries) lineSeries.applyOptions({visible: false}); main.applyOptions({visible: true}); } main.setData(pts); vol.setData(bars.map(b => ({time: b.t / 1000, value: b.v || 0, color: b.c >= b.o ? 'rgba(74,222,128,.35)' : 'rgba(248,113,113,.35)'}))); profile.set(bars, true); },
       setEMAs(arrs, bars) { arrs.forEach((a, k) => emas[k].setData(a ? a.map((v, i) => ({time: bars[i].t / 1000, value: v})).filter(p => isFinite(p.value)) : [])); },
+      setBB(bb, bars) { if (!bb) { bbS.forEach(x => x.setData([])); return; } ['basis', 'upper', 'lower'].forEach((k, j) => bbS[j].setData(bars.map((b, i) => bb[i] ? {time: b.t / 1000, value: bb[i][k]} : null).filter(Boolean))); },
       clearLines() { lines.splice(0).forEach(l => { try { main.removePriceLine(l); } catch (e) {} }); },
       priceLine(price, color, title, style, width) { const l = main.createPriceLine({price, color, lineWidth: width || 1, lineStyle: style ?? LW.LineStyle.Dashed, axisLabelVisible: true, title: title || ''}); lines.push(l); return l; },
       setOverlays(items) { boxes.set(items); },
