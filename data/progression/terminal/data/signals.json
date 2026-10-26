@@ -1,8 +1,26 @@
 {
-"asof": "2026-10-26T10:21-04:00",
+"asof": "2026-10-26T10:53-04:00",
 "feeds": {
 "BTC": {
 "zth": [
+{
+"type": "5/5",
+"price": 81715.0,
+"tags": 0,
+"born": 1792774800000
+},
+{
+"type": "3/5",
+"price": 81698.0,
+"tags": 1,
+"born": 1792771200000
+},
+{
+"type": "3/5",
+"price": 81664.0,
+"tags": 1,
+"born": 1792749600000
+},
 {
 "type": "5/5",
 "price": 81574.0,
@@ -181,35 +199,35 @@
 "regime": {
 "5m": {
 "regime": {
-"label": "trending",
-"dir": "down",
-"adx": 33.67
+"label": "weakening",
+"dir": "up",
+"adx": 25.4
 },
 "align": {
 "label": "mixed",
-"ema20": 79971.663,
-"ema50": 80116.6554,
-"ema200": 80174.0196,
+"ema20": 79978.0427,
+"ema50": 80086.218,
+"ema200": 80172.5231,
 "fanned": false
 },
-"rangePct": 1.395,
+"rangePct": 1.393,
 "impulse": null,
 "rsi": {
-"rsi": 55.24,
-"fast": 41.51,
-"slow": 40.89,
+"rsi": 57.53,
+"fast": 47.96,
+"slow": 44.58,
 "above": true,
 "below": false
 },
 "adx2": {
-"fast": 33.67,
-"slow": 19.11,
+"fast": 25.4,
+"slow": 17.5,
 "lenFast": 14,
 "lenSlow": 28,
 "threshold": 20,
 "fastAbove": true,
 "slowAbove": false,
-"dir": "down"
+"dir": "up"
 },
 "strength": null
 },
@@ -217,48 +235,48 @@
 "regime": {
 "label": "ranging",
 "dir": "down",
-"adx": 16.78
+"adx": 16.51
 },
 "align": {
 "label": "bear",
-"ema20": 80136.8705,
-"ema50": 80164.1034,
-"ema200": 80407.179,
-"fanned": false
+"ema20": 80102.5039,
+"ema50": 80147.2179,
+"ema200": 80415.2849,
+"fanned": true
 },
-"rangePct": 1.399,
+"rangePct": 1.397,
 "impulse": {
-"dir": "down",
-"start": 80544.0,
-"end": 79430.0,
-"startT": 1793016900000,
-"endT": 1793021400000,
-"len": 1114.0,
-"retrace": 0.45,
-"nearestFib": 0.5,
+"dir": "up",
+"start": 79430.0,
+"end": 80234.0,
+"startT": 1793021400000,
+"endT": 1793024100000,
+"len": 804.0,
+"retrace": 0.24,
+"nearestFib": 0.236,
 "goldenPocket": false,
 "fibs": {
-"0.236": 79692.904,
-"0.382": 79855.548,
-"0.5": 79987.0,
-"0.618": 80118.452,
-"0.705": 80215.37,
-"0.786": 80305.604,
-"1": 80544.0,
-"1.272": 79126.992,
-"1.618": 78741.548
+"0.236": 80044.256,
+"0.382": 79926.872,
+"0.5": 79832.0,
+"0.618": 79737.128,
+"0.705": 79667.18,
+"0.786": 79602.056,
+"1": 79430.0,
+"1.272": 80452.688,
+"1.618": 80730.872
 }
 },
 "rsi": {
-"rsi": 42.55,
-"fast": 43.58,
-"slow": 48.46,
+"rsi": 47.34,
+"fast": 43.79,
+"slow": 47.68,
 "above": false,
-"below": true
+"below": false
 },
 "adx2": {
-"fast": 16.78,
-"slow": 11.23,
+"fast": 16.51,
+"slow": 11.27,
 "lenFast": 14,
 "lenSlow": 28,
 "threshold": 20,
@@ -362,7 +380,7 @@
 "table": "\u2014",
 "aligned": {
 "5m": false,
-"15m": false,
+"15m": true,
 "1h": true,
 "4h": true
 },
@@ -417,22 +435,22 @@
 }
 ],
 "feed": "BTC",
-"last": 80190.0,
-"mfp_est": 80190.0,
+"last": 80353.0,
+"mfp_est": 80353.0,
 "offset": 0.0,
-"atr_15m": 275.9286,
-"atr_1h": 479.4286,
+"atr_15m": 325.6429,
+"atr_1h": 489.3571,
 "atr_4h": 775.9286,
 "tf_1h": {
-"ema20": 80200.2893,
-"ema50": 80442.3648,
-"ema200": 81365.4475,
+"ema20": 80215.9084,
+"ema50": 80448.7962,
+"ema200": 81367.0793,
 "bias": "bear"
 },
 "tf_4h": {
-"ema20": 80669.4244,
-"ema50": 81360.8017,
-"ema200": 82117.8563,
+"ema20": 80687.0434,
+"ema50": 81368.0566,
+"ema200": 82119.6971,
 "bias": "bear"
 },
 "pdh": 80928.0,
@@ -457,7 +475,7 @@
 "done": true
 },
 "ny": {
-"high": 80214.0,
+"high": 80353.0,
 "low": 79430.0,
 "open": 79930.0,
 "done": false
@@ -470,7 +488,7 @@
 "l": 79430.0,
 "c": 79685.0,
 "bull": false,
-"range_atr": 1.83,
+"range_atr": 1.79,
 "displacement": true
 },
 "sweeps": [
@@ -481,7 +499,7 @@
 "t": 1793019600000,
 "wick": 79430.0,
 "close": 79685.0,
-"depth_atr": 0.4
+"depth_atr": 0.39
 },
 {
 "level": "week open",
@@ -490,7 +508,7 @@
 "t": 1793019600000,
 "wick": 79430.0,
 "close": 79685.0,
-"depth_atr": 0.29
+"depth_atr": 0.28
 }
 ],
 "fvgs": [
@@ -501,8 +519,8 @@
 "t": 1792951200000
 }
 ],
-"chg_24h": -0.55,
-"chg_7d": -2.54
+"chg_24h": -0.35,
+"chg_7d": -2.35
 },
 "ETH": {
 "zth": [
@@ -666,35 +684,35 @@
 "regime": {
 "5m": {
 "regime": {
-"label": "trending",
-"dir": "down",
-"adx": 38.05
+"label": "weakening",
+"dir": "up",
+"adx": 26.73
 },
 "align": {
 "label": "mixed",
-"ema20": 2314.0643,
-"ema50": 2319.6832,
-"ema200": 2324.3526,
+"ema20": 2315.4505,
+"ema50": 2319.0611,
+"ema200": 2324.3614,
 "fanned": false
 },
-"rangePct": 1.822,
+"rangePct": 1.82,
 "impulse": null,
 "rsi": {
-"rsi": 55.84,
-"fast": 41.45,
-"slow": 40.55,
+"rsi": 57.16,
+"fast": 49.18,
+"slow": 45.19,
 "above": true,
 "below": false
 },
 "adx2": {
-"fast": 38.05,
-"slow": 19.82,
+"fast": 26.73,
+"slow": 17.61,
 "lenFast": 14,
 "lenSlow": 28,
 "threshold": 20,
 "fastAbove": true,
 "slowAbove": false,
-"dir": "down"
+"dir": "up"
 },
 "strength": null
 },
@@ -702,48 +720,48 @@
 "regime": {
 "label": "ranging",
 "dir": "down",
-"adx": 16.01
+"adx": 15.01
 },
 "align": {
-"label": "bear",
-"ema20": 2320.3224,
-"ema50": 2323.1898,
-"ema200": 2339.0641,
-"fanned": true
+"label": "mixed",
+"ema20": 2319.6952,
+"ema50": 2322.696,
+"ema200": 2339.3925,
+"fanned": false
 },
-"rangePct": 1.83,
+"rangePct": 1.823,
 "impulse": {
-"dir": "down",
-"start": 2320.2,
-"end": 2295.1,
-"startT": 1793021400000,
-"endT": 1793022300000,
-"len": 25.1,
-"retrace": 0.645,
-"nearestFib": 0.618,
-"goldenPocket": true,
+"dir": "up",
+"start": 2295.1,
+"end": 2327.0,
+"startT": 1793022300000,
+"endT": 1793024100000,
+"len": 31.9,
+"retrace": 0.219,
+"nearestFib": 0.236,
+"goldenPocket": false,
 "fibs": {
-"0.236": 2301.0236,
-"0.382": 2304.6882,
-"0.5": 2307.65,
-"0.618": 2310.6118,
-"0.705": 2312.7955,
-"0.786": 2314.8286,
-"1": 2320.2,
-"1.272": 2288.2728,
-"1.618": 2279.5882
+"0.236": 2319.4716,
+"0.382": 2314.8142,
+"0.5": 2311.05,
+"0.618": 2307.2858,
+"0.705": 2304.5105,
+"0.786": 2301.9266,
+"1": 2295.1,
+"1.272": 2335.6768,
+"1.618": 2346.7142
 }
 },
 "rsi": {
-"rsi": 41.24,
-"fast": 42.31,
-"slow": 46.88,
+"rsi": 49.46,
+"fast": 43.91,
+"slow": 46.83,
 "above": false,
-"below": true
+"below": false
 },
 "adx2": {
-"fast": 16.01,
-"slow": 12.27,
+"fast": 15.01,
+"slow": 12.07,
 "lenFast": 14,
 "lenSlow": 28,
 "threshold": 20,
@@ -852,7 +870,7 @@
 "table": "\u2014",
 "aligned": {
 "5m": false,
-"15m": true,
+"15m": false,
 "1h": true,
 "4h": true
 },
@@ -907,22 +925,22 @@
 }
 ],
 "feed": "ETH",
-"last": 2325.5,
-"mfp_est": 2325.5,
+"last": 2324.4,
+"mfp_est": 2324.4,
 "offset": 0.0,
-"atr_15m": 10.8143,
-"atr_1h": 20.2143,
+"atr_15m": 11.6714,
+"atr_1h": 20.2929,
 "atr_4h": 35.7786,
 "tf_1h": {
-"ema20": 2326.2348,
-"ema50": 2340.1046,
-"ema200": 2388.1571,
+"ema20": 2326.1395,
+"ema50": 2340.0654,
+"ema200": 2388.1472,
 "bias": "bear"
 },
 "tf_4h": {
-"ema20": 2351.5212,
-"ema50": 2387.8597,
-"ema200": 2487.7278,
+"ema20": 2351.4355,
+"ema50": 2387.8244,
+"ema200": 2487.7188,
 "bias": "bear"
 },
 "pdh": 2368.9,
@@ -947,7 +965,7 @@
 "done": true
 },
 "ny": {
-"high": 2325.9,
+"high": 2327.0,
 "low": 2295.1,
 "open": 2313.2,
 "done": false
@@ -960,7 +978,7 @@
 "l": 2295.1,
 "c": 2302.4,
 "bull": false,
-"range_atr": 1.4,
+"range_atr": 1.39,
 "displacement": false
 },
 "sweeps": [
@@ -975,11 +993,23 @@
 }
 ],
 "fvgs": [],
-"chg_24h": -0.73,
-"chg_7d": -3.53
+"chg_24h": -0.78,
+"chg_7d": -3.58
 },
 "SOL": {
 "zth": [
+{
+"type": "5/5",
+"price": 104.77,
+"tags": 0,
+"born": 1792767600000
+},
+{
+"type": "5/5",
+"price": 104.74,
+"tags": 0,
+"born": 1792771200000
+},
 {
 "type": "3/5",
 "price": 104.63,
@@ -1136,27 +1166,27 @@
 "regime": {
 "label": "ranging",
 "dir": "up",
-"adx": 19.75
+"adx": 18.39
 },
 "align": {
-"label": "mixed",
-"ema20": 101.2532,
-"ema50": 101.3119,
-"ema200": 101.2109,
+"label": "bull",
+"ema20": 101.3871,
+"ema50": 101.3592,
+"ema200": 101.258,
 "fanned": false
 },
-"rangePct": 1.553,
+"rangePct": 1.453,
 "impulse": null,
 "rsi": {
-"rsi": 60.79,
-"fast": 47.06,
-"slow": 46.45,
+"rsi": 60.54,
+"fast": 53.45,
+"slow": 50.19,
 "above": true,
 "below": false
 },
 "adx2": {
-"fast": 19.75,
-"slow": 12.27,
+"fast": 18.39,
+"slow": 11.77,
 "lenFast": 14,
 "lenSlow": 28,
 "threshold": 20,
@@ -1169,34 +1199,55 @@
 "15m": {
 "regime": {
 "label": "ranging",
-"dir": "down",
-"adx": 13.14
+"dir": "up",
+"adx": 11.94
 },
 "align": {
 "label": "mixed",
-"ema20": 101.296,
-"ema50": 101.2346,
-"ema200": 101.5478,
+"ema20": 101.3381,
+"ema50": 101.2568,
+"ema200": 101.5807,
 "fanned": false
 },
-"rangePct": 1.846,
-"impulse": null,
+"rangePct": 1.456,
+"impulse": {
+"dir": "up",
+"start": 100.51,
+"end": 101.89,
+"startT": 1793021400000,
+"endT": 1793024100000,
+"len": 1.38,
+"retrace": 0.152,
+"nearestFib": 0.236,
+"goldenPocket": false,
+"fibs": {
+"0.236": 101.5643,
+"0.382": 101.3628,
+"0.5": 101.2,
+"0.618": 101.0372,
+"0.705": 100.9171,
+"0.786": 100.8053,
+"1": 100.51,
+"1.272": 102.2654,
+"1.618": 102.7428
+}
+},
 "rsi": {
-"rsi": 50.47,
-"fast": 49.57,
-"slow": 51.36,
+"rsi": 57.07,
+"fast": 51.39,
+"slow": 51.9,
 "above": false,
 "below": false
 },
 "adx2": {
-"fast": 13.14,
-"slow": 8.65,
+"fast": 11.94,
+"slow": 8.16,
 "lenFast": 14,
 "lenSlow": 28,
 "threshold": 20,
 "fastAbove": false,
 "slowAbove": false,
-"dir": "down"
+"dir": "up"
 },
 "strength": null
 },
@@ -1333,22 +1384,22 @@
 }
 ],
 "feed": "SOL",
-"last": 101.83,
-"mfp_est": 101.83,
+"last": 101.94,
+"mfp_est": 101.94,
 "offset": 0.0,
-"atr_15m": 0.4779,
-"atr_1h": 0.9524,
+"atr_15m": 0.5186,
+"atr_1h": 0.9581,
 "atr_4h": 1.5138,
 "tf_1h": {
-"ema20": 101.3179,
-"ema50": 101.6196,
-"ema200": 103.4307,
+"ema20": 101.3284,
+"ema50": 101.624,
+"ema200": 103.4318,
 "bias": "bear"
 },
 "tf_4h": {
-"ema20": 102.0482,
-"ema50": 103.5303,
-"ema200": 107.947,
+"ema20": 102.0615,
+"ema50": 103.5358,
+"ema200": 107.9484,
 "bias": "bear"
 },
 "pdh": 102.7,
@@ -1373,7 +1424,7 @@
 "done": true
 },
 "ny": {
-"high": 101.87,
+"high": 101.95,
 "low": 100.51,
 "open": 101.14,
 "done": false
@@ -1386,7 +1437,7 @@
 "l": 100.51,
 "c": 100.84,
 "bull": false,
-"range_atr": 1.18,
+"range_atr": 1.17,
 "displacement": false
 },
 "sweeps": [
@@ -1408,11 +1459,17 @@
 "t": 1792904400000
 }
 ],
-"chg_24h": 0.5,
-"chg_7d": -2.73
+"chg_24h": 0.61,
+"chg_7d": -2.63
 },
 "Gold": {
 "zth": [
+{
+"type": "3/5",
+"price": 4059.1,
+"tags": 1,
+"born": 1792677600000
+},
 {
 "type": "5/5",
 "price": 4047.1,
@@ -1568,12 +1625,6 @@
 "price": 3987.2,
 "tags": 0,
 "born": 1792976400000
-},
-{
-"type": "5/5",
-"price": 3982.1,
-"tags": 0,
-"born": 1792857600000
 }
 ],
 "regime": {
@@ -1581,50 +1632,50 @@
 "regime": {
 "label": "trending",
 "dir": "up",
-"adx": 33.08
+"adx": 28.93
 },
 "align": {
 "label": "mixed",
-"ema20": 4008.6948,
-"ema50": 4012.8694,
-"ema200": 4010.2585,
+"ema20": 4012.4456,
+"ema50": 4013.662,
+"ema200": 4010.6369,
 "fanned": false
 },
 "rangePct": 0.851,
 "impulse": null,
 "rsi": {
-"rsi": 57.99,
-"fast": 38.92,
-"slow": 39.7,
-"above": false,
+"rsi": 58.86,
+"fast": 52.61,
+"slow": 47.11,
+"above": true,
 "below": false
 },
 "adx2": {
-"fast": 33.08,
-"slow": 20.17,
+"fast": 28.93,
+"slow": 18.4,
 "lenFast": 14,
 "lenSlow": 28,
 "threshold": 20,
 "fastAbove": true,
-"slowAbove": true,
+"slowAbove": false,
 "dir": "up"
 },
 "strength": null
 },
 "15m": {
 "regime": {
-"label": "trending",
-"dir": "down",
-"adx": 30.64
+"label": "weakening",
+"dir": "up",
+"adx": 27.49
 },
 "align": {
-"label": "mixed",
-"ema20": 4012.886,
-"ema50": 4011.4956,
-"ema200": 4001.2053,
+"label": "bull",
+"ema20": 4013.5911,
+"ema50": 4011.8867,
+"ema200": 4002.7748,
 "fanned": false
 },
-"rangePct": 0.853,
+"rangePct": 0.85,
 "impulse": {
 "dir": "down",
 "start": 4026.7,
@@ -1632,8 +1683,8 @@
 "startT": 1793017800000,
 "endT": 1793022300000,
 "len": 34.2,
-"retrace": 0.444,
-"nearestFib": 0.5,
+"retrace": 0.889,
+"nearestFib": 0.786,
 "goldenPocket": false,
 "fibs": {
 "0.236": 4000.5712,
@@ -1648,21 +1699,21 @@
 }
 },
 "rsi": {
-"rsi": 44.64,
-"fast": 44.19,
-"slow": 50.27,
+"rsi": 58.03,
+"fast": 47.41,
+"slow": 50.71,
 "above": false,
 "below": false
 },
 "adx2": {
-"fast": 30.64,
-"slow": 23.32,
+"fast": 27.49,
+"slow": 22.37,
 "lenFast": 14,
 "lenSlow": 28,
 "threshold": 20,
 "fastAbove": true,
 "slowAbove": true,
-"dir": "down"
+"dir": "up"
 },
 "strength": null
 },
@@ -1766,6 +1817,7 @@
 },
 "eligible": [],
 "blockers": [
+"regime",
 "alignment",
 "range"
 ],
@@ -1815,22 +1867,22 @@
 }
 ],
 "feed": "xyz:GOLD",
-"last": 4013.3,
-"mfp_est": 4019.6,
+"last": 4024.3,
+"mfp_est": 4030.6,
 "offset": 6.3,
-"atr_15m": 6.9143,
-"atr_1h": 12.6429,
+"atr_15m": 7.8286,
+"atr_1h": 13.2,
 "atr_4h": 13.6429,
 "tf_1h": {
-"ema20": 4008.4568,
-"ema50": 4005.7734,
-"ema200": 4055.2579,
+"ema20": 4009.5044,
+"ema50": 4006.2048,
+"ema200": 4055.3673,
 "bias": "mixed"
 },
 "tf_4h": {
-"ema20": 4013.7119,
-"ema50": 4054.6045,
-"ema200": 4161.8974,
+"ema20": 4014.7595,
+"ema50": 4055.0358,
+"ema200": 4162.0068,
 "bias": "bear"
 },
 "pdh": 4018.2,
@@ -1855,7 +1907,7 @@
 "done": true
 },
 "ny": {
-"high": 4016.6,
+"high": 4024.4,
 "low": 3992.5,
 "open": 4009.6,
 "done": false
@@ -1868,7 +1920,7 @@
 "l": 3992.5,
 "c": 3994.4,
 "bull": false,
-"range_atr": 2.19,
+"range_atr": 2.1,
 "displacement": true
 },
 "sweeps": [
@@ -1879,7 +1931,7 @@
 "t": 1793019600000,
 "wick": 4020.2,
 "close": 3994.4,
-"depth_atr": 0.16
+"depth_atr": 0.15
 },
 {
 "level": "swing high",
@@ -1888,15 +1940,27 @@
 "t": 1793016000000,
 "wick": 4026.7,
 "close": 4018.0,
-"depth_atr": 0.18
+"depth_atr": 0.17
 }
 ],
 "fvgs": [],
-"chg_24h": 0.45,
-"chg_7d": -3.2
+"chg_24h": 0.72,
+"chg_7d": -2.93
 },
 "Silver": {
 "zth": [
+{
+"type": "5/5",
+"price": 55.308,
+"tags": 0,
+"born": 1792681200000
+},
+{
+"type": "3/5",
+"price": 55.255,
+"tags": 1,
+"born": 1792677600000
+},
 {
 "type": "5/5",
 "price": 54.968,
@@ -2105,29 +2169,29 @@
 "regime": {
 "5m": {
 "regime": {
-"label": "trending",
+"label": "weakening",
 "dir": "up",
-"adx": 33.42
+"adx": 25.9
 },
 "align": {
 "label": "mixed",
-"ema20": 53.6992,
-"ema50": 53.8553,
-"ema200": 53.981,
+"ema20": 53.7948,
+"ema50": 53.864,
+"ema200": 53.9756,
 "fanned": false
 },
-"rangePct": 2.357,
+"rangePct": 2.35,
 "impulse": null,
 "rsi": {
-"rsi": 55.82,
-"fast": 36.41,
-"slow": 37.73,
-"above": false,
+"rsi": 58.79,
+"fast": 51.09,
+"slow": 45.39,
+"above": true,
 "below": false
 },
 "adx2": {
-"fast": 33.42,
-"slow": 17.66,
+"fast": 25.9,
+"slow": 15.77,
 "lenFast": 14,
 "lenSlow": 28,
 "threshold": 20,
@@ -2141,16 +2205,16 @@
 "regime": {
 "label": "building",
 "dir": "down",
-"adx": 21.24
+"adx": 20.8
 },
 "align": {
 "label": "mixed",
-"ema20": 53.8603,
-"ema50": 53.9571,
-"ema200": 53.8279,
+"ema20": 53.8693,
+"ema50": 53.953,
+"ema200": 53.8742,
 "fanned": false
 },
-"rangePct": 2.372,
+"rangePct": 2.347,
 "impulse": {
 "dir": "down",
 "start": 54.31,
@@ -2158,8 +2222,8 @@
 "startT": 1793017800000,
 "endT": 1793022300000,
 "len": 1.27,
-"retrace": 0.387,
-"nearestFib": 0.382,
+"retrace": 0.845,
+"nearestFib": 0.786,
 "goldenPocket": false,
 "fibs": {
 "0.236": 53.3397,
@@ -2174,15 +2238,15 @@
 }
 },
 "rsi": {
-"rsi": 36.98,
-"fast": 39.17,
-"slow": 43.76,
+"rsi": 55.95,
+"fast": 43.16,
+"slow": 44.82,
 "above": false,
-"below": true
+"below": false
 },
 "adx2": {
-"fast": 21.24,
-"slow": 14.49,
+"fast": 20.8,
+"slow": 14.35,
 "lenFast": 14,
 "lenSlow": 28,
 "threshold": 20,
@@ -2341,22 +2405,22 @@
 }
 ],
 "feed": "xyz:SILVER",
-"last": 53.86,
-"mfp_est": 53.86,
+"last": 54.135,
+"mfp_est": 54.135,
 "offset": 0.0,
-"atr_15m": 0.2229,
-"atr_1h": 0.3751,
+"atr_15m": 0.2513,
+"atr_1h": 0.392,
 "atr_4h": 0.4159,
 "tf_1h": {
-"ema20": 53.9203,
-"ema50": 53.9319,
-"ema200": 55.2696,
-"bias": "bear"
+"ema20": 53.9467,
+"ema50": 53.9427,
+"ema200": 55.2724,
+"bias": "mixed"
 },
 "tf_4h": {
-"ema20": 54.1374,
-"ema50": 55.2506,
-"ema200": 58.9811,
+"ema20": 54.1638,
+"ema50": 55.2615,
+"ema200": 58.9838,
 "bias": "bear"
 },
 "pdh": 54.425,
@@ -2381,7 +2445,7 @@
 "done": true
 },
 "ny": {
-"high": 53.908,
+"high": 54.145,
 "low": 53.04,
 "open": 53.78,
 "done": false
@@ -2394,7 +2458,7 @@
 "l": 53.04,
 "c": 53.3,
 "bull": false,
-"range_atr": 2.59,
+"range_atr": 2.47,
 "displacement": true
 },
 "sweeps": [
@@ -2405,24 +2469,21 @@
 "t": 1793016000000,
 "wick": 54.31,
 "close": 53.955,
-"depth_atr": 0.15
-},
-{
-"level": "week open",
-"price": 54.113,
-"side": "high",
-"t": 1793016000000,
-"wick": 54.31,
-"close": 53.955,
-"depth_atr": 0.53
+"depth_atr": 0.14
 }
 ],
 "fvgs": [],
-"chg_24h": 0.08,
-"chg_7d": -5.73
+"chg_24h": 0.59,
+"chg_7d": -5.25
 },
 "Crude": {
 "zth": [
+{
+"type": "3/5",
+"price": 102.77,
+"tags": 1,
+"born": 1792778400000
+},
 {
 "type": "5/5",
 "price": 102.59,
@@ -2549,27 +2610,27 @@
 "regime": {
 "label": "ranging",
 "dir": "down",
-"adx": 15.35
+"adx": 17.98
 },
 "align": {
-"label": "mixed",
-"ema20": 101.2927,
-"ema50": 101.2351,
-"ema200": 101.4083,
-"fanned": false
+"label": "bear",
+"ema20": 101.0712,
+"ema50": 101.1412,
+"ema200": 101.3696,
+"fanned": true
 },
-"rangePct": 1.578,
+"rangePct": 1.83,
 "impulse": null,
 "rsi": {
-"rsi": 38.35,
-"fast": 48.44,
-"slow": 51.99,
+"rsi": 49.13,
+"fast": 43.88,
+"slow": 47.44,
 "above": false,
-"below": true
+"below": false
 },
 "adx2": {
-"fast": 15.35,
-"slow": 9.87,
+"fast": 17.98,
+"slow": 10.79,
 "lenFast": 14,
 "lenSlow": 28,
 "threshold": 20,
@@ -2583,16 +2644,16 @@
 "regime": {
 "label": "ranging",
 "dir": "down",
-"adx": 16.56
+"adx": 15.86
 },
 "align": {
 "label": "bear",
-"ema20": 101.246,
-"ema50": 101.3225,
-"ema200": 102.138,
+"ema20": 101.1762,
+"ema50": 101.287,
+"ema200": 102.1142,
 "fanned": true
 },
-"rangePct": 1.577,
+"rangePct": 1.834,
 "impulse": {
 "dir": "up",
 "start": 101.19,
@@ -2600,7 +2661,7 @@
 "startT": 1793021400000,
 "endT": 1793022300000,
 "len": 0.67,
-"retrace": 1.537,
+"retrace": 1.448,
 "nearestFib": 1.0,
 "goldenPocket": false,
 "fibs": {
@@ -2616,15 +2677,15 @@
 }
 },
 "rsi": {
-"rsi": 43.76,
-"fast": 52.64,
-"slow": 50.41,
+"rsi": 44.86,
+"fast": 49.66,
+"slow": 49.36,
 "above": false,
 "below": false
 },
 "adx2": {
-"fast": 16.56,
-"slow": 16.63,
+"fast": 15.86,
+"slow": 16.1,
 "lenFast": 14,
 "lenSlow": 28,
 "threshold": 20,
@@ -2727,7 +2788,7 @@
 "inev": {
 "table": "\u2014",
 "aligned": {
-"5m": false,
+"5m": true,
 "15m": true,
 "1h": false,
 "4h": false
@@ -2783,28 +2844,28 @@
 }
 ],
 "feed": "xyz:CL",
-"last": 100.78,
-"mfp_est": 100.88,
+"last": 100.96,
+"mfp_est": 101.06,
 "offset": 0.1,
-"atr_15m": 0.4614,
-"atr_1h": 0.645,
-"atr_4h": 0.795,
+"atr_15m": 0.485,
+"atr_1h": 0.6729,
+"atr_4h": 0.8229,
 "tf_1h": {
-"ema20": 101.485,
-"ema50": 101.9576,
-"ema200": 100.3713,
+"ema20": 101.5021,
+"ema50": 101.9646,
+"ema200": 100.3731,
 "bias": "mixed"
 },
 "tf_4h": {
-"ema20": 101.7921,
-"ema50": 100.3043,
-"ema200": 95.7039,
+"ema20": 101.8083,
+"ema50": 100.311,
+"ema200": 95.7056,
 "bias": "bull"
 },
 "pdh": 103.35,
 "pdl": 100.68,
 "today_high": 102.16,
-"today_low": 100.57,
+"today_low": 100.31,
 "midnight_open": 100.95,
 "week_open": 100.95,
 "swing_high": 101.56,
@@ -2824,7 +2885,7 @@
 },
 "ny": {
 "high": 101.86,
-"low": 100.7,
+"low": 100.31,
 "open": 101.54,
 "done": false
 }
@@ -2836,10 +2897,19 @@
 "l": 100.96,
 "c": 101.78,
 "bull": true,
-"range_atr": 1.86,
+"range_atr": 1.78,
 "displacement": true
 },
 "sweeps": [
+{
+"level": "week open",
+"price": 100.95,
+"side": "low",
+"t": 1793016000000,
+"wick": 100.85,
+"close": 101.24,
+"depth_atr": 0.15
+},
 {
 "level": "PDL",
 "price": 100.68,
@@ -2847,16 +2917,7 @@
 "t": 1793012400000,
 "wick": 100.63,
 "close": 101.02,
-"depth_atr": 0.08
-},
-{
-"level": "week open",
-"price": 100.95,
-"side": "high",
-"t": 1793008800000,
-"wick": 101.56,
-"close": 100.87,
-"depth_atr": 0.95
+"depth_atr": 0.07
 },
 {
 "level": "swing low",
@@ -2869,11 +2930,23 @@
 }
 ],
 "fvgs": [],
-"chg_24h": -1.89,
-"chg_7d": 3.25
+"chg_24h": -1.71,
+"chg_7d": 3.44
 },
 "Brent": {
 "zth": [
+{
+"type": "5/5",
+"price": 112.05,
+"tags": 0,
+"born": 1792771200000
+},
+{
+"type": "5/5",
+"price": 111.98,
+"tags": 0,
+"born": 1792796400000
+},
 {
 "type": "ghost",
 "price": 111.89,
@@ -3048,27 +3121,27 @@
 "regime": {
 "label": "ranging",
 "dir": "down",
-"adx": 14.34
+"adx": 15.67
 },
 "align": {
-"label": "mixed",
-"ema20": 110.2869,
-"ema50": 110.1539,
-"ema200": 110.0794,
+"label": "bull",
+"ema20": 110.0991,
+"ema50": 110.0931,
+"ema200": 110.0615,
 "fanned": false
 },
-"rangePct": 1.519,
+"rangePct": 1.517,
 "impulse": null,
 "rsi": {
-"rsi": 41.76,
-"fast": 51.94,
-"slow": 54.9,
+"rsi": 49.63,
+"fast": 45.63,
+"slow": 49.68,
 "above": false,
-"below": true
+"below": false
 },
 "adx2": {
-"fast": 14.34,
-"slow": 8.79,
+"fast": 15.67,
+"slow": 9.47,
 "lenFast": 14,
 "lenSlow": 28,
 "threshold": 20,
@@ -3081,14 +3154,14 @@
 "15m": {
 "regime": {
 "label": "ranging",
-"dir": "up",
-"adx": 15.6
+"dir": "down",
+"adx": 14.38
 },
 "align": {
 "label": "mixed",
-"ema20": 110.1297,
-"ema50": 110.06,
-"ema200": 110.5867,
+"ema20": 110.0923,
+"ema50": 110.0496,
+"ema200": 110.579,
 "fanned": false
 },
 "rangePct": 1.52,
@@ -3099,7 +3172,7 @@
 "startT": 1793021400000,
 "endT": 1793022300000,
 "len": 0.79,
-"retrace": 1.38,
+"retrace": 1.354,
 "nearestFib": 1.0,
 "goldenPocket": false,
 "fibs": {
@@ -3115,21 +3188,21 @@
 }
 },
 "rsi": {
-"rsi": 46.74,
-"fast": 56.14,
-"slow": 54.06,
+"rsi": 47.11,
+"fast": 53.02,
+"slow": 52.92,
 "above": false,
 "below": false
 },
 "adx2": {
-"fast": 15.6,
-"slow": 12.53,
+"fast": 14.38,
+"slow": 11.92,
 "lenFast": 14,
 "lenSlow": 28,
 "threshold": 20,
 "fastAbove": false,
 "slowAbove": false,
-"dir": "up"
+"dir": "down"
 },
 "strength": null
 },
@@ -3282,22 +3355,22 @@
 }
 ],
 "feed": "xyz:BRENTOIL",
-"last": 109.94,
-"mfp_est": 109.94,
+"last": 110.1,
+"mfp_est": 110.1,
 "offset": 0.0,
-"atr_15m": 0.4364,
-"atr_1h": 0.6593,
-"atr_4h": 0.7336,
+"atr_15m": 0.4564,
+"atr_1h": 0.6829,
+"atr_4h": 0.7571,
 "tf_1h": {
-"ema20": 110.173,
-"ema50": 110.4189,
-"ema200": 108.7219,
+"ema20": 110.1882,
+"ema50": 110.4252,
+"ema200": 108.7235,
 "bias": "mixed"
 },
 "tf_4h": {
-"ema20": 110.222,
-"ema50": 108.6636,
-"ema200": 103.8168,
+"ema20": 110.2382,
+"ema50": 108.6703,
+"ema200": 103.8184,
 "bias": "bull"
 },
 "pdh": 111.49,
@@ -3323,7 +3396,7 @@
 },
 "ny": {
 "high": 110.97,
-"low": 109.78,
+"low": 109.45,
 "open": 110.3,
 "done": false
 }
@@ -3335,7 +3408,7 @@
 "l": 109.92,
 "c": 110.86,
 "bull": true,
-"range_atr": 1.59,
+"range_atr": 1.54,
 "displacement": true
 },
 "sweeps": [
@@ -3346,15 +3419,39 @@
 "t": 1793005200000,
 "wick": 109.3,
 "close": 109.96,
-"depth_atr": 0.32
+"depth_atr": 0.31
 }
 ],
 "fvgs": [],
-"chg_24h": -0.68,
-"chg_7d": 4.59
+"chg_24h": -0.53,
+"chg_7d": 4.74
 },
 "Nasdaq-100": {
 "zth": [
+{
+"type": "3/5",
+"price": 29729.0,
+"tags": 2,
+"born": 1792569600000
+},
+{
+"type": "3/5",
+"price": 29681.0,
+"tags": 1,
+"born": 1792587600000
+},
+{
+"type": "5/5",
+"price": 29622.0,
+"tags": 0,
+"born": 1792630800000
+},
+{
+"type": "5/5",
+"price": 29593.0,
+"tags": 1,
+"born": 1792627200000
+},
 {
 "type": "5/5",
 "price": 29572.0,
@@ -3486,58 +3583,34 @@
 "price": 28994.0,
 "tags": 3,
 "born": 1792980000000
-},
-{
-"type": "KEY",
-"price": 28939.0,
-"tags": 0,
-"born": 1793012400000
-},
-{
-"type": "5/5",
-"price": 28930.0,
-"tags": 0,
-"born": 1793001600000
-},
-{
-"type": "5/5",
-"price": 28915.0,
-"tags": 0,
-"born": 1792983600000
-},
-{
-"type": "5/5",
-"price": 28870.0,
-"tags": 0,
-"born": 1792857600000
 }
 ],
 "regime": {
 "5m": {
 "regime": {
-"label": "weakening",
+"label": "building",
 "dir": "up",
-"adx": 20.66
+"adx": 23.07
 },
 "align": {
 "label": "bull",
-"ema20": 29117.3,
-"ema50": 29088.1208,
-"ema200": 29033.6698,
+"ema20": 29174.5922,
+"ema50": 29120.3228,
+"ema200": 29046.6034,
 "fanned": true
 },
-"rangePct": 1.044,
+"rangePct": 1.442,
 "impulse": null,
 "rsi": {
-"rsi": 63.31,
-"fast": 53.61,
-"slow": 54.31,
-"above": false,
+"rsi": 70.06,
+"fast": 60.98,
+"slow": 57.98,
+"above": true,
 "below": false
 },
 "adx2": {
-"fast": 20.66,
-"slow": 16.41,
+"fast": 23.07,
+"slow": 17.59,
 "lenFast": 14,
 "lenSlow": 28,
 "threshold": 20,
@@ -3550,34 +3623,55 @@
 "15m": {
 "regime": {
 "label": "ranging",
-"dir": "down",
-"adx": 15.39
+"dir": "up",
+"adx": 15.9
 },
 "align": {
 "label": "bull",
-"ema20": 29073.5837,
-"ema50": 29036.8625,
-"ema200": 29002.9193,
+"ema20": 29102.1808,
+"ema50": 29051.7296,
+"ema200": 29015.814,
 "fanned": true
 },
-"rangePct": 1.029,
-"impulse": null,
+"rangePct": 1.189,
+"impulse": {
+"dir": "down",
+"start": 29182.0,
+"end": 29024.0,
+"startT": 1793021400000,
+"endT": 1793023200000,
+"len": 158.0,
+"retrace": 1.519,
+"nearestFib": 1.0,
+"goldenPocket": false,
+"fibs": {
+"0.236": 29061.288,
+"0.382": 29084.356,
+"0.5": 29103.0,
+"0.618": 29121.644,
+"0.705": 29135.39,
+"0.786": 29148.188,
+"1": 29182.0,
+"1.272": 28981.024,
+"1.618": 28926.356
+}
+},
 "rsi": {
-"rsi": 60.91,
-"fast": 57.36,
-"slow": 56.24,
+"rsi": 69.71,
+"fast": 61.01,
+"slow": 58.17,
 "above": true,
 "below": false
 },
 "adx2": {
-"fast": 15.39,
-"slow": 9.43,
+"fast": 15.9,
+"slow": 9.75,
 "lenFast": 14,
 "lenSlow": 28,
 "threshold": 20,
 "fastAbove": false,
 "slowAbove": false,
-"dir": "down"
+"dir": "up"
 },
 "strength": null
 },
@@ -3731,27 +3825,27 @@
 }
 ],
 "feed": "xyz:XYZ100",
-"last": 29212.0,
-"mfp_est": 29212.0,
+"last": 29343.0,
+"mfp_est": 29343.0,
 "offset": 0.0,
-"atr_15m": 81.0,
-"atr_1h": 122.2143,
-"atr_4h": 125.5714,
+"atr_15m": 89.1429,
+"atr_1h": 131.3571,
+"atr_4h": 134.7143,
 "tf_1h": {
-"ema20": 29039.8052,
-"ema50": 29022.649,
-"ema200": 29254.2369,
+"ema20": 29052.2814,
+"ema50": 29027.7863,
+"ema200": 29255.5403,
 "bias": "mixed"
 },
 "tf_4h": {
-"ema20": 29060.3975,
-"ema50": 29261.1019,
-"ema200": 29837.9349,
+"ema20": 29072.8737,
+"ema50": 29266.2392,
+"ema200": 29839.2384,
 "bias": "bear"
 },
 "pdh": 29185.0,
 "pdl": 28874.0,
-"today_high": 29230.0,
+"today_high": 29358.0,
 "today_low": 28875.0,
 "midnight_open": 28963.0,
 "week_open": 28963.0,
@@ -3771,7 +3865,7 @@
 "done": true
 },
 "ny": {
-"high": 29230.0,
+"high": 29358.0,
 "low": 29019.0,
 "open": 29080.0,
 "done": false
@@ -3784,7 +3878,7 @@
 "l": 29019.0,
 "c": 29058.0,
 "bull": false,
-"range_atr": 1.33,
+"range_atr": 1.24,
 "displacement": false
 },
 "sweeps": [
@@ -3795,7 +3889,7 @@
 "t": 1793016000000,
 "wick": 29202.0,
 "close": 29134.0,
-"depth_atr": 0.14
+"depth_atr": 0.13
 },
 {
 "level": "week open",
@@ -3804,7 +3898,7 @@
 "t": 1793012400000,
 "wick": 28925.0,
 "close": 29113.0,
-"depth_atr": 0.31
+"depth_atr": 0.29
 },
 {
 "level": "swing high",
@@ -3813,7 +3907,7 @@
 "t": 1793008800000,
 "wick": 29068.0,
 "close": 28940.0,
-"depth_atr": 0.13
+"depth_atr": 0.12
 },
 {
 "level": "swing low",
@@ -3822,15 +3916,33 @@
 "t": 1793001600000,
 "wick": 28875.0,
 "close": 29019.0,
-"depth_atr": 0.41
+"depth_atr": 0.38
 }
 ],
 "fvgs": [],
-"chg_24h": 0.67,
-"chg_7d": -1.49
+"chg_24h": 1.12,
+"chg_7d": -1.05
 },
 "S&P 500": {
 "zth": [
+{
+"type": "3/5",
+"price": 7744.0,
+"tags": 1,
+"born": 1792609200000
+},
+{
+"type": "3/5",
+"price": 7736.0,
+"tags": 2,
+"born": 1792587600000
+},
+{
+"type": "3/5",
+"price": 7729.9,
+"tags": 1,
+"born": 1792591200000
+},
 {
 "type": "KEY",
 "price": 7722.7,
@@ -3974,18 +4086,6 @@
 "price": 7641.1,
 "tags": 0,
 "born": 1792990800000
-},
-{
-"type": "ghost",
-"price": 7628.9,
-"tags": 0,
-"born": 1793001600000
-},
-{
-"type": "KEY",
-"price": 7625.6,
-"tags": 0,
-"born": 1793012400000
 }
 ],
 "regime": {
@@ -3993,27 +4093,27 @@
 "regime": {
 "label": "trending",
 "dir": "up",
-"adx": 36.34
+"adx": 42.49
 },
 "align": {
 "label": "bull",
-"ema20": 7654.4494,
-"ema50": 7647.5765,
-"ema200": 7640.0434,
+"ema20": 7664.6665,
+"ema50": 7653.7368,
+"ema200": 7642.169,
 "fanned": true
 },
-"rangePct": 0.723,
+"rangePct": 0.848,
 "impulse": null,
 "rsi": {
-"rsi": 68.33,
-"fast": 60.28,
-"slow": 57.6,
+"rsi": 68.92,
+"fast": 63.34,
+"slow": 60.32,
 "above": true,
 "below": false
 },
 "adx2": {
-"fast": 36.34,
-"slow": 21.04,
+"fast": 42.49,
+"slow": 25.53,
 "lenFast": 14,
 "lenSlow": 28,
 "threshold": 20,
@@ -4025,18 +4125,18 @@
 },
 "15m": {
 "regime": {
-"label": "ranging",
+"label": "building",
 "dir": "up",
-"adx": 19.31
+"adx": 22.76
 },
 "align": {
 "label": "bull",
-"ema20": 7645.3332,
-"ema50": 7640.4225,
-"ema200": 7633.3323,
+"ema20": 7650.788,
+"ema50": 7643.1009,
+"ema200": 7635.9792,
 "fanned": true
 },
-"rangePct": 0.597,
+"rangePct": 0.75,
 "impulse": {
 "dir": "down",
 "start": 7652.9,
@@ -4044,7 +4144,7 @@
 "startT": 1793019600000,
 "endT": 1793020500000,
 "len": 15.4,
-"retrace": 2.026,
+"retrace": 2.773,
 "nearestFib": 1.0,
 "goldenPocket": false,
 "fibs": {
@@ -4060,19 +4160,19 @@
 }
 },
 "rsi": {
-"rsi": 70.12,
-"fast": 58.69,
-"slow": 55.84,
+"rsi": 75.03,
+"fast": 63.89,
+"slow": 58.82,
 "above": true,
 "below": false
 },
 "adx2": {
-"fast": 19.31,
-"slow": 12.63,
+"fast": 22.76,
+"slow": 14.02,
 "lenFast": 14,
 "lenSlow": 28,
 "threshold": 20,
-"fastAbove": false,
+"fastAbove": true,
 "slowAbove": false,
 "dir": "up"
 },
@@ -4228,27 +4328,27 @@
 }
 ],
 "feed": "xyz:SP500",
-"last": 7675.4,
-"mfp_est": 7675.4,
+"last": 7691.8,
+"mfp_est": 7691.8,
 "offset": 0.0,
-"atr_15m": 11.45,
-"atr_1h": 17.3643,
-"atr_4h": 20.5214,
+"atr_15m": 12.9286,
+"atr_1h": 18.2714,
+"atr_4h": 21.4286,
 "tf_1h": {
-"ema20": 7641.7829,
-"ema50": 7638.0649,
-"ema200": 7665.5706,
+"ema20": 7643.2401,
+"ema50": 7638.6649,
+"ema200": 7665.7228,
 "bias": "mixed"
 },
 "tf_4h": {
-"ema20": 7643.3028,
-"ema50": 7664.8768,
-"ema200": 7703.9793,
+"ema20": 7644.76,
+"ema50": 7665.4768,
+"ema200": 7704.1315,
 "bias": "bear"
 },
 "pdh": 7659.5,
 "pdl": 7614.0,
-"today_high": 7680.2,
+"today_high": 7692.9,
 "today_low": 7623.0,
 "midnight_open": 7632.5,
 "week_open": 7632.5,
@@ -4268,7 +4368,7 @@
 "done": true
 },
 "ny": {
-"high": 7680.2,
+"high": 7692.9,
 "low": 7639.8,
 "open": 7645.7,
 "done": false
@@ -4281,8 +4381,8 @@
 "l": 7637.5,
 "c": 7649.8,
 "bull": true,
-"range_atr": 1.56,
-"displacement": true
+"range_atr": 1.48,
+"displacement": false
 },
 "sweeps": [
 {
@@ -4292,7 +4392,7 @@
 "t": 1793019600000,
 "wick": 7664.6,
 "close": 7649.8,
-"depth_atr": 0.29
+"depth_atr": 0.28
 },
 {
 "level": "week open",
@@ -4301,7 +4401,7 @@
 "t": 1793012400000,
 "wick": 7624.2,
 "close": 7647.3,
-"depth_atr": 0.48
+"depth_atr": 0.45
 },
 {
 "level": "swing high",
@@ -4323,8 +4423,8 @@
 }
 ],
 "fvgs": [],
-"chg_24h": 0.54,
-"chg_7d": -0.38
+"chg_24h": 0.75,
+"chg_7d": -0.16
 }
 },
 "smt": [
@@ -4358,10 +4458,10 @@
 "status": "paused",
 "zone_lo": 98.64,
 "zone_hi": 99.31,
-"mfp_est": 101.83,
+"mfp_est": 101.94,
 "inside": false,
-"dist": 2.52,
-"dist_atr": 2.65,
+"dist": 2.63,
+"dist_atr": 2.75,
 "pressing": false,
 "swept": true,
 "reclaimed": false,
@@ -4375,7 +4475,7 @@
 "price": 99.704
 }
 ],
-"read": "waiting \u00b7 2.52 away (2.6\u00d7 ATR)"
+"read": "waiting \u00b7 2.63 away (2.7\u00d7 ATR)"
 },
 {
 "market": "ETH",
@@ -4384,10 +4484,10 @@
 "status": "armed",
 "zone_lo": 2281.5,
 "zone_hi": 2290.0,
-"mfp_est": 2325.5,
+"mfp_est": 2324.4,
 "inside": false,
-"dist": 35.5,
-"dist_atr": 1.76,
+"dist": 34.4,
+"dist_atr": 1.7,
 "pressing": false,
 "swept": true,
 "reclaimed": false,
@@ -4396,7 +4496,7 @@
 "trigger": false,
 "confluence": 0,
 "confluence_hits": [],
-"read": "waiting \u00b7 35.5 away (1.8\u00d7 ATR)"
+"read": "waiting \u00b7 34.4 away (1.7\u00d7 ATR)"
 },
 {
 "market": "BTC",
@@ -4405,10 +4505,10 @@
 "status": "armed",
 "zone_lo": 79184,
 "zone_hi": 79500,
-"mfp_est": 80190.0,
+"mfp_est": 80353.0,
 "inside": false,
-"dist": 690.0,
-"dist_atr": 1.44,
+"dist": 853.0,
+"dist_atr": 1.74,
 "pressing": false,
 "swept": true,
 "reclaimed": false,
@@ -4422,7 +4522,7 @@
 "price": 79545.0
 }
 ],
-"read": "waiting \u00b7 690 away (1.4\u00d7 ATR)"
+"read": "waiting \u00b7 853 away (1.7\u00d7 ATR)"
 },
 {
 "market": "Gold",
@@ -4431,17 +4531,17 @@
 "status": "triggered",
 "zone_lo": 4021,
 "zone_hi": 4025,
-"mfp_est": 4019.6,
+"mfp_est": 4030.6,
 "inside": false,
-"dist": 1.4,
-"dist_atr": 0.11,
+"dist": 5.6,
+"dist_atr": 0.42,
 "pressing": true,
 "swept": true,
 "reclaimed": true,
 "smt_ok": true,
 "last_close_bull": false,
 "trigger": true,
-"confluence": 7,
+"confluence": 7.5,
 "confluence_hits": [
 {
 "type": "5/5",
@@ -4462,6 +4562,10 @@
 {
 "type": "KEY",
 "price": 4009.3
+},
+{
+"type": "3/5",
+"price": 4008.2
 }
 ],
 "read": "TRIGGER candidate: sweep + reclaim + SMT"
@@ -4473,7 +4577,7 @@
 "status": "watch",
 "zone_lo": 100.79,
 "zone_hi": 101.06,
-"mfp_est": 100.88,
+"mfp_est": 101.06,
 "inside": true,
 "dist": 0,
 "dist_atr": 0.0,
@@ -4483,8 +4587,12 @@
 "smt_ok": true,
 "last_close_bull": true,
 "trigger": false,
-"confluence": 0.5,
+"confluence": 1.5,
 "confluence_hits": [
+{
+"type": "5/5",
+"price": 101.29
+},
 {
 "type": "3/5",
 "price": 101.02

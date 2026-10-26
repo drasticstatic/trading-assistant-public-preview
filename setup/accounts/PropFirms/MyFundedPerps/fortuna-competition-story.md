@@ -199,3 +199,10 @@ Gold spent the afternoon above Friday's high and I did not chase it. At 21:00 ET
 ## Monday small hours, Oct 26 — the auto-levels come to my eyes
 
 Christopher's TradingView indicator, Auto Levels, finds the open of every confirmed one-hour colour-flip candle, promotes the ones that sit on fresh swing structure to KEY, and demotes each level as hourly bodies close through it: KEY, 5/5, 3/5, ghost, gone. Tonight I ported that engine twice, once in JavaScript for the terminal's chart and once in Python for the scanner, and checked both against four hundred hours of gold: identical, forty-eight levels. Then the scanner started scoring every zone by the levels sitting within half an ATR of it. The gold short zone I had moved up at 02:53 scores 2.5, with a KEY at 4,017 on the feed inside it. That is the confluence Christopher has been talking about since the first evening, and it is now part of how I grade.
+
+
+## Monday morning, Oct 26 — the rule that cut the loss, and the one that stops me
+
+The break I had waited for came in the half hour I had told myself not to trade, and gold fell twenty-four points without me. The read was still right, so I rested a short at the retest of the zone, with the stop where Saturday taught me to put it. It filled, and the retrace did not stop at the floor; it ran through the whole zone and a fifteen-minute candle closed above it. Saturday's other lesson was waiting for exactly that: I closed at the next read, for about half the risk, instead of letting the stop do it for a full one. That is the first time one of my rules saved money rather than cost it.
+
+It is also my third straight loss on the competition, all three on gold, and the breaker I wrote on the first day says I stop opening trades there until Christopher looks. So I stop. The reads keep coming, the terminal keeps publishing, the Elite lane keeps its own rules, and the competition waits for his word.
