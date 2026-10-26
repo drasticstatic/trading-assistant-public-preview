@@ -1,0 +1,58 @@
+/* Regime engine — generic technical measures the terminal and the scanner share (twin of scripts/fortuna-terminal/regime.py).
+ * Nothing proprietary lives here: ADX/DI (Wilder), EMA 20/50/200 alignment, the last impulse leg from 3-bar swings with its
+ * Fibonacci ladder, and session range %. Strategy eligibility (which coaching-program card a read qualifies for) is computed
+ * privately by the scanner from these numbers and is never part of this file.
+ * Input candles: [{t,o,h,l,c}] oldest → newest, closed bars. Pure functions, no DOM.
+ */
+(function (root) {
+  const rma = (vals, n) => { const out = new Array(vals.length).fill(NaN); let s = 0, k = 0; for (let i = 0; i < vals.length; i++) { const v = vals[i]; if (Number.isNaN(v)) continue; k++; if (k < n) { s += v; continue; } if (k === n) { s += v; out[i] = s / n; continue; } out[i] = (out[i - 1] * (n - 1) + v) / n; } return out; };
+  const ema = (vals, n) => { const k = 2 / (n + 1); const out = []; let e = null; vals.forEach(v => { e = e == null ? v : v * k + e * (1 - k); out.push(e); }); return out; };
+  const r = (x, d = 4) => x == null || Number.isNaN(x) ? null : +x.toFixed(d);
+
+  function adx(cs, n = 14) {
+    if (cs.length < n * 2 + 2) return {adx: null, diPlus: null, diMinus: null, adxPrev: null};
+    const tr = [NaN], dmP = [NaN], dmM = [NaN];
+    for (let i = 1; i < cs.length; i++) { const c = cs[i], p = cs[i - 1]; tr.push(Math.max(c.h - c.l, Math.abs(c.h - p.c), Math.abs(c.l - p.c))); const up = c.h - p.h, dn = p.l - c.l; dmP.push(up > dn && up > 0 ? up : 0); dmM.push(dn > up && dn > 0 ? dn : 0); }
+    const atr = rma(tr, n), sP = rma(dmP, n), sM = rma(dmM, n); const dx = cs.map((_, i) => { const a = atr[i]; if (!a || Number.isNaN(a)) return NaN; const dp = sP[i] / a * 100, dm = sM[i] / a * 100; const s = dp + dm; return s ? Math.abs(dp - dm) / s * 100 : 0; });
+    const ax = rma(dx, n); const i = cs.length - 1;
+    return {adx: r(ax[i], 2), diPlus: r(sP[i] / atr[i] * 100, 2), diMinus: r(sM[i] / atr[i] * 100, 2), adxPrev: r(ax[i - 3], 2)};
+  }
+
+  function alignment(cs) {
+    const c = cs.map(x => x.c); if (c.length < 60) return {label: '—', ema20: null, ema50: null, ema200: null, fanned: false};
+    const e20 = ema(c, 20), e50 = ema(c, 50), e200 = c.length >= 200 ? ema(c, 200) : null; const i = c.length - 1; const p = c[i];
+    const a = e20[i], b = e50[i], d = e200 ? e200[i] : null;
+    const bull = d != null ? p > a && a > b && b > d : p > a && a > b, bear = d != null ? p < a && a < b && b < d : p < a && a < b;
+    const minGap = p * 0.0005; const fanned = (bull || bear) && Math.abs(a - b) >= minGap && (d == null || Math.abs(b - d) >= minGap);
+    return {label: bull ? 'bull' : bear ? 'bear' : 'mixed', ema20: r(a), ema50: r(b), ema200: r(d), fanned};
+  }
+
+  function swings(cs) {  // confirmed 3-bar pivots: bar i is a swing high if h[i] > h[i-1] and h[i] > h[i+1]
+    const sh = [], sl = []; for (let i = 1; i < cs.length - 1; i++) { if (cs[i].h > cs[i - 1].h && cs[i].h > cs[i + 1].h) sh.push({i, t: cs[i].t, p: cs[i].h}); if (cs[i].l < cs[i - 1].l && cs[i].l < cs[i + 1].l) sl.push({i, t: cs[i].t, p: cs[i].l}); }
+    return {sh, sl};
+  }
+
+  const RATIOS = [0.236, 0.382, 0.5, 0.618, 0.705, 0.786, 1.0];
+  function impulse(cs) {  // the last leg between the two most recent opposite swings; fibs measured as a retrace of that leg
+    const {sh, sl} = swings(cs); if (!sh.length || !sl.length) return null;
+    const lastH = sh[sh.length - 1], lastL = sl[sl.length - 1]; const up = lastL.i < lastH.i;  // low came first → up-leg ending at the high
+    const start = up ? lastL : lastH, end = up ? lastH : lastL; if (start.i === end.i) return null;
+    const len = Math.abs(end.p - start.p); const price = cs[cs.length - 1].c; const retrace = len ? (up ? (end.p - price) : (price - end.p)) / len : 0;
+    const fibs = {}; RATIOS.forEach(q => { fibs[String(q)] = r(up ? end.p - len * q : end.p + len * q); }); fibs['1.272'] = r(up ? end.p + len * 0.272 : end.p - len * 0.272); fibs['1.618'] = r(up ? end.p + len * 0.618 : end.p - len * 0.618);
+    const nearest = RATIOS.reduce((b, q) => Math.abs(q - retrace) < Math.abs(b - retrace) ? q : b, RATIOS[0]);
+    return {dir: up ? 'up' : 'down', start: r(start.p), end: r(end.p), startT: start.t, endT: end.t, len: r(len), retrace: r(retrace, 3), nearestFib: nearest, goldenPocket: retrace >= 0.618 && retrace <= 0.66, fibs};
+  }
+
+  function rangePct(cs, bars) { const w = cs.slice(-bars); if (!w.length) return null; const hi = Math.max(...w.map(c => c.h)), lo = Math.min(...w.map(c => c.l)); return r((hi - lo) / w[w.length - 1].c * 100, 3); }
+
+  function regime(cs) {
+    const a = adx(cs); if (a.adx == null) return {label: '—', ...a};
+    const dir = a.diPlus > a.diMinus ? 'up' : 'down'; const rising = a.adxPrev != null && a.adx > a.adxPrev;
+    const label = a.adx >= 25 ? (rising || a.adx >= 30 ? 'trending' : 'weakening') : a.adx < 20 ? 'ranging' : (rising ? 'building' : 'weakening');
+    return {label, dir, rising, ...a};
+  }
+
+  function read(cs, opts) { opts = opts || {}; return {regime: regime(cs), align: alignment(cs), impulse: impulse(cs), rangePct: rangePct(cs, opts.rangeBars || 24)}; }
+
+  root.Regime = {adx, alignment, impulse, rangePct, regime, read, swings, RATIOS};
+})(typeof window !== 'undefined' ? window : globalThis);
