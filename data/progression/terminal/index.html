@@ -124,6 +124,19 @@
     .lg i { display: inline-block; width: 12px; height: 2px; vertical-align: middle; margin-right: .3rem; }
     .cx { font-family: var(--mono); font-size: 10px; fill: var(--muted); }
     .cz { pointer-events: none; }
+    .panel { scroll-margin-top: 76px; }
+    .tk .w { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; gap: .4rem; font-size: .62rem; color: var(--muted); margin-top: .1rem; white-space: nowrap; }
+    .tk .w .tag { font-size: .56rem; padding: 0 .35rem; } .tk .w button { background: none; border: 0; color: var(--indigo); cursor: pointer; font: inherit; padding: 0 .1rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .5rem; }
+    .chip2 { font-size: .62rem; padding: .12rem .5rem; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); background: var(--panel-2); line-height: 1.35; } .chip2 b { color: var(--text); font-weight: 600; margin-right: .25rem; }
+    .chip2.btn-like { cursor: pointer; color: var(--indigo); border-color: rgba(129,140,248,.35); } .chip2.btn-like:hover { border-color: var(--indigo); }
+    .pfc { padding: .5rem .9rem .7rem; display: grid; gap: .25rem; }
+    .pfc label { display: grid; grid-template-columns: 1rem 1fr auto; gap: .5rem; align-items: center; font-size: .72rem; padding: .3rem .45rem; border-radius: var(--r); border: 1px solid transparent; cursor: pointer; }
+    .pfc label:hover { border-color: var(--line); } .pfc label.done .t { color: var(--muted); text-decoration: line-through; text-decoration-color: rgba(74,222,128,.5); }
+    .pfc input { width: .9rem; height: .9rem; accent-color: var(--green); } .pfc .n { color: var(--dim); font-family: var(--mono); font-size: .62rem; margin-right: .25rem; }
+    .pfc .i { background: none; border: 1px solid var(--line); border-radius: 999px; width: 1.15rem; height: 1.15rem; color: var(--muted); font-size: .62rem; cursor: pointer; } .pfc .i:hover { color: var(--text); border-color: var(--purple); }
+    .fi .w em { font-style: normal; margin-left: .35rem; font-size: .66rem; }
+    .st-find.clamp { -webkit-line-clamp: 3; }
     .chart-wrap svg { cursor: crosshair; touch-action: none; user-select: none; -webkit-user-select: none; }
     .chart-wrap svg.drag { cursor: grabbing; }
     .pin { font-size: 9.5px; font-weight: 700; }
@@ -297,13 +310,12 @@
         <section class="panel" id="zones"><div class="ph"><i class="ph-duotone ph-crosshair"></i> Zones radar <span class="sub">live price against every armed zone, in MFP terms</span></div><div id="zr"></div></section>
         <section class="panel" id="scanner"><div class="ph"><i class="ph-duotone ph-scan"></i> Scanner <span class="sub" id="scan-sub">mechanical read: sweeps · reclaims · SMT · sessions</span></div><div id="scan-body"></div></section>
         <section class="panel" id="study"><div class="ph"><i class="ph-duotone ph-flask"></i> Edge study <span class="sub" id="study-sub">does the sweep-and-reclaim trigger pay, mechanically?</span></div><div id="study-body"></div></section>
-        <section class="panel" id="watchlist"><div class="ph"><i class="ph-duotone ph-binoculars"></i> Watchlist <span class="sub">the setups each check-in reads</span></div><div class="tbl" id="wl"></div></section>
-        <section class="panel" id="preflight"><div class="ph"><i class="ph-duotone ph-airplane-takeoff"></i> Perps Preflight <span class="sub">the agent's list, before every order</span><span class="sp"></span><span class="sub" id="pf-count"></span><button class="btn" id="pf-reset" type="button">reset</button></div><div class="pf" id="pf"></div></section>
       </div>
 
       <div class="stack c-right">
-        <section class="panel" id="alerts"><div class="ph"><i class="ph-duotone ph-bell-ringing"></i> Alerts <span class="sub">live, from your browser</span><span class="sp"></span><button class="btn" id="notify-btn" type="button">enable notifications</button></div><div id="alert-list"></div></section>
+        <section class="panel" id="alerts"><div class="ph"><i class="ph-duotone ph-bell-ringing"></i> Alerts <span class="sub">live, from your browser</span><span class="sp"></span><button class="btn" id="phone-btn" type="button" title="lock-screen alerts on a phone, and how to follow them"><i class="ph-duotone ph-device-mobile"></i> phone</button><button class="btn" id="notify-btn" type="button">enable notifications</button></div><div id="alert-list"></div></section>
         <section class="panel" id="positions"><div class="ph"><i class="ph-duotone ph-steering-wheel"></i> Co-pilot <span class="sub">open positions, every venue</span></div><div id="pos-list"></div></section>
+        <section class="panel" id="preflight"><div class="ph"><i class="ph-duotone ph-airplane-takeoff"></i> Perps Preflight<span class="sp"></span><span class="sub" id="pf-count"></span><button class="btn" id="pf-reset" type="button">reset</button></div><div class="pfc" id="pf"></div></section>
         <section class="panel" id="feed"><div class="ph"><i class="ph-duotone ph-list-dashes"></i> Feed <span class="sub">check-ins · trades · alerts</span></div><div class="feed" id="feed-list"></div></section>
       </div>
     </div>
@@ -385,10 +397,10 @@
   function renderTape() {  // built once as two identical sets so the marquee loops seamlessly; prices are patched in place afterwards
     const armed = new Set(S.watchlist.filter(w => w.status === 'armed' || w.status === 'triggered').map(w => w.market));
     const set = L.levels.map(l => { const [p, ch] = tkChg(l);
-      return `<div class="tk ${cur.market === l.market ? 'on' : ''}" data-m="${esc(l.market)}"><div class="n">${esc(l.market)}${armed.has(l.market) ? '<span class="arm">armed</span>' : ''}</div>${spark(l.spark, 72, 30, ch >= 0 ? 'var(--green)' : 'var(--red)')}<div class="p num">${pxu(l, p)}</div><div class="c num ${cls(ch)}">${pct(ch)} <span class="flat">${l.src === 'yahoo' ? 'snap' : '24h'}</span></div></div>`; }).join('');
+      return `<div class="tk ${cur.market === l.market ? 'on' : ''}" data-m="${esc(l.market)}"><div class="n">${esc(l.market)}${armed.has(l.market) ? '<span class="arm">armed</span>' : ''}</div>${spark(l.spark, 72, 30, ch >= 0 ? 'var(--green)' : 'var(--red)')}<div class="p num">${pxu(l, p)}</div><div class="c num ${cls(ch)}">${pct(ch)} <span class="flat">${l.src === 'yahoo' ? 'snap' : '24h'}</span></div>${(() => { const w = wlFor(l); return w ? `<div class="w"><span>${esc(w.direction)}${w.zone_lo != null ? ' · ' + px(w.zone_lo) + '–' + px(w.zone_hi) : ''}</span><span><span class="tag ${esc(w.status)}">${esc(w.status)}</span> <button type="button" data-w="${S.watchlist.indexOf(w)}" title="setup details">ⓘ</button></span></div>` : ''; })()}</div>`; }).join('');
     $('#tape').innerHTML = `<div class="tape-track"><div class="tape-set">${set}</div><div class="tape-set" aria-hidden="true">${set}</div></div>`;
     $('#tape').style.setProperty('--tape-dur', Math.round(L.levels.length * 9) + 's');
-    $('#tape').querySelectorAll('.tk').forEach(t => t.addEventListener('click', (ev) => { if (tapeDrag && tapeDrag.moved) return; selectMarket(t.dataset.m); }));
+    $('#tape').querySelectorAll('.tk').forEach(t => t.addEventListener('click', (ev) => { if (tapeDrag && tapeDrag.moved) return; if (ev.target.closest('[data-w]')) { ev.stopPropagation(); openWatch(S.watchlist[+ev.target.closest('[data-w]').dataset.w]); return; } selectMarket(t.dataset.m); }));
     setupTapeScroll();
   }
   let tapeDrag = null, tapeTimer = null;
@@ -426,15 +438,16 @@
         body = `<div class="kv"><span>since handoff</span><b class="num ${cls(a.equity - a.handoff)}">${sgn(a.equity - a.handoff)}</b></div>
         <div class="kv"><span>today vs −${usd(sl.dll_usd, 0)} self-limit</span><b class="num ${cls(dp == null ? 0 : dp)}">${dp == null ? '—' : sgn(dp)}</b></div><div class="meter ${dpp > 66 ? 'bad' : dpp > 33 ? 'warn' : ''}"><i style="width:${dpp}%"></i></div>
         <div class="kv"><span>room to ${usd(sl.floor_usd, 0)} floor</span><b class="num">${usd(fr, 0)}</b></div><div class="meter ${fp < 34 ? 'bad' : fp < 67 ? 'warn' : ''}"><i style="width:${fp}%"></i></div>
-        <div class="rules"><b>risk</b> ${esc(sl.risk)} · <b>breaker</b> ${esc(sl.breaker)} · <b>markets</b> ${esc(a.markets)}</div>`; }
+        <div class="chips"><span class="chip2"><b>risk</b>${esc(sl.risk)}</span><span class="chip2"><b>breaker</b>${esc(sl.breaker)}</span><span class="chip2"><b>markets</b>${esc(a.markets)}</span></div>`; }
       else { const tp = Math.max(0, Math.min(100, (a.equity - a.start) / (a.target_equity - a.start) * 100)); const m = a.firm_limits.match(/(\d+)% daily/); const dl = m ? a.start * m[1] / 100 : null; const dpp = dl ? Math.max(0, Math.min(100, a.dll_room / dl * 100)) : 0; const mp = Math.max(0, Math.min(100, a.mdd_room / (a.start - a.mdd_floor) * 100));
         body = `<div class="kv"><span>to ${usd(a.target_equity, 0)} target</span><b class="num">${usd(a.remaining_profit)} to go</b></div><div class="meter"><i style="width:${tp}%"></i></div>
         <div class="kv"><span>daily-loss room</span><b class="num">${usd(a.dll_room)}</b></div><div class="meter ${dpp < 34 ? 'bad' : dpp < 67 ? 'warn' : ''}"><i style="width:${dpp}%"></i></div>
         <div class="kv"><span>drawdown room · floor ${usd(a.mdd_floor, 0)}</span><b class="num">${usd(a.mdd_room)}</b></div><div class="meter ${mp < 34 ? 'bad' : mp < 67 ? 'warn' : ''}"><i style="width:${mp}%"></i></div>
-        <div class="rules">${Object.entries(a.self_limits).map(([k, v]) => `<b>${esc(k.replace(/_/g, ' '))}</b> ${esc(v)}`).join(' · ')} · <b>markets</b> ${esc(a.markets)}</div>`; }
+        <div class="chips">${Object.entries(a.self_limits).map(([k, v]) => `<span class="chip2"><b>${esc(k.replace(/_/g, ' '))}</b>${esc(v)}</span>`).join('')}<span class="chip2"><b>markets</b>${esc(a.markets)}</span></div>`; }
       return `<div class="acct"><div class="t"><i class="ph-duotone ${a.kind === 'competition' ? 'ph-medal' : 'ph-chart-line-up'}"></i> ${esc(a.name)} <span class="tag ${a.key}">${esc(a.trader)}</span></div><div class="s">${esc(a.path)} · ${esc(a.role)}</div>
-        <div class="eq num">${usd(a.equity)}</div><div class="d num ${cls(d)}">${sgn(d)} (${pct(d / a.start * 100)}) from ${usd(a.start, 0)} · ${a.upnl ? 'unrealized ' + sgn(a.upnl) : 'flat'}</div>${body}<div class="rules" style="color:var(--dim)">${esc(a.note)} · ${fmtET(a.asof)}</div></div>`;
+        <div class="eq num">${usd(a.equity)}</div><div class="d num ${cls(d)}">${sgn(d)} (${pct(d / a.start * 100)}) from ${usd(a.start, 0)} · ${a.upnl ? 'unrealized ' + sgn(a.upnl) : 'flat'}</div>${body}<div class="chips"><span class="chip2 btn-like" data-about="${esc(a.key)}">about this account ›</span><span class="chip2"><b>as of</b>${fmtET(a.asof, {month: undefined, day: undefined})}</span></div></div>`;
     }).join('');
+    $('#acct-list').querySelectorAll('[data-about]').forEach(b => b.addEventListener('click', () => { const a = S.accounts.find(x => x.key === b.dataset.about); openModal(`${esc(a.name)} <span class="tag ${a.key}">${esc(a.trader)}</span>`, `<dl class="kv"><dt>Path</dt><dd>${esc(a.path)} · ${esc(a.role)}</dd><dt>Firm limits</dt><dd>${esc(a.firm_limits || '—')}</dd><dt>Self-limits</dt><dd>${Object.entries(a.self_limits || {}).map(([k, v]) => `<b>${esc(k.replace(/_/g, ' '))}</b>: ${esc(v)}`).join('<br>')}</dd><dt>Markets</dt><dd>${esc(a.markets)}</dd><dt>Status</dt><dd>${esc(a.status)}${a.ends ? ' · ends ' + fmtET(a.ends) : ''}</dd><dt>Note</dt><dd>${esc(a.note)}</dd><dt>Updated</dt><dd>${fmtET(a.asof)}</dd></dl>`); }));
   }
 
   /* ── journey pulse ── */
@@ -460,10 +473,11 @@
 
   /* ── feed ── */
   function renderFeed() {
-    const items = S.checkins.map(c => ({t: new Date(c.at).getTime(), kind: /trade|fill|placed|stopped|closed/i.test(c.action) ? 'trade' : /alert|one-shot|breach/i.test(c.action) ? 'alert' : '', who: ACCT[c.account] || c.account, text: c.note, tail: `${c.open_positions} open · ${c.working_orders} working · ${c.action}`, eq: c.equity, at: c.at}))
+    const prevEq = {}; S.checkins.slice().sort((a, b) => new Date(a.at) - new Date(b.at)).forEach(c => { c._d = prevEq[c.account] != null ? c.equity - prevEq[c.account] : null; prevEq[c.account] = c.equity; });
+    const items = S.checkins.map(c => ({d: c._d, t: new Date(c.at).getTime(), kind: /trade|fill|placed|stopped|closed/i.test(c.action) ? 'trade' : /alert|one-shot|breach/i.test(c.action) ? 'alert' : '', who: ACCT[c.account] || c.account, text: c.note, tail: `${c.open_positions} open · ${c.working_orders} working · ${c.action}`, eq: c.equity, at: c.at}))
       .concat(S.ledger.filter(l => l.n).map(l => ({t: new Date(l.date + 'T23:59:00-04:00').getTime(), kind: l.r < 0 ? 'loss' : 'trade', who: ACCT[l.account] || l.account, text: `Trade #${l.n} · ${l.market} ${l.side} (${l.grade}) · ${l.entry} → ${l.exit}`, tail: `${l.r == null ? '' : (l.r > 0 ? '+' : '') + l.r.toFixed(2) + 'R · '}${sgn(l.pnl)} · ${l.note}`, eq: l.equity_after, at: l.date})))
       .sort((a, b) => b.t - a.t);
-    $('#feed-list').innerHTML = items.map(i => `<div class="fi"><span class="dot ${i.kind}"></span><div><div class="w"><span>${esc(i.who)} · ${fmtET(i.at, {month: 'short', day: 'numeric'})}</span><span>${usd(i.eq)}</span></div><div class="x clamp">${esc(i.text)}</div><div class="w" style="margin-top:.2rem;justify-content:flex-start">${esc(i.tail)}</div></div></div>`).join('');
+    $('#feed-list').innerHTML = items.map(i => `<div class="fi"><span class="dot ${i.kind}"></span><div><div class="w"><span>${esc(i.who)} · ${fmtET(i.at, {month: 'short', day: 'numeric'})}</span><span>${usd(i.eq)}${i.d ? `<em class="${cls(i.d)}">${sgn(i.d)}</em>` : ''}</span></div><div class="x clamp">${esc(i.text)}</div><div class="w" style="margin-top:.2rem;justify-content:flex-start">${esc(i.tail)}</div></div></div>`).join('');
   }
 
   /* ── chart ── */
@@ -512,7 +526,8 @@
     [[l.pdh, 'PDH', 'var(--blue)'], [l.pdl, 'PDL', 'var(--blue)'], [l.midnight_open, 'midnight', 'var(--muted)'], [l.week_open, 'week open', 'var(--muted)']].forEach(([v, lab, col]) => hline(v, lab, col, '6 4', 'r'));
     poss.forEach(p => { [[p.entry, (p.side === 'short' ? 'short' : 'long') + ' · ' + p.venue, 'var(--green)', '0'], [p.tp, 'target', 'var(--green)', '4 3'], [p.stop, 'stop', 'var(--red)', '0'], [p.liq, 'liq', 'var(--red)', '2 3']].forEach(([v, lab, col, dash]) => hline(v, lab, col, dash, 'l')); });
     g += '<g clip-path="url(#plotclip)">';
-    cs.forEach((c, i) => { const x = X(i), up = c.c >= c.o; const col = up ? 'var(--green)' : 'var(--red)'; g += `<line x1="${x}" x2="${x}" y1="${Y(c.h)}" y2="${Y(c.l)}" stroke="${col}" stroke-width="1"/><rect x="${x - cw / 2}" y="${Y(Math.max(c.o, c.c))}" width="${cw}" height="${Math.max(1, Math.abs(Y(c.o) - Y(c.c)))}" fill="${col}" opacity=".88"/>`; });
+    if (l.line) { const d = cs.map((c, i) => (i ? 'L' : 'M') + X(i).toFixed(1) + ',' + Y(c.c).toFixed(1)).join(' '); const col = cs[cs.length - 1].c >= cs[0].c ? 'var(--green)' : 'var(--red)'; g += `<path d="${d} L${X(n - 1).toFixed(1)},${H - m.b} L${X(0).toFixed(1)},${H - m.b} Z" fill="${col}" opacity=".08"/><path d="${d}" fill="none" stroke="${col}" stroke-width="1.6"/>`; }
+    else cs.forEach((c, i) => { const x = X(i), up = c.c >= c.o; const col = up ? 'var(--green)' : 'var(--red)'; g += `<line x1="${x}" x2="${x}" y1="${Y(c.h)}" y2="${Y(c.l)}" stroke="${col}" stroke-width="1"/><rect x="${x - cw / 2}" y="${Y(Math.max(c.o, c.c))}" width="${cw}" height="${Math.max(1, Math.abs(Y(c.o) - Y(c.c)))}" fill="${col}" opacity=".88"/>`; });
     const line = (arr, col) => `<path d="${arr.map((v, i) => (i ? 'L' : 'M') + X(i).toFixed(1) + ',' + Y(v).toFixed(1)).join(' ')}" fill="none" stroke="${col}" stroke-width="1.3" opacity=".9"/>`;
     g += line(e20, 'var(--cyan)') + line(e50, 'var(--purple)') + (e200 ? line(e200, 'var(--pink)') : '') + '</g>';
     const last = all[all.length - 1].c; const yl = Math.max(m.t, Math.min(H - m.b, Y(last)));
@@ -553,7 +568,9 @@
     $('#y-auto').addEventListener('click', () => { view.yauto = !view.yauto; syncChartBtns(); drawChart(); });
     $('#x-follow').addEventListener('click', () => { view.follow = !view.follow; if (view.follow) view.end = null; syncChartBtns(); drawChart(); });
   }
-  function selectMarket(mk) { cur.market = mk; resetView(); updateTape(); loadCandles(); }
+  const resolveMarket = (mk) => { if (lv(mk)) return mk; for (const part of String(mk || '').split(/[\/·,]/)) { const p = part.trim().toLowerCase(); if (!p) continue; const hit = L.levels.find(l => l.market.toLowerCase() === p || l.market.toLowerCase().startsWith(p)); if (hit) return hit.market; } return null; };
+  function selectMarket(mk) { const m = resolveMarket(mk); if (!m) return; cur.market = m; resetView(); updateTape(); loadCandles(); }
+  const wlFor = (l) => S.watchlist.find(w => resolveMarket(w.market) === l.market);
 
   /* ── zones radar ── */
   function renderZones() {
@@ -569,19 +586,20 @@
   /* ── watchlist / preflight / ledger / lanes / where ── */
   function openModal(title, html) { $('#m-title').innerHTML = title; $('#m-body').innerHTML = html; $('#modal').hidden = false; document.body.style.overflow = 'hidden'; }
   function closeModal() { $('#modal').hidden = true; document.body.style.overflow = ''; }
-  function renderWatchlist() {
-    $('#wl').innerHTML = `<div class="wlg">${S.watchlist.map((w, i) => `<button class="wlc" data-i="${i}" type="button"><div class="h"><b>${esc(w.market)}</b><span class="tag ${esc(w.status)}">${esc(w.status)}</span></div><div class="d">${esc(w.direction)}</div><div class="z num">${w.zone_lo != null ? px(w.zone_lo) + ' – ' + px(w.zone_hi) : '—'}</div><div class="a"><span class="tag ${w.account}">${esc(ACCT[w.account])}</span><span class="more">details ›</span></div></button>`).join('')}</div>`;
-    $('#wl').querySelectorAll('.wlc').forEach(b => b.addEventListener('click', () => { const w = S.watchlist[+b.dataset.i];
-      openModal(`${esc(w.market)} · ${esc(w.direction)} <span class="tag ${esc(w.status)}">${esc(w.status)}</span>`,
-        `<dl class="kv"><dt>Setup</dt><dd>${esc(w.setup)}</dd><dt>Zone</dt><dd class="num">${w.zone_lo != null ? px(w.zone_lo) + ' – ' + px(w.zone_hi) + ' <span class="flat">MFP terms</span>' : '—'}</dd><dt>Stop</dt><dd>${esc(w.stop_rule)}</dd><dt>Targets</dt><dd>${esc(w.targets)}</dd><dt>Note</dt><dd>${esc(w.note)}</dd><dt>Account</dt><dd>${esc(ACCT[w.account])}${w.grade_max ? ' · max grade ' + esc(w.grade_max) : ''}</dd><dt>Updated</dt><dd>${fmtET(w.updated)}</dd></dl><div class="mact"><button class="btn" id="m-chart" type="button"><i class="ph-duotone ph-chart-line"></i> show on chart</button></div>`);
-      $('#m-chart').addEventListener('click', () => { closeModal(); selectMarket(w.market); $('#chart').scrollIntoView({behavior: 'smooth', block: 'start'}); }); }));
+  function openWatch(w) {
+    openModal(`${esc(w.market)} · ${esc(w.direction)} <span class="tag ${esc(w.status)}">${esc(w.status)}</span>`,
+      `<dl class="kv"><dt>Setup</dt><dd>${esc(w.setup)}</dd><dt>Zone</dt><dd class="num">${w.zone_lo != null ? px(w.zone_lo) + ' – ' + px(w.zone_hi) + ' <span class="flat">MFP terms</span>' : '—'}</dd><dt>Stop</dt><dd>${esc(w.stop_rule)}</dd><dt>Targets</dt><dd>${esc(w.targets)}</dd><dt>Note</dt><dd>${esc(w.note)}</dd><dt>Account</dt><dd>${esc(ACCT[w.account])}${w.grade_max ? ' · max grade ' + esc(w.grade_max) : ''}</dd><dt>Updated</dt><dd>${fmtET(w.updated)}</dd></dl><div class="mact">${resolveMarket(w.market) ? '<button class="btn" id="m-chart" type="button"><i class="ph-duotone ph-chart-line"></i> show on chart</button>' : ''}</div>`);
+    const b = $('#m-chart'); if (b) b.addEventListener('click', () => { closeModal(); selectMarket(w.market); $('#chart').scrollIntoView({behavior: 'smooth', block: 'start'}); });
   }
+  function renderWatchlist() { /* the watchlist lives on the tape (zone line + ⓘ on each ticker) */ }
   function renderPreflight() {
     const key = 'fortuna-pf-' + new Date().toLocaleDateString('en-CA', {timeZone: NY}); let done = {}; try { done = JSON.parse(localStorage.getItem(key) || '{}'); } catch (e) {}
     const save = () => { try { localStorage.setItem(key, JSON.stringify(done)); } catch (e) {} };
-    const draw = () => { $('#pf').innerHTML = S.preflight.map((p, i) => `<label class="${done[p.id] ? 'done' : ''}"><input type="checkbox" data-id="${esc(p.id)}" ${done[p.id] ? 'checked' : ''}><span><div class="t">${i + 1}. ${esc(p.text)}</div><div class="w">${esc(p.why)}</div></span></label>`).join('');
+    const SHORT = {account: 'One account per market', hedge: 'Cross-hedge sweep clean', setup: 'Closed-candle trigger ≥ B · SMT checked', offset: 'Venue offset measured', size: 'Sized from the stop · liq ≥ 3× stop', policy: 'Account + policy read fresh', log: 'Intent + key logged before the order', stop: 'Attached SL/TP · verified working', exit: 'Exit plan written', oneshot: 'One-shot set if pressing a zone', after: 'Ledger · review · story · publish'};
+    const draw = () => { $('#pf').innerHTML = S.preflight.map((p, i) => `<label class="${done[p.id] ? 'done' : ''}"><input type="checkbox" data-id="${esc(p.id)}" ${done[p.id] ? 'checked' : ''}><span class="t"><span class="n">${i + 1}</span>${esc(SHORT[p.id] || p.text)}</span><button class="i" type="button" data-i="${i}" title="full rule and why">?</button></label>`).join('');
       const nn = S.preflight.filter(p => done[p.id]).length; $('#pf-count').innerHTML = `${nn} / ${S.preflight.length}${nn === S.preflight.length ? ' · <span class="pos">cleared</span>' : ''}`;
-      $('#pf').querySelectorAll('input').forEach(cb => cb.addEventListener('change', () => { done[cb.dataset.id] = cb.checked; save(); draw(); })); };
+      $('#pf').querySelectorAll('input').forEach(cb => cb.addEventListener('change', () => { done[cb.dataset.id] = cb.checked; save(); draw(); }));
+      $('#pf').querySelectorAll('.i').forEach(b => b.addEventListener('click', (ev) => { ev.preventDefault(); ev.stopPropagation(); const p = S.preflight[+b.dataset.i]; openModal(`Preflight ${+b.dataset.i + 1} · ${esc(SHORT[p.id] || '')}`, `<dl class="kv"><dt>Rule</dt><dd>${esc(p.text)}</dd><dt>Why</dt><dd>${esc(p.why)}</dd></dl><div class="mact"><a class="btn" href="${esc(S.links.preflight_human)}">the human checklist ↗</a></div>`); })); };
     draw(); $('#pf-reset').addEventListener('click', () => { done = {}; save(); draw(); });
   }
   function renderLedger() {
@@ -670,7 +688,7 @@
     const mk = Object.entries(T.markets).map(([name, m]) => { const best = Object.entries({...Object.fromEntries(Object.entries(m.by_stop).map(([k, v]) => ['base-hit · ' + k + '× ATR', v])), ...Object.fromEntries(Object.entries(m.range_first || {}).map(([k, v]) => ['range · first · ' + k + '× ATR', v]))}).filter(([, v]) => v.n >= 20).sort((a, b) => b[1].expectancy - a[1].expectancy)[0];
       const e = best ? best[1].expectancy : 0; const w = Math.min(100, Math.abs(e) / 0.5 * 50);
       return `<div class="st"><b>${esc(name)}</b>base-hit 1× ATR: <span class="${cls(m.by_stop['1.0'].expectancy)}">${f(m.by_stop['1.0'])}</span> · n ${m.by_stop['1.0'].n}<div class="bar"><i style="${e >= 0 ? 'left:50%' : 'right:50%'};width:${w}%;background:${e >= 0 ? 'var(--green)' : 'var(--red)'}"></i></div>best variant: ${best ? esc(best[0]) + ' <span class="' + cls(e) + '">' + f(best[1]) + '</span> (n ' + best[1].n + ')' : '—'}</div>`; }).join('');
-    $('#study-body').innerHTML = `<div class="st-find">${find}</div><div class="st-note">${esc(T.rule)}. Conservative: a candle touching both stop and target counts as a stop. Pockets under n ≈ 60 are noise until proven otherwise. This is why Fortuna grades setups instead of auto-firing them; the study reruns as the sample grows.</div><div class="st-grid">${mk}</div>`;
+    $('#study-body').innerHTML = `<div class="st-find clamp" title="click to expand">${find}</div><div class="st-note">${esc(T.rule)}. Conservative: a candle touching both stop and target counts as a stop. Pockets under n ≈ 60 are noise until proven otherwise. This is why Fortuna grades setups instead of auto-firing them; the study reruns as the sample grows.</div><div class="st-grid">${mk}</div>`;
   }
 
   function renderLive() { updateTape(); renderPositions(); renderZones(); renderPulse(); renderAlerts(); }
@@ -687,6 +705,16 @@
     await fetchMids(); renderTape(); renderLive(); setupChartInteractions(); loadCandles();
     $('#iv-ctl').querySelectorAll('.btn').forEach(b => b.addEventListener('click', () => { const on = $('#iv-ctl .on'); if (on) on.classList.remove('on'); b.classList.add('on'); cur.iv = b.dataset.iv; resetView(); loadCandles(); }));
     $('#refresh').addEventListener('click', refreshAll);
+    $('#phone-btn').addEventListener('click', () => openModal('<i class="ph-duotone ph-device-mobile"></i> Lock-screen alerts', `
+      <p>Browser notifications only work while this page is open on a desktop. iOS shows web notifications only for an installed app with a push server behind it, which a static page cannot run. So Fortuna's machine does the pushing instead:</p>
+      <ol style="padding-left:1.2rem;line-height:1.6;margin:.6rem 0">
+        <li>The scanner runs at every check-in and raises <b>warn</b> and <b>critical</b> alerts (liquidation distance, a close through a level a position depends on). Every <b>trade</b> check-in is an event too.</li>
+        <li>A small script posts each one to <a href="https://ntfy.sh" target="_blank" rel="noopener">ntfy</a>, an open-source push relay. One HTTP request, no account.</li>
+        <li>The ntfy app on a phone subscribed to the topic shows it on the lock screen.</li>
+      </ol>
+      <p><b>Follow Fortuna's alerts yourself:</b> install ntfy (iOS, Android or web), subscribe to the topic <code>fortuna-terminal-live</code>, done. Christopher's own phone uses a separate private topic; the public mirror carries the same alerts. A public topic can be posted to by anyone, so treat it as a feed, never as instructions.</p>
+      <p style="margin-top:.6rem"><a class="btn" href="PHONE-ALERTS.md">the write-up, as markdown ↗</a> <a class="btn" href="https://docs.ntfy.sh" target="_blank" rel="noopener">ntfy docs ↗</a></p>`));
+    $('#study-body').addEventListener('click', (ev) => { const f = ev.target.closest('.st-find'); if (f) f.classList.toggle('open'); });
     $('#m-close').addEventListener('click', closeModal); $('#modal').addEventListener('click', (ev) => { if (ev.target.id === 'modal') closeModal(); }); document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') closeModal(); });
     $('#pos-list').addEventListener('click', (ev) => { const c = ev.target.closest('.pos-card'); if (c) c.classList.toggle('open'); });
     $('#feed-list').addEventListener('click', (ev) => { const c = ev.target.closest('.fi'); if (c) c.classList.toggle('open'); });
