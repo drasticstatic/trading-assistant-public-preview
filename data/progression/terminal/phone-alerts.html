@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lock-screen alerts from an autonomous trading agent</title>
+<meta name="description" content="How the Fortuna Terminal reaches a phone lock screen through ntfy, and how to follow its alerts.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #070a14; --bg-2: #0b1020; --panel: rgba(255,255,255,.035); --line: rgba(255,255,255,.08); --text: #d7dce8; --muted: #8b93a7; --indigo: #818cf8; --purple: #a78bfa; --gold: #fbbf24; --green: #4ade80; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Inter, system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; font-size: 15px; }
+  main { max-width: 760px; margin: 0 auto; padding: 2.2rem 1rem 4rem; }
+  .crumb { font-size: .72rem; color: var(--muted); margin-bottom: 1.2rem; } .crumb a { color: var(--indigo); text-decoration: none; }
+  h1 { font-size: 1.6rem; line-height: 1.2; margin: 0 0 .4rem; background: linear-gradient(90deg, var(--indigo), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .sub { color: var(--muted); font-size: .9rem; margin-bottom: 1.6rem; }
+  h2 { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--purple); margin: 2rem 0 .6rem; }
+  p, li { color: var(--text); } ol, ul { padding-left: 1.3rem; }
+  code { font-family: "JetBrains Mono", monospace; font-size: .82em; background: rgba(255,255,255,.06); padding: .1em .4em; border-radius: 6px; }
+  pre { background: var(--bg-2); border: 1px solid var(--line); border-radius: 12px; padding: .9rem 1rem; overflow-x: auto; font-size: .78rem; line-height: 1.5; }
+  pre code { background: none; padding: 0; }
+  .card { border: 1px solid var(--line); border-radius: 14px; background: var(--panel); padding: 1rem 1.1rem; margin: 1rem 0; }
+  .topic { font-family: "JetBrains Mono", monospace; font-size: 1.05rem; color: var(--gold); }
+  a { color: var(--indigo); }
+  .step { display: grid; grid-template-columns: 2rem 1fr; gap: .6rem; margin: .6rem 0; } .step b { color: var(--green); font-family: "JetBrains Mono", monospace; }
+  footer { margin-top: 3rem; font-size: .72rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 1rem; }
+</style>
+</head>
+<body>
+<main>
+  <div class="crumb"><a href="index.html">← Fortuna Terminal</a> · <a href="PHONE-ALERTS.md">markdown source</a></div>
+  <h1>Lock-screen alerts from an autonomous trading agent</h1>
+  <div class="sub">How the Fortuna Terminal reaches a phone, and how to follow it yourself. Public, no secrets involved.</div>
+
+  <h2>The problem</h2>
+  <p>The terminal is a static page on GitHub Pages. Its "enable notifications" button uses the browser Notification API, which only fires while the page is open on a desktop browser. iOS shows web notifications only for a page installed to the Home Screen with a Web Push server behind it. A static page has no server, so the phone never hears from it.</p>
+
+  <h2>The fix: push from the machine that knows</h2>
+  <p>The agent that trades already runs on a Mac at every check-in. That machine knows when something matters, so it does the pushing:</p>
+  <div class="step"><b>1</b><span><strong>The scanner</strong> runs at every check-in. It raises <em>warn</em> and <em>critical</em> alerts: a position within 3% or 1.5% of liquidation, a closed hourly candle through a level a position depends on, a target reached.</span></div>
+  <div class="step"><b>2</b><span><strong>The publisher</strong> records every check-in; those marked as a <em>trade</em> are events too.</span></div>
+  <div class="step"><b>3</b><span><strong>The bridge</strong> posts each one to <a href="https://ntfy.sh" target="_blank" rel="noopener">ntfy</a>, an open-source push relay. One HTTP request with a title, a priority and a body. No account, no key.</span></div>
+  <div class="step"><b>4</b><span><strong>The ntfy app</strong> (iOS, Android, or the web app) subscribed to the topic shows the message on the lock screen.</span></div>
+<pre><code># the whole mechanism, by hand
+curl -H "Title: Fortuna" -H "Priority: high" \
+     -d "Gold short stopped at 4,011.05" https://ntfy.sh/&lt;topic&gt;</code></pre>
+
+  <h2>Follow Fortuna's alerts</h2>
+  <div class="card">
+    <p style="margin:0 0 .5rem">Install ntfy from the App Store or Play Store, or open <a href="https://ntfy.sh/app" target="_blank" rel="noopener">ntfy.sh/app</a>, then subscribe to</p>
+    <div class="topic">fortuna-terminal-live</div>
+    <p style="margin:.5rem 0 0;color:var(--muted);font-size:.85rem">Warn and critical scanner alerts and every trade check-in arrive as they happen.</p>
+  </div>
+  <p>Christopher's own phone subscribes to a separate private topic; the public one is a mirror of the same alerts. Topics are the only "secret" in ntfy: anyone who knows a topic name can read it <strong>and post to it</strong>, so treat a public topic as a feed and never as instructions. The private topic name lives in a local file the agent never prints or logs.</p>
+
+  <h2>Setting up your own private channel</h2>
+<pre><code># 1. invent a long random topic name and subscribe to it in the ntfy app
+# 2. store it where the bridge reads it (never committed, never logged)
+mkdir -p ~/.config/fortuna
+printf '%s' 'your-long-random-topic' &gt; ~/.config/fortuna/ntfy_topic
+chmod 600 ~/.config/fortuna/ntfy_topic
+# 3. test
+python3 -I scripts/fortuna-terminal/notify.py --title "Fortuna" --msg "lock screen test" --pri high</code></pre>
+  <p>The bridge stays silent when no topic is configured, so every script can call it unconditionally. Self-hosting ntfy is also an option if the public relay is not wanted; set <code>FORTUNA_NTFY_SERVER</code> to your server.</p>
+
+  <h2>Why not Telegram, Pushover, or a PWA</h2>
+  <p>They all work. ntfy was chosen because it needs no account, no bot token and no server, which keeps this write-up honest: everything above can be reproduced from scratch in five minutes. A Telegram bot is on the roadmap for two-way control; a push relay is deliberately one-way.</p>
+
+  <footer>Part of the <a href="index.html">Fortuna Terminal</a> · the Trading Assistant's live-operations page · built with 💜 alongside Claude.</footer>
+</main>
+</body>
+</html>
