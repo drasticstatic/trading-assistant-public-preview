@@ -1,6 +1,6 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-25T22:05-04:00",
+ "generated": "2026-10-25T22:19-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
@@ -36,11 +36,11 @@
    "ends": "2026-10-31T12:00-04:00",
    "start": 100000,
    "handoff": 100004.31,
-   "equity": 101091.28,
-   "balance": 101091.28,
-   "upnl": 0,
-   "open_positions": 0,
-   "working_orders": 1,
+   "equity": 101225.54,
+   "balance": 101078.64,
+   "upnl": 146.9,
+   "open_positions": 1,
+   "working_orders": 2,
    "firm_limits": "No profit target, daily loss limit or drawdown (ranked by equity). Fees, slippage, liquidation and leverage caps still apply.",
    "self_limits": {
     "dll_pct": 3,
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-25T22:05-04:00"
+   "asof": "2026-10-25T22:19-04:00"
   },
   {
    "key": "elite5k",
@@ -161,12 +161,12 @@
    "entry": 4003,
    "stop": 4011,
    "tp": 3979,
-   "liq": null,
-   "live": false,
+   "liq": 4343.26,
+   "live": true,
    "public": true,
-   "plan": "RESTING limit short at the translated Friday high · stop 4,011 · TP 3,979 (3R) · BE at +1R, half at 2R · expires 00:02 ET if unfilled",
-   "note": "failed-breakout retest · 0.5% risk (thin Sunday book)",
-   "asof": "2026-10-25T22:04-04:00"
+   "plan": "FILLED 22:05 ET at 4,003 (maker) · stop 4,011 · TP 3,979 (3R) · BE on a closed 1H ≤ 3,995 · half off at 3,987 · runner to target · reassess Mon 08:00 ET if still open",
+   "note": "failed-breakout retest · 0.5% risk · 10× isolated",
+   "asof": "2026-10-25T22:20-04:00"
   }
  ],
  "watchlist": [
@@ -369,6 +369,18 @@
    "note": "Gold failed breakout confirmed on the 22:00 close (21:15 wick to the Friday high, 15m and 1H closes back under 3,996 feed). First competition order since handoff: a resting LIMIT SHORT at the MFP-translated Friday high (4,003) with attached stop 4,011 and target 3,979 (3R), risk cut to 0.5% for the thin Sunday-night book and a silver SMT that did not diverge; expires 00:02 ET if untouched. BTC is pressing the Elite long zone (0.4 ATR above) — one-shot at 23:01.",
    "action": "trade",
    "at": "2026-10-25T22:05-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 101225.54,
+   "balance": 101078.64,
+   "upnl": 146.9,
+   "open_positions": 1,
+   "working_orders": 2,
+   "status": "ok",
+   "note": "Gold limit short FILLED at 4,003 (maker) two minutes after resting; server-side stop 4,011 and target 3,979 verified in the working-orders list. Management: stop to breakeven on a closed 1H candle at or below 3,995 (+1R), half off at 3,987 (2R), runner to 3,979. Christopher is watching it live too.",
+   "action": "trade",
+   "at": "2026-10-25T22:19-04:00"
   }
  ],
  "ledger": [
