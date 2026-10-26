@@ -61,3 +61,44 @@
 
   root.AutoLevels = {compute, confluence, TICKS};
 })(typeof window !== 'undefined' ? window : globalThis);
+
+/* ── The rest of the indicator: FCR rail, 4/5 session rails, FVG zones, pattern labels (P, R, B, SFP, BRK/RT, 1-2-3) and ATR bands.
+ *    Same thresholds as the Pine inputs. Session items read 15-minute bars in New York time; FVGs and patterns read the chart's own bars
+ *    and are gated, like the indicator, to candles within 20 ticks of a KEY or 5/5 level (3/5 at 15 ticks when asked). */
+(function (root) {
+  const A = root.AutoLevels; if (!A) return;
+  const P = {rejWick: 60, rejBody: 30, bounceWick: 50, bounceBody: 40, sfpTicks: 25, brkTicks: 5, brkBody: 30, pauseBody123: 50, oneWick123: 30, proxKey55: 20, prox35: 15, atrBand: 0.04};
+  const nyParts = (t) => { const p = new Intl.DateTimeFormat('en-US', {timeZone: 'America/New_York', hour12: false, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit'}).formatToParts(new Date(t)); const g = (k) => p.find(x => x.type === k).value; return {day: `${g('year')}-${g('month')}-${g('day')}`, h: +g('hour') % 24, m: +g('minute')}; };
+
+  function sessions(m15, days = 3) {  // FCR (09:30 15m high/low) and the 4/5 rails per NY day, newest first
+    const byDay = {}; m15.forEach(b => { const q = nyParts(b.t); const d = byDay[q.day] || (byDay[q.day] = {day: q.day}); const hm = q.h * 100 + q.m;
+      if (hm === 930) { d.fcr = {high: b.h, low: b.l, t: b.t}; d.open930 = {price: b.o, t: b.t}; }
+      if (hm === 1545) d.close1600 = {price: b.c, t: b.t}; if (hm === 1645) d.close1700 = {price: b.c, t: b.t}; if (hm === 1800) d.open1800 = {price: b.o, t: b.t}; });
+    return Object.values(byDay).sort((a, b) => b.day.localeCompare(a.day)).filter(d => d.fcr || d.open930 || d.close1600 || d.open1800).slice(0, days);
+  }
+
+  function fvgs(bars, minTicks = 0, tick = 0) { const out = []; const min = minTicks * tick; for (let i = 2; i < bars.length; i++) { const b = bars[i], p2 = bars[i - 2]; if (b.l > p2.h && (!min || b.l - p2.h >= min)) out.push({dir: 'bull', top: b.l, bot: p2.h, mid: (b.l + p2.h) / 2, i, t: bars[i - 2].t}); if (b.h < p2.l && (!min || p2.l - b.h >= min)) out.push({dir: 'bear', top: p2.l, bot: b.h, mid: (p2.l + b.h) / 2, i, t: bars[i - 2].t}); } return out; }
+
+  function patterns(bars, levels, tick, opts) {
+    opts = opts || {}; const key55 = levels.filter(x => x.type === 'KEY' || x.type === '5/5').map(x => x.price); const l35 = opts.include35 ? levels.filter(x => x.type === '3/5').map(x => x.price) : [];
+    const near = (p) => key55.some(v => Math.abs(p - v) <= P.proxKey55 * tick) || l35.some(v => Math.abs(p - v) <= P.prox35 * tick);
+    const out = []; const breaks = [];
+    for (let i = 3; i < bars.length; i++) { const b = bars[i], b1 = bars[i - 1], b2 = bars[i - 2], b3 = bars[i - 3]; const rng = b.h - b.l, body = Math.abs(b.c - b.o), uw = b.h - Math.max(b.c, b.o), lw = Math.min(b.c, b.o) - b.l; const hi = [], lo = [];
+      if (rng > 0 && uw > rng * P.rejWick / 100 && body < rng * P.rejBody / 100 && near(b.h)) hi.push('R');
+      if (rng > 0 && lw > rng * P.bounceWick / 100 && body < rng * P.bounceBody / 100 && b.c > b.o && near(b.l)) lo.push('B');
+      if (b1.h > b2.h && b1.h > b.h && near(b1.h)) out.push({i: i - 1, t: b1.t, side: 'high', price: b1.h, tags: ['P']});
+      if (b1.l < b2.l && b1.l < b.l && near(b1.l)) out.push({i: i - 1, t: b1.t, side: 'low', price: b1.l, tags: ['P']});
+      const pierce = P.sfpTicks * tick; key55.concat(l35).forEach(lp => { if (b.h > lp + pierce && b.c < lp && b.o < lp) hi.push('SFP'); if (b.l < lp - pierce && b.c > lp && b.o > lp) lo.push('SFP'); });
+      key55.forEach(lp => { const minP = P.brkTicks * tick, minB = rng * P.brkBody / 100; if (b.o > lp && b.c < lp && lp - b.c >= minP && body >= minB) { hi.push('BRK'); breaks.push({lp, dir: -1, i, rt: false}); } if (b.o < lp && b.c > lp && b.c - lp >= minP && body >= minB) { lo.push('BRK'); breaks.push({lp, dir: 1, i, rt: false}); } });
+      breaks.forEach(k => { if (k.rt || k.i >= i) return; const tol = Math.max(k.lp * 0.002, tick * 10); if (k.dir === -1 && b.h >= k.lp - tol && b.c < k.lp) { hi.push('RT'); k.rt = true; } if (k.dir === 1 && b.l <= k.lp + tol && b.c > k.lp) { lo.push('RT'); k.rt = true; } });
+      const r1 = b1.h - b1.l, bd1 = Math.abs(b1.c - b1.o), pauseOk = r1 === 0 || bd1 <= r1 * P.pauseBody123 / 100; const r2 = b2.h - b2.l, lw2 = Math.min(b2.c, b2.o) - b2.l, uw2 = b2.h - Math.max(b2.c, b2.o);
+      if (b2.h > b3.h && b2.h > b1.h && b1.h < b2.h && b.h < b1.h && pauseOk && b2.c < b2.o && (r2 === 0 || lw2 <= r2 * P.oneWick123 / 100) && near(b2.h)) hi.push('1-2-3');
+      if (b2.l < b3.l && b2.l < b1.l && b1.l > b2.l && b.l > b1.l && pauseOk && b2.c > b2.o && (r2 === 0 || uw2 <= r2 * P.oneWick123 / 100) && near(b2.l)) lo.push('1-2-3');
+      if (hi.length) out.push({i, t: b.t, side: 'high', price: b.h, tags: [...new Set(hi)]}); if (lo.length) out.push({i, t: b.t, side: 'low', price: b.l, tags: [...new Set(lo)]}); }
+    return out;
+  }
+
+  function atrBands(levels, atr14, mult = P.atrBand) { return levels.map(x => ({price: x.price, type: x.type, lo: x.price - atr14 * mult, hi: x.price + atr14 * mult})); }
+
+  Object.assign(A, {sessions, fvgs, patterns, atrBands, PARAMS: P});
+})(typeof window !== 'undefined' ? window : globalThis);
