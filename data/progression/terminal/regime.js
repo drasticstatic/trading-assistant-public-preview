@@ -52,7 +52,12 @@
     return {label, dir, rising, ...a};
   }
 
-  function read(cs, opts) { opts = opts || {}; return {regime: regime(cs), align: alignment(cs), impulse: impulse(cs), rangePct: rangePct(cs, opts.rangeBars || 24)}; }
+  function rsi(cs, n = 14) { const c = cs.map(x => x.c); if (c.length < n + 2) return []; const g = [NaN], l = [NaN]; for (let i = 1; i < c.length; i++) { const d = c[i] - c[i - 1]; g.push(Math.max(d, 0)); l.push(Math.max(-d, 0)); } const ag = rma(g, n), al = rma(l, n); return c.map((_, i) => (Number.isNaN(ag[i]) || Number.isNaN(al[i])) ? NaN : al[i] === 0 ? 100 : 100 - 100 / (1 + ag[i] / al[i])); }
+  function rsiCloud(cs, n = 14, fast = 9, slow = 21) { const r = rsi(cs, n); if (!r.length) return null; const v = r.filter(x => !Number.isNaN(x)); if (v.length < slow + 1) return null; const ef = ema(v, fast), es = ema(v, slow); const i = v.length - 1; return {rsi: r2(v[i]), fast: r2(ef[i]), slow: r2(es[i]), above: v[i] > ef[i] && ef[i] > es[i], below: v[i] < ef[i] && ef[i] < es[i]}; }
+  const r2 = (x) => r(x, 2);
+  function dualAdx(cs, a = 14, b = 28, threshold = 20) { const x = adx(cs, a), y = adx(cs, b); return {fast: x.adx, slow: y.adx, lenFast: a, lenSlow: b, threshold, fastAbove: x.adx != null && x.adx >= threshold, slowAbove: y.adx != null && y.adx >= threshold, dir: x.diPlus != null ? (x.diPlus > x.diMinus ? 'up' : 'down') : null}; }
+  function strengthVs(cs, ref, bars = 24) { if (!ref || cs.length < bars + 1 || ref.length < bars + 1) return null; const a = cs[cs.length - 1].c / cs[cs.length - 1 - bars].c - 1, b = ref[ref.length - 1].c / ref[ref.length - 1 - bars].c - 1; return {market: r(a * 100, 2), ref: r(b * 100, 2), diff: r((a - b) * 100, 2), bars}; }
+  function read(cs, opts) { opts = opts || {}; return {regime: regime(cs), align: alignment(cs), impulse: impulse(cs), rangePct: rangePct(cs, opts.rangeBars || 24), rsi: rsiCloud(cs), adx2: dualAdx(cs), strength: opts.ref ? strengthVs(cs, opts.ref, opts.strengthBars || 24) : null}; }
 
-  root.Regime = {adx, alignment, impulse, rangePct, regime, read, swings, RATIOS};
+  root.Regime = {adx, alignment, impulse, rangePct, regime, read, swings, rsi, rsiCloud, dualAdx, strengthVs, RATIOS};
 })(typeof window !== 'undefined' ? window : globalThis);
