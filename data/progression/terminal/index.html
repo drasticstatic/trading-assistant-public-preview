@@ -86,7 +86,9 @@
     .stack { display: grid; gap: 1rem; }
     .panel { border: 1px solid var(--line); border-radius: var(--r-lg); background: rgba(12,17,34,.72); overflow: hidden; }
     #chart.full { position: fixed; inset: 12px; z-index: 160; background: var(--bg-2); box-shadow: 0 40px 120px rgba(0,0,0,.7); display: flex; flex-direction: column; }
-    #chart.full .chart-wrap { flex: 1; min-height: 0; } #chart.full .chart-wrap svg { height: 100%; }
+    #chart.full .chart-wrap { flex: 1; min-height: 0; } #chart.full .chart-wrap svg, #chart.full .chart-wrap #lwc { height: 100%; }
+    #lwc { width: 100%; height: 420px; } @media (max-width: 760px) { #lwc { height: 300px; } } #lwc[hidden] { display: none; }
+    .chart-wrap svg[hidden] { display: none; }
     body.chart-open::after { content: ''; position: fixed; inset: 0; background: rgba(4,6,14,.7); z-index: 150; }
     .dd { position: relative; } .dd-menu { position: absolute; right: 0; top: calc(100% + 6px); z-index: 50; min-width: 130px; background: var(--bg-2); border: 1px solid var(--line-2); border-radius: 12px; padding: .3rem; box-shadow: 0 18px 50px rgba(0,0,0,.55); display: grid; gap: .1rem; }
     .dd-menu[hidden] { display: none; }
@@ -336,7 +338,7 @@
         <section class="panel" id="chart">
           <div class="ph"><i class="ph-duotone ph-chart-line"></i> <span id="chart-title">Chart</span> <span class="sub" id="chart-sub"></span><span class="sp"></span>
             <div class="dd" id="iv-dd"><button class="btn on" id="iv-btn" type="button" aria-haspopup="menu">1H ▾</button><div class="dd-menu" id="iv-menu" hidden role="menu"><button data-iv="5m">5 min</button><button data-iv="15m">15 min</button><button data-iv="1h" class="on">1 hour</button><button data-iv="4h">4 hours</button><button data-iv="1d">Daily</button></div></div>
-            <div class="ctl" id="view-ctl"><button class="btn on" id="y-auto" type="button" title="auto-scale the price axis to the visible candles">auto</button><button class="btn on" id="x-follow" type="button" title="keep the latest candle on the right edge">follow</button><button class="btn" id="fit" type="button" title="snap to fit (or double-click the chart)"><i class="ph-duotone ph-arrows-in-line-horizontal"></i> fit</button><button class="btn" id="mode" type="button" title="candles ↔ line / area">line</button><div class="dd" id="ov-dd"><button class="btn on" id="ov-btn" type="button" aria-haspopup="menu"><i class="ph-duotone ph-stack"></i> overlays ▾</button><div class="dd-menu ov-menu" id="ov-menu" hidden role="menu">
+            <div class="ctl" id="view-ctl"><button class="btn on" id="y-auto" type="button" title="auto-scale the price axis to the visible candles">auto</button><button class="btn on" id="x-follow" type="button" title="keep the latest candle on the right edge">follow</button><button class="btn" id="fit" type="button" title="snap to fit (or double-click the chart)"><i class="ph-duotone ph-arrows-in-line-horizontal"></i> fit</button><button class="btn" id="engine" type="button" title="chart engine: Fortuna's SVG renderer or TradingView's Lightweight Charts">SVG</button><button class="btn" id="mode" type="button" title="candles ↔ line / area">line</button><div class="dd" id="ov-dd"><button class="btn on" id="ov-btn" type="button" aria-haspopup="menu"><i class="ph-duotone ph-stack"></i> overlays ▾</button><div class="dd-menu ov-menu" id="ov-menu" hidden role="menu">
                 <label><input type="checkbox" data-ov="zth" checked> Auto Levels <small>KEY · 5/5 · 3/5 · ghost</small></label>
                 <label><input type="checkbox" data-ov="rails"> Session rails <small>FCR 9:30 · 4/5 opens and closes</small></label>
                 <label><input type="checkbox" data-ov="fvg"> Fair value gaps <small>3-candle gaps on this timeframe</small></label>
@@ -346,7 +348,7 @@
                 <label><input type="checkbox" data-ov="vol" checked> Volume <small>histogram + profile</small></label>
               </div></div><button class="btn" id="zth" type="button" hidden></button><button class="btn" id="fibs" type="button" hidden></button><button class="btn" id="vol" type="button" hidden></button><button class="btn" id="chart-full" type="button" title="open the chart in a lightbox (Esc closes)"><i class="ph-duotone ph-arrows-out-simple"></i> expand</button></div>
           </div>
-          <div class="chart-wrap"><svg id="csvg" role="img" aria-label="Live candles with Fortuna's levels"></svg></div>
+          <div class="chart-wrap"><svg id="csvg" role="img" aria-label="Live candles with Fortuna's levels"></svg><div id="lwc" hidden></div></div>
           <div class="ohlc" id="ohlc"></div>
           <div class="lg"><span><i style="background:var(--cyan)"></i>EMA 20</span><span><i style="background:var(--purple)"></i>EMA 50</span><span><i style="background:var(--pink)"></i>EMA 200</span><span><i style="background:var(--gold)"></i>armed zone</span><span><i style="background:var(--blue)"></i>PDH / PDL</span><span><i style="background:var(--muted)"></i>midnight · week open</span><span><i style="background:var(--green)"></i>position entry / target</span><span><i style="background:var(--red)"></i>stop / liquidation</span><span><i style="background:var(--cyan);height:3px"></i>Auto Levels KEY · 5/5 · 3/5 · <span style="color:#a78bfa">ghost</span> <button class="cta" id="zth-how" type="button" title="how these levels are found"><i class="ph-duotone ph-question"></i> how</button></span><span><i style="background:var(--gold);height:1px"></i>fibs of the last impulse</span><span><i style="background:#4ade80;height:2px"></i>FCR ▲ / <i style="background:#f87171;height:2px"></i>▼ 9:30 rail · <i style="background:#089981;height:1px"></i>4/5 session rails</span><span><i style="background:rgba(74,222,128,.5)"></i>fair value gaps</span><span style="color:#9b59b6">BRK/RT</span> <span style="color:#e74c3c">R</span> <span style="color:#2ecc71">B</span> <span style="color:#ff6b6b">SFP</span> <span style="color:#f39c12">1-2-3</span> <span style="color:#00bcd4">P</span><span class="chint">scroll to zoom · drag to pan · drag an axis to scale · double-click to fit · tape: drag or scroll</span></div>
         </section>
@@ -372,7 +374,7 @@
 
     <footer>
       <span><b style="background:linear-gradient(90deg,var(--indigo),var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent">⚡ Fortuna Terminal</b> · the Trading Assistant's live-operations page · <span id="scope-foot"></span></span>
-      <span>Founded by <a href="https://github.com/drasticstatic">@drasticstatic</a> · built with 💜 alongside Claude · <a id="repo-link" href="#">source</a> · <a id="story-link" href="#">Fortuna's story</a></span>
+      <span>Founded by <a href="https://github.com/drasticstatic">@drasticstatic</a> · built with 💜 alongside Claude · <a id="repo-link" href="#">source</a> · <a id="story-link" href="#">Fortuna's story</a> · chart engine option: <a href="https://github.com/tradingview/lightweight-charts" target="_blank" rel="noopener">TradingView Lightweight Charts</a> (Apache-2.0), primitives pattern after <a href="https://www.part-timequant.com/tradingview" target="_blank" rel="noopener">Lewis Jackson's quant-terminal</a> (MIT)</span>
     </footer>
   </main>
 
@@ -381,6 +383,8 @@
 <script src="autolevels.js"></script>
 <script src="regime.js"></script>
 <script src="calc.js"></script>
+<script src="vendor/lightweight-charts.standalone.production.js"></script>
+<script src="lwchart.js"></script>
 <script>
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
@@ -536,7 +540,30 @@
   const IV_H = {'5m': 1 / 12, '15m': 0.25, '1h': 1, '4h': 4, '1d': 24};
   const IV_LABEL = {'5m': '5m', '15m': '15m', '1h': '1H', '4h': '4H', '1d': 'D'};
   const VIEW_N = () => ({'5m': 120, '15m': 120, '1h': 100, '4h': 120, '1d': 120})[cur.iv] || 120;
-  const view = {n: 150, end: null, follow: true, yauto: true, ylo: null, yhi: null, mode: 'candles', vol: true, zth: true, fibs: false, rails: false, fvg: false, marks: false, bands: false};
+  const view = {n: 150, end: null, follow: true, yauto: true, ylo: null, yhi: null, mode: 'candles', vol: true, zth: true, fibs: false, rails: false, fvg: false, marks: false, bands: false, engine: 'svg'};
+  try { view.engine = localStorage.getItem('fortuna-engine') === 'lw' && window.LWEngine ? 'lw' : 'svg'; } catch (e) {}
+  let LWC = null;  // the Lightweight Charts adapter, created on first use
+  function ensureLW() { if (LWC || !window.LWEngine) return LWC; LWC = LWEngine.create($('#lwc'), cur.iv); LWC.onCrosshair(c => { if (c) showOHLC(c); else if (cur.geo || cur.candles) showOHLC(cur.candles[cur.candles.length - 1]); }); return LWC; }
+  function drawLW() {
+    const l = lv(cur.market); const all = cur.candles || []; if (!all.length || !l) return; const E = ensureLW(); if (!E) return;
+    E.setInterval(cur.iv); E.setBars(all, view.mode); const closes = all.map(c => c.c); E.setEMAs([EMA(closes, 20), EMA(closes, 50), all.length >= 200 ? EMA(closes, 200) : null], all); E.setVolume(view.vol);
+    E.clearLines(); const o = off(cur.market); const toFeed = (v) => v == null ? null : v - o; const LS = LWEngine.LineStyle;
+    [[l.pdh, 'PDH', '#60a5fa'], [l.pdl, 'PDL', '#60a5fa'], [l.midnight_open, 'midnight', '#8b93a7'], [l.week_open, 'week open', '#8b93a7']].forEach(([v, t, c]) => { if (v != null) E.priceLine(v, c, t, LS.Dashed, 1); });
+    S.positions.filter(p => (SYM[p.symbol] || p.symbol) === cur.market).forEach(p => { [[p.entry, (p.side === 'short' ? 'short' : 'long') + ' ' + p.venue, '#4ade80', LS.Solid], [p.tp, 'target', '#4ade80', LS.Dashed], [p.stop, 'stop', '#f87171', LS.Solid], [p.liq, 'liq', '#f87171', LS.Dotted]].forEach(([v, t, c, st]) => { if (v != null) E.priceLine(v, c, t, st, 1); }); });
+    const boxes = [], rays = [], marks = [];
+    S.watchlist.filter(w => w.market === cur.market && w.zone_lo != null).forEach(w => boxes.push({p0: toFeed(w.zone_lo), p1: toFeed(w.zone_hi), fill: 'rgba(251,191,36,.12)', stroke: 'rgba(251,191,36,.5)', dash: [3, 3], label: `${w.direction} zone · ${w.status}`}));
+    const hz = H1[cur.market]; if (view.zth && hz && hz.levels.length && cur.iv !== '4h' && cur.iv !== '1d') hz.levels.forEach(z => { const st = {KEY: ['#22d3ee', 2.4, [], 1], '5/5': ['#22d3ee', 1, [], .85], '3/5': ['#22d3ee', 1, [2, 3], .6], ghost: ['#a78bfa', 1, [2, 3], Math.max(.15, .45 * (1 - z.tags * .25))]}[z.type]; rays.push({t0: z.born / 1000, price: z.price, color: st[0], width: st[1], dash: st[2], alpha: st[3], label: z.type, labelPos: 'right'}); });
+    if (view.bands && hz && l.atr_1h) AutoLevels.atrBands(hz.levels.filter(z => z.type !== 'ghost'), l.atr_1h).forEach(b => boxes.push({p0: b.lo, p1: b.hi, fill: 'rgba(34,211,238,.06)'}));
+    const closed = all[all.length - 1].t + IV_H[cur.iv] * 36e5 > Date.now() ? all.slice(0, -1) : all;
+    if (view.fibs && window.Regime) { const imp = Regime.impulse(closed); if (imp) Object.entries(imp.fibs).forEach(([q, v]) => rays.push({t0: imp.startT / 1000, price: v, color: '#fbbf24', width: q === '0.618' || q === '0.5' || q === '0.705' ? 1.2 : .8, dash: +q > 1 ? [2, 4] : [], alpha: .9, label: q + ' · ' + px(v)})); }
+    const hs = M15[cur.market]; if (view.rails && hs && hs.sessions.length && IV_H[cur.iv] <= 1) hs.sessions.forEach((d, k) => { const a = k === 0 ? 1 : k === 1 ? .55 : .35; const dash = k === 0 ? [] : [5, 4]; if (d.fcr) { rays.push({t0: d.fcr.t / 1000, price: d.fcr.high, color: '#4ade80', width: k === 0 ? 2 : 1, dash, alpha: a, label: 'FCR ▲ ' + d.day.slice(5)}); rays.push({t0: d.fcr.t / 1000, price: d.fcr.low, color: '#f87171', width: k === 0 ? 2 : 1, dash, alpha: a, label: 'FCR ▼ ' + d.day.slice(5)}); } [[d.open930, '4/5 9:30 open'], [d.close1600, '4/5 16:00 close'], [d.close1700, '4/5 17:00 close'], [d.open1800, '4/5 18:00 open']].forEach(([s, t]) => { if (s) rays.push({t0: s.t / 1000, price: s.price, color: k === 0 ? '#089981' : '#22d3ee', width: 1, dash: [4, 3], alpha: a * .8, label: t + (k ? ' · ' + d.day.slice(5) : ''), labelPos: 'right'}); }); });
+    if (view.fvg && window.AutoLevels) AutoLevels.fvgs(closed, 0, 0).slice(-40).forEach(f => { const t1 = closed[Math.min(closed.length - 1, f.i + 5)]; boxes.push({t0: f.t / 1000, t1: t1 ? t1.t / 1000 : null, p0: f.bot, p1: f.top, fill: f.dir === 'bull' ? 'rgba(74,222,128,.14)' : 'rgba(248,113,113,.14)'}); });
+    if (view.marks && window.AutoLevels && hz) { const tick = AutoLevels.TICKS[cur.market] || Math.max(1e-6, closed[closed.length - 1].c * 1e-5); AutoLevels.patterns(closed, hz.levels, tick).forEach(p => marks.push({t: p.t / 1000, price: p.price, side: p.side, text: p.tags.join('·'), color: p.tags.includes('BRK') || p.tags.includes('RT') ? '#9b59b6' : p.tags.includes('R') ? '#e74c3c' : p.tags.includes('B') ? '#2ecc71' : p.tags.includes('SFP') ? '#ff6b6b' : p.tags.includes('1-2-3') ? '#f39c12' : '#00bcd4'})); }
+    E.setOverlays({boxes, rays, marks});
+    $('#chart-title').textContent = `${cur.market} · ${l.feed}`; $('#chart-sub').textContent = l.src ? `${cur.iv.toUpperCase()} · ${esc(l.note || '')}` : `${cur.iv.toUpperCase()} · ${o ? 'MFP ≈ feed + ' + px(o) : 'no venue offset'} · ${l.bias_1h} 1H / ${l.bias_4h} 4H · ATR 1H ${px(l.atr_1h)} · TradingView engine`;
+    showOHLC(all[all.length - 1]);
+  }
+  function applyEngine() { const lw = view.engine === 'lw' && window.LWEngine; $('#csvg').style.display = lw ? 'none' : ''; $('#lwc').hidden = !lw; $('#engine').textContent = lw ? 'TradingView' : 'SVG'; $('#engine').classList.toggle('on', !!lw); try { localStorage.setItem('fortuna-engine', lw ? 'lw' : 'svg'); } catch (e) {} if (cur.candles) drawChart(); }
   const M15 = {};  // 15-minute cache per market for the session rails
   async function loadM15(mk) { const l = lv(mk); if (!l) return null; const c = M15[mk]; if (c && Date.now() - c.at < 120000) return c; let rows = null;
     if (l.candles) rows = aggC(l.candles, 9e5); else { try { const now = Date.now(); const r = await post({type: 'candleSnapshot', req: {coin: l.feed, interval: '15m', startTime: now - 5 * 864e5, endTime: now}}); rows = r.map(x => ({t: x.t, o: +x.o, h: +x.h, l: +x.l, c: +x.c})); } catch (e) { return null; } }
@@ -568,6 +595,7 @@
     catch (e) { $('#csvg').innerHTML = `<text x="20" y="40" class="cx">live candles unavailable (${esc(e.message)})</text>`; }
   }
   function drawChart() {
+    if (view.engine === 'lw' && window.LWEngine) return drawLW();
     const l = lv(cur.market); const all = cur.candles || []; if (!all.length || !l) return;
     view.n = Math.max(12, Math.min(view.n, all.length));
     const SLACK = Math.floor(view.n * .45);  // empty room to the right of the last candle, like a trading platform
@@ -661,11 +689,12 @@
       else { const before = view.n; view.n = Math.round(view.n * f); if (!view.follow) { const frac = Math.max(0, Math.min(1, (p.x - G.m.l) / G.iw)); view.end = Math.round(view.end - (before - view.n) * (1 - frac)); } }
       syncChartBtns(); drawChart(); }, {passive: false});
     svg.addEventListener('dblclick', () => { resetView(); drawChart(); });
-    $('#fit').addEventListener('click', () => { resetView(); drawChart(); });
+    $('#fit').addEventListener('click', () => { resetView(); drawChart(); if (view.engine === 'lw' && LWC) LWC.fit(); });
     $('#y-auto').addEventListener('click', () => { view.yauto = !view.yauto; syncChartBtns(); drawChart(); });
-    $('#x-follow').addEventListener('click', () => { view.follow = !view.follow; if (view.follow) view.end = null; syncChartBtns(); drawChart(); });
+    $('#x-follow').addEventListener('click', () => { view.follow = !view.follow; if (view.follow) view.end = null; syncChartBtns(); drawChart(); if (view.follow && view.engine === 'lw' && LWC) LWC.scrollToEnd(); });
     $('#mode').addEventListener('click', () => { view.mode = view.mode === 'line' ? 'candles' : 'line'; syncChartBtns(); drawChart(); });
 
+    $('#engine').addEventListener('click', () => { view.engine = view.engine === 'lw' ? 'svg' : 'lw'; applyEngine(); }); applyEngine();
     $('#ov-btn').addEventListener('click', (ev) => { ev.stopPropagation(); $('#ov-menu').hidden = !$('#ov-menu').hidden; });
     $('#ov-menu').addEventListener('click', (ev) => ev.stopPropagation()); document.addEventListener('click', () => { $('#ov-menu').hidden = true; });
     $('#ov-menu').querySelectorAll('[data-ov]').forEach(cb => cb.addEventListener('change', () => { view[cb.dataset.ov] = cb.checked; if (cb.dataset.ov === 'rails' && cb.checked) loadM15(cur.market).then(() => drawChart()); drawChart(); }));
