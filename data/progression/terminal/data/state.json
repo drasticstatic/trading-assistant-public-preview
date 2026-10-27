@@ -1,6 +1,6 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-26T20:17-04:00",
+ "generated": "2026-10-26T20:32-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-26T20:17-04:00"
+   "asof": "2026-10-26T20:32-04:00"
   },
   {
    "key": "elite5k",
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-26T20:17-04:00"
+   "asof": "2026-10-26T20:32-04:00"
   },
   {
    "key": "select1k",
@@ -113,7 +113,7 @@
    },
    "markets": "Whatever the Elite trades, at 0.6×.",
    "note": "Prize account from MFP. The 0.6× multiplier aligns its 3% floor with the Elite's 5%.",
-   "asof": "2026-10-26T20:17-04:00"
+   "asof": "2026-10-26T20:32-04:00"
   }
  ],
  "positions": [
@@ -520,6 +520,18 @@
    "note": "Christopher lifted the three-loss breaker this evening: competition entries are allowed again with gold on A-grade only. Monday evening read: gold sits inside its short zone with silver holding but no reclaim candle, crude is pressing its long reclaim zone 0.3 ATR away with Brent steady, BTC and ETH 1.7 to 2.3 ATR above the Elite long zones. One-shot read after the 20:30 close.",
    "action": "one-shot 20:31",
    "at": "2026-10-26T20:17-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 100027.98,
+   "balance": 100027.98,
+   "upnl": 0,
+   "open_positions": 0,
+   "working_orders": 0,
+   "status": "ok",
+   "note": "20:30 close: gold spiked to 4,022 on the 20:00 candle and closed back inside its short zone with silver confirming, but the nearest strong Auto Level sits outside the zone, so the read is below the A-grade gold now requires; no trade. Crude held above its reclaim zone without a sweep, Brent printing a lower low. Both still pressing; one more read after the 20:45 close.",
+   "action": "one-shot 20:46",
+   "at": "2026-10-26T20:32-04:00"
   }
  ],
  "ledger": [
