@@ -1,14 +1,14 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-27T04:35-04:00",
+ "generated": "2026-10-27T10:34-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
   "cadence": "Weekend swing cadence: a check-in every 2 hours, plus one-shot checks one minute after a candle close when price presses an armed zone. Weekday cadence: every 30 minutes."
  },
  "offsets": {
-  "Gold": 6.8,
-  "Crude": 0.17
+  "Gold": 7.5,
+  "Crude": 0.15
  },
  "links": {
   "gallery": "../gallery.html",
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-27T04:35-04:00"
+   "asof": "2026-10-27T10:34-04:00"
   },
   {
    "key": "elite5k",
@@ -64,16 +64,16 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 4990.65,
-   "balance": 4999.68,
-   "upnl": -9.02,
+   "equity": 4990.3,
+   "balance": 4999.67,
+   "upnl": -9.37,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 149.26,
-   "mdd_room": 240.65,
+   "dll_room": 148.9,
+   "mdd_room": 240.3,
    "mdd_floor": 4750,
    "target_equity": 5500,
-   "remaining_profit": 500.32,
+   "remaining_profit": 500.33,
    "firm_limits": "3% daily loss ($150 from the day's start), 5% static max drawdown (floor $4,750), 10% profit target ($5,500). Leads the Select 1K in a native copy group at 0.6×.",
    "self_limits": {
     "risk": "0.25% ($12.50) per trade · 0.5% for A+",
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-27T04:35-04:00"
+   "asof": "2026-10-27T10:34-04:00"
   },
   {
    "key": "select1k",
@@ -97,13 +97,13 @@
    "trader": "Follower",
    "status": "active",
    "start": 1000,
-   "equity": 999.14,
+   "equity": 999.1,
    "balance": 999.97,
-   "upnl": -0.83,
+   "upnl": -0.87,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 29.93,
-   "mdd_room": 29.14,
+   "dll_room": 29.9,
+   "mdd_room": 29.1,
    "mdd_floor": 970,
    "target_equity": 1090,
    "remaining_profit": 90.03,
@@ -113,7 +113,7 @@
    },
    "markets": "Whatever the Elite trades, at 0.6×.",
    "note": "Prize account from MFP. The 0.6× multiplier aligns its 3% floor with the Elite's 5%.",
-   "asof": "2026-10-27T04:35-04:00"
+   "asof": "2026-10-27T10:34-04:00"
   }
  ],
  "positions": [
@@ -640,6 +640,18 @@
    "note": "04:33 read, watchlist refreshed for London: crude ran to 102.3 without ever sweeping its low, so the reclaim long never triggered and the zone becomes a retest of the 5/5 cluster it left behind. Gold flipped to a long-reclaim read at its daily low with silver already broken and gold holding (bullish SMT) and a KEY level inside the zone; under the A-only rule it needs the higher-timeframe bias to turn too, so it is published as a read. BTC 0.9 ATR above the Elite zone. No trade.",
    "action": "none",
    "at": "2026-10-27T04:35-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 100027.98,
+   "balance": 100027.98,
+   "upnl": 0,
+   "open_positions": 0,
+   "working_orders": 0,
+   "status": "ok",
+   "note": "06:33 London read: gold is inside its long-reclaim zone at the daily low with silver already broken and gold holding, but no sweep-and-close yet and the higher timeframes are still bearish, so under the A-only rule it stays a read. BTC is pressing the Elite long zone 0.4 ATR away with ETH and SOL weaker (SOL closed an hour below its daily low, a note for the open SOL long, still well above its liquidation). Crude 1.8 ATR above its retest zone. No trade; one-shot after the 06:45 close for BTC.",
+   "action": "one-shot 06:46",
+   "at": "2026-10-27T10:34-04:00"
   }
  ],
  "ledger": [
