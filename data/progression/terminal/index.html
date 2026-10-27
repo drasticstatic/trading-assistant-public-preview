@@ -370,7 +370,7 @@
                 <label><input type="checkbox" data-ov="gex" checked> Gamma walls <small>call wall · put wall · flip · top strikes, shifted by basis</small></label>
                 <label><input type="checkbox" data-ov="prints" checked> Large prints <small>biggest taker prints of the last 15 min</small></label>
                 <label><input type="checkbox" data-ov="vol" checked> Volume <small>histogram + profile</small></label>
-              </div></div><button class="btn" id="zth" type="button" hidden></button><button class="btn" id="fibs" type="button" hidden></button><button class="btn" id="vol" type="button" hidden></button><button class="btn" id="chart-full" type="button" title="open the chart in a lightbox (Esc closes)"><i class="ph-duotone ph-arrows-out-simple"></i> expand</button><a class="btn fv" id="fv-link" href="https://drasticstatic.github.io/fortuna-vision/" target="_blank" rel="noopener" title="open this market in FortunaVision, the chart-first workstation, for deeper analysis and monitoring"><i class="ph-duotone ph-eye"></i> FortunaVision</a></div>
+              </div></div><button class="btn" id="zth" type="button" hidden></button><button class="btn" id="fibs" type="button" hidden></button><button class="btn" id="vol" type="button" hidden></button><button class="btn" id="chart-full" type="button" title="open the chart in a lightbox (Esc closes)"><i class="ph-duotone ph-arrows-out-simple"></i> expand</button><a class="btn fv" id="fv-link" href="https://drasticstatic.github.io/fortuna-vision-public-preview/" target="_blank" rel="noopener" title="open this market in FortunaVision, the chart-first workstation, for deeper analysis and monitoring"><i class="ph-duotone ph-eye"></i> FortunaVision</a></div>
           </div>
           <div class="chart-wrap"><svg id="csvg" role="img" aria-label="Live candles with Fortuna's levels"></svg><div id="lwc" hidden></div></div>
           <div class="osc-wrap"><svg id="osc" role="img" aria-label="Money flow, RSI and Bollinger reversal events"></svg></div>
@@ -607,7 +607,7 @@
     E.setOverlays({boxes, rays, marks});
     E.setBB(view.bb && window.Regime ? Regime.bollinger(all) : null, all);
     try { drawOsc(); } catch (e) { console.error(e); }
-    try { $('#fv-link').href = `https://drasticstatic.github.io/fortuna-vision/?m=${encodeURIComponent(cur.market)}&tf=${cur.iv}`; } catch (e) {}
+    try { $('#fv-link').href = `https://drasticstatic.github.io/fortuna-vision-public-preview/?m=${encodeURIComponent(cur.market)}&tf=${cur.iv}`; } catch (e) {}
     $('#chart-title').textContent = `${cur.market} · ${l.feed}`; $('#chart-sub').textContent = l.src ? `${cur.iv.toUpperCase()} · ${esc(l.note || '')}` : `${cur.iv.toUpperCase()} · ${o ? 'MFP ≈ feed + ' + px(o) : 'no venue offset'} · ${l.bias_1h} 1H / ${l.bias_4h} 4H · ATR 1H ${px(l.atr_1h)} · TradingView engine`;
     showOHLC(all[all.length - 1]);
   }
@@ -714,7 +714,7 @@
     g += `<g id="xh"></g>`;
     svg.innerHTML = g; cur.geo = {m, n, iw, ih, W, H, lo, hi, cs, X, Y, o, slot};
     try { drawOsc(); } catch (e) { console.error(e); }
-    try { $('#fv-link').href = `https://drasticstatic.github.io/fortuna-vision/?m=${encodeURIComponent(cur.market)}&tf=${cur.iv}`; } catch (e) {}
+    try { $('#fv-link').href = `https://drasticstatic.github.io/fortuna-vision-public-preview/?m=${encodeURIComponent(cur.market)}&tf=${cur.iv}`; } catch (e) {}
     $('#chart-title').textContent = `${cur.market} · ${l.feed}`; $('#chart-sub').textContent = l.src ? `${cur.iv.toUpperCase()} · ${esc(l.note || '')}` : `${cur.iv.toUpperCase()} · ${o ? 'MFP ≈ feed + ' + px(o) : 'no venue offset'} · ${l.bias_1h} 1H / ${l.bias_4h} 4H · ATR 1H ${px(l.atr_1h)}`;
     showOHLC(cs[cs.length - 1]);
   }
