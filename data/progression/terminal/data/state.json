@@ -1,6 +1,6 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-27T10:34-04:00",
+ "generated": "2026-10-27T12:28-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-27T10:34-04:00"
+   "asof": "2026-10-27T12:28-04:00"
   },
   {
    "key": "elite5k",
@@ -64,16 +64,16 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 4990.3,
-   "balance": 4999.67,
-   "upnl": -9.37,
+   "equity": 4993.6,
+   "balance": 4999.66,
+   "upnl": -6.06,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 148.9,
-   "mdd_room": 240.3,
+   "dll_room": 152.2,
+   "mdd_room": 243.6,
    "mdd_floor": 4750,
    "target_equity": 5500,
-   "remaining_profit": 500.33,
+   "remaining_profit": 500.34,
    "firm_limits": "3% daily loss ($150 from the day's start), 5% static max drawdown (floor $4,750), 10% profit target ($5,500). Leads the Select 1K in a native copy group at 0.6×.",
    "self_limits": {
     "risk": "0.25% ($12.50) per trade · 0.5% for A+",
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-27T10:34-04:00"
+   "asof": "2026-10-27T12:28-04:00"
   },
   {
    "key": "select1k",
@@ -97,13 +97,13 @@
    "trader": "Follower",
    "status": "active",
    "start": 1000,
-   "equity": 999.1,
+   "equity": 999.41,
    "balance": 999.97,
-   "upnl": -0.87,
+   "upnl": -0.56,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 29.9,
-   "mdd_room": 29.1,
+   "dll_room": 30.21,
+   "mdd_room": 29.41,
    "mdd_floor": 970,
    "target_equity": 1090,
    "remaining_profit": 90.03,
@@ -113,7 +113,7 @@
    },
    "markets": "Whatever the Elite trades, at 0.6×.",
    "note": "Prize account from MFP. The 0.6× multiplier aligns its 3% floor with the Elite's 5%.",
-   "asof": "2026-10-27T10:34-04:00"
+   "asof": "2026-10-27T12:28-04:00"
   }
  ],
  "positions": [
@@ -201,31 +201,31 @@
   {
    "market": "Gold",
    "feed": "xyz:GOLD",
-   "direction": "long (reclaim)",
-   "setup": "Tuesday pre-London: silver broke Monday's low while gold held its own (a bullish metals SMT). The long is a sweep of gold's daily low (feed 3,992.5) with a 15m close back above it while silver stays above its new low. A KEY Auto Level sits inside the zone, so the read can grade A only if the 1H and 4H bias turn with it; until then it is B at best and gold is A-only, so this is a read, not an order.",
-   "zone_lo": 3999,
-   "zone_hi": 4006,
+   "direction": "long (retest)",
+   "setup": "Gold ran about sixty points off its daily low this morning (the long-reclaim read at the low played out without an order, by the A-only rule). The next read is a retest of the 5/5 Auto Level it broke through (feed 4,047) with a 15m rejection close back above it while silver holds its own pullback low. Still A-only for gold: a B read is published, not traded.",
+   "zone_lo": 4051,
+   "zone_hi": 4056,
    "status": "watch",
    "grade_max": "A",
-   "stop_rule": "beyond the cluster of lows + 1x 1H ATR (about 3,985 MFP); size to the risk cap",
-   "targets": "TP1 4,019 (the overnight shelf, MFP) · TP2 4,031 (Monday high translated)",
-   "note": "Gold runs about +6.8 over the chart feed (04:34 ET). A-grade only after three straight gold losses; a B read is published, not traded.",
-   "updated": "2026-10-27T04:35:00-04:00",
+   "stop_rule": "beyond the retest low + 1x 1H ATR",
+   "targets": "TP1 the morning high retest · TP2 +1 ATR beyond it",
+   "note": "Gold offset to MFP measured about +7 to +8 in calm tape; inflated during fast moves.",
+   "updated": "2026-10-27T12:20:00-04:00",
    "account": "comp"
   },
   {
    "market": "Crude",
    "feed": "xyz:CL",
-   "direction": "long (retest)",
-   "setup": "Overnight crude lifted out of its reclaim zone to 102.3 without ever sweeping the low, so the reclaim never triggered. The long is now a retest of the 5/5 Auto Level cluster it left behind (feed 101.2-101.5) with a 15m rejection close back above it while Brent holds.",
-   "zone_lo": 101.35,
-   "zone_hi": 101.7,
+   "direction": "long (reclaim)",
+   "setup": "Crude swept its daily low (feed 100.31) during the NY morning to 99.81 and keeps closing just under it, with Brent sweeping its own low too (no SMT yet). The long needs a 15m close back above 100.31 with a 5/5 level (feed 100.20) inside the zone and Brent back above its daily low.",
+   "zone_lo": 99.95,
+   "zone_hi": 100.45,
    "status": "watch",
    "grade_max": "B",
-   "stop_rule": "beyond the retest low + 1x 1H ATR",
-   "targets": "TP1 103.08 (Monday high, feed) · TP2 103.5",
-   "note": "Crude runs about +0.17 over the chart feed (04:34 ET).",
-   "updated": "2026-10-27T04:35:00-04:00",
+   "stop_rule": "beyond the cluster of lows (feed 99.81) + 1x 1H ATR, about 99.2 MFP",
+   "targets": "TP1 100.64 5/5 · TP2 101.35 (the overnight shelf)",
+   "note": "Crude runs about +0.15 over the chart feed.",
+   "updated": "2026-10-27T12:20:00-04:00",
    "account": "comp"
   },
   {
@@ -652,6 +652,18 @@
    "note": "06:33 London read: gold is inside its long-reclaim zone at the daily low with silver already broken and gold holding, but no sweep-and-close yet and the higher timeframes are still bearish, so under the A-only rule it stays a read. BTC is pressing the Elite long zone 0.4 ATR away with ETH and SOL weaker (SOL closed an hour below its daily low, a note for the open SOL long, still well above its liquidation). Crude 1.8 ATR above its retest zone. No trade; one-shot after the 06:45 close for BTC.",
    "action": "one-shot 06:46",
    "at": "2026-10-27T10:34-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 100027.98,
+   "balance": 100027.98,
+   "upnl": 0,
+   "open_positions": 0,
+   "working_orders": 0,
+   "status": "ok",
+   "note": "Late-morning catch-up: the desk was paused from about 06:35 until after 10:30 ET, so the London and open reads were missed. Gold ran roughly sixty points off its daily low (the long-reclaim read at the low played out without an order under the A-only rule) and is now watched for a retest of the 5/5 it broke. Crude swept its daily low with Brent sweeping its own; the long needs a close back above the low. BTC and ETH 2 ATR above the Elite zones. No trade.",
+   "action": "one-shot 12:46",
+   "at": "2026-10-27T12:28-04:00"
   }
  ],
  "ledger": [
