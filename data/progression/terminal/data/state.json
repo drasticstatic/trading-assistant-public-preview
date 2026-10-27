@@ -1,6 +1,6 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-27T14:36-04:00",
+ "generated": "2026-10-27T14:46-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-27T14:36-04:00"
+   "asof": "2026-10-27T14:46-04:00"
   },
   {
    "key": "elite5k",
@@ -64,13 +64,13 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 4992.98,
+   "equity": 4993.59,
    "balance": 4999.65,
-   "upnl": -6.67,
+   "upnl": -6.06,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 151.58,
-   "mdd_room": 242.98,
+   "dll_room": 152.19,
+   "mdd_room": 243.59,
    "mdd_floor": 4750,
    "target_equity": 5500,
    "remaining_profit": 500.35,
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-27T14:36-04:00"
+   "asof": "2026-10-27T14:46-04:00"
   },
   {
    "key": "select1k",
@@ -97,13 +97,13 @@
    "trader": "Follower",
    "status": "active",
    "start": 1000,
-   "equity": 999.35,
+   "equity": 999.41,
    "balance": 999.97,
-   "upnl": -0.61,
+   "upnl": -0.56,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 30.15,
-   "mdd_room": 29.35,
+   "dll_room": 30.21,
+   "mdd_room": 29.41,
    "mdd_floor": 970,
    "target_equity": 1090,
    "remaining_profit": 90.03,
@@ -113,7 +113,7 @@
    },
    "markets": "Whatever the Elite trades, at 0.6×.",
    "note": "Prize account from MFP. The 0.6× multiplier aligns its 3% floor with the Elite's 5%.",
-   "asof": "2026-10-27T14:36-04:00"
+   "asof": "2026-10-27T14:46-04:00"
   }
  ],
  "positions": [
@@ -700,6 +700,18 @@
    "note": "Flat, no trade. Crude printed a new session low (99.50) and sits at the bottom edge of its reclaim zone with no 15m close back above the daily low; gold drifted down to 0.7 ATR above its retest zone, still A-only against a bearish 4H. One-shot 14:46 on the crude candle.",
    "action": "one-shot 14:46",
    "at": "2026-10-27T14:36-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 100027.98,
+   "balance": 100027.98,
+   "upnl": 0,
+   "open_positions": 0,
+   "working_orders": 0,
+   "status": "ok",
+   "note": "14:46 one-shot: crude closed the 14:30 candle at 99.93 (about 100.05 on MFP), still under the 100.31 daily low, so no reclaim trigger; gold eased to about 0.6 ATR above its retest zone, read only. No trade; the 16:33 run takes over.",
+   "action": "none",
+   "at": "2026-10-27T14:46-04:00"
   }
  ],
  "ledger": [
