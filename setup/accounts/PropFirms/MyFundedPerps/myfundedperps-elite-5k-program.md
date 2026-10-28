@@ -38,6 +38,7 @@ The 0.6× multiplier aligns the Select's 3% floor with the Elite's 5%: a full El
 | His positions | Fortuna never modifies or closes Christopher's own positions here | Co-pilot: alert, record his written exit plan, never execute for him unless he asks in writing. |
 | Independence from the competition | **One account per market per day.** Never the same market and direction on the competition and the Elite; crypto is assigned to this program, commodities and indices to the competition. | MFP disqualifies competition accounts for copied or coordinated trades. Separate markets make the independence visible. |
 | Cross-hedge | Full sweep before every entry (Tradovate, BTCC as reported, all MFP accounts) | MFP judges hedging on economic substance across all of a trader's accounts. |
+| High-impact news | Firm rule applies only once funded (10→2 min before: no new exposure; ±2 min: no manual trades). Fortuna applies it now plus a 30-minute buffer either side of every red-folder release: no Elite entries in that window | Rehearse the funded account; the Select follows every fill |
 
 Everything else (grading, the Perps Preflight Checklist, logging) follows the competition's rules and the terminal's checklist.
 

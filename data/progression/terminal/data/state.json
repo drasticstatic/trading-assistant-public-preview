@@ -1,6 +1,6 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-28T12:36-04:00",
+ "generated": "2026-10-28T13:02-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-28T12:36-04:00"
+   "asof": "2026-10-28T13:02-04:00"
   },
   {
    "key": "elite5k",
@@ -1012,6 +1012,18 @@
    "note": "Flat. Crude broke above its prior-day high at 11:45 on the heaviest volume of the day with Brent confirming; a breakout-retest zone is now on watch with a key level inside it, but there is no daily level above for a target, so no trade until the reward clears one R. Gold is pressing its old zone from below again, read-only against the 4H. S&P took its prior-day high while the Nasdaq held, a bearish index divergence. Tradovate flat; SOL about 4% above the BTCC liquidation.",
    "action": "none",
    "at": "2026-10-28T12:36-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 100748.03,
+   "balance": 100748.03,
+   "upnl": 0,
+   "open_positions": 0,
+   "working_orders": 0,
+   "status": "ok",
+   "note": "FOMC day: the statement lands at 14:00 and the press conference at 14:30. The firm restricts news trading only on funded accounts; Fortuna applies that window anyway with a 30-minute buffer on every account, so no new entries from 13:30 until 15:00. Christopher is standing flat except his SOL position. A red-folder calendar now feeds the scanner and the pre-flight has a news item.",
+   "action": "none",
+   "at": "2026-10-28T13:02-04:00"
   }
  ],
  "ledger": [
@@ -1160,6 +1172,11 @@
    "id": "hedge",
    "text": "Cross-hedge sweep done: Tradovate futures positions, the Elite/Select positions, BTCC and anything Christopher reports. No opposite side in a correlated group (crypto, oil, gold, US indices).",
    "why": "MFP judges hedging on economic substance across all of a trader's accounts."
+  },
+  {
+   "id": "news",
+   "text": "No red-folder release (FOMC, CPI, PPI, NFP, GDP, PCE, retail sales, ECB/BOE/BOJ) inside the next 30 minutes or the last 30 minutes for the affected market; the scanner's calendar alert is clear. Open positions ride a release only with the server-side stop in place and are not touched within 2 minutes of it.",
+   "why": "MFP restricts news trading only on funded accounts (10 to 2 minutes before: no new exposure; 2 minutes either side: no manual trades); the evaluations and the competition are free, so this rehearses the funded rule with a buffer."
   },
   {
    "id": "setup",
