@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prop Firm Rules &amp; Pre-Flight Checklist — Trading Assistant</title>
-  <meta name="description" content="Quick visual comparison of prop firm rules (Apex, TakeProfitTrader, TopOneFutures, Tradeify, Lucid) and a daily pre-flight checklist.">
+  <meta name="description" content="Quick visual comparison of prop firm rules (Apex, TakeProfitTrader, TopOneFutures, Tradeify, Lucid, MyFundedPerps, MyFundedFutures, IQ Capital) and a daily pre-flight checklist.">
   <meta name="color-scheme" content="dark light">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon.png" type="image/png" sizes="64x64">
@@ -353,7 +353,7 @@
         <li><input type="checkbox"><span>No opposing/hedged positions across accounts<span class="sub">Apex, TPT, and TopOneFutures all treat cross-account hedging as an instant, all-accounts-involved violation</span></span></li>
         <li><input type="checkbox"><span>Daily Loss Limit checked, if the account has one<span class="sub">Apex EOD/PA, Tradeify, some Lucid configs — TPT and Apex Intraday have none</span></span></li>
         <li><input type="checkbox"><span>Consistency rule tracked if trading toward a payout<span class="sub">TPT/Lucid eval 50% · Tradeify 35% · TopOneFutures funded 40%</span></span></li>
-        <li><input type="checkbox"><span>Check today's calendar for FOMC / CPI / NFP before the open<span class="sub">TPT blackout ±1 min · TopOneFutures blackout only if a position is modified ±2 min · Apex/Lucid Flex/Pro/Direct allow it · LucidDaily hard-forbids red-folder news</span></span></li>
+        <li><input type="checkbox"><span>Check today's calendar for FOMC / CPI / NFP before the open<span class="sub">MyFundedPerps funded 10→2 min no new exposure, ±2 min no trades (evals free) · MyFundedFutures flat + empty book ±2 min on every release, Tier 1 banned on Rapid/Pro funded · IQ Capital unverified · TPT blackout ±1 min · TopOneFutures blackout only if a position is modified ±2 min · Apex/Lucid Flex/Pro/Direct allow it · LucidDaily hard-forbids red-folder news</span></span></li>
         <li><input type="checkbox"><span>Cancel all resting/projected orders before stepping away<span class="sub">Pattern 9 — unintentional fills from stale limit orders</span></span></li>
         <li><input type="checkbox"><span>Personal hard-exit time set before the firm's deadline becomes the exit mechanism<span class="sub">Pattern 8 — never let the prop firm's forced close be the trade management plan</span></span></li>
         <li><input type="checkbox"><span>Minimum activity covered on every open account<span class="sub">Firm-specific, not a rule of thumb — see the Minimum Trading Activity table below for exact requirements/timeframes/penalties per firm</span></span></li>
@@ -392,6 +392,22 @@
         <p><strong>Tier-1 news trading prohibited</strong> — accounts may not trade 2 minutes before and 2 minutes after Tier-1 news releases <span class="ref-tag">placeholder, pending full legends-rules.md ingestion</span></p>
       </div>
       <div class="news-row">
+        <h4><i class="ph-duotone ph-coins"></i> MyFundedPerps <span class="ref-tag">(perps · verified live Oct 28, 2026)</span></h4>
+        <p><strong>Evaluations and the October Competition: unrestricted.</strong> <strong>Sim Funded (incl. Elite):</strong> for every red-folder release (FOMC, CPI, PPI, NFP, GDP, retail sales, employment, PCE, ECB/BOE/BOJ; earnings on single-stock perps) <strong>10 → 2 min before = no new exposure</strong> in the affected market (no new positions, adds or reversals), <strong>2 min before → 2 min after = no manual trades at all</strong>; a position already open may be held through. Profit from trades that break it can be excluded at payout review. Fortuna's self-imposed version on every MFP account: no new entries 30 min either side, stops stay server-side.</p>
+      </div>
+      <div class="news-row">
+        <h4><i class="ph-duotone ph-chart-line-up"></i> MyFundedFutures <span class="ref-tag">(futures parent of MFP · verified live Oct 28, 2026)</span></h4>
+        <p><strong>All accounts, all releases: flat with an empty order book from 2 min before to 2 min after</strong> (limits included; 8:30 news = flat by 8:28:00, re-enter after 8:32:00), no straddles/strangles, no masking news trades as a normal strategy. <strong>Tier 1</strong> (FOMC decisions + minutes, Employment Report, CPI; EIA for energy; ag reports): permitted on evaluations and Builder plans, <strong>prohibited on Rapid and Pro Sim Funded</strong>. Positions auto-close 16:10 ET.</p>
+      </div>
+      <div class="news-row">
+        <h4><i class="ph-duotone ph-brain"></i> IQ Capital <span class="ref-tag">(futures eval open since Oct 2026 — news policy not yet verified)</span></h4>
+        <p><strong>Unknown until read from the help center.</strong> Until then Fortuna's default applies: no new entries 30 min either side of a red-folder release and no changes to a working position inside ±2 min. Plan facts that are verified (futures Core line): 6% target, EOD trailing drawdown, daily loss limit on the DLL variant, no consistency rule, 90 days, up to 2 forgiven breaches. Details: <a href="accounts/PropFirms/IQ%20Capital/iq-capital-rules.md">iq-capital-rules.md</a>.</p>
+      </div>
+      <div class="news-row">
+        <h4><i class="ph-duotone ph-rocket-launch"></i> Tradeify Perps <span class="ref-tag">(beta waitlist · rules not published)</span></h4>
+        <p>Tradeify 247 is re-launching as a Hyperliquid-based perps prop (24/7, USDC margin, 6% static drawdown per launch coverage). No rulebook yet; see <a href="accounts/PropFirms/Tradeify/tradeify-perps.md">tradeify-perps.md</a>. Added to the roster so it is not lost.</p>
+      </div>
+      <div class="news-row">
         <h4><i class="ph-duotone ph-sword"></i> Xato</h4>
         <p><strong>Permitted</strong>, subject to normal data/liquidity availability — no explicit news-blackout window like TPT's or TopOne's. Standard equity/prohibited-practice rules still apply; expect wider spreads/slippage/funding swings around news</p>
       </div>
@@ -414,6 +430,9 @@
             <tr><td class="firm-col">Lucid</td><td>16:45 ET</td><td><span class="badge good" title="Soft — auto-flatten, non-punitive">Auto-flatten (soft)</span></td></tr>
             <tr><td class="firm-col">LegendsTrading</td><td>15:55 CT (16:55 ET)</td><td><span class="badge good" title="Same close time as TakeProfitTrader">MOC Liquidation</span></td></tr>
             <tr><td class="firm-col">Tradeify</td><td><span class="ref-tag">Not specified — verify live</span></td><td>—</td></tr>
+            <tr><td class="firm-col">MyFundedPerps</td><td>None — perps trade 24/7; funded accounts have a 7-day inactivity rule</td><td><span class="badge good" title="No daily close; isolated-margin liquidation is the only forced exit">No forced close</span></td></tr>
+            <tr><td class="firm-col">MyFundedFutures</td><td>16:10 ET (Globex open 18:00 ET)</td><td><span class="badge warn" title="Auto-closed on normal days; holiday hours are NOT auto-liquidated — the trader must close or the account breaches">Auto-closed (holidays: manual)</span></td></tr>
+            <tr><td class="firm-col">IQ Capital</td><td><span class="ref-tag">Not yet verified — EOD trailing drawdown implies a daily mark</span></td><td>—</td></tr>
             <tr><td class="firm-col">Xato</td><td>None — may hold over weekend</td><td><span class="badge good" title="Crypto instruments ~24/7 (barring maintenance); stocks/commodities follow their underlying reference market's own hours">~24/7 (crypto)</span></td></tr>
             <tr><td class="firm-col">BTCC <span class="ref-tag">(personal, not an eval)</span></td><td>None — no firm-imposed close</td><td><span class="badge good" title="Personal crypto exchange account, not a funded eval with a daily-cutoff rule — included here for contrast with the firms above">No cutoff</span></td></tr>
           </tbody>
