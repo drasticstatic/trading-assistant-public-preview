@@ -1,6 +1,6 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-27T22:01-04:00",
+ "generated": "2026-10-27T22:17-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
@@ -36,9 +36,9 @@
    "ends": "2026-10-31T12:00-04:00",
    "start": 100000,
    "handoff": 100004.31,
-   "equity": 100689.07,
-   "balance": 100023.53,
-   "upnl": 665.54,
+   "equity": 100736.77,
+   "balance": 100380.37,
+   "upnl": 356.4,
    "open_positions": 1,
    "working_orders": 2,
    "firm_limits": "No profit target, daily loss limit or drawdown (ranked by equity). Fees, slippage, liquidation and leverage caps still apply.",
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-27T22:01-04:00"
+   "asof": "2026-10-27T22:17-04:00"
   },
   {
    "key": "elite5k",
@@ -64,13 +64,13 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 4994.93,
+   "equity": 4995.3,
    "balance": 4999.62,
-   "upnl": -4.7,
+   "upnl": -4.32,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 153.53,
-   "mdd_room": 244.93,
+   "dll_room": 153.91,
+   "mdd_room": 245.3,
    "mdd_floor": 4750,
    "target_equity": 5500,
    "remaining_profit": 500.38,
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-27T22:01-04:00"
+   "asof": "2026-10-27T22:17-04:00"
   },
   {
    "key": "select1k",
@@ -97,23 +97,23 @@
    "trader": "Follower",
    "status": "active",
    "start": 1000,
-   "equity": 999.54,
-   "balance": 999.97,
-   "upnl": -0.43,
+   "equity": 999.57,
+   "balance": 999.96,
+   "upnl": -0.39,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 30.33,
-   "mdd_room": 29.54,
+   "dll_room": 30.37,
+   "mdd_room": 29.57,
    "mdd_floor": 970,
    "target_equity": 1090,
-   "remaining_profit": 90.03,
+   "remaining_profit": 90.04,
    "firm_limits": "3% daily loss, 3% static max drawdown (floor $970), 9% profit target ($1,090).",
    "self_limits": {
     "risk": "Inherits 0.6× of every Elite trade (≈ $7.50 per Elite base hit)"
    },
    "markets": "Whatever the Elite trades, at 0.6×.",
    "note": "Prize account from MFP. The 0.6× multiplier aligns its 3% floor with the Elite's 5%.",
-   "asof": "2026-10-27T22:01-04:00"
+   "asof": "2026-10-27T22:17-04:00"
   }
  ],
  "positions": [
@@ -157,16 +157,16 @@
    "account": "comp",
    "symbol": "Crude",
    "side": "long",
-   "size": 787.62,
+   "size": 393.81,
    "entry": 100.45,
-   "stop": 99.18,
+   "stop": 100.45,
    "tp": 103.19,
    "liq": 89.78,
    "live": true,
    "public": true,
-   "plan": "B-grade reclaim of the daily low; 1% risk; half off at the 101.46 shelf, stop to breakeven at +1R (101.72), runner to the prior-day high; thesis exit on a 15m close back under the daily low",
-   "note": "filled 20:41 ET on the retest of the zone top",
-   "asof": "2026-10-27T21:32-04:00"
+   "plan": "runner after half came off at 101.36 (+$357); stop at breakeven, target the prior-day high; trail under new 1H higher lows past +1R; thesis exit on a 15m close back under the daily low",
+   "note": "filled 20:41 ET on the retest of the zone top; half off 22:16 ET",
+   "asof": "2026-10-27T22:17-04:00"
   }
  ],
  "watchlist": [
@@ -825,6 +825,18 @@
    "note": "Crude long at +0.7R: the 21:45 candle reached 101.33 and closed 101.25, two cents short of the shelf where half comes off, and +1R is not reached, so the stop stays at 99.18 and the target at 103.19. Hold. One-shot 22:16.",
    "action": "one-shot 22:16",
    "at": "2026-10-27T22:01-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 100736.77,
+   "balance": 100380.37,
+   "upnl": 356.4,
+   "open_positions": 1,
+   "working_orders": 2,
+   "status": "ok",
+   "note": "The 22:00 candle tagged the shelf, so half the crude long came off at 101.36 for +$357 net and the stop on the remaining half moved to the 100.45 entry with the 103.19 target kept, both verified resting. The runner now risks nothing but fees. Next read 22:33.",
+   "action": "trade",
+   "at": "2026-10-27T22:17-04:00"
   }
  ],
  "ledger": [
