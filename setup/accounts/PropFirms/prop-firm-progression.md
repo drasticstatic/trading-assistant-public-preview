@@ -77,6 +77,9 @@ Opening accounts before readiness = unnecessary fees + more rules to track + mor
 | Tradeify | Select Challenge | Inevitrade + STB | Planned — Phase 3 |
 | Xato (own terminal) | Xato | Inevitrade + STB | Reference — Inevitrade partnered with Xato for initial testing, tailored to community feedback; not yet opened |
 | MyFundedPerps (MFF perps division) | October Competition — Classic $100K (free) | Fortuna via MCP · adapted FCR/SMT/Fib framework on crypto perps | 🤖 Competition account traded by Fortuna from Oct 23, 2026 · ends Oct 31 12:00 PM ET · no purchased evals yet — see [`MyFundedPerps/`](MyFundedPerps/myfundedperps-october-competition.md) |
+| Tradovate | IQ Capital — futures evaluation (plan/size TBC) | ZeroToHero + STB | 🕐 Opened ~Oct 2, 2026 (visible in the read-only Tradovate MCP as the IQCAPITAL profile); Christopher has started trading it; fills not yet imported. Rules: [`IQ Capital/iq-capital-rules.md`](IQ%20Capital/iq-capital-rules.md) |
+| MyFundedFutures (MFP's futures parent) | plan TBC | ZeroToHero + STB | Planned — Christopher intends to add MFFU futures beside the MFP perps accounts (Oct 28, 2026). Rules so far: [`MyFundedFutures/myfundedfutures-rules.md`](MyFundedFutures/myfundedfutures-rules.md) |
+| Tradeify Perps (Hyperliquid) | beta waitlist | Fortuna perps lane candidate | 👀 Announced Oct 2026; rules unpublished. Note: [`Tradeify/tradeify-perps.md`](Tradeify/tradeify-perps.md) |
 
 ---
 
