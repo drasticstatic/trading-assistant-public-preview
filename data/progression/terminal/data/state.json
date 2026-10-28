@@ -1,14 +1,14 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-28T15:02-04:00",
+ "generated": "2026-10-28T16:34-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
   "cadence": "Weekend swing cadence: a check-in every 2 hours, plus one-shot checks one minute after a candle close when price presses an armed zone. Weekday cadence: every 30 minutes."
  },
  "offsets": {
-  "Gold": 6.7,
-  "Crude": 0.08
+  "Gold": 3.9,
+  "Crude": 0.04
  },
  "links": {
   "gallery": "../gallery.html",
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-28T15:02-04:00"
+   "asof": "2026-10-28T16:34-04:00"
   },
   {
    "key": "elite5k",
@@ -64,13 +64,13 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 4996.07,
+   "equity": 4995.86,
    "balance": 4999.57,
-   "upnl": -3.5,
+   "upnl": -3.71,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 150.45,
-   "mdd_room": 246.07,
+   "dll_room": 150.23,
+   "mdd_room": 245.86,
    "mdd_floor": 4750,
    "target_equity": 5500,
    "remaining_profit": 500.43,
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-28T15:02-04:00"
+   "asof": "2026-10-28T16:34-04:00"
   },
   {
    "key": "select1k",
@@ -97,13 +97,13 @@
    "trader": "Follower",
    "status": "active",
    "start": 1000,
-   "equity": 999.64,
+   "equity": 999.63,
    "balance": 999.96,
-   "upnl": -0.32,
+   "upnl": -0.33,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 30.04,
-   "mdd_room": 29.64,
+   "dll_room": 30.02,
+   "mdd_room": 29.63,
    "mdd_floor": 970,
    "target_equity": 1090,
    "remaining_profit": 90.04,
@@ -113,7 +113,7 @@
    },
    "markets": "Whatever the Elite trades, at 0.6×.",
    "note": "Prize account from MFP. The 0.6× multiplier aligns its 3% floor with the Elite's 5%.",
-   "asof": "2026-10-28T15:02-04:00"
+   "asof": "2026-10-28T16:34-04:00"
   }
  ],
  "positions": [
@@ -220,12 +220,12 @@
    "setup": "Crude broke above the prior-day high 102.75 feed at 11:45 ET on the heaviest 15m volume of the day, with Brent taking its own prior-day high (SMT confirms). A long needs a retest of the breakout shelf and a 15m close back above it; a KEY Auto Level sits in the zone (feed 102.93). Not tradeable yet: no daily level above for a target, so the reward does not reach 1R against a stop under the pre-breakout base.",
    "zone_lo": 102.85,
    "zone_hi": 103.1,
-   "status": "watch",
+   "status": "paused",
    "grade_max": "B",
    "stop_rule": "below the pre-breakout base lows (feed 102.14-102.34) + 1x 1H ATR, about 101.6 MFP",
    "targets": "TP1 103.85 (5/5 cluster 103.75-103.83 feed) · no daily level above yet",
    "note": "Crude runs about +0.10 over the chart feed. Watch only until a target forms.",
-   "updated": "2026-10-28T12:36-04:00",
+   "updated": "2026-10-28T16:34-04:00",
    "account": "comp"
   },
   {
@@ -1048,6 +1048,18 @@
    "note": "Post-FOMC crude read: no trade. The 14:30 candle dipped to the top of the pre-breakout base and the 14:45 candle closed back above the prior-day high, but Brent closed back under its own prior-day high (the pair diverges), and the reward to the only level above is about 0.6R against a stop under the base. Zone stays on watch. Gold dropped three and a half ATR in the press-conference hour and sits under its old zone, read-only. Flat; next read 16:33.",
    "action": "none",
    "at": "2026-10-28T15:02-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 100748.03,
+   "balance": 100748.03,
+   "upnl": 0,
+   "open_positions": 0,
+   "working_orders": 0,
+   "status": "ok",
+   "note": "Flat after FOMC. Crude broke the prior-day high at midday, but the hour after the press conference closed back under it, so the breakout-retest zone is paused: the thesis did not hold. Gold whipped both ways through the presser and sits under its old zone, read-only. Indices closed above their prior-day highs with a 4H still mixed. No trade.",
+   "action": "none",
+   "at": "2026-10-28T16:34-04:00"
   }
  ],
  "ledger": [
