@@ -1,61 +1,61 @@
 {
-"asof": "2026-10-28T10:02-04:00",
+"asof": "2026-10-28T10:35-04:00",
 "source": "CBOE delayed quotes (SPX, NDX, 15-min delay) \u00b7 Deribit public (BTC, ETH, Black-Scholes gamma)",
 "markets": [
 {
 "market": "S&P 500",
 "feed": "xyz:SP500",
-"spot": 7727.68,
-"total_gex": -6844.83,
+"spot": 7735.77,
+"total_gex": -2542.63,
 "flip": null,
 "strikes": [
 {
 "strike": 7500.0,
-"gex": -4088.19
+"gex": -3976.57
 },
 {
 "strike": 7550.0,
-"gex": -1839.76
+"gex": -1762.42
 },
 {
 "strike": 7600.0,
-"gex": -4385.03
+"gex": -4280.01
 },
 {
 "strike": 7650.0,
-"gex": -3922.6
+"gex": -3830.15
 },
 {
 "strike": 7700.0,
-"gex": -3116.79
+"gex": -3144.31
 },
 {
 "strike": 7800.0,
-"gex": 3236.9
+"gex": 3443.31
 },
 {
 "strike": 7825.0,
-"gex": 2346.32
+"gex": 2468.75
 },
 {
 "strike": 7850.0,
-"gex": 3634.3
+"gex": 3847.17
 },
 {
 "strike": 7900.0,
-"gex": 3779.61
+"gex": 4016.76
 },
 {
 "strike": 8000.0,
-"gex": 2687.23
+"gex": 2721.37
 },
 {
 "strike": 8050.0,
-"gex": 2152.15
+"gex": 2168.89
 },
 {
 "strike": 8100.0,
-"gex": 1975.85
+"gex": 1994.16
 }
 ],
 "call_wall": 7900.0,
@@ -65,57 +65,57 @@
 {
 "market": "Nasdaq-100",
 "feed": "xyz:XYZ100",
-"spot": 29684.78,
-"total_gex": 651.64,
+"spot": 29672.27,
+"total_gex": 641.67,
 "flip": 29662.5,
 "strikes": [
 {
 "strike": 28000.0,
-"gex": -33.13
+"gex": -33.1
 },
 {
 "strike": 28400.0,
-"gex": -36.13
+"gex": -36.1
 },
 {
 "strike": 29000.0,
-"gex": -66.97
+"gex": -66.91
 },
 {
 "strike": 29100.0,
-"gex": -31.72
+"gex": -31.7
 },
 {
 "strike": 29300.0,
-"gex": -23.09
+"gex": -23.07
 },
 {
 "strike": 29650.0,
-"gex": 50.76
+"gex": 50.71
 },
 {
 "strike": 29675.0,
-"gex": 616.13
+"gex": 615.61
 },
 {
 "strike": 30600.0,
-"gex": 19.91
+"gex": 19.9
 },
 {
 "strike": 30700.0,
-"gex": 23.44
+"gex": 23.42
 },
 {
 "strike": 31000.0,
-"gex": 35.6
+"gex": 35.57
 },
 {
 "strike": 31100.0,
-"gex": 20.09
+"gex": 20.07
 },
 {
 "strike": 31325.0,
-"gex": 232.81
+"gex": 232.61
 }
 ],
 "call_wall": 29675.0,
@@ -125,57 +125,57 @@
 {
 "market": "BTC",
 "feed": "BTC",
-"spot": 80696.21,
-"total_gex": 50.25,
-"flip": 84500.0,
+"spot": 80459.05,
+"total_gex": 36.61,
+"flip": 87500.0,
 "strikes": [
 {
 "strike": 76000.0,
-"gex": -6.66
+"gex": -7.02
 },
 {
 "strike": 77000.0,
-"gex": -7.84
+"gex": -8.42
 },
 {
 "strike": 78000.0,
-"gex": -9.75
+"gex": -10.52
 },
 {
 "strike": 79000.0,
-"gex": -8.89
+"gex": -9.63
 },
 {
 "strike": 79500.0,
-"gex": -2.98
+"gex": -3.26
 },
 {
 "strike": 80000.0,
-"gex": -5.02
+"gex": -5.17
 },
 {
 "strike": 81500.0,
-"gex": 4.53
+"gex": 4.22
 },
 {
 "strike": 82000.0,
-"gex": 19.69
+"gex": 17.73
 },
 {
 "strike": 82500.0,
-"gex": 12.97
+"gex": 11.63
 },
 {
 "strike": 83000.0,
-"gex": 9.42
+"gex": 8.64
 },
 {
 "strike": 84000.0,
-"gex": 9.81
+"gex": 8.83
 },
 {
 "strike": 85000.0,
-"gex": 12.31
+"gex": 11.06
 }
 ],
 "call_wall": 82000.0,
@@ -185,57 +185,57 @@
 {
 "market": "ETH",
 "feed": "ETH",
-"spot": 2340.74,
-"total_gex": -10.24,
+"spot": 2332.5,
+"total_gex": -11.35,
 "flip": null,
 "strikes": [
 {
+"strike": 2200.0,
+"gex": -1.46
+},
+{
 "strike": 2240.0,
-"gex": -0.12
+"gex": -0.13
 },
 {
 "strike": 2250.0,
-"gex": -1.56
+"gex": -1.67
 },
 {
 "strike": 2260.0,
-"gex": -0.38
+"gex": -0.44
 },
 {
 "strike": 2280.0,
-"gex": -1.32
+"gex": -1.48
 },
 {
 "strike": 2300.0,
-"gex": -6.48
+"gex": -6.78
 },
 {
 "strike": 2320.0,
-"gex": -0.37
+"gex": -0.36
 },
 {
 "strike": 2350.0,
-"gex": -0.99
-},
-{
-"strike": 2380.0,
-"gex": 0.11
+"gex": -0.96
 },
 {
 "strike": 2400.0,
-"gex": -1.22
+"gex": -1.13
 },
 {
 "strike": 2420.0,
-"gex": 0.3
+"gex": 0.26
 },
 {
 "strike": 2440.0,
-"gex": 0.52
+"gex": 0.4
 },
 {
 "strike": 2450.0,
-"gex": 0.25
+"gex": 0.23
 }
 ],
 "call_wall": 2440.0,
