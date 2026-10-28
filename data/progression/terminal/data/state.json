@@ -1,6 +1,6 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-27T21:46-04:00",
+ "generated": "2026-10-27T22:01-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
@@ -8,7 +8,7 @@
  },
  "offsets": {
   "Gold": 6.3,
-  "Crude": 0.08
+  "Crude": 0.1
  },
  "links": {
   "gallery": "../gallery.html",
@@ -36,9 +36,9 @@
    "ends": "2026-10-31T12:00-04:00",
    "start": 100000,
    "handoff": 100004.31,
-   "equity": 100570.93,
+   "equity": 100689.07,
    "balance": 100023.53,
-   "upnl": 547.4,
+   "upnl": 665.54,
    "open_positions": 1,
    "working_orders": 2,
    "firm_limits": "No profit target, daily loss limit or drawdown (ranked by equity). Fees, slippage, liquidation and leverage caps still apply.",
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-27T21:46-04:00"
+   "asof": "2026-10-27T22:01-04:00"
   },
   {
    "key": "elite5k",
@@ -64,16 +64,16 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 4994.18,
-   "balance": 4999.63,
-   "upnl": -5.45,
+   "equity": 4994.93,
+   "balance": 4999.62,
+   "upnl": -4.7,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 152.78,
-   "mdd_room": 244.18,
+   "dll_room": 153.53,
+   "mdd_room": 244.93,
    "mdd_floor": 4750,
    "target_equity": 5500,
-   "remaining_profit": 500.37,
+   "remaining_profit": 500.38,
    "firm_limits": "3% daily loss ($150 from the day's start), 5% static max drawdown (floor $4,750), 10% profit target ($5,500). Leads the Select 1K in a native copy group at 0.6×.",
    "self_limits": {
     "risk": "0.25% ($12.50) per trade · 0.5% for A+",
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-27T21:46-04:00"
+   "asof": "2026-10-27T22:01-04:00"
   },
   {
    "key": "select1k",
@@ -97,13 +97,13 @@
    "trader": "Follower",
    "status": "active",
    "start": 1000,
-   "equity": 999.47,
+   "equity": 999.54,
    "balance": 999.97,
-   "upnl": -0.5,
+   "upnl": -0.43,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 30.26,
-   "mdd_room": 29.47,
+   "dll_room": 30.33,
+   "mdd_room": 29.54,
    "mdd_floor": 970,
    "target_equity": 1090,
    "remaining_profit": 90.03,
@@ -113,7 +113,7 @@
    },
    "markets": "Whatever the Elite trades, at 0.6×.",
    "note": "Prize account from MFP. The 0.6× multiplier aligns its 3% floor with the Elite's 5%.",
-   "asof": "2026-10-27T21:46-04:00"
+   "asof": "2026-10-27T22:01-04:00"
   }
  ],
  "positions": [
@@ -813,6 +813,18 @@
    "note": "Crude long holding at +0.5R: the 21:30 candle closed 101.07, well above the reclaimed daily low; the 101.46 shelf has not been tagged and +1R is not reached, so the stop stays at 99.18 and the target at 103.19. Hold. One-shot 22:01.",
    "action": "one-shot 22:01",
    "at": "2026-10-27T21:46-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 100689.07,
+   "balance": 100023.53,
+   "upnl": 665.54,
+   "open_positions": 1,
+   "working_orders": 2,
+   "status": "ok",
+   "note": "Crude long at +0.7R: the 21:45 candle reached 101.33 and closed 101.25, two cents short of the shelf where half comes off, and +1R is not reached, so the stop stays at 99.18 and the target at 103.19. Hold. One-shot 22:16.",
+   "action": "one-shot 22:16",
+   "at": "2026-10-27T22:01-04:00"
   }
  ],
  "ledger": [
