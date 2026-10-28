@@ -1,6 +1,6 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-27T21:32-04:00",
+ "generated": "2026-10-27T21:46-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
@@ -8,7 +8,7 @@
  },
  "offsets": {
   "Gold": 6.3,
-  "Crude": 0.12
+  "Crude": 0.08
  },
  "links": {
   "gallery": "../gallery.html",
@@ -36,9 +36,9 @@
    "ends": "2026-10-31T12:00-04:00",
    "start": 100000,
    "handoff": 100004.31,
-   "equity": 100641.81,
+   "equity": 100570.93,
    "balance": 100023.53,
-   "upnl": 618.28,
+   "upnl": 547.4,
    "open_positions": 1,
    "working_orders": 2,
    "firm_limits": "No profit target, daily loss limit or drawdown (ranked by equity). Fees, slippage, liquidation and leverage caps still apply.",
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-27T21:32-04:00"
+   "asof": "2026-10-27T21:46-04:00"
   },
   {
    "key": "elite5k",
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-27T21:32-04:00"
+   "asof": "2026-10-27T21:46-04:00"
   },
   {
    "key": "select1k",
@@ -113,7 +113,7 @@
    },
    "markets": "Whatever the Elite trades, at 0.6×.",
    "note": "Prize account from MFP. The 0.6× multiplier aligns its 3% floor with the Elite's 5%.",
-   "asof": "2026-10-27T21:32-04:00"
+   "asof": "2026-10-27T21:46-04:00"
   }
  ],
  "positions": [
@@ -801,6 +801,18 @@
    "note": "The crude retest limit filled at 100.45 four minutes after it was placed, the 20:30 candle closed back above the daily low by three cents, and the 21:00 hour ran to 101.29 on the evening largest volume. Long 787.62 at +0.6R with the stop and target verified resting; half comes off at the 101.46 shelf, stop to breakeven at +1R. One-shot 21:46.",
    "action": "one-shot 21:46",
    "at": "2026-10-27T21:32-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 100570.93,
+   "balance": 100023.53,
+   "upnl": 547.4,
+   "open_positions": 1,
+   "working_orders": 2,
+   "status": "ok",
+   "note": "Crude long holding at +0.5R: the 21:30 candle closed 101.07, well above the reclaimed daily low; the 101.46 shelf has not been tagged and +1R is not reached, so the stop stays at 99.18 and the target at 103.19. Hold. One-shot 22:01.",
+   "action": "one-shot 22:01",
+   "at": "2026-10-27T21:46-04:00"
   }
  ],
  "ledger": [
