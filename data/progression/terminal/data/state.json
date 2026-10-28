@@ -1,14 +1,14 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-28T01:01-04:00",
+ "generated": "2026-10-28T02:02-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
   "cadence": "Weekend swing cadence: a check-in every 2 hours, plus one-shot checks one minute after a candle close when price presses an armed zone. Weekday cadence: every 30 minutes."
  },
  "offsets": {
-  "Gold": 6.9,
-  "Crude": 0.12
+  "Gold": 8.0,
+  "Crude": 0.13
  },
  "links": {
   "gallery": "../gallery.html",
@@ -36,9 +36,9 @@
    "ends": "2026-10-31T12:00-04:00",
    "start": 100000,
    "handoff": 100004.31,
-   "equity": 100783.53,
-   "balance": 100379.87,
-   "upnl": 403.66,
+   "equity": 100802.97,
+   "balance": 100379.62,
+   "upnl": 423.35,
    "open_positions": 1,
    "working_orders": 2,
    "firm_limits": "No profit target, daily loss limit or drawdown (ranked by equity). Fees, slippage, liquidation and leverage caps still apply.",
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-28T01:01-04:00"
+   "asof": "2026-10-28T02:02-04:00"
   },
   {
    "key": "elite5k",
@@ -64,9 +64,9 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 4995.5,
+   "equity": 4995.39,
    "balance": 4999.61,
-   "upnl": -4.11,
+   "upnl": -4.23,
    "open_positions": 1,
    "working_orders": 1,
    "dll_room": 149.88,
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-28T01:01-04:00"
+   "asof": "2026-10-28T02:02-04:00"
   },
   {
    "key": "select1k",
@@ -97,9 +97,9 @@
    "trader": "Follower",
    "status": "active",
    "start": 1000,
-   "equity": 999.59,
+   "equity": 999.58,
    "balance": 999.96,
-   "upnl": -0.37,
+   "upnl": -0.38,
    "open_positions": 1,
    "working_orders": 1,
    "dll_room": 29.99,
@@ -113,7 +113,7 @@
    },
    "markets": "Whatever the Elite trades, at 0.6×.",
    "note": "Prize account from MFP. The 0.6× multiplier aligns its 3% floor with the Elite's 5%.",
-   "asof": "2026-10-28T01:01-04:00"
+   "asof": "2026-10-28T02:02-04:00"
   }
  ],
  "positions": [
@@ -897,6 +897,18 @@
    "note": "Crude runner holding at +$404: the midnight hour closed 101.36 and reached 101.47, still short of +1R, so the stop stays at breakeven and the target at 102.86. Gold has slipped below its retest zone and stays read-only. Next hourly read 02:01.",
    "action": "one-shot 02:01",
    "at": "2026-10-28T01:01-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 100802.97,
+   "balance": 100379.62,
+   "upnl": 423.35,
+   "open_positions": 1,
+   "working_orders": 2,
+   "status": "ok",
+   "note": "Crude runner holding at +$423: the 01:00 hour reached 101.59 feed (about 101.71 on MFP, a hair under +1R at 101.72) and closed 101.34 without a higher low over the prior hour, so the stop stays at breakeven and the target at 102.86. Gold sits below its retest zone, read-only. The 02:33 recurring read follows.",
+   "action": "hold; 02:33 recurring",
+   "at": "2026-10-28T02:02-04:00"
   }
  ],
  "ledger": [
