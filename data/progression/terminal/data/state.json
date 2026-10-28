@@ -1,6 +1,6 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-27T18:46-04:00",
+ "generated": "2026-10-27T20:39-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
@@ -8,7 +8,7 @@
  },
  "offsets": {
   "Gold": 6.3,
-  "Crude": 0.11
+  "Crude": 0.09
  },
  "links": {
   "gallery": "../gallery.html",
@@ -40,7 +40,7 @@
    "balance": 100027.98,
    "upnl": 0,
    "open_positions": 0,
-   "working_orders": 0,
+   "working_orders": 1,
    "firm_limits": "No profit target, daily loss limit or drawdown (ranked by equity). Fees, slippage, liquidation and leverage caps still apply.",
    "self_limits": {
     "dll_pct": 3,
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-27T18:46-04:00"
+   "asof": "2026-10-27T20:39-04:00"
   },
   {
    "key": "elite5k",
@@ -64,13 +64,13 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 4993.97,
+   "equity": 4993.9,
    "balance": 4999.63,
-   "upnl": -5.66,
+   "upnl": -5.73,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 152.58,
-   "mdd_room": 243.97,
+   "dll_room": 152.5,
+   "mdd_room": 243.9,
    "mdd_floor": 4750,
    "target_equity": 5500,
    "remaining_profit": 500.37,
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-27T18:46-04:00"
+   "asof": "2026-10-27T20:39-04:00"
   },
   {
    "key": "select1k",
@@ -97,13 +97,13 @@
    "trader": "Follower",
    "status": "active",
    "start": 1000,
-   "equity": 999.45,
+   "equity": 999.44,
    "balance": 999.97,
    "upnl": -0.52,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 30.24,
-   "mdd_room": 29.45,
+   "dll_room": 30.23,
+   "mdd_room": 29.44,
    "mdd_floor": 970,
    "target_equity": 1090,
    "remaining_profit": 90.03,
@@ -113,7 +113,7 @@
    },
    "markets": "Whatever the Elite trades, at 0.6×.",
    "note": "Prize account from MFP. The 0.6× multiplier aligns its 3% floor with the Elite's 5%.",
-   "asof": "2026-10-27T18:46-04:00"
+   "asof": "2026-10-27T20:39-04:00"
   }
  ],
  "positions": [
@@ -220,12 +220,12 @@
    "setup": "Crude swept its daily low (feed 100.31) during the NY morning to 99.81 and keeps closing just under it, with Brent sweeping its own low too (no SMT yet). The long needs a 15m close back above 100.31 with a 5/5 level (feed 100.20) inside the zone and Brent back above its daily low.",
    "zone_lo": 99.95,
    "zone_hi": 100.45,
-   "status": "watch",
+   "status": "armed",
    "grade_max": "B",
    "stop_rule": "beyond the cluster of lows (feed 99.81) + 1x 1H ATR, about 99.2 MFP",
    "targets": "TP1 100.64 5/5 · TP2 101.35 (the overnight shelf)",
    "note": "Crude runs about +0.15 over the chart feed.",
-   "updated": "2026-10-27T12:20:00-04:00",
+   "updated": "2026-10-27T20:39-04:00",
    "account": "comp"
   },
   {
@@ -760,6 +760,18 @@
    "note": "One-shot: crude closed its 18:30 candle at 99.86, further under the daily low, so the reclaim is still unconfirmed and the long waits. Gold 1.6 ATR above its retest zone. Flat; the 20:33 read takes over.",
    "action": "none",
    "at": "2026-10-27T18:46-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 100027.98,
+   "balance": 100027.98,
+   "upnl": 0,
+   "open_positions": 0,
+   "working_orders": 1,
+   "status": "ok",
+   "note": "Crude reclaimed its daily low on the 20:15 candle close with the 5/5 level inside the zone and Brent back above its own low. Price had already run to the first target, so a retest limit long rests at the zone top with an attached stop below every visible low and a target at the prior-day high (2.2R), 1% risk, B grade. One-shots each 15m close while it is live.",
+   "action": "trade",
+   "at": "2026-10-27T20:39-04:00"
   }
  ],
  "ledger": [
