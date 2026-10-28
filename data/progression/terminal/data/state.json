@@ -1,13 +1,13 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-28T03:02-04:00",
+ "generated": "2026-10-28T04:05-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
   "cadence": "Weekend swing cadence: a check-in every 2 hours, plus one-shot checks one minute after a candle close when price presses an armed zone. Weekday cadence: every 30 minutes."
  },
  "offsets": {
-  "Gold": 7.8,
+  "Gold": 8.8,
   "Crude": 0.13
  },
  "links": {
@@ -32,15 +32,15 @@
    "path": "Classic $100K",
    "role": "Fortuna trades it autonomously",
    "trader": "Fortuna",
-   "status": "breaker tripped: 3 straight losses, no new entries until reviewed",
+   "status": "active: breaker lifted Oct 26 evening; gold A-only",
    "ends": "2026-10-31T12:00-04:00",
    "start": 100000,
    "handoff": 100004.31,
-   "equity": 100956.31,
-   "balance": 100379.38,
-   "upnl": 576.93,
-   "open_positions": 1,
-   "working_orders": 2,
+   "equity": 100748.03,
+   "balance": 100748.03,
+   "upnl": 0,
+   "open_positions": 0,
+   "working_orders": 0,
    "firm_limits": "No profit target, daily loss limit or drawdown (ranked by equity). Fees, slippage, liquidation and leverage caps still apply.",
    "self_limits": {
     "dll_pct": 3,
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-28T03:02-04:00"
+   "asof": "2026-10-28T04:05-04:00"
   },
   {
    "key": "elite5k",
@@ -64,16 +64,16 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 4995.78,
-   "balance": 4999.61,
-   "upnl": -3.83,
+   "equity": 4996.72,
+   "balance": 4999.6,
+   "upnl": -2.89,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 150.16,
-   "mdd_room": 245.78,
+   "dll_room": 151.09,
+   "mdd_room": 246.72,
    "mdd_floor": 4750,
    "target_equity": 5500,
-   "remaining_profit": 500.39,
+   "remaining_profit": 500.4,
    "firm_limits": "3% daily loss ($150 from the day's start), 5% static max drawdown (floor $4,750), 10% profit target ($5,500). Leads the Select 1K in a native copy group at 0.6×.",
    "self_limits": {
     "risk": "0.25% ($12.50) per trade · 0.5% for A+",
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-28T03:02-04:00"
+   "asof": "2026-10-28T04:05-04:00"
   },
   {
    "key": "select1k",
@@ -97,13 +97,13 @@
    "trader": "Follower",
    "status": "active",
    "start": 1000,
-   "equity": 999.62,
+   "equity": 999.7,
    "balance": 999.96,
-   "upnl": -0.35,
+   "upnl": -0.26,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 30.01,
-   "mdd_room": 29.62,
+   "dll_room": 30.1,
+   "mdd_room": 29.7,
    "mdd_floor": 970,
    "target_equity": 1090,
    "remaining_profit": 90.04,
@@ -113,7 +113,7 @@
    },
    "markets": "Whatever the Elite trades, at 0.6×.",
    "note": "Prize account from MFP. The 0.6× multiplier aligns its 3% floor with the Elite's 5%.",
-   "asof": "2026-10-28T03:02-04:00"
+   "asof": "2026-10-28T04:05-04:00"
   }
  ],
  "positions": [
@@ -150,23 +150,6 @@
    "plan": "TP resting at 104.38; leads the Select 1K copy at 0.6×",
    "note": "Christopher's own position — Fortuna never touches it",
    "asof": "2026-10-26T10:55-04:00"
-  },
-  {
-   "owner": "Fortuna",
-   "venue": "MyFundedPerps",
-   "account": "comp",
-   "symbol": "Crude",
-   "side": "long",
-   "size": 393.81,
-   "entry": 100.45,
-   "stop": 101.27,
-   "tp": 102.86,
-   "liq": 89.78,
-   "live": true,
-   "public": true,
-   "plan": "runner after half came off at 101.36 (+$357); stop trailed to 101.27 (about +$323 locked) under the closed 02:00 hour's higher low, target the prior-day high 102.86; keep trailing under each closed 1H higher low, never widen",
-   "note": "filled 20:41 ET Oct 27 on the retest of the zone top; half off 22:16 ET; target rolled 00:33 ET; stop trailed 02:34 and 03:02 ET",
-   "asof": "2026-10-28T03:02-04:00"
   }
  ],
  "watchlist": [
@@ -237,12 +220,12 @@
    "setup": "Crude swept its daily low (feed 100.31) during the NY morning to 99.81 and keeps closing just under it, with Brent sweeping its own low too (no SMT yet). The long needs a 15m close back above 100.31 with a 5/5 level (feed 100.20) inside the zone and Brent back above its daily low.",
    "zone_lo": 99.95,
    "zone_hi": 100.45,
-   "status": "triggered",
+   "status": "watch",
    "grade_max": "B",
    "stop_rule": "beyond the cluster of lows (feed 99.81) + 1x 1H ATR, about 99.2 MFP",
    "targets": "TP1 100.64 5/5 · TP2 101.35 (the overnight shelf)",
    "note": "Crude runs about +0.15 over the chart feed.",
-   "updated": "2026-10-27T21:32-04:00",
+   "updated": "2026-10-28T04:05-04:00",
    "account": "comp"
   },
   {
@@ -933,6 +916,18 @@
    "note": "Crude runner at +$577: the 02:00 hour closed 101.66 on a higher low, so the stop trailed again to 101.27, locking about +$323 on the runner on top of the +$357 banked. Target 102.86 unchanged, about one ATR away. Gold drifting under its zone, read-only. Next hourly read 04:01.",
    "action": "one-shot 04:01",
    "at": "2026-10-28T03:02-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 100748.03,
+   "balance": 100748.03,
+   "upnl": 0,
+   "open_positions": 0,
+   "working_orders": 0,
+   "status": "ok",
+   "note": "Crude trade closed: the 03:00 hour ran to within half a dollar of the target and closed at its low; by this read the market had fallen to the trail level, so the runner left at market at 101.39 for +$369. Whole trade +$720 net, +0.72R, the first competition win after three gold losses. Flat; crude back to watch, gold read-only.",
+   "action": "none",
+   "at": "2026-10-28T04:05-04:00"
   }
  ],
  "ledger": [
@@ -1052,6 +1047,23 @@
    "equity_after": 100027.98,
    "note": "Retest after a 2.4-ATR displacement ran through the zone; exit rule halved the loss; third straight loss, breaker tripped",
    "review": "https://drasticstatic.github.io/trading-assistant-public-preview/fortuna-exports/trade-reviews/2026/10-Oct/review_20261026_XAU-MFPCOMP_001.md"
+  },
+  {
+   "n": 6,
+   "date": "2026-10-27",
+   "account": "comp",
+   "market": "Crude",
+   "side": "long",
+   "owner": "Fortuna",
+   "grade": "B",
+   "risk_usd": 1000,
+   "entry": "limit 100.45 (20:41)",
+   "exit": "half 101.36 (22:16) · runner 101.39 (04:02 Oct 28, trail level)",
+   "r": 0.72,
+   "pnl": 720.05,
+   "equity_after": 100748.03,
+   "note": "Reclaim long of the swept daily low with a 5/5 level in the zone and Brent confirming; peaked +1.48R before the 03:00 hour closed at its low; first competition win after three gold losses",
+   "review": "https://drasticstatic.github.io/trading-assistant-public-preview/fortuna-exports/trade-reviews/2026/10-Oct/review_20261027_CL-MFPCOMP_001.md"
   }
  ],
  "preflight": [
