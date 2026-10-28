@@ -1,14 +1,14 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-28T16:34-04:00",
+ "generated": "2026-10-28T18:34-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
   "cadence": "Weekend swing cadence: a check-in every 2 hours, plus one-shot checks one minute after a candle close when price presses an armed zone. Weekday cadence: every 30 minutes."
  },
  "offsets": {
-  "Gold": 3.9,
-  "Crude": 0.04
+  "Gold": 4.6,
+  "Crude": 0.05
  },
  "links": {
   "gallery": "../gallery.html",
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-28T16:34-04:00"
+   "asof": "2026-10-28T18:34-04:00"
   },
   {
    "key": "elite5k",
@@ -64,16 +64,16 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 4995.86,
-   "balance": 4999.57,
-   "upnl": -3.71,
+   "equity": 4997.19,
+   "balance": 4999.56,
+   "upnl": -2.37,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 150.23,
-   "mdd_room": 245.86,
+   "dll_room": 151.57,
+   "mdd_room": 247.19,
    "mdd_floor": 4750,
    "target_equity": 5500,
-   "remaining_profit": 500.43,
+   "remaining_profit": 500.44,
    "firm_limits": "3% daily loss ($150 from the day's start), 5% static max drawdown (floor $4,750), 10% profit target ($5,500). Leads the Select 1K in a native copy group at 0.6×.",
    "self_limits": {
     "risk": "0.25% ($12.50) per trade · 0.5% for A+",
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-28T16:34-04:00"
+   "asof": "2026-10-28T18:34-04:00"
   },
   {
    "key": "select1k",
@@ -97,13 +97,13 @@
    "trader": "Follower",
    "status": "active",
    "start": 1000,
-   "equity": 999.63,
+   "equity": 999.74,
    "balance": 999.96,
-   "upnl": -0.33,
+   "upnl": -0.21,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 30.02,
-   "mdd_room": 29.63,
+   "dll_room": 30.14,
+   "mdd_room": 29.74,
    "mdd_floor": 970,
    "target_equity": 1090,
    "remaining_profit": 90.04,
@@ -113,7 +113,7 @@
    },
    "markets": "Whatever the Elite trades, at 0.6×.",
    "note": "Prize account from MFP. The 0.6× multiplier aligns its 3% floor with the Elite's 5%.",
-   "asof": "2026-10-28T16:34-04:00"
+   "asof": "2026-10-28T18:34-04:00"
   }
  ],
  "positions": [
@@ -1060,6 +1060,18 @@
    "note": "Flat after FOMC. Crude broke the prior-day high at midday, but the hour after the press conference closed back under it, so the breakout-retest zone is paused: the thesis did not hold. Gold whipped both ways through the presser and sits under its old zone, read-only. Indices closed above their prior-day highs with a 4H still mixed. No trade.",
    "action": "none",
    "at": "2026-10-28T16:34-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 100748.03,
+   "balance": 100748.03,
+   "upnl": 0,
+   "open_positions": 0,
+   "working_orders": 0,
+   "status": "ok",
+   "note": "Flat into the evening. Gold is pressing its old long zone from below after the FOMC whip, but the 4H is still bearish and gold is A-grade only, so no long is eligible: read-only, no one-shot. Crude holds just under the prior-day high it lost after the presser; Brent held its own, so the pair now shows a bearish divergence. Crypto quiet, 4 ATR from its zones.",
+   "action": "none",
+   "at": "2026-10-28T18:34-04:00"
   }
  ],
  "ledger": [
