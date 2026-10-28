@@ -1,14 +1,14 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-28T04:05-04:00",
+ "generated": "2026-10-28T04:35-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
   "cadence": "Weekend swing cadence: a check-in every 2 hours, plus one-shot checks one minute after a candle close when price presses an armed zone. Weekday cadence: every 30 minutes."
  },
  "offsets": {
-  "Gold": 8.8,
-  "Crude": 0.13
+  "Gold": 6.3,
+  "Crude": 0.15
  },
  "links": {
   "gallery": "../gallery.html",
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-28T04:05-04:00"
+   "asof": "2026-10-28T04:35-04:00"
   },
   {
    "key": "elite5k",
@@ -64,13 +64,13 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 4996.72,
+   "equity": 4997.85,
    "balance": 4999.6,
-   "upnl": -2.89,
+   "upnl": -1.76,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 151.09,
-   "mdd_room": 246.72,
+   "dll_room": 152.22,
+   "mdd_room": 247.85,
    "mdd_floor": 4750,
    "target_equity": 5500,
    "remaining_profit": 500.4,
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-28T04:05-04:00"
+   "asof": "2026-10-28T04:35-04:00"
   },
   {
    "key": "select1k",
@@ -97,13 +97,13 @@
    "trader": "Follower",
    "status": "active",
    "start": 1000,
-   "equity": 999.7,
+   "equity": 999.81,
    "balance": 999.96,
-   "upnl": -0.26,
+   "upnl": -0.15,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 30.1,
-   "mdd_room": 29.7,
+   "dll_room": 30.21,
+   "mdd_room": 29.81,
    "mdd_floor": 970,
    "target_equity": 1090,
    "remaining_profit": 90.04,
@@ -113,7 +113,7 @@
    },
    "markets": "Whatever the Elite trades, at 0.6×.",
    "note": "Prize account from MFP. The 0.6× multiplier aligns its 3% floor with the Elite's 5%.",
-   "asof": "2026-10-28T04:05-04:00"
+   "asof": "2026-10-28T04:35-04:00"
   }
  ],
  "positions": [
@@ -928,6 +928,18 @@
    "note": "Crude trade closed: the 03:00 hour ran to within half a dollar of the target and closed at its low; by this read the market had fallen to the trail level, so the runner left at market at 101.39 for +$369. Whole trade +$720 net, +0.72R, the first competition win after three gold losses. Flat; crude back to watch, gold read-only.",
    "action": "none",
    "at": "2026-10-28T04:05-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 100748.03,
+   "balance": 100748.03,
+   "upnl": 0,
+   "open_positions": 0,
+   "working_orders": 0,
+   "status": "ok",
+   "note": "Flat after the crude win. Gold rallied twenty dollars in ninety minutes back up into its old retest zone with no key level and no silver confirmation against a bearish 4H, so it stays read-only. Crude is holding the overnight base under the prior-day high, on watch for a fresh structure. BTC and ETH sit far from the Elite zones; Tradovate flat; SOL about 6% above the BTCC liquidation. Next read 06:33.",
+   "action": "none",
+   "at": "2026-10-28T04:35-04:00"
   }
  ],
  "ledger": [
@@ -1109,7 +1121,7 @@
   },
   {
    "id": "exit",
-   "text": "Exit plan written before entry: TP1 at liquidity (about half off), stop to breakeven once a swing forms beyond entry, never move a target farther, time stop noted.",
+   "text": "Exit plan written before entry: TP1 at liquidity (about half off), stop to breakeven once a swing forms beyond entry, never move a target farther, time stop noted. Past +1R the trail is checked on 15m closes, and a 1H candle that runs more than 1.5 ATR and closes against the trade under or over a daily level closes the runner at the next read.",
    "why": "Patterns 7 and 8 on the human checklist: pulled stops and moved targets."
   },
   {
