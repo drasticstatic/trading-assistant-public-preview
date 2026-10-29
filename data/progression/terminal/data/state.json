@@ -1,6 +1,6 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-29T08:34-04:00",
+ "generated": "2026-10-29T09:31-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-29T08:34-04:00"
+   "asof": "2026-10-29T09:31-04:00"
   },
   {
    "key": "elite5k",
@@ -64,16 +64,16 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 4998.1,
-   "balance": 4999.09,
-   "upnl": -0.99,
+   "equity": 5002.8,
+   "balance": 4999.07,
+   "upnl": 3.73,
    "open_positions": 2,
    "working_orders": 3,
-   "dll_room": 156.03,
-   "mdd_room": 248.1,
+   "dll_room": 160.73,
+   "mdd_room": 252.8,
    "mdd_floor": 4750,
    "target_equity": 5500,
-   "remaining_profit": 500.91,
+   "remaining_profit": 500.93,
    "firm_limits": "3% daily loss ($150 from the day's start), 5% static max drawdown (floor $4,750), 10% profit target ($5,500). Leads the Select 1K in a native copy group at 0.6×.",
    "self_limits": {
     "risk": "0.25% ($12.50) per trade · 0.5% for A+",
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-29T08:34-04:00"
+   "asof": "2026-10-29T09:31-04:00"
   },
   {
    "key": "select1k",
@@ -1306,6 +1306,18 @@
    "note": "Competition flat through the 08:30 US data (inside the news buffer, no new entries). Gold tagged its prior-day low on a weak sweep and crude re-swept and reclaimed its own; both zones stay paused, nothing within half an ATR. The Elite ETH long held: 07:30 to 08:15 closed 2,325.3 to 2,323.6, drifting under the +1R mark, exits unchanged.",
    "action": "one-shot 09:31",
    "at": "2026-10-29T08:34-04:00"
+  },
+  {
+   "account": "elite5k",
+   "equity": 5002.8,
+   "balance": 4999.07,
+   "upnl": 3.73,
+   "open_positions": 2,
+   "working_orders": 3,
+   "status": "ok",
+   "note": "ETH long held into the equities open: 08:30 to 09:15 closed 2,322.1, 2,322.0, 2,325.3, 2,328.4, higher lows again after the data dip, still under the +1R mark, exits unchanged. Competition flat; no entries inside the first 09:30 candle.",
+   "action": "none",
+   "at": "2026-10-29T09:31-04:00"
   }
  ],
  "ledger": [
