@@ -1,6 +1,6 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-29T10:35-04:00",
+ "generated": "2026-10-29T10:48-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-29T10:35-04:00"
+   "asof": "2026-10-29T10:48-04:00"
   },
   {
    "key": "elite5k",
@@ -64,16 +64,16 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 5009.72,
-   "balance": 4999.05,
-   "upnl": 10.66,
+   "equity": 5012.38,
+   "balance": 5007.98,
+   "upnl": 4.39,
    "open_positions": 2,
    "working_orders": 3,
-   "dll_room": 167.65,
-   "mdd_room": 259.72,
+   "dll_room": 170.31,
+   "mdd_room": 262.38,
    "mdd_floor": 4750,
    "target_equity": 5500,
-   "remaining_profit": 500.95,
+   "remaining_profit": 492.02,
    "firm_limits": "3% daily loss ($150 from the day's start), 5% static max drawdown (floor $4,750), 10% profit target ($5,500). Leads the Select 1K in a native copy group at 0.6×.",
    "self_limits": {
     "risk": "0.25% ($12.50) per trade · 0.5% for A+",
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-29T10:35-04:00"
+   "asof": "2026-10-29T10:48-04:00"
   },
   {
    "key": "select1k",
@@ -157,17 +157,17 @@
    "account": "elite5k",
    "symbol": "ETH",
    "side": "long",
-   "size": 0.445,
+   "size": 0.223,
    "entry": 2303.31,
-   "stop": 2272.2,
+   "stop": 2303.5,
    "tp": 2356.0,
    "liq": 1650.71,
    "r_unit": 31.11,
    "live": true,
    "public": true,
-   "plan": "Sweep-and-reclaim of the prior-day low with BTC and SOL holding theirs (SMT); 0.25% risk, B grade. Half off at +1R (2,334) with the stop to breakeven; runner to 2,356 under the midnight open. Exit if a 15m candle closes back below the reclaimed low 2,296.",
-   "note": "Fortuna's trade · the Select mirrors it at the copier's ratio",
-   "asof": "2026-10-28T22:49-04:00"
+   "plan": "Half (0.222) off at +1R at 2,344.24 after the 10:30 close above 2,334; stop on the runner at breakeven 2,303.5, TP 2,356 under the midnight open. Trail behind closed 1H lows once a swing forms; never move the target farther.",
+   "note": "Fortuna's trade · half off at +1R, runner protected at breakeven · the Select mirrors it at the copier's ratio",
+   "asof": "2026-10-29T10:47-04:00"
   }
  ],
  "watchlist": [
@@ -1330,6 +1330,18 @@
    "note": "Competition flat; gold sits a full ATR above its paused zone and crude three ATR above its own, indices swept their prior-day lows at the open and bounced, no competition trigger. The Elite ETH long pushed through the +1R mark on the 10:30 candle (high 2,342) but no 15-minute candle has closed above it yet; half-off check at 10:46, exits unchanged until then.",
    "action": "one-shot 10:46",
    "at": "2026-10-29T10:35-04:00"
+  },
+  {
+   "account": "elite5k",
+   "equity": 5012.38,
+   "balance": 5007.98,
+   "upnl": 4.39,
+   "open_positions": 2,
+   "working_orders": 3,
+   "status": "ok",
+   "note": "Half of the ETH long came off at 2,344.24 after the 10:30 candle closed above the +1R mark (2,345.8, high 2,353). Runner stop moved to breakeven 2,303.5, target 2,356 unchanged; the trade can no longer lose. Competition flat.",
+   "action": "trade",
+   "at": "2026-10-29T10:48-04:00"
   }
  ],
  "ledger": [
