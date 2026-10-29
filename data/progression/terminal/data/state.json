@@ -1,6 +1,6 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-29T10:48-04:00",
+ "generated": "2026-10-29T11:33-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-29T10:48-04:00"
+   "asof": "2026-10-29T11:33-04:00"
   },
   {
    "key": "elite5k",
@@ -64,16 +64,16 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 5012.38,
-   "balance": 5007.98,
-   "upnl": 4.39,
-   "open_positions": 2,
-   "working_orders": 3,
-   "dll_room": 170.31,
-   "mdd_room": 262.38,
+   "equity": 5016.08,
+   "balance": 5019.74,
+   "upnl": -3.66,
+   "open_positions": 1,
+   "working_orders": 1,
+   "dll_room": 174.01,
+   "mdd_room": 266.08,
    "mdd_floor": 4750,
    "target_equity": 5500,
-   "remaining_profit": 492.02,
+   "remaining_profit": 480.26,
    "firm_limits": "3% daily loss ($150 from the day's start), 5% static max drawdown (floor $4,750), 10% profit target ($5,500). Leads the Select 1K in a native copy group at 0.6×.",
    "self_limits": {
     "risk": "0.25% ($12.50) per trade · 0.5% for A+",
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-29T10:48-04:00"
+   "asof": "2026-10-29T11:33-04:00"
   },
   {
    "key": "select1k",
@@ -97,23 +97,23 @@
    "trader": "Follower",
    "status": "active",
    "start": 1000,
-   "equity": 1001.31,
-   "balance": 999.9,
-   "upnl": 1.41,
+   "equity": 1002.05,
+   "balance": 1002.37,
+   "upnl": -0.32,
    "open_positions": 1,
    "working_orders": 1,
-   "dll_room": 31.99,
-   "mdd_room": 31.31,
+   "dll_room": 32.73,
+   "mdd_room": 32.05,
    "mdd_floor": 970,
    "target_equity": 1090,
-   "remaining_profit": 90.1,
+   "remaining_profit": 87.63,
    "firm_limits": "3% daily loss, 3% static max drawdown (floor $970), 9% profit target ($1,090).",
    "self_limits": {
     "risk": "Inherits 0.6× of every Elite trade (≈ $7.50 per Elite base hit)"
    },
    "markets": "Whatever the Elite trades, at 0.6×.",
    "note": "Prize account from MFP. The 0.6× multiplier aligns its 3% floor with the Elite's 5%.",
-   "asof": "2026-10-29T10:35-04:00"
+   "asof": "2026-10-29T11:33-04:00"
   }
  ],
  "positions": [
@@ -150,24 +150,6 @@
    "plan": "TP resting at 104.38; leads the Select 1K copy at 0.6×",
    "note": "Christopher's own position — Fortuna never touches it",
    "asof": "2026-10-26T10:55-04:00"
-  },
-  {
-   "owner": "Fortuna",
-   "venue": "MyFundedPerps",
-   "account": "elite5k",
-   "symbol": "ETH",
-   "side": "long",
-   "size": 0.223,
-   "entry": 2303.31,
-   "stop": 2303.5,
-   "tp": 2356.0,
-   "liq": 1650.71,
-   "r_unit": 31.11,
-   "live": true,
-   "public": true,
-   "plan": "Half (0.222) off at +1R at 2,344.24 after the 10:30 close above 2,334; stop on the runner at breakeven 2,303.5, TP 2,356 under the midnight open. Trail behind closed 1H lows once a swing forms; never move the target farther.",
-   "note": "Fortuna's trade · half off at +1R, runner protected at breakeven · the Select mirrors it at the copier's ratio",
-   "asof": "2026-10-29T10:47-04:00"
   }
  ],
  "watchlist": [
@@ -1342,6 +1324,18 @@
    "note": "Half of the ETH long came off at 2,344.24 after the 10:30 candle closed above the +1R mark (2,345.8, high 2,353). Runner stop moved to breakeven 2,303.5, target 2,356 unchanged; the trade can no longer lose. Competition flat.",
    "action": "trade",
    "at": "2026-10-29T10:48-04:00"
+  },
+  {
+   "account": "elite5k",
+   "equity": 5016.08,
+   "balance": 5019.74,
+   "upnl": -3.66,
+   "open_positions": 1,
+   "working_orders": 1,
+   "status": "ok",
+   "note": "The ETH runner filled at the target 2,356.80 at 11:09, twenty minutes after the half came off. Trade closed +$20.23 net, +1.46R on the risk at the fill (peak +2.02R), twelve hours from entry. First Elite trade, first win. Competition flat.",
+   "action": "trade",
+   "at": "2026-10-29T11:33-04:00"
   }
  ],
  "ledger": [
@@ -1478,6 +1472,23 @@
    "equity_after": 100748.03,
    "note": "Reclaim long of the swept daily low with a 5/5 level in the zone and Brent confirming; peaked +1.48R before the 03:00 hour closed at its low; first competition win after three gold losses",
    "review": "https://drasticstatic.github.io/trading-assistant-public-preview/fortuna-exports/trade-reviews/2026/10-Oct/review_20261027_CL-MFPCOMP_001.md"
+  },
+  {
+   "n": 7,
+   "date": "2026-10-28",
+   "account": "elite5k",
+   "market": "ETH",
+   "side": "long",
+   "owner": "Fortuna",
+   "grade": "B",
+   "risk_usd": 13.84,
+   "entry": "market 2,303.31 (22:50 Oct 28)",
+   "exit": "half 2,344.24 (10:46 Oct 29) · runner 2,356.80 at the target (11:09)",
+   "r": 1.46,
+   "pnl": 20.23,
+   "equity_after": 5019.74,
+   "note": "Sweep-and-reclaim of the prior-day low with BTC and SOL holding theirs; held twelve hours through nine reads, half at +1R, runner to the target under the midnight open; first Elite trade and first win. The Select mirror netted +$2.43",
+   "review": "https://drasticstatic.github.io/trading-assistant-public-preview/fortuna-exports/trade-reviews/2026/10-Oct/review_20261028_ETH-MFPELITE_001.md"
   }
  ],
  "preflight": [
