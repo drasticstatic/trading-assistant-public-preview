@@ -46,7 +46,9 @@ Everything else (grading, the Perps Preflight Checklist, logging) follows the co
 
 | # | Date (ET) | Market | Side | Grade | Risk | Entry | Exit | R | Elite P&L | Select P&L | Review |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| — | — | — | — | — | — | — | — | — | — | — | *none yet* |
+| 1 | Oct 28, 22:48 | ETH (`binance\|ETHUSDT`) | Long (Fortuna) | B | 0.25% ($12.50 planned; $13.84 at the fill after 3 pts of slippage) | 2,303.31 market · stop 2,272.2 · TP 2,356 | **open** | — | — | — | *pending* |
+
+> **Wed Oct 28, 22:48 ET — first Fortuna trade on the Elite program.** Crypto sold off two 1H ATRs in the 21:00 hour after FOMC day. ETH swept the prior-day low (2,296.2) to 2,292.1 on the 22:30 15m candle, on the evening's heaviest volume, and closed back above it at 2,298.9 while BTC and SOL held their own prior-day lows (the SMT condition). Two 5/5 Auto Levels (2,301.5, the week open, and 2,302.4) sit within half an ATR of the reclaimed level, so the read graded B. Long **0.445 ETH at 2,303.31** (market, 3 pts over the quote in a fast tape), 3× isolated (liquidation 1,650, twenty times the stop distance), attached **stop 2,272.2** (sweep low less one 1H ATR, below the Oct 27 low, not on a visible low) and **TP 2,356** (just under the midnight open 2,359.9, 1.7R from the fill). Counter-trend against a bearish 4H and a 5m downtrend reading ADX 59, which is exactly why this program trades the smallest size. Plan: half off at +1R (2,334) with the stop to breakeven, runner to the TP; thesis exit on a 15m close back below 2,296.2. One-shots each 15m close while the trade is young. The Select mirrored it at the copier's ratio (0.053 ETH).
 
 ## Christopher's open positions here (read-only for Fortuna)
 
