@@ -1,5 +1,5 @@
 {
-"asof": "2026-10-29T02:01-04:00",
+"asof": "2026-10-29T02:35-04:00",
 "source": "CBOE delayed quotes (SPX, NDX, 15-min delay) \u00b7 Deribit public (BTC, ETH, Black-Scholes gamma)",
 "markets": [
 {
@@ -125,57 +125,57 @@
 {
 "market": "BTC",
 "feed": "BTC",
-"spot": 80164.02,
-"total_gex": 3.8,
-"flip": 94500.0,
+"spot": 79982.45,
+"total_gex": -9.05,
+"flip": null,
 "strikes": [
 {
 "strike": 76000.0,
-"gex": -6.57
+"gex": -6.87
 },
 {
 "strike": 77000.0,
-"gex": -9.06
+"gex": -9.73
 },
 {
 "strike": 78000.0,
-"gex": -11.41
-},
-{
-"strike": 78500.0,
-"gex": -1.37
+"gex": -12.35
 },
 {
 "strike": 79000.0,
-"gex": -9.97
+"gex": -10.91
 },
 {
 "strike": 79500.0,
-"gex": -5.94
+"gex": -7.83
 },
 {
 "strike": 80000.0,
-"gex": -7.86
+"gex": -8.55
+},
+{
+"strike": 80500.0,
+"gex": -1.88
 },
 {
 "strike": 81500.0,
-"gex": 2.81
+"gex": 2.49
 },
 {
 "strike": 82000.0,
-"gex": 10.63
+"gex": 9.36
 },
 {
 "strike": 82500.0,
-"gex": 7.99
+"gex": 6.84
 },
 {
 "strike": 83000.0,
-"gex": 6.9
+"gex": 6.54
 },
 {
 "strike": 84000.0,
-"gex": 6.19
+"gex": 5.89
 }
 ],
 "call_wall": 82000.0,
@@ -185,60 +185,60 @@
 {
 "market": "ETH",
 "feed": "ETH",
-"spot": 2327.64,
-"total_gex": -16.32,
+"spot": 2317.17,
+"total_gex": -19.5,
 "flip": null,
 "strikes": [
 {
 "strike": 2200.0,
-"gex": -1.03
+"gex": -1.17
 },
 {
 "strike": 2250.0,
-"gex": -1.78
+"gex": -2.08
 },
 {
 "strike": 2260.0,
-"gex": -0.48
+"gex": -0.55
 },
 {
 "strike": 2280.0,
-"gex": -0.94
+"gex": -1.61
 },
 {
 "strike": 2300.0,
-"gex": -10.59
+"gex": -12.8
 },
 {
 "strike": 2320.0,
-"gex": -1.59
-},
-{
-"strike": 2340.0,
-"gex": 0.22
-},
-{
-"strike": 2350.0,
 "gex": -1.24
 },
 {
+"strike": 2340.0,
+"gex": 0.12
+},
+{
+"strike": 2350.0,
+"gex": -1.1
+},
+{
 "strike": 2360.0,
-"gex": 0.11
+"gex": 0.09
 },
 {
 "strike": 2400.0,
-"gex": -1.04
+"gex": -0.81
 },
 {
 "strike": 2420.0,
-"gex": 0.2
+"gex": 0.16
 },
 {
 "strike": 2450.0,
-"gex": 0.19
+"gex": 0.17
 }
 ],
-"call_wall": 2340.0,
+"call_wall": 2450.0,
 "put_wall": 2300.0,
 "unit": "$M per 1% move"
 }
