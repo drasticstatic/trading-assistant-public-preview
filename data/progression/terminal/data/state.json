@@ -1,6 +1,6 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-29T14:49-04:00",
+ "generated": "2026-10-29T18:46-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
@@ -64,9 +64,9 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 5011.96,
-   "balance": 5019.74,
-   "upnl": -7.78,
+   "equity": 5004.69,
+   "balance": 5019.72,
+   "upnl": -15.03,
    "open_positions": 1,
    "working_orders": 1,
    "dll_room": 169.89,
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-29T14:49-04:00"
+   "asof": "2026-10-29T18:46-04:00"
   },
   {
    "key": "select1k",
@@ -97,11 +97,11 @@
    "trader": "Follower",
    "status": "active",
    "start": 1000,
-   "equity": 1001.65,
+   "equity": 1002.37,
    "balance": 1002.37,
-   "upnl": -0.72,
-   "open_positions": 1,
-   "working_orders": 1,
+   "upnl": 0,
+   "open_positions": 0,
+   "working_orders": 0,
    "dll_room": 32.33,
    "mdd_room": 31.65,
    "mdd_floor": 970,
@@ -113,27 +113,10 @@
    },
    "markets": "Whatever the Elite trades, at 0.6×.",
    "note": "Prize account from MFP. The 0.6× multiplier aligns its 3% floor with the Elite's 5%.",
-   "asof": "2026-10-29T14:49-04:00"
+   "asof": "2026-10-29T18:46-04:00"
   }
  ],
  "positions": [
-  {
-   "owner": "Christopher",
-   "venue": "BTCC",
-   "account": "btcc",
-   "symbol": "SOL/USDT",
-   "side": "long",
-   "size": 6,
-   "entry": 105.22,
-   "stop": null,
-   "tp": null,
-   "liq": 97.01,
-   "live": true,
-   "public": true,
-   "plan": "Aiming for a recovery toward the prior-day highs; funding fees are walking the liquidation up (96.92 to 97.01). Eager to rotate out into the next idea: two position vouchers to deploy before Oct 30 05:04 and Oct 31 13:59 ET, longs when the tape gives a sweep-and-reclaim, not before a lower low is ruled out.",
-   "note": "real money · read-only for Fortuna · alert inside 1.5% of the liquidation",
-   "asof": "2026-10-29T04:40-04:00"
-  },
   {
    "owner": "Christopher",
    "venue": "MyFundedPerps",
@@ -147,9 +130,9 @@
    "liq": null,
    "live": true,
    "public": true,
-   "plan": "TP resting at 104.38; leads the Select 1K copy at 0.6×",
-   "note": "Christopher's own position — Fortuna never touches it",
-   "asof": "2026-10-26T10:55-04:00"
+   "plan": "TP resting at 104.38; leads the Select 1K copy at 0.6x. After the BTCC liquidation the same idea is being re-read on the charts tonight: a long on a reclaim with a voucher, or this one closes.",
+   "note": "Christopher's own position; Fortuna never touches it",
+   "asof": "2026-10-29T18:46-04:00"
   }
  ],
  "watchlist": [
@@ -1348,6 +1331,18 @@
    "note": "Loop paused by Christopher at 12:33 for a fleet task (this read published late, 14:47). Comp flat, no trigger: gold and crude outside their paused zones, BTC and ETH 2 to 2.5 ATR above the Elite zones, bearish SMT (BTC took its prior-day high, ETH and SOL held). Only his SOL long is open on the Elite; SOL 100.4, 3.5% above the BTCC liquidation. Next read when he says resume.",
    "action": "none",
    "at": "2026-10-29T14:49-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 100748.03,
+   "balance": 100748.03,
+   "upnl": 0,
+   "open_positions": 0,
+   "working_orders": 0,
+   "status": "ok",
+   "note": "Manual read (loop still paused). Christopher's BTCC SOL/USDT long (real money, read-only for Fortuna) was liquidated this afternoon in the SOL flush through 97; the exchange's own books may not have held the published liquidation level in that volatility and he has a support ticket open. Lesson logged: perp venues carry their own liquidity, not CME's; small size while testing kept it a lesson, not a wound. The 1.5% liquidation alert is retired with the position. Two BTCC position vouchers remain (Oct 30 05:04 and Oct 31 13:59 ET); his call tonight is a long on a reclaim or nothing. Comp flat, no trigger; only his SOL long on the Elite stays open, Fortuna never touches it.",
+   "action": "none",
+   "at": "2026-10-29T18:46-04:00"
   }
  ],
  "ledger": [
