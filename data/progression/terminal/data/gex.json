@@ -1,5 +1,5 @@
 {
-"asof": "2026-10-29T00:01-04:00",
+"asof": "2026-10-29T00:35-04:00",
 "source": "CBOE delayed quotes (SPX, NDX, 15-min delay) \u00b7 Deribit public (BTC, ETH, Black-Scholes gamma)",
 "markets": [
 {
@@ -125,57 +125,57 @@
 {
 "market": "BTC",
 "feed": "BTC",
-"spot": 79741.87,
-"total_gex": -20.08,
+"spot": 79893.91,
+"total_gex": -11.24,
 "flip": null,
 "strikes": [
 {
-"strike": 75000.0,
-"gex": -10.62
-},
-{
 "strike": 76000.0,
-"gex": -7.98
+"gex": -7.43
 },
 {
 "strike": 77000.0,
-"gex": -11.42
+"gex": -10.45
 },
 {
 "strike": 78000.0,
-"gex": -14.02
+"gex": -13.04
 },
 {
 "strike": 78500.0,
-"gex": -2.48
+"gex": -2.11
 },
 {
 "strike": 79000.0,
-"gex": -11.96
+"gex": -11.37
 },
 {
 "strike": 79500.0,
-"gex": -8.97
+"gex": -8.36
 },
 {
 "strike": 80000.0,
-"gex": -7.15
+"gex": -7.53
+},
+{
+"strike": 81500.0,
+"gex": 2.44
 },
 {
 "strike": 82000.0,
-"gex": 8.2
+"gex": 9.1
 },
 {
 "strike": 82500.0,
-"gex": 5.93
+"gex": 6.67
 },
 {
 "strike": 83000.0,
-"gex": 6.12
+"gex": 6.43
 },
 {
 "strike": 84000.0,
-"gex": 5.76
+"gex": 6.03
 }
 ],
 "call_wall": 82000.0,
@@ -185,60 +185,60 @@
 {
 "market": "ETH",
 "feed": "ETH",
-"spot": 2309.01,
-"total_gex": -20.9,
+"spot": 2316.9,
+"total_gex": -19.18,
 "flip": null,
 "strikes": [
 {
 "strike": 2200.0,
-"gex": -1.28
-},
-{
-"strike": 2240.0,
-"gex": -0.1
+"gex": -1.2
 },
 {
 "strike": 2250.0,
-"gex": -2.31
+"gex": -2.09
 },
 {
 "strike": 2260.0,
-"gex": -0.8
+"gex": -0.62
 },
 {
 "strike": 2280.0,
-"gex": -3.36
+"gex": -2.13
 },
 {
 "strike": 2300.0,
-"gex": -12.09
+"gex": -12.07
 },
 {
 "strike": 2320.0,
-"gex": -0.77
+"gex": -0.98
 },
 {
 "strike": 2340.0,
-"gex": 0.12
+"gex": 0.16
 },
 {
 "strike": 2350.0,
-"gex": -1.02
+"gex": -1.14
 },
 {
 "strike": 2360.0,
-"gex": 0.09
+"gex": 0.1
 },
 {
 "strike": 2400.0,
-"gex": -0.66
+"gex": -0.79
 },
 {
 "strike": 2420.0,
-"gex": 0.14
+"gex": 0.16
+},
+{
+"strike": 2450.0,
+"gex": 0.17
 }
 ],
-"call_wall": 2420.0,
+"call_wall": 2450.0,
 "put_wall": 2300.0,
 "unit": "$M per 1% move"
 }
