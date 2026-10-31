@@ -1,6 +1,6 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-31T08:20-04:00",
+ "generated": "2026-10-31T09:22-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
@@ -36,10 +36,10 @@
    "ends": "2026-10-31T12:00-04:00",
    "start": 100000,
    "handoff": 100004.31,
-   "equity": 100748.03,
-   "balance": 100748.03,
-   "upnl": 0,
-   "open_positions": 0,
+   "equity": 100732.6,
+   "balance": 100740.2,
+   "upnl": -7.6,
+   "open_positions": 1,
    "working_orders": 0,
    "firm_limits": "No profit target, daily loss limit or drawdown (ranked by equity). Fees, slippage, liquidation and leverage caps still apply.",
    "self_limits": {
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-31T08:20-04:00"
+   "asof": "2026-10-31T09:22-04:00"
   },
   {
    "key": "elite5k",
@@ -64,9 +64,9 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 5000.87,
-   "balance": 5019.62,
-   "upnl": -18.75,
+   "equity": 5000.98,
+   "balance": 5019.61,
+   "upnl": -18.63,
    "open_positions": 1,
    "working_orders": 1,
    "dll_room": 148.85,
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-31T07:32-04:00"
+   "asof": "2026-10-31T09:22-04:00"
   },
   {
    "key": "select1k",
@@ -97,9 +97,9 @@
    "trader": "Follower",
    "status": "active",
    "start": 1000,
-   "equity": 1000.61,
+   "equity": 1000.62,
    "balance": 1002.36,
-   "upnl": -1.74,
+   "upnl": -1.73,
    "open_positions": 1,
    "working_orders": 1,
    "dll_room": 29.89,
@@ -113,7 +113,7 @@
    },
    "markets": "Whatever the Elite trades, at 0.6×.",
    "note": "Prize account from MFP. The 0.6× multiplier aligns its 3% floor with the Elite's 5%.",
-   "asof": "2026-10-31T07:32-04:00"
+   "asof": "2026-10-31T09:22-04:00"
   }
  ],
  "positions": [
@@ -130,9 +130,25 @@
    "liq": null,
    "live": true,
    "public": true,
-   "plan": "TP resting at 104.38; leads the Select 1K copy at 0.6x. After the BTCC liquidation the same idea is being re-read on the charts tonight: a long on a reclaim with a voucher, or this one closes.",
+   "plan": "TP resting at 104.38; leads the Select 1K copy at 0.6x.",
    "note": "Christopher's own position; Fortuna never touches it",
    "asof": "2026-10-29T18:46-04:00"
+  },
+  {
+   "owner": "Fortuna",
+   "venue": "MyFundedPerps",
+   "account": "comp",
+   "symbol": "CL",
+   "side": "long",
+   "size": 1520,
+   "entry": 103.06,
+   "stop": 102.72,
+   "tp": 103.97,
+   "liq": 85.54,
+   "live": true,
+   "public": true,
+   "plan": "B-grade reclaim of the key level after the overnight sweep; half off at 103.32 then stop to breakeven; out on a 1H close under the sweep low; flat by 11:45 ET, before the competition ends at noon.",
+   "asof": "2026-10-31T09:22-04:00"
   }
  ],
  "watchlist": [
@@ -203,12 +219,12 @@
    "setup": "Crude broke above the prior-day high 102.75 feed at 11:45 ET on the heaviest 15m volume of the day, with Brent taking its own prior-day high (SMT confirms). A long needs a retest of the breakout shelf and a 15m close back above it; a KEY Auto Level sits in the zone (feed 102.93). Not tradeable yet: no daily level above for a target, so the reward does not reach 1R against a stop under the pre-breakout base.",
    "zone_lo": 102.85,
    "zone_hi": 103.1,
-   "status": "paused",
+   "status": "live",
    "grade_max": "B",
    "stop_rule": "below the pre-breakout base lows (feed 102.14-102.34) + 1x 1H ATR, about 101.6 MFP",
    "targets": "TP1 103.85 (5/5 cluster 103.75-103.83 feed) · no daily level above yet",
    "note": "Crude runs about +0.10 over the chart feed. Watch only until a target forms.",
-   "updated": "2026-10-28T16:34-04:00",
+   "updated": "2026-10-31T09:22-04:00",
    "account": "comp"
   },
   {
@@ -1367,6 +1383,18 @@
    "note": "08:20 ET: the 07:00 hour closed 102.94 on crude, under the 102.98 the reclaim long needs, and Brent closed lower; no trigger. Still ranging on its key level; the setup stays armed for the 08:00 close.",
    "action": "none",
    "at": "2026-10-31T08:20-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 100732.6,
+   "balance": 100740.2,
+   "upnl": -7.6,
+   "open_positions": 1,
+   "working_orders": 2,
+   "status": "ok",
+   "note": "09:21 ET: the 08:00 hour closed 103.02 on crude, over the 102.98 the reclaim long needed, holding above the overnight sweep low, and Brent closed higher. Long crude at 103.06, 0.5% risk, stop and target resting on the server; half off at the Friday-evening high, flat by 11:45 either way.",
+   "action": "entered long CL",
+   "at": "2026-10-31T09:21-04:00"
   }
  ],
  "ledger": [
