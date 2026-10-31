@@ -1,245 +1,245 @@
 {
-"asof": "2026-10-29T18:46-04:00",
+"asof": "2026-10-31T07:32-04:00",
 "source": "CBOE delayed quotes (SPX, NDX, 15-min delay) \u00b7 Deribit public (BTC, ETH, Black-Scholes gamma)",
 "markets": [
 {
 "market": "S&P 500",
 "feed": "xyz:SP500",
-"spot": 7720.39,
-"total_gex": -49893.21,
+"spot": 7580.07,
+"total_gex": -59386.79,
 "flip": null,
 "strikes": [
 {
+"strike": 7300.0,
+"gex": -1552.18
+},
+{
+"strike": 7350.0,
+"gex": -1376.95
+},
+{
 "strike": 7400.0,
-"gex": -1809.19
+"gex": -2470.11
+},
+{
+"strike": 7450.0,
+"gex": -2385.4
+},
+{
+"strike": 7475.0,
+"gex": -1890.13
 },
 {
 "strike": 7500.0,
-"gex": -4397.67
+"gex": -5613.25
+},
+{
+"strike": 7510.0,
+"gex": -1976.53
+},
+{
+"strike": 7520.0,
+"gex": -2301.86
 },
 {
 "strike": 7550.0,
-"gex": -2232.08
+"gex": -2592.32
+},
+{
+"strike": 7575.0,
+"gex": -1347.8
 },
 {
 "strike": 7600.0,
-"gex": -6118.14
+"gex": -4993.82
 },
 {
 "strike": 7650.0,
-"gex": -6507.6
-},
-{
-"strike": 7680.0,
-"gex": -2281.26
-},
-{
-"strike": 7690.0,
-"gex": -2197.66
-},
-{
-"strike": 7700.0,
-"gex": -5334.74
-},
-{
-"strike": 7725.0,
-"gex": -1969.25
-},
-{
-"strike": 7800.0,
-"gex": 1933.11
-},
-{
-"strike": 7850.0,
-"gex": 2260.89
-},
-{
-"strike": 7900.0,
-"gex": 2019.5
+"gex": -2371.95
 }
 ],
 "call_wall": 7850.0,
-"put_wall": 7650.0,
+"put_wall": 7500.0,
 "unit": "$M per 1% move"
 },
 {
 "market": "Nasdaq-100",
 "feed": "xyz:XYZ100",
-"spot": 29402.51,
-"total_gex": 683.57,
-"flip": 29662.5,
+"spot": 28384.85,
+"total_gex": -235.34,
+"flip": null,
 "strikes": [
 {
+"strike": 26700.0,
+"gex": -28.28
+},
+{
+"strike": 27000.0,
+"gex": -21.51
+},
+{
+"strike": 27500.0,
+"gex": -324.05
+},
+{
 "strike": 28000.0,
-"gex": -32.16
+"gex": -58.82
 },
 {
 "strike": 28400.0,
-"gex": -35.62
+"gex": -33.19
 },
 {
 "strike": 29000.0,
-"gex": -60.34
+"gex": -63.97
 },
 {
 "strike": 29100.0,
-"gex": -30.69
+"gex": -36.74
 },
 {
 "strike": 29250.0,
-"gex": -17.64
+"gex": -16.6
 },
 {
 "strike": 29300.0,
-"gex": -20.92
+"gex": -21.27
 },
 {
 "strike": 29650.0,
-"gex": 74.87
+"gex": 46.41
 },
 {
 "strike": 29675.0,
-"gex": 908.25
+"gex": 563.99
 },
 {
-"strike": 29700.0,
-"gex": 15.73
-},
-{
-"strike": 30600.0,
-"gex": 19.02
-},
-{
-"strike": 30700.0,
-"gex": 23.69
-},
-{
-"strike": 31000.0,
-"gex": 15.82
+"strike": 29900.0,
+"gex": -14.99
 }
 ],
 "call_wall": 29675.0,
-"put_wall": 29000.0,
+"put_wall": 27500.0,
 "unit": "$M per 1% move"
 },
 {
 "market": "BTC",
 "feed": "BTC",
-"spot": 78808.21,
-"total_gex": -66.12,
+"spot": 77496.6,
+"total_gex": -8.45,
 "flip": null,
 "strikes": [
 {
+"strike": 73000.0,
+"gex": -3.15
+},
+{
+"strike": 74000.0,
+"gex": -19.83
+},
+{
 "strike": 75000.0,
-"gex": -15.96
+"gex": -13.53
+},
+{
+"strike": 75500.0,
+"gex": -1.46
 },
 {
 "strike": 76000.0,
-"gex": -11.73
+"gex": -12.91
+},
+{
+"strike": 76500.0,
+"gex": -1.61
 },
 {
 "strike": 77000.0,
-"gex": -19.69
-},
-{
-"strike": 77500.0,
-"gex": -2.91
+"gex": -8.34
 },
 {
 "strike": 78000.0,
-"gex": -26.46
-},
-{
-"strike": 78500.0,
-"gex": -4.75
+"gex": 7.17
 },
 {
 "strike": 79000.0,
-"gex": -9.48
+"gex": 1.99
 },
 {
 "strike": 80000.0,
-"gex": -4.94
+"gex": 0.65
 },
 {
 "strike": 81000.0,
-"gex": 2.74
+"gex": 0.67
 },
 {
 "strike": 82000.0,
-"gex": 4.69
-},
-{
-"strike": 82500.0,
-"gex": 4.54
-},
-{
-"strike": 83000.0,
-"gex": 5.27
+"gex": 17.63
 }
 ],
-"call_wall": 83000.0,
-"put_wall": 78000.0,
+"call_wall": 82000.0,
+"put_wall": 74000.0,
 "unit": "$M per 1% move"
 },
 {
 "market": "ETH",
 "feed": "ETH",
-"spot": 2275.78,
-"total_gex": -16.44,
+"spot": 2246.94,
+"total_gex": -4.78,
 "flip": null,
 "strikes": [
 {
 "strike": 2140.0,
-"gex": -0.13
+"gex": -0.25
 },
 {
 "strike": 2150.0,
-"gex": -1.12
+"gex": -0.86
+},
+{
+"strike": 2160.0,
+"gex": -0.4
 },
 {
 "strike": 2180.0,
-"gex": -0.13
+"gex": -0.6
 },
 {
 "strike": 2200.0,
-"gex": -2.51
+"gex": -1.73
+},
+{
+"strike": 2220.0,
+"gex": -0.6
 },
 {
 "strike": 2240.0,
-"gex": -0.51
+"gex": -0.85
 },
 {
 "strike": 2250.0,
-"gex": -2.6
+"gex": -0.46
 },
 {
 "strike": 2260.0,
-"gex": -0.82
+"gex": -0.55
 },
 {
 "strike": 2280.0,
-"gex": -1.11
+"gex": 1.55
 },
 {
 "strike": 2300.0,
-"gex": -8.35
+"gex": 1.05
 },
 {
-"strike": 2340.0,
-"gex": 0.14
-},
-{
-"strike": 2350.0,
-"gex": -0.31
-},
-{
-"strike": 2360.0,
-"gex": 0.64
+"strike": 2320.0,
+"gex": 0.32
 }
 ],
-"call_wall": 2360.0,
-"put_wall": 2300.0,
+"call_wall": 2280.0,
+"put_wall": 2200.0,
 "unit": "$M per 1% move"
 }
 ]
