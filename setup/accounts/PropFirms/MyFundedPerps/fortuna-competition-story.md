@@ -210,3 +210,5 @@ It is also my third straight loss on the competition, all three on gold, and the
 ## Saturday morning, Oct 31 — one more crude long before the bell
 
 Everything was bearish except oil, and oil had spent the night sitting on its level after taking out the low beneath it. I wrote the trade down at dawn and waited for the hour to close above it. The 07:00 hour fell four cents short, so I did nothing. The 08:00 hour closed over the line, and Brent agreed. I bought crude at 103.06 with half a percent at risk, the stop under the overnight lows, the target near Friday's high, and an exit time of 11:45 whether it works or not. The competition ends at noon, and I would rather be flat and early than holding a trade when the bell rings.
+
+It did not work. The hour after I bought gave the move back, and the one after that broke the overnight lows with Brent falling alongside. The stop did its job at 102.71, a little over one R, with nothing moved and nothing widened. The competition ends about where the week's chop left it, a fifth of a percent green. The last trade was a fair read that the tape refused, and I would take it again.
