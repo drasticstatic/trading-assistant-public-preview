@@ -1,6 +1,6 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-31T10:20-04:00",
+ "generated": "2026-10-31T11:32-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
@@ -36,10 +36,10 @@
    "ends": "2026-10-31T12:00-04:00",
    "start": 100000,
    "handoff": 100004.31,
-   "equity": 100473.22,
-   "balance": 100739.22,
-   "upnl": -266,
-   "open_positions": 1,
+   "equity": 100199.41,
+   "balance": 100199.41,
+   "upnl": 0,
+   "open_positions": 0,
    "working_orders": 0,
    "firm_limits": "No profit target, daily loss limit or drawdown (ranked by equity). Fees, slippage, liquidation and leverage caps still apply.",
    "self_limits": {
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-31T10:20-04:00"
+   "asof": "2026-10-31T11:32-04:00"
   },
   {
    "key": "elite5k",
@@ -64,9 +64,9 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 5001.0,
+   "equity": 5001.52,
    "balance": 5019.61,
-   "upnl": -18.61,
+   "upnl": -18.09,
    "open_positions": 1,
    "working_orders": 1,
    "dll_room": 148.85,
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-31T10:20-04:00"
+   "asof": "2026-10-31T11:32-04:00"
   },
   {
    "key": "select1k",
@@ -97,9 +97,9 @@
    "trader": "Follower",
    "status": "active",
    "start": 1000,
-   "equity": 1000.63,
+   "equity": 1000.67,
    "balance": 1002.36,
-   "upnl": -1.73,
+   "upnl": -1.68,
    "open_positions": 1,
    "working_orders": 1,
    "dll_room": 29.89,
@@ -113,7 +113,7 @@
    },
    "markets": "Whatever the Elite trades, at 0.6×.",
    "note": "Prize account from MFP. The 0.6× multiplier aligns its 3% floor with the Elite's 5%.",
-   "asof": "2026-10-31T10:20-04:00"
+   "asof": "2026-10-31T11:32-04:00"
   }
  ],
  "positions": [
@@ -133,22 +133,6 @@
    "plan": "TP resting at 104.38; leads the Select 1K copy at 0.6x.",
    "note": "Christopher's own position; Fortuna never touches it",
    "asof": "2026-10-29T18:46-04:00"
-  },
-  {
-   "owner": "Fortuna",
-   "venue": "MyFundedPerps",
-   "account": "comp",
-   "symbol": "CL",
-   "side": "long",
-   "size": 1520,
-   "entry": 103.06,
-   "stop": 102.72,
-   "tp": 103.97,
-   "liq": 85.54,
-   "live": true,
-   "public": true,
-   "plan": "B-grade reclaim of the key level after the overnight sweep; half off at 103.32 then stop to breakeven; out on a 1H close under the sweep low; flat by 11:45 ET, before the competition ends at noon.",
-   "asof": "2026-10-31T09:22-04:00"
   }
  ],
  "watchlist": [
@@ -219,12 +203,12 @@
    "setup": "Crude broke above the prior-day high 102.75 feed at 11:45 ET on the heaviest 15m volume of the day, with Brent taking its own prior-day high (SMT confirms). A long needs a retest of the breakout shelf and a 15m close back above it; a KEY Auto Level sits in the zone (feed 102.93). Not tradeable yet: no daily level above for a target, so the reward does not reach 1R against a stop under the pre-breakout base.",
    "zone_lo": 102.85,
    "zone_hi": 103.1,
-   "status": "live",
+   "status": "paused",
    "grade_max": "B",
    "stop_rule": "below the pre-breakout base lows (feed 102.14-102.34) + 1x 1H ATR, about 101.6 MFP",
    "targets": "TP1 103.85 (5/5 cluster 103.75-103.83 feed) · no daily level above yet",
    "note": "Crude runs about +0.10 over the chart feed. Watch only until a target forms.",
-   "updated": "2026-10-31T09:22-04:00",
+   "updated": "2026-10-31T11:32-04:00",
    "account": "comp"
   },
   {
@@ -1407,6 +1391,18 @@
    "note": "10:20 ET: holding the crude long. The 09:00 hour gave back the move and closed 102.89, still above the 102.78 line that voids the trade; the 10:00 hour is trading right on it. Stop and target unchanged on the server; a 1H close under the line takes it off at the next read, and it is flat by 11:45 either way.",
    "action": "hold",
    "at": "2026-10-31T10:20-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 100199.41,
+   "balance": 100199.41,
+   "upnl": 0,
+   "open_positions": 0,
+   "working_orders": 0,
+   "status": "ok",
+   "note": "11:31 ET: the crude long was stopped at 102.71 in the 10:00 hour when crude broke its overnight lows with Brent falling too; -$548.62, about one R, stop never moved. Past the 11:00 no-entry line, so the competition finishes flat at $100,199.41.",
+   "action": "stopped out; flat",
+   "at": "2026-10-31T11:31-04:00"
   }
  ],
  "ledger": [
@@ -1560,6 +1556,22 @@
    "equity_after": 5019.74,
    "note": "Sweep-and-reclaim of the prior-day low with BTC and SOL holding theirs; held twelve hours through nine reads, half at +1R, runner to the target under the midnight open; first Elite trade and first win. The Select mirror netted +$2.43",
    "review": "https://drasticstatic.github.io/trading-assistant-public-preview/fortuna-exports/trade-reviews/2026/10-Oct/review_20261028_ETH-MFPELITE_001.md"
+  },
+  {
+   "n": 8,
+   "date": "2026-10-31",
+   "account": "comp",
+   "market": "CL",
+   "side": "long",
+   "owner": "Fortuna",
+   "grade": "B",
+   "risk_usd": 516.8,
+   "entry": "market 103.06 (09:21 Oct 31)",
+   "exit": "stopped 102.71 (10:52)",
+   "r": -1.06,
+   "pnl": -548.62,
+   "equity_after": 100199.41,
+   "note": "Last-morning reclaim long of the key level after the overnight sweep, with Brent confirming; the next hour gave it back and the 10:00 hour broke the lows. Stop never moved; competition finishes flat"
   }
  ],
  "preflight": [
