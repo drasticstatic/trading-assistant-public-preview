@@ -1,6 +1,6 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-31T09:22-04:00",
+ "generated": "2026-10-31T10:20-04:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
@@ -36,9 +36,9 @@
    "ends": "2026-10-31T12:00-04:00",
    "start": 100000,
    "handoff": 100004.31,
-   "equity": 100732.6,
-   "balance": 100740.2,
-   "upnl": -7.6,
+   "equity": 100473.22,
+   "balance": 100739.22,
+   "upnl": -266,
    "open_positions": 1,
    "working_orders": 0,
    "firm_limits": "No profit target, daily loss limit or drawdown (ranked by equity). Fees, slippage, liquidation and leverage caps still apply.",
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-31T09:22-04:00"
+   "asof": "2026-10-31T10:20-04:00"
   },
   {
    "key": "elite5k",
@@ -64,9 +64,9 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 5000.98,
+   "equity": 5001.0,
    "balance": 5019.61,
-   "upnl": -18.63,
+   "upnl": -18.61,
    "open_positions": 1,
    "working_orders": 1,
    "dll_room": 148.85,
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-31T09:22-04:00"
+   "asof": "2026-10-31T10:20-04:00"
   },
   {
    "key": "select1k",
@@ -97,7 +97,7 @@
    "trader": "Follower",
    "status": "active",
    "start": 1000,
-   "equity": 1000.62,
+   "equity": 1000.63,
    "balance": 1002.36,
    "upnl": -1.73,
    "open_positions": 1,
@@ -113,7 +113,7 @@
    },
    "markets": "Whatever the Elite trades, at 0.6×.",
    "note": "Prize account from MFP. The 0.6× multiplier aligns its 3% floor with the Elite's 5%.",
-   "asof": "2026-10-31T09:22-04:00"
+   "asof": "2026-10-31T10:20-04:00"
   }
  ],
  "positions": [
@@ -1395,6 +1395,18 @@
    "note": "09:21 ET: the 08:00 hour closed 103.02 on crude, over the 102.98 the reclaim long needed, holding above the overnight sweep low, and Brent closed higher. Long crude at 103.06, 0.5% risk, stop and target resting on the server; half off at the Friday-evening high, flat by 11:45 either way.",
    "action": "entered long CL",
    "at": "2026-10-31T09:21-04:00"
+  },
+  {
+   "account": "comp",
+   "equity": 100473.22,
+   "balance": 100739.22,
+   "upnl": -266,
+   "open_positions": 1,
+   "working_orders": 2,
+   "status": "ok",
+   "note": "10:20 ET: holding the crude long. The 09:00 hour gave back the move and closed 102.89, still above the 102.78 line that voids the trade; the 10:00 hour is trading right on it. Stop and target unchanged on the server; a 1H close under the line takes it off at the next read, and it is flat by 11:45 either way.",
+   "action": "hold",
+   "at": "2026-10-31T10:20-04:00"
   }
  ],
  "ledger": [
