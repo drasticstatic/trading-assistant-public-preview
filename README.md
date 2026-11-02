@@ -1,9 +1,25 @@
+<!-- readme-standard: 2026-11-02 -->
+<div align="center">
+
+<img src="assets/banner.svg" width="100%" alt="Trading Assistant: an illustrative run of candles drawn from nothing real, never data, for an accountability system.">
+
 # 💰 Trading Assistant — Multi-Agent AI System
 
-> A live, multi-agent AI trading accountability system built on Claude Code CLI + Augment Code
+*A live, multi-agent AI trading accountability system built on Claude Code CLI + Augment Code*
 
+![For](https://img.shields.io/badge/For-Anyone_building_with_agents-64748b?style=flat-square)
 [![License: MIT](https://img.shields.io/badge/license-MIT-lightgrey?style=flat)](https://github.com/drasticstatic/.github)
 [![Public Preview](https://img.shields.io/badge/%F0%9F%8C%90%20Public%20Preview-Available-brightgreen)](https://drasticstatic.github.io/trading-assistant-public-preview/) [![Synced via GitHub Actions](https://img.shields.io/badge/Synced%20via-GitHub%20Actions-blue)](https://github.com/open-condo-software/gitexporter) [![Built with Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code%20CLI-blueviolet)](https://code.claude.com/docs/en/overview) [![Built with Augment](https://img.shields.io/badge/Built%20with-Augment-0B0F19)](https://augmentcode.com) [![Status](https://img.shields.io/badge/Status-%F0%9F%94%A5%20Live-brightgreen)](https://drasticstatic.github.io/trading-assistant-public-preview/) [![Sync](https://github.com/drasticstatic/trading-assistant/actions/workflows/sync-public.yml/badge.svg)](https://github.com/drasticstatic/trading-assistant/actions/workflows/sync-public.yml)
+
+<img src="assets/icons/map-pin.svg" width="16" height="16" alt=""> **You are here:** drasticstatic lab › `trading-assistant` · private source · `main` is the working branch · public twin `trading-assistant-public-preview`
+
+</div>
+
+## <img src="assets/icons/compass.svg" width="24" height="24" alt=""> TL;DR
+
+1. <img src="assets/icons/sprout.svg" width="16" height="16" alt=""> **What this is.** A live, multi-agent AI trading accountability system: session check-ins, trade evaluation and coaching exports.
+2. <img src="assets/icons/users-round.svg" width="16" height="16" alt=""> **Who it is for.** Christopher's futures and crypto futures work, and anyone curious how a multi-agent system fits together.
+3. <img src="assets/icons/footprints.svg" width="16" height="16" alt=""> **Do this first.** [Find your way around the public preview](https://drasticstatic.github.io/trading-assistant-public-preview/).
 
 > [🗺️Wondering where to go next?🧭Click HERE to find your way around 🔍](https://drasticstatic.github.io/trading-assistant-public-preview/)&nbsp;<big>·&·</big>&nbsp; [👀View Sample Marp Deck📰](https://drasticstatic.github.io/trading-assistant-public-preview/setup/trading-palette-sample.marp.html)
 
@@ -235,3 +251,9 @@ Each session opens with the `/goodmorning` skill — a structured startup routin
 *Built with *[*Claude Code CLI*](https://code.claude.com/docs/en/overview)* by Anthropic + *[*Augment Code*](https://augmentcode.com)*.*
 
 🗺️ Still feeling lost? Looking for something specific? 🧭 → Click [HERE](https://drasticstatic.github.io/trading-assistant-public-preview/404.html) 🔍
+
+## <img src="assets/icons/git-pull-request.svg" width="24" height="24" alt=""> Suggest a change
+
+Noticed something? Open an [issue](../../issues) or a pull request against `main`; Christopher reads them and a person with the role merges. Not on GitHub? Reach Christopher through [his contact page](https://drasticstatic.github.io/resume/pages/contact.html).
+
+<sub>The front door follows the living [README standard](https://github.com/drasticstatic/my-template/blob/main/README-STANDARD.md). Copy it, improve it.</sub>

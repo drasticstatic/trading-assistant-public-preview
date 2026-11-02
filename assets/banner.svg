@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="260" viewBox="0 0 1200 260" role="img" aria-labelledby="t d">
+  <title id="t">Trading Assistant</title>
+  <desc id="d">Multi-agent accountability for a trading desk The picture: 24 candles arrive left to right with a line along their closes; the shapes are illustration, not data. With reduced motion, the finished picture shows at once.</desc>
+  <style>
+    /* Motion only for readers who have not asked for less. Outside this block everything is in its finished state. */
+    @media (prefers-reduced-motion: no-preference) {
+      .draw { stroke-dasharray: 100; animation: draw 2.6s cubic-bezier(.4,0,.2,1) both; }
+      .arrive { animation: arrive .5s ease-out both; }
+      .breathe { transform-box: fill-box; transform-origin: center; animation: breathe 8s steps(48) 3s infinite; }
+      .halo { transform-box: fill-box; transform-origin: center; animation: halo 5s steps(60) 3.6s infinite; }
+    }
+    @keyframes draw { from { stroke-dashoffset: 100 } to { stroke-dashoffset: 0 } }
+    @keyframes arrive { from { opacity: 0 } to { opacity: 1 } }
+    @keyframes breathe { 0%, 100% { transform: scale(1) } 50% { transform: scale(1.07) } }
+    @keyframes halo { 0% { opacity: .55; transform: scale(1) } 70%, 100% { opacity: 0; transform: scale(2.1) } }
+    .halo { opacity: 0 }
+  </style>
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1a2230"/><stop offset="1" stop-color="#101622"/></linearGradient>
+    <linearGradient id="line" gradientUnits="userSpaceOnUse" x1="668" y1="0" x2="1160" y2="0"><stop offset="0.00" stop-color="#8a6a2a"/><stop offset="0.50" stop-color="#d9a441"/><stop offset="1.00" stop-color="#e6d1a6"/></linearGradient>
+    <linearGradient id="fade" gradientUnits="userSpaceOnUse" x1="620" y1="0" x2="1200" y2="0"><stop offset="0" stop-color="#d9a441" stop-opacity="0"/><stop offset=".35" stop-color="#d9a441"/><stop offset="1" stop-color="#e6d1a6"/></linearGradient>
+    <clipPath id="card"><rect width="1200" height="260" rx="18"/></clipPath>
+  </defs>
+  <g clip-path="url(#card)">
+    <!-- an opaque ground: the same picture on GitHub's light and dark themes -->
+    <rect width="1200" height="260" fill="url(#ground)"/>
+    <g class="arrive" style="animation-delay:0.25s"><path d="M689.8 184.4V212.0" stroke="#d9a441" stroke-width="1.5"/><rect x="683.9" y="191.1" width="11.7" height="13.6" rx="1" fill="#d9a441"/></g>
+    <g class="arrive" style="animation-delay:0.36s"><path d="M709.2 167.1V194.9" stroke="#d9a441" stroke-width="1.5"/><rect x="703.4" y="175.8" width="11.7" height="15.3" rx="1" fill="#d9a441"/></g>
+    <g class="arrive" style="animation-delay:0.47s"><path d="M728.8 170.8V188.8" stroke="#705c38" stroke-width="1.5"/><rect x="722.9" y="175.8" width="11.7" height="2.0" rx="1" fill="#101622" stroke="#705c38" stroke-width="1.5"/></g>
+    <g class="arrive" style="animation-delay:0.57s"><path d="M748.2 164.3V186.2" stroke="#d9a441" stroke-width="1.5"/><rect x="742.4" y="172.3" width="11.7" height="4.5" rx="1" fill="#d9a441"/></g>
+    <g class="arrive" style="animation-delay:0.68s"><path d="M767.8 144.8V183.3" stroke="#d9a441" stroke-width="1.5"/><rect x="761.9" y="157.7" width="11.7" height="14.6" rx="1" fill="#d9a441"/></g>
+    <g class="arrive" style="animation-delay:0.79s"><path d="M787.2 138.9V167.8" stroke="#d9a441" stroke-width="1.5"/><rect x="781.4" y="148.4" width="11.7" height="9.3" rx="1" fill="#d9a441"/></g>
+    <g class="arrive" style="animation-delay:0.90s"><path d="M806.8 130.8V175.2" stroke="#705c38" stroke-width="1.5"/><rect x="800.9" y="148.4" width="11.7" height="10.2" rx="1" fill="#101622" stroke="#705c38" stroke-width="1.5"/></g>
+    <g class="arrive" style="animation-delay:1.01s"><path d="M826.2 121.0V163.3" stroke="#d9a441" stroke-width="1.5"/><rect x="820.4" y="137.0" width="11.7" height="21.5" rx="1" fill="#d9a441"/></g>
+    <g class="arrive" style="animation-delay:1.12s"><path d="M845.8 132.6V163.3" stroke="#705c38" stroke-width="1.5"/><rect x="839.9" y="137.0" width="11.7" height="11.8" rx="1" fill="#101622" stroke="#705c38" stroke-width="1.5"/></g>
+    <g class="arrive" style="animation-delay:1.23s"><path d="M865.2 132.4V158.7" stroke="#d9a441" stroke-width="1.5"/><rect x="859.4" y="135.8" width="11.7" height="13.1" rx="1" fill="#d9a441"/></g>
+    <g class="arrive" style="animation-delay:1.33s"><path d="M884.8 133.1V146.7" stroke="#d9a441" stroke-width="1.5"/><rect x="878.9" y="135.1" width="11.7" height="2.0" rx="1" fill="#d9a441"/></g>
+    <g class="arrive" style="animation-delay:1.44s"><path d="M904.2 111.3V147.0" stroke="#d9a441" stroke-width="1.5"/><rect x="898.4" y="128.0" width="11.7" height="7.2" rx="1" fill="#d9a441"/></g>
+    <g class="arrive" style="animation-delay:1.55s"><path d="M923.8 112.3V151.0" stroke="#705c38" stroke-width="1.5"/><rect x="917.9" y="128.0" width="11.7" height="7.3" rx="1" fill="#101622" stroke="#705c38" stroke-width="1.5"/></g>
+    <g class="arrive" style="animation-delay:1.66s"><path d="M943.2 102.5V148.0" stroke="#d9a441" stroke-width="1.5"/><rect x="937.4" y="118.5" width="11.7" height="16.8" rx="1" fill="#d9a441"/></g>
+    <g class="arrive" style="animation-delay:1.77s"><path d="M962.8 109.2V129.8" stroke="#705c38" stroke-width="1.5"/><rect x="956.9" y="118.5" width="11.7" height="5.3" rx="1" fill="#101622" stroke="#705c38" stroke-width="1.5"/></g>
+    <g class="arrive" style="animation-delay:1.88s"><path d="M982.2 101.1V130.7" stroke="#d9a441" stroke-width="1.5"/><rect x="976.4" y="108.6" width="11.7" height="15.1" rx="1" fill="#d9a441"/></g>
+    <g class="arrive" style="animation-delay:1.98s"><path d="M1001.8 78.0V111.9" stroke="#d9a441" stroke-width="1.5"/><rect x="995.9" y="90.6" width="11.7" height="18.0" rx="1" fill="#d9a441"/></g>
+    <g class="arrive" style="animation-delay:2.09s"><path d="M1021.2 76.4V95.2" stroke="#d9a441" stroke-width="1.5"/><rect x="1015.4" y="82.1" width="11.7" height="8.5" rx="1" fill="#d9a441"/></g>
+    <g class="arrive" style="animation-delay:2.20s"><path d="M1040.8 69.2V86.9" stroke="#705c38" stroke-width="1.5"/><rect x="1034.9" y="82.1" width="11.7" height="2.0" rx="1" fill="#101622" stroke="#705c38" stroke-width="1.5"/></g>
+    <g class="arrive" style="animation-delay:2.31s"><path d="M1060.2 54.7V95.0" stroke="#d9a441" stroke-width="1.5"/><rect x="1054.4" y="72.6" width="11.7" height="9.6" rx="1" fill="#d9a441"/></g>
+    <g class="arrive" style="animation-delay:2.42s"><path d="M1079.8 54.8V73.6" stroke="#d9a441" stroke-width="1.5"/><rect x="1073.9" y="58.0" width="11.7" height="14.6" rx="1" fill="#d9a441"/></g>
+    <g class="arrive" style="animation-delay:2.52s"><path d="M1099.2 54.6V78.1" stroke="#705c38" stroke-width="1.5"/><rect x="1093.4" y="58.0" width="11.7" height="12.3" rx="1" fill="#101622" stroke="#705c38" stroke-width="1.5"/></g>
+    <g class="arrive" style="animation-delay:2.63s"><path d="M1118.8 40.4V76.7" stroke="#d9a441" stroke-width="1.5"/><rect x="1112.9" y="52.9" width="11.7" height="17.4" rx="1" fill="#d9a441"/></g>
+    <g class="arrive" style="animation-delay:2.74s"><path d="M1138.2 38.0V68.9" stroke="#705c38" stroke-width="1.5"/><rect x="1132.4" y="52.9" width="11.7" height="6.5" rx="1" fill="#101622" stroke="#705c38" stroke-width="1.5"/></g>
+    <path class="draw" pathLength="100" d="M689.8 191.1 L709.2 175.8 L728.8 176.8 L748.2 172.3 L767.8 157.7 L787.2 148.4 L806.8 158.6 L826.2 137.0 L845.8 148.8 L865.2 135.8 L884.8 135.1 L904.2 128.0 L923.8 135.3 L943.2 118.5 L962.8 123.7 L982.2 108.6 L1001.8 90.6 L1021.2 82.1 L1040.8 82.2 L1060.2 72.6 L1079.8 58.0 L1099.2 70.4 L1118.8 52.9 L1138.2 59.4" fill="none" stroke="#e6d1a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation-delay:1.80s"/>
+    <circle class="halo" cx="1138.2" cy="59.4" r="9" fill="none" stroke="#e6d1a6" stroke-width="2"/>
+    <circle cx="1138.2" cy="59.4" r="4.5" fill="#e6d1a6"/>
+    <rect x="0.0" y="248" width="300.5" height="12" fill="#334155"/><rect x="300.0" y="248" width="300.5" height="12" fill="#8a6a2a"/><rect x="600.0" y="248" width="300.5" height="12" fill="#d9a441"/><rect x="900.0" y="248" width="300.5" height="12" fill="#f1f5f9"/>
+    <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif"><text x="56" y="72.0" fill="#d9a441" font-size="15" font-weight="700" letter-spacing=".6">drasticstatic lab · Fortuna</text><text x="56" y="137.6" fill="#f1f5f9" font-size="60" font-weight="700" letter-spacing="-.5">Trading Assistant</text><text x="56" y="181.4" fill="#d3d7dd" font-size="23">Multi-agent accountability for a trading desk</text></g>
+  </g>
+</svg>
