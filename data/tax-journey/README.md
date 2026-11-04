@@ -1,4 +1,4 @@
-# data/tax/ — Tax Tracker
+# data/tax-journey/ — Tax Tracker
 
 **[→ Open Tax Tracker (tax.html)](tax.html)**
 
@@ -11,7 +11,7 @@ Public-facing tax summaries, processed P&L reports, and HTML exports. Generated 
 ## 📂 Structure
 
 ```
-data/tax/
+data/tax-journey/
 ├── 2024/   ← 2024 realized P&L summaries
 │   └── btcc_realized_pl_2024.md   (all 2024 BTCC positions; ~-$2,115 net)
 ├── 2025/   ← 2025 realized P&L summaries
