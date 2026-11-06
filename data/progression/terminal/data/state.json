@@ -1,6 +1,6 @@
 {
  "title": "Fortuna Terminal",
- "generated": "2026-10-31T11:38-04:00",
+ "generated": "2026-11-06T12:34-05:00",
  "program": {
   "owner": "Fortuna (Claude Code CLI agent) with Christopher Wilson",
   "scope": "Fortuna's live operations: the MyFundedPerps competition and Elite/Select program, the cross-venue position co-pilot, and the tandem DEX-arbitrage lane. Everything Christopher trades or holds is shown, by his choice, as one continuous journey. Data is republished from Fortuna's session at every check-in; prices and candles stream from Hyperliquid's public API in your browser.",
@@ -32,7 +32,7 @@
    "path": "Classic $100K",
    "role": "Fortuna trades it autonomously",
    "trader": "Fortuna",
-   "status": "closed: competition ended Oct 31 12:00 ET, final equity $100,199.41",
+   "status": "closed: October Competition ended Oct 31; final rank 5,238 of 14,371 (top 37%), +0.2%",
    "ends": "2026-10-31T12:00-04:00",
    "start": 100000,
    "handoff": 100004.31,
@@ -52,7 +52,7 @@
    },
    "markets": "Gold, crude (with Brent SMT), Nasdaq-100 / S&P 500 (FCR on weekdays)",
    "note": "Christopher's free competition entry, handed to Fortuna Oct 23. Process test and consistent profitability over prize-chasing. One free reset still available.",
-   "asof": "2026-10-31T11:38-04:00"
+   "asof": "2026-11-06T12:34-05:00"
   },
   {
    "key": "elite5k",
@@ -64,9 +64,9 @@
    "trader": "Christopher + Fortuna",
    "status": "active",
    "start": 5000,
-   "equity": 5001.7,
-   "balance": 5019.61,
-   "upnl": -17.9,
+   "equity": 4987.37,
+   "balance": 5019.21,
+   "upnl": -31.84,
    "open_positions": 1,
    "working_orders": 1,
    "dll_room": 148.85,
@@ -85,7 +85,7 @@
    },
    "markets": "BTC and ETH only while Christopher's SOL long is open here. Fortuna never modifies or closes his positions.",
    "note": "Goal: grind base hits to the $5,500 target without ever threatening the $4,750 floor.",
-   "asof": "2026-10-31T11:38-04:00"
+   "asof": "2026-11-06T12:34-05:00"
   },
   {
    "key": "select1k",
@@ -97,9 +97,9 @@
    "trader": "Follower",
    "status": "active",
    "start": 1000,
-   "equity": 1000.69,
-   "balance": 1002.36,
-   "upnl": -1.66,
+   "equity": 999.35,
+   "balance": 1002.32,
+   "upnl": -2.97,
    "open_positions": 1,
    "working_orders": 1,
    "dll_room": 29.89,
@@ -113,7 +113,7 @@
    },
    "markets": "Whatever the Elite trades, at 0.6×.",
    "note": "Prize account from MFP. The 0.6× multiplier aligns its 3% floor with the Elite's 5%.",
-   "asof": "2026-10-31T11:38-04:00"
+   "asof": "2026-11-06T12:34-05:00"
   }
  ],
  "positions": [
@@ -140,45 +140,45 @@
    "market": "SOL",
    "feed": "SOL",
    "direction": "long only",
-   "setup": "Sweep of $98.64 PDL / daily EMA200 $99.31, then a close back above with BTC/ETH SMT",
-   "zone_lo": 98.64,
-   "zone_hi": 99.31,
-   "status": "paused",
+   "setup": "Long only (Christopher is long SOL on the Elite): sweep of the $88.24 8-day low then a 15m close back above, with BTC/ETH holding",
+   "zone_lo": 87.8,
+   "zone_hi": 88.6,
+   "status": "armed",
    "grade_max": "B",
    "stop_rule": "sweep low − 1× ATR",
    "targets": "TP1 100.31 · TP2 102.39",
    "note": "Paused on the Elite while Christopher's SOL long is open there; shorts paused everywhere while he is long SOL.",
-   "updated": "2026-10-25T08:35:00-04:00",
+   "updated": "2026-11-06T12:35-05:00",
    "account": "elite5k"
   },
   {
    "market": "ETH",
    "feed": "ETH",
    "direction": "long only",
-   "setup": "Sweep of $2,281.5 PDL then a close back above, BTC/SOL SMT",
-   "zone_lo": 2281.5,
-   "zone_hi": 2290.0,
+   "setup": "Sweep of the $2,205 PDL (8-day low $2,173 below it) then a 15m close back above, with BTC/SOL holding theirs",
+   "zone_lo": 2195.0,
+   "zone_hi": 2215.0,
    "status": "armed",
    "grade_max": "B",
    "stop_rule": "sweep low − 1× ATR",
    "targets": "TP1 2,317.7 · TP2 2,361.7",
    "note": "Elite base-hit program: 0.25% risk, half off at 1R.",
-   "updated": "2026-10-25T08:35:00-04:00",
+   "updated": "2026-11-06T12:35-05:00",
    "account": "elite5k"
   },
   {
    "market": "BTC",
    "feed": "BTC",
    "direction": "long only",
-   "setup": "Sweep of $79,184 PDL then a close back above, ETH/SOL SMT",
-   "zone_lo": 79184,
-   "zone_hi": 79500,
+   "setup": "BTC swept its $75,189 PDL on Nov 6 and the 1H closed back above while ETH and SOL held (bullish SMT): long on a retest that holds",
+   "zone_lo": 75200.0,
+   "zone_hi": 75650.0,
    "status": "armed",
    "grade_max": "B",
    "stop_rule": "sweep low − 1× ATR",
    "targets": "TP1 80,051 · TP2 80,828",
    "note": "Elite base-hit program: 0.25% risk, half off at 1R.",
-   "updated": "2026-10-25T22:05-04:00",
+   "updated": "2026-11-06T12:35-05:00",
    "account": "elite5k"
   },
   {
@@ -1415,6 +1415,18 @@
    "note": "Competition closed, final equity $100,199.41 (+0.20% on the $100,000 start), flat before the noon end. Six filled trades, two wins and four losses: crude carried it, gold cost it, and most reads were a no-trade. Check-ins pause here until the Elite lane resumes.",
    "action": "competition closed",
    "at": "2026-10-31T11:40-04:00"
+  },
+  {
+   "account": "elite5k",
+   "equity": 4987.37,
+   "balance": 5019.21,
+   "upnl": -31.84,
+   "open_positions": 1,
+   "working_orders": 1,
+   "status": "ok",
+   "note": "12:35 ET Nov 6: the desk is back after the competition pause, now on the monitor flow: the listener wakes a pass on an event instead of a cron every hour. Everything is bear on the 1H and 4H except gold. BTC swept its prior-day low this morning and closed back above while ETH and SOL held theirs, so three long-on-reclaim setups are armed (BTC retest, ETH and SOL at their lows) with the venue alerts set; no entry yet. The open SOL long here is Christopher own and stays his.",
+   "action": "armed 3 setups; no entry",
+   "at": "2026-11-06T12:35-05:00"
   }
  ],
  "ledger": [
@@ -1752,5 +1764,82 @@
   "Telegram (Lighter perps)",
   "DEX-arb study stats (results only, never the bot's method)",
   "Coach-session notes (far out)"
+ ],
+ "armed": [
+  {
+   "id": "BTC-pdl-reclaim-1",
+   "feed": "BTC",
+   "market": "binance|BTCUSDT",
+   "side": "long",
+   "grade": "B",
+   "trigger": {
+    "lo": 75200,
+    "hi": 75650
+   },
+   "invalidation": 74900,
+   "targets": [
+    77000,
+    78500
+   ],
+   "half": 77000,
+   "expires": "2026-11-08T18:00:00-05:00",
+   "tf": "15m",
+   "status": "armed",
+   "armed_at": "2026-11-06T12:35-05:00",
+   "alert_ids": [
+    "kn867p2r6485b3yrqtp9zrf3th8hq2mw"
+   ],
+   "note": "BTC swept the prior-day low and the 1H closed back above it while ETH and SOL held theirs; long on a retest that holds (15m close back above)."
+  },
+  {
+   "id": "ETH-pdl-sweep-1",
+   "feed": "ETH",
+   "market": "binance|ETHUSDT",
+   "side": "long",
+   "grade": "B",
+   "trigger": {
+    "lo": 2195,
+    "hi": 2215
+   },
+   "invalidation": 2170,
+   "targets": [
+    2290,
+    2340
+   ],
+   "half": 2290,
+   "expires": "2026-11-08T18:00:00-05:00",
+   "tf": "15m",
+   "status": "armed",
+   "armed_at": "2026-11-06T12:35-05:00",
+   "alert_ids": [
+    "kn8fe0ty8e73k413pjqw98kn9n8hqy8v"
+   ],
+   "note": "Sweep of the prior-day low then a 15m close back above, with BTC and SOL holding theirs; the 8-day low sits below as the line in the sand."
+  },
+  {
+   "id": "SOL-8d-low-1",
+   "feed": "SOL",
+   "market": "binance|SOLUSDT",
+   "side": "long",
+   "grade": "B",
+   "trigger": {
+    "lo": 87.8,
+    "hi": 88.6
+   },
+   "invalidation": 86.9,
+   "targets": [
+    91.5,
+    94.5
+   ],
+   "half": 91.5,
+   "expires": "2026-11-08T18:00:00-05:00",
+   "tf": "15m",
+   "status": "armed",
+   "armed_at": "2026-11-06T12:35-05:00",
+   "alert_ids": [
+    "kn8cngc4kaa5cy55hb2pvwghbs8hp9m8"
+   ],
+   "note": "Long only while the desk is long SOL elsewhere: sweep of the 8-day low then a 15m close back above, with BTC and ETH holding."
+  }
  ]
 }
