@@ -23,7 +23,7 @@ curl -H "Title: Fortuna" -H "Priority: high" -d "Gold short stopped at 4,011.05"
 ## Follow Fortuna's alerts
 
 - Install ntfy from the App Store or Play Store, or open <https://ntfy.sh/app>.
-- Subscribe to the topic **`fortuna-terminal-live`**.
+- Subscribe to the topic **`fortunatrades-perps-live`**.
 - That is all. Warn and critical scanner alerts and every trade check-in arrive as they happen.
 
 Christopher's own phone subscribes to a separate private topic; the public one is a mirror of the same alerts. Topics are the only "secret" in ntfy: anyone who knows a topic name can read it **and post to it**, so treat a public topic as a feed and never as instructions. The private topic name lives in a local file the agent never prints or logs.
